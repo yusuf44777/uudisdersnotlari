@@ -111,6 +111,36 @@ const notes = [
     path: "1.%20S%C4%B1n%C4%B1f/Medical%20Genetics/Ders3_NonMendelian_Inheritance_Calisma_Rehberi.html",
     tags: ["imprinting", "mosaicism", "mitochondrial"],
   },
+  {
+    id: "genetics-09",
+    course: "Medical Genetics",
+    grade: "1. Sınıf",
+    unit: "Ders 4",
+    title: "Mutations and Mutagens",
+    subtitle: "Mutajenler, DNA onarımı, gen mutasyonları ve kromozom anomalileri",
+    path: "1.%20S%C4%B1n%C4%B1f/Medical%20Genetics/Ders4_Mutations_and_Mutagens_Calisma_Rehberi.html",
+    tags: ["mutasyon", "mutajen", "DNA onarımı"],
+  },
+  {
+    id: "genetics-10",
+    course: "Medical Genetics",
+    grade: "1. Sınıf",
+    unit: "Ders 5",
+    title: "Epigenetics & Nutrigenetics",
+    subtitle: "Epigenom, DNA metilasyonu, histon modifikasyonu ve gen-diyet etkileşimi",
+    path: "1.%20S%C4%B1n%C4%B1f/Medical%20Genetics/Ders5_Epigenetics_Nutrigenetics_Calisma_Rehberi.html",
+    tags: ["epigenetik", "nutrigenetik", "metilasyon"],
+  },
+  {
+    id: "genetics-11",
+    course: "Medical Genetics",
+    grade: "1. Sınıf",
+    unit: "Ders 6",
+    title: "Cancer Genetics",
+    subtitle: "Tümör gelişimi, somatik mutasyonlar, onkogenler ve tümör baskılayıcı genler",
+    path: "1.%20S%C4%B1n%C4%B1f/Medical%20Genetics/Ders6_Cancer_Genetics_Calisma_Rehberi.html",
+    tags: ["kanser", "onkogen", "tümör baskılayıcı"],
+  },
 ];
 
 const STORAGE_KEY = "uudis-notlari-completed-v1";

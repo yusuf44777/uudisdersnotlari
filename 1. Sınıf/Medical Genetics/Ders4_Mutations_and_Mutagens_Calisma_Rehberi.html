@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ders 4 — Mutations and Mutagens | Final Çalışma Rehberi</title>
+<style>
+  :root{
+    --bg:#0f1117; --card:#1a1d27; --text:#e8eaf0; --muted:#aab0c0;
+    --primary:#6c8cff; --primary-d:#3a55c4;
+    --clinic:#1f7a5a; --clinic-bg:#10271f; --clinic-bd:#2ecc8f;
+    --spot:#b8860b; --spot-bg:#2a2410; --spot-bd:#f1c40f;
+    --warn:#a83232; --warn-bg:#2a1414; --warn-bd:#ff6b6b;
+    --card-bd:#7b4bd6; --card-bg:#1d1530; --card-accent:#b388ff;
+    --mnemo:#0e6e8c; --mnemo-bg:#0d2630; --mnemo-bd:#2bc4e8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:0 16px 80px; background:var(--bg); color:var(--text);
+    font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.7; font-size:17px; max-width:980px; margin:0 auto;
+  }
+  header.hero{
+    background:linear-gradient(135deg,#0e6e8c,#16a085 55%,#27ae60);
+    border-radius:0 0 22px 22px; padding:34px 28px 28px; margin:0 -16px 30px;
+    box-shadow:0 8px 30px rgba(0,0,0,.4);
+  }
+  header.hero h1{margin:0 0 6px; font-size:30px; color:#fff; letter-spacing:.3px;}
+  header.hero p{margin:2px 0; color:#eafff5; font-size:15px;}
+  header.hero .tag{display:inline-block; background:rgba(255,255,255,.18); padding:3px 12px; border-radius:20px; font-size:13px; margin-top:10px;}
+  h2{
+    font-size:24px; margin:46px 0 14px; padding:12px 18px;
+    background:linear-gradient(90deg,var(--primary-d),transparent);
+    border-left:6px solid var(--primary); border-radius:8px; color:#fff;
+  }
+  h3{font-size:20px; color:var(--primary); margin:30px 0 10px; border-bottom:1px dashed #3a3f52; padding-bottom:6px;}
+  h4{font-size:17px; color:var(--card-accent); margin:20px 0 6px;}
+  p{margin:10px 0;}
+  ul,ol{margin:10px 0 14px; padding-left:26px;}
+  li{margin:6px 0;}
+  strong{color:#fff;}
+  em{color:#cdd3e6;}
+  mark{background:#4a3aff44; color:#dfe4ff; padding:1px 5px; border-radius:4px; border-bottom:2px solid var(--primary);}
+  .toc{background:var(--card); border:1px solid #2a2f3f; border-radius:14px; padding:18px 24px; margin:0 0 20px;}
+  .toc h3{margin-top:0; border:none; color:#fff;}
+  .toc a{color:var(--primary); text-decoration:none;}
+  .toc a:hover{text-decoration:underline;}
+  .toc ol{padding-left:22px;}
+
+  .box{border-radius:12px; padding:14px 18px 14px 16px; margin:18px 0; border-left:6px solid; position:relative;}
+  .box .title{font-weight:700; display:block; margin-bottom:4px; font-size:16px;}
+  .clinic{background:var(--clinic-bg); border-color:var(--clinic-bd);}
+  .clinic .title{color:var(--clinic-bd);}
+  .spot{background:var(--spot-bg); border-color:var(--spot-bd);}
+  .spot .title{color:var(--spot-bd);}
+  .warn{background:var(--warn-bg); border-color:var(--warn-bd);}
+  .warn .title{color:var(--warn-bd);}
+  .mnemo{background:var(--mnemo-bg); border-color:var(--mnemo-bd);}
+  .mnemo .title{color:var(--mnemo-bd);}
+
+  .flash{background:var(--card-bg); border:2px solid var(--card-bd); border-radius:14px; padding:6px 20px 14px; margin:22px 0;}
+  .flash .fhead{font-weight:700; color:var(--card-accent); font-size:15px; letter-spacing:.5px; text-transform:uppercase; display:flex; align-items:center; gap:8px; margin:12px 0 6px;}
+  .flash details{background:#140e22; border-radius:10px; margin:10px 0; padding:2px 0; border:1px solid #3a2a5c;}
+  .flash summary{cursor:pointer; padding:11px 16px; font-weight:600; color:#e8defc; list-style:none;}
+  .flash summary::-webkit-details-marker{display:none;}
+  .flash summary::before{content:"❓ "; }
+  .flash details[open] summary{color:#fff; border-bottom:1px dashed #4a3a6c;}
+  .flash .ans{padding:10px 16px 14px; color:#d7ccee;}
+  .flash .ans::before{content:"✅ "; }
+
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:15px; background:var(--card); border-radius:10px; overflow:hidden;}
+  th,td{padding:10px 12px; text-align:left; border-bottom:1px solid #2a2f3f; vertical-align:top;}
+  th{background:#262b3a; color:var(--primary); font-size:14px; text-transform:uppercase; letter-spacing:.4px;}
+  tr:last-child td{border-bottom:none;}
+  .pct{color:var(--spot-bd); font-weight:700;}
+  .karyo{font-family:"Consolas",monospace; background:#10271f; color:#7fffd4; padding:1px 7px; border-radius:5px; font-size:14px;}
+  hr{border:none; border-top:1px solid #2a2f3f; margin:34px 0;}
+  .pill{display:inline-block; padding:2px 9px; border-radius:6px; font-size:13px; font-weight:700; color:#fff;}
+  .phys{background:#a06c00;} .chem{background:#8c2bb0;} .bio{background:#1f7a5a;}
+  footer{margin-top:50px; text-align:center; color:var(--muted); font-size:13px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>🧬 Ders 4 — Mutations and Mutagens</h1>
+  <p>Mutasyonlar ve Mutajenler</p>
+  <p>Dept. of Medical Genetics · Diş Hekimliği 1. Sınıf · Final Hazırlık Rehberi</p>
+  <span class="tag">Türkçe açıklama + korunmuş İngilizce/Latince terminoloji</span>
+</header>
+
+<nav class="toc">
+  <h3>📑 İçindekiler</h3>
+  <ol>
+    <li><a href="#b1">Mutasyon & Mutajen Temelleri</a></li>
+    <li><a href="#b2">Mutajenlerin Etkileri & Sınıflandırması</a></li>
+    <li><a href="#b3">Mutajenler Nasıl Etki Eder & DNA Onarımı</a></li>
+    <li><a href="#b4">Mutasyon: Tanım & Sınıflandırma</a></li>
+    <li><a href="#b5">Gen Mutasyonları (Point & Length)</a></li>
+    <li><a href="#b6">Sayısal Kromozom Anomalileri (Aneuploidy / Euploidy)</a></li>
+    <li><a href="#b7">Yapısal Kromozom Anomalileri (Structural)</a></li>
+    <li><a href="#b8">Klinik Önem: Kanser, Kromozom Analizi & Genetik Hastalıklar</a></li>
+  </ol>
+</nav>
+
+<!-- ============ B1 ============ -->
+<h2 id="b1">1️⃣ Mutasyon & Mutajen Temelleri</h2>
+
+<p>Mutasyona neden olan <strong>çevresel ajanlara mutajen (mutagens)</strong> denir. İki büyük köken vardır:</p>
+<ul>
+  <li><strong>Spontan mutasyonlar (spontaneous mutations):</strong> Doğal olarak oluşan mutasyonlar; <strong>kromozom bölünmesi veya DNA replikasyonundaki şans hatalarından (chance errors)</strong> kaynaklandığı düşünülür.</li>
+  <li><strong>İndüklenmiş mutasyonlar (induced mutations):</strong> Yalnızca bu grup mutajenler tarafından oluşturulur.</li>
+</ul>
+
+<h3>Mutajenler Nedir? (What are Mutagens?)</h3>
+<p>Mutajenler <strong>fiziksel, kimyasal veya biyolojik (physical, chemical or biological)</strong> ajanlardır. <strong>Genotipi veya gen ifadesini değiştirerek (altering genotype or gene expression)</strong> mutasyona neden olurlar ve genetik anormalliklerle sonuçlanırlar.</p>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Mutajen vs Karsinojen (Klasik Sınav Sorusu!)</span>
+  <ul style="margin:6px 0 0;">
+    <li><strong>Tüm mutasyonlar mutajenlerden kaynaklanmaz</strong> — yalnızca <em>indüklenmiş</em> mutasyonlar mutajen kaynaklıdır.</li>
+    <li><strong>Her mutajen karsinojen DEĞİLDİR;</strong> ancak <strong>neredeyse tüm karsinojenler mutajeniktir.</strong></li>
+  </ul>
+  Bu tek yönlü ilişki ("karsinojen → mutajen, ama tersi her zaman değil") çok sık sorulur.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Temeller</span>
+  <details><summary>Spontan ve indüklenmiş mutasyon arasındaki fark nedir?</summary>
+    <div class="ans"><strong>Spontan:</strong> doğal olarak, replikasyon/bölünme hatalarıyla oluşur. <strong>İndüklenmiş:</strong> bir mutajene maruziyetle oluşur. Yalnızca indüklenmiş mutasyonlar mutajen kaynaklıdır.</div></details>
+  <details><summary>"Her karsinojen mutajeniktir" doğru mu, "her mutajen karsinojeniktir" doğru mu?</summary>
+    <div class="ans">Neredeyse tüm karsinojenler mutajeniktir (doğru yönde güçlü ilişki), ancak <strong>her mutajen karsinojen değildir</strong>.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B2 ============ -->
+<h2 id="b2">2️⃣ Mutajenlerin Etkileri & Sınıflandırması</h2>
+
+<h3>Etkilerine Göre Mutajenler (Effects of Mutagens)</h3>
+<table>
+  <tr><th>Sınıf</th><th>Etki</th><th>Fiziksel</th><th>Kimyasal</th><th>Biyolojik</th></tr>
+  <tr>
+    <td><strong>Teratogens</strong></td>
+    <td>Konjenital malformasyonlar (congenital malformations)</td>
+    <td>X-ışınları (X-rays)</td>
+    <td><strong>Valproat (valproate)</strong></td>
+    <td><strong>Toxoplasma</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Carcinogens</strong></td>
+    <td>Tümör oluşumu / kanser</td>
+    <td>X-ışınları / UV-ışınları</td>
+    <td><strong>Aflatoksinler (Aflatoxins)</strong></td>
+    <td><strong>Retrovirüsler (retroviruses)</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Clastogens</strong></td>
+    <td>Kromozom kırılması, delesyon, duplikasyon, yeniden düzenlenme</td>
+    <td>UV-ışınları</td>
+    <td><strong>Bleomisin (Bleomycins)</strong></td>
+    <td><strong>HIV virüsü</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Diğer (non-specific)</strong></td>
+    <td>DNA hasarı + DNA onarım yolağının çalışmaması</td>
+    <td colspan="3">X-ışınları / ısı (heat), toxoplasma vb.</td>
+  </tr>
+</table>
+
+<h3>Mutajenlerin Sınıflandırması (Physical, Chemical, Biological)</h3>
+<table>
+  <tr><th><span class="pill phys">FİZİKSEL</span></th><th><span class="pill chem">KİMYASAL</span></th><th><span class="pill bio">BİYOLOJİK</span></th></tr>
+  <tr>
+    <td>Isı ve radyasyon (<strong>Heat & radiation</strong>)</td>
+    <td>
+      <strong>Base analogues</strong> (baz analogları)<br>
+      <strong>Intercalating agents</strong> (araya giren ajanlar)<br>
+      <strong>Alkylating agents</strong> (alkilleyici ajanlar)<br>
+      <strong>Deaminating agents</strong> (deaminasyon ajanları)<br>
+      <strong>Metal ions</strong> (metal iyonları)
+    </td>
+    <td>
+      <strong>Viruses</strong> (virüsler)<br>
+      <strong>Bacteria</strong> (bakteriler)<br>
+      <strong>Transposons</strong>
+    </td>
+  </tr>
+</table>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — 3 Etki Sınıfı (TCC)</span>
+  <strong>"TeCaCl" → Tera-Carci-Clasto"</strong>: <br>
+  <strong>Tera</strong>togen = bebek (doğum kusuru / <em>teras</em> = canavar/anomali). <br>
+  <strong>Carci</strong>nogen = kanser. <br>
+  <strong>Clasto</strong>gen = kırar (Yunanca <em>klastos</em> = kırılmış → kromozom kırığı). <br>
+  Kimyasal örnekler: <em>"Valproat bebeği bozar (terato), Aflatoksin kanser yapar (carcino), Bleomisin kromozomu kırar (clasto)"</em>.
+</div>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi — Diş Hekimliğinde Radyasyon</span>
+  Diş hekimliğinde her gün <strong>X-ışını (radyografi)</strong> kullanırsınız — bu hem teratojen, hem karsinojen, hem klastojen olabilen fiziksel bir mutajendir. Bu yüzden <strong>ALARA prensibi (As Low As Reasonably Achievable)</strong>, kurşun önlük, tiroid koruyucu ve özellikle <strong>gebe hastalarda elektif radyografiden kaçınma</strong> hayati önem taşır. Genetik temeli bilmek, koruma kurallarına neden uyduğunuzu anlamanızı sağlar.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Etkiler & Sınıflandırma</span>
+  <details><summary>Teratogen, carcinogen ve clastogen sırasıyla ne yapar?</summary>
+    <div class="ans"><strong>Teratogen:</strong> konjenital malformasyon. <strong>Carcinogen:</strong> tümör/kanser. <strong>Clastogen:</strong> kromozom kırılması/yeniden düzenlenmesi.</div></details>
+  <details><summary>Kimyasal mutajenlerin 5 alt grubunu sayın.</summary>
+    <div class="ans">Base analogues, intercalating agents, alkylating agents, deaminating agents, metal ions.</div></details>
+  <details><summary>Asbest hangi geni mutasyona uğratarak akciğer kanserine yol açar?</summary>
+    <div class="ans"><strong>p53 geni</strong> — tümör baskılayıcı genin rolünü baskılayarak akciğer kanserine neden olur.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B3 ============ -->
+<h2 id="b3">3️⃣ Mutajenler Nasıl Etki Eder & DNA Onarımı</h2>
+
+<p>Mutajenler genel olarak: kodonu değiştirir, baz siler, baz değiştirir, <strong>hidrojen bağlarını (hydrogen bonds)</strong> kırar, <strong>fosfodiester bağlarını (phosphodiester bonds)</strong> kırar veya gen ifadesini değiştirir.</p>
+
+<h3>Radyasyon (Radiation)</h3>
+<ul>
+  <li><strong>İyonize radyasyon (Ionizing radiation):</strong> X-ışınları ve γ-ışınları gibi → DNA'nın <strong>fosfodiester omurgasının (phosphodiester backbone) kırılmasına</strong> yol açar ve bazları kimyasal olarak değiştirerek baz eşleşme kurallarını bozabilir.</li>
+  <li><strong>İyonize olmayan radyasyon (Non-ionizing radiation):</strong> ultraviyole (UV) ışık gibi → <strong>pirimidin (timin) dimerleri (pyrimidine/thymine dimers)</strong> oluşturur; bunlar replikasyon ve transkripsiyon sırasında <strong>frameshift veya nokta mutasyonlarına</strong> neden olabilir.</li>
+</ul>
+
+<h3>Virüsler (Viruses)</h3>
+<p>Virüsler de potansiyel mutajenlerdir. Viral enfeksiyonda virüs hücreye tutunur, genetik materyalini hücreye aktarır → orijinal geni değiştirerek mutasyona yol açar. Örnekler: <strong>Human papilloma virus (HPV), Herpes virus (DNA virüsü), Hepatitis C virus (RNA virüsü)</strong>.</p>
+
+<h3>Kimyasal Mutajenler (Chemical Mutagens)</h3>
+<ul>
+  <li><strong>Baz analogları</strong> ve mevcut bazları modifiye eden kimyasalları içerir.</li>
+  <li>Her iki durumda da mutasyonlar <strong>birkaç DNA replikasyon turundan sonra</strong> ortaya çıkar.</li>
+  <li>Örnekler: nitröz oksit, intercalating agents, <strong>asbest (asbestos)</strong>, pestisitler.</li>
+  <li><strong>Asbest:</strong> <strong>p53 genini mutasyona</strong> uğratıp baskılar → <strong>akciğer kanseri</strong>.</li>
+  <li>Pestisitler: <strong>Endosulfan ve DDT</strong> bilinen mutajenlerdir.</li>
+</ul>
+
+<h3>Hücreler Mutajen Hasarıyla Nasıl Baş Eder? (DNA Repair)</h3>
+<ul>
+  <li>Hücrelerin doğal mutasyonları onaran mekanizmaları vardır.</li>
+  <li><strong>DNA polimeraz, "proofreading" (düzeltme okuması) aktivitesine</strong> sahiptir.</li>
+  <li><strong>Mismatch repair (yanlış eşleşme onarımı):</strong> DNA replikasyonu tamamlandıktan sonra yanlış yerleştirilmiş bazları onaran süreçtir.</li>
+</ul>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — UV → Timin Dimerleri</span>
+  UV ışığının imzası <strong>pirimidin (timin) dimerleridir</strong>. İyonize radyasyon ise <strong>fosfodiester omurgasını kırar (DNA strand breaks)</strong>. Bu ikili ayrımı (UV=dimer, iyonize=kırık) ezberleyin.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Etki Mekanizması & Onarım</span>
+  <details><summary>İyonize ve iyonize olmayan radyasyon DNA'ya nasıl zarar verir?</summary>
+    <div class="ans"><strong>İyonize (X, γ):</strong> fosfodiester omurgasını kırar, bazları modifiye eder. <strong>İyonize olmayan (UV):</strong> pirimidin/timin dimerleri oluşturur → frameshift/nokta mutasyonu.</div></details>
+  <details><summary>DNA replikasyon hatalarına karşı iki başlıca onarım mekanizması nedir?</summary>
+    <div class="ans">1) DNA polimerazın <strong>proofreading</strong> aktivitesi, 2) replikasyon sonrası <strong>mismatch repair</strong>.</div></details>
+  <details><summary>İki DNA virüsü ve bir RNA virüsü mutajen örneği verin.</summary>
+    <div class="ans">DNA virüsleri: HPV, Herpes virus. RNA virüsü: Hepatitis C virus.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B4 ============ -->
+<h2 id="b4">4️⃣ Mutasyon: Tanım & Sınıflandırma</h2>
+
+<h3>Mutasyon Nedir? (What is Mutation?)</h3>
+<p>Mutasyon, bir bireyin <strong>genetik materyalindeki veya DNA dizisindeki kalıtsal bir değişiklik (heritable alteration)</strong> olarak tanımlanır. DNA dizisindeki bir değişiklik → bir proteindeki <strong>amino asit dizisinin değişmesine</strong> → hücre ve organizma için <strong>değişmiş bir fenotipe</strong> yol açabilir.</p>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Somatic vs Germline (KRİTİK!)</span>
+  <ul style="margin:6px 0 0;">
+    <li><strong>Somatic mutations:</strong> Kanser gibi <strong>erişkin başlangıçlı hastalıklara</strong> neden olabilir ama <strong>döllere AKTARILAMAZ</strong>.</li>
+    <li><strong>Germline / gonadal mutations:</strong> Gonad dokusu veya gamette oluşan mutasyon <strong>gelecek kuşaklara AKTARILABİLİR</strong> (fertiliteyi/sağkalımı bozmazsa).</li>
+  </ul>
+</div>
+
+<h3>Sınıflandırma 1 — Ortaya Çıkışlarına Göre</h3>
+<table>
+  <tr><th>İndüklenmiş (Induced)</th><th>Spontan (Spontaneous)</th></tr>
+  <tr>
+    <td>
+      Fiziksel ajanlar (radyasyon, UV)<br>
+      Kimyasal ajanlar (Base Analogs, Alkylating, Intercalating, Acridine dyes)<br>
+      Biyolojik ajanlar (Viruses, Bacteria, Transposons)
+    </td>
+    <td>
+      Kromozom mutasyonları (chromosome mutations)<br>
+      Gen mutasyonları (gene mutations)<br>
+      Genetik polimorfizm (genetic polymorphism)
+    </td>
+  </tr>
+</table>
+
+<h3>Sınıflandırma 2 — Oluştuğu Hücre Tipine Göre</h3>
+<ul>
+  <li><strong>Somatik mutasyon (acquired/kazanılmış):</strong> Zigot oluşumunda var olmayan, organizmanın büyüme/gelişiminin herhangi bir aşamasında somatik hücrelerde DNA replikasyonu sırasında oluşan mutasyonlar. <strong>Kuşaktan kuşağa aktarılmaz.</strong></li>
+  <li><strong>Germline mutasyon (inherited/kalıtsal):</strong> Gonadlarda (testis ve over) gamet hücrelerinin oluşumu sırasında var olan veya mayoz sırasında DNA replikasyonunda oluşan mutasyonlar. Eşey hücrelerinde olduğu için <strong>kuşaktan kuşağa aktarılır.</strong></li>
+</ul>
+
+<h3>Sınıflandırma 3 — Lokasyon ve Mekanizmaya Göre</h3>
+<table>
+  <tr><th>Mutasyon</th><th>Mekanizma</th><th>Frekans</th><th>Örnek</th></tr>
+  <tr>
+    <td><strong>Kromozom mutasyonu (Sayısal/Numerical)</strong></td>
+    <td>Kromozom ayrılma hataları (segregation errors)</td>
+    <td>2-4 × 10⁻²/hücre bölünmesi</td>
+    <td><strong>Aneuploidy, euploidy</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Kromozom mutasyonu (Yapısal/Structural)</strong></td>
+    <td>Kromozomlarda yeniden düzenlenme</td>
+    <td>6 × 10⁻⁴/hücre bölünmesi</td>
+    <td><strong>Translocation, Inversion, duplication, deletion, insertion</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Gen mutasyonu (Gene mutation)</strong></td>
+    <td>Baz çifti mutasyonu</td>
+    <td>10⁻¹⁰/baz çifti/bölünme · 10⁻⁵–10⁻⁶/lokus/kuşak</td>
+    <td><strong>Point mutations, frameshift / in-frame del-ins</strong></td>
+  </tr>
+</table>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Somatik vs Germline</span>
+  <strong>"Somatik = Sadece Sende kalır (çocuğa geçmez)"</strong> · <strong>"Germline = Gelecek nesle Geçer"</strong>. <br>
+  Somatik mutasyonun klasik örneği = <strong>kanser</strong>; germline mutasyon = <strong>kalıtsal hastalıklar</strong>.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Tanım & Sınıflandırma</span>
+  <details><summary>Somatik mutasyon döllere aktarılabilir mi? Germline mutasyon?</summary>
+    <div class="ans">Somatik mutasyon <strong>aktarılamaz</strong> (örn. kanser). Germline/gonadal mutasyon <strong>aktarılabilir</strong> (kalıtsal hastalıklar).</div></details>
+  <details><summary>Mutasyonun en geniş tanımı nedir?</summary>
+    <div class="ans">Genetik materyalde (DNA dizisinde) oluşan <strong>kalıtsal bir değişiklik</strong>. Tek baz değişiminden tüm kromozom kayıp/kazanımına kadar uzanabilir.</div></details>
+  <details><summary>Lokasyona göre üç mutasyon tipi ve birer örneği nedir?</summary>
+    <div class="ans">Sayısal kromozom (aneuploidy), yapısal kromozom (translocation), gen mutasyonu (point mutation).</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B5 ============ -->
+<h2 id="b5">5️⃣ Gen Mutasyonları (Point & Length)</h2>
+
+<p><strong>Gen mutasyonları:</strong> Gen sayısında değişiklik olmadan, genin baz dizisinde meydana gelen değişikliklerdir. DNA dizisindeki değişiklik bir bazdan binlerce baza kadar değişebilir. Nedenleri: DNA replikasyonu, yetersiz DNA onarımı, mutajenler.</p>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Frekans & Onarım</span>
+  Gen mutasyon frekansı: hücre bölünmesinde <strong>10 milyarda bir</strong>. İnsan somatik hücresinde ~6 milyar baz olduğundan, bir bölünmede <strong>birden az</strong> mutasyon oluşur. Nadirdir çünkü <strong>DNA onarım mekanizması hataların %99.9'unu düzeltir.</strong>
+</div>
+
+<p>Gen mutasyonları iki ana grupta incelenir:</p>
+<ul>
+  <li><strong>Substitution (substitüsyon):</strong> genetik materyalin (DNA) uzunluğunda değişiklik olmadan baz düzeyinde oluşan mutasyonlar.</li>
+  <li><strong>Length mutations (uzunluk mutasyonları):</strong> genetik materyalde delesyon veya insersiyon içeren mutasyonlar.</li>
+</ul>
+
+<h3>① Nokta Mutasyonu (Point Mutation) — Substitution</h3>
+
+<h4>DNA Düzeyinde</h4>
+<ul>
+  <li><strong>Transition:</strong> DNA dizisinde bir <strong>pürin bazının başka bir pürinle</strong> VEYA bir <strong>pirimidin bazının başka bir pirimidinle</strong> değiştirilmesi. (Pürin↔Pürin / Pirimidin↔Pirimidin)</li>
+  <li><strong>Transversion (çapraz değişim):</strong> Bir <strong>pürin bazının bir pirimidinle</strong> (veya tersi) değiştirilmesi.</li>
+  <li><strong>Hotspot mutations:</strong> mutasyona yatkın bölgeler (mutation-prone regions).</li>
+</ul>
+
+<h4>Protein Düzeyinde (Nokta mutasyonu tek bir baz çiftini etkiler)</h4>
+<ul>
+  <li><strong>Silent mutation (sessiz):</strong> mRNA kodonu <strong>aynı amino asidi</strong> kodlarsa → protein değişmez.</li>
+  <li><strong>Missense mutation (yanlış anlam):</strong> mRNA kodonu <strong>farklı bir amino asidi</strong> kodlarsa. Yeni amino asidin kimyasına ve proteindeki konumuna bağlı olarak <strong>fonksiyonunu koruyabilir</strong>.</li>
+  <li><strong>Nonsense mutation (anlamsız / zincir sonlandırma):</strong> mRNA kodonu bir <strong>stop kodonuna</strong> dönüşürse → <strong>kısalmış (truncated) ve genellikle fonksiyonsuz proteinler</strong> üretir.</li>
+</ul>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Transition/Transversion & Protein Etkileri</span>
+  <strong>Transition = Tek tip kalır (pürin↔pürin / pirimidin↔pirimidin), "aynı sınıf içinde geçiş"</strong>. <br>
+  <strong>Transversion = Ters/karşı sınıfa geçer (pürin↔pirimidin)</strong> → "VERS = çevirme/ters". <br>
+  Protein etkileri için <strong>"Sessiz-Yanlış-Anlamsız" = "SiMiNo"</strong>: <strong>Si</strong>lent (aynı AA) → <strong>Mi</strong>ssense (farklı AA) → <strong>No</strong>nsense (stop kodon, kısa protein).
+</div>
+
+<h3>② Uzunluk Mutasyonu (Length Mutation)</h3>
+<ul>
+  <li><strong>Küçük delesyon ve insersiyon (small deletion/insertion):</strong> DNA dizisine <strong>üçün katı olmayan</strong> bir veya birkaç baz eklenir/silinirse → sonraki kısımda <strong>frameshift (çerçeve kayması) mutasyonu</strong> oluşur.</li>
+  <li><strong>Büyük delesyon ve insersiyon/duplikasyon (large deletion/insertion):</strong> Hastalığa neden olan büyük delesyon/insersiyon/duplikasyon oranı <strong>%5</strong>. <strong>Distrofin geni (dystrophin gene)</strong> insandaki en büyük bilinen gendir ve <strong>DMD (Duchenne Muscular Dystrophy)</strong> büyük delesyonlar sonucu oluşur.</li>
+  <li><strong>Dinamik mutasyon (Dynamic / triple repeat mutation):</strong> Üçlü nükleotid tekrarlarının büyük boyutlara ulaştığı mutasyonlar. Uzun üçlü tekrarlar DNA çift sarmalını <strong>aşırı kararsız (unstable)</strong> hale getirir ve kuşaklara giderek artarak aktarılır. Örnekler: <strong>Fragile X → CGG, Huntington → CAG</strong>.</li>
+</ul>
+
+<h4>Frameshift Mutasyonu</h4>
+<p>Bir veya birkaç nükleotidin eklenmesi/silinmesinden kaynaklanır. <strong>Okuma çerçevesindeki (reading frame) değişiklik, mutasyon noktasından sonraki TÜM amino asitleri değiştirir</strong> → fonksiyonsuz protein. (Spontan mutasyonlar replikasyon hatalarından, indüklenmiş mutasyonlar mutajen maruziyetinden oluşur.)</p>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat — Frameshift vs In-frame</span>
+  Eklenen/silinen baz sayısı <strong>3'ün katı DEĞİLSE → frameshift</strong> (mutasyon sonrası her şey kayar, yıkıcı). <strong>3'ün katıysa → in-frame</strong> (okuma çerçevesi korunur, sadece o bölge etkilenir). Bu ayrım sık çeldiricidir.
+</div>
+
+<h3>Mutasyonun Protein Fonksiyonuna Etkisi</h3>
+<p>Hastalığa neden olan mutasyonların protein fonksiyonu üzerinde <strong>4 olası etkisi</strong> vardır:</p>
+<ol>
+  <li><strong>Loss of function (fonksiyon kaybı)</strong></li>
+  <li><strong>Gain of function (fonksiyon kazanımı)</strong></li>
+  <li><strong>Gaining a new feature (yeni bir özellik kazanma)</strong></li>
+  <li><strong>Expression at the wrong time and/or place (yanlış zaman/yerde ifade)</strong></li>
+</ol>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi</span>
+  Diş hekimliğini ilgilendiren birçok kalıtsal durum nokta veya uzunluk mutasyonlarından kaynaklanır: <strong>amelogenesis imperfecta</strong> (mine proteini genleri), <strong>dentinogenesis imperfecta</strong> (DSPP geni). Bir missense mutasyon hafif mine defekti yaparken, nonsense/frameshift mutasyon tüm proteini işlevsiz bırakıp ağır tablo oluşturabilir — yani <em>mutasyon tipi, klinik şiddeti belirler</em>.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Gen Mutasyonları</span>
+  <details><summary>Transition ve transversion arasındaki fark nedir?</summary>
+    <div class="ans"><strong>Transition:</strong> pürin↔pürin veya pirimidin↔pirimidin (aynı sınıf). <strong>Transversion:</strong> pürin↔pirimidin (sınıf değiştirir).</div></details>
+  <details><summary>Silent, missense ve nonsense mutasyonu protein düzeyinde nasıl ayrılır?</summary>
+    <div class="ans"><strong>Silent:</strong> aynı amino asit (protein değişmez). <strong>Missense:</strong> farklı amino asit. <strong>Nonsense:</strong> stop kodon → kısalmış/fonksiyonsuz protein.</div></details>
+  <details><summary>Frameshift mutasyonu ne zaman oluşur ve neden bu kadar yıkıcıdır?</summary>
+    <div class="ans">3'ün katı olmayan sayıda baz eklenmesi/silinmesiyle. Okuma çerçevesi kaydığı için <strong>mutasyon noktasından sonraki tüm amino asitler değişir</strong> → fonksiyonsuz protein.</div></details>
+  <details><summary>İnsandaki en büyük gen hangisidir ve hangi hastalıkla ilişkilidir?</summary>
+    <div class="ans"><strong>Distrofin geni</strong> — büyük delesyonlar sonucu <strong>Duchenne Muscular Dystrophy (DMD)</strong> oluşur.</div></details>
+  <details><summary>Mutasyonların protein fonksiyonuna 4 olası etkisi nedir?</summary>
+    <div class="ans">Loss of function, gain of function, gaining a new feature, expression at the wrong time/place.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B6 ============ -->
+<h2 id="b6">6️⃣ Sayısal Kromozom Anomalileri (Euploidy / Aneuploidy)</h2>
+
+<p>Sayısal kromozom anomalileri <strong>kromozom sayısını</strong> etkiler. Mayoz veya mitozdaki <strong>yanlış kromozom ayrılmasından (incorrect segregation)</strong> kaynaklanır — yaklaşık her <strong>25-50 mayotik bölünmede bir</strong> hatalı ayrılma olur.</p>
+
+<h3>Euploidy vs. Aneuploidy</h3>
+<table>
+  <tr><th>Tip</th><th>Tanım</th><th>Örnek Karyotip</th></tr>
+  <tr>
+    <td><strong>Euploidy</strong></td>
+    <td>Kromozom sayısının haploid set (n) sayısının <strong>tam katı</strong> olarak değişmesi (n, 3n, 4n…)</td>
+    <td><span class="karyo">23,X</span> · <span class="karyo">69,XXX</span> · <span class="karyo">92,XXYY</span></td>
+  </tr>
+  <tr>
+    <td><strong>Aneuploidy</strong></td>
+    <td>Normal kromozom sayısından bir veya birkaç kromozomun <strong>azalması/artması</strong> (2n−1, 2n+1)</td>
+    <td><span class="karyo">45,X</span> · <span class="karyo">47,XY,+21</span> · <span class="karyo">47,XXX</span></td>
+  </tr>
+</table>
+
+<h3>Oluşum Mekanizmaları</h3>
+<ul>
+  <li><strong>Euploidy:</strong> Eksik hücre bölünmesi olarak tanımlanan <strong>endomitozis (endomitosis)</strong> ve <strong>endoredüplikasyon (endoreduplication)</strong> sonucu oluşur.</li>
+  <li><strong>Aneuploidy:</strong> Hücre bölünmesi sırasında kromozomların ayrılamaması veya <strong>anafazda gecikme</strong> nedeniyle oluşur.</li>
+</ul>
+
+<h4>Endoreduplication vs Endomitosis (vs Normal Mitoz)</h4>
+<ul>
+  <li><strong>(A) Normal mitoz:</strong> G1–S–G2–M fazları → ana hücreyle aynı DNA içerikli iki yavru hücre.</li>
+  <li><strong>(B) Endoreduplication:</strong> <strong>M fazı OLMAYAN</strong> atipik döngü → sitokinez olmaz. Tekrarlayan S ve gap fazları → DNA içeriği ikiye katlanır. Kromozomlar duplike olur ama <strong>sentromerler ayrılamaz</strong>.</li>
+  <li><strong>(C) Endomitosis:</strong> Nükleer bölünme ve sitokinezi atlar ama <strong>kromozom ayrılması olur</strong>. Hücre, nükleer membranı bölünmeden kromozom sayısını duplike eder (endoprofaz, endometafaz, endoanafaz) → bir hücrede DNA içeriği ve kromozom sayısı ikiye katlanır.</li>
+</ul>
+
+<h3>Euploidy Mekanizmaları — Polyploidy</h3>
+<p><strong>Polyploidy:</strong> bir hücrede bir veya daha fazla ekstra <strong>tam kromozom seti</strong> bulunması.</p>
+<ul>
+  <li><strong>Triploidy (3n — <span class="karyo">69,XXX</span>):</strong> İki sperm tarafından döllenme (<strong>dispermi/dyspermia</strong>) veya mayoz hatasıyla diploid yumurta/spermin döllenmeye katılması. Kaynağa göre bulgular değişir: <strong>Paternal kaynaklı → anormal plasenta / kısmi hidatiform mol (partial hydatiform mole)</strong>, embriyo gelişmez. <strong>Maternal kaynaklı → erken düşük (early miscarriage)</strong>.</li>
+  <li><strong>Tetraploidy (4n — <span class="karyo">92,XXXX</span>):</strong> Hücre bölünmesi hatası, endoreduplication, endomitosis. <strong>Tümör dokusu ve abortus materyalinde</strong> görülür.</li>
+</ul>
+<p>Hatırlatma: İnsan somatik hücreleri için <strong>diploidi (2n) normal</strong>, germ hücreleri için <strong>haploidi (n) normaldir</strong>.</p>
+
+<h3>Aneuploidy</h3>
+<p>Klinik olarak <strong>en sık görülen anlamlı kromozom anomalisi tipi aneuploidy</strong>dir ve <strong>her zaman fiziksel ve/veya mental gelişim engeliyle</strong> ilişkilidir.</p>
+<ul>
+  <li><strong>Monosomy:</strong> Homolog kromozom çiftinden birinin kaybı (2n−1).</li>
+  <li><strong>Trisomy:</strong> Homolog kromozom çiftine birinin eklenmesi (2n+1).</li>
+</ul>
+
+<h4>Aneuploidy Oluşum Mekanizmaları</h4>
+<ul>
+  <li><strong>Nondisjunction (NDJ — ayrılmama):</strong> Mayoz veya mitozda bir kromozom çiftinin ayrılamaması → bölünen hücrelerden biri o çiftten hiç almazken diğeri iki homologu birlikte alır. Mayoz-I'de rekombinasyon olaylarının sıklık/yerleşim bozukluğuyla ilişkilidir; <strong>çok az (veya hiç) rekombinasyon</strong>, ya da sentromer/telomere çok yakın olması NDJ'yi kolaylaştırır.</li>
+  <li><strong>Mitotic nondisjunction:</strong> Mitozda oluşan NDJ → <strong>mozaisizm (mosaicism)</strong> ile sonuçlanır (örn. <span class="karyo">45,X/46,XX</span>).</li>
+  <li><strong>Anaphase Lag (anafaz gecikmesi):</strong> Kromatidlerin ayrılamaması/geç kalması → kromozom hücreye katılamaz veya yanlış hücreye katılır; <strong>mikronukleusa</strong> dönüşerek kaybedilir.</li>
+</ul>
+
+<h3>Trizomi Örnekleri (Types of Aneuploidy — Trisomy)</h3>
+<table>
+  <tr><th>Sendrom</th><th>Karyotip</th><th>İnsidans</th><th>Temel Bulgular</th></tr>
+  <tr>
+    <td><strong>Trisomy 21 (Down)</strong></td>
+    <td><span class="karyo">47,XX/XY,+21</span></td>
+    <td><span class="pct">1/800–1000</span></td>
+    <td>Sarkık dil, mental retardasyon, yukarı eğimli palpebral fissür, kısa boy, tek derin palmar çizgi, sandal gap, kalp hastalığı, tekrarlayan enfeksiyonlar. <strong>Canlı doğumlarda en sık aneuploidy.</strong> %95 serbest trizomi, %4 Robertsonian translokasyon, %1 mozaik/parsiyel</td>
+  </tr>
+  <tr>
+    <td><strong>Trisomy 18 (Edwards)</strong></td>
+    <td><span class="karyo">47,XX/XY,+18</span></td>
+    <td><span class="pct">0.3/1000</span></td>
+    <td>Gelişimsel gecikme, el-ayak anomalileri (clenched hand, clubfoot), konjenital kalp hastalıkları. <strong>Trizomi 21'den sonra 2. en sık</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Trisomy 13 (Patau)</strong></td>
+    <td><span class="karyo">47,XX/XY,+13</span></td>
+    <td><span class="pct">1/10.000</span></td>
+    <td>Kafatası ve yüz anomalileri, organ anomalileri. Canlı doğsa bile <strong>1 yaşından önce ölüm</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Trisomy X</strong></td>
+    <td><span class="karyo">47,XXX</span></td>
+    <td><span class="pct">1/1000</span> kız</td>
+    <td>Normalden uzun boy, öğrenme güçlüğü, mental retardasyon, infertilite</td>
+  </tr>
+  <tr>
+    <td><strong>Klinefelter</strong></td>
+    <td><span class="karyo">47,XXY</span></td>
+    <td><span class="pct">1/500–1000</span> erkek</td>
+    <td>Erkek fenotipi + feminen özellikler: uzun kol-bacak, jinekomasti, küçük testis, tiz ses, zayıf sakal; <strong>spermatogenez yok → infertil</strong></td>
+  </tr>
+  <tr>
+    <td><strong>47,XYY</strong></td>
+    <td><span class="karyo">47,XYY</span></td>
+    <td>—</td>
+    <td>Uzun boy, öğrenme güçlüğü, davranış problemleri</td>
+  </tr>
+</table>
+
+<h3>Monozomi (Monosomy)</h3>
+<div class="box warn">
+  <span class="title">⚠️ Dikkat — Yaşamla Bağdaşan Tek Monozomi</span>
+  <strong>Otozomal monozomiler yaşamla bağdaşmaz.</strong> Yaşamla bağdaşan TEK monozomi, bir cinsiyet kromozomu monozomisi olan <strong>Turner Sendromu (<span class="karyo">45,X</span>)</strong>'dur. Bu çok sık sorulan bir spot bilgidir!
+</div>
+<p><strong>Turner Sendromu (45,X):</strong> Fenotip kadın görünümlüdür ama cinsiyet organları ve hücreleri gelişmez. Overlerin oluşumu/fonksiyonu yetersiz/yoktur → <strong>primer amenore (primary amenorrhea)</strong> ve infertilite. Dış genitalde gelişim defektleri, <strong>kısa boy</strong> ve <strong>kısa, perdeli boyun (webbed neck)</strong> diğer belirgin özelliklerdir.</p>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Trizomiler & Mekanizmalar</span>
+  <strong>Otozomal trizomiler (azalan sıklık):</strong> <em>"Down-Edwards-Patau = 21-18-13"</em> → azalan sayı, azalan sıklık, azalan yaşam süresi. <br>
+  <em>"Patau = 13, kötü şans (13 uğursuz), 1 yaşına gelemez"</em>. <br>
+  <strong>Mekanizmalar (3):</strong> <em>"NDJ - Mitotik NDJ (mozaik) - Anafaz lag"</em>. <br>
+  <strong>Euploid mekanizma = Endo</strong> (Endomitosis/Endoreduplication); <strong>Aneuploid = ayrılma sorunu</strong> (NDJ/anafaz lag).
+</div>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi — Down Sendromu & Diş Hekimliği</span>
+  <strong>Down sendromu, diş hekimliğinde en sık karşılaşacağınız kromozomal hastalıktır.</strong> Klasik oral bulgular: <strong>makroglossi (büyük/sarkık dil), fissürlü dil, mikrodonti, hipodonti (diş eksikliği), geç ve düzensiz diş sürmesi, yüksek damak ve özellikle agresif erken başlayan periodontal hastalık.</strong> Ayrıca eşlik eden kalp hastalığı nedeniyle bazı işlemlerde <strong>antibiyotik profilaksisi</strong> gerekebilir. Bu hastalarda koruyucu diş hekimliği ve davranış yönetimi kritiktir.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Sayısal Anomaliler</span>
+  <details><summary>Euploidy ve aneuploidy arasındaki fark nedir? Birer karyotip örneği verin.</summary>
+    <div class="ans"><strong>Euploidy:</strong> haploid setin tam katı (3n=69,XXX). <strong>Aneuploidy:</strong> normalden ±1 kromozom (47,XY,+21 veya 45,X).</div></details>
+  <details><summary>Yaşamla bağdaşan tek monozomi hangisidir ve karyotipi nedir?</summary>
+    <div class="ans"><strong>Turner Sendromu, 45,X</strong> (cinsiyet kromozomu monozomisi). Otozomal monozomiler yaşamla bağdaşmaz.</div></details>
+  <details><summary>Aneuploidy oluşumunun başlıca mekanizması nedir ve mitozda olursa ne ile sonuçlanır?</summary>
+    <div class="ans"><strong>Nondisjunction (NDJ).</strong> Mitozda olursa <strong>mozaisizm</strong> ile sonuçlanır (örn. 45,X/46,XX).</div></details>
+  <details><summary>Down sendromunun mekanizma dağılımı nedir?</summary>
+    <div class="ans">%95 serbest trizomi (47,+21), %4 Robertsonian translokasyon, %1 mozaik/parsiyel trizomi 21.</div></details>
+  <details><summary>Triploidinin paternal ve maternal kaynaklı sonuçları nasıl farklılaşır?</summary>
+    <div class="ans"><strong>Paternal:</strong> anormal plasenta / kısmi hidatiform mol (embriyo gelişmez). <strong>Maternal:</strong> erken düşük.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B7 ============ -->
+<h2 id="b7">7️⃣ Yapısal Kromozom Anomalileri (Structural)</h2>
+
+<p>Yapısal anomaliler kromozomların <strong>yapısını</strong> etkiler (duplication, deletion, insertion, inversion, dengesiz translokasyon). Nedeni kromozomlardaki <strong>kırıklar (breaks) ve yeniden düzenlenmelerdir (rearrangements)</strong>. Spontan oluşabilir veya mayoz sırasında yer değiştiren kromozomların anormal ayrılmasıyla ortaya çıkar.</p>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi</span>
+  Genom ve kromozom mutasyonları sık görünse de, <strong>yaşamla bağdaşmadıkları için sıklıkla kuşaktan kuşağa süreklilik göstermezler.</strong> Ayrıca kanserde (somatik) yaygın görülürler.
+</div>
+
+<h3>Yapısal Anomali Tipleri</h3>
+
+<h4>Translocation (Translokasyon) — Kromozomlar arası parça değişimi</h4>
+<ul>
+  <li><strong>Reciprocal translocation (resiprokal):</strong> İki <strong>homolog olmayan (non-homologous)</strong> kromozom arasında karşılıklı parça değişimi.</li>
+  <li><strong>Robertsonian translocation (sentrik füzyon / centric fusion):</strong> <strong>Akrosentrik (acrocentric)</strong> kromozomların sentromerlerinden kırılıp birbirine yapışmasıyla oluşur. <strong>Kısa kollar kaybolur</strong> — füzyon kromozomu, iki akrosentrik kromozomun <strong>uzun kollarından</strong> oluşur.</li>
+</ul>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat — Robertsonian & Down</span>
+  Down sendromunun <strong>%4'ü Robertsonian translokasyon</strong> kaynaklıdır (genellikle 14;21). Akrosentrik kromozomlar (13, 14, 15, 21, 22) bu translokasyona katılır. Bu, ailesel (kalıtsal) Down riskini açıkladığı için klinik olarak çok önemlidir.
+</div>
+
+<h4>Inversion (İnversiyon)</h4>
+<p>Kromozomda <strong>iki kırık</strong> sonucu kopan parçanın <strong>ters çevrilerek</strong> yeniden birleşmesi.</p>
+<ul>
+  <li><strong>Paracentric inversion:</strong> Sentromeri <strong>İÇERMEYEN</strong> inversiyon.</li>
+  <li><strong>Pericentric inversion:</strong> Sentromeri <strong>İÇEREN</strong> inversiyon.</li>
+</ul>
+
+<h4>Deletion (Delesyon) — Kromozom parçasının kaybı</h4>
+<p>Oluşum mekanizmaları:</p>
+<ul>
+  <li>Kromozom kırılması ve <strong>asentrik fragmanın (acentric fragment)</strong> kaybı.</li>
+  <li>Mayozda homolog kromozomların/kardeş kromatidlerin yanlış eşleşmesi nedeniyle <strong>eşitsiz krossing-over (unequal crossing over)</strong>.</li>
+  <li>Dengeli translokasyon/inversiyonların anormal ayrılması.</li>
+</ul>
+<p>Örnek karyotip: <span class="karyo">46,XY,del(7)(q35)</span></p>
+
+<h4>Duplication (Duplikasyon)</h4>
+<p>Kromozomun bir bölgesinin <strong>iki kopyasının</strong> bulunması. Mekanizma: mayozda <strong>eşitsiz krossing-over</strong>.</p>
+
+<h4>Insertion (İnsersiyon)</h4>
+<p>Başka bir kromozomdan kopan parçanın, bir kromozomun kırık noktasına eklenmesiyle oluşan yeniden düzenlenme. <strong>Üç kırık içerdiği için çok nadirdir.</strong> Taşıyıcıların olası gametlerinde: normal, dengeli taşıyıcı (balanced carrier), duplikasyon, delesyon görülebilir.</p>
+
+<h4>Isochromosome (İzokromozom)</h4>
+<p>Kromozomun <strong>bir kolunun kaybı, diğer kolun duplikasyonu</strong> → bir kol için <strong>parsiyel monozomi</strong>, diğer kol için <strong>parsiyel trizomi</strong>. Mekanizma: Mayoz II'de sentromerin yanlış bölünmesi. <strong>En sık X kromozomunda görülür — i(Xq).</strong></p>
+
+<h4>Dicentric Chromosome (Disentrik Kromozom)</h4>
+<p><strong>İki sentromer</strong> içeren kromozom; sentromer içeren iki kromozom fragmanının birleşmesiyle oluşur. Genellikle <strong>sentromerlerden biri inaktive edilir</strong>.</p>
+
+<h4>Ring Chromosome (Halka Kromozom)</h4>
+<p>Kromozomun <strong>iki ucunun da kırılıp birbirine birleşerek halka oluşturması</strong>.</p>
+
+<h4>Marker Chromosomes (Marker Kromozomlar)</h4>
+<p>Tanımlanamayan (unidentified), yapısal olarak anormal <strong>ekstra kromozomal materyal parçaları</strong>. Genellikle <strong>mozaik</strong> olarak bulunur. Büyük olanlar dengesizlik yaratabilir.</p>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Yapısal Anomaliler</span>
+  <strong>İnversiyon:</strong> <em>"Para = yanında değil (sentromersiz), Peri = etrafında/içinde (sentromerli)"</em> → <strong>Peri = içerir, Para = içermez</strong>. <br>
+  <strong>Robertsonian:</strong> <em>"Akrosentrikler birleşir, kısa kollar gider, uzun kollar kalır"</em> (13,14,15,21,22). <br>
+  <strong>İzokromozom:</strong> <em>"İzo = bir kol iki kere (ayna görüntüsü), Mayoz II hatası, en sık i(Xq)"</em>. <br>
+  <strong>Ring:</strong> <em>"İki uç kırılır, halka olur"</em>.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Yapısal Anomaliler</span>
+  <details><summary>Reciprocal ve Robertsonian translokasyon arasındaki fark nedir?</summary>
+    <div class="ans"><strong>Reciprocal:</strong> homolog olmayan iki kromozom arasında karşılıklı parça değişimi. <strong>Robertsonian:</strong> akrosentrik kromozomların sentromerden birleşmesi; kısa kollar kaybolur, uzun kollar kalır.</div></details>
+  <details><summary>Paracentric ve pericentric inversion arasındaki fark nedir?</summary>
+    <div class="ans"><strong>Paracentric:</strong> sentromeri içermez. <strong>Pericentric:</strong> sentromeri içerir.</div></details>
+  <details><summary>İzokromozom nasıl oluşur, hangi sonuçları verir ve en sık nerede görülür?</summary>
+    <div class="ans">Bir kolun kaybı + diğer kolun duplikasyonu (Mayoz II'de yanlış sentromer bölünmesi). Bir kol parsiyel monozomi, diğeri parsiyel trizomi. En sık <strong>X kromozomunda — i(Xq)</strong>.</div></details>
+  <details><summary>Delesyonun bir oluşum mekanizması olarak "unequal crossing over" nedir?</summary>
+    <div class="ans">Mayozda homolog kromozomların/kardeş kromatidlerin yanlış eşleşmesi sonucu eşitsiz parça değişimi — bir kromozom parça kaybeder (delesyon), diğeri kazanır (duplikasyon).</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B8 ============ -->
+<h2 id="b8">8️⃣ Klinik Önem: Kanser, Kromozom Analizi & Genetik Hastalıklar</h2>
+
+<h3>Kromozom Anomalilerinin Önemi</h3>
+<ul>
+  <li>Düşüklerin, konjenital malformasyonların ve mental retardasyonun önemli bir kısmını oluşturur.</li>
+  <li>Malign hastalıkların patogenezinde önemli rol oynar.</li>
+  <li>Spesifik kromozom bozuklukları, <strong>tüm Mendelian tek gen hastalıklarının toplamından daha sık görülen 100'den fazla tanınabilir sendromdan</strong> sorumludur.</li>
+</ul>
+<p>Sitogenetik bozukluk sıklığı: <strong>canlı doğumların ~%1'i</strong>; 35 yaş üstü prenatal tanı yapılan gebeliklerin ~%2'si; <strong>tüm ilk trimester düşüklerinin %50'si</strong>.</p>
+
+<h3>Kromozom Analizi Neden Önemli? & Endikasyonları</h3>
+<p><strong>Önemi:</strong> Klinik tanı, prenatal tanı, kanser sitogenetiği.</p>
+<p><strong>Endikasyonlar (Indications):</strong> erken büyüme/gelişim problemleri, ölü doğum ve neonatal ölüm, fertilite problemleri, aile öyküsü, neoplaziler, ileri yaş gebelikleri.</p>
+
+<h3>Somatik Mutasyonlar ve Kanser</h3>
+<ul>
+  <li><strong>Translokasyon ve inversiyon</strong> gibi kromozom mutasyonları, çoğu <strong>lösemi ve malign lenfomadan</strong> sorumludur.</li>
+  <li>Erişkin <strong>kolorektal kanserleri</strong> ve çocukluk çağı <strong>retinoblastoma</strong> ile <strong>Wilms tümörü</strong>, somatik gen mutasyonlarının sonucudur.</li>
+</ul>
+
+<h3>Mutasyonların Klinik Sonuçları — Tümörigenez</h3>
+<p><strong>Tumorigenesis:</strong> tümör adı verilen bir hücre kütlesinin oluşumu. <strong>Proto-onkogenler (proto-oncogenes)</strong> ve <strong>tümör baskılayıcı genlerde (tumor suppressor genes)</strong> mutasyon oluştuğunda, bu değişiklikler her yeni hücre kuşağında kopyalanır. Değişmiş hücrelerdeki ek mutasyonlar <strong>kontrolsüz hücre replikasyonuna ve kanser başlangıcına</strong> yol açabilir.</p>
+
+<h3>Anti-Kanser Tedavisi (İlginç İkilem!)</h3>
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Mutajenler Hem Sebep Hem Tedavi</span>
+  Mutajenler kanser yapar AMA aynı zamanda kanser <strong>tedavisinde</strong> de kullanılır! Çünkü <strong>çoğalan hücrelere (proliferating cells) yüksek toksiktirler</strong>:
+  <ul style="margin:6px 0 0;">
+    <li><strong>İyonize radyasyon</strong> → radyoterapi.</li>
+    <li><strong>Alkylating agents</strong> (örn. <strong>cisplatin</strong>) → kemoterapi.</li>
+    <li><strong>Intercalating agents</strong> (örn. <strong>doxorubicin</strong>) → kemoterapi.</li>
+  </ul>
+</div>
+
+<h3>Genetik Hastalıklar (Gen Mutasyonu Örnekleri)</h3>
+<table>
+  <tr><th>Hastalık</th><th>Gen</th></tr>
+  <tr><td>Orak hücre hastalığı (Sickle cell disease)</td><td><strong>HBB</strong></td></tr>
+  <tr><td>Akondroplazi (Achondroplasia)</td><td><strong>FGFR3</strong></td></tr>
+  <tr><td>Hemofili (Hemophilia)</td><td><strong>F8 ve F9</strong></td></tr>
+  <tr><td>Kistik fibrozis (Cystic fibrosis)</td><td><strong>CFTR</strong></td></tr>
+</table>
+
+<h3>Tıbbi Genetikte Polimorfizmlerin Kullanımı</h3>
+<p><strong>Polimorfizmler (polymorphisms)</strong>, tüm insan genetik araştırmasının anahtar unsurlarıdır. Bir genin farklı kalıtsal formlarını veya genomun farklı bölgelerini <strong>ayırt etmek</strong> için kullanılırlar.</p>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi & Sonuç</span>
+  DNA replikasyonu ne kadar doğru olursa olsun mutasyon spontan ya da mutajenlerle oluşabilir; etkileri <strong>zararlı veya yararlı</strong> olabilir. Diş hekimliği açısından mutasyon bilgisi şunlara dayanır: ağız kanserlerinde (oral squamous cell carcinoma) tütün/alkol → somatik mutasyon → tümör baskılayıcı gen (p53) kaybı zinciri; radyoterapi alan baş-boyun hastalarında <strong>mukozit, kserostomi ve osteoradyonekroz</strong> yönetimi. Genetik temelini bilmek, hem koruyucu hekimlik hem onkolojik hasta takibinde size yol gösterir.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Klinik Önem</span>
+  <details><summary>Tüm ilk trimester düşüklerinin yüzde kaçında kromozom anomalisi vardır?</summary>
+    <div class="ans"><strong>%50</strong>. Ayrıca canlı doğumların ~%1'inde sitogenetik bozukluk görülür.</div></details>
+  <details><summary>Çoğu lösemi ve malign lenfomadan hangi kromozom mutasyonları sorumludur?</summary>
+    <div class="ans"><strong>Translokasyon ve inversiyon</strong> (somatik kromozom mutasyonları).</div></details>
+  <details><summary>Mutajenler neden hem kanser yapar hem de kanser tedavisinde kullanılır?</summary>
+    <div class="ans">Çoğalan (proliferating) hücrelere yüksek toksik oldukları için kanser hücrelerini yok etmede kullanılırlar: iyonize radyasyon (radyoterapi), alkylating (cisplatin) ve intercalating (doxorubicin) ajanlar (kemoterapi).</div></details>
+  <details><summary>Sickle cell, achondroplasia, hemophilia ve cystic fibrosis hangi genlerle ilişkilidir?</summary>
+    <div class="ans">Sickle cell → HBB; achondroplasia → FGFR3; hemophilia → F8/F9; cystic fibrosis → CFTR.</div></details>
+</div>
+
+<hr>
+
+<div class="box spot" style="border-width:3px;">
+  <span class="title">🎯 FİNAL ÖZET — En Kritik 12 Spot</span>
+  <ol style="margin:6px 0 0;">
+    <li>Her karsinojen mutajeniktir ama her mutajen karsinojen değildir; sadece indüklenmiş mutasyonlar mutajen kaynaklıdır.</li>
+    <li>Mutajen etki sınıfları: Teratogen (malformasyon), Carcinogen (kanser), Clastogen (kromozom kırığı).</li>
+    <li>Mutajen sınıfları: fiziksel (ısı/radyasyon), kimyasal (base analog, intercalating, alkylating, deaminating, metal), biyolojik (virüs, bakteri, transpozon).</li>
+    <li>UV → timin (pirimidin) dimerleri; iyonize radyasyon → fosfodiester omurga kırığı.</li>
+    <li>DNA onarımı: polimeraz proofreading + mismatch repair (hataların %99.9'u düzelir).</li>
+    <li>Somatik mutasyon → kanser, çocuğa geçmez; germline mutasyon → kalıtsal, geçer.</li>
+    <li>Transition = aynı sınıf (pürin↔pürin); transversion = sınıf değişir. Protein: silent/missense/nonsense.</li>
+    <li>Frameshift = 3'ün katı olmayan ins/del; en büyük gen distrofin → DMD.</li>
+    <li>Euploidy (3n,4n; polyploidy) = Endo mekanizmalar; Aneuploidy (2n±1) = nondisjunction/anafaz lag.</li>
+    <li>Trizomi 21 (Down, en sık) > 18 (Edwards) > 13 (Patau). Yaşamla bağdaşan tek monozomi = Turner 45,X.</li>
+    <li>Robertsonian = akrosentrik füzyon (Down'ın %4'ü); pericentric inversion sentromer içerir, paracentric içermez; izokromozom en sık i(Xq).</li>
+    <li>Mutajenler kanser yapar AMA tedavide de kullanılır (radyoterapi, cisplatin, doxorubicin); proto-onkogen + tümör baskılayıcı gen mutasyonları → tümörigenez.</li>
+  </ol>
+</div>
+
+<footer>
+  🦷 Ders 4 — Mutations and Mutagens · Final Çalışma Rehberi<br>
+  Açık uçlu kutuların üzerine tıklayarak flashcard cevaplarını görebilirsiniz. Başarılar!
+</footer>
+
+</body>
+</html>

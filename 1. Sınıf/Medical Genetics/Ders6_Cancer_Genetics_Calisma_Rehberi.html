@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ders 6 — Cancer Genetics | Final Çalışma Rehberi</title>
+<style>
+  :root{
+    --bg:#0f1117; --card:#1a1d27; --text:#e8eaf0; --muted:#aab0c0;
+    --primary:#6c8cff; --primary-d:#3a55c4;
+    --clinic:#1f7a5a; --clinic-bg:#10271f; --clinic-bd:#2ecc8f;
+    --spot:#b8860b; --spot-bg:#2a2410; --spot-bd:#f1c40f;
+    --warn:#a83232; --warn-bg:#2a1414; --warn-bd:#ff6b6b;
+    --card-bd:#7b4bd6; --card-bg:#1d1530; --card-accent:#b388ff;
+    --mnemo:#0e6e8c; --mnemo-bg:#0d2630; --mnemo-bd:#2bc4e8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:0 16px 80px; background:var(--bg); color:var(--text);
+    font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.7; font-size:17px; max-width:980px; margin:0 auto;
+  }
+  header.hero{
+    background:linear-gradient(135deg,#8e1d3a,#c0392b 55%,#e74c3c);
+    border-radius:0 0 22px 22px; padding:34px 28px 28px; margin:0 -16px 30px;
+    box-shadow:0 8px 30px rgba(0,0,0,.4);
+  }
+  header.hero h1{margin:0 0 6px; font-size:30px; color:#fff; letter-spacing:.3px;}
+  header.hero p{margin:2px 0; color:#ffeaea; font-size:15px;}
+  header.hero .tag{display:inline-block; background:rgba(255,255,255,.2); padding:3px 12px; border-radius:20px; font-size:13px; margin-top:10px;}
+  h2{
+    font-size:24px; margin:46px 0 14px; padding:12px 18px;
+    background:linear-gradient(90deg,var(--primary-d),transparent);
+    border-left:6px solid var(--primary); border-radius:8px; color:#fff;
+  }
+  h3{font-size:20px; color:var(--primary); margin:30px 0 10px; border-bottom:1px dashed #3a3f52; padding-bottom:6px;}
+  h4{font-size:17px; color:var(--card-accent); margin:20px 0 6px;}
+  p{margin:10px 0;}
+  ul,ol{margin:10px 0 14px; padding-left:26px;}
+  li{margin:6px 0;}
+  strong{color:#fff;}
+  em{color:#cdd3e6;}
+  mark{background:#4a3aff44; color:#dfe4ff; padding:1px 5px; border-radius:4px; border-bottom:2px solid var(--primary);}
+  .toc{background:var(--card); border:1px solid #2a2f3f; border-radius:14px; padding:18px 24px; margin:0 0 20px;}
+  .toc h3{margin-top:0; border:none; color:#fff;}
+  .toc a{color:var(--primary); text-decoration:none;}
+  .toc a:hover{text-decoration:underline;}
+  .toc ol{padding-left:22px;}
+
+  .box{border-radius:12px; padding:14px 18px 14px 16px; margin:18px 0; border-left:6px solid; position:relative;}
+  .box .title{font-weight:700; display:block; margin-bottom:4px; font-size:16px;}
+  .clinic{background:var(--clinic-bg); border-color:var(--clinic-bd);}
+  .clinic .title{color:var(--clinic-bd);}
+  .spot{background:var(--spot-bg); border-color:var(--spot-bd);}
+  .spot .title{color:var(--spot-bd);}
+  .warn{background:var(--warn-bg); border-color:var(--warn-bd);}
+  .warn .title{color:var(--warn-bd);}
+  .mnemo{background:var(--mnemo-bg); border-color:var(--mnemo-bd);}
+  .mnemo .title{color:var(--mnemo-bd);}
+
+  .flash{background:var(--card-bg); border:2px solid var(--card-bd); border-radius:14px; padding:6px 20px 14px; margin:22px 0;}
+  .flash .fhead{font-weight:700; color:var(--card-accent); font-size:15px; letter-spacing:.5px; text-transform:uppercase; display:flex; align-items:center; gap:8px; margin:12px 0 6px;}
+  .flash details{background:#140e22; border-radius:10px; margin:10px 0; padding:2px 0; border:1px solid #3a2a5c;}
+  .flash summary{cursor:pointer; padding:11px 16px; font-weight:600; color:#e8defc; list-style:none;}
+  .flash summary::-webkit-details-marker{display:none;}
+  .flash summary::before{content:"❓ "; }
+  .flash details[open] summary{color:#fff; border-bottom:1px dashed #4a3a6c;}
+  .flash .ans{padding:10px 16px 14px; color:#d7ccee;}
+  .flash .ans::before{content:"✅ "; }
+
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:15px; background:var(--card); border-radius:10px; overflow:hidden;}
+  th,td{padding:10px 12px; text-align:left; border-bottom:1px solid #2a2f3f; vertical-align:top;}
+  th{background:#262b3a; color:var(--primary); font-size:14px; text-transform:uppercase; letter-spacing:.4px;}
+  tr:last-child td{border-bottom:none;}
+  .pct{color:var(--spot-bd); font-weight:700;}
+  hr{border:none; border-top:1px solid #2a2f3f; margin:34px 0;}
+  .pill{display:inline-block; padding:2px 9px; border-radius:6px; font-size:13px; font-weight:700; color:#fff;}
+  .onco{background:#c0392b;} .tsg{background:#1f7a5a;}
+  .flow{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:16px 0; font-size:14px;}
+  .flow span{background:#262b3a; border:1px solid #3a3f52; border-radius:8px; padding:8px 12px; font-weight:600;}
+  .flow .arr{background:none; border:none; color:var(--warn-bd); font-size:18px; padding:0;}
+  footer{margin-top:50px; text-align:center; color:var(--muted); font-size:13px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>🧬 Ders 6 — Cancer Genetics</h1>
+  <p>Kanser Genetiği</p>
+  <p>Dept. of Medical Genetics · Diş Hekimliği 1. Sınıf · Final Hazırlık Rehberi</p>
+  <span class="tag">Türkçe açıklama + korunmuş İngilizce/Latince terminoloji</span>
+</header>
+
+<nav class="toc">
+  <h3>📑 İçindekiler</h3>
+  <ol>
+    <li><a href="#b1">Kanser Nedir? & Hücresel Temel</a></li>
+    <li><a href="#b2">Tümör Gelişim Basamakları (Hyperplasia → Metastasis)</a></li>
+    <li><a href="#b3">Benign vs Malign · Klonal Seleksiyon & Monoklonal Köken</a></li>
+    <li><a href="#b4">Kanser Sınıflandırması (Doku/Hücre Tipine Göre)</a></li>
+    <li><a href="#b5">Kanser Nedenleri & Somatik Mutasyonlar</a></li>
+    <li><a href="#b6">Kanser Hücresinin 6 Özelliği (Hallmarks)</a></li>
+    <li><a href="#b7">Onkogenler & Tümör Baskılayıcı Genler (Rb, p53, Retinoblastoma)</a></li>
+    <li><a href="#b8">DNA Metilasyonu, Telomer & Senesans</a></li>
+  </ol>
+</nav>
+
+<!-- ============ B1 ============ -->
+<h2 id="b1">1️⃣ Kanser Nedir? & Hücresel Temel</h2>
+
+<h3>Tanım</h3>
+<ul>
+  <li>Kanser, tıbbi olarak <strong>Malign Neoplazm (Malignant Neoplasm)</strong> olarak adlandırılır.</li>
+  <li>Vücut hücrelerinin bir kısmının <strong>kontrolsüz büyüyüp (uncontrollably grow)</strong> vücudun diğer bölgelerine <strong>yayıldığı</strong> bir hastalıktır.</li>
+  <li><strong>Düzensiz hücre büyümesi (unregulated cell growth)</strong> içerir.</li>
+  <li>Genellikle <strong>lenfatik sistem (lymphatic system) veya kan dolaşımı (bloodstream)</strong> yoluyla yayılır.</li>
+</ul>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Tüm Kanserlerin 3 Ortak Özelliği</span>
+  Organ tipinden bağımsız, tüm kanserlerin paylaştığı 3 özellik:
+  <ol style="margin:6px 0 0;">
+    <li><strong>Anormal hücre büyümesi (Abnormal cell growth)</strong></li>
+    <li>Diğer dokuları <strong>invaze etme kapasitesi (capacity to invade)</strong></li>
+    <li>Kan/lenf yoluyla <strong>uzak organlara yayılma (spread to distant organs)</strong></li>
+  </ol>
+</div>
+
+<h3>Kanserin Hücresel Temeli (Cellular Basis)</h3>
+<ul>
+  <li>Kanser, <strong>anormal ve kontrolsüz büyümeyle</strong> karakterize hastalıklar topluluğudur ve <strong>normal büyüme kontrolünün kaybından</strong> doğar.</li>
+  <li>Normal dokuda, yeni hücre oluşumu ile yaşlı hücre ölümü <strong>dengededir (balance)</strong>. Kanserde bu denge <strong>bozulur</strong>.</li>
+  <li>Bu bozulmanın nedenleri: kontrolsüz hücre büyümesi, hücrenin <strong>apoptoza (apoptosis)</strong> uğrama yeteneğinin kaybı, ve <strong>hasar olup onarımın olmaması (damage, no repair)</strong>.</li>
+</ul>
+<p>Normal hücreler hasar gördüğünde ya <strong>apoptoza</strong> girer ya da <strong>hücre onarımına (cell repair)</strong>. Ancak onarım sistemi veya apoptotik mekanizma anormalse → hasarlı/mutasyonlu hücreler anormal büyür ve <strong>tümör (tumor)</strong> geliştirir.</p>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi</span>
+  Diş hekimliğini en çok ilgilendiren kanser <strong>oral skuamöz hücreli karsinom (oral squamous cell carcinoma)</strong>'dur. Ağız mukozasındaki kronik irritasyon (sigara, alkol, kötü protez, betel) → hücre hasarı → onarımsız mutasyon birikimi → kanser zinciri tam olarak bu hücresel temele dayanır. Diş hekimi, rutin muayenede bu lezyonları erken yakalayabilecek ilk hekimdir.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Kanser Temeli</span>
+  <details><summary>Kanserin tıbbi adı nedir ve nasıl yayılır?</summary>
+    <div class="ans"><strong>Malign neoplazm</strong>. Genellikle <strong>lenfatik sistem veya kan dolaşımı</strong> yoluyla yayılır.</div></details>
+  <details><summary>Tüm kanserlerin 3 ortak özelliği nedir?</summary>
+    <div class="ans">1) Anormal hücre büyümesi, 2) diğer dokuları invaze etme, 3) uzak organlara (kan/lenf yoluyla) yayılma.</div></details>
+  <details><summary>Normal dokuda denge nasıl sağlanır ve kanserde bu nasıl bozulur?</summary>
+    <div class="ans">Normal dokuda yeni hücre oluşumu = hücre ölümü (apoptoz) dengesi vardır. Kanserde kontrolsüz büyüme + apoptoz kaybı + onarımsız hasarla bu denge bozulur.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B2 ============ -->
+<h2 id="b2">2️⃣ Tümör Gelişim Basamakları</h2>
+
+<div class="flow">
+  <span>Normal</span><span class="arr">→</span>
+  <span>Hyperplasia</span><span class="arr">→</span>
+  <span>Metaplasia</span><span class="arr">→</span>
+  <span>Dysplasia</span><span class="arr">→</span>
+  <span>Neoplasia / In situ</span><span class="arr">→</span>
+  <span>Malign tümör → Metastasis</span>
+</div>
+
+<table>
+  <tr><th>Basamak</th><th>Tanım</th><th>Sınıf</th></tr>
+  <tr>
+    <td><strong>Hyperplasia (Hiperplazi)</strong></td>
+    <td>Hücre <strong>sayısında artışla</strong> karakterize anormal doku büyümesi. Genellikle hormonal dengesizlik veya irritan faktörlerden kaynaklanır. Genetik olarak değişmiş/anormal hücreler kontrolsüz ve hızlı büyür.</td>
+    <td rowspan="2"><span class="pill tsg">Benign</span></td>
+  </tr>
+  <tr>
+    <td><strong>Metaplasia (Metaplazi)</strong></td>
+    <td>Olgun bir hücre tipinin (epitelyal veya mezenkimal) <strong>başka bir hücre tipine dönüşmesi</strong>. Genellikle tekrarlayan doku hasarına (inflamasyon, mekanik/kimyasal irritasyon, enfeksiyon) yanıt olarak; amaç daha iyi bir savunma durumuna geçmektir.</td>
+  </tr>
+  <tr>
+    <td><strong>Dysplasia (Displazi)</strong></td>
+    <td>Bir doku/organda <strong>anormal hücre tiplerinin</strong> ve anormal hücre büyümesinin varlığı. Bu hücreler genellikle kanseröz değildir ama bazen kanserleşebilir. Aşırı büyümüş hücreler orijinal formunu değiştirir; <strong>olgun hücreden çok immatür hücre</strong> içerir.</td>
+    <td><span class="pill onco" style="background:#a06c00;">Premalign</span></td>
+  </tr>
+  <tr>
+    <td><strong>Neoplasia / Metastasis</strong></td>
+    <td>Malign neoplazi ve metastaz aşaması.</td>
+    <td><span class="pill onco">Malign</span></td>
+  </tr>
+</table>
+
+<h3>İlerleyen Aşamalar</h3>
+<ul>
+  <li><strong>In situ kanser (In situ cancer):</strong> Hücrelerin <strong>olgunlaşmadığı (maturation yok)</strong>, doku kimliğini kaybettiği ve düzensiz büyüdüğü neoplastik lezyon. Henüz sınırlıdır.</li>
+  <li><strong>Malign tümör:</strong> Aşırı büyümüş hücreler <strong>bazal membranı (basement membrane) yırtarak</strong> diğer alanları invaze eder.</li>
+  <li><strong>Metastaz (Metastasis):</strong> Kanser hücrelerinin <strong>lenfatik sistem ve kan dolaşımıyla uzak bölgelere</strong> ulaşmasıyla oluşur.</li>
+</ul>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Basamakların Mantığı</span>
+  <strong>Hyperplasia (sayı artar) → Metaplasia (tip değişir) → Dysplasia (immatür/anormal hücre, premalign) → In situ (bazal membran sağlam) → Malign (bazal membran yırtılır) → Metastasis (uzak yayılım).</strong> Bazal membranın yırtılması, "in situ"dan "invaziv malign"e geçişin kritik eşiğidir.
+</div>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Tümör Basamakları</span>
+  <strong>"Hi-Me-Dis-Ne"</strong> → <em>"Hiç Mesele Değil Nasılsa"</em>: <strong>Hi</strong>perplasia → <strong>Me</strong>taplasia → <strong>Dis</strong>plasia → <strong>Ne</strong>oplasia. <br>
+  Sırrı hatırla: <em>"Sayı → Tip → Şekil bozulur → Kanser"</em>.
+</div>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi — Lökoplaki & Displazi</span>
+  Ağızda gördüğünüz <strong>lökoplaki (leukoplakia)</strong> ve <strong>eritroplaki (erythroplakia)</strong>, displazi aşamasının klinik karşılığı olabilen <strong>premalign lezyonlardır</strong>. Displazi derecesi (hafif/orta/ağır) biyopsi ile belirlenir ve malign dönüşüm riskini gösterir. Diş hekimi bu lezyonları erken tanıyıp biyopsiye yönlendirerek hayat kurtarabilir.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Tümör Basamakları</span>
+  <details><summary>Hyperplasia, metaplasia ve dysplasia arasındaki fark nedir?</summary>
+    <div class="ans"><strong>Hyperplasia:</strong> hücre sayısında artış. <strong>Metaplasia:</strong> bir hücre tipinin başka tipe dönüşmesi. <strong>Dysplasia:</strong> anormal/immatür hücreler, premalign.</div></details>
+  <details><summary>In situ kanser ile invaziv malign tümör arasındaki kritik fark nedir?</summary>
+    <div class="ans">Malign tümörde hücreler <strong>bazal membranı yırtarak invaze eder</strong>; in situ kanserde lezyon henüz bu sınırı aşmamıştır.</div></details>
+  <details><summary>Metastaz hangi yollarla gerçekleşir?</summary>
+    <div class="ans">Lenfatik sistem ve kan dolaşımı (ayrıca vücut boşlukları). Genel kural: <strong>karsinom → lenf yoluyla, sarkom → kan yoluyla</strong>.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B3 ============ -->
+<h2 id="b3">3️⃣ Benign vs Malign · Klonal Seleksiyon & Monoklonal Köken</h2>
+
+<h3>Benign vs Malign Neoplazmlar</h3>
+<table>
+  <tr><th>Özellik</th><th><span class="pill tsg">Benign Neoplazm</span></th><th><span class="pill onco">Malign Neoplazm (Kanser)</span></th></tr>
+  <tr><td>Davranış</td><td>Mikroskobik/makroskobik olarak "sessiz" kabul edilir</td><td>Komşu doku ve organları invaze eder, onları yok eder</td></tr>
+  <tr><td>Yayılım</td><td>Belirli bir yerde <strong>lokalizedir</strong>, yayılmaz</td><td>Diğer organlara yayılır (<strong>metastasis</strong>) ve ölüme neden olur</td></tr>
+  <tr><td>Prognoz</td><td>Lokal olarak iyi huylu, hasta sağkalımı iyi</td><td>Ölümcül olabilir</td></tr>
+  <tr><td>Örnek</td><td><strong>Fibroma</strong> (bağ dokusu tümörü), <strong>Lipoma</strong> (yağ bezi)</td><td>Karsinom, sarkom vb.</td></tr>
+</table>
+
+<h3>Tümör Başlangıcı, İlerlemesi ve Klonal Seleksiyon</h3>
+<ul>
+  <li><strong>Tümör başlangıcı (Tumor onset):</strong> Tek bir hücrenin çoğalmasına neden olan genetik bir değişikliğin (mutasyon) sonucudur.</li>
+  <li><strong>Tümör ilerlemesi (Tumor progression):</strong> Hücre proliferasyonuna paralel olarak tümör hücre popülasyonu büyür ve bu popülasyondaki diğer hücrelerde de mutasyonlar gelişir. Bazı mutasyonlar hücreye <strong>avantaj</strong> sağlar (örn. daha hızlı proliferasyon) ve tümör klonunda <strong>baskın (dominant)</strong> hale gelir.</li>
+  <li><strong>Klonal seleksiyon (Clonal selection):</strong> Bazı hücreler hızlı proliferasyon, invazyon, metastaz gibi özellikler kazandığından <strong>yeni avantajlı bir hücre klonu</strong> ortaya çıkar. Bu süreç tümör gelişimi boyunca devam eder → tümörler daha hızlı çoğalır ve malign özellikler kazanır.</li>
+</ul>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Monoklonal Köken</span>
+  <strong>Çoğu kanser TEK bir anormal hücreden köken alır (monoclonal origin).</strong> Bu hücre kalıtsal değişiklikler taşır; bölünmeye devam ettikçe diğer hücrelere de kalıtsal değişiklikler aktarır. <strong>Tümör promotörü (tumor promoter)</strong>, mutant hücre popülasyonunu genişleten lokal bir ortam yaratarak ilerlemeyi hızlandırır.
+</div>
+
+<p>Tümör gelişiminin her aşamasında <strong>ek mutasyonlar veya epigenetik değişiklikler</strong> kanser hücrelerinin evrimleşmesini sağlar. Bu hücreler komşu hücrelere göre <strong>seçici avantaj (selective advantage)</strong> kazanır; <strong>düşük oksijen (hypoxia) ve kötü beslenme koşullarında bile</strong> hayatta kalma fırsatı bulur. Ortama en iyi adapte olan hücre hattı bölünmeye devam ederek lezyonda baskın grup olur.</p>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Benign vs Malign & Klonal Evrim</span>
+  <strong>"BeniGN = İyi (Good, lokalize), MaliGN = kötü (yayılır)"</strong>. <br>
+  <strong>Klonal seleksiyon = Darwin'in doğal seçilimi tümör içinde</strong>: en avantajlı klon "kazanır" ve baskınlaşır. <br>
+  Köken: <em>"Tek kötü hücreden başlar (monoklonal), promotör genişletir"</em>.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Benign/Malign & Klonal</span>
+  <details><summary>Benign ve malign neoplazm arasındaki temel farklar nelerdir?</summary>
+    <div class="ans"><strong>Benign:</strong> lokalize, yayılmaz, iyi prognoz (fibroma, lipoma). <strong>Malign:</strong> invaze eder, metastaz yapar, ölümcül olabilir.</div></details>
+  <details><summary>Klonal seleksiyon (clonal selection) nedir?</summary>
+    <div class="ans">Tümör içinde hızlı proliferasyon/invazyon/metastaz gibi avantajlı özellikler kazanan yeni hücre klonlarının seçilip baskınlaşması. Tümörün giderek daha malign olmasını sağlar.</div></details>
+  <details><summary>Kanser kaç hücreden köken alır ve tumor promoter ne yapar?</summary>
+    <div class="ans">Çoğu kanser <strong>tek bir anormal hücreden</strong> (monoklonal). Tumor promoter, mutant hücre popülasyonunu genişleten lokal ortam yaratarak ilerlemeyi artırır.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B4 ============ -->
+<h2 id="b4">4️⃣ Kanser Sınıflandırması (Doku/Hücre Tipine Göre)</h2>
+
+<table>
+  <tr><th>Tip</th><th>Köken</th><th>Örnek</th></tr>
+  <tr><td><strong>1. Carcinoma</strong></td><td>Deri veya iç organları kaplayan dokular (<strong>epitelyal</strong>)</td><td>Adenocarcinoma (glandüler yapıdan köken alan malign epitelyal tümör), özofagus kanseri, kolorektal kanser</td></tr>
+  <tr><td><strong>2. Sarcoma</strong></td><td>Kemik, kıkırdak, yağ, kas, kan damarı veya diğer <strong>bağ/destek dokusu</strong></td><td>Osteosarkom vb.</td></tr>
+  <tr><td><strong>3. Leukemia</strong></td><td>Kan yapıcı dokular (kemik iliği) — çok sayıda anormal kan hücresi üretimi</td><td>Lösemiler</td></tr>
+  <tr><td><strong>4. Lymphoma & Myeloma</strong></td><td><strong>İmmün sistem</strong> hücreleri</td><td>Lenfoma, myeloma</td></tr>
+  <tr><td><strong>5. CNS cancer</strong></td><td>Beyin ve omurilik dokusu</td><td>Glioma vb.</td></tr>
+  <tr><td><strong>6. Germ cell tumor</strong></td><td><strong>Totipotent hücreler</strong>; erişkinde en sık testis & over, çocukta kuyruk sokumu ucu</td><td>Germ hücreli tümörler</td></tr>
+  <tr><td><strong>7. Blastic tumor / Blastoma</strong></td><td><strong>İmmatür/embriyonik dokuya benzeyen</strong> tümör</td><td>Retinoblastoma, nöroblastoma</td></tr>
+</table>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Metastaz Yolu & İsimlendirme</span>
+  <ul style="margin:6px 0 0;">
+    <li><strong>Carcinoma → lenfatik (lymphatic) yolla</strong> metastaz yapar.</li>
+    <li><strong>Sarcoma → kan dolaşımı (bloodstream) yoluyla</strong> metastaz yapar.</li>
+    <li>İsimlendirme paralelliği: <strong>Adenoma = benign epitelyal tümör; Adenocarcinoma = malign epitelyal tümör.</strong> ("-oma" çoğunlukla benign, "-carcinoma/-sarcoma" malign.)</li>
+  </ul>
+</div>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Kanser Tipleri</span>
+  <strong>Carcinoma = Cilt/epitel (C-C)</strong>; <strong>Sarcoma = destek doku (kemik/kas)</strong>; <strong>Leukemia = "leuko"=beyaz=kan</strong>; <strong>Lymphoma = lenf/immün</strong>; <strong>Blastoma = "blast"=immatür/embriyonik</strong>. <br>
+  Metastaz: <em>"CarcinomA → LenfA; SarComa → Cana (kan)"</em>.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Sınıflandırma</span>
+  <details><summary>Carcinoma ve sarcoma sırasıyla hangi dokulardan köken alır ve nasıl metastaz yapar?</summary>
+    <div class="ans"><strong>Carcinoma:</strong> epitelyal doku → lenf yoluyla metastaz. <strong>Sarcoma:</strong> bağ/destek dokusu → kan yoluyla metastaz.</div></details>
+  <details><summary>Adenoma ile adenocarcinoma arasındaki fark nedir?</summary>
+    <div class="ans"><strong>Adenoma:</strong> benign epitelyal (glandüler) tümör. <strong>Adenocarcinoma:</strong> malign epitelyal tümör.</div></details>
+  <details><summary>Blastoma ve germ cell tümör neyden köken alır?</summary>
+    <div class="ans">Blastoma → immatür/embriyonik dokuya benzeyen tümör. Germ cell tümör → totipotent hücreler (erişkin: testis/over).</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B5 ============ -->
+<h2 id="b5">5️⃣ Kanser Nedenleri & Somatik Mutasyonlar</h2>
+
+<h3>Somatik Mutasyonlar</h3>
+<p>Anormal bir hücrenin tümör dokusu oluşturması için kalıtsal değişiklikleri sonraki kuşak hücrelere aktarması gerekir. Bu kalıtsal değişiklikler iki şekilde olur:</p>
+<ul>
+  <li><strong>Genetik değişiklik (genetic change):</strong> DNA dizisinde.</li>
+  <li><strong>Epigenetik değişiklik (epigenetic change):</strong> DNA dizisi değişmeden gen ifadesinde.</li>
+</ul>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat — DNA Onarım Sistemi Mutasyonu</span>
+  Eğer <strong>DNA onarım sistemindeki bir mutasyon kalıtılırsa</strong>, mutasyon hızı giderek artar. Klasik örnek: <strong>Xeroderma pigmentosum (XP)</strong> — UV'nin neden olduğu DNA onarım sistemi mutasyonları nedeniyle bu hastalar <strong>cilt kanserlerine yatkındır</strong>. (Önceki derslerle bağ: DNA onarımı = proofreading + mismatch repair.)
+</div>
+
+<h3>Kanser Nedenleri (Causes of Cancer)</h3>
+<p>Çoğu kanser hücresi, normal hücrelere göre hem DNA dizisi hem protein ifadesi açısından mutasyon gösterir. <strong>Mutajenler (mutagens) → karsinogenezle (carcinogenesis) ilişkilidir.</strong></p>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Çevresel vs Genetik Nedenler (KRİTİK ORANLAR!)</span>
+  <ul style="margin:6px 0 0;">
+    <li><strong>Çevresel (Environmental) nedenler: %90-95</strong></li>
+    <li><strong>Genetik (Genetic) nedenler: %5-10</strong></li>
+  </ul>
+  Çevresel nedenlerin dağılımı: <strong>Diyet & obezite %30-35</strong> (en büyük), <strong>Tütün (tobacco) %25-30</strong>, <strong>Enfeksiyon %15-20</strong>, <strong>Radyasyon %10</strong>, ayrıca stres ve fiziksel inaktivite.
+</div>
+
+<h3>Kanser Neden Bu Kadar Geç Gelişir? (Latency)</h3>
+<p>Bilinen faktörlere bağlı kanserlerde hastalık, faktöre <strong>uzun süreli maruziyet</strong> sonucu gelişir:</p>
+<ul>
+  <li>Sigara içen birinde akciğer kanseri insidansı, yaklaşık <strong>20 yıl</strong> içmedikçe abartılı artış göstermez.</li>
+  <li>Hiroşima ve Nagazaki atom bombalarından sonra lösemilerde artış, yaklaşık <strong>5 yıl</strong> sonrasına kadar net görülmedi.</li>
+  <li>Kimya endüstrisi işçilerinde <strong>2-naftilamin (2-naphthylamine)</strong> maruziyeti → maruziyet süresi 10, 20, 30 yıl arttıkça <strong>mesane kanseri (bladder cancer)</strong> sıklığı arttı.</li>
+</ul>
+<p><strong>Neden bu kadar uzun sürer?</strong> Hücrelerin hücre bölünmesini kontrol eden karmaşık düzenleyici mekanizmaları vardır. Bu kontrol mekanizmaları olmasaydı DNA dizisinde kaçınılmaz hatalar olur ve insan sağkalımı çok kısa olurdu. Kanser hücreleri, <strong>savunma sistemlerindeki hatalar</strong> nedeniyle normal sınırları aşar.</p>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi — Tütün, Alkol & Latency</span>
+  Oral kanserin en büyük risk faktörleri <strong>tütün ve alkoldür</strong> (sinerjik etki). "Latency (gecikme)" prensibi diş hekimliğinde önemlidir: yıllarca tütün kullanan hastalarda mukozal değişiklikler yavaş gelişir, bu yüzden <strong>düzenli oral kanser taraması</strong> ve hastayı bırakmaya teşvik kritiktir. Erken displazi yakalanırsa malign dönüşüm önlenebilir.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Nedenler</span>
+  <details><summary>Kanserlerin yüzde kaçı çevresel, yüzde kaçı genetik nedenlidir?</summary>
+    <div class="ans"><strong>%90-95 çevresel, %5-10 genetik.</strong> En büyük çevresel pay diyet & obezite (%30-35), ardından tütün (%25-30).</div></details>
+  <details><summary>Xeroderma pigmentosum neden cilt kanserine yatkınlık yaratır?</summary>
+    <div class="ans">UV'nin neden olduğu hasarı onaramayan, kalıtsal bir <strong>DNA onarım sistemi mutasyonu</strong> taşırlar → mutasyon hızı artar.</div></details>
+  <details><summary>Kanser gelişiminin uzun sürmesi (latency) neyi yansıtır? Bir örnek verin.</summary>
+    <div class="ans">Mutasyonların kademeli birikimini ve uzun süreli maruziyet gereğini. Örn: sigarada ~20 yıl, atom bombası lösemisinde ~5 yıl, 2-naftilamin mesane kanserinde maruziyet süresiyle artan risk.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B6 ============ -->
+<h2 id="b6">6️⃣ Kanser Hücresinin 6 Özelliği (Features / Hallmarks)</h2>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — 6 Özellik</span>
+  <ol style="margin:6px 0 0;">
+    <li><strong>Bölünme sinyali üretimi & sınırsız bölünme potansiyeli</strong> (production of division signals & unlimited division)</li>
+    <li><strong>Kontakt inhibisyon kaybı (Loss of contact inhibition)</strong></li>
+    <li><strong>Apoptozdan kaçış (Escape from apoptosis)</strong></li>
+    <li><strong>Anjiyogenez (Angiogenesis)</strong></li>
+    <li><strong>Metastaz (Metastasis)</strong></li>
+    <li><strong>Telomeraz aktivitesi (Telomerase activity)</strong></li>
+  </ol>
+</div>
+
+<h3>Detaylar</h3>
+<ul>
+  <li><strong>Serbest büyüme & bölünme:</strong> Kanser hücreleri normal hücrelerden daha serbest büyür ve çoğalır; hücre dışından gelen, bölünmeyi <strong>inhibe eden sinyallere duyarsızdır (insensitive)</strong>.</li>
+  <li><strong>Apoptozdan kaçış:</strong> Programlı hücre ölümü (apoptosis) bu hücrelerde normal hücrelere göre daha az görülür. Stres ve DNA hasarında bölünmeyi durduran bazı hücre içi kontrol mekanizmaları aktive olmaz.</li>
+  <li><strong>Kontakt inhibisyon kaybı:</strong> Normal hücreler kabı tek katmanla kapladıklarında çoğalmayı durdurur (<strong>contact inhibition</strong>). Kanser hücreleri bu kısıtlamaları yok sayar ve <strong>üst üste yığılarak</strong> büyümeye devam eder.</li>
+  <li><strong>Büyüme faktörü ihtiyacı az:</strong> Kanser hücrelerinin büyüme faktörlerine (growth factors) daha az ihtiyacı vardır → in vivo ve in vitro kontrolsüz çoğalabilirler. Bazen ihtiyaç duydukları büyüme faktörlerini kendileri salgılar → <strong>otokrin proliferasyon uyarımı (autocrine proliferation stimulation)</strong>.</li>
+  <li><strong>Anjiyogenez:</strong> Kanser hücreleri, <strong>yeni kan damarı oluşumunu (new blood vessels)</strong> uyaran büyüme faktörleri salgılar.</li>
+  <li><strong>İnvazyon & metastaz:</strong> Dokudan ayrılıp (invasion) başka bölgelere göç ederek orada çoğalır ve yaşar (metastasis).</li>
+  <li><strong>Telomeraz:</strong> Süreklilik sağlamak için <strong>telomeraz (telomerase)</strong> üretir veya başka yollar bulur.</li>
+</ul>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Apoptoz + Bölünme Dengesi</span>
+  Tümörigenez için iki yol vardır: <strong>artmış hücre bölünmesi</strong> VEYA <strong>azalmış apoptoz</strong> — her ikisi de hücre sayısını artırır. Normal dokuda apoptoz, hücre bölünmesini dengeleyerek homeostazı korur; kanserde bu denge bozulur.</div>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — 6 Hallmark</span>
+  <strong>"Sınırsız Kontakt Apoptoz Anjiyo Metastaz Telomeraz"</strong> → <em>"Sınırsız Kanser Açıkça Affetmez, Metastaz Tutmaz"</em> = <strong>S-K-A-A-M-T</strong>. <br>
+  Basit hatırlatma: kanser hücresi <em>"durmadan bölünür (1), komşuya aldırmaz (2), ölmez (3), kendi damarını çeker (4), göç eder (5), ölümsüzleşir (6)"</em>.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Hallmarks</span>
+  <details><summary>Kanser hücresinin 6 temel özelliğini sayın.</summary>
+    <div class="ans">1) Sınırsız bölünme/bölünme sinyali üretimi, 2) kontakt inhibisyon kaybı, 3) apoptozdan kaçış, 4) anjiyogenez, 5) metastaz, 6) telomeraz aktivitesi.</div></details>
+  <details><summary>Contact inhibition nedir ve kanser hücrelerinde ne olur?</summary>
+    <div class="ans">Normal hücreler komşu hücrelerle temas edince çoğalmayı durdurur. Kanser hücreleri bunu yok sayıp <strong>üst üste yığılarak</strong> büyümeye devam eder.</div></details>
+  <details><summary>Autocrine proliferation stimulation nedir?</summary>
+    <div class="ans">Kanser hücresinin, çoğalmak için ihtiyaç duyduğu <strong>büyüme faktörlerini kendisinin salgılaması</strong>.</div></details>
+  <details><summary>Tümörigeneze yol açan iki temel dengesizlik nedir?</summary>
+    <div class="ans">Artmış hücre bölünmesi ve/veya azalmış apoptoz — her ikisi de hücre sayısını artırır.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B7 ============ -->
+<h2 id="b7">7️⃣ Onkogenler & Tümör Baskılayıcı Genler</h2>
+
+<h3>Patofizyoloji: İki Gen Sınıfı</h3>
+<p>Kanser, <strong>doku büyüme regülasyonunun başarısızlığıyla</strong> karakterizedir. Hücre büyümesini ve farklılaşmasını düzenleyen genler değiştiğinde normal hücreler kanser hücresine dönüşür.</p>
+<table>
+  <tr><th></th><th><span class="pill onco">Oncogenes (Onkogenler)</span></th><th><span class="pill tsg">Tumor Suppressor Genes (TSG)</span></th></tr>
+  <tr><td>İşlev</td><td>Hücre <strong>büyümesini ve üremesini teşvik eder</strong> (gaz pedalı)</td><td>Hücre bölünmesini <strong>inhibe eder</strong>, hücre sağkalımını yönetir (fren)</td></tr>
+  <tr><td>Kanser nasıl olur?</td><td>Normal onkogenin <strong>uygunsuz aşırı ifadesi (overexpression)</strong></td><td>TSG'nin <strong>az ifadesi (underexpression) veya inaktivasyonu</strong></td></tr>
+</table>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Proto-onkogen vs Onkogen</span>
+  <strong>Onkogenler, proto-onkogenlerin (proto-oncogenes) mutant formlarıdır.</strong> Proto-onkogen normaldir (gaz pedalı); mutasyona uğrayınca onkogen olur ve <strong>anormal hücre bölünmesini ve tümör oluşumunu teşvik eder</strong>. Genetik değişiklikler mutasyonla (nükleotid dizisi değişimi) veya mitoz hatalarıyla tüm kromozom kazanma/kaybetme şeklinde olabilir.
+</div>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Onkogen vs TSG</span>
+  <strong>"Onkogen = gaz pedalı (basınca hızlanır → aşırı ifade kanser yapar)"</strong>. <br>
+  <strong>"TSG = fren (bozulursa/kaybolursa araba durmaz → kanser)"</strong>. <br>
+  <em>Onkogen aktivasyonu (kazanım) + TSG inaktivasyonu (kayıp) = kanser.</em>
+</div>
+
+<h3>Tümör Baskılayıcı Genler (TSG)</h3>
+<table>
+  <tr><th>Gen</th><th>İşlev</th><th>İlişkili Kanser</th></tr>
+  <tr>
+    <td><strong>Rb (RB1)</strong></td>
+    <td>Nükleer protein kodlar; <strong>G1 fazında hücre döngüsü kontrol noktası (checkpoint)</strong> görevi görür</td>
+    <td><strong>Retinoblastoma</strong> (RB1 mutasyonu)</td>
+  </tr>
+  <tr>
+    <td><strong>p53</strong></td>
+    <td><strong>"Genom bekçisi" (genome guardian)</strong>; hücre döngüsü kontrolü ve apoptozda görev alır</td>
+    <td><strong>Tüm kanserlerin %50'sinden sorumlu olabilir</strong></td>
+  </tr>
+</table>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi — p53 & Oral Kanser</span>
+  <strong>p53 ("genom bekçisi"), oral skuamöz hücreli karsinomda en sık mutasyona uğrayan gendir.</strong> Tütün/alkol kaynaklı DNA hasarı p53'ü inaktive eder → hücre döngüsü ve apoptoz kontrolü kaybolur. Tüm kanserlerin yarısında rol oynaması, p53'ü neden bu kadar önemli kıldığını gösterir. (Geçen derslerden hatırlayın: asbest de p53'ü mutasyona uğratır.)
+</div>
+
+<h3>Retinoblastoma & İki-Vuruş (Two-Hit) Hipotezi</h3>
+<p>İlk tanımlanan TSG, çocukluk çağı göz tümörü <strong>retinoblastoma</strong> çalışmalarıyla keşfedildi. Retinoblastlardan köken alan agresif bir kanserdir.</p>
+<ul>
+  <li>Olguların yaklaşık <strong>%40'ı ailesel (familial)</strong> ve <strong>otozomal dominant (autosomal dominant)</strong> özellik olarak kalıtılır.</li>
+  <li><strong>Ailesel olgular sıklıkla bilateraldir (iki taraflı).</strong></li>
+  <li><strong>Sporadik olgular her zaman unilateraldir (tek taraflı).</strong></li>
+  <li><strong>Bilateral olgularda tek mutasyon yeterlidir;</strong> ama <strong>unilateral olgularda mutasyonlar her iki allelde de oluşmalıdır.</strong></li>
+</ul>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Knudson Two-Hit Paradoksu (ÇOK KRİTİK!)</span>
+  Tümör baskılayıcılar <strong>fenotipik düzeyde RESESİF</strong> davranır (kanser gelişmesi için <strong>her iki allel de mutasyona uğramalı/kaybolmalı</strong>). <br>
+  ANCAK genotipik düzeyde, kalıtılan <strong>"ilk vuruş" (first hit) germline mutasyon, OTOZOMAL DOMİNANT</strong> şekilde aktarılır. <br>
+  Yani: ailesel olguda birey zaten "ilk vuruşu" doğuştan taşır → ikinci vuruş (somatik) kolayca olur → <strong>erken, bilateral</strong> tümör. Sporadik olguda her iki vuruş da somatik olmalı → <strong>geç, unilateral</strong>.
+</div>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Two-Hit</span>
+  <strong>"Aileselde bir vuruş hazır → çift göz (bilateral), erken"</strong> · <strong>"Sporadikte iki vuruş gerekir → tek göz (unilateral), geç"</strong>. <br>
+  Paradoks: <em>"Fenotipte resesif (iki allel lazım), kalıtımda dominant (tek germline mutasyon yeter)"</em>.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Onkogen & TSG</span>
+  <details><summary>Onkogen ile proto-onkogen arasındaki temel fark nedir?</summary>
+    <div class="ans">Onkogen, proto-onkogenin <strong>mutant formudur</strong>. Proto-onkogen normaldir; mutasyonla onkogene dönüşüp anormal bölünme/tümör oluşumunu teşvik eder.</div></details>
+  <details><summary>Rb ve p53 genlerinin işlevleri nelerdir?</summary>
+    <div class="ans"><strong>Rb:</strong> G1 fazı kontrol noktası (retinoblastoma). <strong>p53:</strong> "genom bekçisi", hücre döngüsü + apoptoz; tüm kanserlerin ~%50'sinde rol alır.</div></details>
+  <details><summary>Retinoblastoma'da ailesel ve sporadik olgular nasıl farklılaşır?</summary>
+    <div class="ans"><strong>Ailesel (%40, AD):</strong> sıklıkla bilateral, tek mutasyon yeterli (ilk vuruş kalıtsal). <strong>Sporadik:</strong> her zaman unilateral, her iki allelde mutasyon gerekir.</div></details>
+  <details><summary>Two-hit hipotezinin paradoksu nedir?</summary>
+    <div class="ans">TSG'ler <strong>fenotipik düzeyde resesif</strong> (kanser için iki allel de gitmeli), ama kalıtılan ilk vuruş <strong>genotipik düzeyde otozomal dominant</strong> aktarılır.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B8 ============ -->
+<h2 id="b8">8️⃣ DNA Metilasyonu, Telomer & Senesans</h2>
+
+<h3>DNA Metilasyonu ve Kanser</h3>
+<p>TSG'lerde bulunan CpG metilasyonunun 3 anahtar özelliği:</p>
+<ul>
+  <li>Birçok CpG adası <strong>kanserde yüksek metillenmişken</strong>, normal dokuda çok nadiren metillenmiştir.</li>
+  <li>Çeşitli genlerde oluşan mutasyonun aksine, DNA metilasyonundaki değişiklikler genlerin <strong>spesifik bölgelerinde transkripsiyon kaybıyla</strong> ilişkilidir.</li>
+  <li>Doğru genlerin doğru zamanda/şekilde çalışması kritik olduğundan gen ifadesi farklı aşamalarda düzenlenir; bu genetik programın bozulmasıyla kanser dahil birçok poligenik hastalık oluşur.</li>
+</ul>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — TSG Hipermetilasyonu</span>
+  Kanser sürecinde, kanser hücrelerinin aşması gereken son engel olan <strong>TSG'ler, metilasyon yoluyla susturulur (hipermetilasyon → transkripsiyon kaybı)</strong>. Yani metilasyon, mutasyon olmadan da TSG'yi devre dışı bırakarak karsinogeneze katkıda bulunur. (5. dersle bağ: metilasyon = gen susturma.)
+</div>
+
+<h3>Telomerler, Senesans ve Kanser</h3>
+<ul>
+  <li>Telomerler, ökaryotik kromozomların uçlarını <strong>koruyan ve çoğaltan</strong> dizilerdir.</li>
+  <li>Telomerik diziler birbirine benzer (örn. <strong>A(T)GGGTT</strong>), binlerce kez tekrarlanır ve tek iplikli (single-stranded) DNA olarak biter. Telomer uzunluğu <strong>&lt;4-7 kb</strong>.</li>
+  <li>Telomer DNA'sı kendi üzerine kıvrılarak dairesel yapı oluşturur ve kromozom uçlarını koruyan proteinlerle etkileşir.</li>
+  <li><strong>Telomeraz (telomerase)</strong>, enzim kompleksinin parçası olarak telomerik DNA'ya tamamlayıcı <strong>kendi RNA molekülünü taşır</strong>; bu RNA, öncü ipliğin (leading strand) bir tekrar birimi uzatılması için <strong>kalıp (template)</strong> görevi görür.</li>
+</ul>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Telomeraz & Ölümsüzleşme</span>
+  <ul style="margin:6px 0 0;">
+    <li><strong>Çoğu somatik hücre, telomer uzunluğunu koruyacak yeterli telomeraza SAHİP DEĞİLDİR.</strong></li>
+    <li>Proliferasyonla telomerler kısalır; <strong>kritik uzunluğa ulaşınca senesans (senescence) sinyali</strong> verir → hücre bölünmeyi durdurur.</li>
+    <li><strong>İnsan tümörlerinin %90'ında telomeraz yüksek aktiftir</strong> → senesans sinyali atlanır, hücre <strong>sürekli bölünür (ölümsüzleşir)</strong>.</li>
+    <li><strong>Telomeraz inhibisyonu, kanser tedavisinde kritik bir konudur.</strong></li>
+  </ul>
+</div>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Telomer & Senesans</span>
+  <strong>"Telomer = ayakkabı bağı ucu (plastik koruyucu); her bölünmede kısalır"</strong>. <br>
+  <strong>"Normal hücre: telomeraz yok → telomer biter → senesans (emeklilik)"</strong>. <br>
+  <strong>"Kanser hücresi: telomeraz açık (%90) → ölümsüz"</strong>. <br>
+  Tedavi mantığı: <em>"Telomerazı kapat → kanser hücresi yaşlanıp ölsün"</em>.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Metilasyon, Telomer & Senesans</span>
+  <details><summary>Kanserde TSG'ler metilasyonla nasıl etkilenir?</summary>
+    <div class="ans">TSG promotorlarındaki CpG adaları <strong>hipermetillenir</strong> → transkripsiyon kaybı → TSG susar → karsinogenez ilerler. (Normal dokuda bu bölgeler nadiren metillidir.)</div></details>
+  <details><summary>Normal somatik hücrelerde telomerler kritik uzunluğa ulaşınca ne olur?</summary>
+    <div class="ans"><strong>Senesans (senescence) sinyali</strong> verilir → hücre bölünmeyi durdurur. Çünkü çoğu somatik hücrede yeterli telomeraz yoktur.</div></details>
+  <details><summary>İnsan tümörlerinin yüzde kaçında telomeraz aktiftir ve bu neden önemlidir?</summary>
+    <div class="ans"><strong>%90.</strong> Aktif telomeraz senesansı atlatıp hücreyi ölümsüzleştirir; bu yüzden <strong>telomeraz inhibisyonu kanser tedavisinde önemli bir hedeftir</strong>.</div></details>
+  <details><summary>Telomeraz nasıl çalışır?</summary>
+    <div class="ans">Telomerik DNA'ya tamamlayıcı <strong>kendi RNA molekülünü kalıp olarak</strong> kullanarak telomeri tekrar birimleriyle uzatır.</div></details>
+</div>
+
+<hr>
+
+<div class="box spot" style="border-width:3px;">
+  <span class="title">🎯 FİNAL ÖZET — En Kritik 12 Spot</span>
+  <ol style="margin:6px 0 0;">
+    <li>Kanser = malign neoplazm; 3 ortak özellik: anormal büyüme, invazyon, uzak metastaz (kan/lenf).</li>
+    <li>Basamaklar: Hyperplasia (sayı↑) → Metaplasia (tip değişir) → Dysplasia (premalign) → In situ → Malign (bazal membran yırtılır) → Metastasis.</li>
+    <li>Benign = lokalize/iyi prognoz (fibroma, lipoma); Malign = invaze/metastaz/ölümcül.</li>
+    <li>Çoğu kanser monoklonal (tek hücre); klonal seleksiyonla en avantajlı klon baskınlaşır.</li>
+    <li>Carcinoma = epitel (lenf yoluyla metastaz); Sarcoma = bağ doku (kan yoluyla); adenoma benign / adenocarcinoma malign.</li>
+    <li>Nedenler: %90-95 çevresel (diyet-obezite %30-35 en büyük, tütün %25-30), %5-10 genetik.</li>
+    <li>Xeroderma pigmentosum = kalıtsal DNA onarım defekti → cilt kanseri (UV).</li>
+    <li>Latency: sigara ~20 yıl, atom bombası lösemisi ~5 yıl → mutasyon birikimi gerektirir.</li>
+    <li>6 hallmark: sınırsız bölünme, kontakt inhibisyon kaybı, apoptozdan kaçış, anjiyogenez, metastaz, telomeraz.</li>
+    <li>Onkogen = proto-onkogenin mutant formu (gaz pedalı, aşırı ifade); TSG = fren (Rb/G1, p53/genom bekçisi-%50).</li>
+    <li>Retinoblastoma two-hit: fenotipte resesif (2 allel), kalıtımda dominant (ilk vuruş germline) → ailesel bilateral/erken, sporadik unilateral/geç.</li>
+    <li>TSG hipermetilasyonu susturur; somatik hücrede telomer kısalır→senesans, tümörlerin %90'ında telomeraz aktif→ölümsüzleşme.</li>
+  </ol>
+</div>
+
+<footer>
+  🦷 Ders 6 — Cancer Genetics · Final Çalışma Rehberi<br>
+  Açık uçlu kutuların üzerine tıklayarak flashcard cevaplarını görebilirsiniz. Başarılar!
+</footer>
+
+</body>
+</html>

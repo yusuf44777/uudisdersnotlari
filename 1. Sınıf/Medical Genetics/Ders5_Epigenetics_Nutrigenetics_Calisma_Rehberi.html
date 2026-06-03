@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ders 5 — Epigenetics & Nutrigenetics | Final Çalışma Rehberi</title>
+<style>
+  :root{
+    --bg:#0f1117; --card:#1a1d27; --text:#e8eaf0; --muted:#aab0c0;
+    --primary:#6c8cff; --primary-d:#3a55c4;
+    --clinic:#1f7a5a; --clinic-bg:#10271f; --clinic-bd:#2ecc8f;
+    --spot:#b8860b; --spot-bg:#2a2410; --spot-bd:#f1c40f;
+    --warn:#a83232; --warn-bg:#2a1414; --warn-bd:#ff6b6b;
+    --card-bd:#7b4bd6; --card-bg:#1d1530; --card-accent:#b388ff;
+    --mnemo:#0e6e8c; --mnemo-bg:#0d2630; --mnemo-bd:#2bc4e8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:0 16px 80px; background:var(--bg); color:var(--text);
+    font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.7; font-size:17px; max-width:980px; margin:0 auto;
+  }
+  header.hero{
+    background:linear-gradient(135deg,#c0392b,#e67e22 55%,#f1c40f);
+    border-radius:0 0 22px 22px; padding:34px 28px 28px; margin:0 -16px 30px;
+    box-shadow:0 8px 30px rgba(0,0,0,.4);
+  }
+  header.hero h1{margin:0 0 6px; font-size:30px; color:#fff; letter-spacing:.3px;}
+  header.hero p{margin:2px 0; color:#fff7ea; font-size:15px;}
+  header.hero .tag{display:inline-block; background:rgba(255,255,255,.2); padding:3px 12px; border-radius:20px; font-size:13px; margin-top:10px;}
+  h2{
+    font-size:24px; margin:46px 0 14px; padding:12px 18px;
+    background:linear-gradient(90deg,var(--primary-d),transparent);
+    border-left:6px solid var(--primary); border-radius:8px; color:#fff;
+  }
+  h3{font-size:20px; color:var(--primary); margin:30px 0 10px; border-bottom:1px dashed #3a3f52; padding-bottom:6px;}
+  h4{font-size:17px; color:var(--card-accent); margin:20px 0 6px;}
+  p{margin:10px 0;}
+  ul,ol{margin:10px 0 14px; padding-left:26px;}
+  li{margin:6px 0;}
+  strong{color:#fff;}
+  em{color:#cdd3e6;}
+  mark{background:#4a3aff44; color:#dfe4ff; padding:1px 5px; border-radius:4px; border-bottom:2px solid var(--primary);}
+  .toc{background:var(--card); border:1px solid #2a2f3f; border-radius:14px; padding:18px 24px; margin:0 0 20px;}
+  .toc h3{margin-top:0; border:none; color:#fff;}
+  .toc a{color:var(--primary); text-decoration:none;}
+  .toc a:hover{text-decoration:underline;}
+  .toc ol{padding-left:22px;}
+
+  .box{border-radius:12px; padding:14px 18px 14px 16px; margin:18px 0; border-left:6px solid; position:relative;}
+  .box .title{font-weight:700; display:block; margin-bottom:4px; font-size:16px;}
+  .clinic{background:var(--clinic-bg); border-color:var(--clinic-bd);}
+  .clinic .title{color:var(--clinic-bd);}
+  .spot{background:var(--spot-bg); border-color:var(--spot-bd);}
+  .spot .title{color:var(--spot-bd);}
+  .warn{background:var(--warn-bg); border-color:var(--warn-bd);}
+  .warn .title{color:var(--warn-bd);}
+  .mnemo{background:var(--mnemo-bg); border-color:var(--mnemo-bd);}
+  .mnemo .title{color:var(--mnemo-bd);}
+
+  .flash{background:var(--card-bg); border:2px solid var(--card-bd); border-radius:14px; padding:6px 20px 14px; margin:22px 0;}
+  .flash .fhead{font-weight:700; color:var(--card-accent); font-size:15px; letter-spacing:.5px; text-transform:uppercase; display:flex; align-items:center; gap:8px; margin:12px 0 6px;}
+  .flash details{background:#140e22; border-radius:10px; margin:10px 0; padding:2px 0; border:1px solid #3a2a5c;}
+  .flash summary{cursor:pointer; padding:11px 16px; font-weight:600; color:#e8defc; list-style:none;}
+  .flash summary::-webkit-details-marker{display:none;}
+  .flash summary::before{content:"❓ "; }
+  .flash details[open] summary{color:#fff; border-bottom:1px dashed #4a3a6c;}
+  .flash .ans{padding:10px 16px 14px; color:#d7ccee;}
+  .flash .ans::before{content:"✅ "; }
+
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:15px; background:var(--card); border-radius:10px; overflow:hidden;}
+  th,td{padding:10px 12px; text-align:left; border-bottom:1px solid #2a2f3f; vertical-align:top;}
+  th{background:#262b3a; color:var(--primary); font-size:14px; text-transform:uppercase; letter-spacing:.4px;}
+  tr:last-child td{border-bottom:none;}
+  .pct{color:var(--spot-bd); font-weight:700;}
+  hr{border:none; border-top:1px solid #2a2f3f; margin:34px 0;}
+  .pill{display:inline-block; padding:2px 9px; border-radius:6px; font-size:13px; font-weight:700; color:#fff;}
+  .on{background:#1f7a5a;} .off{background:#a83232;}
+  footer{margin-top:50px; text-align:center; color:var(--muted); font-size:13px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>🧬 Ders 5 — Epigenetics & Nutrigenetics</h1>
+  <p>Epigenetik, Nutrigenetik ve Epigenetik Mekanizmalar</p>
+  <p>Dept. of Medical Genetics · Diş Hekimliği 1. Sınıf · Final Hazırlık Rehberi</p>
+  <span class="tag">Türkçe açıklama + korunmuş İngilizce/Latince terminoloji</span>
+</header>
+
+<nav class="toc">
+  <h3>📑 İçindekiler</h3>
+  <ol>
+    <li><a href="#b1">Epigenetik Nedir? (Tanım & Tarihçe)</a></li>
+    <li><a href="#b2">Genome vs. Epigenome</a></li>
+    <li><a href="#b3">Epigenetik Mekanizmalara Genel Bakış (3 Mekanizma)</a></li>
+    <li><a href="#b4">DNA Methylation (DNA Metilasyonu)</a></li>
+    <li><a href="#b5">Histone Modification (Histon Modifikasyonu)</a></li>
+    <li><a href="#b6">Non-coding RNA (Kodlamayan RNA)</a></li>
+    <li><a href="#b7">Nutrigenetik & Nutrigenomik</a></li>
+    <li><a href="#b8">Gen-Diyet-Hastalık Etkileşimleri & Sonuç</a></li>
+  </ol>
+</nav>
+
+<!-- ============ B1 ============ -->
+<h2 id="b1">1️⃣ Epigenetik Nedir? (Tanım & Tarihçe)</h2>
+
+<h3>Tarihçe</h3>
+<p>"Epigenetik" terimi <strong>1942</strong>'de gelişim biyoloğu <strong>Conrad Hal Waddington (1905-1975)</strong> tarafından, <strong>genetik (genetics)</strong> ve <strong>epigenez (epigenesis)</strong> kelimelerinin birleşimiyle oluşturulmuştur: "<strong>Epigenetic landscape (epigenetik manzara)</strong>". Bu, genlerin fenotip üretmek için çevreleriyle nasıl etkileşebileceğine dair kavramsal bir modeldir.</p>
+
+<h3>Tanım</h3>
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Epigenetiğin Özü</span>
+  Epigenetik, <strong>DNA dizisini DEĞİŞTİRMEDEN</strong> gen aktivitelerini düzenleyen olaylardır. Yani: <strong>kromatin yapısındaki kalıtsal değişikliklerle (heritable changes in chromatin structure) gen ifadesinin düzenlenmesidir.</strong> Bu, dersin en temel ve en sık sorulan cümlesidir.
+</div>
+
+<p>Daha ayrıntılı: Epigenetik, DNA ve histonlardaki <strong>kimyasal modifikasyonların</strong>, <strong>genetik yapıyı değiştirmeden</strong> hücre- ve dokuya özgü gen ifade paternlerini nasıl değiştirdiğini inceler. Bu <strong>geri dönüşümlü (reversible)</strong> modifikasyonlar, genomun çeşitli <strong>çevresel faktörlerle (environmental factors)</strong> etkileşimine aracılık eder.</p>
+
+<h3>Temel Kavramlar</h3>
+<ul>
+  <li>İnsan vücudunun somatik hücreleri yaklaşık <strong>20.000 gen</strong> içerir. Vücuttaki 200'den fazla hücre tipinde, farklı hücreye özgü gen setleri transkribe edilirken, genomun geri kalanı <strong>transkripsiyonel olarak inaktiftir</strong>.</li>
+  <li>Epigenetik geçiş, gen ifadesinin <strong>bir kuşaktan diğerine stabil aktarımına</strong> izin veren doğal bir kontrol mekanizmasıdır.</li>
+  <li>Epigenetik işaretler <strong>intergenerasyonel veya transgenerasyonel</strong> olarak; <strong>DNA metilasyonu, histon modifikasyonları ve non-coding RNA</strong> değişiklikleriyle aktarılabilir.</li>
+  <li><strong>Epigenetik özellik (epigenetic trait):</strong> DNA dizisinde değişiklik olmadan, gen ifadesindeki değişikliklerden kaynaklanan, <strong>mitotik ve mayotik olarak kalıtsal, stabil bir fenotiptir</strong>.</li>
+</ul>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Monozigot İkizler Paradoksu</span>
+  Klasik regülasyon mekanizmaları bazı fenotipleri açıklayamaz. <strong>Monozigot (tek yumurta) ikizler özdeş genotipe sahiptir ama sıklıkla farklı fenotip gösterir</strong> (örneğin biri çok daha obez olabilir). Bunun nedeni <strong>epigenetik değişikliklerdir</strong>. Bu, sınavda epigenetiğin "neden var olduğunu" gösteren favori örnektir.
+</div>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi</span>
+  Epigenetik, diş hekimliğinde giderek önem kazanan bir alandır: <strong>periodontal hastalık</strong> ve <strong>oral skuamöz hücreli karsinom (oral cancer)</strong> patogenezinde anormal DNA metilasyon paternleri rol oynar. Aynı genetik yatkınlığa sahip iki kişide, çevresel faktörler (sigara, beslenme, oral hijyen) epigenetik değişikliklerle farklı hastalık seyrine yol açabilir — tıpkı ikiz paradoksu gibi.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Tanım & Tarihçe</span>
+  <details><summary>Epigenetiğin en temel tanımı nedir?</summary>
+    <div class="ans">DNA dizisini değiştirmeden, <strong>kromatin yapısındaki kalıtsal değişikliklerle gen ifadesinin düzenlenmesi</strong>.</div></details>
+  <details><summary>"Epigenetik" terimini kim, ne zaman ortaya attı?</summary>
+    <div class="ans"><strong>Conrad Hal Waddington</strong>, 1942 ("epigenetic landscape" kavramı).</div></details>
+  <details><summary>Monozigot ikizlerin farklı fenotip göstermesi neyi kanıtlar?</summary>
+    <div class="ans">Özdeş genotipe rağmen fenotip farkı → <strong>epigenetik değişikliklerin</strong> rolünü; klasik genetik tek başına fenotipi açıklayamaz.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B2 ============ -->
+<h2 id="b2">2️⃣ Genome vs. Epigenome</h2>
+
+<table>
+  <tr><th>Özellik</th><th>Genome (Genom)</th><th>Epigenome (Epigenom)</th></tr>
+  <tr>
+    <td>Tanım</td>
+    <td>Hücrelerdeki DNA'da bulunan <strong>tüm genetik bilgi</strong></td>
+    <td>DNA'yı ve ilişkili yapıları modifiye eden <strong>kimyasal etiketler zinciri</strong>; DNA dizisinden bağımsız tüm gen ifadesi düzenleyicileri</td>
+  </tr>
+  <tr>
+    <td>Hücre tipine göre</td>
+    <td>Tüm hücre tiplerinde <strong>AYNIDIR (sabit)</strong></td>
+    <td><strong>Hücre tipine özgüdür (cell-type specific)</strong>; yaşam boyu çevresel ipuçlarına yanıt olarak değişir</td>
+  </tr>
+  <tr>
+    <td>Döllenmeden itibaren</td>
+    <td>Yaşam boyu <strong>sabit kalır</strong></td>
+    <td>Çevresel uyaranlara yanıt olarak <strong>yeniden programlanır (epigenetic reprogramming)</strong></td>
+  </tr>
+  <tr>
+    <td>Aktarım</td>
+    <td>Mitoz & mayozla aktarılır</td>
+    <td>Genom gibi; <strong>mitozla yavru hücrelere, mayozla gelecek kuşaklara</strong> aktarılabilir</td>
+  </tr>
+</table>
+
+<p>Bir organizmanın <strong>fenotipi</strong>, <strong>genom ile epigenom arasındaki etkileşimlerin ürünüdür</strong>. Bu yeniden programlama olayları yaşam döngüsü boyunca fenotipik değişikliklere yol açar.</p>
+
+<h3>Epigenetik Mekanizmaların Avantajları</h3>
+<ul>
+  <li>Hücreye <strong>esneklik (flexibility)</strong> kazandırır.</li>
+  <li>Çevresel uyaranlara <strong>yanıt</strong> vermeyi sağlar.</li>
+  <li>Yeniden gelişim ve farklılaşmanın <strong>epigenetik programlamayla</strong> başlaması için önemlidir.</li>
+  <li>Genetik <strong>çeşitliliği artırır</strong>.</li>
+</ul>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat — Epigenomun Anormal Düzenlenmesi</span>
+  Epigenomun anormal düzenlenmesi insan genetik hastalıklarına yol açar: <strong>Prader-Willi sendromu, Angelman sendromu, Beckwith-Wiedemann sendromu</strong> (geçen dersten hatırlayın — imprinting bozuklukları!). Diğer epigenetik durumların kaybı/değişimi <strong>kanserle</strong> sonuçlanır.
+</div>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Genom vs Epigenom</span>
+  <strong>"Genom = Genel/sabit (her hücrede aynı), Epigenom = Esnek/değişken (hücreye özgü)"</strong>. <br>
+  İkisi de hem mitoz hem mayozla aktarılabilir — ama epigenom çevreyle <em>yeniden yazılır</em>, genom yazılmaz.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Genome vs Epigenome</span>
+  <details><summary>Genom ve epigenom hücre tipleri arasında nasıl farklılaşır?</summary>
+    <div class="ans"><strong>Genom</strong> tüm hücre tiplerinde aynıdır (sabit). <strong>Epigenom</strong> hücre tipine özgüdür ve yaşam boyu çevreye göre değişir.</div></details>
+  <details><summary>Epigenom gelecek kuşaklara aktarılabilir mi?</summary>
+    <div class="ans">Evet. Genom gibi epigenom da <strong>mitozla yavru hücrelere, mayozla gelecek kuşaklara</strong> aktarılabilir.</div></details>
+  <details><summary>Epigenomun anormal düzenlenmesi hangi hastalıklara yol açar?</summary>
+    <div class="ans">Prader-Willi, Angelman, Beckwith-Wiedemann sendromları ve <strong>kanser</strong>.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B3 ============ -->
+<h2 id="b3">3️⃣ Epigenetik Mekanizmalara Genel Bakış</h2>
+
+<p>Epigenetik değişiklikler <strong>3 ana mekanizmayla</strong> gerçekleşir:</p>
+<table>
+  <tr><th>Mekanizma</th><th>Ne Yapar?</th></tr>
+  <tr>
+    <td><strong>1. Methylation (Metilasyon)</strong></td>
+    <td><strong>Geri dönüşümlü (reversible)</strong>; metil gruplarının eklenmesi veya çıkarılması</td>
+  </tr>
+  <tr>
+    <td><strong>2. Histone modification & chromatin remodeling</strong></td>
+    <td>Genlerin transkripsiyon için <strong>erişilebilirliğini (accessibility)</strong> değiştirir</td>
+  </tr>
+  <tr>
+    <td><strong>3. Non-coding RNA (Kodlamayan RNA)</strong></td>
+    <td>Transkripsiyonel ve post-transkripsiyonel düzeyde gen ifadesini düzenler</td>
+  </tr>
+</table>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — 3 Epigenetik Mekanizma</span>
+  <strong>"MeHiN" → Me-Hi-N"</strong>: <strong>Me</strong>thylation · <strong>Hi</strong>stone modification · <strong>N</strong>on-coding RNA. <br>
+  Hatırlatma: <em>"Metil susturur, Histon (asetil) açar, RNA ayarlar"</em>.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard — Genel Bakış</span>
+  <details><summary>Epigenetik değişikliklerin 3 ana mekanizması nedir?</summary>
+    <div class="ans">1) DNA methylation, 2) Histone modification & chromatin remodeling, 3) Non-coding RNA.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B4 ============ -->
+<h2 id="b4">4️⃣ DNA Methylation (DNA Metilasyonu)</h2>
+
+<h3>Temel Mekanizma</h3>
+<ul>
+  <li>Bir <strong>metil grubunun (methyl group)</strong>, <strong>sitozin (cytosine) pirimidin halkasının 5' pozisyonuna</strong> eklenmesini içerir → <strong>5-metilsitozin (5-methylcytosine)</strong> oluşur.</li>
+  <li>Memelilerde yaygındır (<strong>%75</strong>).</li>
+  <li>Genel olarak gen transkripsiyonunu <strong>BASKILAR (suppress)</strong>.</li>
+  <li>Metil grubu, <strong>DNA metiltransferazları (DNA methyltransferases — DNMTs)</strong> tarafından katalize edilerek eklenir.</li>
+  <li>Bu, <strong>guanin'e komşu sitozin bazlarında (CpG dinucleotides)</strong> gerçekleşir; bunlar <strong>CpG islands (CpG adaları)</strong> denen bölgelerde kümelenir.</li>
+</ul>
+
+<h3>CpG Adaları ve Gen Susturma</h3>
+<ul>
+  <li>CpG adaları, genlere komşu <strong>promotor dizilerinde ve yakınında</strong> bulunur.</li>
+  <li><strong>Esansiyel genlere (housekeeping genes) ve hücreye özgü genlere</strong> komşu adalar <strong>METİLLENMEMİŞTİR (unmethylated)</strong> → transkripsiyona açıktır.</li>
+  <li>Komşu CpG adaları <strong>METİLLENMİŞ</strong> olan diğer genler ise <strong>transkripsiyonel olarak susturulur (silenced)</strong>.</li>
+</ul>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Metilasyon = Susturma</span>
+  Temel kural: <strong>Metilasyon (5-metilsitozin) = gen SUSAR (off)</strong>; <strong>metilasyon yok = gen AÇIK (on)</strong>. CpG adaları promotor bölgelerdedir. DNMT enzimleri metil grubunu ekler. Bu üçlü (5-metilsitozin / CpG island / DNMT) sınavda kritiktir.
+</div>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi</span>
+  Oral kanserlerde, <strong>tümör baskılayıcı genlerin promotor CpG adalarının anormal hipermetilasyonu</strong> sık görülür → bu genler susar, hücre kontrolsüz çoğalır. Bu nedenle metilasyon paternleri, ağız kanserlerinde <strong>erken tanı biyobelirteci (biomarker)</strong> olarak araştırılmaktadır.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — DNA Methylation</span>
+  <details><summary>DNA metilasyonu hangi baza, neresine eklenir ve ne oluşturur?</summary>
+    <div class="ans"><strong>Sitozinin</strong> pirimidin halkasının <strong>5' pozisyonuna</strong> metil grubu eklenir → <strong>5-metilsitozin</strong>. DNMT enzimleri katalize eder.</div></details>
+  <details><summary>Metillenmiş ve metillenmemiş CpG adaları gen ifadesini nasıl etkiler?</summary>
+    <div class="ans">Metillenmemiş → transkripsiyona açık (gen aktif). Metillenmiş → transkripsiyonel olarak susturulmuş (gen kapalı). Housekeeping genlerin CpG adaları genelde metillenmemiştir.</div></details>
+  <details><summary>CpG dinükleotidi nedir ve nerede kümelenir?</summary>
+    <div class="ans">Guanin'e komşu sitozin (C-p-G). Promotor bölgelerinde <strong>CpG islands</strong> olarak kümelenir.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B5 ============ -->
+<h2 id="b5">5️⃣ Histone Modification (Histon Modifikasyonu)</h2>
+
+<h3>Kromatin & Nükleozom Yapısı</h3>
+<ul>
+  <li>Kromatin, <strong>histon proteinlerinden oluşan bir oktamerin (octamer)</strong> etrafına sarılmış DNA'dan oluşur → <strong>nükleozomları (nucleosomes)</strong> oluşturur.</li>
+  <li><strong>Histon (histone):</strong> DNA ile nükleozom yapısını oluşturan, ökaryotik kromozom yeniden modellenmesinde (remodelling) rol oynayan <strong>hidrofilik proteinlerdir</strong>.</li>
+  <li>Histonların tiplere (histone I, II…) sınıflandırılması, her birindeki <strong>arginin ve lizin (arginine & lysine)</strong> miktarlarına göre yapılır.</li>
+  <li>Modifikasyonlar, nükleozomdan dışarı uzanan <strong>N-terminal histon kuyruklarındaki (N-terminal histone tails)</strong> korunmuş amino asit dizilerinde oluşur.</li>
+</ul>
+
+<h3>Asetilasyon: HAT vs HDAC (En Kritik Kısım!)</h3>
+<table>
+  <tr><th>Enzim</th><th>İşlem</th><th>Kromatin</th><th>Gen</th></tr>
+  <tr>
+    <td><strong>HAT</strong> (Histone Acetyltransferase)</td>
+    <td>Asetil grubu <strong>EKLER</strong> (acetylation)</td>
+    <td>Kromatin yapısı <strong>AÇILIR</strong> (gevşer)</td>
+    <td><span class="pill on">AÇIK (ON)</span> — transkripsiyona uygun</td>
+  </tr>
+  <tr>
+    <td><strong>HDAC</strong> (Histone Deacetylase)</td>
+    <td>Asetil grubunu <strong>ÇIKARIR</strong> (deacetylation)</td>
+    <td>Konfigürasyon <strong>KAPANIR</strong> (sıkışır)</td>
+    <td><span class="pill off">KAPALI (OFF)</span> — susturulur</td>
+  </tr>
+</table>
+
+<p>Histonların kimyasal modifikasyonu kromatin yapısını değiştirir → genleri transkripsiyon için <strong>erişilebilir (accessible) veya erişilemez (inaccessible)</strong> hale getirir.</p>
+
+<h3>Nükleozom Pozisyonu</h3>
+<p>Nükleozomlar DNA üzerinde <strong>kayarak (sliding)</strong> pozisyon değiştirebilir:</p>
+<ul>
+  <li><strong>Sıkıca paketlendiğinde (tightly packed):</strong> Transkripsiyon faktörleri (TFs) bağlanamaz → gen ifadesi <strong>KAPALI (off)</strong>.</li>
+  <li><strong>Gevşek bağlandığında (loosely connected):</strong> TFs DNA'ya bağlanabilir → gen ifadesi <strong>AÇIK (on)</strong>.</li>
+</ul>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — HAT vs HDAC</span>
+  <strong>"HAT = şapka çıkar, kapı AÇILIR (Acetylation → Aç)"</strong> → asetil ekler, gen açılır. <br>
+  <strong>"HDAC = D'li olan = De-asetilasyon = kapatır (Down)"</strong> → asetili çıkarır, gen susar. <br>
+  Genel kural: <strong>Asetilasyon AÇAR, Metilasyon (DNA) SUSTURUR.</strong>
+</div>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat — Metilasyon vs Asetilasyon Karışıklığı</span>
+  Klasik çeldirici: <strong>DNA metilasyonu → gen KAPATIR.</strong> Histon <strong>asetilasyonu → gen AÇAR.</strong> İkisini ters karıştırmak çok yapılan bir hatadır. "Metil susturur, asetil aktive eder" diye sabitleyin.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Histone Modification</span>
+  <details><summary>Nükleozom nasıl oluşur?</summary>
+    <div class="ans">DNA'nın, <strong>histon proteinlerinden oluşan bir oktamerin</strong> etrafına sarılmasıyla.</div></details>
+  <details><summary>HAT ve HDAC enzimleri gen ifadesini nasıl etkiler?</summary>
+    <div class="ans"><strong>HAT</strong> asetil ekler → kromatin açılır → gen AÇIK. <strong>HDAC</strong> asetili çıkarır → kromatin kapanır → gen SUSAR.</div></details>
+  <details><summary>Histonlar hangi amino asitlerin oranına göre sınıflandırılır?</summary>
+    <div class="ans"><strong>Arginin ve lizin</strong> miktarlarına göre.</div></details>
+  <details><summary>Nükleozomlar sıkı paketlendiğinde gen ifadesi ne olur?</summary>
+    <div class="ans">Transkripsiyon faktörleri bağlanamaz → gen ifadesi <strong>KAPALI</strong>. Gevşek olduğunda TFs bağlanır → AÇIK.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B6 ============ -->
+<h2 id="b6">6️⃣ Non-coding RNA (Kodlamayan RNA)</h2>
+
+<p><strong>Non-coding RNA (ncRNA):</strong> DNA'dan transkribe edilen ancak <strong>proteine çevrilmeyen (not translated)</strong> işlevsel RNA molekülüdür. Genel olarak gen ifadesini <strong>transkripsiyonel ve post-transkripsiyonel</strong> düzeyde düzenler.</p>
+
+<h3>Epigenetik ile İlişkili ncRNA'lar</h3>
+<p>Epigenetik süreçlerde rol oynayanlar <strong>iki ana gruba</strong> ayrılır:</p>
+<table>
+  <tr><th>Grup</th><th>Boyut</th><th>Sınıflar</th></tr>
+  <tr>
+    <td><strong>Short ncRNAs (Kısa)</strong></td>
+    <td>&lt; 30 nükleotid</td>
+    <td><strong>miRNA</strong> (microRNA), <strong>siRNA</strong> (short interfering RNA), <strong>piRNA</strong> (piwi-interacting RNA)</td>
+  </tr>
+  <tr>
+    <td><strong>Long ncRNAs (Uzun)</strong></td>
+    <td>&gt; 200 nükleotid</td>
+    <td><strong>lncRNA</strong> (long non-coding RNA)</td>
+  </tr>
+</table>
+<p>Her iki grup da şu rollerde görev alır: <strong>heterokromatin oluşumu (heterochromatin formation), histon modifikasyonu, DNA metilasyonu hedefleme ve gen susturma (gene silencing)</strong>.</p>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — ncRNA Tipleri</span>
+  <strong>Kısa ncRNA'lar (3 tane, <30 nt):</strong> <em>"mi-si-pi"</em> → <strong>mi</strong>RNA, <strong>si</strong>RNA, <strong>pi</strong>RNA (kafiyeli, kolay ezberlenir!). <br>
+  <strong>Uzun (>200 nt):</strong> <strong>lncRNA</strong> ("ln" = long/uzun). <br>
+  Sınır: <em>"30 altı kısa, 200 üstü uzun"</em>.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Non-coding RNA</span>
+  <details><summary>Non-coding RNA nedir?</summary>
+    <div class="ans">DNA'dan transkribe edilen ama <strong>proteine çevrilmeyen</strong>, gen ifadesini düzenleyen işlevsel RNA molekülü.</div></details>
+  <details><summary>Kısa ncRNA'ların 3 ana sınıfı ve boyut sınırı nedir?</summary>
+    <div class="ans"><strong>miRNA, siRNA, piRNA</strong> — hepsi &lt;30 nükleotid. Uzun ncRNA (lncRNA) &gt;200 nükleotid.</div></details>
+  <details><summary>ncRNA'lar hangi epigenetik süreçlerde rol oynar?</summary>
+    <div class="ans">Heterokromatin oluşumu, histon modifikasyonu, DNA metilasyonu hedefleme ve gen susturma.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B7 ============ -->
+<h2 id="b7">7️⃣ Nutrigenetik & Nutrigenomik</h2>
+
+<p>Epigenetik modifikasyonlar <strong>çevre ve beslenmeden (environment & nutrition)</strong> büyük ölçüde etkilenebilir. <strong>Erken çevresel koşullar, erişkin sağlığı ve hastalığı için önemlidir.</strong> Özellikle <strong>yaşamın ilk 1.000 günü</strong> (maternal/neonatal beslenme + bağırsak mikrobiyotası + epigenetik) yaşam boyu sağlığı belirler.</p>
+
+<h3>Tanımlar — Nutrigenomics vs Nutrigenetics (KARIŞTIRMA!)</h3>
+<table>
+  <tr><th>Terim</th><th>Tanım</th><th>Yön</th></tr>
+  <tr>
+    <td><strong>Nutrigenomics</strong></td>
+    <td>Beslenmenin <strong>gen ifadesi üzerindeki etkilerini</strong> inceler; hücre/doku/organizmalarda diyet izlerini araştırır. Beslenmenin homeostazı nasıl etkilediğini anlar.</td>
+    <td><strong>Diyet → Gen</strong> (besin geni etkiler)</td>
+  </tr>
+  <tr>
+    <td><strong>Nutrigenetics</strong></td>
+    <td>Genetik polimorfizmlerin <strong>farklı gen ifadesine</strong> nasıl yol açtığını inceler. Farklı <strong>metabotipler (metabotypes)</strong> oluşur → diyete farklı yanıt, farklı besin ihtiyacı, olası besin intoleransı.</td>
+    <td><strong>Gen → Diyet yanıtı</strong> (genin diyete tepkisi)</td>
+  </tr>
+</table>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Nutrigenomics vs Nutrigenetics</span>
+  <strong>"Nutrigeno-MICS = besin geno-MU (genomu) etkiler"</strong> → Diyet → gen ifadesi (çevre → gen). <br>
+  <strong>"Nutrige-NETICS = senin geNETİĞİN diyete tepkisi"</strong> → Genetik (SNP) → diyet yanıtı farkı (gen → çevre yanıtı). <br>
+  Kısaca: <em>Nutrigenomics = besin genleri nasıl etkiler; Nutrigenetics = genlerin diyete yanıtı nasıl farklılaşır.</em>
+</div>
+
+<h3>SNP (Single Nucleotide Polymorphism)</h3>
+<ul>
+  <li>Çoğu gende bireyler arasında değişen küçük dizi farklılıkları (<strong>polimorfizmler</strong>) vardır.</li>
+  <li><strong>SNP, en sık görülen varyasyon tipidir.</strong></li>
+  <li>İnsan popülasyonlarındaki spesifik genetik polimorfizmler, diyete <strong>metabolik yanıtı değiştirir</strong> ve hastalık risk paternlerini etkiler.</li>
+  <li>Bazı SNP'ler genin ifadesini değiştirir: ya <strong>farklı miktarda protein</strong> üretir ya da <strong>protein yapısını</strong> değiştirir.</li>
+</ul>
+
+<h3>Beslenme-Gen Etkileşimi (3 Tip)</h3>
+<ol>
+  <li><strong>Doğrudan etkileşim (Direct interactions):</strong> Besinler bir reseptörle etkileştikten sonra <strong>transkripsiyon faktörü</strong> gibi davranıp DNA'ya bağlanır ve gen ifadesini indükler.</li>
+  <li><strong>Epigenetik etkileşim (Epigenetic interactions):</strong> Besinler DNA yapısını değiştirir → gen ifadesi değişir.</li>
+  <li><strong>Genetik varyasyon (Genetic variation):</strong> SNP'ler gibi yaygın genetik varyasyonlar genlerin ifadesini/işlevselliğini değiştirir.</li>
+</ol>
+
+<h3>Akdeniz Diyeti (Mediterranean Diet)</h3>
+<ul>
+  <li>Batı diyetinin aksine, Akdeniz diyeti <strong>kalp hastalığı, kardiyovasküler ölüm ve genel mortalite riskinin azalmasıyla</strong> ilişkilidir.</li>
+  <li>İçeriği: meyve, sebze, makarna/pirinç, balık ve kümes hayvanları, tam tahıllar, sağlıklı yağlar (tekli/çoklu doymamış yağlar — <strong>linolenik asit</strong>); kırmızı et ve doymuş yağı sınırlar.</li>
+  <li><strong>Sızma zeytinyağı veya kuruyemişle</strong> desteklenen Akdeniz diyetinde kardiyovasküler olay insidansı, az yağlı diyete göre daha düşüktür.</li>
+  <li>Kanser insidansının azalmasıyla da ilişkilidir.</li>
+  <li>Biyoaktif moleküller: <strong>oleuropein, resveratrol, retinoidler, vitaminler, epigallocatechin-gallate, omega-3 PUFA</strong> → kanserin çeşitli özelliklerini (hallmarks of cancer) hedefleyerek anti-tümoral aktivite gösterir.</li>
+</ul>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi — Beslenme & Ağız Sağlığı</span>
+  Beslenmenin epigenetik etkisi diş hekimliğinde de geçerlidir: maternal beslenme <strong>diş ve kraniyofasiyal gelişimi</strong> programlar; şeker tüketimi sadece çürük yapmaz, aynı zamanda inflamatuar gen ifadesini etkiler. Akdeniz diyetinin anti-inflamatuar özelliği <strong>periodontal sağlık</strong> için de koruyucudur. Hastalara beslenme önerisi verirken bu sistemik-oral bağlantıyı hatırlayın.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Nutrigenetik & Nutrigenomik</span>
+  <details><summary>Nutrigenomics ve nutrigenetics arasındaki temel fark nedir?</summary>
+    <div class="ans"><strong>Nutrigenomics:</strong> besinlerin gen ifadesine etkisi (diyet → gen). <strong>Nutrigenetics:</strong> genetik polimorfizmlerin diyete farklı yanıta yol açması (gen → diyet yanıtı / metabotipler).</div></details>
+  <details><summary>En sık görülen genetik varyasyon tipi nedir ve diyetle nasıl ilişkilidir?</summary>
+    <div class="ans"><strong>SNP (single nucleotide polymorphism)</strong>. Diyete metabolik yanıtı değiştirir, hastalık riskini etkiler; gen ifadesini/protein yapısını değiştirebilir.</div></details>
+  <details><summary>Beslenme-gen etkileşiminin 3 tipi nedir?</summary>
+    <div class="ans">1) Doğrudan (besin → transkripsiyon faktörü), 2) Epigenetik (besin → DNA yapısı), 3) Genetik varyasyon (SNP).</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B8 ============ -->
+<h2 id="b8">8️⃣ Gen-Diyet-Hastalık Etkileşimleri & Sonuç</h2>
+
+<h3>Nutrigenetik Hastalıklar — Diyetle Önlenebilir Monogenik Hastalıklar</h3>
+<p>İnsan hastalıklarıyla ilişkili genlerin <strong>%97'si monogenik hastalıklarla</strong> sonuçlanır. <strong>Diyet alımını değiştirmek bazı monogenik hastalıkları önleyebilir:</strong></p>
+<table>
+  <tr><th>Hastalık</th><th>Kaçınılması Gereken</th><th>Neden</th></tr>
+  <tr>
+    <td><strong>Phenylketonuria (PKU)</strong></td>
+    <td><strong>Fenilalanin (phenylalanine)</strong> içeren besinler: balık, tavuk, yumurta, süt, peynir, kuru fasulye, kuruyemiş (yüksek proteinli)</td>
+    <td>Fenilalanin metabolize edilemez → toksik birikim</td>
+  </tr>
+  <tr>
+    <td><strong>Galactosemia</strong></td>
+    <td><strong>Laktoz/galaktoz</strong> içeren besinler: süt ve süt ürünleri</td>
+    <td>Galaktozu sindiren karaciğer enzimi eksiktir</td>
+  </tr>
+  <tr>
+    <td><strong>Defektif aldehyde dehydrogenase</strong></td>
+    <td><strong>Alkol (alcohol)</strong></td>
+    <td>Aldehit dehidrogenaz enzimi bozuk</td>
+  </tr>
+</table>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — PKU & Galaktozemi</span>
+  Bu iki hastalık, "genetik hastalık ama diyetle yönetilebilir" prensibinin klasik örnekleridir. <strong>PKU → fenilalaninden kaçın; Galaktozemi → laktoz/galaktozdan (sütten) kaçın.</strong> Sınavda gen-diyet etkileşiminin en somut örnekleridir.
+</div>
+
+<h3>Nutrigenomik & Hastalıklar</h3>
+<h4>Kardiyovasküler Hastalık (CVD)</h4>
+<ul>
+  <li><strong>Apolipoprotein E geni E4 alleli:</strong> Artan diyet yağ alımıyla, diğer allellere (E1, E2, E3) göre <strong>daha yüksek LDL</strong> seviyeleri gösterir.</li>
+  <li><strong>Apoprotein A1 geni (-75G/A) SNP'si (kadınlarda):</strong> Diyet <strong>PUFA</strong> alımının artmasıyla <strong>HDL artışıyla</strong> ilişkilidir.</li>
+</ul>
+<h4>Hipertansiyon (Hypertension)</h4>
+<p>Sodyum taşıma/metabolizmasıyla ilgili genler önemlidir: <strong>epitelyal sodyum kanalı (ENaC) alt birimleri, adducin, 11β-hydroxysteroid dehydrogenase</strong> — diyet tuz alımı ile hipertansiyon arasındaki kanıtlanmış ilişki nedeniyle.</p>
+<h4>Diyet & Kanser Riski</h4>
+<ul>
+  <li>Yüksek <strong>kırmızı et</strong> tüketimiyle <strong>kolorektal kanser</strong> riski artar.</li>
+  <li>Tuz ve koruyucular gibi spesifik diyet irritanları <strong>mide kanseri</strong> için karsinojen olarak öne sürülmüştür.</li>
+</ul>
+<h4>Tip 2 Diabetes Mellitus (T2DM)</h4>
+<ul>
+  <li>Diyabet, dünyadaki tüm hastalıkların <strong>%90'ından fazlasını</strong> oluşturur.</li>
+  <li>Tip 2 diyabet <strong>multifaktöriyel</strong> patogenezlidir (genetik + çevresel etkileşim).</li>
+  <li>Genomik çalışmalar, T2DM riskiyle ilişkili <strong>65 SNP</strong> olduğunu göstermiştir.</li>
+</ul>
+
+<h3>Nutrigenomik: Avantaj & Dezavantajlar</h3>
+<table>
+  <tr><th>Avantajlar (Advantages)</th><th>Dezavantajlar (Disadvantages)</th></tr>
+  <tr>
+    <td>
+      Sağlıklı diyet/yaşam tarzına odaklanma · belirli durumların riski hakkında farkındalık · yaşam kalitesi artışı · hastalık önlemeye odaklanma · morbidite/erken mortalite azalması · sağlık maliyetlerinin düşmesi · hastalık duyarlılığı mekanizmalarının daha iyi anlaşılması
+    </td>
+    <td>
+      Diğer değiştirilebilir risk faktörlerinden dikkatin uzaklaşması · yalnızca spesifik besinlere/gıdalara odaklanma · yanıltıcı iddialar · kişiselleştirilmiş diyet ve tasarım gıdaların yüksek maliyeti
+    </td>
+  </tr>
+</table>
+
+<h3>Sonuç (Conclusion)</h3>
+<p>Beslenme (özellikle <strong>maternal diyet</strong>) ve <strong>kimyasal kirleticiler</strong>, insan sağlığını etkileyen iki önemli çevresel faktördür. Bunlar bireyi doğrudan etkiler (kanser dahil birçok hastalığın patogenezine katkı) ve muhtemelen <strong>epigenetik aktarımla kuşaklar boyu yayılır</strong> — bu yüzden yalnızca birey için değil, gelecek kuşaklar ve toplum için de büyük bir <strong>halk sağlığı sorunudur</strong>. Çevresel epigenetiğin moleküler mekanizmalarını anlamak, hem halk sağlığı hem hedefli müdahaleler için yol açar.</p>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Gen-Diyet-Hastalık</span>
+  <details><summary>PKU ve galaktozemi hastaları sırasıyla nelerden kaçınmalıdır?</summary>
+    <div class="ans">PKU → <strong>fenilalanin</strong> içeren yüksek proteinli besinler. Galaktozemi → <strong>laktoz/galaktoz</strong> (süt ve süt ürünleri).</div></details>
+  <details><summary>ApoE E4 alleli diyet yağıyla nasıl etkileşir?</summary>
+    <div class="ans">Artan diyet yağ alımıyla, diğer allellere göre <strong>daha yüksek LDL</strong> seviyelerine yol açar (CVD riski).</div></details>
+  <details><summary>Tip 2 diyabet hangi kalıtım tipindedir ve kaç SNP ile ilişkilendirilmiştir?</summary>
+    <div class="ans"><strong>Multifaktöriyel</strong> (genetik + çevre). <strong>65 SNP</strong> riskle ilişkilendirilmiştir.</div></details>
+  <details><summary>Hangi diyet alışkanlığı kolorektal kanser riskini artırır?</summary>
+    <div class="ans">Yüksek <strong>kırmızı et</strong> tüketimi. (Tuz/koruyucular ise mide kanseri ile ilişkilendirilmiştir.)</div></details>
+</div>
+
+<hr>
+
+<div class="box spot" style="border-width:3px;">
+  <span class="title">🎯 FİNAL ÖZET — En Kritik 10 Spot</span>
+  <ol style="margin:6px 0 0;">
+    <li>Epigenetik = DNA dizisini değiştirmeden, kromatin değişiklikleriyle gen ifadesinin düzenlenmesi (Waddington, 1942).</li>
+    <li>Monozigot ikiz paradoksu = epigenetiğin varlık kanıtı.</li>
+    <li>Genom: sabit, her hücrede aynı. Epigenom: hücreye özgü, çevreyle değişir; mitoz+mayozla aktarılır.</li>
+    <li>3 epigenetik mekanizma: DNA methylation, histone modification, non-coding RNA (MeHiN).</li>
+    <li>DNA metilasyonu: sitozin 5' → 5-metilsitozin, DNMT enzimi, CpG islands; <strong>metilasyon = gen SUSAR</strong>.</li>
+    <li>Histon asetilasyonu: HAT açar (gen ON), HDAC kapatır (gen OFF). Asetil aktive eder, metil susturur.</li>
+    <li>ncRNA: kısa (<30nt → miRNA/siRNA/piRNA), uzun (>200nt → lncRNA); gen susturma/kromatin.</li>
+    <li>Nutrigenomics = diyet→gen ifadesi; Nutrigenetics = gen(SNP)→diyet yanıtı/metabotip.</li>
+    <li>SNP = en sık varyasyon; beslenme-gen etkileşimi 3 tip (direkt, epigenetik, genetik varyasyon).</li>
+    <li>Diyetle yönetilen monogenik hastalıklar: PKU (fenilalanin), galaktozemi (laktoz/galaktoz). Akdeniz diyeti kardiyoprotektif + antikanser.</li>
+  </ol>
+</div>
+
+<footer>
+  🦷 Ders 5 — Epigenetics & Nutrigenetics · Final Çalışma Rehberi<br>
+  Açık uçlu kutuların üzerine tıklayarak flashcard cevaplarını görebilirsiniz. Başarılar!
+</footer>
+
+</body>
+</html>

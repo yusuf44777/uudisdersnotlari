@@ -563,6 +563,11 @@ svg {
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
+.note-card.is-grouped {
+  grid-column: span 2;
+  min-height: 372px;
+}
+
 .note-card:hover {
   border-color: rgba(15, 89, 98, 0.34);
   box-shadow: 0 24px 60px rgba(26, 56, 52, 0.14);
@@ -630,6 +635,49 @@ svg {
   color: var(--aqua-deep);
   font-size: 0.75rem;
   font-weight: 800;
+}
+
+.chapter-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.chapter-list a {
+  display: grid;
+  gap: 3px;
+  min-height: 58px;
+  padding: 10px 11px;
+  border: 1px solid rgba(184, 73, 63, 0.16);
+  border-radius: 7px;
+  background: rgba(243, 216, 208, 0.22);
+  text-decoration: none;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.chapter-list a:hover,
+.chapter-list a:focus-visible {
+  border-color: rgba(184, 73, 63, 0.4);
+  background: rgba(243, 216, 208, 0.42);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.chapter-list strong {
+  color: var(--coral);
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.chapter-list span {
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.22;
 }
 
 .note-actions {
@@ -819,6 +867,10 @@ svg {
   .note-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .note-card.is-grouped {
+    grid-column: span 2;
+  }
 }
 
 @media (max-width: 720px) {
@@ -911,6 +963,14 @@ svg {
 
   .note-card {
     min-height: 300px;
+  }
+
+  .note-card.is-grouped {
+    grid-column: auto;
+  }
+
+  .chapter-list {
+    grid-template-columns: 1fr;
   }
 }
 

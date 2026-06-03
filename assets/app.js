@@ -53,61 +53,43 @@ const notes = [
     id: "genetics-01",
     course: "Medical Genetics",
     grade: "1. Sınıf",
-    unit: "Bölüm 1",
-    title: "Kalıtımın Temelleri ve Tarihçe",
-    subtitle: "Genetik bilimine giriş, Mendel ve tarihsel kilometre taşları",
+    unit: "Ders 1",
+    title: "Fundamentals of Inheritance and Chromosome Structure",
+    subtitle: "Bölüm 1-6: genetiğe giriş, Mendel, HGP, moleküler temel ve kromozom paketlenmesi",
     path: "1.%20S%C4%B1n%C4%B1f/Medical%20Genetics/Genetik_Bolum1_Tarih_ve_Temeller.html",
-    tags: ["tarihçe", "Mendel", "temeller"],
-  },
-  {
-    id: "genetics-02",
-    course: "Medical Genetics",
-    grade: "1. Sınıf",
-    unit: "Bölüm 2",
-    title: "Terminoloji ve Mendel Yasaları",
-    subtitle: "Genetik sözlüğü, Mendel prensipleri ve kalıtsal hastalık kategorileri",
-    path: "1.%20S%C4%B1n%C4%B1f/Medical%20Genetics/Genetik_Bolum2_Terminoloji_ve_Mendel_Yasalari.html",
-    tags: ["terminoloji", "Mendel", "kalıtım"],
-  },
-  {
-    id: "genetics-03",
-    course: "Medical Genetics",
-    grade: "1. Sınıf",
-    unit: "Bölüm 3",
-    title: "HGP, Genetiğin Dalları ve Klinik Genetik",
-    subtitle: "İnsan Genom Projesi, tıbbi genetik alanları ve danışma",
-    path: "1.%20S%C4%B1n%C4%B1f/Medical%20Genetics/Genetik_Bolum3_HGP_Dallar_Klinik_Genetik.html",
-    tags: ["HGP", "klinik genetik", "danışma"],
-  },
-  {
-    id: "genetics-04",
-    course: "Medical Genetics",
-    grade: "1. Sınıf",
-    unit: "Bölüm 4",
-    title: "Kalıtımın Hücresel ve Moleküler Temeli",
-    subtitle: "DNA, nükleik asitler, central dogma ve genom organizasyonu",
-    path: "1.%20S%C4%B1n%C4%B1f/Medical%20Genetics/Genetik_Bolum4_Hucresel_Molekuler_Temel.html",
-    tags: ["DNA", "central dogma", "moleküler"],
-  },
-  {
-    id: "genetics-05",
-    course: "Medical Genetics",
-    grade: "1. Sınıf",
-    unit: "Bölüm 5",
-    title: "Kromozom Yapısı ve Paketlenmesi I",
-    subtitle: "Kromatin, histonlar, nükleozom ve paketlenme düzeyleri",
-    path: "1.%20S%C4%B1n%C4%B1f/Medical%20Genetics/Genetik_Bolum5_Kromozom_Paketlenmesi_1.html",
-    tags: ["kromatin", "histon", "nükleozom"],
-  },
-  {
-    id: "genetics-06",
-    course: "Medical Genetics",
-    grade: "1. Sınıf",
-    unit: "Bölüm 6",
-    title: "Kromozom Paketlenmesi II ve Anatomisi",
-    subtitle: "Katlanma aşamaları, karyotip, kromatit ve kromatin tipleri",
-    path: "1.%20S%C4%B1n%C4%B1f/Medical%20Genetics/Genetik_Bolum6_Kromozom_Anatomisi_FINAL.html",
-    tags: ["kromozom", "karyotip", "kromatit"],
+    tags: ["tarihçe", "Mendel", "HGP", "DNA", "kromozom"],
+    children: [
+      {
+        label: "Bölüm 1",
+        title: "Kalıtımın Temelleri ve Tarihçe",
+        path: "1.%20S%C4%B1n%C4%B1f/Medical%20Genetics/Genetik_Bolum1_Tarih_ve_Temeller.html",
+      },
+      {
+        label: "Bölüm 2",
+        title: "Terminoloji ve Mendel Yasaları",
+        path: "1.%20S%C4%B1n%C4%B1f/Medical%20Genetics/Genetik_Bolum2_Terminoloji_ve_Mendel_Yasalari.html",
+      },
+      {
+        label: "Bölüm 3",
+        title: "HGP, Genetiğin Dalları ve Klinik Genetik",
+        path: "1.%20S%C4%B1n%C4%B1f/Medical%20Genetics/Genetik_Bolum3_HGP_Dallar_Klinik_Genetik.html",
+      },
+      {
+        label: "Bölüm 4",
+        title: "Kalıtımın Hücresel ve Moleküler Temeli",
+        path: "1.%20S%C4%B1n%C4%B1f/Medical%20Genetics/Genetik_Bolum4_Hucresel_Molekuler_Temel.html",
+      },
+      {
+        label: "Bölüm 5",
+        title: "Kromozom Yapısı ve Paketlenmesi I",
+        path: "1.%20S%C4%B1n%C4%B1f/Medical%20Genetics/Genetik_Bolum5_Kromozom_Paketlenmesi_1.html",
+      },
+      {
+        label: "Bölüm 6",
+        title: "Kromozom Paketlenmesi II ve Anatomisi",
+        path: "1.%20S%C4%B1n%C4%B1f/Medical%20Genetics/Genetik_Bolum6_Kromozom_Anatomisi_FINAL.html",
+      },
+    ],
   },
   {
     id: "genetics-07",
@@ -147,10 +129,13 @@ const emptyState = document.querySelector("#emptyState");
 const resetProgress = document.querySelector("#resetProgress");
 const filterTabs = [...document.querySelectorAll(".filter-tab")];
 const courseJumps = [...document.querySelectorAll("[data-course-jump]")];
+const totalHtmlNotes = notes.reduce((total, note) => total + (note.children ? note.children.length : 1), 0);
 
 function loadCompleted() {
   try {
-    return new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"));
+    const validIds = new Set(notes.map((note) => note.id));
+    const savedIds = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    return new Set(savedIds.filter((id) => validIds.has(id)));
   } catch {
     return new Set();
   }
@@ -192,6 +177,10 @@ function icon(name) {
 }
 
 function noteSearchText(note) {
+  const childText = note.children
+    ? note.children.flatMap((child) => [child.label, child.title])
+    : [];
+
   return normalizeText([
     note.course,
     note.grade,
@@ -199,6 +188,7 @@ function noteSearchText(note) {
     note.title,
     note.subtitle,
     ...note.tags,
+    ...childText,
   ].join(" "));
 }
 
@@ -220,9 +210,21 @@ function render() {
     const tags = note.tags
       .map((tag) => `<span>${escapeHtml(tag)}</span>`)
       .join("");
+    const children = note.children
+      ? `
+        <div class="chapter-list" aria-label="Ders içindeki bölümler">
+          ${note.children.map((child) => `
+            <a href="${child.path}">
+              <strong>${escapeHtml(child.label)}</strong>
+              <span>${escapeHtml(child.title)}</span>
+            </a>
+          `).join("")}
+        </div>
+      `
+      : "";
 
     return `
-      <article class="note-card${completed ? " is-complete" : ""}" data-course="${escapeHtml(note.course)}">
+      <article class="note-card${note.children ? " is-grouped" : ""}${completed ? " is-complete" : ""}" data-course="${escapeHtml(note.course)}">
         <div>
           <div class="note-kicker">
             <span class="course-dot">${escapeHtml(note.course)}</span>
@@ -231,11 +233,12 @@ function render() {
           <h3>${escapeHtml(note.title)}</h3>
           <p>${escapeHtml(note.subtitle)}</p>
           <div class="tag-list" aria-label="Konu etiketleri">${tags}</div>
+          ${children}
         </div>
         <div></div>
         <div class="note-actions">
           <a class="open-note" href="${note.path}">
-            <span>Notu aç</span>
+            <span>${note.children ? "Ders 1'e başla" : "Notu aç"}</span>
             ${icon("arrow")}
           </a>
           <button class="complete-toggle" type="button" data-complete="${note.id}" aria-pressed="${completed}" title="${completed ? "Tamamlandı işaretini kaldır" : "Tamamlandı olarak işaretle"}">
@@ -247,7 +250,7 @@ function render() {
     `;
   }).join("");
 
-  resultCount.textContent = `${visibleNotes.length} not gösteriliyor`;
+  resultCount.textContent = `${visibleNotes.length} kayıt gösteriliyor`;
   completedCount.textContent = state.completed.size.toString();
   emptyState.hidden = visibleNotes.length > 0;
   resetProgress.disabled = state.completed.size === 0;
@@ -301,5 +304,5 @@ resetProgress.addEventListener("click", () => {
   render();
 });
 
-document.querySelector("[data-stat='notes']").textContent = notes.length.toString();
+document.querySelector("[data-stat='notes']").textContent = totalHtmlNotes.toString();
 render();

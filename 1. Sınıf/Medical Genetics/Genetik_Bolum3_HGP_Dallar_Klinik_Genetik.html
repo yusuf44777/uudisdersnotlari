@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genetik – Bölüm 3: HGP, Genetiğin Dalları ve Klinik Genetik</title>
+<style>
+  :root{
+    --ana:#1f2a8c; --ana2:#2e5db0; --metin:#1d2230; --soft:#f5f7fb;
+    --klinik:#0a7d63; --klinik-bg:#e7f8f2;
+    --spot:#b8860b; --spot-bg:#fff7e0;
+    --dikkat:#b22222; --dikkat-bg:#fdeaea;
+    --flash:#5a2a9c; --flash-bg:#f3ecfd;
+    --mnemo:#005f73; --mnemo-bg:#e3f4f8;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;line-height:1.7;
+    color:var(--metin);margin:0;padding:0 0 60px;background:#fafbfe;}
+  header.kapak{background:linear-gradient(135deg,#1f2a8c 0%,#2e5db0 100%);
+    color:#fff;padding:42px 28px;text-align:center;}
+  header.kapak h1{margin:0 0 8px;font-size:1.85rem;letter-spacing:.3px;}
+  header.kapak p{margin:4px 0;opacity:.92;font-size:1.02rem;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px;}
+  h2{color:#fff;background:var(--ana);padding:12px 18px;border-radius:10px;
+    margin:42px 0 18px;font-size:1.4rem;}
+  h3{color:var(--ana);border-bottom:3px solid var(--ana2);padding-bottom:6px;
+    margin:32px 0 12px;font-size:1.15rem;}
+  p{margin:10px 0;}
+  ul,ol{margin:10px 0 10px 6px;padding-left:22px;}
+  li{margin:7px 0;}
+  strong{color:var(--ana);}
+  em{color:#444;}
+  mark{background:#ffe98a;padding:1px 4px;border-radius:3px;}
+  .kutu{border-radius:12px;padding:16px 18px 16px 50px;margin:18px 0;position:relative;
+    box-shadow:0 2px 6px rgba(0,0,0,.06);}
+  .kutu .ikon{position:absolute;left:14px;top:14px;font-size:1.4rem;}
+  .kutu .baslik{font-weight:700;display:block;margin-bottom:5px;font-size:1.02rem;}
+  .klinik{background:var(--klinik-bg);border-left:6px solid var(--klinik);}
+  .klinik .baslik{color:var(--klinik);}
+  .spot{background:var(--spot-bg);border-left:6px solid var(--spot);}
+  .spot .baslik{color:#8a6500;}
+  .dikkat{background:var(--dikkat-bg);border-left:6px solid var(--dikkat);}
+  .dikkat .baslik{color:var(--dikkat);}
+  .mnemo{background:var(--mnemo-bg);border-left:6px solid var(--mnemo);}
+  .mnemo .baslik{color:var(--mnemo);}
+  .flash{background:var(--flash-bg);border:2px dashed var(--flash);border-radius:12px;
+    padding:14px 18px;margin:14px 0;}
+  .flash .baslik{color:var(--flash);font-weight:700;display:block;margin-bottom:8px;}
+  .flash details{margin:8px 0;background:#fff;border-radius:8px;padding:6px 12px;
+    border:1px solid #e0d4f5;}
+  .flash summary{cursor:pointer;font-weight:600;color:#3d1f6e;}
+  .flash details p{margin:8px 0 4px;color:#222;}
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.96rem;}
+  th,td{border:1px solid #c8d2e8;padding:9px 11px;text-align:left;vertical-align:top;}
+  th{background:var(--ana);color:#fff;}
+  tr:nth-child(even) td{background:var(--soft);}
+  .slayt-et{display:inline-block;background:#dfe6f5;color:var(--ana);font-size:.78rem;
+    font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:4px;}
+  footer{max-width:980px;margin:40px auto 0;padding:18px 22px;color:#666;font-size:.9rem;
+    border-top:1px solid #ddd;}
+</style>
+</head>
+<body>
+
+<header class="kapak">
+  <h1>The Human Genome Project, Branches &amp; Clinical Genetics</h1>
+  <p><strong>İnsan Genom Projesi, Genetiğin Dalları ve Klinik Genetik</strong></p>
+  <p>Asst. Prof. Nilgün Karasu — Dept. of Medical Genetics</p>
+  <p style="margin-top:14px;font-size:.95rem;">📙 BÖLÜM 3 — HGP, Genetiğin Önemi/Uygulamaları, Tıbbi Genetiğin Dalları, Klinik Genetik &amp; Danışma (Slayt 28–39)</p>
+</header>
+
+<div class="wrap">
+
+<!-- ============ HGP ============ -->
+<h2>1) İnsan Genom Projesi (The Human Genome Project — HGP)</h2>
+
+<h3>Amaç ve Hedefler (Aim &amp; Objectives)</h3>
+<span class="slayt-et">Slayt 28</span>
+<p>HGP'nin altı temel hedefi vardı:</p>
+<ol>
+  <li>Tüm genomu <strong>3 milyar baz çifti (3 billion bps)</strong> ile <strong>dizilemek (to sequence the whole genome)</strong>.</li>
+  <li>İnsan genomunun <strong>fiziksel haritasını (physical map)</strong> çıkarmak.</li>
+  <li>Tüm <strong>hastalığa neden olan genleri (disease-causing genes)</strong> tanımlamak.</li>
+  <li>Genlerin <strong>fonksiyonunu (function of genes)</strong> anlamak.</li>
+  <li>Bilgiyi <strong>tüm araştırmacılara açık (available for all researchers)</strong> hâle getirmek.</li>
+  <li>Veriyi işlemek ve analiz etmek için <strong>araçlar (tools)</strong> geliştirmek.</li>
+</ol>
+
+<h3>HGP — Kilit Sayılar ve Sonuçlar</h3>
+<span class="slayt-et">Slayt 29</span>
+<ul>
+  <li><strong>3 milyar baz çiftlik (3 billion base pairs)</strong> taslak DNA dizisi <strong>2000</strong> yılında başarıyla tamamlandı; tam dizi planlanandan önce, <strong>Ekim 2004</strong>'te yayımlandı.</li>
+  <li>Proje bitmeden önce insan yaşamının "planını" oluşturan yaklaşık <strong>100.000 kodlayan gen (coding gene)</strong> olabileceği düşünülüyordu.</li>
+  <li><strong>Sürpriz:</strong> Sayı çok daha düşük çıktı ve sürekli aşağı çekildi; güncel tahminler <strong>~20.000–25.000 gen</strong> civarında.</li>
+  <li>Bu durum, <strong>biyoloji + bilgisayar bilimi + bilgi teknolojisinin (biology, computer science, information technology)</strong> tek bir disiplinde birleştiği <strong>Biyoinformatik (Bioinformatics)</strong> alanının doğmasına yol açtı (gen haritaları, DNA dizileri, karşılaştırmalı ve fonksiyonel genomik vb.).</li>
+</ul>
+
+<div class="kutu spot">
+  <span class="ikon">🎯</span>
+  <span class="baslik">Spot Bilgi — En Çok Sorulan HGP Rakamları</span>
+  <ul style="margin:6px 0;">
+    <li>Genom büyüklüğü: <strong>3 milyar baz çifti (3 × 10⁹ bp)</strong></li>
+    <li>Taslak: <strong>2000</strong> &nbsp;|&nbsp; Tam dizi: <strong>2004 (planlanandan önce)</strong></li>
+    <li>Eski tahmin: <strong>100.000 gen</strong> → Gerçek: <strong>~20.000–25.000 gen</strong></li>
+  </ul>
+</div>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — "3-2-2"</span>
+  <strong>3</strong> milyar baz çifti, taslak <strong>2</strong>000'de, gen sayısı ~<strong>2</strong>0 bin. → <strong>"3 - 2000 - 20 bin"</strong> üçlüsünü bir ritim gibi tekrarla. Beklenti 100 bindi, gerçek 5 kat azı çıktı (sürpriz!).
+</div>
+
+<div class="kutu dikkat">
+  <span class="ikon">⚠️</span>
+  <span class="baslik">Dikkat — Klasik Çeldirici</span>
+  İnsan gen sayısının <strong>100.000 olduğu DOĞRU DEĞİLDİR</strong> — bu, proje öncesi <em>yanlış</em> tahmindi. Doğru cevap <strong>~20.000–25.000</strong>'dir. Sınavda "100.000" şıkkı bilinçli bir tuzaktır.
+</div>
+
+<!-- ============ APPLICATIONS ============ -->
+<h2>2) Bu Bilgiyi Nasıl Kullanırız? (How Can We Use This Information?)</h2>
+<span class="slayt-et">Slayt 30</span>
+<ul>
+  <li><strong>İnsan hastalıklarını daha iyi anlamak</strong> (better understanding of human disease).</li>
+  <li><strong>Kişiselleştirilmiş tıp ve Farmakogenetik</strong> (personalized medicine &amp; pharmacogenetics).</li>
+  <li>Bilişsel işlevlere daha derin bakış (greater insight into <strong>cognitive function</strong>).</li>
+  <li>İnsanın kökenine dair içgörü (insight into <strong>human origins</strong>).</li>
+  <li>Hastalığa <strong>genetik yatkınlığın (genetic susceptibility)</strong> belirlenmesi.</li>
+</ul>
+
+<div class="kutu klinik">
+  <span class="ikon">🦷</span>
+  <span class="baslik">Klinik Önemi — Pharmacogenetics (Diş Hekimliği)</span>
+  <strong>Farmakogenetik</strong>, bir hastanın ilaçlara genetik olarak nasıl yanıt verdiğini inceler. Diş hekimliğinde bu doğrudan önemlidir: lokal anestezikler, ağrı kesiciler (örn. <em>codeine</em> metabolizması — CYP2D6 polimorfizmleri) ve antibiyotiklerin etkinliği/yan etkisi kişinin genotipine göre değişebilir. Yani "kişiselleştirilmiş reçete" geleceğin diş hekimliğinin parçası.
+</div>
+
+<h3>Tedavi Beklentileri (The Prospects for Treatment)</h3>
+<span class="slayt-et">Slayt 31</span>
+<p>Son yıllarda şu alanlarda artan iyimserlik var:</p>
+<ul>
+  <li><strong>Yeni ilaç tedavileri</strong> (novel drug therapies)</li>
+  <li><strong>Kök hücre tedavisi</strong> (stem cell treatment)</li>
+  <li><strong>Gen tedavisi</strong> (gene therapy)</li>
+</ul>
+
+<!-- ============ IMPORTANCE ============ -->
+<h2>3) Genetiğin Önemi (Importance of Genetics)</h2>
+<span class="slayt-et">Slayt 32</span>
+<ul>
+  <li>Kalıtsal hastalıkları anlamak ve <strong>yeni tedaviler geliştirmek</strong>.</li>
+  <li><strong>Donör eşleştirmesi</strong> (donor matches) — organ/doku nakli uyumu.</li>
+  <li><strong>Babalık tayini</strong> (paternity).</li>
+  <li><strong>Adli tıp</strong> (forensic medicine).</li>
+</ul>
+
+<h3>Genetik, Neredeyse Her Tıp Dalı İçin Önemlidir</h3>
+<span class="slayt-et">Slayt 34</span>
+<p>
+Son keşifler yalnızca nadir genetik hastalıkları ve sendromları değil, erişkin yaşamda genetik varyasyona yatkınlık oluşturabilen birçok <strong>yaygın bozukluğu (common disorders)</strong> da etkiler:
+</p>
+<ul>
+  <li>Kardiyovasküler hastalık (cardiovascular disease)</li>
+  <li>Psikiyatrik hastalık (psychiatric illness)</li>
+  <li>Kanser (cancer)</li>
+  <li>Obezite (obesity)</li>
+  <li>Atletik performans (athletic performance)</li>
+  <li>Müzik yeteneği (musical talent)</li>
+  <li>Uzun yaşam (long life)</li>
+  <li>Bir dizi fizyolojik varyasyon ve tolerans</li>
+</ul>
+
+<!-- ============ BRANCHES ============ -->
+<h2>4) Tıbbi Genetiğin Dalları (Areas in Medical Genetics)</h2>
+<span class="slayt-et">Slayt 33</span>
+<table>
+  <tr><th>Dal</th><th>İlgilendiği Konu</th></tr>
+  <tr><td><strong>Cytogenetics</strong><br>(sitogenetik)</td><td>Kromozomlarla, yani <strong>DNA'nın paketlenmiş hâliyle (the packaged form of DNA)</strong> ilgilenir.</td></tr>
+  <tr><td><strong>Molecular genetics</strong><br>(moleküler genetik)</td><td>Genlerin <strong>yapısı ve fonksiyonları (structure and functions of genes)</strong>.</td></tr>
+  <tr><td><strong>Genomics</strong><br>(genomik)</td><td>Genomun <strong>organizasyonu ve işlevi (organisation and function of the genome)</strong>.</td></tr>
+  <tr><td><strong>Population genetics</strong><br>(popülasyon genetiği)</td><td>Farklı popülasyonlardaki <strong>genetik farklılıkları ve alel sıklıklarını (allele frequencies)</strong> belirleyen faktörler.</td></tr>
+  <tr><td><strong>Developmental genetics</strong><br>(gelişimsel genetik)</td><td>Gelişimin <strong>genetik kontrolü (genetic control of development)</strong>.</td></tr>
+</table>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — 5 Dal: "C-M-G-P-D"</span>
+  <strong>C</strong>yto → <strong>M</strong>olecular → <strong>G</strong>enomics → <strong>P</strong>opulation → <strong>D</strong>evelopmental.<br>
+  Köprü cümle: <strong>"C</strong>esur <strong>M</strong>ert <strong>G</strong>enç <strong>P</strong>ek <strong>D</strong>ikkatli."<br>
+  Anahtar ayrım: <strong>Cytogenetics = kromozom</strong>, <strong>Molecular = gen</strong>, <strong>Genomics = genom (bütün)</strong>.
+</div>
+
+<div class="kutu dikkat">
+  <span class="ikon">⚠️</span>
+  <span class="baslik">Dikkat — Sık Karıştırılan Üçlü</span>
+  <strong>Cytogenetics (kromozom)</strong> ↔ <strong>Molecular genetics (tek gen)</strong> ↔ <strong>Genomics (tüm genom)</strong>. Hocalar "DNA'nın paketlenmiş hâliyle ilgilenen dal hangisidir?" diye sorarsa cevap <strong>Cytogenetics</strong>'tir (moleküler genetik değil!).
+</div>
+
+<!-- ============ CLINICAL GENETICS ============ -->
+<h2>5) Klinik Genetik (Clinical Genetics)</h2>
+<span class="slayt-et">Slayt 35–36</span>
+<ul>
+  <li>Klinik genetik, genetik hastalığı olan <strong>çocuklara sahip ebeveynlere danışmanlık (advising parents)</strong> üzerine odaklanan geniş bir alandır; <strong>genetik hastalığı olan hastalarla</strong> ilgilenir.</li>
+  <li>Bu genetik hastalıklar <strong>mutant genler (mutant genes)</strong> ve anormal <strong>kromozom yapısı ve sayısı (abnormal chromosome structure and number)</strong> tarafından oluşturulur.</li>
+  <li>Klinik genetik şunları içerir: genetik hastalıkların <strong>tanısı (diagnosis)</strong>, <strong>taşıyıcı testleri (carrier tests)</strong>, <strong>prenatal tanı (prenatal diagnosis)</strong> ve riskli kişileri yaşamlarının ilerleyen evrelerinde <strong>mümkün olduğunca erken saptamak</strong>.</li>
+</ul>
+
+<div class="kutu spot">
+  <span class="ikon">🎯</span>
+  <span class="baslik">Spot Bilgi — Klinik Genetiğin 3 Test Ayağı</span>
+  <strong>Diagnosis (tanı)</strong> + <strong>Carrier tests (taşıyıcı testi)</strong> + <strong>Prenatal diagnosis (doğum öncesi tanı)</strong>. Genetik hastalıkların kaynağı: <strong>mutant genler</strong> VE <strong>anormal kromozom yapısı/sayısı</strong>.
+</div>
+
+<!-- ============ COUNSELING ============ -->
+<h2>6) Genetik Danışma (Genetic Counseling)</h2>
+<span class="slayt-et">Slayt 37–38</span>
+<ul>
+  <li>Genetik danışma, <strong>bireysel ve aile tıbbi kayıtlarının incelenmesine (examining individual and family medical records)</strong> ve hastalıklara dair tanısal işlemlere dayanır.</li>
+  <li>Bu hizmet, bu alana özel ilgisi olan <strong>hekimler (physicians)</strong> veya özel eğitimli <strong>hekim olmayan kişiler (specially trained nonphysicians)</strong> tarafından verilir.</li>
+  <li><strong>Amaçları:</strong> Genetik hastalık hakkında bilgi vermek; hastalığın hasta ve ailesi için risklerini açıklamak; ayrıca <strong>psikolojik destek (psychological encouragement)</strong> ve <strong>eğitim (education)</strong> sağlamak.</li>
+</ul>
+
+<div class="kutu klinik">
+  <span class="ikon">🦷</span>
+  <span class="baslik">Klinik Önemi — "Hasta değil, AİLE odaklı bakış" (Slayt 39)</span>
+  Tıbbi genetik yalnızca hastaya değil, <strong>tüm aileye</strong> odaklanır. Diş hekimi olarak, bir çocukta gördüğün kalıtsal bir diş anomalisinde (örn. ailesel <em>amelogenesis imperfecta</em> veya <em>oligodontia</em>) ebeveyn ve kardeşleri de değerlendirmen ve gerektiğinde genetik danışmaya yönlendirmen beklenir. Bir <strong>pedigri/soyağacı (pedigree)</strong> çizmek bu yüzden temel bir beceridir.
+</div>
+
+<!-- ============ FLASHCARDS ============ -->
+<div class="flash">
+  <span class="baslik">🃏 Flashcard'lar — Bölüm 3 (cevap için üstüne tıkla)</span>
+
+  <details>
+    <summary>1) How many base pairs does the human genome contain, and what is the current estimate of the number of genes?</summary>
+    <p><strong>~3 billion base pairs</strong>; current estimate ≈ <strong>20,000–25,000 genes</strong> (earlier overestimate was ~100,000).</p>
+  </details>
+
+  <details>
+    <summary>2) When was the draft completed and the full sequence published?</summary>
+    <p>Draft: <strong>2000</strong>. Full sequence: <strong>October 2004</strong> (ahead of schedule).</p>
+  </details>
+
+  <details>
+    <summary>3) Which branch of medical genetics deals with chromosomes (the packaged form of DNA)?</summary>
+    <p><strong>Cytogenetics.</strong> (Molecular genetics = structure/function of genes; Genomics = the whole genome.)</p>
+  </details>
+
+  <details>
+    <summary>4) Clinical genetics involves which three main testing activities, and genetic diseases are caused by what?</summary>
+    <p>Diagnosis, <strong>carrier tests</strong>, and <strong>prenatal diagnosis</strong>. Caused by <strong>mutant genes</strong> and <strong>abnormal chromosome structure and number</strong>.</p>
+  </details>
+
+  <details>
+    <summary>5) What new interdisciplinary field emerged from the HGP, and which three disciplines merge in it?</summary>
+    <p><strong>Bioinformatics</strong> — the merger of <strong>biology, computer science, and information technology</strong>.</p>
+  </details>
+
+  <details>
+    <summary>6) Who carries out genetic counseling and what are its two main aims?</summary>
+    <p>Carried out by <strong>physicians</strong> with special interest or by specially trained <strong>nonphysicians</strong>. Aims: give <strong>information about the disease/risks</strong> + provide <strong>psychological encouragement and education</strong>.</p>
+  </details>
+
+  <details>
+    <summary>7) List the five branches of medical genetics named in the slides.</summary>
+    <p><strong>Cytogenetics, molecular genetics, genomics, population genetics, developmental genetics.</strong></p>
+  </details>
+</div>
+
+</div>
+
+<footer>
+  <strong>📌 Sıradaki bölüm:</strong> Bölüm 4 — <em>The Cellular and Molecular Basis of Inheritance</em> (DNA, hücre, kromozom yapısı ve paketlenmesi). Slayt 40 ve sonrası. "Devam et" demen yeterli.
+  <br><br>
+  Kaynak: Asst. Prof. Nilgün Karasu — Fundamentals of Inheritance and Chromosome Structure &amp; Packaging ders slaytları (Slayt 28–39).
+</footer>
+
+</body>
+</html>

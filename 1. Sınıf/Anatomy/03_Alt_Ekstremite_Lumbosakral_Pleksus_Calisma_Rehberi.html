@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lower Extremity &amp; Lumbosacral Plexus — Final Çalışma Rehberi</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#5b6472; --bg:#f5f8f6; --card:#ffffff;
+    --line:#e1e9e4; --accent:#1f7a5a;
+    --klinik-bg:#e8f4f8; --klinik-bd:#2a93b5; --klinik-tx:#0f5d72;
+    --spot-bg:#eaf7ee; --spot-bd:#2e9e57; --spot-tx:#1c6e3b;
+    --dikkat-bg:#fdeceb; --dikkat-bd:#d9483b; --dikkat-tx:#9e2a20;
+    --mnem-bg:#f1ecfb; --mnem-bd:#7b4fc4; --mnem-tx:#5331a0;
+    --flash-bg:#fff8e6; --flash-bd:#e3a008; --flash-tx:#8a5a00;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Segoe UI',Helvetica,Arial,system-ui,sans-serif; line-height:1.65; font-size:17px;}
+  .wrap{max-width:920px; margin:0 auto; padding:28px 20px 80px;}
+  header.hero{background:linear-gradient(135deg,#16513c,#1f7a5a); color:#fff;
+    border-radius:18px; padding:34px 30px; margin-bottom:26px; box-shadow:0 8px 26px rgba(22,81,60,.25);}
+  header.hero .badge{display:inline-block; background:rgba(255,255,255,.18);
+    padding:4px 12px; border-radius:999px; font-size:13px; letter-spacing:.5px; margin-bottom:12px;}
+  header.hero h1{margin:6px 0 8px; font-size:30px; line-height:1.25;}
+  header.hero p{margin:0; opacity:.92; font-size:15.5px;}
+  nav.toc{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 22px; margin-bottom:30px;}
+  nav.toc h2{margin:0 0 10px; font-size:17px; color:var(--accent);}
+  nav.toc ol{margin:0; padding-left:20px; columns:2; column-gap:30px;}
+  nav.toc a{color:var(--ink); text-decoration:none; font-size:14.5px;}
+  nav.toc a:hover{color:var(--accent); text-decoration:underline;}
+  h2.part-title{background:var(--accent); color:#fff; padding:12px 18px; border-radius:12px;
+    font-size:21px; margin:38px 0 18px; box-shadow:0 4px 12px rgba(31,122,90,.2);}
+  h3{font-size:19px; color:#16513c; border-left:5px solid var(--accent); padding-left:12px; margin:30px 0 12px;}
+  h4{font-size:16.5px; color:#264c3e; margin:20px 0 8px;}
+  p{margin:10px 0;}
+  ul,ol{margin:10px 0; padding-left:24px;}
+  li{margin:5px 0;}
+  strong{color:#16223d;}
+  mark{background:#cdebd9; padding:0 3px; border-radius:3px;}
+  .lat{font-style:italic; color:#6b3fa0;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:6px 22px 14px; margin:14px 0; box-shadow:0 2px 8px rgba(31,36,48,.04);}
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14.5px;}
+  th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{background:#e6f1ec; color:#16513c;}
+  tr:nth-child(even) td{background:#fafdfb;}
+  .box{border-radius:12px; padding:14px 18px; margin:16px 0; border-left:6px solid;}
+  .box .bt{font-weight:700; display:block; margin-bottom:6px; font-size:15.5px;}
+  .klinik{background:var(--klinik-bg); border-color:var(--klinik-bd);} .klinik .bt{color:var(--klinik-tx);}
+  .spot{background:var(--spot-bg); border-color:var(--spot-bd);} .spot .bt{color:var(--spot-tx);}
+  .dikkat{background:var(--dikkat-bg); border-color:var(--dikkat-bd);} .dikkat .bt{color:var(--dikkat-tx);}
+  .mnem{background:var(--mnem-bg); border-color:var(--mnem-bd);} .mnem .bt{color:var(--mnem-tx);}
+  .flash{background:var(--flash-bg); border:1.5px dashed var(--flash-bd); border-left:6px solid var(--flash-bd);
+    border-radius:12px; padding:14px 18px; margin:18px 0;}
+  .flash .ft{font-weight:700; color:var(--flash-tx); display:block; margin-bottom:8px; font-size:15px; letter-spacing:.3px;}
+  .flash .q{font-weight:600; margin:9px 0 2px; color:#5a3d00;}
+  .flash .a{margin:0 0 6px; padding-left:14px; border-left:3px solid var(--flash-bd); color:#3a3a3a;}
+  .flash .a::before{content:"➜ "; color:var(--flash-bd); font-weight:700;}
+  .pill{display:inline-block; background:#e6f1ec; color:#16513c; border-radius:999px; padding:2px 10px; font-size:13px; margin:2px 3px;}
+  hr{border:none; border-top:1px dashed var(--line); margin:26px 0;}
+  .tag{font-size:12px; color:var(--muted);}
+  footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:13.5px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="badge">ANATOMİ · 1. SINIF · FİNAL HAZIRLIK · DERS 03</span>
+  <h1>Lower Extremity &amp; Lumbosacral Plexus<br><span style="font-size:19px; font-weight:500; opacity:.9;">Alt Ekstremite &amp; Lumbosakral Pleksus</span></h1>
+  <p>Asst. Prof. Gamze Ansen — Üsküdar Üniversitesi, Tıp Fakültesi, Anatomi A.D. · Türkçe açıklamalı, İngilizce/Latince terimler korunarak işlenmiştir.</p>
+</header>
+
+<nav class="toc">
+  <h2>📚 İçindekiler</h2>
+  <ol>
+    <li><a href="#g0">Genel &amp; Fasyalar</a></li>
+    <li><a href="#g1">Gluteal Bölge Kasları</a></li>
+    <li><a href="#g2">İliak Bölge (Iliopsoas)</a></li>
+    <li><a href="#g3">Inguinal Ligament &amp; Fascia Lata</a></li>
+    <li><a href="#g4">Ön-Yan Uyluk Kasları</a></li>
+    <li><a href="#g5">Femoral Üçgen (Scarpa)</a></li>
+    <li><a href="#g6">Medial Uyluk (Adduktorlar)</a></li>
+    <li><a href="#g7">Arka Uyluk (Hamstrings)</a></li>
+    <li><a href="#g8">Popliteal Fossa</a></li>
+    <li><a href="#g9">Bacak Kompartmanları</a></li>
+    <li><a href="#g10">Ayak Bileği Retinakulaları</a></li>
+    <li><a href="#g11">Ayak (Foot) Kasları</a></li>
+    <li><a href="#p1">Lumbosakral Pleksus — Genel</a></li>
+    <li><a href="#p2">Lumbar Pleksus &amp; Femoral Sinir</a></li>
+    <li><a href="#p3">Sakral Pleksus &amp; Siyatik Sinir</a></li>
+    <li><a href="#p4">Pudendal &amp; Koksigeal Pleksus</a></li>
+  </ol>
+</nav>
+
+<!-- INTRO -->
+<section>
+<h2 class="part-title">BÖLÜM 0 — GENEL BİLGİ &amp; FASYALAR</h2>
+<h3 id="g0">Alt Ekstremite Kısımları &amp; Fasyalar</h3>
+<p>Alt ekstremite (<strong>lower limb</strong>) dört kısımdan oluşur: <span class="pill">Gluteal region</span> <span class="pill">Thigh (uyluk)</span> <span class="pill">Leg (bacak)</span> <span class="pill">Foot (ayak)</span></p>
+<p>Bölgesel fasyalar: <strong>Fascia glutea</strong> (gluteal), <strong>Fascia lata</strong> (uyluk derin fasyası), <strong>Fascia poplitea</strong> (diz arkası), <strong>Fascia cruris</strong> (bacak — crural fascia), <strong>Fascia pedis</strong> (ayak dorsumu), <strong>Fascia plantaris</strong> (taban).</p>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Fasyalar (üstten alta)</span>
+  <p style="margin:4px 0;">"<strong>G</strong>lutea → <strong>L</strong>ata → <strong>P</strong>oplitea → <strong>C</strong>ruris → <strong>P</strong>edis → <strong>P</strong>lantaris". Vücutta yukarıdan aşağıya bir yolculuk: kalça → uyluk → diz arkası → bacak → ayak sırtı → taban.</p>
+</div>
+</section>
+
+<!-- GLUTEAL -->
+<section>
+<h2 class="part-title">BÖLÜM 1 — GLUTEAL BÖLGE</h2>
+<h3 id="g1">1.1 Genel &amp; İki Katman</h3>
+<p>Gluteal bölge, pelvisin arka kısmıdır; <strong>iliac crest</strong> ile <strong>gluteus maximus'un alt kenarı</strong> arasında uzanır. Kasları iki katmanda organize olur:</p>
+<div class="card">
+<table>
+  <thead><tr><th>Katman</th><th>Kaslar</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Superficial (Yüzeyel)</strong></td><td><strong>Gluteus maximus, Gluteus medius, Gluteus minimus, Tensor fascia lata</strong> (uyluğun lateral yüzünde)</td></tr>
+    <tr><td><strong>Deep (Derin)</strong></td><td><strong>Piriformis, Obturator internus, Superior &amp; inferior gemelli, Quadratus femoris</strong></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Derin gluteal (lateral rotatorlar)</span>
+  <p style="margin:4px 0;">Yukarıdan aşağı "<strong>P-O-GG-Q</strong>": <strong>P</strong>iriformis, <strong>O</strong>bturator internus, <strong>G</strong>emellus superior + inferior, <strong>Q</strong>uadratus femoris. Hepsi uyluğun <u>lateral rotatorudur</u>.</p>
+</div>
+
+<h3>1.2 Gluteus maximus, medius &amp; iliak ilişki</h3>
+<div class="card">
+<table>
+  <thead><tr><th>Kas</th><th>Origin</th><th>Insertion</th><th>Fonksiyon</th><th>İnervasyon</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Gluteus maximus</strong></td><td>İlium, sacrum, coccyx</td><td><strong>Iliotibial tract</strong> (tibia lateral kondiline yapışır) &amp; femur</td><td>Uyluğu <strong>ekstansiyon &amp; lateral rotasyon</strong>; iliotibial tract aracılığıyla diz ekstansiyonuna yardım</td><td><mark><strong>Inferior gluteal nerve</strong></mark></td></tr>
+    <tr><td><strong>Gluteus medius</strong></td><td>İliumun dış yüzü</td><td>Femurun <strong>greater trochanter'i</strong></td><td>Uyluğu <strong>abduksiyon (en güçlü)</strong> &amp; iç rotasyon</td><td><mark><strong>Superior gluteal nerve</strong></mark></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat — Superior vs Inferior gluteal nerve</span>
+  <p style="margin:4px 0;"><strong>Gluteus maximus → INFERIOR gluteal nerve</strong>; <strong>gluteus medius (ve minimus) → SUPERIOR gluteal nerve</strong>. Bu çift çok sık karıştırılır. "Büyük kas (maximus) = alt sinir (inferior)" diye eşleştir.</p>
+</div>
+
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi — Gluteal IM enjeksiyon</span>
+  <p style="margin:4px 0;">Gluteal bölge, kasların büyük ve emilim yüzeyinin geniş olması nedeniyle <strong>kas içi enjeksiyon için yaygın bir bölgedir</strong>. En güvenli alan: greater trochanter'dan geçen yatay çizginin <u>üstü</u> ve kalçanın <u>üst-dış kadranı</u>. Diğer bölgeler tehlikelidir çünkü damar ve sinirler (özellikle <strong>siyatik sinir</strong>) bulunur.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Gluteal</span>
+  <p class="q">S1. Which nerve innervates gluteus maximus, and which innervates gluteus medius?</p>
+  <p class="a">Gluteus maximus → inferior gluteal nerve; gluteus medius → superior gluteal nerve.</p>
+  <p class="q">S2. Uyluğun en güçlü abduktoru hangi kastır?</p>
+  <p class="a">Gluteus medius.</p>
+  <p class="q">S3. Gluteal IM enjeksiyon için en güvenli kadran neresidir?</p>
+  <p class="a">Üst-dış (superolateral) kadran; greater trochanter çizgisinin üstü.</p>
+</div>
+</section>
+
+<!-- ILIAC -->
+<section>
+<h2 class="part-title">BÖLÜM 2 — İLİAK BÖLGE (ILIOPSOAS)</h2>
+<h3 id="g2">2.1 İliak Bölge Kasları</h3>
+<p>İliak bölge kasları: <strong>Iliacus, Psoas major, Psoas minor</strong>. Iliacus + psoas major birlikte <strong>iliopsoas</strong> olarak anılır.</p>
+<div class="card">
+<table>
+  <thead><tr><th>Kas</th><th>Origin</th><th>Insertion</th><th>İnervasyon</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Iliacus</strong> (iliac fascia ile örtülü)</td><td>Iliac fossa</td><td>Femurun <strong>lesser trochanter'i</strong></td><td><strong>Femoral nerve</strong></td></tr>
+    <tr><td><strong>Psoas major</strong></td><td><strong>T12–L5</strong> gövdeleri, transvers çıkıntıları &amp; aralarındaki intervertebral diskler</td><td>Femurun <strong>lesser trochanter'i</strong></td><td><strong>Lumbar plexus'tan direkt dallar</strong></td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>Iliopsoas fonksiyonu:</strong> Birlikte uyluğu <strong>fleksiyona getirir ve lateral rotasyon</strong> yaptırır. Alt ekstremite sabitken bilateral kasıldığında (psoas minor ile) <strong>gövdeyi fleksiyona</strong> getirir. Iliopsoas aynı zamanda bir <strong>postür kasıdır</strong>; gövde sapmasını kontrol eder, ayakta dururken aktiftir.</p>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  <p style="margin:4px 0;">Hem iliacus hem psoas major <strong>lesser trochanter'e</strong> yapışır. İnervasyon farklıdır: <strong>iliacus → femoral nerve</strong>, <strong>psoas major → lumbar plexus direkt dalları</strong>. Iliopsoas, vücudun en güçlü <strong>kalça fleksorudur</strong>.</p>
+</div>
+
+<h3 id="g3">2.2 Inguinal Ligament &amp; Fascia Lata</h3>
+<ul>
+  <li><strong>Inguinal ligament</strong>: ASIS (anterior superior iliac spine) ile <strong>pubic tubercle</strong> arasında uzanır. <strong>External oblique kasının aponeurozunun en alt kısmıdır</strong> (ön-yan karın duvarı kasıdır).</li>
+  <li><strong>Fascia lata</strong> (uyluğun derin fasyası) üstte inguinal ligamana yapışır. Uyluğun inferolateral kısmında kalınlaşarak <strong>iliotibial tract'ı</strong> oluşturur (tibia lateral kondiline yapışır).</li>
+</ul>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — İliak Bölge</span>
+  <p class="q">S1. Both iliacus and psoas major insert onto which structure?</p>
+  <p class="a">Lesser trochanter of femur.</p>
+  <p class="q">S2. Psoas major'ın origin'i (vertebra seviyeleri) nedir?</p>
+  <p class="a">T12–L5 gövdeleri, transvers çıkıntıları ve aralarındaki intervertebral diskler.</p>
+  <p class="q">S3. Inguinal ligament hangi iki nokta arasında uzanır?</p>
+  <p class="a">ASIS ile pubic tubercle.</p>
+</div>
+</section>
+
+<!-- ANTERO-LATERAL THIGH -->
+<section>
+<h2 class="part-title">BÖLÜM 3 — ÖN-YAN UYLUK KASLARI</h2>
+<h3 id="g4">3.1 Sartorius &amp; Quadriceps femoris</h3>
+<p>Ön-yan uyluk kasları: <strong>Tensor fascia lata, Sartorius, Quadriceps femoris</strong>.</p>
+
+<h4>Sartorius — "tailor muscle" (terzi kası)</h4>
+<div class="card">
+<table>
+  <tbody>
+    <tr><th style="width:130px;">Origin</th><td><strong>ASIS</strong> (anterior superior iliac spine)</td></tr>
+    <tr><th>Insertion</th><td>Tibia; <strong>pes anserinus'a</strong> katkıda bulunur</td></tr>
+    <tr><th>Fonksiyon</th><td>Kalçada uyluğu <strong>fleksiyon + abduksiyon + lateral rotasyon</strong>; dizde bacağı <strong>fleksiyon</strong></td></tr>
+    <tr><th>İnervasyon</th><td><strong>Femoral nerve</strong></td></tr>
+    <tr><th>Özel not</th><td>Vücudun <mark><strong>en uzun kası (longest muscle of the body)</strong></mark></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h4>Quadriceps femoris — 4 başlı</h4>
+<p>Dört başı vardır: <strong>Rectus femoris, Vastus lateralis, Vastus medialis, Vastus intermedius</strong>. Tüm başlar <strong>quadriceps tendonu</strong> ile <strong>patellanın tabanına</strong> yapışır; bazı lifler <strong>patellar ligament</strong> olarak devam edip <strong>tibial tuberosity'ye</strong> yapışır.</p>
+<ul>
+  <li><strong>Fonksiyon:</strong> dizi ekstansiyon yaptırır; <strong>rectus femoris</strong> ayrıca uyluğun fleksiyonuna yardım eder.</li>
+  <li><strong>İnervasyon:</strong> <strong>Femoral nerve</strong>.</li>
+</ul>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Quadriceps başları</span>
+  <p style="margin:4px 0;">"<strong>1 Rectus + 3 Vastus</strong>": <strong>R</strong>ectus femoris, Vastus <strong>L</strong>ateralis, Vastus <strong>M</strong>edialis, Vastus <strong>I</strong>ntermedius. Sadece <strong>rectus femoris</strong> iki eklemi geçer (hem kalça hem diz) → bu yüzden uyluk fleksiyonuna da yardım eder.</p>
+</div>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  <p style="margin:4px 0;">Ön uyluğun çoğu kası (sartorius + quadriceps + iliacus) <strong>femoral nerve</strong> ile inerve edilir. <strong>Sartorius = en uzun kas</strong>, "terzi pozisyonu" (bağdaş kurma) hareketinden adını alır.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Ön Uyluk</span>
+  <p class="q">S1. What is the longest muscle in the body, and what nerve innervates it?</p>
+  <p class="a">Sartorius; femoral nerve.</p>
+  <p class="q">S2. Quadriceps femoris'in dört başı nedir?</p>
+  <p class="a">Rectus femoris, vastus lateralis, vastus medialis, vastus intermedius.</p>
+  <p class="q">S3. Quadriceps'in hangi başı uyluk fleksiyonuna da yardım eder ve neden?</p>
+  <p class="a">Rectus femoris — iki eklemi (kalça + diz) geçtiği için.</p>
+</div>
+</section>
+
+<!-- FEMORAL TRIANGLE -->
+<section>
+<h2 class="part-title">BÖLÜM 4 — FEMORAL ÜÇGEN (SCARPA)</h2>
+<h3 id="g5">4.1 İçerik</h3>
+<p>Femoral üçgen (femoral triangle / trigonum femorale), ön uyluğun üst kısmındadır. İçeriği <strong>lateralden mediale</strong>:</p>
+<div class="card">
+<table>
+  <thead><tr><th>Sıra (lateral→medial)</th><th>Yapı</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td><strong>Femoral Nerve</strong> (+ dalları; <strong>saphenous nerve</strong> = femoral sinirin duyusal dalı)</td></tr>
+    <tr><td>2</td><td><strong>Femoral Artery</strong> (+ dalları)</td></tr>
+    <tr><td>3</td><td><strong>Femoral Vein</strong> (+ great saphenous vein, deep femoral vein)</td></tr>
+    <tr><td>4</td><td><strong>Deep inguinal Lymph nodes</strong></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — "NAVeL" (göbek)</span>
+  <p style="margin:4px 0;">Lateralden mediale: <strong>N</strong>erve → <strong>A</strong>rtery → <strong>V</strong>ein → <strong>L</strong>ymphatics = "<strong>NAVL</strong>" (İngilizce "navel" = göbek). Sinir en lateralde, lenf en medialde.</p>
+</div>
+
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi — Femoral arter</span>
+  <ul style="margin:4px 0;">
+    <li><strong>Nabız:</strong> inguinal ligamentin orta noktasının <strong>2–3 cm altında</strong> alınır.</li>
+    <li><strong>Kompresyon:</strong> femur başına ve pubik kemiğin superior ramusuna karşı bastırılır.</li>
+    <li>Klinik kullanım: <strong>koroner anjiyografi</strong> ve <strong>arteriyel kan gazı</strong> örneklemesi için erişim noktasıdır.</li>
+  </ul>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Femoral Üçgen</span>
+  <p class="q">S1. List the contents of the femoral triangle from lateral to medial.</p>
+  <p class="a">Femoral nerve, femoral artery, femoral vein, deep inguinal lymph nodes (NAVL).</p>
+  <p class="q">S2. Femoral arter nabzı nerede alınır?</p>
+  <p class="a">İnguinal ligamentin orta noktasının 2–3 cm altında.</p>
+</div>
+</section>
+
+<!-- MEDIAL THIGH -->
+<section>
+<h2 class="part-title">BÖLÜM 5 — MEDİAL UYLUK (ADDUKTOR GRUP)</h2>
+<h3 id="g6">5.1 Adduktor Kaslar</h3>
+<p>Medial uyluk kasları <strong>adductor group</strong> olarak adlandırılır: <strong>Pectineus, Adductor longus, Adductor brevis, Adductor magnus, Gracilis</strong>.</p>
+
+<h4>Adductor magnus — iki parçalı (composite muscle)</h4>
+<div class="card">
+<table>
+  <thead><tr><th></th><th>Adductor part</th><th>Hamstring part</th></tr></thead>
+  <tbody>
+    <tr><th>Origin</th><td>Pubis &amp; ischium</td><td>Ischial tuberosity</td></tr>
+    <tr><th>Insertion</th><td>Linea aspera</td><td>Adductor tubercle of femur</td></tr>
+    <tr><th>Fonksiyon</th><td>Uyluğu <strong>adduksiyon + fleksiyon</strong></td><td>Uyluğu <strong>adduksiyon + ekstansiyon</strong></td></tr>
+    <tr><th>İnervasyon</th><td><mark><strong>Obturator nerve</strong></mark></td><td><mark><strong>Tibial nerve</strong></mark></td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>Adductor hiatus:</strong> adductor ve hamstring parçalarının yapışma yerleri arasındaki boşluktur. <strong>Femoral arter ve veni</strong>, adductor canal'dan <strong>popliteal fossaya</strong> geçerken bu açıklıktan geçer.</p>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat — Çift sinirli istisna</span>
+  <p style="margin:4px 0;"><strong>Adductor magnus iki sinirden inerve edilir:</strong> adductor parçası <strong>obturator nerve</strong>, hamstring parçası <strong>tibial nerve</strong>. Bu çift innervasyon, kasın iki ayrı kökenli (composite) olduğunu yansıtır ve sık sorulan bir istisnadır.</p>
+</div>
+
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi — Adductor hiatus</span>
+  <p style="margin:4px 0;"><strong>Femoral arter</strong>, adductor hiatus'tan geçtikten sonra adını değiştirerek <strong>popliteal arter</strong> olur. Bu geçiş, alt ekstremite dolaşımının kilit anatomik noktasıdır.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Medial Uyluk</span>
+  <p class="q">S1. Adductor magnus has two parts with different innervations — name them.</p>
+  <p class="a">Adductor part → obturator nerve; hamstring part → tibial nerve.</p>
+  <p class="q">S2. Femoral arter hangi açıklıktan geçerek popliteal arter olur?</p>
+  <p class="a">Adductor hiatus.</p>
+</div>
+</section>
+
+<!-- POSTERIOR THIGH -->
+<section>
+<h2 class="part-title">BÖLÜM 6 — ARKA UYLUK (HAMSTRINGS)</h2>
+<h3 id="g7">6.1 Hamstring Kasları</h3>
+<p>Arka uyluk üç kası içerir; bunlara <strong>hamstring muscle</strong> denir: <strong>Semitendinosus, Semimembranosus, Biceps femoris</strong>.</p>
+<div class="card">
+<table>
+  <thead><tr><th>Kas</th><th>Origin</th><th>Insertion</th><th>İnervasyon</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Semitendinosus</strong></td><td>Ischial tuberosity</td><td>Tibia medial yüzü (üst kısım)</td><td>Tibial nerve</td></tr>
+    <tr><td><strong>Semimembranosus</strong></td><td>Ischial tuberosity</td><td>Medial kondilin arka kısmı</td><td>Tibial nerve</td></tr>
+    <tr><td><strong>Biceps femoris</strong></td><td><strong>Long head:</strong> ischial tuberosity · <strong>Short head:</strong> linea aspera</td><td>Her iki baş → <strong>fibula</strong></td><td><strong>Long head: tibial nerve · Short head: common peroneal nerve</strong></td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>Genel fonksiyon:</strong> Hamstringler bacağı <strong>fleksiyon</strong>, uyluğu <strong>ekstansiyon</strong> yaptırır. Diz fleksiyondayken: semitendinosus/semimembranosus bacağı <strong>iç</strong> rotasyona, biceps femoris <strong>dış</strong> rotasyona getirir.</p>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Hamstring "yön kuralı"</span>
+  <p style="margin:4px 0;">"<strong>Semi</strong>" ile başlayanlar <strong>medial</strong>de (iç rotasyon), <strong>biceps</strong> ise <strong>lateral</strong>de (dış rotasyon). İnervasyon: hepsi tibial nerve — <u>tek istisna biceps femoris kısa başı = common peroneal nerve</u>.</p>
+</div>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat — Biceps femoris çift innervasyonu</span>
+  <p style="margin:4px 0;"><strong>Biceps femoris'in iki başı farklı sinirlerden</strong> inerve edilir: uzun baş <strong>tibial nerve</strong>, kısa baş <strong>common peroneal nerve</strong>. Adductor magnus gibi bu da çift innervasyon istisnasıdır.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Hamstrings</span>
+  <p class="q">S1. Which hamstring head is innervated by the common peroneal nerve?</p>
+  <p class="a">Biceps femoris'in kısa başı (short head).</p>
+  <p class="q">S2. Hamstring kaslarının ortak origin'i nedir (biceps kısa baş hariç)?</p>
+  <p class="a">Ischial tuberosity.</p>
+  <p class="q">S3. Hamstringlerin genel fonksiyonu nedir?</p>
+  <p class="a">Bacağı fleksiyon, uyluğu ekstansiyon.</p>
+</div>
+</section>
+
+<!-- POPLITEAL FOSSA -->
+<section>
+<h2 class="part-title">BÖLÜM 7 — POPLİTEAL FOSSA (DİZ ARKASI ÇUKURU)</h2>
+<h3 id="g8">7.1 İçerik</h3>
+<p>Popliteal fossa, diz ekleminin arkasında, çoğunlukla <strong>yağ dolu</strong>, <strong>rhomboid (eşkenar dörtgen)</strong> şeklinde bir bölgedir. İçeriği:</p>
+<ul>
+  <li><strong>Popliteal artery</strong> + dalları (femoral arterin devamı)</li>
+  <li><strong>Popliteal vein</strong> (ön ve arka tibial venlerin birleşmesiyle oluşur)</li>
+  <li><strong>Tibial nerve</strong> ve <strong>common peroneal (fibular) nerve</strong></li>
+  <li><strong>Lesser (small) saphenous vein'in</strong> sonlanması (burada popliteal vene drene olur)</li>
+  <li><strong>Popliteal lymph nodes</strong> ve lenf damarları</li>
+</ul>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  <p style="margin:4px 0;"><strong>Lesser (small) saphenous vein</strong> popliteal fossada <strong>popliteal vene</strong> drene olur. (Buna karşılık <strong>great saphenous vein</strong> femoral üçgende femoral vene drene olur — ikisini karıştırma!)</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Popliteal Fossa</span>
+  <p class="q">S1. Which two nerves are found in the popliteal fossa?</p>
+  <p class="a">Tibial nerve ve common peroneal (fibular) nerve.</p>
+  <p class="q">S2. Lesser saphenous vein nereye drene olur?</p>
+  <p class="a">Popliteal fossada popliteal vene.</p>
+</div>
+</section>
+
+<!-- LEG -->
+<section>
+<h2 class="part-title">BÖLÜM 8 — BACAK (LEG) KOMPARTMANLARI</h2>
+<h3 id="g9">8.1 Fasya &amp; Üç Kompartman</h3>
+<p>Bacağın derin fasyası <strong>crural fascia</strong>'dır. İki septum verir (<strong>anterior &amp; posterior intermuscular septa</strong>). <strong>Interosseous membrane</strong> tibia ile fibula arasında uzanır. Bu septalar + interosseous membrane bacağı <strong>üç kompartmana</strong> ayırır: Anterior, Lateral, Posterior.</p>
+
+<div class="card">
+<table>
+  <thead><tr><th>Kompartman</th><th>Kaslar</th><th>Sinir (genel)</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Anterior</strong> (4 kas)</td><td><strong>Tibialis anterior, Extensor digitorum longus, Extensor hallucis longus, Peroneus (fibularis) tertius</strong></td><td>Deep peroneal nerve</td></tr>
+    <tr><td><strong>Lateral</strong> (2 kas)</td><td><strong>Peroneus (fibularis) longus, Peroneus (fibularis) brevis</strong></td><td>Superficial peroneal nerve</td></tr>
+    <tr><td><strong>Posterior — superficial</strong> (3 kas)</td><td><strong>Gastrocnemius, Soleus, Plantaris</strong></td><td>Tibial nerve</td></tr>
+    <tr><td><strong>Posterior — deep</strong> (4 kas)</td><td><strong>Popliteus, Flexor hallucis longus, Flexor digitorum longus, Tibialis posterior</strong></td><td>Tibial nerve</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="tag">Not: Posterior kompartman, <strong>transverse intermuscular septum</strong> ile yüzeyel ve derin olarak ikiye ayrılır.</p>
+
+<h4>Gastrocnemius</h4>
+<div class="card">
+<table>
+  <tbody>
+    <tr><th style="width:130px;">Origin</th><td><strong>Medial head:</strong> femurun medial kondili · <strong>Lateral head:</strong> femurun lateral kondili</td></tr>
+    <tr><th>Insertion</th><td>Calcaneusun arka yüzü → <strong>calcaneal (Achilles) tendon</strong> ile</td></tr>
+    <tr><th>Fonksiyon</th><td>Bacak ekstansiyondayken ayağı <strong>plantar fleksiyon</strong> (yürürken topuğu kaldırır); bacağı fleksiyon</td></tr>
+    <tr><th>İnervasyon</th><td><strong>Tibial nerve</strong></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Derin posterior kaslar "Tom, Dick & Harry"</span>
+  <p style="margin:4px 0;">Medial malleol arkasında önden arkaya: <strong>T</strong>ibialis posterior → flexor <strong>D</strong>igitorum longus → (posterior tibial <strong>A</strong>rtery + tibial <strong>N</strong>erve) → flexor <strong>H</strong>allucis longus. Akrostiş: "<em>Tom, Dick And Nervous Harry</em>".</p>
+</div>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi — Kompartman-sinir eşlemesi</span>
+  <p style="margin:4px 0;">Anterior → <strong>deep peroneal</strong>; Lateral → <strong>superficial peroneal</strong>; Posterior (yüzeyel + derin) → <strong>tibial nerve</strong>. Tüm bunlar siyatik sinirin dallarıdır (tibial + common peroneal).</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Bacak</span>
+  <p class="q">S1. Name the three muscles of the superficial posterior compartment of the leg.</p>
+  <p class="a">Gastrocnemius, soleus, plantaris.</p>
+  <p class="q">S2. Lateral kompartmanın iki kası ve siniri nedir?</p>
+  <p class="a">Peroneus longus &amp; brevis; superficial peroneal nerve.</p>
+  <p class="q">S3. Gastrocnemius hangi tendonla calcaneusa yapışır ve hangi sinirle inerve edilir?</p>
+  <p class="a">Calcaneal (Achilles) tendon; tibial nerve.</p>
+</div>
+</section>
+
+<!-- ANKLE & FOOT -->
+<section>
+<h2 class="part-title">BÖLÜM 9 — AYAK BİLEĞİ &amp; AYAK</h2>
+<h3 id="g10">9.1 Ayak Bileği Retinakulaları</h3>
+<p>Ayak bileği çevresinde crural fascia şu kalınlaşmaları oluşturur (kasların tendonları bunların altından geçer):</p>
+<ul>
+  <li><strong>Superior &amp; inferior extensor retinacula</strong></li>
+  <li><strong>Superior &amp; inferior peroneal (fibular) retinacula</strong></li>
+  <li><strong>Flexor retinaculum</strong></li>
+</ul>
+
+<h3 id="g11">9.2 Ayak (Foot) Kasları</h3>
+<ul>
+  <li>Tabanda, ortadan inen yoğun derin fasya tabakası = <strong>plantar aponeurosis</strong>; ayağın <strong>longitudinal arkını (longitudinal arch)</strong> korumaya yardım eder.</li>
+  <li><strong>Ayak sırtında (dorsum) 2 kas:</strong> <strong>Extensor digitorum brevis</strong> &amp; <strong>Extensor hallucis brevis</strong> → <strong>deep peroneal nerve</strong> ile inerve.</li>
+  <li><strong>Taban kasları:</strong> birey olarak farklı işlevleri olsa da grup halinde çalışır; asıl görevleri düzleşmeye direnmek ve <strong>arkı korumak</strong>. Tabandaki kaslar <strong>4 katman</strong> halinde dizilir.</li>
+  <li>Tüm plantar kaslar <strong>medial plantar nerve</strong> VEYA <strong>lateral plantar nerve</strong> ile inerve edilir (her ikisi de <strong>tibial nerve'in dalları</strong>).</li>
+</ul>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  <p style="margin:4px 0;">Ayak <strong>dorsumu</strong> kasları → <strong>deep peroneal nerve</strong>; ayak <strong>tabanı</strong> kasları → medial/lateral plantar nerve (<strong>tibial</strong> dalları). "Üstte peroneal, altta tibial" diye hatırla.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Ayak</span>
+  <p class="q">S1. The plantar muscles are innervated by which two nerves, and these are branches of?</p>
+  <p class="a">Medial &amp; lateral plantar nerves; her ikisi de tibial nerve'in dallarıdır.</p>
+  <p class="q">S2. Plantar aponeurosis'in ana işlevi nedir?</p>
+  <p class="a">Ayağın longitudinal arkını korumak.</p>
+  <p class="q">S3. Ayak sırtındaki iki kas ve sinirleri nedir?</p>
+  <p class="a">Extensor digitorum brevis &amp; extensor hallucis brevis; deep peroneal nerve.</p>
+</div>
+</section>
+
+<!-- LUMBOSACRAL PLEXUS -->
+<section>
+<h2 class="part-title">BÖLÜM 10 — LUMBOSAKRAL PLEKSUS</h2>
+<h3 id="p1">10.1 Genel</h3>
+<p>Lumbosakral pleksus, alt ekstremitenin <strong>kütanöz (duyusal) ve motor</strong> innervasyonunu sağlar. <strong>Lumbar ve sakral spinal sinirlerin ventral ramuslarından</strong> oluşur. İki kısımda incelenir: <strong>Lumbar plexus</strong> &amp; <strong>Sacral plexus</strong>.</p>
+
+<h3 id="p2">10.2 Lumbar Pleksus</h3>
+<ul>
+  <li><strong>Konum:</strong> arka karın duvarında, <strong>psoas major'ın arkasında</strong> (posterior to psoas major).</li>
+  <li><strong>Oluşum:</strong> <strong>L1, L2, L3</strong> ventral ramusları + <strong>L4'ün ventral ramusunun büyük kısmı</strong>. Ayrıca <strong>T12'den (subcostal nerve)</strong> L1'e küçük katkı.</li>
+</ul>
+<p><strong>Dalları:</strong></p>
+<div class="card">
+<table>
+  <thead><tr><th>Sinir</th><th>Not</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Muscular branches</strong></td><td>Quadratus lumborum, psoas major &amp; minor'a</td></tr>
+    <tr><td><strong>Iliohypogastric nerve</strong></td><td></td></tr>
+    <tr><td><strong>Ilioinguinal nerve</strong></td><td></td></tr>
+    <tr><td><strong>Genitofemoral nerve</strong></td><td></td></tr>
+    <tr><td><strong>Lateral femoral cutaneous nerve</strong></td><td></td></tr>
+    <tr><td><strong>Femoral nerve</strong></td><td>En büyük dal (aşağıda)</td></tr>
+    <tr><td><strong>Obturator nerve</strong></td><td>Medial uyluk adduktorları</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Lumbar pleksus dalları</span>
+  <p style="margin:4px 0;">"<em>I, I Get Leftovers On Fridays</em>" → <strong>I</strong>liohypogastric, <strong>I</strong>lioinguinal, <strong>G</strong>enitofemoral, <strong>L</strong>ateral femoral cutaneous, <strong>O</strong>bturator, <strong>F</strong>emoral (+ muscular branches). Kökler: "<strong>L1–L4</strong>" (T12'den küçük katkı).</p>
+</div>
+
+<h4>Femoral nerve (L2-3-4)</h4>
+<ul>
+  <li>Lumbar pleksusun <strong>en büyük siniri</strong>.</li>
+  <li><strong>Ön uyluk kaslarını</strong> inerve eder; <strong>anteromedial uyluk derisini</strong> besler.</li>
+  <li>Dalı <strong>saphenous nerve</strong> → bacak ve ayağın <strong>medial</strong> kısımlarının duyusunu sağlar.</li>
+  <li>Saphenous'un <strong>infrapatellar dalı</strong> → dizin medial yüzünden duyu alır.</li>
+</ul>
+
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi — Femoral sinir hasarı</span>
+  <ul style="margin:4px 0;">
+    <li><strong>Quadriceps femoris felci</strong> → bacak ekstansiyonunda belirgin zayıflık.</li>
+    <li>Ön uyluk derisinde (anterior cutaneous dallar) ve anteromedial bacakta (saphenous nerve) <strong>duyu kaybı</strong>.</li>
+    <li><strong>Patellar refleks (diz refleksi) kaybı</strong>.</li>
+  </ul>
+</div>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi — Saphenous nerve</span>
+  <p style="margin:4px 0;">Saphenous nerve <strong>femoral sinirin (motor değil) saf duyusal dalıdır</strong>. Bacak ve ayağın medial kısmının duyusunu o sağlar — siyatik sinir hasarında bile bu medial bölge korunur (çünkü femoral kaynaklıdır).</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Lumbar Pleksus</span>
+  <p class="q">S1. The lumbar plexus is formed by the ventral rami of which nerves?</p>
+  <p class="a">L1, L2, L3 ve L4'ün büyük kısmı (T12'den küçük katkı).</p>
+  <p class="q">S2. Femoral sinirin kökleri ve en önemli duyusal dalı nedir?</p>
+  <p class="a">L2-3-4; saphenous nerve.</p>
+  <p class="q">S3. Femoral nerve injury hangi refleksin kaybına yol açar?</p>
+  <p class="a">Patellar refleks (diz refleksi).</p>
+</div>
+
+<hr>
+
+<h3 id="p3">10.3 Sakral Pleksus &amp; Siyatik Sinir</h3>
+<ul>
+  <li><strong>Konum:</strong> küçük pelvisin arka duvarında (<strong>piriformis kası ile yakın ilişkili</strong>).</li>
+  <li><strong>Lumbosacral trunk:</strong> L4 ventral ramusunun bir kısmı + L5 ventral ramusu birleşir.</li>
+  <li><strong>Oluşum:</strong> Lumbosacral trunk (L4–5) + <strong>S1, S2, S3</strong> ventral ramusları + <strong>S4'ün bir kısmı</strong>.</li>
+</ul>
+<p><strong>Dalları:</strong> <span class="pill">Superior gluteal nerve</span> <span class="pill">Inferior gluteal nerve</span> <span class="pill">Sciatic nerve</span> <span class="pill">Posterior femoral cutaneous nerve</span> <span class="pill">Pudendal nerve</span></p>
+<p class="tag">Direkt kas dalları: nerve to piriformis, quadratus femoris &amp; inferior gemellus'a, obturator internus &amp; superior gemellus'a, levator ani &amp; coccygeus'a.</p>
+
+<h4>Sciatic nerve (L4-5, S1-2-3)</h4>
+<ul>
+  <li><mark><strong>Vücudun en büyük siniri.</strong></mark></li>
+  <li>Arkaya doğru ilerler; pelvisi <strong>greater sciatic foramen</strong>'den (infrapiriform kısmından) terk eder ve gluteal bölgeye ulaşır.</li>
+  <li>Genellikle uyluğun arka-alt kısmında <strong>tibial nerve</strong> ve <strong>common peroneal (fibular) nerve'e</strong> ayrılır.</li>
+  <li>Bu iki sinir, arka uyluk kasları + bacak ve ayağın <strong>tüm kaslarını</strong> besler.</li>
+  <li>Duyusal dalları, bacak ve ayak derisinin <strong>neredeyse tamamını</strong> besler — <u>medial kısımlar hariç</u> (medial kısımlar <strong>saphenous nerve</strong> = femoral dalından).</li>
+</ul>
+
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi — Siyatik sinir hasarı</span>
+  <ul style="margin:4px 0;">
+    <li>En sık <strong>hatalı gluteal IM enjeksiyon</strong> sonucu zedelenir (bu yüzden üst-dış kadran tercih edilir!).</li>
+    <li>Arka uyluk kası felci → bacak fleksiyonu zayıflar.</li>
+    <li>Diz altındaki <strong>tüm kaslar felç</strong> olur → ayak hareketleri imkânsızlaşır.</li>
+    <li>Bacak ve ayakta duyu kaybı — <strong>saphenous nerve'in beslediği medial alan hariç</strong>.</li>
+  </ul>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Siyatik kökler</span>
+  <p style="margin:4px 0;">Sciatic = <strong>L4, L5, S1, S2, S3</strong> → "Lumbar 4-5 ve Sacral 1-2-3". İki bileşeni: <strong>Tibial</strong> (önden gelen anterior divizyonlar) + <strong>Common peroneal</strong> (arkadan gelen posterior divizyonlar).</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Sakral Pleksus / Siyatik</span>
+  <p class="q">S1. What are the two terminal nerves of the sciatic nerve?</p>
+  <p class="a">Tibial nerve ve common peroneal (fibular) nerve.</p>
+  <p class="q">S2. Lumbosacral trunk hangi köklerden oluşur?</p>
+  <p class="a">L4'ün bir kısmı + L5.</p>
+  <p class="q">S3. Siyatik sinir hasarında bacak/ayakta hangi bölge duyusu KORUNUR ve neden?</p>
+  <p class="a">Medial bölge — saphenous nerve (femoral dalı) tarafından beslendiği için.</p>
+  <p class="q">S4. Sciatic nerve pelvisi hangi foramenden terk eder?</p>
+  <p class="a">Greater sciatic foramen (infrapiriform kısım).</p>
+</div>
+
+<hr>
+
+<h3 id="p4">10.4 Pudendal &amp; Koksigeal Pleksus</h3>
+<h4>Pudendal nerve (S2-3-4)</h4>
+<ul>
+  <li><strong>Perineal bölgenin ana siniridir.</strong></li>
+  <li><strong>External anal sphincter</strong> ve perineal kasları inerve eder.</li>
+  <li>Duyusal lifleri <strong>anal ve genital bölge derisini</strong> besler.</li>
+</ul>
+
+<h4>Koksigeal Pleksus</h4>
+<ul>
+  <li><strong>Oluşum:</strong> S4 ventral ramusunun bir kısmı + S5 ventral ramusları + koksigeal sinir(ler).</li>
+  <li><strong>Anococcygeal nerves</strong> → koksigeal bölge derisinin küçük bir alanını besler.</li>
+</ul>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Pudendal kökler</span>
+  <p style="margin:4px 0;">"<strong>S2, 3, 4</strong> keeps the pelvis off the floor" → Pudendal sinir <strong>S2-S3-S4</strong> köklerinden çıkar; pelvik taban ve sfinkter kontrolünden sorumludur.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Pudendal / Koksigeal</span>
+  <p class="q">S1. What are the roots of the pudendal nerve, and what muscle does it innervate?</p>
+  <p class="a">S2-3-4; external anal sphincter (ve perineal kaslar).</p>
+  <p class="q">S2. Koksigeal pleksus hangi köklerden oluşur?</p>
+  <p class="a">S4'ün bir kısmı + S5 + koksigeal sinir(ler).</p>
+</div>
+</section>
+
+<footer>
+  <strong>Bu rehber, "Lower Extremity and Lumbosacral Plexus" dersinin 65 slaytının tamamından hazırlanmıştır.</strong><br>
+  Gluteal bölge, iliopsoas, uyluk (ön/medial/arka), femoral üçgen, popliteal fossa, bacak kompartmanları, ayak ve lumbosakral pleksus (femoral/siyatik/pudendal sinirler ve klinik hasar tabloları dahil) eksiksiz işlenmiştir. İngilizce/Latince terminoloji korunmuş; klinik notlar, mnemonikler (NAVL, P-O-GG-Q, "I I Get Leftovers On Fridays", Tom-Dick-Harry vb.) ve final düzeyinde flashcard'larla zenginleştirilmiştir. Sıradaki ders (Karın/Toraks kasları &amp; diyafram veya Baş-Yüz) için hazır olduğunda söyle. Başarılar! 🦷
+</footer>
+
+</div>
+</body>
+</html>

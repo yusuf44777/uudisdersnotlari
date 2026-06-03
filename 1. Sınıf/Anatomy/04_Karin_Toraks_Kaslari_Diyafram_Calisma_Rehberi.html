@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdominal &amp; Thorax Muscles, Diaphragm — Final Çalışma Rehberi</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#5b6472; --bg:#fbf7f2; --card:#ffffff;
+    --line:#ece2d6; --accent:#b5651d;
+    --klinik-bg:#e8f4f8; --klinik-bd:#2a93b5; --klinik-tx:#0f5d72;
+    --spot-bg:#eaf7ee; --spot-bd:#2e9e57; --spot-tx:#1c6e3b;
+    --dikkat-bg:#fdeceb; --dikkat-bd:#d9483b; --dikkat-tx:#9e2a20;
+    --mnem-bg:#f1ecfb; --mnem-bd:#7b4fc4; --mnem-tx:#5331a0;
+    --flash-bg:#fff8e6; --flash-bd:#e3a008; --flash-tx:#8a5a00;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Segoe UI',Helvetica,Arial,system-ui,sans-serif; line-height:1.65; font-size:17px;}
+  .wrap{max-width:920px; margin:0 auto; padding:28px 20px 80px;}
+  header.hero{background:linear-gradient(135deg,#8a4513,#b5651d); color:#fff;
+    border-radius:18px; padding:34px 30px; margin-bottom:26px; box-shadow:0 8px 26px rgba(138,69,19,.25);}
+  header.hero .badge{display:inline-block; background:rgba(255,255,255,.18);
+    padding:4px 12px; border-radius:999px; font-size:13px; letter-spacing:.5px; margin-bottom:12px;}
+  header.hero h1{margin:6px 0 8px; font-size:30px; line-height:1.25;}
+  header.hero p{margin:0; opacity:.92; font-size:15.5px;}
+  nav.toc{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 22px; margin-bottom:30px;}
+  nav.toc h2{margin:0 0 10px; font-size:17px; color:var(--accent);}
+  nav.toc ol{margin:0; padding-left:20px; columns:2; column-gap:30px;}
+  nav.toc a{color:var(--ink); text-decoration:none; font-size:14.5px;}
+  nav.toc a:hover{color:var(--accent); text-decoration:underline;}
+  h2.part-title{background:var(--accent); color:#fff; padding:12px 18px; border-radius:12px;
+    font-size:21px; margin:38px 0 18px; box-shadow:0 4px 12px rgba(181,101,29,.2);}
+  h3{font-size:19px; color:#8a4513; border-left:5px solid var(--accent); padding-left:12px; margin:30px 0 12px;}
+  h4{font-size:16.5px; color:#5e3a1a; margin:20px 0 8px;}
+  p{margin:10px 0;}
+  ul,ol{margin:10px 0; padding-left:24px;}
+  li{margin:5px 0;}
+  strong{color:#16223d;}
+  mark{background:#ffe2bf; padding:0 3px; border-radius:3px;}
+  .lat{font-style:italic; color:#6b3fa0;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:6px 22px 14px; margin:14px 0; box-shadow:0 2px 8px rgba(31,36,48,.04);}
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14.5px;}
+  th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{background:#f5e9da; color:#8a4513;}
+  tr:nth-child(even) td{background:#fdfaf6;}
+  .box{border-radius:12px; padding:14px 18px; margin:16px 0; border-left:6px solid;}
+  .box .bt{font-weight:700; display:block; margin-bottom:6px; font-size:15.5px;}
+  .klinik{background:var(--klinik-bg); border-color:var(--klinik-bd);} .klinik .bt{color:var(--klinik-tx);}
+  .spot{background:var(--spot-bg); border-color:var(--spot-bd);} .spot .bt{color:var(--spot-tx);}
+  .dikkat{background:var(--dikkat-bg); border-color:var(--dikkat-bd);} .dikkat .bt{color:var(--dikkat-tx);}
+  .mnem{background:var(--mnem-bg); border-color:var(--mnem-bd);} .mnem .bt{color:var(--mnem-tx);}
+  .flash{background:var(--flash-bg); border:1.5px dashed var(--flash-bd); border-left:6px solid var(--flash-bd);
+    border-radius:12px; padding:14px 18px; margin:18px 0;}
+  .flash .ft{font-weight:700; color:var(--flash-tx); display:block; margin-bottom:8px; font-size:15px; letter-spacing:.3px;}
+  .flash .q{font-weight:600; margin:9px 0 2px; color:#5a3d00;}
+  .flash .a{margin:0 0 6px; padding-left:14px; border-left:3px solid var(--flash-bd); color:#3a3a3a;}
+  .flash .a::before{content:"➜ "; color:var(--flash-bd); font-weight:700;}
+  .pill{display:inline-block; background:#f5e9da; color:#8a4513; border-radius:999px; padding:2px 10px; font-size:13px; margin:2px 3px;}
+  hr{border:none; border-top:1px dashed var(--line); margin:26px 0;}
+  .tag{font-size:12px; color:var(--muted);}
+  footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:13.5px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="badge">ANATOMİ · 1. SINIF · FİNAL HAZIRLIK · DERS 04</span>
+  <h1>Abdominal &amp; Thorax Muscles, Diaphragm<br><span style="font-size:19px; font-weight:500; opacity:.9;">Karın &amp; Toraks Kasları, Diyafram</span></h1>
+  <p>Asst. Prof. Gamze Ansen — Üsküdar Üniversitesi, Tıp Fakültesi, Anatomi A.D. · Türkçe açıklamalı, İngilizce/Latince terimler korunarak işlenmiştir.</p>
+</header>
+
+<nav class="toc">
+  <h2>📚 İçindekiler</h2>
+  <ol>
+    <li><a href="#a1">Karın Duvarı — Genel &amp; Katmanlar</a></li>
+    <li><a href="#a2">Yüzeyel &amp; Derin Fasyalar</a></li>
+    <li><a href="#a3">Karın Kasları (5)</a></li>
+    <li><a href="#a4">Kasların Fonksiyonları &amp; Sinirleri</a></li>
+    <li><a href="#a5">Linea Alba, Rectus Sheath, Inguinal Lig.</a></li>
+    <li><a href="#a6">Peritoneal Foldlar (Göbek altı)</a></li>
+    <li><a href="#a7">Inguinal Kanal &amp; Gelişimi</a></li>
+    <li><a href="#a8">Klinik: Cryptorchidism &amp; Herniler</a></li>
+    <li><a href="#a9">Arka Karın Duvarı</a></li>
+    <li><a href="#a10">Lacuna, Femoral Sheath &amp; Canal</a></li>
+    <li><a href="#t1">Toraks Duvarı Kasları</a></li>
+    <li><a href="#t2">İnterkostal Kaslar</a></li>
+    <li><a href="#d1">Diyafram — Yapı &amp; Fonksiyon</a></li>
+    <li><a href="#d2">Diyafram Geçiş Delikleri (T8-T10-T12)</a></li>
+    <li><a href="#d3">Diyafram İnervasyonu (Phrenic)</a></li>
+  </ol>
+</nav>
+
+<!-- ABDOMINAL WALL -->
+<section>
+<h2 class="part-title">BÖLÜM 1 — KARIN DUVARI (ABDOMINAL WALL)</h2>
+<h3 id="a1">1.1 Genel &amp; Katmanlar</h3>
+<p><strong>Abdomen</strong>, toraks ile pelvis arasındaki bölgedir. Abdominal kavite, <strong>diaphragm</strong> ile toraks kavitesinden, <strong>superior pelvic aperture</strong> ile pelvik kaviteden ayrılır. Pelvik kaviteyle devamlıdır → ikisi birlikte <strong>abdominopelvic cavity</strong> olarak anılır. Karın kavitesini ön, yan ve arkadan kapatan kas ve fasyalara <strong>abdominal wall (karın duvarı)</strong> denir.</p>
+
+<p><strong>Ön-yan karın duvarının 8 katmanı (yüzeyelden derine):</strong></p>
+<div class="card">
+<table>
+  <thead><tr><th>#</th><th>Katman</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td><strong>Skin</strong> (deri)</td></tr>
+    <tr><td>2</td><td><strong>Camper's fascia</strong> (yağlı yüzeyel tabaka)</td></tr>
+    <tr><td>3</td><td><strong>Scarpa's fascia</strong> (membranöz derin tabaka)</td></tr>
+    <tr><td>4</td><td><strong>Deep fascia</strong></td></tr>
+    <tr><td>5</td><td><strong>Muscles</strong> (kaslar)</td></tr>
+    <tr><td>6</td><td><strong>Transversalis fascia</strong></td></tr>
+    <tr><td>7</td><td><strong>Extraperitoneal fat</strong></td></tr>
+    <tr><td>8</td><td><strong>Parietal peritoneum</strong></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — 8 katman</span>
+  <p style="margin:4px 0;">"<strong>S</strong>kin → <strong>C</strong>amper → <strong>S</strong>carpa → <strong>D</strong>eep → <strong>M</strong>uscle → <strong>T</strong>ransversalis → <strong>E</strong>xtraperitoneal fat → <strong>P</strong>eritoneum". İki fasya yan yana (Camper yağlı, Scarpa zarsı) — alfabetik gibi C-S sırası.</p>
+</div>
+
+<h3 id="a2">1.2 Yüzeyel &amp; Derin Fasyalar</h3>
+<p><strong>Superficial fascia iki tabakalıdır:</strong></p>
+<ul>
+  <li><strong>Camper's fascia</strong> — yağlı yüzeyel tabaka (<span class="lat">panniculus adiposus</span>).</li>
+  <li><strong>Scarpa's fascia</strong> — membranöz derin tabaka. Aşağıda perineal bölgeye <strong>superficial perineal fascia (Colles fascia)</strong> olarak devam eder.</li>
+</ul>
+<p><strong>Deep fascia</strong>, karın kaslarını sarar; uyluk ve penisin derin fasyasıyla (<strong>Buck's fascia</strong>) devamlıdır. Transversus abdominis kasının iç yüzünü örten derin fasya ise <strong>transversalis fascia</strong>'yı oluşturur.</p>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi — Eponim zinciri</span>
+  <p style="margin:4px 0;">Scarpa's fascia → perinede <strong>Colles fascia</strong>; deep fascia → peniste <strong>Buck's fascia</strong>; Camper's = yağlı, Scarpa's = zarsı. Bu eponimler sık sorulur.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Katmanlar &amp; Fasyalar</span>
+  <p class="q">S1. Name the two layers of the superficial fascia of the anterolateral abdominal wall.</p>
+  <p class="a">Camper's fascia (yağlı) ve Scarpa's fascia (membranöz).</p>
+  <p class="q">S2. Scarpa's fascia perinede hangi adı alır?</p>
+  <p class="a">Colles fascia (superficial perineal fascia).</p>
+  <p class="q">S3. Transversus abdominis'in iç yüzünü örten derin fasya nedir?</p>
+  <p class="a">Transversalis fascia.</p>
+</div>
+
+<hr>
+
+<h3 id="a3">1.3 Ön-Yan Karın Kasları (5 kas)</h3>
+<p><span class="pill">External abdominal oblique</span> <span class="pill">Internal abdominal oblique</span> <span class="pill">Transverse abdominal</span> <span class="pill">Rectus abdominis</span> <span class="pill">Pyramidalis</span></p>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — 3 yassı + 2 dik kas</span>
+  <p style="margin:4px 0;"><strong>3 yassı (flat) kas</strong> yan duvarda, dıştan içe: <strong>External oblique → Internal oblique → Transversus</strong> (el cebe sokarken parmak yönü gibi: dış oblik = el cebe). <strong>2 dikey kas</strong> ortada: <strong>Rectus abdominis</strong> + üzerinde küçük <strong>pyramidalis</strong>.</p>
+</div>
+
+<h3 id="a4">1.4 Fonksiyonlar &amp; İnervasyon</h3>
+<ul>
+  <li>Solunum (respiration); hapşırma &amp; öksürme (<strong>forced expiration</strong>).</li>
+  <li>Karın iç organlarını korur ve destekler.</li>
+  <li><strong>İntraabdominal basıncı</strong> artırarak işemeye (micturition), dışkılamaya (defecation), kusmaya ve doğuma yardım eder.</li>
+  <li>Gövdeyi hareket ettirir ve postürü korur:
+    <ul>
+      <li>Oblik kaslar <strong>bilateral</strong> kasılınca lumbar vertebraları <strong>fleksiyon</strong>.</li>
+      <li>Oblik kaslar <strong>tek taraflı</strong> kasılınca lumbar vertebraları <strong>lateral fleksiyon</strong>.</li>
+      <li><strong>External oblique</strong> (tek taraf) vücudu <u>karşı tarafa</u> rotasyona; <strong>internal oblique</strong> vücudu <u>aynı tarafa</u> rotasyona getirir.</li>
+    </ul>
+  </li>
+</ul>
+<p><strong>İnervasyon:</strong> <strong>T7–T12 spinal sinirler (ventral ramus)</strong> ve <strong>L1</strong> (iliohypogastric &amp; ilioinguinal nerve). Sinirler <strong>internal oblique ile transversus abdominis arasında</strong> seyreder.</p>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat — Oblik kasların rotasyon yönü</span>
+  <p style="margin:4px 0;"><strong>External oblique → karşı tarafa</strong>, <strong>internal oblique → aynı tarafa</strong> rotasyon. Bu yön ilişkisi sık sorulur. Sinirler dış oblikte değil, <u>internal oblique ile transversus arasında</u> ilerler.</p>
+</div>
+
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi — Yüzeyel karın refleksleri</span>
+  <p style="margin:4px 0;">Karın derisini çizmek karın kaslarının kasılmasına neden olur (yüzeyel karın refleksi). Soğuk elle uyarı da refleks kasılma yaratır. Bu refleks <strong>bazı nörolojik bozukluklarda kaybolur</strong>. <strong>Parietal periton iltihabında</strong> ise karın kaslarında refleks spazm (defans) görülür — akut karında klinik bulgudur.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Kaslar &amp; Fonksiyon</span>
+  <p class="q">S1. Name the 5 muscles of the anterolateral abdominal wall.</p>
+  <p class="a">External oblique, internal oblique, transverse abdominal, rectus abdominis, pyramidalis.</p>
+  <p class="q">S2. Karın kaslarının innervasyonu (kökler) nedir?</p>
+  <p class="a">T7–T12 (ventral ramus) ve L1 (iliohypogastric &amp; ilioinguinal).</p>
+  <p class="q">S3. Tek taraflı external oblique vücudu hangi yöne döndürür?</p>
+  <p class="a">Karşı tarafa (opposite side).</p>
+</div>
+
+<hr>
+
+<h3 id="a5">1.5 Linea Alba, Rectus Sheath &amp; Inguinal Ligament</h3>
+<ul>
+  <li><strong>Linea alba:</strong> <strong>xiphoid process</strong>'ten <strong>symphysis pubica</strong>'ya, rectus abdominis kasları arasında uzanan tendinöz yapı. Orta noktasının hemen altındaki delik = <strong>umbilicus (göbek)</strong>. Karın duvarının <strong>zayıf noktalarından biridir</strong>.</li>
+  <li><strong>Inguinal ligament (Poupart's ligament):</strong> ASIS ile pubic tubercle arasında fibröz bant; <strong>external abdominal oblique kası</strong> tarafından oluşturulur. Bu aponeurozdaki medial uçtaki açıklık = <strong>superficial inguinal ring (annulus)</strong>.</li>
+  <li><strong>Rectus sheath (rektus kılıfı):</strong> üç yassı kasın aponeurozları rectus abdominis'i sararak rectus sheath'i oluşturur. İçeriği: <strong>superior &amp; inferior epigastric vessels</strong>, son altı interkostal sinirin devamı, rectus abdominis ve pyramidalis kası.</li>
+</ul>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  <p style="margin:4px 0;"><strong>Linea alba</strong> ve <strong>inguinal bölge</strong> karın duvarının zayıf noktalarıdır → herniler tipik olarak buralardan çıkar. Inguinal ligament = <strong>external oblique</strong> aponeurozunun en alt kalınlaşmış kenarı.</p>
+</div>
+
+<h3 id="a6">1.6 Peritoneal Foldlar (Göbek altı 5 fold)</h3>
+<p>Karın ön duvarının iç yüzü <strong>parietal peritoneum</strong> ile örtülüdür. Göbek seviyesinin altında <strong>beş peritoneal fold</strong> bulunur:</p>
+<div class="card">
+<table>
+  <thead><tr><th>Fold</th><th>İçindeki yapı</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Median umbilical fold</strong> (tek)</td><td><strong>Median umbilical ligament</strong> = <strong>urachus</strong> kalıntısı (fetal mesaneyi göbeğe bağlardı)</td></tr>
+    <tr><td><strong>Medial umbilical folds</strong> (çift)</td><td><strong>Medial umbilical ligaments</strong> = oblitere olmuş fetal <strong>umbilical arterler</strong></td></tr>
+    <tr><td><strong>Lateral umbilical folds</strong> (çift)</td><td><strong>Inferior epigastric vessels</strong> (external iliac arterin dalı)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Foldların içeriği</span>
+  <p style="margin:4px 0;">Ortadan dışa: <strong>Median = urachUs</strong> (tek, idrar yolu kalıntısı), <strong>Medial = arterler</strong> (oblitere umbilical arter), <strong>Lateral = canlı damar</strong> (inferior epigastric — hâlâ kanlanır). "Median tek, diğerleri çift".</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Linea Alba &amp; Foldlar</span>
+  <p class="q">S1. The median umbilical ligament is a remnant of which structure?</p>
+  <p class="a">Urachus.</p>
+  <p class="q">S2. Lateral umbilical fold içinde hangi damar bulunur?</p>
+  <p class="a">Inferior epigastric vessels (external iliac arterin dalı).</p>
+  <p class="q">S3. Inguinal ligament hangi kasın aponeurozundan oluşur?</p>
+  <p class="a">External abdominal oblique.</p>
+</div>
+
+<hr>
+
+<h3 id="a7">1.7 Inguinal Kanal &amp; Gelişimi</h3>
+<ul>
+  <li>Oblik, inferomedial yönde uzanan, yaklaşık <strong>4 cm</strong> uzunluğunda bir geçittir; <strong>deep ve superficial inguinal ring</strong> arasında uzanır.</li>
+  <li><strong>Testisin fetal inişi (descent of testis)</strong> sırasında oluşur.</li>
+  <li>Inguinal ligamentin medial kısmına paralel ve hemen üstündedir.</li>
+</ul>
+<p><strong>Gelişim:</strong> Testisler arka karın duvarının üst lumbar bölgesinde, ekstraperitoneal bağ dokuda gelişir; sonra inguinal kanaldan geçerek <strong>skrotuma</strong> iner.</p>
+
+<h3 id="a8">1.8 Klinik: Cryptorchidism &amp; Herniler</h3>
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi — Cryptorchidism (testisin inmemesi)</span>
+  <ul style="margin:4px 0;">
+    <li>Term bebeklerin <strong>%3'ünde</strong>, prematürelerin <strong>%30'unda</strong> testis inmemiştir.</li>
+    <li><strong>%95'i tek taraflıdır</strong> (unilateral).</li>
+    <li>Tedavi edilmezse <strong>malignite (kanser)</strong> ve <strong>infertilite</strong> riski taşır.</li>
+  </ul>
+</div>
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi — Karın hernileri</span>
+  <ul style="margin:4px 0;">
+    <li><strong>Umbilical herni:</strong> yenidoğanlarda sık; göbek halkası çevresinden; göbek kordonu bağlandıktan sonra ön karın duvarının zayıflığı/eksik kapanması.</li>
+    <li><strong>Epigastric herni:</strong> linea alba'dan; çoğunlukla obeziteyle ilişkili.</li>
+    <li><strong>İnsizyonel herni:</strong> ameliyat sonrası yara yerinin uygun iyileşmemesi.</li>
+    <li><strong>Inguinal herni:</strong> en sık görülen karın hernisi; <mark>tüm karın hernilerinin %75'i</mark>, <mark>%86'sı erkekte</mark>. Direkt veya indirekt tip.</li>
+  </ul>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Inguinal Kanal &amp; Klinik</span>
+  <p class="q">S1. The inguinal canal extends between which two structures?</p>
+  <p class="a">Deep ve superficial inguinal rings (~4 cm).</p>
+  <p class="q">S2. Tüm karın hernilerinin yüzde kaçı inguinal hernidir ve cinsiyet dağılımı nedir?</p>
+  <p class="a">%75; %86 erkekte.</p>
+  <p class="q">S3. Cryptorchidism term bebeklerin ve prematürelerin yüzde kaçında görülür?</p>
+  <p class="a">%3 term, %30 prematüre; %95 unilateral.</p>
+</div>
+
+<hr>
+
+<h3 id="a9">1.9 Arka Karın Duvarı (4 kas)</h3>
+<p><span class="pill">Psoas major</span> <span class="pill">Psoas minor</span> <span class="pill">Iliacus</span> <span class="pill">Quadratus lumborum</span></p>
+
+<h3 id="a10">1.10 Lacuna, Femoral Sheath &amp; Femoral Canal</h3>
+<p><strong>Muscular &amp; vascular compartments (lacuna):</strong> İnguinal ligamentin arkasındaki geçit, bir septum ile (<strong>iliopectineal arch</strong> — iliacus'un ön yüzünü örten iliac fasya/derin fasyanın kalınlaşması) iki kompartmana ayrılır. Bu kalınlaşma, inguinal ligamentin arka yüzü ile iliopubic eminence arasında uzanır.</p>
+<div class="card">
+<table>
+  <thead><tr><th>Kompartman</th><th>İçerik</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Muscular (lateral)</strong></td><td>Iliacus &amp; psoas kasları, <strong>femoral nerve</strong>, lateral femoral cutaneous nerve</td></tr>
+    <tr><td><strong>Vascular (medial)</strong></td><td><strong>Femoral artery, femoral vein</strong>, lenf damarları</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p><strong>Femoral sheath:</strong> Karın duvarının <strong>transversalis fascia'sı (ön)</strong> ve <strong>iliac fascia (arka)</strong>, vasküler lakunayı saran tübüler bir kılıf oluşturur. Inguinal ligamentin arkasında başlar, ~4 cm distalde sonlanır. İki septum onu üç kompartmana ayırır:</p>
+<div class="card">
+<table>
+  <thead><tr><th>Kompartman</th><th>İçerik</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Lateral</strong></td><td><strong>Femoral artery</strong> + genitofemoral sinirin femoral dalı</td></tr>
+    <tr><td><strong>Intermediate</strong></td><td><strong>Femoral vein</strong></td></tr>
+    <tr><td><strong>Medial</strong></td><td>Açıklık = <strong>femoral canal</strong></td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>Femoral canal:</strong> Femoral kılıfın <strong>en küçük</strong> kompartmanı, ~1–1.5 cm. İçinde gevşek bağ dokusu, yağ ve genellikle bir derin inguinal lenf nodu (<strong>Rosenmüller nodu</strong>) bulunur. Aslında potansiyel bir kanaldır.</p>
+
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi — Femoral herni</span>
+  <p style="margin:4px 0;">Bir karın organının (genellikle ince bağırsak parçası) <strong>femoral ring</strong>'e fıtıklaşmasına <strong>femoral herni</strong> denir. Femoral ring, alt ön karın duvarının zayıf bir alanıdır. Femoral kanaldan geçen herni <strong>femoral triangle'a</strong> ulaşır ve hassas bir kitle olarak palpe edilir.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Lacuna &amp; Femoral Sheath</span>
+  <p class="q">S1. The femoral sheath is divided into three compartments — which one is the femoral canal?</p>
+  <p class="a">Medial kompartman (en küçük; içinde Rosenmüller lenf nodu).</p>
+  <p class="q">S2. Vascular lacunada hangi yapılar bulunur?</p>
+  <p class="a">Femoral artery, femoral vein, lenf damarları.</p>
+  <p class="q">S3. Femoral sheath'in ön ve arka duvarını hangi fasyalar oluşturur?</p>
+  <p class="a">Ön: transversalis fascia; arka: iliac fascia.</p>
+</div>
+</section>
+
+<!-- THORAX -->
+<section>
+<h2 class="part-title">BÖLÜM 2 — TORAKS DUVARI KASLARI</h2>
+<h3 id="t1">2.1 Genel</h3>
+<p>Kostalara tutunan kaslar (bazı üst ekstremite, sırt, boyun, karın kasları) solunumda işlev görür → bunlara <strong>accessory muscles of respiration</strong> (yardımcı solunum kasları) denir. Toraks duvarının kendi kasları:</p>
+<p><span class="pill">Intercostal muscles</span> <span class="pill">Levator costarum</span> <span class="pill">Subcostal</span> <span class="pill">Transverse thoracic</span> <span class="pill">Serratus posterior</span></p>
+<p>Bu kaslar kostaları <strong>kaldırır veya indirir</strong>, böylece toraks kavitesinin hacmini artırır.</p>
+
+<h3 id="t2">2.2 İnterkostal Kaslar (her grup 11 çift)</h3>
+<div class="card">
+<table>
+  <thead><tr><th>Kas</th><th>Konum</th><th>Fonksiyon</th></tr></thead>
+  <tbody>
+    <tr><td><strong>External intercostal</strong></td><td>En dışta (outermost)</td><td>Diyafram ile birlikte <mark><strong>primer inspirium</strong></mark> kası</td></tr>
+    <tr><td><strong>Internal intercostal</strong></td><td>Ortada</td><td><strong>Expirium</strong>'a yardım</td></tr>
+    <tr><td><strong>Innermost intercostal</strong></td><td>En içte</td><td>İnternal ile aynı (expirium)</td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>Diğer toraks duvarı kasları:</strong></p>
+<ul>
+  <li><strong>Subcostal kaslar:</strong> toraks duvarı arka kısmının iç yüzünde; expirium'a yardım.</li>
+  <li><strong>Levator costarum kasları (12 çift):</strong> inspirium'a yardım.</li>
+  <li><strong>Transverse thoracic kası:</strong> ön toraks duvarının iç yüzünde, bilateral; expirium'a yardım.</li>
+</ul>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — İnterkostal yön &amp; fonksiyon</span>
+  <p style="margin:4px 0;"><strong>External = İnspirium</strong> (E ile İ... "dışarıdan nefes AL"), <strong>Internal &amp; Innermost = Expirium</strong> ("içeriden nefes VER"). Levator costarum = "kaburgayı kaldıran" → inspirium.</p>
+</div>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat</span>
+  <p style="margin:4px 0;"><strong>External intercostal = primer inspirium</strong> (diyafram ile birlikte). Internal/innermost = expirium. İnterkostal kaslar "her grup 11 çift" iken levator costarum "12 çift"tir.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Toraks Kasları</span>
+  <p class="q">S1. Which intercostal muscle, together with the diaphragm, is the primary muscle of inspiration?</p>
+  <p class="a">External intercostal muscle.</p>
+  <p class="q">S2. Internal ve innermost intercostal kaslar hangi fazda görev alır?</p>
+  <p class="a">Expirium.</p>
+  <p class="q">S3. Levator costarum kaç çifttir ve hangi faza yardım eder?</p>
+  <p class="a">12 çift; inspirium.</p>
+</div>
+</section>
+
+<!-- DIAPHRAGM -->
+<section>
+<h2 class="part-title">BÖLÜM 3 — DİYAFRAM (DIAPHRAGM)</h2>
+<h3 id="d1">3.1 Yapı &amp; Fonksiyon</h3>
+<ul>
+  <li><strong>Musculofibröz</strong> bir yapıdır; <strong>inferior thoracic aperture</strong>'u kapatır.</li>
+  <li>Toraks kavitesini abdominal kaviteden <strong>ayırır</strong>.</li>
+  <li>Üst yüzünün orta kısmı <strong>perikardiyuma</strong> komşudur.</li>
+  <li>Kas lifleri birleşerek bir <strong>central tendon</strong> oluşturur.</li>
+  <li>İki yanda pleuraya komşu kubbeler (domes) vardır; <mark><strong>sağ kubbe daha yüksektir</strong></mark> (karaciğer nedeniyle).</li>
+  <li>Alt yüzü <strong>periton</strong> ile örtülüdür.</li>
+  <li><mark><strong>Ana inspirium kasıdır.</strong></mark> Toraksın <strong>vertikal boyutunu</strong> artırır.</li>
+  <li>Normal solunumda <strong>~1.5 cm</strong>, derin solunumda <strong>6–10 cm</strong> hareket eder.</li>
+</ul>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  <p style="margin:4px 0;"><strong>Sağ kubbe daha yüksektir</strong> (altındaki karaciğer nedeniyle). Diyafram <strong>ana inspirium kasıdır</strong> ve kasıldığında toraksın <u>vertikal (dikey)</u> boyutunu artırır.</p>
+</div>
+
+<h3 id="d2">3.2 Geçiş Delikleri (Pathways) — T8 · T10 · T12</h3>
+<div class="card">
+<table>
+  <thead><tr><th>Hiatus</th><th>Seviye</th><th>Geçen yapılar</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Caval Hiatus</strong></td><td><strong>T8</strong></td><td><strong>Inferior vena cava (IVC)</strong>, sağ phrenic sinirin terminal dalları</td></tr>
+    <tr><td><strong>Oesophageal Hiatus</strong></td><td><strong>T10</strong></td><td><strong>Oesophagus</strong>, sağ ve sol <strong>vagus nerves</strong>, sol gastrik arter/venin özofageal dalları</td></tr>
+    <tr><td><strong>Aortic Hiatus</strong></td><td><strong>T12</strong></td><td><strong>Aorta</strong>, <strong>thoracic duct</strong>, <strong>azygous vein</strong></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Diyafram delikleri (klasik akrostiş)</span>
+  <p style="margin:4px 0;">Çift sayılar 8-10-12: "<em>I <strong>8</strong> (ate) <strong>10</strong> EGGs <strong>AT 12</strong></em>" → <strong>T8 = IVC</strong>, <strong>T10 = Esophagus</strong> (+ vaGus), <strong>T12 = AorTa</strong>.<br>
+  Geçen yapı sayısı da artar: T8 = IVC + sağ phrenic (vena cava deliği), T10 = özofagus + 2 vagus, T12 = aorta + thoracic duct + azygos.</p>
+</div>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat — Seviyeler çok sorulur</span>
+  <p style="margin:4px 0;">Seviye-yapı eşleşmesini karıştırma: <strong>IVC en yüksekte (T8)</strong>, aorta en aşağıda (T12). Aorta'nın diyaframı "deldiği" değil <u>arkasından geçtiği</u> kabul edilir (gerçek bir hiatus değil, retrofenik bir geçiş), bu yüzden yüksek basınçtan etkilenmez — sınavda incelik olarak sorulabilir.</p>
+</div>
+
+<h3 id="d3">3.3 Diyafram İnervasyonu</h3>
+<p><strong>Motor innervation:</strong> sağ ve sol <strong>phrenic nerves</strong> (<strong>cervical plexus</strong>'un dalları).</p>
+
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi — Phrenic nerve</span>
+  <p style="margin:4px 0;">Phrenic nerve <strong>servikal pleksustan (klasik olarak C3–C4–C5)</strong> çıkar. Akılda kalsın diye: "<em>C3, 4, 5 keep the diaphragm alive</em>". Boyun bölgesindeki bir lezyon (yüksek servikal yaralanma) diyafram felcine ve solunum yetmezliğine yol açabilir — bu nedenle solunum kası boyundan kontrol edilir.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Diyafram</span>
+  <p class="q">S1. At which vertebral levels do the caval, oesophageal, and aortic hiatuses occur?</p>
+  <p class="a">Caval = T8, Oesophageal = T10, Aortic = T12.</p>
+  <p class="q">S2. Aortic hiatus'tan (T12) hangi üç yapı geçer?</p>
+  <p class="a">Aorta, thoracic duct, azygous vein.</p>
+  <p class="q">S3. Diyaframı hangi sinir inerve eder ve hangi pleksustan çıkar?</p>
+  <p class="a">Phrenic nerve; cervical plexus (C3-4-5).</p>
+  <p class="q">S4. Diyaframın hangi kubbesi daha yüksektir ve neden?</p>
+  <p class="a">Sağ kubbe — altındaki karaciğer nedeniyle.</p>
+  <p class="q">S5. Oesophageal hiatus'tan özofagusla birlikte hangi sinirler geçer?</p>
+  <p class="a">Sağ ve sol vagus nerves.</p>
+</div>
+</section>
+
+<footer>
+  <strong>Bu rehber, "Abdominal and Thorax Muscles, Diaphragm" dersinin 46 slaytının tamamından hazırlanmıştır.</strong><br>
+  Karın duvarı katmanları &amp; fasyaları, 5 karın kası, peritoneal foldlar, inguinal kanal, herniler, arka karın duvarı, lacuna/femoral kılıf-kanal, toraks duvarı kasları ve diyafram (T8-T10-T12 geçişleri &amp; phrenic innervasyon dahil) eksiksiz işlenmiştir. İngilizce/Latince terminoloji korunmuş; klinik notlar, mnemonikler ("I 8 ten EGGs AT 12", SCSDMTEP katmanlar, "C3-4-5 keep the diaphragm alive") ve final düzeyinde flashcard'larla zenginleştirilmiştir. Son ders (Baş-Yüz kasları, Boyun üçgenleri &amp; Servikal pleksus) için hazır olduğunda söyle. Başarılar! 🦷
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ders 2 — Mendelian Inheritance | Final Çalışma Rehberi</title>
+<style>
+  :root{
+    --bg:#0f1117; --card:#1a1d27; --text:#e8eaf0; --muted:#aab0c0;
+    --primary:#6c8cff; --primary-d:#3a55c4;
+    --clinic:#1f7a5a; --clinic-bg:#10271f; --clinic-bd:#2ecc8f;
+    --spot:#b8860b; --spot-bg:#2a2410; --spot-bd:#f1c40f;
+    --warn:#a83232; --warn-bg:#2a1414; --warn-bd:#ff6b6b;
+    --card-bd:#7b4bd6; --card-bg:#1d1530; --card-accent:#b388ff;
+    --mnemo:#0e6e8c; --mnemo-bg:#0d2630; --mnemo-bd:#2bc4e8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:0 16px 80px; background:var(--bg); color:var(--text);
+    font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.7; font-size:17px; max-width:980px; margin:0 auto;
+  }
+  header.hero{
+    background:linear-gradient(135deg,#3a55c4,#6c8cff 60%,#a06cff);
+    border-radius:0 0 22px 22px; padding:34px 28px 28px; margin:0 -16px 30px;
+    box-shadow:0 8px 30px rgba(0,0,0,.4);
+  }
+  header.hero h1{margin:0 0 6px; font-size:30px; color:#fff; letter-spacing:.3px;}
+  header.hero p{margin:2px 0; color:#eaf0ff; font-size:15px;}
+  header.hero .tag{display:inline-block; background:rgba(255,255,255,.18); padding:3px 12px; border-radius:20px; font-size:13px; margin-top:10px;}
+  h2{
+    font-size:24px; margin:46px 0 14px; padding:12px 18px;
+    background:linear-gradient(90deg,var(--primary-d),transparent);
+    border-left:6px solid var(--primary); border-radius:8px; color:#fff;
+  }
+  h3{font-size:20px; color:var(--primary); margin:30px 0 10px; border-bottom:1px dashed #3a3f52; padding-bottom:6px;}
+  h4{font-size:17px; color:var(--card-accent); margin:20px 0 6px;}
+  p{margin:10px 0;}
+  ul,ol{margin:10px 0 14px; padding-left:26px;}
+  li{margin:6px 0;}
+  strong{color:#fff;}
+  em{color:#cdd3e6;}
+  mark{background:#4a3aff44; color:#dfe4ff; padding:1px 5px; border-radius:4px; border-bottom:2px solid var(--primary);}
+  .lat{font-style:italic; color:#c4b5fd;}
+  .toc{background:var(--card); border:1px solid #2a2f3f; border-radius:14px; padding:18px 24px; margin:0 0 20px;}
+  .toc h3{margin-top:0; border:none; color:#fff;}
+  .toc a{color:var(--primary); text-decoration:none;}
+  .toc a:hover{text-decoration:underline;}
+  .toc ol{padding-left:22px;}
+
+  .box{border-radius:12px; padding:14px 18px 14px 16px; margin:18px 0; border-left:6px solid; position:relative;}
+  .box .title{font-weight:700; display:block; margin-bottom:4px; font-size:16px;}
+  .clinic{background:var(--clinic-bg); border-color:var(--clinic-bd);}
+  .clinic .title{color:var(--clinic-bd);}
+  .spot{background:var(--spot-bg); border-color:var(--spot-bd);}
+  .spot .title{color:var(--spot-bd);}
+  .warn{background:var(--warn-bg); border-color:var(--warn-bd);}
+  .warn .title{color:var(--warn-bd);}
+  .mnemo{background:var(--mnemo-bg); border-color:var(--mnemo-bd);}
+  .mnemo .title{color:var(--mnemo-bd);}
+
+  .flash{background:var(--card-bg); border:2px solid var(--card-bd); border-radius:14px; padding:6px 20px 14px; margin:22px 0;}
+  .flash .fhead{font-weight:700; color:var(--card-accent); font-size:15px; letter-spacing:.5px; text-transform:uppercase; display:flex; align-items:center; gap:8px; margin:12px 0 6px;}
+  .flash details{background:#140e22; border-radius:10px; margin:10px 0; padding:2px 0; border:1px solid #3a2a5c;}
+  .flash summary{cursor:pointer; padding:11px 16px; font-weight:600; color:#e8defc; list-style:none;}
+  .flash summary::-webkit-details-marker{display:none;}
+  .flash summary::before{content:"❓ "; }
+  .flash details[open] summary{color:#fff; border-bottom:1px dashed #4a3a6c;}
+  .flash .ans{padding:10px 16px 14px; color:#d7ccee;}
+  .flash .ans::before{content:"✅ "; }
+
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:15px; background:var(--card); border-radius:10px; overflow:hidden;}
+  th,td{padding:10px 12px; text-align:left; border-bottom:1px solid #2a2f3f;}
+  th{background:#262b3a; color:var(--primary); font-size:14px; text-transform:uppercase; letter-spacing:.4px;}
+  tr:last-child td{border-bottom:none;}
+  .pct{color:var(--spot-bd); font-weight:700;}
+  hr{border:none; border-top:1px solid #2a2f3f; margin:34px 0;}
+  .pattern{display:inline-block; padding:2px 9px; border-radius:6px; font-size:13px; font-weight:700;}
+  .ad{background:#3a55c4; color:#fff;} .ar{background:#1f7a5a; color:#fff;}
+  .xr{background:#a06c00; color:#fff;} .xd{background:#8c2bb0; color:#fff;}
+  footer{margin-top:50px; text-align:center; color:var(--muted); font-size:13px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>🧬 Ders 2 — Mendelian Inheritance</h1>
+  <p><strong>Patterns of Inheritance</strong> · Tek Gen (Mendel) Kalıtımı</p>
+  <p>Dept. of Medical Genetics · Diş Hekimliği 1. Sınıf · Final Hazırlık Rehberi</p>
+  <span class="tag">Türkçe açıklama + korunmuş İngilizce/Latince terminoloji</span>
+</header>
+
+<nav class="toc">
+  <h3>📑 İçindekiler</h3>
+  <ol>
+    <li><a href="#bolum1">Aile Çalışmaları & Soyağacı Analizi (Pedigree Analysis)</a></li>
+    <li><a href="#bolum2">Genetik Hastalıklar & Kalıtım Paternleri</a></li>
+    <li><a href="#bolum3">Punnett Square & Test Cross</a></li>
+    <li><a href="#bolum4">Otozomal Dominant Kalıtım (Autosomal Dominant)</a></li>
+    <li><a href="#bolum5">Otozomal Resesif Kalıtım (Autosomal Recessive)</a></li>
+    <li><a href="#bolum6">Cinsiyete Bağlı Kalıtım (Sex-Linked Inheritance)</a></li>
+    <li><a href="#bolum7">Kalıtım Modunu Belirleme (Establishing Mode of Inheritance)</a></li>
+  </ol>
+</nav>
+
+<!-- ============ BÖLÜM 1 ============ -->
+<h2 id="bolum1">1️⃣ Aile Çalışmaları & Soyağacı Analizi <span style="font-size:15px;color:var(--muted)">(Family Studies & Pedigree Analysis)</span></h2>
+
+<h3>Aile Çalışmaları (Family Studies)</h3>
+<p>Aile çalışmaları, belirli bir karakterin (<strong>trait</strong>) insanlarda kalıtılıp kalıtılmadığını belirlemeye dayanır. Temel sorular şunlardır:</p>
+<ul>
+  <li>Bu özellik <strong>nasıl aktarılıyor?</strong> (mode of transmission)</li>
+  <li>Akrabalar arasındaki <strong>sıklığı (frequency among relatives)</strong> nedir?</li>
+</ul>
+<p>Bu bilgi sayesinde aile üyelerine, hastalığı geliştirme ya da çocuklarına aktarma <strong>olasılığı (likelihood)</strong> hakkında genetik danışma (<strong>genetic counseling</strong>) verilebilir.</p>
+
+<h3>Soyağacı (Pedigree)</h3>
+<p>Bir <strong>pedigree</strong>, kuşaklar boyunca ebeveyn ve çocuklar arasındaki ilişkileri tanımlayan bir <em>aile ağacıdır</em> (family tree). Tek bir ailenin <strong>atasal yapısını (ancestral structure)</strong> gösterir ve ailedeki bağlantıları ile hastalıkları <strong>sembollerle (symbols)</strong> anlatır.</p>
+<p>İnsan kalıtsal hastalıklarını incelemek için çok önemli bir araçtır ve bir hastalığın <strong>kalıtım modunu (mode of inheritance — dominant, recessive vb.)</strong> belirlemek için kullanılır.</p>
+
+<h4>Soyağacı Sembolleri ve Terminolojisi (Drawing Pedigree and Terminology)</h4>
+<table>
+  <tr><th>Sembol/Terim</th><th>Anlamı</th></tr>
+  <tr><td>□ Boş kare</td><td>Normal erkek (<strong>normal male</strong>)</td></tr>
+  <tr><td>○ Boş daire</td><td>Normal kadın (<strong>normal female</strong>)</td></tr>
+  <tr><td>■ Dolu kare</td><td>Etkilenmiş erkek (<strong>affected male</strong>)</td></tr>
+  <tr><td>● Dolu daire</td><td>Etkilenmiş kadın (<strong>affected female</strong>)</td></tr>
+  <tr><td>Yatay çizgi (□—○)</td><td>Ebeveynler / eşleşme (<strong>parents / mating</strong>)</td></tr>
+  <tr><td>Dikey + yatay alt çizgi</td><td>Çocuklar (<strong>children / sibship</strong>)</td></tr>
+</table>
+<ul>
+  <li>Bireyler <strong>numaralandırılır (numbered)</strong>.</li>
+  <li>Kuşaklar <strong>Roma rakamlarıyla (Roman numerals: I, II, III…)</strong> gösterilir.</li>
+  <li>Örnek: <strong>I-1</strong> ve <strong>III-1</strong> etkilenmiş bireyler; diğerleri normaldir.</li>
+</ul>
+
+<h4>Proband / İndeks Olgu (Proband / Index Case)</h4>
+<p>Soyağacı genellikle <strong>ailenin tıbbi dikkate gelmesini sağlayan kişiyle</strong> başlar: bu kişiye <strong>indeks olgu (index case)</strong> veya <strong>proband</strong> denir. Soyağacında proband bir <strong>ok (arrow)</strong> ile işaretlenir.</p>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat</span>
+  Kliniğe gelen ziyaretçi <strong>her zaman proband değildir!</strong> Proband ziyaretçinin kendisi olabileceği gibi, yakın bir akrabası da (örneğin gerçekten etkilenmiş çocuk) olabilir. Bu klasik bir çeldirici noktadır.
+</div>
+
+<h4>Doğrudan Sorular (Direct Questions)</h4>
+<p>Soyağacı çıkarılırken ailenin geri kalanı (kardeşler, ebeveynler, hem anne hem baba tarafı akrabalar — <strong>maternal and paternal relatives</strong>) hakkında şu bilgiler sorulur: <strong>cinsiyet (sex)</strong>, <strong>etkilenme durumu (affection status)</strong> ve diğer bireylerle <strong>akrabalık ilişkisi (relationship)</strong>.</p>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Sembolleri Hatırlama</span>
+  <strong>"Kare-Erkek, Daire-Diva (Kadın)"</strong> → Köşeli sertlik erkeği, yuvarlak hatlar kadını çağrıştırır. <br>
+  <strong>Dolu = Dolmuş hastalıkla = Affected</strong> (içi boşsa sağlıklı, içi dolmuşsa hasta). <br>
+  Kuşak sırası için: <em>"Romalılar Roma rakamı kullanır, bireyler Arap rakamı"</em> → Kuşak = <strong>I, II, III</strong>; birey = <strong>1, 2, 3</strong>.
+</div>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi</span>
+  <strong>Proband = ok ile gösterilir.</strong> Kuşaklar Roma rakamı, aynı kuşaktaki bireyler Arap rakamı. Dolu sembol = affected, boş sembol = normal.
+</div>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi</span>
+  Diş hekimliğinde de <strong>amelogenesis imperfecta</strong>, <strong>dentinogenesis imperfecta</strong>, yarık damak-dudak (<strong>cleft lip/palate</strong>) gibi durumların kalıtım modunu anlamak için soyağacı çizmeyi bileceksiniz. Bir hasta "ailemizde herkesin dişleri böyle" dediğinde, üç kuşaklık dikey bir patern görmek size dominant kalıtımı düşündürecek.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Pedigree</span>
+  <details><summary>Proband (index case) soyağacında nasıl gösterilir ve ne anlama gelir?</summary>
+    <div class="ans">Bir <strong>ok (arrow)</strong> ile gösterilir. Ailenin tıbbi dikkate gelmesini sağlayan ilk birey/olgudur — kliniğe gelen kişinin kendisi olmak zorunda değildir.</div></details>
+  <details><summary>Soyağacında kuşaklar ve bireyler hangi numaralandırma sistemiyle gösterilir?</summary>
+    <div class="ans">Kuşaklar <strong>Roma rakamlarıyla</strong> (I, II, III), aynı kuşaktaki bireyler <strong>Arap rakamlarıyla</strong> (1, 2, 3) gösterilir. Örn: II-3.</div></details>
+  <details><summary>Soyağacı en sık hangi amaçla kullanılır?</summary>
+    <div class="ans">Bir genetik hastalığın <strong>kalıtım modunu (mode of inheritance)</strong> belirlemek için (dominant, recessive, X-linked vb.).</div></details>
+</div>
+
+<hr>
+
+<!-- ============ BÖLÜM 2 ============ -->
+<h2 id="bolum2">2️⃣ Genetik Hastalıklar & Kalıtım Paternleri</h2>
+
+<h3>Genetik Hastalıkların İnsidansı (Genetic Diseases — Incidence)</h3>
+<p>Toplam insidans: <span class="pct">53/1000</span>. Alt sınıflandırma (subclassification):</p>
+<table>
+  <tr><th>Hastalık Tipi</th><th>İnsidans</th></tr>
+  <tr><td>Tek gen hastalıkları (<strong>single gene diseases</strong>)</td><td class="pct">3.6 / 1000</td></tr>
+  <tr><td>Multifaktöriyel hastalıklar (<strong>multifactorial diseases</strong>)</td><td class="pct">46.4 / 1000</td></tr>
+  <tr><td>Kromozomal hastalıklar (<strong>chromosomal diseases</strong>)</td><td class="pct">1.8 / 1000</td></tr>
+  <tr><td>Bilinmeyen genetik patern (<strong>unknown genetic pattern</strong>)</td><td class="pct">1.2 / 1000</td></tr>
+</table>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi</span>
+  En sık görülen grup açık ara <strong>multifaktöriyel hastalıklardır (46.4/1000)</strong> — diyabet, hipertansiyon gibi sık görülen ailesel hastalıklar bu gruptadır. En nadir grup ise <strong>unknown genetic pattern (1.2/1000)</strong>.
+</div>
+
+<h3>Farklı Kalıtım Paternleri (Different Patterns of Inheritance)</h3>
+<ul>
+  <li>Tek gen / Mendel kalıtımı (<strong>Single Gene / Mendelian Inheritance</strong>)</li>
+  <li>Atipik kalıtım (<strong>Atypical Inheritance</strong>)</li>
+  <li>Mitokondriyal kalıtım (<strong>Mitochondrial Inheritance</strong>)</li>
+  <li>Multifaktöriyel kalıtım (<strong>Multifactorial Inheritance</strong>)</li>
+</ul>
+
+<h3>Tek Gen (Mendel) Kalıtımının 3 Klasik Formu</h3>
+<p><strong>3 Classic Forms of Single Gene (Mendelian) Inheritance:</strong></p>
+<ol>
+  <li>Otozomal dominant (<strong>Autosomal dominant</strong>)</li>
+  <li>Otozomal resesif (<strong>Autosomal recessive</strong>)</li>
+  <li>Cinsiyete bağlı (<strong>Sex-related: X-linked ve Y-linked</strong>)</li>
+</ol>
+<p>Bunların temelinde Mendel'in yasaları yatar: <strong>uniformity (tekdüzelik), segregation of characteristics (karakterlerin ayrılması)</strong> ve <strong>independent assortment (bağımsız dağılım)</strong>.</p>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Mendel'in 3 Yasası</span>
+  <strong>"U-S-I" → "USta Genetikçi"</strong>: <br>
+  <strong>U</strong>niformity (Tekdüzelik) → <strong>S</strong>egregation (Ayrılma) → <strong>I</strong>ndependent assortment (Bağımsız dağılım). <br>
+  Ayrılma yasası <em>tek lokus</em> ile, bağımsız dağılım <em>farklı kromozomlardaki farklı lokuslar</em> ile ilgilidir.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Patterns</span>
+  <details><summary>Tek gen (Mendelian) kalıtımın 3 klasik formu nelerdir?</summary>
+    <div class="ans">1) Autosomal dominant, 2) Autosomal recessive, 3) Sex-linked (X-linked ve Y-linked).</div></details>
+  <details><summary>Genetik hastalıklar içinde insidansı en yüksek alt grup hangisidir?</summary>
+    <div class="ans"><strong>Multifactorial diseases — 46.4/1000</strong> (toplam 53/1000 içinde en büyük pay).</div></details>
+  <details><summary>Mendel'in tek gen kalıtımının temelini oluşturan üç yasası nedir?</summary>
+    <div class="ans">Law of <strong>uniformity</strong>, law of <strong>segregation</strong> of characteristics, law of <strong>independent assortment</strong>.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ BÖLÜM 3 ============ -->
+<h2 id="bolum3">3️⃣ Punnett Square & Test Cross</h2>
+
+<h3>Punnett Karesi (Punnett Square)</h3>
+<p>Belirli bir çaprazlamanın (<strong>cross / breeding experiment</strong>) sonucu oluşacak <strong>genotipleri öngörmek (predict the genotypes)</strong> için kullanılan bir diyagramdır. Gametlerdeki genlerin —eğer farklı kromozomlar üzerindelerse— nasıl birleşeceğini gösterir.</p>
+
+<h3>Test Çaprazlaması (Test Cross)</h3>
+<p>Dominant fenotip gösteren bir bireyin genotipinin <strong>homozigot mu yoksa heterozigot mu</strong> olduğunu anlamak için yapılır (genellikle resesif homozigot bir bireyle çaprazlanır):</p>
+<ul>
+  <li>Eğer döllerden <strong>herhangi biri resesif özellik (recessive trait)</strong> gösterirse → söz konusu birey <strong>heterozigottur (heterozygous)</strong>.</li>
+  <li>Eğer <strong>tüm döller dominant özellik (dominant trait)</strong> gösterirse → söz konusu birey <strong>homozigottur (homozygous)</strong>.</li>
+</ul>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat</span>
+  Punnett karesi yalnızca genleri <strong>farklı kromozomlardaysa</strong> (bağımsız dağılım geçerliyken) doğru çalışır. Aynı kromozom üzerinde bağlı (<strong>linked</strong>) genler için klasik Punnett karesi yanıltıcı olur — bu bir çeldirici olabilir.
+</div>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi</span>
+  Test cross mantığı: <strong>resesif bir döl çıkması = anne/babanın heterozigot olduğunun kanıtıdır.</strong> Çünkü resesif fenotip için iki resesif allel gerekir; biri test edilen bireyden gelmiştir.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Punnett & Test Cross</span>
+  <details><summary>Punnett square ne için kullanılır?</summary>
+    <div class="ans">Bir çaprazlamada döllerin olası <strong>genotiplerini öngörmek</strong> için kullanılan diyagram. Farklı kromozomlardaki gametlerin birleşimini gösterir.</div></details>
+  <details><summary>Bir test cross'ta döllerden biri resesif fenotip gösterirse, test edilen birey hangi genotiptedir?</summary>
+    <div class="ans"><strong>Heterozigot (heterozygous)</strong> — çünkü resesif döl için resesif alleli o birey taşımalıdır.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ BÖLÜM 4 ============ -->
+<h2 id="bolum4">4️⃣ Otozomal Dominant Kalıtım <span class="pattern ad">AUTOSOMAL DOMINANT</span></h2>
+
+<p>Otozomal dominant durumlarda birey, mutant allelin <strong>tek (A)</strong> veya <strong>iki kopyasıyla (AA ya da Aa)</strong> hastalığı geliştirebilir. Yani <strong>heterozigotlar etkilenir (heterozygotes are affected)</strong>.</p>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi</span>
+  <strong>Autosomal dominant (AD) hastalıklar, Mendel kalıtımlı hastalıkların yarısından fazlasını oluşturur</strong> ve <strong>en sık görülen</strong> formdur.
+</div>
+
+<h3>Genetik Riskler (Genetic Risks)</h3>
+<p>Dominant özellik taşıyan bir bireyin her gameti, ya <strong>normal alleli</strong> ya da <strong>mutant alleli</strong> taşır. Dominant mutant allel "<strong>D</strong>", normal allel "<strong>d</strong>" gösterilirse, gamet kombinasyonları buna göre oluşur.</p>
+
+<h3>Otozomal Dominant Özellikler (AD Characteristics)</h3>
+<ul>
+  <li>Her döl, anormal "<strong>A</strong>" alleli anneden veya babadan miras alabilir.</li>
+  <li>Etkilenmiş <strong>A/a</strong> genotipi olma riski <span class="pct">%50</span>; etkilenmemiş <strong>a/a</strong> olma riski yine <span class="pct">%50</span>'dir.</li>
+  <li>Etkilenmemiş anne veya baba çocuğuna yalnızca normal "<strong>a</strong>" alleli aktarabilir.</li>
+  <li>İstatistiksel olarak <strong>her gebelik bağımsız bir süreçtir (independent process)</strong>; önceki gebeliklere bağlı değildir.</li>
+</ul>
+
+<h4>Anahtar Kurallar (Key Rules)</h4>
+<ul>
+  <li>Etkilenmiş çocukların genellikle <strong>etkilenmiş bir ebeveyni</strong> vardır.</li>
+  <li>İki etkilenmiş ebeveyn, <strong>etkilenmemiş bir çocuğa</strong> sahip olabilir.</li>
+  <li>İki etkilenmemiş ebeveyn, <strong>etkilenmiş çocuk üretmez</strong> (de novo mutasyon hariç).</li>
+  <li>Erkek ve kadınlar <strong>eşit sıklıkta (equal frequency)</strong> etkilenir.</li>
+  <li>Her ikisi de hastalığı hem oğullara hem kızlara aktarabilir (<strong>male-to-male geçiş VAR</strong>).</li>
+  <li>Soyağaçlarında <strong>taşıyıcı görülmez (no carriers)</strong>.</li>
+  <li><strong>Homozigotlar (AA), heterozigotlardan (Aa) çoğunlukla daha şiddetli</strong> etkilenir.</li>
+</ul>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Dikey Patern</span>
+  AD hastalıklar soyağacında genellikle <strong>dikey kalıtım paterni (vertical pattern)</strong> gösterir — çünkü <strong>her kuşakta bir hasta</strong> görülür.
+</div>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat — Kuşak Atlama</span>
+  Bazen AD hastalıklarda <strong>kuşak atlıyor gibi görünür</strong> (hastalık her kuşakta görünmez). Bunun 3 temel nedeni:
+  <ol style="margin-top:6px;">
+    <li><strong>De novo (taze/yeni) mutasyon</strong> — normal ebeveynlerden zigotta oluşan yeni mutasyon.</li>
+    <li><strong>Azalmış penetrans (reduced penetrance)</strong>.</li>
+    <li><strong>Değişken ekspresivite (variable expressivity)</strong>.</li>
+  </ol>
+</div>
+
+<h3>AD Kalıtımın 4 Önemli Özelliği (Traits of AD Inheritance)</h3>
+
+<h4>① Azalmış Penetrans (Reduced Penetrance)</h4>
+<p><strong>Penetrans (penetrance)</strong>, belirli bir genotipe sahip bireylerin ilişkili <strong>fenotipi gösterme oranıdır</strong>. Eğer uygun genotipe sahip bazı kişiler fenotipi gösteremezse buna <strong>azalmış penetrans (reduced penetrance)</strong> denir. Bunun nedeni diğer genlerin modifiye edici etkileri ya da genin <strong>çevresel faktörlerle (environmental factors)</strong> etkileşimi olabilir.</p>
+<p><strong>Non-penetrans (non-penetrance):</strong> Belirli bir gen varyantı için heterozigot olan bir kişide hastalık semptomlarının <strong>hiç görülmemesidir</strong>. Bir AD hastalık kuşak atlıyor gibi görünüyorsa, <strong>non-penetrance ya da reduced penetrance</strong> söz konusudur.</p>
+
+<h4>② Değişken Ekspresivite (Variable Expressivity)</h4>
+<p>Aynı aile içinde bile AD hastalıkların klinik özellikleri kişiden kişiye <strong>çarpıcı şekilde farklılık</strong> gösterebilir. <strong>Ekspresivite (expressivity)</strong>, fenotip ifadesinin <strong>derecesi / şiddetidir (degree / severity)</strong>. Bireyler arasındaki bu farka <strong>variable expressivity</strong> denir.</p>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat — Penetrans vs. Ekspresivite (Klasik Sınav Çeldiricisi!)</span>
+  <strong>Penetrans = "var mı / yok mu?"</strong> (fenotip görülüyor mu, evet/hayır — <em>nicel/sıklık</em> sorusu).<br>
+  <strong>Ekspresivite = "ne kadar şiddetli?"</strong> (fenotip görülüyor ama derecesi farklı — <em>şiddet</em> sorusu).<br>
+  Bu ikisini karıştırmak en sık yapılan hatadır.
+</div>
+
+<h4>③ De Novo (Yeni/Taze) Mutasyon (New Mutations)</h4>
+<p>AD hastalıklarda etkilenmiş kişinin genellikle etkilenmiş bir ebeveyni vardır — <strong>ama her zaman değil</strong>. <strong>De novo mutasyonlar</strong>, çocukta bulunan ama ebeveynlerden <strong>miras alınmamış</strong> genetik varyasyonlardır. Ebeveynler normalken çocuğun beklenmedik bir görünüme sahip olmasıdır.</p>
+<p>Klasik örnek: <strong>Akondroplazi (achondroplasia)</strong> — ebeveynler genellikle ortalama boydadır, çocuk ise kısa boyludur.</p>
+
+<h4>④ Pleiotropi (Pleiotropy)</h4>
+<p>Bir genin <strong>birden fazla fenotipik özelliği etkilemesidir</strong> (a gene affects more than one phenotypic trait). Tek bir gen veya gen çifti, <strong>birbirine açıkça bağlı görünmeyen</strong> birden çok fenotipik sonuç doğurabilir. Birden fazla organ sistemini etkileyen otozomal hastalıklar buna örnektir.</p>
+<ul>
+  <li><strong>Tuberous sclerosis (AD):</strong> Vücuttaki çeşitli organlarda tümör benzeri büyümelere yol açar.</li>
+  <li><strong>Phenylketonuria — PKU (AR):</strong> Pleiotropinin resesif örneği.</li>
+</ul>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — AD'nin 4 Özelliği</span>
+  <strong>"PeRVePe" → "Penetrans, Resesif değil-Dominant, Variable, Pleiotropy"</strong>... daha basiti: <br>
+  <strong>"4P" yerine → R-V-D-P"</strong>: <strong>R</strong>educed penetrance · <strong>V</strong>ariable expressivity · <strong>D</strong>e novo mutation · <strong>P</strong>leiotropy. <br>
+  Hatırlatma cümlesi: <em>"Reklamı Vereceğiz, Devam Pleiotropi"</em> → R-V-D-P.
+</div>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi</span>
+  <strong>Pleiotropi diş hekimliğinin tam kalbinde:</strong> Tek bir gen mutasyonu hem iskeleti hem dişleri hem de yumuşak dokuyu etkileyebilir. İleride göreceğiniz <strong>ektodermal displazi</strong> (dişler + saç + ter bezleri), <strong>Gardner sendromu</strong> (kolon polipleri + çene osteomları + gömülü dişler) gibi tablolar pleiotropinin klinik yansımalarıdır. Bir hastada beklenmedik bir diş anomalisi gördüğünüzde "acaba sistemik bir genin pleiotropik etkisi mi?" diye düşünmelisiniz.
+</div>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi — Reduced Penetrance & Sınav</span>
+  Genetik danışmada bir AD hastalık için "ebeveyn sağlıklı görünüyor" demek <strong>genotipin normal olduğu anlamına gelmez</strong>. Non-penetrant bir taşıyıcı, mutasyonu hiç hastalanmadan çocuğuna aktarabilir — bu, ailedeki diş/iskelet anomalilerinin "atlamasını" açıklar.
+</div>
+
+<h3>AD Hastalık Örnekleri</h3>
+
+<h4>Nörofibromatozis Tip 1 (Neurofibromatosis Type 1 — NF1)</h4>
+<ul>
+  <li><span class="pattern ad">AD</span>, insidans <span class="pct">1/3000</span>, lokus: <strong>17q</strong>.</li>
+  <li><strong>5 yaşında neredeyse tam penetrans (almost complete penetrance by age 5).</strong></li>
+  <li>Klinik özellikler:
+    <ul>
+      <li><strong>Café-au-lait spots (sütlü kahve lekeleri)</strong> — %94-100</li>
+      <li><strong>Dermal neurofibroma</strong></li>
+      <li>İriste <strong>Lisch nodülleri (hamartomas)</strong> — %90-95</li>
+      <li><strong>Makrosefali (macrocephaly)</strong> — %45</li>
+      <li><strong>Kısa boy (short stature)</strong> — %30-35</li>
+      <li><strong>Plexiform neurofibroma</strong> — ~%30</li>
+      <li>Skolyoz (scoliosis) — %10; mental retardasyon — ~%5</li>
+    </ul>
+  </li>
+</ul>
+<p>Hücre bölünmesini kontrol eden bir genin mutasyonu, sinirleri saran dokuda <strong>benign (iyi huylu) tümörlere</strong> yol açar.</p>
+
+<h4>Marfan Sendromu (Marfan Syndrome)</h4>
+<ul>
+  <li><span class="pattern ad">AD</span> bir <strong>bağ dokusu hastalığı (connective tissue disease)</strong>, insidans <span class="pct">1/10.000–20.000</span>.</li>
+  <li>Mutasyon: <strong>Fibrillin-1 (FBN1)</strong> geni.</li>
+  <li><strong>De novo mutasyonlar hastaların %25-35'inden sorumludur.</strong></li>
+  <li>Bulgular: iskelet deformiteleri, göz problemleri (<strong>ectopia lentis</strong> = lens yer değiştirmesi), kardiyak problemler, deri ve solunum problemleri.</li>
+  <li>Beklenenden uzun boy, uzun-ince parmaklar (araknodaktili), miyopi, renk körlüğü.</li>
+  <li><strong>Erken ölüm genellikle kardiyak problemler nedeniyledir.</strong></li>
+</ul>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi — Marfan & Ağız</span>
+  Marfan sendromu hastalarında klasik ağız bulguları: <strong>yüksek kemerli damak (high-arched palate)</strong>, dental <strong>crowding (çapraşıklık)</strong> ve retrognatik mandibula. Bu hastalarda kardiyak risk nedeniyle invaziv işlemler öncesi <strong>antibiyotik profilaksisi</strong> ve kardiyolog konsültasyonu gerekebilir — diş hekimi olarak bunu fark etmeniz hayat kurtarabilir.
+</div>
+
+<h4>Osteogenesis Imperfecta (OI)</h4>
+<ul>
+  <li><span class="pattern ad">AD</span> hastalık, sıklık <span class="pct">1/10.000</span>.</li>
+  <li>Ana özellikler: <strong>kırıklar (fractures)</strong> ve <strong>azalmış kemik yoğunluğu (reduced bone density)</strong>.</li>
+  <li>Kazara olmayan yaralanmaya (<strong>non-accidental injury</strong>) benzer görünüm.</li>
+  <li>Diğer özellikler: <strong>mavi sklera (blue sclerae)</strong>, hiperekstensibilite, işitme kaybı (hearing loss).</li>
+  <li>Defekt: <strong>Tip 1 kollajen (type 1 collagen)</strong> üretiminde.</li>
+</ul>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi — OI & Dentinogenesis Imperfecta</span>
+  <strong>SINAVDA ÇOK KRİTİK:</strong> Osteogenesis imperfecta'da defekt <strong>tip 1 kollajende</strong>dir ve dentin de tip 1 kollajen içerdiğinden, OI sıklıkla <strong>dentinogenesis imperfecta</strong> ile birliktedir. Dişler opalesan (kehribar-mavi/gri) renkte, kolay aşınan ve kırılan yapıdadır. "Mavi sklera + kemik kırıkları + opalesan dişler" üçlüsünü gördüğünüzde OI düşünün!
+</div>
+
+<h4>Polidaktili (Polydactyly)</h4>
+<ul>
+  <li><span class="pattern ad">AD</span> olarak kalıtılır.</li>
+  <li><strong>HOX13 geni</strong> mutasyonlarıyla oluşur.</li>
+  <li>Parmak veya ayak parmağı sayısının normalden fazla olmasıdır.</li>
+  <li><strong>Homozigot hastalarda daha şiddetli</strong> klinik bulgular ve iskelet deformiteleri görülebilir → <em>homozigotlar daha ağır etkilenir kuralının örneği</em>.</li>
+</ul>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — AD Hastalıkları</span>
+  <strong>"Marfan, NF1, OI, Polidaktili, Akondroplazi, Tuberous sclerosis"</strong> → <em>"Marfan Notları Okurken Parmağım Ağrıdı, Tuhaf"</em> = <strong>M-N-O-P-A-T</strong>. <br>
+  Bağ dokusu üçlüsünü ayrı tutun: <strong>Marfan (FBN1)</strong> + <strong>OI (kollajen tip 1)</strong> = ikisi de bağ dokusu/yapısal protein.
+</div>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat — Lokus Çeldiricileri</span>
+  Sınav çeldiricileri için anahtar eşleştirmeler: <strong>Marfan → FBN1 (Fibrillin-1)</strong> · <strong>NF1 → 17q</strong> · <strong>OI → tip 1 kollajen</strong> · <strong>Polidaktili → HOX13</strong>. Bunların gen-hastalık eşleşmesi sık karıştırılır.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Autosomal Dominant</span>
+  <details><summary>AD kalıtımda soyağacı tipik olarak hangi paterni gösterir ve neden?</summary>
+    <div class="ans"><strong>Dikey patern (vertical pattern)</strong> — çünkü her kuşakta etkilenmiş bir birey görülür. Ayrıca male-to-male geçiş vardır ve taşıyıcı görülmez.</div></details>
+  <details><summary>Penetrans ile ekspresivite arasındaki fark nedir?</summary>
+    <div class="ans"><strong>Penetrance:</strong> genotipi olanların fenotipi gösterme <em>oranı</em> (var/yok). <strong>Expressivity:</strong> gösterenlerde fenotipin <em>şiddet derecesi</em>.</div></details>
+  <details><summary>İki etkilenmemiş ebeveynden AD bir hastalıkla etkilenmiş çocuk doğarsa en olası açıklama nedir?</summary>
+    <div class="ans"><strong>De novo (yeni) mutasyon</strong> — zigotta oluşan, ebeveynlerden miras alınmamış mutasyon. Klasik örnek: achondroplasia.</div></details>
+  <details><summary>Marfan sendromunda mutasyona uğrayan gen hangisidir, hangi sistemleri etkiler ve en sık ölüm nedeni nedir?</summary>
+    <div class="ans">Gen: <strong>FBN1 (Fibrillin-1)</strong>. İskelet, göz (ectopia lentis), kardiyak, deri, solunum etkilenir. En sık ölüm nedeni <strong>kardiyak problemler</strong>.</div></details>
+  <details><summary>Osteogenesis imperfecta'daki temel biyokimyasal defekt nedir ve diş hekimliğindeki yansıması nedir?</summary>
+    <div class="ans"><strong>Tip 1 kollajen</strong> üretim defekti. Diş yansıması: <strong>dentinogenesis imperfecta</strong> (opalesan, kırılgan dişler). Eşlik eden bulgular: mavi sklera, kırıklar, işitme kaybı.</div></details>
+  <details><summary>Pleiotropy nedir? Bir AD ve bir AR örnek verin.</summary>
+    <div class="ans">Tek bir genin birden fazla fenotipik özelliği etkilemesi. AD örnek: <strong>Tuberous sclerosis</strong>; AR örnek: <strong>Phenylketonuria (PKU)</strong>.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ BÖLÜM 5 ============ -->
+<h2 id="bolum5">5️⃣ Otozomal Resesif Kalıtım <span class="pattern ar">AUTOSOMAL RECESSIVE</span></h2>
+
+<p>Resesif özellikler ve durumlar yalnızca <strong>varyant allelin her iki kopyası da mevcutsa (homozigozite)</strong> gözlenebilir. Bu varyant alleli taşıyan ve onlar için heterozigot olan kişiler (<strong>carriers</strong>) hastalığın <strong>hiçbir semptomunu göstermez</strong>. Resesif kalıtımlı hastalıkların soyağacı, AD paterninden <strong>belirgin şekilde farklıdır</strong>.</p>
+
+<h3>AR Kalıtımın Özellikleri (AR Characteristics)</h3>
+<ul>
+  <li><strong>ANAHTAR:</strong> Etkilenmiş çocukların ebeveynleri <strong>etkilenmemiş olabilir</strong>; özellik <strong>kuşak atlayabilir (skip generations)</strong>.</li>
+  <li><strong>ANAHTAR:</strong> AR bir hastalık <strong>her iki ebeveynden de miras alınmalıdır (inherited from both parents)</strong>.</li>
+  <li>İki etkilenmiş ebeveynin çocuğu <strong>mutlaka etkilenir</strong>.</li>
+  <li>İki etkilenmemiş ebeveyn <strong>etkilenmiş çocuğa</strong> sahip olabilir (her ikisi taşıyıcıysa).</li>
+  <li>Erkek ve kadınlar eşit etkilenir → <strong>yatay soyağacı paterni (horizontal pedigree pattern)</strong>.</li>
+</ul>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Patern Karşılaştırması</span>
+  <strong>AD = dikey (vertical)</strong> patern · <strong>AR = yatay (horizontal)</strong> patern. AR'de hastalar genellikle aynı kuşaktaki kardeşlerde toplanır (yatay), her kuşakta değil.
+</div>
+
+<h3>Risk ve Taşıyıcılık</h3>
+<ul>
+  <li>AR hastalıklar, AD hastalıklardan <strong>daha nadirdir (rarer)</strong>.</li>
+  <li><strong>Taşıyıcılar (carriers)</strong> resesif alleli taşıyan ama fenotipik olarak normal heterozigot bireylerdir.</li>
+  <li>İki heterozigot ebeveynin çocuklarının homozigot olma şansı <span class="pct">%25</span>'tir.</li>
+  <li>Daha önce etkilenmiş çocuğu olan taşıyıcı ebeveynler için <strong>tekrarlama riski (recurrence risk) %25</strong>.</li>
+  <li>Erkek ve kadın döller eşit olasılıkla etkilenir.</li>
+</ul>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Çaprazlama Oranı</span>
+  İki taşıyıcı (Rr × Rr) → döllerde <strong>1 normal homozigot (RR) : 2 taşıyıcı (Rr) : 1 etkilenmiş homozigot (rr)</strong> = <strong>%25 hasta, %50 taşıyıcı, %25 sağlam</strong>. Sağlıklı görünenlerin <strong>2/3'ü taşıyıcıdır</strong> (sık çeldirici!).
+</div>
+
+<h3>Akraba Evliliği (Consanguinity)</h3>
+<p>Nadir AR özellikler için <strong>risk artar</strong>; çünkü her iki ebeveynin de <strong>ortak bir atadan (common ancestor)</strong> miras aldıkları zararlı bir mutasyonu taşıma ihtimali artar.</p>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi — Consanguinity</span>
+  Akraba evliliğinin yaygın olduğu bölgelerden gelen hastalarda nadir AR sendromların (örneğin bazı <strong>amelogenesis imperfecta</strong> formları, ektodermal displaziler) görülme olasılığı artar. Hasta anamnezinde "anne-baba akraba mı?" sorusu, beklenmedik diş gelişim bozukluklarını yorumlamada size yol gösterir.
+</div>
+
+<h3>Pseudodominance (Yalancı Dominantlık)</h3>
+<p>AR bir hastalık için <strong>homozigot</strong> olan bir birey, aynı hastalığın bir <strong>taşıyıcısıyla</strong> çocuk sahibi olursa, döllerin etkilenme şansı <strong>1/2 (%50)</strong> olur. Bu durumda soyağacı <strong>dominant kalıtımı taklit eder</strong> — buna <strong>pseudodominance</strong> denir.</p>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat — Pseudodominance Tuzağı</span>
+  Soyağacında ardışık kuşaklarda hasta görülmesi (dikey gibi) <strong>her zaman AD anlamına gelmez!</strong> Eğer bir ebeveyn <strong>affected homozigot (aa)</strong> + diğeri <strong>taşıyıcı (Aa)</strong> ise, AR hastalık %50 oranla geçer ve dominant taklidi yapar. Özellikle <strong>akraba evliliği veya yüksek taşıyıcı sıklığı</strong> olan durumlarda görülür.
+</div>
+
+<h3>Locus Heterogeneity (Lokus Heterojenitesi)</h3>
+<p>Farklı kromozomların <strong>farklı lokuslarında (different loci)</strong> oluşan mutasyonların <strong>aynı fenotipik özelliği/hastalığı</strong> oluşturmasıdır. Bazı hastalıklar tek bir kalıtım paternini izlemez.</p>
+<p>Örnek: <strong>Retinitis pigmentosa</strong> → otozomal dominant, otozomal resesif <strong>ve</strong> X-linked formlara sahiptir.</p>
+
+<h3>AR Hastalık Örnekleri</h3>
+
+<h4>Kistik Fibrozis (Cystic Fibrosis — CF)</h4>
+<ul>
+  <li><span class="pattern ar">AR</span>. Kuzey Avrupa'da sık: <span class="pct">1/313</span>; Asya'da <span class="pct">1/90.000</span>.</li>
+  <li>Bulgular: ilerleyici akciğer hastalığı (<strong>progressive lung disease</strong>), <strong>ekzokrin pankreas yetmezliği (exocrine pancreatic insufficiency)</strong>, <strong>obstrüktif azoospermi</strong>, <strong>mekonyum ileus</strong>, <strong>yüksek ter klorürü (high sweat chlorine)</strong>, büyüme geriliği.</li>
+  <li>Başlangıç yaşı: yenidoğandan erişkinliğe kadar değişir.</li>
+</ul>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi — CF & Ağız</span>
+  CF hastalarında tetrasiklin kullanımı veya hastalığın doğası nedeniyle <strong>mine defektleri (enamel defects)</strong>, artmış <strong>diştaşı (calculus)</strong> birikimi ve tükürük bezi değişiklikleri görülebilir. Yüksek ter klorürü <strong>terleme testi (sweat test)</strong> tanıda altın standarda yakın bir testtir.
+</div>
+
+<h4>Spinal Müsküler Atrofi (Spinal Muscular Atrophy — SMA)</h4>
+<ul>
+  <li><span class="pattern ar">AR</span>. Çocuklukta <strong>kistik fibrozisten sonra en çok ölüme</strong> neden olan AR hastalık.</li>
+  <li>İnsidans <span class="pct">1/10.000</span>; <strong>SMN1</strong> taşıyıcı oranı toplumda <strong>1/40–1/60</strong>.</li>
+  <li>Bulgular: bilateral <strong>hipotoni (hypotonia)</strong>, ilerleyici <strong>paralizi (progressive paralysis)</strong>.</li>
+  <li><strong>Altın standart tanı: genetik tanı (genetic diagnosis).</strong></li>
+</ul>
+
+<h4>Diğer AR Hastalıklar</h4>
+<ul>
+  <li><strong>Beta Thalassemia</strong></li>
+  <li><strong>Alkaptonuria</strong></li>
+  <li><strong>Gaucher disease</strong></li>
+  <li><strong>Tay-Sachs disease</strong></li>
+</ul>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — AR Hastalıkları</span>
+  <strong>"CF, SMA, Beta-Thal, Alkaptonuri, Gaucher, Tay-Sachs"</strong> → <em>"Can Sıkıntısı Belki Alkol Gibi Tatsız"</em> = <strong>C-S-B-A-G-T</strong>. <br>
+  Genel kural: <strong>Metabolik / enzim eksikliği hastalıklarının çoğu RESESİFTİR</strong> (PKU, Tay-Sachs, alkaptonüri, Gaucher) — çünkü tek normal allel genellikle yeterli enzimi üretir (heterozigot sağlıklı = taşıyıcı).
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Autosomal Recessive</span>
+  <details><summary>İki taşıyıcı ebeveynin (Aa × Aa) çocuklarında genotip ve fenotip oranları nedir?</summary>
+    <div class="ans">Genotip: <strong>1 AA : 2 Aa : 1 aa</strong>. Fenotip: <strong>%75 sağlam görünüm, %25 hasta</strong>. Sağlam görünenlerin <strong>2/3'ü taşıyıcıdır</strong>. Tekrarlama riski her gebelikte %25.</div></details>
+  <details><summary>Pseudodominance nedir ve hangi koşulda ortaya çıkar?</summary>
+    <div class="ans">AR hastalığın dominant kalıtımı taklit etmesi. <strong>Affected homozigot (aa) × taşıyıcı (Aa)</strong> çaprazında ortaya çıkar; döllerin %50'si etkilenir. Akraba evliliği veya yüksek taşıyıcı sıklığında görülür.</div></details>
+  <details><summary>Locus heterogeneity'yi bir örnekle açıklayın.</summary>
+    <div class="ans">Farklı lokuslardaki mutasyonların aynı fenotipi oluşturması. Örnek: <strong>Retinitis pigmentosa</strong> — AD, AR ve X-linked formları vardır.</div></details>
+  <details><summary>Çocuklukta en çok ölüme neden olan ilk iki AR hastalık hangileridir?</summary>
+    <div class="ans">1) <strong>Cystic fibrosis</strong>, 2) <strong>Spinal muscular atrophy (SMA)</strong>. SMA'da gen SMN1, tanıda altın standart genetik testtir.</div></details>
+  <details><summary>Consanguinity (akraba evliliği) neden AR hastalık riskini artırır?</summary>
+    <div class="ans">Her iki ebeveynin de <strong>ortak bir atadan</strong> miras aldıkları aynı zararlı resesif mutasyonu taşıma olasılığı arttığı için.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ BÖLÜM 6 ============ -->
+<h2 id="bolum6">6️⃣ Cinsiyete Bağlı Kalıtım <span style="font-size:15px;color:var(--muted)">(Sex-Linked Inheritance)</span></h2>
+
+<p><strong>Sex-linked inheritance</strong>, cinsiyet kromozomlarından (<strong>sex chromosomes</strong>) herhangi biri üzerinde bulunan genlerin gösterdiği kalıtım paternidir.</p>
+<ul>
+  <li><strong>X kromozomu</strong> üzerindeki genler → <strong>X-linked</strong>.</li>
+  <li><strong>Y kromozomu</strong> üzerindeki genler (çok nadir) → <strong>Y-linked</strong> veya <strong>holandric inheritance</strong>.</li>
+</ul>
+
+<!-- X-linked recessive -->
+<h3>X'e Bağlı Resesif Kalıtım <span class="pattern xr">X-LINKED RECESSIVE</span></h3>
+<p>X kromozomu üzerinde taşınan bir genle belirlenir ve <strong>genellikle yalnızca erkeklerde (males)</strong> ortaya çıkar. Tek X kromozomunda varyant allel taşıyan bir erkek, o allel için <strong>hemizigot (hemizygous)</strong> olarak tanımlanır.</p>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Hemizigozite</span>
+  Erkeklerin tek bir X'i olduğu için, X üzerindeki resesif bir allelin etkisini "maskeleyecek" ikinci bir allel yoktur. Bu yüzden erkek <strong>tek mutant allelle hastalanır</strong> = hemizigot. İşte bu yüzden X-linked resesif hastalıklar <strong>erkeklerde çok daha sık</strong> görülür.
+</div>
+
+<h4>Geçiş Mantığı (Transmission)</h4>
+<ul>
+  <li>Hastalık, genellikle <strong>sağlıklı heterozigot kadın taşıyıcılar (carrier females)</strong> tarafından etkilenmiş erkeklere aktarılır.</li>
+  <li>Etkilenmiş erkekler, hastalığı <strong>zorunlu taşıyıcı kızlarına (obligate carrier daughters)</strong> aktarır.</li>
+  <li>Bu kızlar aracılığıyla <strong>erkek torunlar (male grandchildren)</strong> risk altındadır.</li>
+  <li>Bir erkek X kromozomunu <strong>her kızına</strong>, Y kromozomunu <strong>her oğluna</strong> aktarır.</li>
+</ul>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat — Male-to-Male Geçiş YOK!</span>
+  Bir erkek, X'e bağlı bir özelliği <strong>oğluna ASLA aktaramaz</strong> (çok nadir <strong>uniparental heterodisomy</strong> istisnası dışında) — çünkü oğluna Y verir, X vermez. <strong>Babadan oğula geçiş varsa → X-linked DEĞİLDİR.</strong> Bu, AD'den ayırmanın en güçlü çeldiricisidir.
+</div>
+
+<h4>Risk Senaryoları (Genetic Risks)</h4>
+<table>
+  <tr><th>Çaprazlama</th><th>Sonuç</th></tr>
+  <tr><td>Etkilenmiş erkek (hemofili) × normal kadın</td><td>Tüm kızlar <strong>zorunlu taşıyıcı (obligate carrier)</strong>; oğulların hiçbiri etkilenmez.</td></tr>
+  <tr><td>Taşıyıcı kadın × normal erkek</td><td>Her oğul %50 etkilenme; her kız %50 taşıyıcı olma şansı.</td></tr>
+</table>
+
+<h4>X-linked Resesif Hastalık Örnekleri</h4>
+<ul>
+  <li><strong>Red-green color blindness (kırmızı-yeşil renk körlüğü):</strong> kırmızı ile yeşili ayırt edememe; sık görülen X-linked resesif özellik.</li>
+  <li><strong>Hemophilia A:</strong> kanama bozukluğu.</li>
+  <li><strong>Duchenne muscular dystrophy (DMD):</strong> ilerleyici kas güçsüzlüğü; etkilenen erkekler hareketsiz kalır ve sıklıkla <strong>20'li yaşlarının başında</strong> kaybedilir (steroid ve solunum desteğiyle sağkalım belirgin arttı). Etkilenen erkeklerin üreme yaşına kadar yaşaması nadir olduğu için hastalık <strong>kadın taşıyıcılar</strong> yoluyla veya <strong>yeni mutasyonla</strong> yayılır.</li>
+</ul>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — X Kromozom Anomalileri</span>
+  Bir kadın X-linked resesif varyantı miras alır ve <strong>yalnızca tek X kromozomuna sahipse</strong> (örn. <strong>Turner sendromu, 45,X</strong>), X-linked resesif hastalığı <strong>gösterebilir</strong>. X-linked hastalık örnekleri: <strong>Hemophilia A, Duchenne muscular dystrophy</strong> ve kadınlarda <strong>Turner sendromu</strong> bağlamı.
+</div>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — X-Linked Resesif Hastalıklar</span>
+  <strong>"Her Diş Doktoru Renkleri Görür"</strong> → <strong>H</strong>emophilia · <strong>D</strong>uchenne · <strong>R</strong>ed-green color blindness. <br>
+  Geçiş kuralı: <em>"Baba kızına X verir → kız taşıyıcı; baba oğluna Y verir → oğul kurtulur."</em> Hastalık <strong>dededen → taşıyıcı kıza → erkek toruna</strong> zikzak çizer (<strong>oblique/diagonal patern</strong>).
+</div>
+
+<!-- X-linked dominant -->
+<h3>X'e Bağlı Dominant Kalıtım <span class="pattern xd">X-LINKED DOMINANT</span></h3>
+<p>X kromozomundaki genlerdeki mutasyonlarla ilişkili durumlardır. Mutasyonun <strong>tek bir kopyası</strong>, hem erkeklerde (tek X) hem kadınlarda (iki X) hastalığı oluşturmaya <strong>yeterlidir</strong>.</p>
+
+<h4>Rett Sendromu (Rett Syndrome)</h4>
+<ul>
+  <li><strong>MECP2 gen defekti.</strong></li>
+  <li><strong>Yalnızca kadınlarda görülür; erkeklerde fatal (öldürücü).</strong></li>
+  <li>Olguların <strong>%95'i sporadik mutasyonlardan (sporadic mutations)</strong> kaynaklanır.</li>
+  <li>Normal büyüme; semptomlar <strong>6-18 ay/yaş</strong> arasında başlar; beyin gelişimini etkiler (spastik, ataksik, otistik özellikler).</li>
+</ul>
+
+<h4>Incontinentia Pigmenti</h4>
+<ul>
+  <li>Bazı X-linked dominant bozukluklar için heterozigot kadınlarda <strong>mozaik patern (mosaic pattern)</strong> görülebilir.</li>
+  <li>Gelişim çizgilerini izleyen <strong>anormal cilt pigmentasyonu</strong> mozaiği klasik örnektir.</li>
+</ul>
+
+<h4>Erkek Letalitesi ile X-linked Dominant (Male Lethality)</h4>
+<p>Bazı X-linked durumlar erkeklerin <strong>büyük çoğunluğunda öldürücüdür</strong> (örn. <strong>incontinentia pigmenti</strong>). Bu durumlarda soyağacı tipik olarak <strong>yalnızca etkilenmiş kadınları gösterir</strong>.</p>
+
+<h4>Diğer X-linked Dominant Hastalıklar</h4>
+<ul>
+  <li><strong>Vitamin D'ye dirençli raşitizm (Vitamin D resistant rickets): X-linked hypophosphatemia.</strong></li>
+  <li><strong>Alport sendromunun çoğu olgusu.</strong></li>
+  <li><strong>X-linked dominant porphyria.</strong></li>
+</ul>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat — Sadece Kadın Hastalar Görünüyorsa</span>
+  Soyağacında <strong>yalnızca etkilenmiş kadınlar</strong> varsa ve etkilenmiş erkek yoksa → <strong>X-linked dominant with male lethality</strong> (örn. incontinentia pigmenti, Rett) akla gelmelidir. Bu, hem X-linked resesiften (orada erkekler hasta) hem de otozomalden ayırmanın anahtarıdır.
+</div>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi — Incontinentia Pigmenti & Dişler</span>
+  Incontinentia pigmenti'nin klasik dental bulguları vardır: <strong>diş eksikliği (hypodontia/oligodontia)</strong>, <strong>konik (peg-shaped) dişler</strong> ve diş erüpsiyon gecikmesi. Cilt lezyonlarıyla birlikte bu diş anomalilerini görmek, diş hekimini sistemik tanıya yönlendirebilir — bazen tanıyı ilk koyan diş hekimi olur!
+</div>
+
+<!-- Y-linked -->
+<h3>Y'ye Bağlı Kalıtım <span style="font-size:14px;color:var(--muted)">(Y-Linked / Holandric Inheritance)</span></h3>
+<p><strong>Y-linked (holandric)</strong> kalıtım, <strong>yalnızca erkeklerin etkilendiğini</strong> ima eder. Etkilenmiş bir erkek, Y'ye bağlı özellikleri <strong>tüm oğullarına aktarır, hiçbir kızına aktarmaz</strong>.</p>
+<p>Y-linked kalıtımı tanımlayan iki özellik:</p>
+<ol>
+  <li>Yalnızca erkekler etkilenir (<strong>only males are affected</strong>);</li>
+  <li>Etkilenmiş erkekler hastalığı <strong>yalnızca oğullarına</strong> aktarmalıdır.</li>
+</ol>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Sex-Linked Geçiş Özeti</span>
+  <strong>X-linked resesif:</strong> "erkekler hasta, kadınlar taşır" → zikzak (oblique). <br>
+  <strong>X-linked dominant:</strong> "etkilenen baba → TÜM kızları hasta, hiçbir oğlu hasta değil" (çünkü baba kızlarına X verir). <br>
+  <strong>Y-linked:</strong> "baba → TÜM oğullar, hiç kız yok" = saf erkek-erkek geçiş. <br>
+  Akrostiş: <strong>X-D → kızlar (Daughters Dominant)</strong>, <strong>Y → yalnız oğullar</strong>.
+</div>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Ayırıcı Tablo</span>
+  <table style="margin-top:8px;">
+    <tr><th>Patern</th><th>Anahtar İpucu</th></tr>
+    <tr><td><span class="pattern ad">AD</span></td><td>Dikey, her kuşakta hasta, M→M geçiş VAR, taşıyıcı yok</td></tr>
+    <tr><td><span class="pattern ar">AR</span></td><td>Yatay, kuşak atlar, ebeveynler taşıyıcı, akrabalık riski artırır</td></tr>
+    <tr><td><span class="pattern xr">XR</span></td><td>Erkekler ağırlıklı hasta, M→M geçiş YOK, taşıyıcı anneler</td></tr>
+    <tr><td><span class="pattern xd">XD</span></td><td>Etkilenen babanın TÜM kızları hasta; oğulları sağlam; male-lethal ise yalnız kadın hastalar</td></tr>
+  </table>
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Sex-Linked</span>
+  <details><summary>Bir erkek neden X-linked resesif bir hastalığı oğluna aktaramaz?</summary>
+    <div class="ans">Oğluna <strong>Y kromozomunu</strong> aktarır, X'i değil. Bu yüzden <strong>male-to-male geçiş yoktur</strong> (çok nadir uniparental heterodisomy istisnası dışında). Babadan oğula geçiş = X-linked değildir.</div></details>
+  <details><summary>Hemofilili bir erkek normal bir kadınla evlenirse kız ve oğul çocuklarının durumu ne olur?</summary>
+    <div class="ans">Tüm kızlar <strong>zorunlu taşıyıcı (obligate carrier)</strong>; oğulların hiçbiri etkilenmez (baba onlara Y verir).</div></details>
+  <details><summary>"Hemizygous" terimi neyi ifade eder?</summary>
+    <div class="ans">Tek X kromozomu olan bir erkeğin X üzerindeki bir allel için tek kopya taşımasıdır. Resesif X-linked allel maskeleyemez, bu yüzden erkek hastalanır.</div></details>
+  <details><summary>Rett sendromunun geni, cinsiyet dağılımı ve kalıtım paterni nedir?</summary>
+    <div class="ans">Gen: <strong>MECP2</strong>. <strong>X-linked dominant</strong>; yalnızca kadınlarda görülür, erkeklerde fataldir. %95 sporadik mutasyon.</div></details>
+  <details><summary>Soyağacında yalnızca etkilenmiş kadınlar varsa hangi kalıtım türü akla gelir? Örnek verin.</summary>
+    <div class="ans"><strong>X-linked dominant with male lethality</strong>. Örnekler: <strong>incontinentia pigmenti</strong>, Rett sendromu.</div></details>
+  <details><summary>Y-linked (holandric) kalıtımı tanımlayan iki özellik nedir?</summary>
+    <div class="ans">1) Yalnızca erkekler etkilenir; 2) Etkilenmiş erkek hastalığı yalnızca oğullarına aktarır (tüm oğullar, hiçbir kız).</div></details>
+</div>
+
+<hr>
+
+<!-- ============ BÖLÜM 7 ============ -->
+<h2 id="bolum7">7️⃣ Kalıtım Modunu Belirleme <span style="font-size:15px;color:var(--muted)">(Establishing the Mode of Inheritance)</span></h2>
+
+<p>Klinik genetik pratiğinde bir hastalığın kalıtım modunu belirlemek için şunlar birleştirilir:</p>
+<ul>
+  <li><strong>Soyağacı bilgisi (pedigree information)</strong>,</li>
+  <li><strong>Moleküler genetik test (molecular genetic testing)</strong>,</li>
+  <li>Aynı durum/fenotipe sahip <strong>birkaç ailenin birlikte incelenmesi (studying several families)</strong>.</li>
+</ul>
+
+<h3>Soyağacı Mantık Yürütme Örneği (Pedigree Reasoning)</h3>
+<p>Slaytlardaki klasik akıl yürütme örneği — bir hastalığın <strong>neden belirli paternler OLAMAYACAĞINI</strong> elemek:</p>
+
+<h4>"X-linked recessive olamaz" mantığı</h4>
+<p>Eğer baba <strong>normal</strong> ve anne <strong>taşıyıcı</strong> ise, etkilenmiş bir çocukları olabilirdi — <strong>ancak</strong> X-linked resesif hastalıkta <strong>etkilenmiş bir annenin tüm oğulları etkilenir (%100)</strong>. Babanın da (annesinden gelen etki nedeniyle senaryoda) etkilenmiş olması gerekirdi. Bu uyumsuzluk X-linked resesifi eler.</p>
+
+<h4>"X-linked dominant olamaz" mantığı</h4>
+<p>Etkilenmiş bir çocuğa sahip olmak için <strong>en az bir ebeveynin etkilenmiş olması gerekir</strong>. X-linked dominant kalıtımda, hasta bir erkek çocuğun <strong>annesi mutlaka hastadır</strong>. Anne sağlıklıysa, X-linked dominant elenir.</p>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Eleme Stratejisi (Sınav Soruları İçin)</span>
+  Soyağacı sorusunda adım adım eleyin: <br>
+  <strong>1. M→M geçiş var mı?</strong> → Varsa <em>X-linked elenir</em>. <br>
+  <strong>2. Her kuşakta hasta var mı (dikey)?</strong> → Varsa AD'yi düşün; <em>kuşak atlıyorsa (yatay)</em> AR'yi düşün. <br>
+  <strong>3. Sadece erkekler mi hasta?</strong> → X-linked resesif veya Y-linked. <br>
+  <strong>4. Sadece kadınlar mı hasta?</strong> → X-linked dominant (male lethal). <br>
+  <strong>5. Etkilenmiş baba → tüm kızları hasta mı?</strong> → X-linked dominant.
+</div>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat — En Sık Yapılan Eleme Hataları</span>
+  <ul style="margin:6px 0 0;">
+    <li>Babadan-oğula geçişi görüp X-linked demek → <strong>YANLIŞ</strong> (X-linked'te M→M olmaz).</li>
+    <li>Dikey patern görüp otomatik AD demek → <strong>pseudodominance</strong> tuzağına dikkat (AR de dikey görünebilir).</li>
+    <li>Kuşak atlamayı görüp AR demek → AD'de de <strong>reduced penetrance / de novo</strong> kuşak atlatabilir.</li>
+  </ul>
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Mode of Inheritance</span>
+  <details><summary>Bir hastalığın kalıtım modunu belirlemek için klinikte hangi üç bilgi kaynağı birleştirilir?</summary>
+    <div class="ans">1) Pedigree bilgisi, 2) Moleküler genetik test, 3) Aynı fenotipli birkaç ailenin incelenmesi.</div></details>
+  <details><summary>Bir soyağacında baba→oğul geçişi görülüyorsa hangi kalıtım türü/türleri kesin elenir?</summary>
+    <div class="ans"><strong>Tüm X-linked formlar elenir</strong> (resesif ve dominant), çünkü baba oğluna X değil Y aktarır.</div></details>
+  <details><summary>X-linked dominant bir hastalıkta, hasta bir erkek çocuğun annesi için ne söylenebilir?</summary>
+    <div class="ans">Annesi <strong>mutlaka etkilenmiştir (hasta)</strong>. Çünkü hasta çocuk için en az bir ebeveynin etkilenmiş olması gerekir ve baba X'i sadece kızlarına verir.</div></details>
+</div>
+
+<hr>
+
+<div class="box spot" style="border-width:3px;">
+  <span class="title">🎯 FİNAL ÖZET — En Kritik 10 Spot</span>
+  <ol style="margin:6px 0 0;">
+    <li>Proband = ok; kuşak = Roma rakamı, birey = Arap rakamı.</li>
+    <li>AD = dikey patern, M→M geçiş VAR, taşıyıcı yok, heterozigot etkilenir.</li>
+    <li>AR = yatay patern, taşıyıcı ebeveynler, Aa×Aa → %25 hasta, akrabalık riski artırır.</li>
+    <li>Penetrans = var/yok; Ekspresivite = şiddet derecesi (KARIŞTIRMA!).</li>
+    <li>De novo mutasyon → iki normal ebeveynden AD hasta çocuk (achondroplasia).</li>
+    <li>Marfan → FBN1; OI → tip 1 kollajen (+dentinogenesis imperfecta); NF1 → 17q.</li>
+    <li>X-linked resesif → erkekler hasta (hemizygous), M→M geçiş YOK; Hemophilia, DMD, renk körlüğü.</li>
+    <li>X-linked dominant → etkilenmiş babanın TÜM kızları hasta; male-lethal ise yalnız kadın hasta (Rett-MECP2, incontinentia pigmenti).</li>
+    <li>Y-linked → yalnız erkek, baba→tüm oğullar.</li>
+    <li>Pseudodominance (AR'nin dominant taklidi) ve locus heterogeneity (RP) çeldiricilerine dikkat.</li>
+  </ol>
+</div>
+
+<footer>
+  🦷 Ders 2 — Mendelian Inheritance · Final Çalışma Rehberi<br>
+  Açık uçlu kutuların üzerine tıklayarak flashcard cevaplarını görebilirsiniz. Başarılar!
+</footer>
+
+</body>
+</html>

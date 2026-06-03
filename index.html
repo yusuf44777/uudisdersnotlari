@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Üsküdar Üniversitesi Diş Hekimliği öğrencileri için 1. sınıf Anatomy ve Medical Genetics çalışma notları.">
+  <meta name="theme-color" content="#0f3f4a">
+  <meta property="og:title" content="Üsküdar Diş Hekimliği Notları">
+  <meta property="og:description" content="1. sınıf diş hekimliği çalışma notları için hızlı ve düzenli ders arşivi.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/dental-study-hero.png">
+  <title>Üsküdar Diş Hekimliği Notları</title>
+  <link rel="preload" href="assets/dental-study-hero.png" as="image">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="site-shell hero-shell">
+    <nav class="topbar" aria-label="Ana gezinme">
+      <a class="brand" href="index.html" aria-label="Ana sayfa">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" role="img">
+            <path d="M16 3.5c-5.4 0-9.8 4.2-9.8 9.4 0 2.4 1 4.3 2.3 6.1 1.4 2 2.3 4.3 2.9 6.7.4 1.7 1.6 2.8 3 2.8 1 0 1.7-.7 2-1.8l.8-3.8c.1-.6.5-.9.8-.9s.7.3.8.9l.8 3.8c.3 1.1 1 1.8 2 1.8 1.4 0 2.6-1.1 3-2.8.6-2.4 1.5-4.7 2.9-6.7 1.3-1.8 2.3-3.7 2.3-6.1 0-5.2-4.4-9.4-9.8-9.4-1.4 0-2.8.4-4 1.1-1.2-.7-2.6-1.1-4-1.1Z"/>
+          </svg>
+        </span>
+        <span>
+          <strong>ÜÜ Diş</strong>
+          <small>ders notları</small>
+        </span>
+      </a>
+      <div class="top-actions" aria-label="Sayfa bağlantıları">
+        <a href="#dersler">Dersler</a>
+        <a href="#notlar">Notlar</a>
+        <a href="#siniflar">Sınıflar</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Üsküdar Üniversitesi Diş Hekimliği</p>
+        <h1>1. sınıf notları, sınav haftası hızında.</h1>
+        <p class="hero-lead">
+          Anatomy ve Medical Genetics çalışma rehberlerini tek yerde toplayan, telefonda da rahat taranan ders arşivi.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-action" href="#notlar">
+            <span>Notlara geç</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h13M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="secondary-action" href="1.%20S%C4%B1n%C4%B1f/Anatomy/01_Lokomotor_Sistem_Calisma_Rehberi.html">
+            <span>İlk notu aç</span>
+          </a>
+        </div>
+      </div>
+
+      <figure class="hero-media">
+        <img src="assets/dental-study-hero.png" alt="Diş hekimliği öğrencisi çalışma masasında anatomi ve genetik notları">
+      </figure>
+    </section>
+
+    <section class="quick-stats" aria-label="Arşiv özeti">
+      <article>
+        <span data-stat="notes">13</span>
+        <p>HTML not</p>
+      </article>
+      <article>
+        <span>2</span>
+        <p>aktif ders</p>
+      </article>
+      <article>
+        <span>1.</span>
+        <p>sınıf arşivi</p>
+      </article>
+      <article>
+        <span id="completedCount">0</span>
+        <p>tamamlanan</p>
+      </article>
+    </section>
+  </header>
+
+  <main>
+    <section class="site-shell course-panel" id="dersler">
+      <div class="section-heading">
+        <p class="eyebrow">Aktif dersler</p>
+        <h2>Dersleri klinik gibi düzenli tut</h2>
+      </div>
+
+      <div class="course-grid">
+        <article class="course-card anatomy">
+          <div class="course-topline">
+            <span>Anatomy</span>
+            <strong>5 not</strong>
+          </div>
+          <h3>Lokomotor sistemden servikal pleksusa</h3>
+          <p>Kaslar, ekstremiteler, pleksuslar, toraks-karın duvarı ve baş-yüz anatomisi için final odaklı rehberler.</p>
+          <a href="#notlar" data-course-jump="Anatomy">
+            <span>Anatomy notları</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h13M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </article>
+
+        <article class="course-card genetics">
+          <div class="course-topline">
+            <span>Medical Genetics</span>
+            <strong>8 not</strong>
+          </div>
+          <h3>Mendel'den kromozom anatomisine</h3>
+          <p>Temel terminoloji, klinik genetik, moleküler temel, Mendelian ve Non-Mendelian kalıtım için bölüm bölüm notlar.</p>
+          <a href="#notlar" data-course-jump="Medical Genetics">
+            <span>Genetics notları</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h13M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="catalog-band" id="notlar">
+      <div class="site-shell">
+        <div class="catalog-header">
+          <div class="section-heading">
+            <p class="eyebrow">1. sınıf katalog</p>
+            <h2>Not arşivi</h2>
+          </div>
+
+          <div class="catalog-tools">
+            <label class="search-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m21 21-4.3-4.3M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z"/>
+              </svg>
+              <span class="sr-only">Notlarda ara</span>
+              <input id="searchInput" type="search" placeholder="Ders, konu veya başlık ara">
+            </label>
+
+            <div class="filter-tabs" aria-label="Ders filtresi">
+              <button class="filter-tab is-active" type="button" data-filter="all">Hepsi</button>
+              <button class="filter-tab" type="button" data-filter="Anatomy">Anatomy</button>
+              <button class="filter-tab" type="button" data-filter="Medical Genetics">Genetics</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="catalog-status" aria-live="polite">
+          <span id="resultCount">11 not gösteriliyor</span>
+          <button class="ghost-button" type="button" id="resetProgress">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 12a9 9 0 1 0 3-6.7M3 4v6h6"/>
+            </svg>
+            <span>İşaretleri sıfırla</span>
+          </button>
+        </div>
+
+        <div class="note-grid" id="noteGrid" aria-live="polite"></div>
+        <p class="empty-state" id="emptyState" hidden>Bu aramada not bulunamadı.</p>
+      </div>
+    </section>
+
+    <section class="site-shell class-roadmap" id="siniflar">
+      <div class="section-heading">
+        <p class="eyebrow">Arşiv planı</p>
+        <h2>Sınıflar</h2>
+      </div>
+
+      <div class="year-grid" aria-label="Sınıf arşivleri">
+        <article class="year-card is-current">
+          <span>1</span>
+          <h3>1. Sınıf</h3>
+          <p>Anatomy ve Medical Genetics aktif.</p>
+        </article>
+        <article class="year-card">
+          <span>2</span>
+          <h3>2. Sınıf</h3>
+          <p>Notlar eklendikçe açılacak.</p>
+        </article>
+        <article class="year-card">
+          <span>3</span>
+          <h3>3. Sınıf</h3>
+          <p>Hazırlık aşamasında.</p>
+        </article>
+        <article class="year-card">
+          <span>4</span>
+          <h3>4. Sınıf</h3>
+          <p>Hazırlık aşamasında.</p>
+        </article>
+        <article class="year-card">
+          <span>5</span>
+          <h3>5. Sınıf</h3>
+          <p>Hazırlık aşamasında.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-shell footer-inner">
+      <p>Üsküdar Üniversitesi Diş Hekimliği öğrencileri için kişisel ders notu arşivi.</p>
+      <p>Notlar eğitim amaçlıdır; resmi üniversite yayını değildir.</p>
+    </div>
+  </footer>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

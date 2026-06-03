@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ders 3 — Non-Mendelian Inheritance | Final Çalışma Rehberi</title>
+<style>
+  :root{
+    --bg:#0f1117; --card:#1a1d27; --text:#e8eaf0; --muted:#aab0c0;
+    --primary:#6c8cff; --primary-d:#3a55c4;
+    --clinic:#1f7a5a; --clinic-bg:#10271f; --clinic-bd:#2ecc8f;
+    --spot:#b8860b; --spot-bg:#2a2410; --spot-bd:#f1c40f;
+    --warn:#a83232; --warn-bg:#2a1414; --warn-bd:#ff6b6b;
+    --card-bd:#7b4bd6; --card-bg:#1d1530; --card-accent:#b388ff;
+    --mnemo:#0e6e8c; --mnemo-bg:#0d2630; --mnemo-bd:#2bc4e8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:0 16px 80px; background:var(--bg); color:var(--text);
+    font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.7; font-size:17px; max-width:980px; margin:0 auto;
+  }
+  header.hero{
+    background:linear-gradient(135deg,#7a2bb0,#a06cff 55%,#6c8cff);
+    border-radius:0 0 22px 22px; padding:34px 28px 28px; margin:0 -16px 30px;
+    box-shadow:0 8px 30px rgba(0,0,0,.4);
+  }
+  header.hero h1{margin:0 0 6px; font-size:30px; color:#fff; letter-spacing:.3px;}
+  header.hero p{margin:2px 0; color:#f0eaff; font-size:15px;}
+  header.hero .tag{display:inline-block; background:rgba(255,255,255,.18); padding:3px 12px; border-radius:20px; font-size:13px; margin-top:10px;}
+  h2{
+    font-size:24px; margin:46px 0 14px; padding:12px 18px;
+    background:linear-gradient(90deg,var(--primary-d),transparent);
+    border-left:6px solid var(--primary); border-radius:8px; color:#fff;
+  }
+  h3{font-size:20px; color:var(--primary); margin:30px 0 10px; border-bottom:1px dashed #3a3f52; padding-bottom:6px;}
+  h4{font-size:17px; color:var(--card-accent); margin:20px 0 6px;}
+  p{margin:10px 0;}
+  ul,ol{margin:10px 0 14px; padding-left:26px;}
+  li{margin:6px 0;}
+  strong{color:#fff;}
+  em{color:#cdd3e6;}
+  mark{background:#4a3aff44; color:#dfe4ff; padding:1px 5px; border-radius:4px; border-bottom:2px solid var(--primary);}
+  .toc{background:var(--card); border:1px solid #2a2f3f; border-radius:14px; padding:18px 24px; margin:0 0 20px;}
+  .toc h3{margin-top:0; border:none; color:#fff;}
+  .toc a{color:var(--primary); text-decoration:none;}
+  .toc a:hover{text-decoration:underline;}
+  .toc ol{padding-left:22px;}
+
+  .box{border-radius:12px; padding:14px 18px 14px 16px; margin:18px 0; border-left:6px solid; position:relative;}
+  .box .title{font-weight:700; display:block; margin-bottom:4px; font-size:16px;}
+  .clinic{background:var(--clinic-bg); border-color:var(--clinic-bd);}
+  .clinic .title{color:var(--clinic-bd);}
+  .spot{background:var(--spot-bg); border-color:var(--spot-bd);}
+  .spot .title{color:var(--spot-bd);}
+  .warn{background:var(--warn-bg); border-color:var(--warn-bd);}
+  .warn .title{color:var(--warn-bd);}
+  .mnemo{background:var(--mnemo-bg); border-color:var(--mnemo-bd);}
+  .mnemo .title{color:var(--mnemo-bd);}
+
+  .flash{background:var(--card-bg); border:2px solid var(--card-bd); border-radius:14px; padding:6px 20px 14px; margin:22px 0;}
+  .flash .fhead{font-weight:700; color:var(--card-accent); font-size:15px; letter-spacing:.5px; text-transform:uppercase; display:flex; align-items:center; gap:8px; margin:12px 0 6px;}
+  .flash details{background:#140e22; border-radius:10px; margin:10px 0; padding:2px 0; border:1px solid #3a2a5c;}
+  .flash summary{cursor:pointer; padding:11px 16px; font-weight:600; color:#e8defc; list-style:none;}
+  .flash summary::-webkit-details-marker{display:none;}
+  .flash summary::before{content:"❓ "; }
+  .flash details[open] summary{color:#fff; border-bottom:1px dashed #4a3a6c;}
+  .flash .ans{padding:10px 16px 14px; color:#d7ccee;}
+  .flash .ans::before{content:"✅ "; }
+
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:15px; background:var(--card); border-radius:10px; overflow:hidden;}
+  th,td{padding:10px 12px; text-align:left; border-bottom:1px solid #2a2f3f; vertical-align:top;}
+  th{background:#262b3a; color:var(--primary); font-size:14px; text-transform:uppercase; letter-spacing:.4px;}
+  tr:last-child td{border-bottom:none;}
+  .pct{color:var(--spot-bd); font-weight:700;}
+  hr{border:none; border-top:1px solid #2a2f3f; margin:34px 0;}
+  .pill{display:inline-block; padding:2px 9px; border-radius:6px; font-size:13px; font-weight:700; color:#fff;}
+  .pat{background:#a06c00;} .mat{background:#a02b7a;} .mito{background:#1f7a5a;} .multi{background:#3a55c4;}
+  footer{margin-top:50px; text-align:center; color:var(--muted); font-size:13px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>🧬 Ders 3 — Non-Mendelian Inheritance</h1>
+  <p><strong>Patterns of Inheritance</strong> · Mendel Dışı (Atipik) Kalıtım</p>
+  <p>Dept. of Medical Genetics · Diş Hekimliği 1. Sınıf · Final Hazırlık Rehberi</p>
+  <span class="tag">Türkçe açıklama + korunmuş İngilizce/Latince terminoloji</span>
+</header>
+
+<nav class="toc">
+  <h3>📑 İçindekiler</h3>
+  <ol>
+    <li><a href="#b1">Geleneksel Olmayan Kalıtıma Giriş & Multiple Alleles</a></li>
+    <li><a href="#b2">Genomic Imprinting (Genomik Damgalama)</a></li>
+    <li><a href="#b3">Uniparental Disomy — UPD</a></li>
+    <li><a href="#b4">İmprinting Hastalıkları: PWS · Angelman · Beckwith-Wiedemann</a></li>
+    <li><a href="#b5">Mosaicism (Germline & Somatic)</a></li>
+    <li><a href="#b6">Anticipation & Triplet Repeat Expansion (HD · Fragile X · Myotonic Dystrophy)</a></li>
+    <li><a href="#b7">Mitochondrial Inheritance (Mitokondriyal Kalıtım)</a></li>
+    <li><a href="#b8">Multifactorial Inheritance (Multifaktöriyel Kalıtım)</a></li>
+  </ol>
+</nav>
+
+<!-- ============ B1 ============ -->
+<h2 id="b1">1️⃣ Geleneksel Olmayan Kalıtıma Giriş & Multiple Alleles</h2>
+
+<p>Hatırlatma — kalıtım paternleri 4 ana grupta toplanır:</p>
+<ul>
+  <li>Tek gen / Mendel kalıtımı (<strong>Single Gene / Mendelian Inheritance</strong>) — geçen ders</li>
+  <li>Atipik kalıtım (<strong>Atypical Inheritance</strong>) — bu ders</li>
+  <li>Mitokondriyal kalıtım (<strong>Mitochondrial Inheritance</strong>) — bu ders</li>
+  <li>Multifaktöriyel kalıtım (<strong>Multifactorial Inheritance</strong>) — bu ders</li>
+</ul>
+
+<h3>Geleneksel Olmayan Kalıtım (Non-Traditional Inheritance)</h3>
+<p>Klasik Mendel paternlerini <strong>izlemeyen</strong> kalıtımdır. Şu durumlarda görülür:</p>
+<ul>
+  <li><strong>İmprinting defektleri (imprinting defects)</strong></li>
+  <li><strong>Triplet tekrar genişlemesi hastalıkları (triplet repeat expansion diseases)</strong></li>
+  <li><strong>Mitokondriyal bozukluklar (mitochondrial disorders)</strong></li>
+</ul>
+
+<h3>Çoklu Aleller ve Kompleks Özellikler (Multiple Alleles & Complex Traits)</h3>
+<p>Şimdiye kadar yalnızca <strong>iki alleli</strong> olan özelliklerden (normal + varyant) bahsettik. Ancak bazı özellikler ve hastalıklar <strong>ne monogenik ne de poligeniktir</strong>. Birçok gen, <strong>birkaç allelik varyanta (multiple alleles)</strong> sahiptir.</p>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi</span>
+  Çoklu allel kavramının en bilinen örneği <strong>ABO kan grubu sistemi</strong>dir (i, Iᴬ, Iᴮ — üç allel). Diş hekimliğinde cerrahi öncesi kan grubu ve kanama bilgisi gerektiğinde bu kavram önem kazanır. Ayrıca diş minesi/dentin yapısını etkileyen birçok gen de çok sayıda varyanta sahiptir; bu, popülasyondaki diş morfolojisi çeşitliliğini açıklar.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Giriş</span>
+  <details><summary>Non-traditional (atipik) kalıtım hangi üç ana durumda görülür?</summary>
+    <div class="ans">1) Imprinting defects, 2) Triplet repeat expansion diseases, 3) Mitochondrial disorders.</div></details>
+  <details><summary>"Multiple alleles" ne demektir?</summary>
+    <div class="ans">Bir genin popülasyonda ikiden fazla allelik varyanta sahip olmasıdır (örn. ABO kan grubu). Birey yine sadece 2 allel taşır, ama popülasyon düzeyinde çok sayıda allel bulunur.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B2 ============ -->
+<h2 id="b2">2️⃣ Genomic Imprinting <span style="font-size:15px;color:var(--muted)">(Genomik Damgalama)</span></h2>
+
+<p>Memelilerde normal gelişim için hem anneden (<strong>maternal</strong>) hem babadan (<strong>paternal</strong>) genetik katkı gerekir. Ancak bazı <strong>imprinted genler</strong> yalnızca <em>maternal</em> ya da <em>paternal</em> kromozomdan ifade edilir.</p>
+
+<p><strong>İmprinting</strong>, bir genin yalnızca tek bir allelden ifade edilmesini, diğer allelin ise <strong>metillenerek (methylated) inaktif</strong> hale gelmesini sağlar.</p>
+
+<h3>Temel Özellikler</h3>
+<ul>
+  <li>İki kopyamız olmasına rağmen (her kromozomda bir tane), <strong>yalnızca bir kopya aktiftir/ifade edilir</strong> — ya anneden ya babadan gelen. Diğeri ifade edilmez.</li>
+  <li>İfade <strong>hangi ebeveynden geldiğine bağlıdır</strong> → "<strong>parent of origin</strong>" etkisi.</li>
+  <li>İmprinting <strong>her kromozomda görülmez</strong>; insan genomunun yalnızca küçük bir kısmı bu sürece tabidir.</li>
+</ul>
+
+<h3>Mekanizma: İfade Nasıl Kontrol Edilir?</h3>
+<ul>
+  <li>İmprinting bir <strong>metilasyon paterni (pattern of methylation)</strong> ile gerçekleşir.</li>
+  <li>İnaktive edilecek gen kopyası <strong>metil gruplarıyla (methyl groups)</strong> kaplanır → bu, genin ifade edilmesini engeller.</li>
+  <li>Bu, <strong>döllenmeden önce</strong> yumurta ve sperm hücrelerinde, bir <strong>imprinting merkezi (imprinting center — IC)</strong> tarafından gerçekleştirilir.</li>
+  <li>Metilasyon genellikle bir <strong>CpG bölgesinde (CpG site)</strong> oluşur ve ifadeyi değiştiren ana mekanizmadır.</li>
+  <li>İmprinting <strong>gametogenez (gametogenesis)</strong> sırasında oluşur ve genleri anne/babadan gelen olarak <strong>işaretler</strong>. Döllenme sonrası bu etki tüm somatik hücrelerde ve doğum sonrası hücre bölünmeleri boyunca devam eder.</li>
+</ul>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — İmprinting ≠ Mutasyon</span>
+  İmprinting <strong>DNA dizisini DEĞİŞTİRMEZ</strong>, sadece gen ifadesini etkiler. <strong>Bir mutasyon değildir; bir gen inaktivasyonudur (gene inactivation).</strong> Bu, epigenetik bir mekanizmadır.
+</div>
+
+<h3>İmprinting Hastalıkları (Hastalık Mekanizmaları)</h3>
+<p>İmprinted genlerde DNA metilasyonunun <strong>kaybı veya kazanılması (loss of imprinting)</strong> sonucu allel-spesifik gen ifade profili bozulur ve hastalık oluşur. Hastalık mekanizmaları:</p>
+<ul>
+  <li><strong>Deletion (delesyon)</strong></li>
+  <li><strong>Imprinting defect (imprinting defekti)</strong></li>
+  <li><strong>Uniparental disomy (UPD)</strong></li>
+  <li><strong>Gene mutation (gen mutasyonu)</strong></li>
+</ul>
+<p>Tüm mekanizmalar sonuçta, ifade edilmesi gereken bir genin <strong>ifade edilememesiyle (lack of expression)</strong> sonuçlanır. Örnekler: <strong>Prader-Willi Syndrome, Angelman Syndrome, Beckwith-Wiedemann Syndrome</strong>.</p>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — İmprinting Mantığı</span>
+  <strong>"Damga = Kapanış"</strong> → Damgalanmış (imprinted) allel <em>susturulur</em>. Eğer <em>aktif olması gereken</em> diğer allel de bozulursa (delesyon/UPD/mutasyon/IC defekti), gen tamamen ifadesiz kalır → hastalık. <br>
+  4 mekanizma için: <strong>"DUIG"</strong> → <strong>D</strong>eletion · <strong>U</strong>PD · <strong>I</strong>mprinting defect · <strong>G</strong>ene mutation.
+</div>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi</span>
+  İmprinting bozuklukları (özellikle Beckwith-Wiedemann) <strong>makroglossi (büyük dil)</strong> ile gider — bu, diş hekimini doğrudan ilgilendiren bir bulgudur (maloklüzyon, açık kapanış, konuşma/yutma problemleri). Angelman'da ise <strong>geniş aralıklı dişler (wide-spaced teeth)</strong> görülür. Yani imprinting genetiği, koltuğunuzdaki klinik tabloya doğrudan yansır.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Genomic Imprinting</span>
+  <details><summary>Genomic imprinting'in ana moleküler mekanizması nedir ve nerede oluşur?</summary>
+    <div class="ans"><strong>DNA metilasyonu</strong> (genellikle CpG bölgesinde). <strong>Gametogenez</strong> sırasında, döllenmeden önce, bir <strong>imprinting center</strong> tarafından gerçekleştirilir.</div></details>
+  <details><summary>İmprinting bir mutasyon mudur? DNA dizisini değiştirir mi?</summary>
+    <div class="ans">Hayır. İmprinting bir <strong>mutasyon değildir, gen inaktivasyonudur</strong>. DNA dizisini değiştirmez; yalnızca gen ifadesini (epigenetik olarak) etkiler.</div></details>
+  <details><summary>İmprinting hastalıklarının 4 mekanizması nedir?</summary>
+    <div class="ans">Deletion, Imprinting defect, Uniparental disomy (UPD), Gene mutation. Hepsi gerekli genin ifade edilememesiyle sonuçlanır.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B3 ============ -->
+<h2 id="b3">3️⃣ Uniparental Disomy <span style="font-size:15px;color:var(--muted)">(UPD)</span></h2>
+
+<p>Normalde birey, homolog kromozom çiftinin <strong>birini her ebeveynden</strong> miras alır. Bazen ise bir kromozom çiftinin <strong>her iki homologu da yalnızca tek ebeveynden</strong> gelir — buna <strong>uniparental disomy (UPD)</strong> denir.</p>
+
+<h3>Heterodisomy vs. Isodisomy</h3>
+<p>UPD'ye yol açan en sık mekanizma <strong>mayoz hataları (meiotic errors)</strong>dır:</p>
+<table>
+  <tr><th>Hata</th><th>Sonuç</th></tr>
+  <tr><td>Mayoz I hatası (<strong>error in meiosis 1</strong>)</td><td><strong>Heterodisomy</strong> (iki <em>farklı</em> homolog — ebeveynin her iki homoloğu)</td></tr>
+  <tr><td>Mayoz II hatası (<strong>error in meiosis 2</strong>)</td><td><strong>Isodisomy</strong> (aynı homoloğun iki <em>özdeş</em> kopyası)</td></tr>
+</table>
+<p>UPD'nin sık nedeni <strong>mayoz II veya mitoz</strong> kaynaklıdır.</p>
+
+<h3>Farklı UPD Mekanizmaları</h3>
+<ul>
+  <li><strong>a) Trisomy rescue (trizomi kurtarma):</strong> Yumurta veya spermde <strong>nondisjunction</strong> → döllenmeyle fetüs 3 kromozomlu (trizomik) olur. Hücre bu değişikliği sezip bir kromozomu kaybedebilir (<strong>trisomy rescue</strong>) → 2 kromozom kalır. <span class="pct">2/3</span> olasılıkla normal kompozisyon (1 maternal + 1 paternal), <span class="pct">1/3</span> olasılıkla UPD oluşur. Genellikle <strong>heterodisomy</strong> olur.</li>
+  <li><strong>b) Gamete complementation (gamet tamamlama):</strong> Aynı kromozom için <strong>nullizomik (nullisomic)</strong> bir gametin, <strong>dizomik (disomic)</strong> bir gametle döllenmesi → izo- veya heterodisomy.</li>
+  <li><strong>c) Monosomy rescue (monozomi kurtarma):</strong> Nullizomik bir gametin (2n−2; normal kromozom çiftlerinden biri eksik) bir gametle döllenmesi, ardından <strong>monozomik kromozomun duplikasyonu</strong> → <strong>isodisomy UPD</strong>.</li>
+  <li><strong>d) Postfertilization errors (döllenme sonrası hatalar):</strong> <strong>Somatik rekombinasyon (somatic recombination)</strong> veya <strong>gen konversiyonu (gene conversion)</strong> yoluyla.</li>
+</ul>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Heterodisomy vs Isodisomy</span>
+  <strong>"İki=İzo, Bir=Bere(Hetero)"</strong> → <strong>Mayoz II → I</strong>so (rakamlardaki benzerlik: II ve Iso ikisi de "i" ile). <br>
+  <strong>Mayoz I → He</strong>terodisomy. <br>
+  Mantık: Mayoz I'de homolog kromozomlar ayrılır → ayrılmazsa <em>iki farklı homolog</em> = hetero. Mayoz II'de kardeş kromatidler ayrılır → ayrılmazsa <em>iki özdeş kopya</em> = izo.
+</div>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — PWS & AS'nin Lokusu</span>
+  UPD, <strong>PWS ve AS'nin</strong>, <strong>15q11-13</strong> bölgesindeki genlerin (sırasıyla <em>babadan</em> ve <em>anneden</em> miras alınan) <strong>aktivasyon kaybıyla</strong> oluştuğunu gösterir. Kromozomal delesyon ve UPD'ye ek olarak, PWS ve AS hastalarında <strong>imprinting center defekti</strong> de vardır.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — UPD</span>
+  <details><summary>Uniparental disomy (UPD) nedir?</summary>
+    <div class="ans">Bir kromozom çiftinin <strong>her iki homoloğunun da tek ebeveynden</strong> miras alınmasıdır. Normalde her ebeveynden bir homolog gelir.</div></details>
+  <details><summary>Mayoz I ve Mayoz II hataları sırasıyla hangi UPD tipine yol açar?</summary>
+    <div class="ans">Mayoz I → <strong>heterodisomy</strong> (iki farklı homolog); Mayoz II → <strong>isodisomy</strong> (özdeş iki kopya).</div></details>
+  <details><summary>Trisomy rescue'da UPD oluşma olasılığı nedir?</summary>
+    <div class="ans"><strong>1/3</strong> olasılıkla UPD; 2/3 olasılıkla normal (1 maternal + 1 paternal) kompozisyon oluşur.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B4 ============ -->
+<h2 id="b4">4️⃣ İmprinting Hastalıkları: PWS · Angelman · Beckwith-Wiedemann</h2>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — En Kritik Ayrım</span>
+  Hem PWS hem AS <strong>aynı bölgeden (15q11-13)</strong> kaynaklanır ama <strong>köken ebeveyne göre</strong> farklı hastalık çıkar:
+  <ul style="margin:6px 0 0;">
+    <li><span class="pill pat">PATERNAL kayıp</span> → <strong>Prader-Willi Syndrome (PWS)</strong></li>
+    <li><span class="pill mat">MATERNAL kayıp</span> → <strong>Angelman Syndrome (AS)</strong></li>
+  </ul>
+</div>
+
+<h3>Prader-Willi Sendromu (PWS)</h3>
+<ul>
+  <li>İnsidans ≈ <span class="pct">1/20.000</span> doğum.</li>
+  <li>Etkili bölge: <strong>15q11.2–q13</strong>, yaklaşık <strong>2.5 Mb</strong> uzunluğunda → <strong>bitişik gen bozukluğu (contiguous gene disorder)</strong>: tüm fenotip, birden fazla genin delesyonu/ifade kaybıyla oluşur.</li>
+  <li>Karakteristik: <strong>kısa boy (short stature)</strong>, <strong>obezite (obesity)</strong>, <strong>hipogonadizm (hypogonadism)</strong>, <strong>öğrenme güçlüğü (learning difficulty)</strong>.</li>
+</ul>
+<h4>Klinik Bulgular</h4>
+<ul>
+  <li>Neonatal/infantil <strong>santral hipotoni (central hypotonia)</strong> + zayıf emme → beslenme problemleri / büyüme geriliği (failure to thrive).</li>
+  <li><strong>Hiperfaji (hyperphagia)</strong> 2-6 yaş arasında başlar → santral obezite.</li>
+  <li>Gelişimsel gecikme / hafif-orta mental retardasyon.</li>
+  <li>Boya göre <strong>küçük el ve ayaklar (small hands and feet)</strong>.</li>
+  <li><strong>Miyopi (myopia)</strong> — bireylerin %60-70'i.</li>
+  <li>Yüz: dar bifrontal çap, <strong>badem şeklinde gözler (almond-shaped eyes)</strong>, aşağı dönük ağız, ince üst dudak.</li>
+</ul>
+<h4>PWS Moleküler Mekanizmaları</h4>
+<table>
+  <tr><th>Mekanizma</th><th>Oran</th></tr>
+  <tr><td><strong>Babadan gelen kopyada delesyon</strong> (deletion of paternal copy)</td><td class="pct">%65-75</td></tr>
+  <tr><td><strong>Maternal UPD</strong> (her iki kopya anneden)</td><td class="pct">%20-30</td></tr>
+  <tr><td><strong>Mutasyon / IC defekti</strong> (paternal kopyada küçük delesyon/mutasyon)</td><td class="pct">küçük oran</td></tr>
+</table>
+
+<h3>Angelman Sendromu (AS)</h3>
+<ul>
+  <li>İnsidans ≈ <span class="pct">1/15.000</span> doğum.</li>
+  <li>Karakteristik: <strong>epilepsi (epilepsy)</strong>, <strong>ağır öğrenme güçlüğü</strong>, <strong>dengesiz/ataksik yürüyüş (ataxic gait)</strong>, <strong>mutlu görünüm (happy demeanor)</strong> — sürekli mutlu yüz ifadesi ve ani gülme.</li>
+</ul>
+<h4>Klinik Bulgular</h4>
+<ul>
+  <li>Ağır gelişimsel gecikme / MR, ağır konuşma bozukluğu (severe speech impairment).</li>
+  <li>Hareket bozukluğu — <strong>ataksi (ataxia)</strong>, el çırpma (hand-flapping), uygunsuz sık gülme, eksitabilite.</li>
+  <li>2 yaşında kazanılmış <strong>mikrosefali (acquired microcephaly)</strong>.</li>
+  <li>3 yaşından önce başlayan <strong>nöbetler (seizures)</strong> — herhangi bir tipte.</li>
+  <li><strong>Geniş ağız, geniş aralıklı dişler (wide mouth, wide-spaced teeth)</strong>.</li>
+</ul>
+<h4>AS Moleküler Mekanizması</h4>
+<p>AS'nin nedeni, <strong>anneden</strong> miras alınan kromozom 15'teki <strong>UBE3A geni (ubiquitin-protein ligase)</strong>'nin <strong>fonksiyonel kaybıdır</strong>. Bu gen normalde <em>anneden gelen</em> allelde ifade edilir ve santral sinir sistemini etkiler.</p>
+<ul>
+  <li>Delesyon: <span class="pct">~%70</span></li>
+  <li>De novo mutasyon (UBE3A): <span class="pct">~%25</span></li>
+  <li><strong>Paternal UPD</strong> (her iki kromozom 15 babadan): <span class="pct">~%2</span></li>
+  <li>Maternal kopyada <strong>imprinting defekti</strong>: <span class="pct">~%2-3</span></li>
+</ul>
+
+<h3>Beckwith-Wiedemann Sendromu (BWS)</h3>
+<p>Kromozom <strong>11'in bir kısmının (11p15)</strong> UPD'si BWS'ye neden olur. Bulgular:</p>
+<ul>
+  <li>Doğumda <strong>çok büyük bebek (overgrowth)</strong>.</li>
+  <li><strong>Büyük dil — makroglossi (big tongue / macroglossia)</strong>.</li>
+  <li><strong>Umbilikal herni (umbilical hernia)</strong>.</li>
+  <li>Ağır <strong>hipoglisemi (severe hypoglycemia)</strong>.</li>
+  <li>Renal ve hepatik sistemlerde ağır komplikasyonlar.</li>
+</ul>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — PWS vs Angelman Ayrımı</span>
+  <strong>"Prader-Willi → Pap'tan (Paternal kayıp)"</strong> · <strong>"Angelman → Annm'den (Maternal kayıp), Angel=Melek=mutlu gülen çocuk"</strong>. <br>
+  PWS klinik: <em>"PWS = Pötür Pötür, yiyip duran, hipotonik, hipogonad"</em> (obezite + hipotoni + hipogonadizm). <br>
+  AS klinik: <em>"Angel = mutlu, gülen, ataksik, nöbetli, konuşamayan melek"</em> + UBE3A. <br>
+  Genler: <strong>AS = UBE3A (Anne, A-A eşleşmesi)</strong>; PWS = babadan gelen bölgenin kaybı.
+</div>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi — Diş Hekimliğine Bakan Yüz</span>
+  Bu üç sendrom da ağız-yüz bulgularıyla diş hekimini ilgilendirir: <strong>BWS → makroglossi</strong> (dil cerrahisi, ortodontik etkiler, açık kapanış); <strong>Angelman → geniş aralıklı dişler + diastema</strong>; <strong>PWS → hiperfaji & obezite kaynaklı çürük riski, tükürük azlığı (xerostomia)</strong> ve mine erozyonu. PWS hastalarında azalmış tükürük nedeniyle agresif çürük görülebilir → koruyucu diş hekimliği kritik.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — İmprinting Hastalıkları</span>
+  <details><summary>15q11-13 bölgesi paternal kaynaklı kaybedilirse hangi sendrom, maternal kaynaklı kaybedilirse hangi sendrom oluşur?</summary>
+    <div class="ans">Paternal kayıp → <strong>Prader-Willi Syndrome</strong>; Maternal kayıp → <strong>Angelman Syndrome</strong>. (Aynı bölge, farklı ebeveyn kökeni!)</div></details>
+  <details><summary>Angelman sendromundan sorumlu gen nedir ve normalde hangi allelden ifade edilir?</summary>
+    <div class="ans">Gen: <strong>UBE3A</strong> (ubiquitin-protein ligase), kromozom 15. Normalde <strong>maternal (anneden gelen) allelden</strong> ifade edilir; santral sinir sistemini etkiler.</div></details>
+  <details><summary>PWS'nin en sık moleküler mekanizması nedir ve oranı kaçtır?</summary>
+    <div class="ans"><strong>Babadan gelen kopyada delesyon</strong>, %65-75. İkinci sıklıkta maternal UPD (%20-30).</div></details>
+  <details><summary>Beckwith-Wiedemann sendromunun lokusu ve diş hekimliği açısından en önemli bulgusu nedir?</summary>
+    <div class="ans">Lokus: <strong>11p15</strong> UPD. En önemli oral bulgu: <strong>makroglossi (büyük dil)</strong>. Ayrıca overgrowth, umbilikal herni, hipoglisemi.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B5 ============ -->
+<h2 id="b5">5️⃣ Mosaicism <span style="font-size:15px;color:var(--muted)">(Mozaisizm)</span></h2>
+
+<p><strong>Mozaisizm</strong>, bir bireyde veya dokuda, <strong>tek bir zigottan köken alan</strong> ancak genetik olarak <strong>farklı en az iki hücre hattının (cell lines)</strong> bulunmasıdır. Nedenleri: <strong>X inaktivasyon farkı, mitoz hataları (mitosis errors) veya mutasyon</strong>.</p>
+
+<h3>Genel Mekanizma</h3>
+<ul>
+  <li>Mozaisizm, fetal gelişimin <strong>erken döneminde</strong> bir mutasyon oluştuğunda meydana gelir.</li>
+  <li>Mutasyon oluştuğunda, o hücre hattındaki tüm hücreler de o mutasyonu taşır.</li>
+  <li>Sonuçta birey, bazıları mutasyonlu bazıları mutasyonsuz hücrelerin <strong>karışımı</strong> olur.</li>
+  <li>Mutasyonun gelişimde <strong>ne kadar erken</strong> oluştuğu, hangi dokuların ve hücrelerin <strong>yüzde kaçının</strong> mutasyonu taşıyacağını belirler.</li>
+</ul>
+<p>Mozaisizm üç şekilde olabilir: <strong>Germline (yalnız yumurta/sperm hücreleri), Somatic (yumurta/sperm dışı hücreler)</strong> veya <strong>her ikisinin kombinasyonu</strong>.</p>
+
+<h3>Germline (Germinal) Mozaisizm</h3>
+<ul>
+  <li>Germline mozaisizmi olan kişi, mutasyonun yol açtığı hastalıktan <strong>ETKİLENMEZ</strong> — çünkü mutasyon vücudun diğer (somatik) hücrelerinde yoktur.</li>
+  <li>Bu yüzden bu bireyler bu germline mutasyonu taşıdıklarının <strong>farkında değildir</strong>.</li>
+  <li>Germline dokusu dışındaki örneklerle (kan/doku) yapılan genetik test, mutasyon için <strong>negatif çıkar</strong>.</li>
+  <li>Germinal mozaik bireyler mozaik durumlarını <strong>sonraki kuşaklara aktarabilir</strong> → bu yüzden önemlidir, çünkü döllere geçebilir.</li>
+  <li>En bilinen örneklerden biri: <strong>osteogenesis imperfecta (OI)</strong>.</li>
+</ul>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat — Tekrarlayan De Novo Vakaları</span>
+  Germline mozaisizm <strong>herhangi bir kalıtım paterninde</strong> görülebilir ama en sık <strong>otozomal dominant ve X-linked</strong> hastalıklarda görülür. <br>
+  Normalde etkilenmemiş ebeveynlerin AD mutasyonlu bir çocuğu olması = <strong>de novo / sporadik mutasyon</strong>. Ancak <strong>etkilenmemiş ebeveynlerin AD bir hastalıkla BİRDEN FAZLA çocuğu olursa → germline mozaisizm</strong> akla gelmelidir! (Klasik çeldirici.)
+</div>
+
+<p>Germline mozaisizmin gözlendiği durumlar: <strong>Achondroplasia, Osteogenesis imperfecta, Duchenne muscular dystrophy (DMD)</strong>.</p>
+
+<h3>Somatik Mozaisizm (Somatic Mosaicism)</h3>
+<ul>
+  <li>Mutasyon, germ hücreleri ile soma hücrelerinin <strong>ayrılmasından SONRA</strong> oluşur; sadece bir veya birkaç soma hücresi ilk mutasyonu taşır.</li>
+  <li>Birey, etkilenen hücre sayısı ve tipine bağlı olarak fenotipi ifade eder.</li>
+  <li>Tipik olarak somatik mozaik bireyler <strong>daha hafif fenotip (milder phenotype)</strong> gösterir — çünkü hücrelerin yalnızca bir kısmı mutasyonu taşır ve mutasyon vücudun belirli bir bölgesiyle sınırlıdır.</li>
+</ul>
+<h4>Somatik Mozaisizm Örnekleri</h4>
+<ul>
+  <li><strong>Down sendromu:</strong> Down sendromlu bireylerin yaklaşık <span class="pct">%2-4</span>'ü, kromozom 21'in üç kopyasını taşıyan hücreler için <strong>mozaiktir</strong>.</li>
+  <li><strong>Kanser (cancer):</strong> Kanser hücresi, hücre replikasyonunu/ölümünü kontrol eden genlerdeki <strong>somatik mutasyonlardan</strong> doğabilir → birey bu mutasyonlar için somatik mozaiktir.</li>
+</ul>
+
+<h3>Hem Somatik Hem Germline Mozaisizm</h3>
+<p>Mutasyon gelişimin <strong>çok erken döneminde</strong> oluşursa, hem somatik hem germline hücrelerde bulunabilir. Bu durumda birey hastalığın <strong>hafif bir formuna sahip olabilir</strong> ve aynı zamanda mutasyonu döllerine <strong>aktarma riski</strong> taşır.</p>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Germline vs Somatic</span>
+  <strong>"Germline = Gelecek nesle geçer, kendisi sağlam"</strong> (G-G: Germline → Geçer). Test kanda NEGATİF. <br>
+  <strong>"Somatic = Sadece bedende, hafif fenotip, çocuğa geçmez"</strong> (S-S: Somatic → Soma'da kalır). Örnek: Down mozaik, kanser. <br>
+  Erken oluşan mutasyon → <em>her ikisi birden</em> (hem hafif hastalık hem aktarım riski).
+</div>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi</span>
+  Germline mozaisizm genetik danışmada kritiktir: Sağlıklı görünen ebeveynlerin testleri "temiz" çıksa bile <strong>tekrar etkilenmiş çocuk doğurma riski sıfır değildir</strong>. Diş hekimliğinde ilgili sendrom <strong>OI</strong> (dentinogenesis imperfecta ile birlikte) — ailede tekrarlayan kırılgan diş/kemik öyküsü görürseniz germline mozaisizm bir olasılıktır.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Mosaicism</span>
+  <details><summary>Mozaisizm nedir?</summary>
+    <div class="ans">Tek bir zigottan köken alan, ancak genetik olarak farklı <strong>en az iki hücre hattının</strong> bir bireyde/dokuda bulunmasıdır.</div></details>
+  <details><summary>Germline mozaisizmi olan birey neden hastalıktan etkilenmez ve kan testi neden negatif çıkar?</summary>
+    <div class="ans">Mutasyon yalnızca germ (yumurta/sperm) hücrelerinde olup somatik hücrelerde olmadığı için birey etkilenmez; germline dışı dokudan (kan) yapılan test negatif çıkar. Ancak mutasyon çocuğa geçebilir.</div></details>
+  <details><summary>Etkilenmemiş ebeveynlerin AD bir hastalıkla birden fazla çocuğu olması en olası hangi mekanizmayla açıklanır?</summary>
+    <div class="ans"><strong>Germline mozaisizm</strong> (tek bir de novo mutasyon birden fazla germ hücresini etkilemiş).</div></details>
+  <details><summary>Somatik mozaisizm neden tipik olarak daha hafif fenotip verir? Bir örnek?</summary>
+    <div class="ans">Hücrelerin yalnızca bir kısmı mutasyonu taşıdığı ve mutasyon belirli bir bölgeyle sınırlı olduğu için. Örnek: <strong>mozaik Down sendromu (%2-4), kanser</strong>.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B6 ============ -->
+<h2 id="b6">6️⃣ Anticipation & Triplet Repeat Expansion</h2>
+
+<h3>Anticipation (Antisipasyon / Öne Çekilme)</h3>
+<p>Çoğu triplet tekrar hastalığında, <strong>genişlemenin (expansion) büyüklüğü ile klinik arasında korelasyon</strong> vardır: daha büyük genişleme → daha şiddetli semptom ve daha erken başlangıç.</p>
+<p>Hastalığın <strong>ardışık kuşaklarda giderek daha şiddetli</strong> hale gelmesi ve <strong>daha erken yaşta başlaması</strong> durumuna <strong>genetic anticipation</strong> denir — birçok triplet tekrar genişlemesi hastalığının tanımlayıcı özelliğidir.</p>
+<ul>
+  <li>Otozomal dominant kalıtsal hastalıklar için geçerlidir.</li>
+  <li>Hastalık önceki kuşaklardan daha şiddetlidir ve daha erken yaşta başlar (örn. 75 → 63 → 44 yaş gibi giderek erkene kayan başlangıç).</li>
+</ul>
+
+<h3>Triplet Repeat Expansion (Üçlü Tekrar Genişlemesi)</h3>
+<ul>
+  <li>3 nükleotidlik bir tekrar içeren DNA segmentinin genişlemesidir (örn. <strong>CAG·CAG·CAG…CAG</strong>).</li>
+  <li>Üçlü nükleotid tekrarlarının bir kuşaktan diğerine <strong>giderek artarak</strong> aktarılması durumudur.</li>
+  <li>Buna <strong>dinamik mutasyon (dynamic mutation)</strong> da denir.</li>
+</ul>
+
+<h4>Triplet Repeat Özellikleri (Features)</h4>
+<ul>
+  <li>Farklı hastalıklarda tekrarlar, genin kodlayan bölgelerine göre <strong>farklı yerlerde</strong> bulunur: bazıları <strong>coding region</strong>'da, bazıları transkripsiyon biriminin <strong>5' veya 3' ucunda</strong>, bazıları <strong>intronlarda</strong>.</li>
+  <li>Sağlıklı bireylerde <strong>değişken sayıda tandem üçlü tekrar (variable number of tandem triplet repeats)</strong> bulunur.</li>
+  <li>Belirli bir <strong>eşik (threshold)</strong> vardır; bunun ötesinde yüksek tekrar sayısı hastalığa yol açar. Bu eşik farklı hastalıklarda <strong>değişir</strong>.</li>
+</ul>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Premutasyon Kavramı</span>
+  <strong>Premutation:</strong> Henüz hastalık yapmayan ama bir sonraki kuşakta tam mutasyona genişleyebilen tekrar sayısı aralığıdır. Premutasyon taşıyıcısı <strong>hasta değildir</strong>, ama <strong>etkilenmiş çocuk sahibi olma riski</strong> taşır. (Özellikle Fragile X'te sınav favorisi!)
+</div>
+
+<h3>Triplet Repeat Hastalıkları — Karşılaştırma Tablosu</h3>
+<table>
+  <tr><th>Hastalık</th><th>Tekrar / Gen / Lokus</th><th>Kalıtım & Özellikler</th><th>Tekrar Eşikleri</th></tr>
+  <tr>
+    <td><strong>Huntington Disease (HD)</strong></td>
+    <td><strong>CAG</strong> · <strong>HD geni</strong> · Kromozom <strong>4, ekson 1</strong></td>
+    <td><strong>AD</strong>; ortalama başlangıç 35-44 yaş; semptom sonrası medyan sağkalım 15-18 yıl; genişleme <strong>paternal geçişte (paternal transmission)</strong> olur</td>
+    <td>Normal: ≤26 · Premutasyon: 27-35 · Etkilenmiş (tam penetrans): ≥40</td>
+  </tr>
+  <tr>
+    <td><strong>Fragile X Syndrome</strong></td>
+    <td><strong>CGG</strong> · <strong>FMR1 geni</strong> · <strong>Xq27</strong></td>
+    <td><strong>X-linked</strong>; en sık <strong>kalıtsal mental retardasyon</strong> formu; erkeklerde orta, kadınlarda hafif MR</td>
+    <td>Normal: 5-50 · Ara (gray zone): 41-58 · Premutasyon: 59-200 · Etkilenmiş: >200</td>
+  </tr>
+  <tr>
+    <td><strong>Myotonic Dystrophy (MD)</strong></td>
+    <td><strong>CTG</strong> · Kromozom <strong>19</strong></td>
+    <td><strong>AD</strong>; en sık kalıtsal kas hastalıklarından (1/20.000); kas güçsüzlüğü + <strong>miyotoni</strong>; genişleme <strong>maternal (maternal expansion)</strong>; aile içinde değişken</td>
+    <td>Normal: 5-37 · Premutasyon: 38-49 · Hafif: 50-~150 · Klasik: ~100-1500 · Konjenital: ≥~1000</td>
+  </tr>
+</table>
+
+<h4>Huntington Disease — Ek Detay</h4>
+<p><strong>CAG</strong> trinükleotid tekrar genişlemesi, kromozom 4'teki HD geninin <strong>ekson 1</strong>'inde. Genişleme <strong>babadan geçişte</strong> artar. ≥40 tekrar = tam penetrans (affected).</p>
+
+<h4>Fragile X Syndrome — Ek Detay</h4>
+<p>X kromozomunda (<strong>Xq27</strong>) <strong>FMR1</strong> genindeki artmış <strong>CGG</strong> tekrarlarıyla ilişkilidir; <strong>X-linked</strong> kalıtılır. Erkeklerde anormal yüz: <strong>uzun yüz (long face)</strong>, büyük kulaklar, belirgin çene (prominent jaw) ve <strong>makroorşidizm (macroorchidism — anormal büyük testis)</strong>. Etkilenmiş kadınlar erkeklere göre daha hafif bulgulara sahiptir.</p>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat — Premutasyon Taşıyıcısı</span>
+  Fragile X'te <strong>premutasyon taşıyan birey hastalığa sahip DEĞİLDİR</strong>, ancak tam mutasyon aralığına (>200) genişlemiş tekrarı miras almış ve <strong>etkilenecek bir çocuk</strong> sahibi olma riski taşır. Klinik şiddet, tekrar sayısına göre değişir.
+</div>
+
+<h4>Myotonic Dystrophy — Ek Detay</h4>
+<p><strong>CTG</strong> tekrar genişlemesi. Kas güçsüzlüğü + <strong>miyotoni (myotonia — kasılma sonrası kasların yavaş gevşemesi)</strong>; zamanla yavaşça ilerler. Göz, kalp, beyin gibi organları da etkileyebilir. Tekrar sayısı arttıkça başlangıç erkene kayar ve şiddet artar (anticipation'ın klasik örneği). Üç kuşaklık ailede: bebek >1000 tekrar (konjenital), anne ve büyükanne ~100 tekrar → değişken şiddet.</p>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Triplet Tekrarları</span>
+  <strong>Tekrar dizileri:</strong> <em>"Huntington Çok AGresif → CAG"</em> · <em>"Fragile X → CGG (X'in iki bacağı G-G)"</em> · <em>"Myotonic → CTG (kas Tonusu)"</em>. <br>
+  <strong>Genişleme kaynağı:</strong> <em>"Huntington baBadan (Paternal), Myotonic anneden (Maternal)"</em>. <br>
+  <strong>Mantık hatırlatması:</strong> Anticipation = "kuşak ileri → hastalık erken & ağır". Premutation = "kendi sağlam, çocuğu riskli".
+</div>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi</span>
+  <strong>Myotonic dystrophy</strong> hastalarında yüz kaslarının zayıflığı ("hatchet face"), <strong>yüksek kemerli damak</strong> ve maloklüzyon görülür; ayrıca lokal anestezi ve sedasyon planlamasında dikkat gerektirir (kas/kalp tutulumu). <strong>Fragile X</strong>'te <strong>yüksek damak ve dental crowding</strong> beklenir. Bu hastalarda davranış yönetimi ve koruyucu yaklaşım önemlidir.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Anticipation & Triplet Repeat</span>
+  <details><summary>Genetic anticipation nedir?</summary>
+    <div class="ans">Bir hastalığın <strong>ardışık kuşaklarda giderek daha şiddetli</strong> hale gelmesi ve <strong>daha erken yaşta başlaması</strong>. Triplet repeat genişlemesinin büyümesiyle ilişkilidir.</div></details>
+  <details><summary>Huntington, Fragile X ve Myotonic dystrophy'nin tekrar dizileri ve genleri nedir?</summary>
+    <div class="ans">HD: <strong>CAG</strong>, HD geni, krom. 4. Fragile X: <strong>CGG</strong>, FMR1, Xq27. Myotonic dystrophy: <strong>CTG</strong>, krom. 19.</div></details>
+  <details><summary>Huntington ve Myotonic dystrophy'de genişleme hangi ebeveynden geçişte olur?</summary>
+    <div class="ans">Huntington → <strong>paternal</strong> (babadan); Myotonic dystrophy → <strong>maternal</strong> (anneden) expansion.</div></details>
+  <details><summary>Premutasyon taşıyıcısı bir birey hasta mıdır? Riski nedir?</summary>
+    <div class="ans">Hayır, hasta değildir. Ancak tekrarın bir sonraki kuşakta <strong>tam mutasyona genişleyip</strong> etkilenmiş çocuk doğurma riski vardır. (Fragile X: premutasyon 59-200, tam mutasyon >200.)</div></details>
+  <details><summary>Dinamik mutasyon (dynamic mutation) ne demektir?</summary>
+    <div class="ans">Üçlü nükleotid tekrarlarının kuşaktan kuşağa <strong>giderek artması</strong> — yani triplet repeat expansion'ın diğer adı.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B7 ============ -->
+<h2 id="b7">7️⃣ Mitochondrial Inheritance <span class="pill mito">MATERNAL</span></h2>
+
+<h3>Maternal mtDNA Kalıtımı</h3>
+<p>Döllenme sırasında zigot oluşumu için gereken <strong>sitoplazmik organeller</strong>, <strong>maternal gametten (yumurta)</strong> köken alır. Çünkü <strong>paternal mtDNA</strong>, oosit penetrasyonu sırasında <strong>proteolizi (proteolysis) tetikleyen küçük bir ubikuitin molekülü</strong> taşır → babadan gelen mitokondri yıkılır.</p>
+<p>mtDNA mutasyonu olan bir kadın, döllerine <strong>değişken miktarda mutant mtDNA</strong> aktarabilir → sağlıklı bireyler veya fonksiyonel bozukluk taşıyıcıları oluşabilir.</p>
+
+<h3>Kalıtım Kuralları</h3>
+<ul>
+  <li>Hem erkekler hem kadınlar etkilenir.</li>
+  <li><strong>Etkilenmiş anne, hastalığı tüm oğul ve kızlarına %100 aktarır.</strong></li>
+  <li><strong>Etkilenmiş baba, ne oğullarına ne de kızlarına risk oluşturmaz</strong> (mtDNA babadan geçmez).</li>
+  <li>En çok etkilenen organlar, en yüksek enerji ihtiyacı olanlardır: <strong>beyin, kas, kalp, karaciğer (brain, muscle, heart, liver)</strong>.</li>
+  <li>Sık bulgular: gelişimsel gecikme, nöbet, kardiyak disfonksiyon, kas gücü/tonus azalması, işitme ve görme problemleri.</li>
+</ul>
+
+<h3>Heteroplasmy vs. Homoplasmy</h3>
+<ul>
+  <li><strong>Heteroplasmy:</strong> Bir hücrede <strong>normal ve anormal mitokondriyal genomların KARIŞIMI</strong> bulunması. Mitokondriyal hastalıkların klinik tablosunun çok değişken olmasının nedeni budur.</li>
+  <li><strong>Homoplasmy:</strong> Mitokondriyal genomun <strong>TÜM kopyalarının aynı dizi varyantını</strong> taşıması.</li>
+</ul>
+<p>Bu nedenle bir anne <strong>asemptomatik olabilirken</strong>, çocukları <strong>ağır etkilenmiş</strong> olabilir. DNA'da varyant taşıyan mitokondri yüzdesi hücreler ve dokular arasında farklılık gösterir; bu durum (varyant heterojenitesiyle birlikte) mitokondriyal hastalıklardaki <strong>fenotipik şiddet yelpazesini</strong> açıklar.</p>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Soyağacında Mitokondriyal İmza</span>
+  Soyağacında <strong>SADECE annelerin hastalığı geçirmesi</strong> (etkilenmiş babanın hiç çocuğa geçirmemesi) = <strong>mitokondriyal kalıtımın imzasıdır</strong>. Hem erkek hem kız çocuklar etkilenir, ama hastalık yalnızca <strong>anne hattından</strong> ilerler.
+</div>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat — X-linked ile Karıştırma!</span>
+  Mitokondriyal kalıtım her iki cinsiyeti de etkiler ama <strong>yalnızca anneden geçer</strong>. X-linked resesifte ise hastalık ağırlıklı erkeklerde görülür ve <em>taşıyıcı anneler/etkilenmiş babalar</em> yoluyla farklı bir patern izler. Anahtar fark: <strong>mitokondriyal → etkilenmiş baba HİÇBİR çocuğa geçirmez</strong>.
+</div>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Mitokondri</span>
+  <strong>"Mitokondri = Mama'dan (Maternal), herkese ama hep Anneden"</strong>. <br>
+  En çok tutulan organlar: <em>"Beyin-Kas-Kalp-Karaciğer = en aç (en çok ATP isteyen) organlar"</em> → <strong>BKKK</strong>. <br>
+  <strong>"Hetero = karışık (heterojen), Homo = hepsi aynı (homojen)"</strong>.
+</div>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi</span>
+  Mitokondriyal hastalıklar yüksek enerji gerektiren dokuları vurduğu için bazı tablolar <strong>diş minesi defektleri</strong> ve <strong>kraniyofasiyal kas zayıflığı</strong> ile gidebilir. Ayrıca bu hastalarda sedasyon/anestezi sırasında enerji metabolizması kırılgan olduğundan dikkatli planlama gerekir.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Mitochondrial</span>
+  <details><summary>Mitokondriyal hastalıklar neden yalnızca anneden geçer?</summary>
+    <div class="ans">Zigotun sitoplazmik organelleri yumurtadan gelir; <strong>paternal mtDNA, ubikuitin işaretiyle proteolize uğrayıp yıkılır</strong>. Bu yüzden mtDNA yalnızca maternal kalıtılır.</div></details>
+  <details><summary>Etkilenmiş bir baba mitokondriyal hastalığı çocuklarına geçirir mi?</summary>
+    <div class="ans">Hayır. Etkilenmiş baba <strong>ne oğullarına ne kızlarına</strong> geçirir. Etkilenmiş anne ise tüm çocuklarına %100 geçirir.</div></details>
+  <details><summary>Heteroplasmy ile homoplasmy arasındaki fark nedir?</summary>
+    <div class="ans"><strong>Heteroplasmy:</strong> bir hücrede normal + anormal mtDNA karışımı (değişken şiddetin nedeni). <strong>Homoplasmy:</strong> tüm mtDNA kopyaları aynı varyanttır.</div></details>
+  <details><summary>Mitokondriyal hastalıklarda en çok etkilenen organlar hangileridir ve neden?</summary>
+    <div class="ans">Beyin, kas, kalp, karaciğer — çünkü en yüksek <strong>enerji (ATP)</strong> ihtiyacı olan organlardır.</div></details>
+</div>
+
+<hr>
+
+<!-- ============ B8 ============ -->
+<h2 id="b8">8️⃣ Multifactorial Inheritance <span class="pill multi">MULTİFAKTÖRİYEL</span></h2>
+
+<h3>Multifaktöriyel Hastalıklar (Multifactorial Diseases)</h3>
+<ul>
+  <li><strong>Belirli bir kalıtım paterni YOKTUR.</strong></li>
+  <li>Risk tahmini <strong>aileden aileye değişir</strong>.</li>
+  <li><strong>Farklı popülasyonlar arasında farklılık</strong> gösterir.</li>
+</ul>
+<p>Temel genetik özellik: genellikle bir veya daha fazla gen <strong>polimorfizm/varyasyon</strong> gösterir ve ortaya çıkan genotipik tablo bir <strong>birikimin (cumulation) varlığıdır</strong> → yani küçük etkili birçok genin + çevrenin toplam etkisi.</p>
+
+<h3>Genel Özellikler</h3>
+<ul>
+  <li>Tek gen hastalıklarında görülen <strong>Mendel kurallarını İZLEMEZLER</strong>, ancak <strong>ailesel yatkınlık (familial predisposition)</strong> gösterirler.</li>
+  <li>Toplumda tek gen hastalıklarından <strong>daha sık</strong> görülürler.</li>
+  <li>Farklı yaş gruplarında ortaya çıkarlar; semptom çeşitliliği ve prognoz farklılıkları gösterirler.</li>
+  <li>Hastalığa neden olan gen(ler)in etkisindeki değişiklik + <strong>çevresel faktörlere (environmental factors) maruziyet farklılıkları</strong> sonucu oluşurlar.</li>
+</ul>
+
+<h3>Eşik Değeri (Threshold Value)</h3>
+<p>Toplumdaki multifaktöriyel özelliklerin ailesel olduğu bilinir, ancak hiçbir kalıtım paterniyle açıklanamazlar. Bu hastalıkların ortaya çıkışı belirli <strong>eşik değerlerine (threshold values)</strong> bağlıdır:</p>
+<ul>
+  <li>Eşik değerine <strong>yaklaştıkça</strong> hastalanma olasılığı kademeli olarak <strong>artar</strong>.</li>
+  <li>Eşik değerinden <strong>uzaklaştıkça</strong> hastalanma olasılığı <strong>azalır</strong>.</li>
+</ul>
+
+<div class="box spot">
+  <span class="title">🎯 Spot Bilgi — Akrabalık Derecesi & Risk (Yarık Dudak Örneği)</span>
+  <strong>Cleft lip (yarık dudak)</strong> sıklığı, hastaya olan akrabalık derecesine göre düşer:
+  <ul style="margin:6px 0 0;">
+    <li>1. derece akraba: <span class="pct">40/1000</span></li>
+    <li>2. derece akraba: <span class="pct">6/1000</span></li>
+    <li>3. derece akraba: <span class="pct">3/1000</span></li>
+  </ul>
+  Akrabalık uzaklaştıkça (eşikten uzaklaşma) risk hızla düşer — multifaktöriyel kalıtımın klasik kanıtı.
+</div>
+
+<h3>Analiz Teknikleri & Sınıflandırma</h3>
+<p>Multifaktöriyel kalıtım <strong>3 farklı teknikle</strong> analiz edilir:</p>
+<ol>
+  <li><strong>İkiz çalışmaları (Twin studies)</strong></li>
+  <li><strong>Soyağacı (Family tree)</strong></li>
+  <li><strong>Aile korelasyon çalışmaları (Family correlation studies)</strong></li>
+</ol>
+<p>Multifaktöriyel özellikler <strong>3 sınıfta</strong> incelenir:</p>
+<ol>
+  <li>Kişinin <strong>patolojik olmayan fenotipik özelliklerini</strong> kontrol eden multifaktöriyel kalıtım (normal fenotipin varyasyonları olarak görülür).</li>
+  <li>Varyasyon eşiğinin üzerinde <strong>patolojik fenotip</strong> oluşturan, malformasyon grubuyla seyreden sık görülen multifaktöriyel hastalıklar.</li>
+  <li><strong>Erişkin yaşam hastalıkları (diseases of adult life)</strong> grubu.</li>
+</ol>
+
+<h3>Örnekler</h3>
+<h4>Normal Varyantlar (Tıbbi/sosyal/kozmetik sorun yaratmayan)</h4>
+<p>Popülasyonda sık görülen sıradışı morfolojik özellikler: <strong>epikantal fold (epicanthal fold)</strong>, dermatoglifik değişiklikler, dış kulak şekli değişiklikleri, küçük kulaklar (<strong>microtia</strong>), pigmente lekeler, kısa palpebral fissürler.</p>
+
+<h4>Multifaktöriyel Hastalıklar (Konjenital Malformasyonlar)</h4>
+<ul>
+  <li><strong>Nöral tüp defekti — NTD (Neural tube defect): Anencephaly, spina bifida</strong></li>
+  <li><strong>Yarık dudak ve yarık damak (Cleft lip and cleft palate)</strong></li>
+  <li><strong>Pilor stenozu (Pyloric stenosis)</strong></li>
+  <li><strong>Konjenital kalp hastalıkları (Congenital heart diseases)</strong></li>
+</ul>
+
+<h4>Nöral Tüp Defekti (NTD) — Detay</h4>
+<ul>
+  <li>Santral sinir sisteminin <strong>en sık görülen ciddi konjenital malformasyonlarından</strong>.</li>
+  <li>Yaklaşık <strong>1/500 – 1/1000 gebelikte</strong> görülür.</li>
+  <li>ABD'de yılda ~4.000 fetüs etkilenir.</li>
+  <li>Etkilenen bebeklerin <strong>yaklaşık 2/3'ü kız</strong>dır.</li>
+</ul>
+
+<h4>Erişkin Yaşam Hastalıkları (Diseases of Adult Life)</h4>
+<p><strong>Koroner arter hastalığı (coronary artery disease), obezite (obesity), Diabetes Mellitus, Alzheimer, hipertansiyon (hypertension), psikiyatrik hastalıklar</strong> ve birçok <strong>kanser türü</strong>.</p>
+
+<div class="box clinic">
+  <span class="title">🦷 Klinik Önemi — Yarık Dudak/Damak (Cleft Lip & Palate)</span>
+  <strong>BU DERSİN DİŞ HEKİMLİĞİ AÇISINDAN EN ÖNEMLİ BAŞLIĞI!</strong> Yarık dudak ve damak, multifaktöriyel kalıtımın klasik örneğidir ve diş hekimliğinde sürekli karşınıza çıkacak: <strong>diş eksikliği/fazlalığı, maloklüzyon, beslenme ve konuşma problemleri, ortodontik ve cerrahi tedavi ihtiyacı.</strong> Genetik danışmada "tekrarlama riski" akrabalık derecesine göre hesaplanır (eşik modeli). Ayrıca <strong>çevresel faktör (folik asit eksikliği)</strong> hem NTD hem yarık damakta risk değiştirir — annenin gebelik öncesi folat alımı koruyucudur.
+</div>
+
+<div class="box mnemo">
+  <span class="title">🧠 Mnemoteknik — Multifaktöriyel</span>
+  <strong>"Çok faktör = Gen + Çevre toplamı, eşiği aşınca hastalık"</strong> → <em>kova taşma modeli</em>: kovaya hem genetik hem çevresel su dolar; eşik (kova ağzı) aşılınca hastalık taşar. <br>
+  Analiz teknikleri için <strong>"İSA"</strong>: <strong>İ</strong>kiz · <strong>S</strong>oyağacı · <strong>A</strong>ile korelasyonu. <br>
+  Sık örnekler: <em>"Yarık dudak, NTD, pilor stenozu, konjenital kalp"</em> + erişkin: <em>"DM, HT, obezite, Alzheimer, kanser"</em>.
+</div>
+
+<div class="box warn">
+  <span class="title">⚠️ Dikkat — Multifaktöriyel ≠ Mendelian</span>
+  Multifaktöriyel hastalıklar <strong>belirli bir Mendel paterni izlemez</strong> (dominant/resesif değildir) ama <strong>ailesel yatkınlık gösterir</strong>. "Ailede sık görülüyor" demek otomatik olarak tek gen kalıtımı demek değildir — sınavda bu ayrımı sorabilirler.
+</div>
+
+<div class="flash">
+  <span class="fhead">🃏 Flashcard'lar — Multifactorial</span>
+  <details><summary>Multifaktöriyel hastalıkların temel genetik özelliği nedir?</summary>
+    <div class="ans">Belirli bir Mendel paterni yoktur; bir veya daha fazla gen <strong>polimorfizm/varyasyon</strong> gösterir ve genetik + çevresel etkilerin <strong>birikimi (cumulation)</strong> ile, bir <strong>eşik değeri</strong> aşıldığında hastalık ortaya çıkar.</div></details>
+  <details><summary>Threshold (eşik) modeli akrabalık derecesiyle riski nasıl ilişkilendirir? (cleft lip örneği)</summary>
+    <div class="ans">Akrabalık yakınlaştıkça (eşiğe yaklaşma) risk artar: 1. derece 40/1000, 2. derece 6/1000, 3. derece 3/1000. Uzaklaştıkça risk düşer.</div></details>
+  <details><summary>Multifaktöriyel kalıtımı analiz etmede kullanılan 3 teknik nedir?</summary>
+    <div class="ans">1) Twin studies (ikiz çalışmaları), 2) Family tree (soyağacı), 3) Family correlation studies.</div></details>
+  <details><summary>Multifaktöriyel hastalıklara 4 konjenital malformasyon örneği verin.</summary>
+    <div class="ans">Neural tube defect (anensefali, spina bifida), cleft lip & palate, pyloric stenosis, congenital heart diseases.</div></details>
+  <details><summary>Nöral tüp defektlerinin insidansı ve cinsiyet dağılımı nedir?</summary>
+    <div class="ans">~1/500–1/1000 gebelik; etkilenen bebeklerin yaklaşık <strong>2/3'ü kız</strong>dır.</div></details>
+</div>
+
+<hr>
+
+<div class="box spot" style="border-width:3px;">
+  <span class="title">🎯 FİNAL ÖZET — En Kritik 12 Spot</span>
+  <ol style="margin:6px 0 0;">
+    <li>İmprinting = epigenetik gen susturma (DNA metilasyonu, CpG); mutasyon DEĞİL, DNA dizisini değiştirmez.</li>
+    <li>İmprinting hastalık mekanizmaları: Deletion, UPD, Imprinting defect, Gene mutation.</li>
+    <li>UPD: Mayoz I hatası → heterodisomy; Mayoz II hatası → isodisomy. Trisomy rescue'da 1/3 UPD.</li>
+    <li>15q11-13 PATERNAL kayıp → Prader-Willi; MATERNAL kayıp → Angelman.</li>
+    <li>PWS: hipotoni→hiperfaji/obezite, hipogonadizm; en sık paternal delesyon (%65-75).</li>
+    <li>Angelman: UBE3A geni (maternal ifade); mutlu/gülen, ataksik, nöbet, geniş aralıklı dişler.</li>
+    <li>Beckwith-Wiedemann: 11p15; makroglossi + overgrowth + hipoglisemi.</li>
+    <li>Germline mozaisizm: kişi sağlam, kan testi negatif, çocuğa geçer (OI, achondroplasia, DMD). Somatik: hafif fenotip, geçmez (mozaik Down %2-4, kanser).</li>
+    <li>Anticipation: kuşakla şiddet artar/başlangıç erkene kayar (triplet repeat / dinamik mutasyon).</li>
+    <li>HD → CAG, krom.4, AD, paternal expansion (≥40 affected). Fragile X → CGG, FMR1, Xq27, X-linked, en sık kalıtsal MR. Myotonic dystrophy → CTG, krom.19, AD, maternal expansion.</li>
+    <li>Mitokondriyal: yalnız MATERNAL geçer; etkilenmiş baba HİÇ geçirmez; heteroplasmy/homoplasmy; en aç organlar (beyin-kas-kalp-karaciğer).</li>
+    <li>Multifaktöriyel: gen+çevre birikimi, eşik modeli, ailesel ama Mendel değil; cleft lip/palate, NTD diş hekimliği için kritik.</li>
+  </ol>
+</div>
+
+<footer>
+  🦷 Ders 3 — Non-Mendelian Inheritance · Final Çalışma Rehberi<br>
+  Açık uçlu kutuların üzerine tıklayarak flashcard cevaplarını görebilirsiniz. Başarılar!
+</footer>
+
+</body>
+</html>

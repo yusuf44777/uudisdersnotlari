@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Back Muscles &amp; Upper Extremity — Final Çalışma Rehberi</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#5b6472; --bg:#f6f7fb; --card:#ffffff;
+    --line:#e4e7ef; --accent:#9c3a5a;
+    --klinik-bg:#e8f4f8; --klinik-bd:#2a93b5; --klinik-tx:#0f5d72;
+    --spot-bg:#eaf7ee; --spot-bd:#2e9e57; --spot-tx:#1c6e3b;
+    --dikkat-bg:#fdeceb; --dikkat-bd:#d9483b; --dikkat-tx:#9e2a20;
+    --mnem-bg:#f1ecfb; --mnem-bd:#7b4fc4; --mnem-tx:#5331a0;
+    --flash-bg:#fff8e6; --flash-bd:#e3a008; --flash-tx:#8a5a00;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Segoe UI',Helvetica,Arial,system-ui,sans-serif; line-height:1.65; font-size:17px;}
+  .wrap{max-width:920px; margin:0 auto; padding:28px 20px 80px;}
+  header.hero{background:linear-gradient(135deg,#5a2740,#9c3a5a); color:#fff;
+    border-radius:18px; padding:34px 30px; margin-bottom:26px; box-shadow:0 8px 26px rgba(90,39,64,.25);}
+  header.hero .badge{display:inline-block; background:rgba(255,255,255,.18);
+    padding:4px 12px; border-radius:999px; font-size:13px; letter-spacing:.5px; margin-bottom:12px;}
+  header.hero h1{margin:6px 0 8px; font-size:30px; line-height:1.25;}
+  header.hero p{margin:0; opacity:.92; font-size:15.5px;}
+  nav.toc{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 22px; margin-bottom:30px;}
+  nav.toc h2{margin:0 0 10px; font-size:17px; color:var(--accent);}
+  nav.toc ol{margin:0; padding-left:20px; columns:2; column-gap:30px;}
+  nav.toc a{color:var(--ink); text-decoration:none; font-size:14.5px;}
+  nav.toc a:hover{color:var(--accent); text-decoration:underline;}
+  h2.part-title{background:var(--accent); color:#fff; padding:12px 18px; border-radius:12px;
+    font-size:21px; margin:38px 0 18px; box-shadow:0 4px 12px rgba(156,58,90,.2);}
+  h3{font-size:19px; color:#5a2740; border-left:5px solid var(--accent); padding-left:12px; margin:30px 0 12px;}
+  h4{font-size:16.5px; color:#43344c; margin:20px 0 8px;}
+  p{margin:10px 0;}
+  ul,ol{margin:10px 0; padding-left:24px;}
+  li{margin:5px 0;}
+  strong{color:#16223d;}
+  mark{background:#ffe0ec; padding:0 3px; border-radius:3px;}
+  .lat{font-style:italic; color:#6b3fa0;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:6px 22px 14px; margin:14px 0; box-shadow:0 2px 8px rgba(31,36,48,.04);}
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14.5px;}
+  th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{background:#f6eaf0; color:#5a2740;}
+  tr:nth-child(even) td{background:#fdfafb;}
+  .box{border-radius:12px; padding:14px 18px; margin:16px 0; border-left:6px solid;}
+  .box .bt{font-weight:700; display:block; margin-bottom:6px; font-size:15.5px;}
+  .klinik{background:var(--klinik-bg); border-color:var(--klinik-bd);} .klinik .bt{color:var(--klinik-tx);}
+  .spot{background:var(--spot-bg); border-color:var(--spot-bd);} .spot .bt{color:var(--spot-tx);}
+  .dikkat{background:var(--dikkat-bg); border-color:var(--dikkat-bd);} .dikkat .bt{color:var(--dikkat-tx);}
+  .mnem{background:var(--mnem-bg); border-color:var(--mnem-bd);} .mnem .bt{color:var(--mnem-tx);}
+  .flash{background:var(--flash-bg); border:1.5px dashed var(--flash-bd); border-left:6px solid var(--flash-bd);
+    border-radius:12px; padding:14px 18px; margin:18px 0;}
+  .flash .ft{font-weight:700; color:var(--flash-tx); display:block; margin-bottom:8px; font-size:15px; letter-spacing:.3px;}
+  .flash .q{font-weight:600; margin:9px 0 2px; color:#5a3d00;}
+  .flash .a{margin:0 0 6px; padding-left:14px; border-left:3px solid var(--flash-bd); color:#3a3a3a;}
+  .flash .a::before{content:"➜ "; color:var(--flash-bd); font-weight:700;}
+  .pill{display:inline-block; background:#f6eaf0; color:#5a2740; border-radius:999px; padding:2px 10px; font-size:13px; margin:2px 3px;}
+  hr{border:none; border-top:1px dashed var(--line); margin:26px 0;}
+  .tag{font-size:12px; color:var(--muted);}
+  footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:13.5px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="badge">ANATOMİ · 1. SINIF · FİNAL HAZIRLIK · DERS 02</span>
+  <h1>Back Muscles &amp; Upper Extremity<br><span style="font-size:19px; font-weight:500; opacity:.9;">Sırt Kasları &amp; Üst Ekstremite</span></h1>
+  <p>Asst. Prof. Gamze Ansen — Üsküdar Üniversitesi, Tıp Fakültesi, Anatomi A.D. · Türkçe açıklamalı, İngilizce/Latince terimler korunarak işlenmiştir.</p>
+</header>
+
+<nav class="toc">
+  <h2>📚 İçindekiler</h2>
+  <ol>
+    <li><a href="#b1">Sırt Kasları — Genel &amp; 3 Grup</a></li>
+    <li><a href="#b2">Trapezius</a></li>
+    <li><a href="#b3">Latissimus dorsi</a></li>
+    <li><a href="#b4">Derin Sırt Kasları</a></li>
+    <li><a href="#u1">Üst Ekstremite Fasyaları &amp; Retinakula</a></li>
+    <li><a href="#u2">Pektoral Bölge Kasları</a></li>
+    <li><a href="#u3">Meme Bezleri (Mammary Glands)</a></li>
+    <li><a href="#u4">Omuz Bölgesi &amp; Rotator Cuff</a></li>
+    <li><a href="#u5">Kol (Arm) Kasları</a></li>
+    <li><a href="#u6">Ön Kol (Forearm) Kasları</a></li>
+    <li><a href="#u7">Cubital Fossa</a></li>
+    <li><a href="#u8">El (Hand) Kompartmanları</a></li>
+    <li><a href="#u9">Aksilla (Axilla)</a></li>
+    <li><a href="#u10">Brakiyal Pleksus</a></li>
+    <li><a href="#u11">Üst Ekstremite Sinirleri</a></li>
+    <li><a href="#u12">Carpal Tunnel Syndrome</a></li>
+  </ol>
+</nav>
+
+<!-- PART 1: BACK -->
+<section>
+<h2 class="part-title">BÖLÜM 1 — SIRT KASLARI (MUSCLES OF THE BACK)</h2>
+
+<h3 id="b1">1.1 Genel Bilgi &amp; Üç Grup</h3>
+<p>Yüzeyel sırt kasları (<strong>superficial back muscles</strong>) üst ekstremiteyi gövdeye bağlar, üst ekstremite hareketleriyle ilişkilidir ve <strong>cervicodorsal bölgede</strong> yer alır. Bölgenin derin fasyası; <strong>deltoid, aksiller ve pektoral fasya</strong> ile devamlılık gösterir.</p>
+<p>Sırt kaslarının <strong>üç grubu</strong> vardır:</p>
+<div class="card">
+<table>
+  <thead><tr><th>Grup</th><th>İçerdiği kaslar</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Superficial (Yüzeyel)</strong></td><td><strong>Trapezius, Latissimus dorsi, Levator scapulae, Rhomboids</strong> (minor + major)</td></tr>
+    <tr><td><strong>Intermediate (Orta)</strong></td><td><strong>Serratus posterior superior</strong> &amp; <strong>Serratus posterior inferior</strong></td></tr>
+    <tr><td><strong>Deep (Derin)</strong></td><td>Üç katman (superficial→deep) — aşağıda detaylı</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Yüzeyel ve orta grup kaslar şu sırayla sınıflandırılır: <span class="pill">Trapezius</span> <span class="pill">Latissimus dorsi</span> <span class="pill">Rhomboid minor</span> <span class="pill">Rhomboid major</span> <span class="pill">Levator scapulae</span> <span class="pill">Serratus posterior superior</span> <span class="pill">Serratus posterior inferior</span></p>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Yüzeyel sırt kasları</span>
+  <p style="margin:4px 0;">"<strong>T</strong>embel <strong>L</strong>amalar <strong>R</strong>ahatça <strong>L</strong>aflıyor" → <strong>T</strong>rapezius, <strong>L</strong>atissimus dorsi, <strong>R</strong>homboids, <strong>L</strong>evator scapulae. Orta grup ise sadece iki "serratus posterior" (superior + inferior).</p>
+</div>
+
+<hr>
+
+<h3 id="b2">1.2 Trapezius</h3>
+<div class="card">
+<table>
+  <tbody>
+    <tr><th style="width:130px;">Origin</th><td><strong>Occipital bone</strong> + torakal vertebraların <strong>spinöz çıkıntıları</strong> (spinous processes)</td></tr>
+    <tr><th>Insertion</th><td><strong>Clavicle</strong> (superior/üst/descending lifler) · <strong>Acromion of scapula</strong> (orta/transvers lifler) · <strong>Spine of scapula</strong> (inferior/alt/ascending lifler)</td></tr>
+    <tr><th>İnervasyon</th><td><mark><strong>Accessory nerve (CN XI)</strong></mark></td></tr>
+    <tr><th>Fonksiyon</th><td>90°'nin üzerindeki <strong>abduksiyona yardım eder</strong></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  <p style="margin:4px 0;">Trapezius, üst ekstremite kasları içinde <u>brakiyal pleksustan inerve OLMAYAN</u> tek istisnadır → <strong>Accessory nerve (CN XI)</strong> ile inerve edilir. Bu bilgi brakiyal pleksus bölümünde tekrar karşına çıkacak.</p>
+</div>
+
+<hr>
+
+<h3 id="b3">1.3 Latissimus dorsi ("climbing muscle")</h3>
+<div class="card">
+<table>
+  <tbody>
+    <tr><th style="width:130px;">Origin</th><td>Torakal &amp; lumbal vertebraların <strong>spinöz çıkıntıları</strong>, <strong>iliac crest</strong>, <strong>kostalar (ribs)</strong></td></tr>
+    <tr><th>Insertion</th><td><strong>Humerus</strong></td></tr>
+    <tr><th>İnervasyon</th><td><strong>Thoracodorsal nerve</strong></td></tr>
+    <tr><th>Fonksiyon</th><td>Humerusu <strong>ekstansiyon, adduksiyon, iç rotasyon</strong> yaptırır (tırmanma kası — <em>climbing muscle</em>); ayrıca <strong>inspirasyona</strong> yardım eder</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Lat dorsi fonksiyonu</span>
+  <p style="margin:4px 0;">Tırmanma hareketini düşün: kolu <strong>aşağı-içeri-geriye</strong> çekersin → <strong>Adduksiyon + İç rotasyon + Ekstansiyon</strong>. Kısaltma: kol için "<strong>EAİ</strong>" (Ekstansiyon-Adduksiyon-İç rotasyon).</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Yüzeyel Sırt Kasları</span>
+  <p class="q">S1. Which nerve innervates the trapezius?</p>
+  <p class="a">Accessory nerve (CN XI).</p>
+  <p class="q">S2. Latissimus dorsi'nin innervasyonu ve insertion'u nedir?</p>
+  <p class="a">İnervasyon: thoracodorsal nerve; insertion: humerus.</p>
+  <p class="q">S3. Hangi sırt kası "climbing muscle" olarak bilinir ve inspirasyona yardım eder?</p>
+  <p class="a">Latissimus dorsi.</p>
+</div>
+
+<hr>
+
+<h3 id="b4">1.4 Derin Sırt Kasları (Deep Back Muscles)</h3>
+<ul>
+  <li>Vertebral kolon ve başın <strong>postürünü ve hareketlerini</strong> sağlar.</li>
+  <li>Spinal sinirlerin <strong>dorsal ramuslarıyla</strong> inerve edilir.</li>
+  <li>Bir bütün olarak derin fasya (<strong>thoracolumbar fascia</strong>) ile sarılır.</li>
+  <li><strong>Üç katmanda</strong> organize olur (yüzeyelden derine):</li>
+</ul>
+<div class="card">
+<table>
+  <thead><tr><th>Katman</th><th>Kaslar</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Superficial (Yüzeyel)</strong></td><td><strong>Splenius capitis</strong> &amp; <strong>splenius cervicis</strong></td></tr>
+    <tr><td><strong>Intermediate (Orta)</strong></td><td><strong>Erector spinae</strong>: iliocostalis, longissimus, spinalis</td></tr>
+    <tr><td><strong>Deep (Derin)</strong></td><td><strong>Semispinalis, multifidus, rotatores</strong></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Erector spinae (orta katman)</span>
+  <p style="margin:4px 0;">Lateralden mediale "<strong>I Like Standing</strong>" → <strong>I</strong>liocostalis (en lateral), <strong>L</strong>ongissimus (orta), <strong>S</strong>pinalis (en medial).</p>
+</div>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat</span>
+  <p style="margin:4px 0;">Yüzeyel sırt kasları <strong>ventral ramuslarla</strong> (üst ekstremite kasları gibi) inerve edilirken, <strong>derin sırt kasları DORSAL ramuslarla</strong> inerve edilir. Bu ayrım klasik sınav çeldiricisidir. (Trapezius bunun da üstünde, CN XI ile inerve edilir.)</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Derin Sırt Kasları</span>
+  <p class="q">S1. The deep back muscles are innervated by which rami?</p>
+  <p class="a">Dorsal rami of spinal nerves.</p>
+  <p class="q">S2. Erector spinae'nin üç bileşeni nedir?</p>
+  <p class="a">Iliocostalis, longissimus, spinalis.</p>
+</div>
+</section>
+
+<!-- PART 2: UPPER LIMB GENERAL & FASCIA -->
+<section>
+<h2 class="part-title">BÖLÜM 2 — ÜST EKSTREMİTE: FASYALAR &amp; RETİNAKULA</h2>
+
+<h3 id="u1">2.1 Üst Ekstremite Kısımları &amp; Fasyalar</h3>
+<p>Üst ekstremite (<strong>upper limb</strong>) şu kısımlardan oluşur: <span class="pill">Shoulder</span> <span class="pill">Axilla</span> <span class="pill">Arm</span> <span class="pill">Forearm</span> <span class="pill">Hand</span></p>
+<p>Bölgesel derin fasya isimleri:</p>
+<div class="card">
+<table>
+  <thead><tr><th>Bölge</th><th>Derin fasya adı</th></tr></thead>
+  <tbody>
+    <tr><td>Pektoral bölge</td><td><strong>Pectoral fascia</strong> (aşağıda ön karın duvarı fasyasıyla kaynaşır; ayrıca <strong>axillary fascia</strong> ile devam edip aksillanın alt duvarını oluşturur)</td></tr>
+    <tr><td>Kol (arm)</td><td><strong>Brachial fascia</strong></td></tr>
+    <tr><td>Ön kol (forearm)</td><td><strong>Antebrachial fascia</strong></td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>Antebrachial fascia</strong>, ulna ve radiusun distal uçlarında kalınlaşır. Bileğin ön ve arka kısmındaki bu kalınlaşmalar sırasıyla <strong>flexor retinaculum</strong> (ön) ve <strong>extensor retinaculum</strong> (arka) adını alır. Bu retinakulalar el fasyasıyla devamlıdır. Elin palmar fasyasının merkezi kalınlaşarak <strong>palmar aponeurosis'i</strong> oluşturur.</p>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  <p style="margin:4px 0;"><strong>Flexor retinaculum</strong> bilekte ÖN tarafta, <strong>extensor retinaculum</strong> ARKA tarafta. Flexor retinaculum, karpal tünelin tavanını oluşturur (median sinir bölümünde kritik).</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Fasyalar</span>
+  <p class="q">S1. What is the deep fascia of the arm called?</p>
+  <p class="a">Brachial fascia. (Ön kolunki: antebrachial fascia.)</p>
+  <p class="q">S2. Palmar fasyanın kalınlaşmış merkezi kısmı neyi oluşturur?</p>
+  <p class="a">Palmar aponeurosis.</p>
+</div>
+</section>
+
+<!-- PART 3: PECTORAL & BREAST -->
+<section>
+<h2 class="part-title">BÖLÜM 3 — PEKTORAL BÖLGE &amp; MEME</h2>
+
+<h3 id="u2">3.1 Pektoral Bölge Kasları (4 kas)</h3>
+<p>Bu bölgede dört kas vardır: <strong>Pectoralis major, Pectoralis minor, Subclavius, Serratus anterior</strong>.</p>
+<div class="card">
+<table>
+  <thead><tr><th>Kas</th><th>Origin</th><th>Insertion</th><th>Fonksiyon</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Pectoralis major</strong></td><td>Clavicle &amp; sternum</td><td>Humerus</td><td>Kolun <strong>adduksiyon &amp; iç rotasyonu</strong> (klaviküler baş fleksiyona yardım eder). <strong>Ön aksiller katlantıyı (anterior axillary fold)</strong> oluşturur</td></tr>
+    <tr><td><strong>Pectoralis minor</strong></td><td>Kostalar 3–5 (ribs 3-5)</td><td>Scapula</td><td>Skapulayı <strong>aşağı &amp; öne çekerek stabilize eder</strong>; skapula sabitlendiğinde inspirasyona yardım eder</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Pektoral Kaslar</span>
+  <p class="q">S1. Pectoralis minor originates from which ribs?</p>
+  <p class="a">Ribs 3–5.</p>
+  <p class="q">S2. Hangi kas ön aksiller katlantıyı (anterior axillary fold) oluşturur?</p>
+  <p class="a">Pectoralis major.</p>
+</div>
+
+<hr>
+
+<h3 id="u3">3.2 Meme Bezleri (Mammary Glands)</h3>
+<ul>
+  <li>Kadında <strong>üremenin yardımcı organıdır (accessory organs of reproduction)</strong>; erkekte rudimenter ve fonksiyonsuzdur.</li>
+  <li><strong>Pectoralis major kasının yüzeyelinde</strong> ve <strong>yüzeyel fasyanın iki tabakası arasında</strong> yer alır.</li>
+  <li>Normal konumda <mark><strong>2.–6/7. kostalar</strong></mark> hizasındadır.</li>
+  <li><strong>Lateral sınır:</strong> median aksiller hat · <strong>Medial sınır:</strong> sternum.</li>
+</ul>
+<p>Ön kısma <strong>meme başı (nipple — papilla mammaria)</strong>, çevresindeki dairesel pigmentli deri alanına <strong>areola</strong> denir.</p>
+<p>Meme dokusu <strong>3 yapıdan</strong> oluşur:</p>
+<ul>
+  <li><strong>Mammary gland tissue</strong> — <strong>15–20 lobül</strong></li>
+  <li><strong>Fatty tissue</strong> (yağ dokusu)</li>
+  <li><strong>Connective tissue</strong> (bağ dokusu)</li>
+</ul>
+<p>Yaşa/hormona bağlı değişimler: <strong>Pubertede</strong> glandüler doku gelişimiyle büyür; <strong>menstruasyonda</strong> hipofizden artan <strong>FSH ve LH</strong> nedeniyle hafifçe büyür; <strong>yaşlılıkta</strong> yağın azalması ve glandüler doku atrofisiyle küçülür ve buruşur.</p>
+
+<h4>Lenfatik Drenaj</h4>
+<ul>
+  <li>Lenfin <strong>%75'ten fazlası</strong> (özellikle <strong>lateral kadranlardan</strong>) → <mark><strong>axillary lymph nodes</strong></mark>.</li>
+  <li>Kalan lenf (özellikle <strong>medial kadranlardan</strong>) → <strong>parasternal lymph nodes</strong>.</li>
+</ul>
+
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi — Meme kanseri yayılımı</span>
+  <ul style="margin:4px 0;">
+    <li>Lenfatik damarlar kanser hücrelerini başlıca <strong>axillary lymph nodes'a</strong> taşır → meme kanserlerinde en sık yayılma yolu.</li>
+    <li>Kadında aksiller lenf nodu büyümesi bir <strong>uyarı işareti</strong> olabilir.</li>
+    <li>Venöz sistem (<strong>posterior intercostal veins</strong>) yoluyla kanser <strong>vertebralara</strong>, oradan <strong>kafatası ve beyne</strong> yayılabilir.</li>
+    <li><strong>Mastectomy</strong> = memenin cerrahi çıkarılması · <strong>Mammography</strong> = meme tümörlerinin saptanmasında yararlı teknik.</li>
+  </ul>
+</div>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat</span>
+  <p style="margin:4px 0;">Meme bezi <strong>pectoralis major'ın yüzeyelinde</strong> ve <strong>yüzeyel fasya tabakaları arasında</strong> yer alır — "pectoralis major'ın derininde" demek yanlıştır. Ayrıca lenfin çoğu (>%75) <u>aksiller</u> nodlara gider; parasternal değil.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Meme</span>
+  <p class="q">S1. Most of the lymph from the breast drains into which lymph nodes?</p>
+  <p class="a">Axillary lymph nodes (>%75, özellikle lateral kadranlar).</p>
+  <p class="q">S2. Meme dokusu hangi 3 yapıdan oluşur ve gland kaç lobül içerir?</p>
+  <p class="a">Mammary gland tissue (15–20 lobül), fatty tissue, connective tissue.</p>
+  <p class="q">S3. Meme normalde hangi kostalar hizasındadır?</p>
+  <p class="a">2.–6/7. kostalar.</p>
+</div>
+</section>
+
+<!-- PART 4: SHOULDER -->
+<section>
+<h2 class="part-title">BÖLÜM 4 — OMUZ BÖLGESİ &amp; ROTATOR CUFF</h2>
+
+<h3 id="u4">4.1 Omuz Kasları</h3>
+<p>Omuz bölgesi kasları: <strong>Deltoid, Teres major</strong> ve <strong>Rotator cuff kasları</strong> (Teres minor, Supraspinatus, Infraspinatus, Subscapularis).</p>
+
+<h4>Deltoid</h4>
+<div class="card">
+<table>
+  <tbody>
+    <tr><th style="width:130px;">Origin</th><td>Clavicle, acromion, spine of scapula</td></tr>
+    <tr><th>Insertion</th><td>Humerus</td></tr>
+    <tr><th>İnervasyon</th><td><mark><strong>Axillary nerve</strong></mark></td></tr>
+    <tr><th>Fonksiyon</th><td>Kolun fleksiyon + iç rotasyonu · <strong>abduksiyonu</strong> · ekstansiyon + dış rotasyonu</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi</span>
+  <p style="margin:4px 0;"><strong>Deltoid, kas içi (intramuscular) enjeksiyonlar için yaygın bir bölgedir.</strong> Axillary nerve yakın seyrettiği için enjeksiyonun doğru noktadan (akromiyonun 2-3 parmak altı) yapılması gerekir.</p>
+</div>
+
+<h4>Rotator Cuff Kasları</h4>
+<p>Dört kas: <strong>Teres minor, Supraspinatus, Infraspinatus, Subscapularis</strong>. Humerus başını <strong>glenoid kavitede tutarlar</strong>. <mark><strong>Supraspinatus hariç</strong> hepsi humerusun rotatorudur.</mark></p>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Rotator Cuff = "SITS"</span>
+  <p style="margin:4px 0;"><strong>S</strong>upraspinatus, <strong>I</strong>nfraspinatus, <strong>T</strong>eres minor, <strong>S</strong>ubscapularis → "<strong>SITS</strong>" (omuza oturan dört kas). Hatırlat: Supra<u>spinatus</u> = abduksiyon başlatıcı, rotator DEĞİL; diğer üçü rotator.</p>
+</div>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat</span>
+  <p style="margin:4px 0;">"Tüm rotator cuff kasları rotator yapar" → <strong>YANLIŞ</strong>. <strong>Supraspinatus rotator değildir</strong> (abduksiyonu başlatır). Bu istisna neredeyse her sınavda sorulur.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Omuz</span>
+  <p class="q">S1. Which nerve innervates the deltoid?</p>
+  <p class="a">Axillary nerve.</p>
+  <p class="q">S2. Hangi rotator cuff kası bir rotator DEĞİLDİR?</p>
+  <p class="a">Supraspinatus.</p>
+  <p class="q">S3. Name the four rotator cuff muscles (SITS).</p>
+  <p class="a">Supraspinatus, Infraspinatus, Teres minor, Subscapularis.</p>
+</div>
+</section>
+
+<!-- PART 5: ARM -->
+<section>
+<h2 class="part-title">BÖLÜM 5 — KOL (ARM / BRACHIUM)</h2>
+
+<h3 id="u5">5.1 Kompartmanlar &amp; Kaslar</h3>
+<p>Kolun derin fasyası (<strong>brachial fascia</strong>) kolu iki kompartmana ayırır:</p>
+<div class="card">
+<table>
+  <thead><tr><th>Kompartman</th><th>Kaslar</th><th>İnervasyon</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Anterior (fleksör)</strong></td><td><strong>Biceps brachii, Brachialis, Coracobrachialis</strong> (3 kas)</td><td><mark><strong>Musculocutaneous nerve</strong></mark></td></tr>
+    <tr><td><strong>Posterior (ekstansör)</strong></td><td><strong>Triceps brachii</strong> (1 kas)</td><td><mark><strong>Radial nerve</strong></mark></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h4>Kasların fonksiyonları</h4>
+<div class="card">
+<table>
+  <tbody>
+    <tr><th style="width:150px;">Biceps brachii</th><td>Ön kolun <strong>primer supinatorudur</strong> (özellikle fleksiyonda güçlü — "vida çevirme" hareketi). Supine durumdaki ön kolu fleksiyona getirir; uzun başı kolun fleksiyonuna yardım eder</td></tr>
+    <tr><th>Brachialis</th><td>Ön kolun <strong>primer fleksorudur (primary flexor)</strong></td></tr>
+    <tr><th>Coracobrachialis</th><td>Kolun fleksiyon ve adduksiyonuna yardım eder</td></tr>
+    <tr><th>Triceps brachii</th><td>Ön kolun <strong>asıl ekstansorudur (chief extensor)</strong>; uzun başı kolun ekstansiyon ve adduksiyonuna yardım eder</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği</span>
+  <p style="margin:4px 0;">Kol kompartmanı = "ön 3 fleksör, arka 1 ekstansör". Ön kompartman fleksörleri "<strong>BBC</strong>": <strong>B</strong>iceps brachii, <strong>B</strong>rachialis, <strong>C</strong>oracobrachialis → hepsi <strong>musculocutaneous</strong>. Arka tek başına Triceps → <strong>radial</strong>.</p>
+</div>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat — Biceps vs Brachialis</span>
+  <p style="margin:4px 0;">Ön kolun <strong>primer supinatoru = Biceps</strong>; <strong>primer fleksoru = Brachialis</strong>. "Biceps primer fleksördür" sık yapılan hatadır; biceps daha çok supinasyon + fleksiyon kombinasyonunda güçlüdür.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Kol</span>
+  <p class="q">S1. Which nerve innervates the anterior (flexor) compartment of the arm?</p>
+  <p class="a">Musculocutaneous nerve.</p>
+  <p class="q">S2. Ön kolun primer supinatoru ve primer fleksoru hangi kaslardır?</p>
+  <p class="a">Primer supinator: biceps brachii; primer fleksor: brachialis.</p>
+  <p class="q">S3. Triceps brachii hangi sinirle inerve edilir ve ana fonksiyonu nedir?</p>
+  <p class="a">Radial nerve; ön kolun chief extensor'u.</p>
+</div>
+</section>
+
+<!-- PART 6: FOREARM -->
+<section>
+<h2 class="part-title">BÖLÜM 6 — ÖN KOL (FOREARM)</h2>
+
+<h3 id="u6">6.1 Kompartmanlar</h3>
+<p>Ön kolun derin fasyası ve radius ile ulna arasında uzanan <strong>interosseous membrane</strong>, ön kolu iki kompartmana ayırır:</p>
+<div class="card">
+<table>
+  <thead><tr><th>Kompartman</th><th>Genel fonksiyon</th><th>İnervasyon</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Anterior</strong></td><td><strong>Fleksörler &amp; pronatörler</strong></td><td><strong>Median nerve</strong> (iki istisna <strong>ulnar nerve</strong> ile)</td></tr>
+    <tr><td><strong>Posterior</strong></td><td><strong>Ekstansörler &amp; supinatörler</strong></td><td><strong>Hepsi radial nerve</strong></td></tr>
+  </tbody>
+</table>
+</div>
+<ul>
+  <li><strong>Anterior kompartman:</strong> fleksör grup genellikle <strong>medial epicondyle'den</strong> ortak bir tendonla başlar → <strong>common flexor origin</strong>. İki kas hariç, hepsinin tendonu el kemiklerine yapışır ve <strong>flexor retinaculum'un derininden</strong> geçer.</li>
+  <li><strong>Posterior kompartman:</strong> bazı kaslar <strong>lateral epicondyle'den</strong> ortak tendonla başlar → <strong>common extensor origin</strong>. İki kas hariç, tendonlar el kemiklerine yapışır ve <strong>extensor retinaculum'un derininden</strong> geçer. Hepsi radial nerve ile inerve.</li>
+</ul>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat — Brachioradialis İSTİSNASI</span>
+  <p style="margin:4px 0;"><strong>Brachioradialis</strong> posterior kompartmanda <u>yer alır</u> ve <strong>radial nerve</strong> ile inerve edilir; ANCAK bir <strong>fleksör kastır</strong> (ön kolu fleksiyona getirir). Yani "posterior = sadece ekstansör" kuralının istisnasıdır. Bu çok klasik bir çeldiricidir.</p>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Epikondiller</span>
+  <p style="margin:4px 0;"><strong>ME</strong>dial epicondyle → <strong>FE</strong>leksörler (common <strong>F</strong>lexor origin). <strong>LA</strong>teral epicondyle → <strong>EX</strong>tansörler (common <strong>E</strong>xtensor origin). "Medial Fleksör, Lateral Ekstansör".</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Ön Kol</span>
+  <p class="q">S1. The common flexor origin is on which epicondyle?</p>
+  <p class="a">Medial epicondyle.</p>
+  <p class="q">S2. Posterior kompartmanda yer alıp fleksör olan istisna kas hangisidir?</p>
+  <p class="a">Brachioradialis (radial nerve ile inerve, ama fleksördür).</p>
+  <p class="q">S3. Anterior forearm kompartmanının genel innervasyonu nedir?</p>
+  <p class="a">Median nerve (iki istisna ulnar nerve).</p>
+</div>
+</section>
+
+<!-- PART 7: CUBITAL FOSSA -->
+<section>
+<h2 class="part-title">BÖLÜM 7 — CUBITAL FOSSA (DİRSEK ÇUKURU)</h2>
+
+<h3 id="u7">7.1 Sınırlar &amp; İçerik</h3>
+<p>Cubital fossa, dirseğin ön kısmındaki çukurdur.</p>
+<div class="card">
+<table>
+  <thead><tr><th>Sınır</th><th>Yapı</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Superior</strong> (üst)</td><td>Epikondilleri birleştiren hayali çizgi</td></tr>
+    <tr><td><strong>Medial</strong></td><td><strong>Pronator teres</strong> kası</td></tr>
+    <tr><td><strong>Lateral</strong></td><td><strong>Brachioradialis</strong> kası</td></tr>
+    <tr><td><strong>Floor</strong> (taban)</td><td><strong>Brachialis</strong> &amp; <strong>supinator</strong> kasları</td></tr>
+    <tr><td><strong>Roof</strong> (tavan)</td><td>Deep fascia &amp; <strong>bicipital aponeurosis</strong></td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>İçerik:</strong></p>
+<ul>
+  <li><strong>Brachial artery</strong> ve terminal dallarının başlangıcı (<strong>ulnar</strong> ve <strong>radial arteries</strong>)</li>
+  <li>Arterleri izleyen <strong>derin venler</strong></li>
+  <li><strong>Biceps brachii tendonu</strong></li>
+  <li><strong>Median nerve</strong></li>
+  <li><strong>Radial nerve</strong> (superficial ve deep dallarına ayrılır)</li>
+</ul>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — İçerik (lateral→medial): "TAN"</span>
+  <p style="margin:4px 0;">Ortadaki ana yapılar lateralden mediale: biceps <strong>T</strong>endon → brachial <strong>A</strong>rtery → median <strong>N</strong>erve = "<strong>TAN</strong>". En lateralde ise <strong>radial nerve</strong> bulunur.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Cubital Fossa</span>
+  <p class="q">S1. What forms the medial and lateral borders of the cubital fossa?</p>
+  <p class="a">Medial: pronator teres; lateral: brachioradialis.</p>
+  <p class="q">S2. Cubital fossa'nın tabanını (floor) hangi kaslar oluşturur?</p>
+  <p class="a">Brachialis ve supinator kasları.</p>
+</div>
+</section>
+
+<!-- PART 8: HAND -->
+<section>
+<h2 class="part-title">BÖLÜM 8 — EL (HAND)</h2>
+
+<h3 id="u8">8.1 Palmar Kompartmanlar</h3>
+<p>Palmar bölgenin derin fasyası merkezde kalınlaşarak <strong>palmar aponeurosis'i</strong> oluşturur. Buradan çıkan fibröz septalar palmar bölgeyi <strong>dört kompartmana</strong> ayırır:</p>
+<div class="card">
+<table>
+  <thead><tr><th>Kompartman</th><th>İçerik</th><th>İnervasyon</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Thenar</strong> (lateral)</td><td><strong>Abductor pollicis brevis, Flexor pollicis brevis, Opponens pollicis</strong></td><td><strong>Median nerve</strong></td></tr>
+    <tr><td><strong>Hypothenar</strong> (medial)</td><td><strong>Abductor digiti minimi, Flexor digiti minimi brevis, Opponens digiti minimi</strong></td><td><strong>Ulnar nerve</strong></td></tr>
+    <tr><td><strong>Central</strong></td><td>Fleksör tendonlar &amp; kılıfları, <strong>lumbrical kaslar (×4)</strong>, palmar (3) ve dorsal (4) <strong>interosseal kaslar</strong>, superficial palmar arterial arch, dijital damar/sinirler</td><td>—</td></tr>
+    <tr><td><strong>Adductor</strong> (deep/derin)</td><td><strong>Adductor pollicis</strong> kası</td><td><strong>Ulnar nerve</strong></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Thenar kasları "ABO" / "FOA"</span>
+  <p style="margin:4px 0;">Hem thenar (başparmak) hem hypothenar (serçe) üçlüsü aynı kalıptadır: <strong>Abductor + Flexor brevis + Opponens</strong>. Thenar = <em>pollicis</em>, hypothenar = <em>digiti minimi</em>. İnervasyon kuralı: <strong>sadece thenar → median; hypothenar + adductor pollicis + interossei → ulnar</strong>.</p>
+</div>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat</span>
+  <p style="margin:4px 0;">Başparmağın <strong>abduksiyon/oppozisyon</strong> kasları (thenar) <u>median</u> sinirden; ancak başparmağın <strong>adduksiyonu (adductor pollicis)</strong> <u>ulnar</u> sinirdendir. Bu ayrım median sinir hasarında "ape hand" tablosunu açıklar.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — El</span>
+  <p class="q">S1. Which nerve innervates the thenar muscles?</p>
+  <p class="a">Median nerve.</p>
+  <p class="q">S2. Adductor pollicis hangi sinirle inerve edilir?</p>
+  <p class="a">Ulnar nerve.</p>
+  <p class="q">S3. Kaç adet lumbrical, palmar ve dorsal interosseal kas vardır?</p>
+  <p class="a">4 lumbrical, 3 palmar interossei, 4 dorsal interossei.</p>
+</div>
+</section>
+
+<!-- PART 9: AXILLA -->
+<section>
+<h2 class="part-title">BÖLÜM 9 — AKSİLLA (AXILLA / KOLTUK ALTI)</h2>
+
+<h3 id="u9">9.1 Sınırlar &amp; İçerik</h3>
+<p>Aksilla; toraksın lateral kısmı, humerusun üst kısmı ve omzun alt kısmı arasındaki fossadır. Gövdeden üst ekstremiteye giden damar ve sinirler için <strong>geçiş yoludur</strong>. Kabaca <strong>piramidal</strong> şekildedir; bir apeksi, bir tabanı ve dört duvarı vardır.</p>
+<div class="card">
+<table>
+  <thead><tr><th>Duvar</th><th>Yapılar</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Anterior</strong></td><td>Pectoralis major, pectoralis minor + pectoral ve clavipectoral fasyalar</td></tr>
+    <tr><td><strong>Posterior</strong></td><td><strong>Subscapularis, teres major, latissimus dorsi</strong></td></tr>
+    <tr><td><strong>Medial</strong></td><td>1.–4. kostalar (+ ilgili interkostal kaslar) ve <strong>serratus anterior</strong></td></tr>
+    <tr><td><strong>Lateral</strong></td><td>Humerusun <strong>intertubercular groove</strong>'u</td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>Apex:</strong> anterior → clavicle; posterior → scapulanın üst kenarı; medial → first rib. <strong>Floor (taban):</strong> aşağı bakar; fasya ve deri ile oluşur.</p>
+<p><strong>İçerik:</strong> <span class="pill">Axillary artery + dalları</span> <span class="pill">Axillary vein + dalları</span> <span class="pill">Axillary lymph nodes</span> <span class="pill">Brachial plexus</span></p>
+<p><strong>Axillary sheath:</strong> axillary artery, axillary vein ve brakiyal pleksusun <strong>infraklaviküler kısmını</strong> saran fasyadır; derin servikal fasyanın <strong>prevertebral tabakasının</strong> devamıdır.</p>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Posterior duvar "SLT"</span>
+  <p style="margin:4px 0;">Arka duvar: <strong>S</strong>ubscapularis, <strong>L</strong>atissimus dorsi, <strong>T</strong>eres major → "<strong>SLT</strong>". İçerik için "<strong>3A + BP</strong>": Axillary <u>A</u>rtery, <u>A</u>xillary vein, <u>A</u>xillary lymph nodes + <u>B</u>rachial <u>P</u>lexus.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Aksilla</span>
+  <p class="q">S1. Which muscles form the posterior wall of the axilla?</p>
+  <p class="a">Subscapularis, teres major, latissimus dorsi.</p>
+  <p class="q">S2. Axillary sheath neyin devamıdır ve neleri sarar?</p>
+  <p class="a">Derin servikal fasyanın prevertebral tabakasının devamı; axillary artery, vein ve brakiyal pleksusun infraklaviküler kısmını sarar.</p>
+</div>
+</section>
+
+<!-- PART 10: BRACHIAL PLEXUS -->
+<section>
+<h2 class="part-title">BÖLÜM 10 — BRAKİYAL PLEKSUS (BRACHIAL PLEXUS)</h2>
+
+<h3 id="u10">10.1 Genel</h3>
+<ul>
+  <li>Üst ekstremitenin <strong>motor (GSE), duyusal (GSA)</strong> ve <strong>otonom (GVE, GVA)</strong> innervasyonunu sağlayan sinir ağıdır.</li>
+  <li><mark>Tek bir istisna dışında</mark>, üst ekstremitenin tüm kasları brakiyal pleksus dallarından inerve edilir. <strong>İstisna: trapezius</strong> → <strong>accessory nerve (CN XI)</strong>.</li>
+  <li><strong>C5–T1</strong> spinal sinirlerinin <strong>ventral ramuslarından</strong> oluşur (C4 ve T2'den küçük katkı vardır).</li>
+  <li>Boyunda başlar: SCM'nin arka kenarında, boynun <strong>posterior üçgeninde</strong>. Scalenus anterior ile medius arasından (subklavyan arterle birlikte), sonra 1. kosta ile klavikula arasından geçer; aksillaya apeksten girer.</li>
+</ul>
+
+<h3>10.2 Yapısı: Kökler → Trunkuslar → Divizyonlar → Kordlar → Dallar</h3>
+<p>Brakiyal pleksusun kısımları, bir ağacın kısımları gibi köklerden başlayarak adlandırılır:</p>
+<div class="card">
+<table>
+  <thead><tr><th>Seviye</th><th>Oluşum</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Roots (Kökler)</strong></td><td>C5, C6, C7, C8, T1 (ventral ramuslar)</td></tr>
+    <tr><td><strong>Trunks (Trunkuslar)</strong></td><td><strong>C5+C6 → Superior trunk</strong> · <strong>C7 → Middle trunk</strong> · <strong>C8+T1 → Inferior trunk</strong></td></tr>
+    <tr><td><strong>Divisions (Divizyonlar)</strong></td><td>Her trunk → bir anterior + bir posterior divizyon</td></tr>
+    <tr><td><strong>Cords (Kordlar)</strong></td><td>Tüm posterior divizyonlar → <strong>Posterior cord</strong> · superior+middle trunk'ın anterior divizyonları → <strong>Lateral cord</strong> · inferior trunk'ın anterior divizyonu → <strong>Medial cord</strong></td></tr>
+    <tr><td><strong>Terminal branches</strong></td><td>Aşağıdaki tablo</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h4>Kordların terminal dalları (her kord 2 dal verir)</h4>
+<div class="card">
+<table>
+  <thead><tr><th>Cord</th><th>Terminal dallar</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Posterior cord</strong></td><td><strong>Axillary nerve</strong> + <strong>Radial nerve</strong></td></tr>
+    <tr><td><strong>Lateral cord</strong></td><td><strong>Musculocutaneous nerve</strong> + median sinirin <strong>lateral dalı (lateral root)</strong></td></tr>
+    <tr><td><strong>Medial cord</strong></td><td><strong>Ulnar nerve</strong> + median sinirin <strong>medial dalı (medial root)</strong></td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>Klavikulayla ilişkiye göre 2 kısım:</strong> <strong>Supraclavicular part</strong> (boyunda; dallar <u>köklerden ve trunkuslardan</u> çıkar) · <strong>Infraclavicular part</strong> (aksillada; dallar <u>kordlardan</u> çıkar).</p>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Pleksus omurgası</span>
+  <p style="margin:4px 0;">Sıralama (proksimal→distal): <strong>R</strong>oots → <strong>T</strong>runks → <strong>D</strong>ivisions → <strong>C</strong>ords → <strong>B</strong>ranches. Akrostiş: "<em>Read That Damn Cadaver Book</em>" veya "<em>Randy Travis Drinks Cold Beer</em>".<br>
+  Trunk oluşumu: "<strong>5-6 yukarı (Superior), 7 ortada (Middle), 8-1 aşağı (Inferior)</strong>".<br>
+  5 terminal dal: "<strong>MARMU</strong>" → <strong>M</strong>usculocutaneous, <strong>A</strong>xillary, <strong>R</strong>adial, <strong>M</strong>edian, <strong>U</strong>lnar.</p>
+</div>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat</span>
+  <ul style="margin:4px 0;">
+    <li><strong>Median nerve iki kökten</strong> oluşur: lateral cord (lateral root) + medial cord (medial root) → harf olarak "M" gibi çatallanır.</li>
+    <li><strong>Posterior cord</strong> daima <u>posterior</u> dalları (axillary + radial) verir — "iç organ/arka kaslar" mantığı.</li>
+    <li>Supraclavicular dallar <u>kök ve trunkuslardan</u>; infraclavicular dallar <u>kordlardan</u> çıkar. Karıştırma.</li>
+  </ul>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Brakiyal Pleksus</span>
+  <p class="q">S1. The brachial plexus is formed by the ventral rami of which spinal nerves?</p>
+  <p class="a">C5–T1 (C4 ve T2'den küçük katkı).</p>
+  <p class="q">S2. Which two terminal nerves arise from the posterior cord?</p>
+  <p class="a">Axillary nerve ve radial nerve.</p>
+  <p class="q">S3. Superior, middle, inferior trunk hangi köklerden oluşur?</p>
+  <p class="a">Superior: C5+C6; Middle: C7; Inferior: C8+T1.</p>
+  <p class="q">S4. Üst ekstremitede brakiyal pleksustan inerve OLMAYAN tek kas ve siniri nedir?</p>
+  <p class="a">Trapezius — accessory nerve (CN XI).</p>
+</div>
+</section>
+
+<!-- PART 11: NERVES -->
+<section>
+<h2 class="part-title">BÖLÜM 11 — ÜST EKSTREMİTE SİNİRLERİ</h2>
+
+<h3 id="u11">11.1 Major Sinirler — Özet Tablo</h3>
+<div class="card">
+<table>
+  <thead><tr><th>Sinir (kökler)</th><th>Motor</th><th>Duyu / Notlar</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Musculocutaneous</strong><br>(C5–7)</td>
+      <td>Ön kol kasları: <strong>biceps brachii, brachialis, coracobrachialis</strong></td>
+      <td><strong>Coracobrachialis'i deler</strong>; motor lifler dirsek seviyesinde sonlanır; devamı <strong>lateral cutaneous antebrachial nerve</strong> (duyusal)</td>
+    </tr>
+    <tr>
+      <td><strong>Radial</strong><br>(C5–T1)</td>
+      <td><strong>Triceps brachii, anconeus, brachioradialis, extensor carpi radialis longus</strong></td>
+      <td>Duyu dalları: posterior cutaneous nerve of arm, inferior lateral cutaneous nerve of arm, posterior cutaneous nerve of forearm</td>
+    </tr>
+    <tr>
+      <td><strong>Axillary</strong><br>(C5–6)</td>
+      <td><strong>Deltoid &amp; teres minor</strong></td>
+      <td><strong>Quadrangular space</strong>'ten posterior circumflex humeral damarlarla geçer; humerusun <strong>surgical neck</strong>'ini (collum chirurgicum) sarar. Duyu: superior lateral cutaneous nerve of arm</td>
+    </tr>
+    <tr>
+      <td><strong>Median</strong><br>(C6–C8, T1)</td>
+      <td>Ön kol fleksörlerinin çoğu + thenar kaslar</td>
+      <td>Lateral + medial kordlardan; <strong>carpal tunnel</strong>'dan ele girer (aşağıda detaylı)</td>
+    </tr>
+    <tr>
+      <td><strong>Ulnar</strong><br>(C8–T1, bazen C7)</td>
+      <td>Hypothenar, adductor pollicis, interossei vb.</td>
+      <td>Medial cord'un devamı; <strong>ulnar tunnel</strong> (medial epicondyle–olecranon arası) ve bilekte <strong>Guyon's canal (ulnar canal)</strong>'dan geçer</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h4>Median sinir duyusal alanı</h4>
+<ul>
+  <li><strong>Palmar:</strong> thenar bölge, lateral 3 parmağın palmar yüzü + 4. parmağın radial yarısı.</li>
+  <li><strong>Dorsal:</strong> lateral 3 parmağın orta ve distal falanksları + 4. parmağın radial yarısı.</li>
+  <li>Ele girişten önce <strong>anterior interosseous nerve</strong> (derin ön kol kasları) ve <strong>palmar cutaneous nerve</strong> (lateral avuç derisi) dallarını verir; ele girince <strong>palmar digital nerves</strong> → lateral 3,5 parmak.</li>
+</ul>
+
+<h4>Ulnar sinir duyusal alanı</h4>
+<ul>
+  <li><strong>Dorsal:</strong> elin dorsal medial kısmı, tüm 5. parmak, 4. parmağın ulnar yarısı.</li>
+  <li><strong>Palmar:</strong> elin palmar medial kısmı, tüm 5. parmak, 4. parmağın ulnar yarısı.</li>
+</ul>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Parmak duyu paylaşımı (3,5 / 1,5)</span>
+  <p style="margin:4px 0;"><strong>Median = lateral 3,5 parmak</strong> (başparmak, işaret, orta + yüzük parmağının yarısı). <strong>Ulnar = medial 1,5 parmak</strong> (serçe + yüzük parmağının yarısı). Toplam 5 parmak = 3,5 + 1,5. "<strong>Ulnar serçeyi sever</strong>".</p>
+</div>
+
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi — Sinir hasar tabloları</span>
+  <p style="margin:4px 0;"><strong>Axillary nerve</strong> humerus surgical neck kırıklarında, <strong>radial nerve</strong> humerus şaft kırıklarında ("Saturday night palsy" → düşük el/wrist drop), <strong>median nerve</strong> bilek hasarında (ape hand) zedelenir. Bu lokalizasyonlar sınavda "hangi kemik kırığı hangi siniri zedeler" şeklinde çıkar.</p>
+</div>
+
+<hr>
+
+<h3 id="u12">11.2 Carpal Tunnel Syndrome (CTS) — KLİNİK NOT</h3>
+<p>Karpal tünel, <strong>flexor retinaculum</strong> ile karpal kemikler arasındaki geçittir. Median sinir, buradan uzun fleksör tendonlarla birlikte ele ulaşır. Bu tendonlar burada <strong>sinoviyal kılıflarla (synovial sheaths)</strong> sarılıdır:</p>
+<ul>
+  <li><strong>Flexor pollicis longus</strong> (1 tendon)</li>
+  <li><strong>Flexor digitorum superficialis</strong> (4 tendon)</li>
+  <li><strong>Flexor digitorum profundus</strong> (4 tendon)</li>
+</ul>
+
+<h4>Patofizyoloji</h4>
+<p>CTS, median sinirin karpal tünelde sıkışmasıdır (<strong>entrapment neuropathy</strong>). Tünel hacmini azaltan bir lezyon sonucu oluşur: <strong>sinoviyal kılıf inflamasyonu, enfeksiyon, karpal kemiklerin ön dislokasyonu</strong>, ya da parmakların aşırı kullanımıyla tendon/kılıf şişmesi.</p>
+
+<h4>Bulgular</h4>
+<ul>
+  <li>Lateral <strong>3,5 parmakta paresthesia</strong> (karıncalanma) ve <strong>hypoesthesia / anesthesia</strong>.</li>
+  <li><mark>Avuç merkezinin duyusu KORUNUR</mark> — çünkü <strong>palmar branch (palmar cutaneous nerve)</strong> flexor retinaculum'un <u>yüzeyelinden</u> geçer, tünel içinde sıkışmaz.</li>
+  <li><strong>Thenar kas atrofisi</strong> → thenar eminens erimesi; başparmağı <strong>oppoze etme</strong> güçlüğü.</li>
+  <li>Başparmak <strong>adduksiyon konumunda</strong> kalır (abductor pollicis brevis felci).</li>
+  <li>1. ve 2. (lateral) lumbrikallerin felci → 2. ve 3. parmaklar MCP'de <strong>hiperekstansiyon</strong>, IP'de <strong>fleksiyon</strong> konumunda kalır.</li>
+  <li>IP ve MCP'de fleksiyon hâlâ mümkündür çünkü <strong>FDS ve FDP sağlamdır</strong>.</li>
+  <li>Bu el görünümüne <mark><strong>"ape hand" (maymun eli)</strong></mark> denir.</li>
+</ul>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat — En sevilen CTS çeldiricisi</span>
+  <p style="margin:4px 0;">CTS'de <strong>avuç ortasının duyusu korunur</strong> çünkü palmar cutaneous dalı flexor retinaculum'un <u>üstünden</u> (yüzeyelinden) geçer ve tünele girmez. "CTS'de tüm median alan uyuşur, avuç dahil" ifadesi <strong>YANLIŞTIR</strong>. Ayrıca FDS/FDP korunduğu için parmak fleksiyonu kaybolmaz.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Sinirler &amp; CTS</span>
+  <p class="q">S1. Which nerve innervates the deltoid and teres minor, passing through the quadrangular space?</p>
+  <p class="a">Axillary nerve (C5–6).</p>
+  <p class="q">S2. Median sinir hangi sinir kanalından ele girer; ulnar sinir hangisinden?</p>
+  <p class="a">Median → carpal tunnel; Ulnar → Guyon's canal (ulnar canal).</p>
+  <p class="q">S3. In carpal tunnel syndrome, why is sensation over the central palm spared?</p>
+  <p class="a">Palmar cutaneous branch flexor retinaculum'un yüzeyelinden geçer, tünelde sıkışmaz.</p>
+  <p class="q">S4. Median sinir hasarındaki karakteristik el görünümünün adı nedir?</p>
+  <p class="a">"Ape hand" (maymun eli).</p>
+  <p class="q">S5. Karpal tünelde kaç fleksör tendon bulunur (median sinir hariç)?</p>
+  <p class="a">9 tendon: 1 FPL + 4 FDS + 4 FDP.</p>
+</div>
+</section>
+
+<footer>
+  <strong>Bu rehber, "Back Muscles and Upper Extremity" dersinin tüm içeriğinden hazırlanmıştır.</strong><br>
+  Sırt kasları, üst ekstremite fasyaları, pektoral bölge &amp; meme, omuz/rotator cuff, kol, ön kol, cubital fossa, el, aksilla, brakiyal pleksus ve tüm major sinirler (median/CTS dahil) eksiksiz işlenmiştir. İngilizce/Latince terminoloji korunmuş; klinik notlar, mnemonikler ve final düzeyinde flashcard'larla zenginleştirilmiştir. Sıradaki ders (Alt Ekstremite, Karın/Toraks ya da Baş-Yüz) için hazır olduğunda söyle. Başarılar! 🦷
+</footer>
+
+</div>
+</body>
+</html>

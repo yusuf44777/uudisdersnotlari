@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genetik – Bölüm 4: Kalıtımın Hücresel ve Moleküler Temeli</title>
+<style>
+  :root{
+    --ana:#1f2a8c; --ana2:#2e5db0; --metin:#1d2230; --soft:#f5f7fb;
+    --klinik:#0a7d63; --klinik-bg:#e7f8f2;
+    --spot:#b8860b; --spot-bg:#fff7e0;
+    --dikkat:#b22222; --dikkat-bg:#fdeaea;
+    --flash:#5a2a9c; --flash-bg:#f3ecfd;
+    --mnemo:#005f73; --mnemo-bg:#e3f4f8;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;line-height:1.7;
+    color:var(--metin);margin:0;padding:0 0 60px;background:#fafbfe;}
+  header.kapak{background:linear-gradient(135deg,#1f2a8c 0%,#2e5db0 100%);
+    color:#fff;padding:42px 28px;text-align:center;}
+  header.kapak h1{margin:0 0 8px;font-size:1.8rem;letter-spacing:.3px;}
+  header.kapak p{margin:4px 0;opacity:.92;font-size:1.02rem;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px;}
+  h2{color:#fff;background:var(--ana);padding:12px 18px;border-radius:10px;
+    margin:42px 0 18px;font-size:1.4rem;}
+  h3{color:var(--ana);border-bottom:3px solid var(--ana2);padding-bottom:6px;
+    margin:32px 0 12px;font-size:1.15rem;}
+  p{margin:10px 0;}
+  ul,ol{margin:10px 0 10px 6px;padding-left:22px;}
+  li{margin:7px 0;}
+  strong{color:var(--ana);}
+  em{color:#444;}
+  mark{background:#ffe98a;padding:1px 4px;border-radius:3px;}
+  .kutu{border-radius:12px;padding:16px 18px 16px 50px;margin:18px 0;position:relative;
+    box-shadow:0 2px 6px rgba(0,0,0,.06);}
+  .kutu .ikon{position:absolute;left:14px;top:14px;font-size:1.4rem;}
+  .kutu .baslik{font-weight:700;display:block;margin-bottom:5px;font-size:1.02rem;}
+  .klinik{background:var(--klinik-bg);border-left:6px solid var(--klinik);}
+  .klinik .baslik{color:var(--klinik);}
+  .spot{background:var(--spot-bg);border-left:6px solid var(--spot);}
+  .spot .baslik{color:#8a6500;}
+  .dikkat{background:var(--dikkat-bg);border-left:6px solid var(--dikkat);}
+  .dikkat .baslik{color:var(--dikkat);}
+  .mnemo{background:var(--mnemo-bg);border-left:6px solid var(--mnemo);}
+  .mnemo .baslik{color:var(--mnemo);}
+  .flash{background:var(--flash-bg);border:2px dashed var(--flash);border-radius:12px;
+    padding:14px 18px;margin:14px 0;}
+  .flash .baslik{color:var(--flash);font-weight:700;display:block;margin-bottom:8px;}
+  .flash details{margin:8px 0;background:#fff;border-radius:8px;padding:6px 12px;
+    border:1px solid #e0d4f5;}
+  .flash summary{cursor:pointer;font-weight:600;color:#3d1f6e;}
+  .flash details p{margin:8px 0 4px;color:#222;}
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.96rem;}
+  th,td{border:1px solid #c8d2e8;padding:9px 11px;text-align:left;vertical-align:top;}
+  th{background:var(--ana);color:#fff;}
+  tr:nth-child(even) td{background:var(--soft);}
+  .slayt-et{display:inline-block;background:#dfe6f5;color:var(--ana);font-size:.78rem;
+    font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:4px;}
+  .akis{text-align:center;font-weight:700;color:var(--ana);font-size:1.05rem;
+    background:#eef2fb;border-radius:10px;padding:12px;margin:16px 0;}
+  footer{max-width:980px;margin:40px auto 0;padding:18px 22px;color:#666;font-size:.9rem;
+    border-top:1px solid #ddd;}
+</style>
+</head>
+<body>
+
+<header class="kapak">
+  <h1>The Cellular and Molecular Basis of Inheritance</h1>
+  <p><strong>Kalıtımın Hücresel ve Moleküler Temeli</strong></p>
+  <p>Asst. Prof. Nilgün Karasu — Dept. of Medical Genetics</p>
+  <p style="margin-top:14px;font-size:.95rem;">🧬 BÖLÜM 4 — Hücre, Nükleik Asitler, DNA Yapısı, Bazlar, Çift Sarmal &amp; Central Dogma (Slayt 40–49)</p>
+</header>
+
+<div class="wrap">
+
+<!-- ============ CELL TO MATERIAL ============ -->
+<h2>1) Hücreden Kalıtım Materyaline (From Cell to Inheritance Material)</h2>
+<span class="slayt-et">Slayt 40–41</span>
+<ul>
+  <li>Hücreler (<strong>cells</strong>) çok küçüktür ve <strong>çıplak gözle görülemez (cannot be seen with the naked eye)</strong>.</li>
+  <li>Kalıtım materyali dahil, hücre yapısının ve işlevlerinin aydınlatılması <strong>ışık mikroskobunun (light microscope) icadıyla</strong> başlar.</li>
+</ul>
+
+<h3>Hücredeki Kalıtım Merkezi (Hereditary Center in a Cell)</h3>
+<span class="slayt-et">Slayt 42</span>
+<table>
+  <tr><th>Canlı Tipi</th><th>Genetik Materyalin Yeri</th></tr>
+  <tr><td><strong>Eukaryotes</strong> (ökaryotlar)</td><td>Genetik materyal <strong>çekirdekte (nucleus)</strong> bulunur.</td></tr>
+  <tr><td><strong>Prokaryotes</strong> (prokaryotlar)</td><td>Genetik materyal <strong>nükleoid (nucleoid)</strong> denen bölgede bulunur. <em>(Zarla çevrili gerçek çekirdek YOKTUR.)</em></td></tr>
+  <tr><td><strong>Viruses</strong> (virüsler)</td><td>Genetik materyal <strong>protein kılıf (coat protein / capsid)</strong> içinde yer alır.</td></tr>
+</table>
+
+<div class="kutu spot">
+  <span class="ikon">🎯</span>
+  <span class="baslik">Spot Bilgi — Nucleus vs Nucleoid</span>
+  <strong>Eukaryote → Nucleus</strong> (zarla çevrili gerçek çekirdek). <strong>Prokaryote → Nucleoid</strong> (zarsız bölge). Bu ayrım klasik bir sınav sorusudur: "Prokaryotlarda genetik materyal nerede bulunur?" → <strong>nucleoid</strong>.
+</div>
+
+<!-- ============ NUCLEIC ACIDS ============ -->
+<h2>2) İki Tip Nükleik Asit (Two Types of Nucleic Acid)</h2>
+<span class="slayt-et">Slayt 43</span>
+<ul>
+  <li><strong>RNA (ribonucleic acid):</strong> Beş karbonlu şeker olan <strong>riboz (ribose)</strong> içerir. 2' karbonunda <strong>—OH (hidroksil)</strong> grubu vardır.</li>
+  <li><strong>DNA (deoxyribonucleic acid):</strong> Riboz şekerinin <strong>2' pozisyonundaki —OH grubu, bir hidrojen (—H) ile yer değiştirmiştir</strong> → bu yüzden şeker <strong>deoksiriboz (2-deoxyribose)</strong> adını alır.</li>
+</ul>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — DNA neden "Deoxy"?</span>
+  <strong>D</strong>NA = <strong>D</strong>e-<strong>OXY</strong> → "oksijeni eksik". 2' karbonunda RNA'nın <strong>OH</strong>'ı yerine DNA'da sadece <strong>H</strong> var (bir oksijen eksik). <em>Riboz = OH'lı (zengin), Deoksiriboz = H'li (fakir).</em>
+</div>
+
+<div class="kutu dikkat">
+  <span class="ikon">⚠️</span>
+  <span class="baslik">Dikkat — Şeker Farkı + Baz Farkı</span>
+  RNA ve DNA iki yerde ayrılır: <strong>(1) Şeker:</strong> RNA → riboz (2'-OH), DNA → deoksiriboz (2'-H). <strong>(2) Baz:</strong> RNA'da Timin (Thymine) yerine <strong>Urasil (Uracil)</strong> bulunur. Slaytta "Replace Thymine in RNA" notu bunu vurgular.
+</div>
+
+<!-- ============ DNA COMPOSITION ============ -->
+<h2>3) DNA Bileşimi (DNA Composition)</h2>
+<span class="slayt-et">Slayt 44</span>
+<p>
+Nükleik asit, <strong>nükleotid (nucleotide)</strong> denen tek tek moleküllerin oluşturduğu uzun bir <strong>polimerdir (long polymer)</strong>. Her nükleotid <strong>üç parçadan</strong> oluşur:
+</p>
+<ol>
+  <li><strong>Fosfat grubu (phosphate group)</strong></li>
+  <li><strong>Pentoz şeker (pentose sugar)</strong> — DNA'da deoksiriboz, RNA'da riboz</li>
+  <li><strong>Azotlu baz (nitrogenous base)</strong></li>
+</ol>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — Nükleotidin 3 Parçası</span>
+  <strong>"FŞB" → Fosfat – Şeker – Baz.</strong> Köprü: <strong>"F</strong>ır<strong>Ş</strong>ından <strong>B</strong>aşla." (Bir nükleotid = 1 fosfat + 1 şeker + 1 baz.)
+</div>
+
+<h3>Azotlu Bazlar: Purinler ve Pirimidinler</h3>
+<span class="slayt-et">Slayt 45</span>
+<p>Azotlu bazlar iki gruba ayrılır:</p>
+<table>
+  <tr><th>Grup</th><th>Üyeler</th><th>Yapı</th></tr>
+  <tr><td><strong>Purines</strong><br>(purinler)</td><td><strong>Adenine (A)</strong>, <strong>Guanine (G)</strong></td><td><strong>Çift halka</strong> (iki halkalı, daha büyük)</td></tr>
+  <tr><td><strong>Pyrimidines</strong><br>(pirimidinler)</td><td><strong>Cytosine (C)</strong>, <strong>Thymine (T)</strong> <em>(RNA'da Uracil)</em></td><td><strong>Tek halka</strong> (daha küçük)</td></tr>
+</table>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — Purin / Pirimidin Ayrımı (KLASİK)</span>
+  <p style="margin:6px 0;"><strong>Pirimidinler → "CUT"</strong>: <strong>C</strong>ytosine, <strong>U</strong>racil, <strong>T</strong>hymine. (Hepsinde "y" harfi var, pyrimidine gibi → tek halkalılar.)</p>
+  <p style="margin:6px 0;"><strong>Purinler → "PURe As Gold"</strong>: <strong>A</strong>denine, <strong>G</strong>uanine. (PUR = AG; çift halkalılar.)</p>
+  <p style="margin:6px 0;">Boyut köprüsü: "Pür<strong>i</strong>n daha b<strong>i</strong>yük" (çift halka), "Pirimidin daha minik" (tek halka).</p>
+</div>
+
+<div class="kutu spot">
+  <span class="ikon">🎯</span>
+  <span class="baslik">Spot Bilgi — Baz Eşleşme Kuralı (DNA'da)</span>
+  Slaytlardaki çift sarmalda bazlar daima bir purin + bir pirimidin olacak şekilde eşleşir:<br>
+  <strong>A = T</strong> (Adenine ↔ Thymine, <strong>2 hidrojen bağı</strong>) &nbsp;|&nbsp; <strong>G ≡ C</strong> (Guanine ↔ Cytosine, <strong>3 hidrojen bağı</strong>).<br>
+  Hatırlatıcı: <strong>"GC üçlüsü daha güçlü"</strong> (3 bağ → DNA'yı daha kararlı/sıcağa dayanıklı yapar).
+</div>
+
+<!-- ============ DOUBLE HELIX ============ -->
+<h2>4) DNA Çift Sarmal Yapısı (Structure of DNA Double Helix)</h2>
+<span class="slayt-et">Slayt 46</span>
+<ul>
+  <li>DNA zincirinin asimetrik uçlarına <strong>5' (5 prime) ve 3' (3 prime) uçları</strong> denir.</li>
+  <li><strong>5' ucu:</strong> uçta bir <strong>fosfat grubu (terminal phosphate group)</strong> taşır.</li>
+  <li><strong>3' ucu:</strong> uçta bir <strong>hidroksil grubu (terminal hydroxyl group)</strong> taşır.</li>
+  <li>Bir DNA dupleksinde (<strong>duplex</strong>) bir zincirin 5' ucu, diğer zincirin 3' ucunun karşısındadır → zincirler <strong>zıt yönelimlidir (opposite orientations)</strong> ve birbirine <strong>antiparalel (antiparallel)</strong> uzanır.</li>
+</ul>
+
+<div class="kutu spot">
+  <span class="ikon">🎯</span>
+  <span class="baslik">Spot Bilgi — Antiparallel</span>
+  Bir iplik <strong>5'→3'</strong> giderken, karşı iplik <strong>3'→5'</strong> gider. Uçlar şöyle ezberlenir: <strong>5' = Fosfat (P)</strong>, <strong>3' = OH (hidroksil)</strong>. Köprü: <strong>"5'te para (Phosphate), 3'te havlu (OH)"</strong>.
+</div>
+
+<div class="kutu klinik">
+  <span class="ikon">🦷</span>
+  <span class="baslik">Klinik Önemi</span>
+  3' ucundaki serbest <strong>—OH grubu</strong>, DNA polimeraz enziminin yeni nükleotid ekleyebildiği tek yerdir (sentez daima 5'→3' yönünde ilerler). Bu prensip, ileride <strong>DNA replikasyonu</strong>, PCR ve tükürükten DNA analizi (adli/genetik tanı) gibi diş hekimliğini de ilgilendiren laboratuvar testlerinin temelidir.
+</div>
+
+<!-- ============ CENTRAL DOGMA ============ -->
+<h2>5) Kalıtım Materyali ve Central Dogma</h2>
+<span class="slayt-et">Slayt 47</span>
+<p>
+Hücredeki tüm <strong>bilgi aktarım reaksiyonlarına (information transfer)</strong> topluca <strong>Central Dogma (merkezi dogma)</strong> denir:
+</p>
+<div class="akis">
+  DNA &nbsp;—(Transcription / transkripsiyon)→&nbsp; RNA &nbsp;—(Translation / translasyon)→&nbsp; Protein
+</div>
+<ul>
+  <li><strong>Replication (replikasyon):</strong> DNA → DNA (kendini eşleme).</li>
+  <li><strong>Transcription (transkripsiyon):</strong> DNA → RNA.</li>
+  <li><strong>Translation (translasyon):</strong> RNA → Protein.</li>
+  <li><strong>Reverse transcription (ters transkripsiyon):</strong> RNA → DNA <em>(istisna; bazı virüslerde — retrovirüsler).</em></li>
+</ul>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — Central Dogma Yönleri</span>
+  Ana akış: <strong>"DNA Reçeli, RNA Tarçınlı, Protein Tatlısı"</strong> → <strong>R</strong>eplication, <strong>T</strong>ranscription, <strong>T</strong>ranslation sırası.<br>
+  Hangi süreç hangi okta? <strong>tran<u>S</u>cription = DNA→RNA</strong> (her ikisi de nükleik asit), <strong>tran<u>SL</u>ation = RNA→protein</strong> ("SL" = farklı dile çeviri, nükleik asitten proteine).
+</div>
+
+<h3>DNA vs RNA — Görev Dağılımı</h3>
+<span class="slayt-et">Slayt 48</span>
+<ul>
+  <li><strong>DNA</strong>, kalıtsal bilgiyi taşıma görevini, DNA içermeyen bazı virüsler dışında <strong>tüm canlılarda</strong> yürütür.</li>
+  <li>Hücredeki diğer nükleik asit olan <strong>RNA</strong>, <strong>protein sentezinden (protein synthesis)</strong> sorumludur ve (bu derste verilen genel kurala göre) kalıtsal bilginin aktarımına katılmaz.</li>
+</ul>
+
+<div class="kutu dikkat">
+  <span class="ikon">⚠️</span>
+  <span class="baslik">Dikkat — İstisna (Çeldirici)</span>
+  Slaytta "DNA içermeyen bazı virüsler" istisnası özellikle belirtilmiştir. Bu <strong>RNA virüsleri / retrovirüsler</strong>dir; onlarda kalıtsal bilgi <strong>RNA</strong>'da taşınır ve <em>reverse transcription</em> ile DNA'ya çevrilir. Yani "kalıtsal materyal her zaman DNA'dır" ifadesi <strong>kesin doğru değildir</strong>.
+</div>
+
+<!-- ============ HIERARCHY ============ -->
+<h2>6) Organizasyon Hiyerarşisi: Cell → Nucleus → Chromosome → Gene → DNA</h2>
+<span class="slayt-et">Slayt 49</span>
+<div class="akis">
+  Hücre (Cell) → Çekirdek (Nucleus) → Kromozom (Chromosome) → Gen (Gene) → DNA
+</div>
+<ul>
+  <li>Canlıların tüm özellikleri, <strong>gen (genes)</strong> denen kalıtım birimleri aracılığıyla nesilden nesile aktarılır.</li>
+  <li>Kalıtsal özellikleri belirleyen bu genler, hücre çekirdeğindeki <strong>kromozomlar (chromosomes)</strong> üzerinde yer alır.</li>
+  <li><strong>Ökaryotlar ve prokaryotlar DNA içerir.</strong></li>
+  <li>Virüslerin <strong>bazıları DNA, bazıları RNA</strong> içerir.</li>
+</ul>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — Hiyerarşiyi Ezberle (büyükten küçüğe)</span>
+  <strong>"Çok Çevik Kuşlar Gökyüzünde Dolaşır"</strong> → <strong>Ç</strong>ekirdek değil, sıralı oku: <strong>C</strong>ell, <strong>N</strong>ucleus, <strong>C</strong>hromosome, <strong>G</strong>ene, <strong>D</strong>NA. (En büyük yapı hücre, en temel birim DNA.)
+</div>
+
+<!-- ============ FLASHCARDS ============ -->
+<div class="flash">
+  <span class="baslik">🃏 Flashcard'lar — Bölüm 4 (cevap için üstüne tıkla)</span>
+
+  <details>
+    <summary>1) Where is the genetic material located in eukaryotes, prokaryotes, and viruses?</summary>
+    <p>Eukaryotes → <strong>nucleus</strong>; Prokaryotes → <strong>nucleoid</strong>; Viruses → within the <strong>coat protein (capsid)</strong>.</p>
+  </details>
+
+  <details>
+    <summary>2) What is the single chemical difference in the sugar between RNA and DNA?</summary>
+    <p>At the <strong>2' carbon</strong>: RNA's ribose has an <strong>—OH</strong>; DNA's deoxyribose has only an <strong>—H</strong> (the OH is replaced by H).</p>
+  </details>
+
+  <details>
+    <summary>3) Name the three components of a nucleotide.</summary>
+    <p><strong>Phosphate group + pentose sugar + nitrogenous base.</strong></p>
+  </details>
+
+  <details>
+    <summary>4) Which bases are purines and which are pyrimidines? How many rings does each have?</summary>
+    <p>Purines = <strong>Adenine, Guanine</strong> (two rings). Pyrimidines = <strong>Cytosine, Thymine</strong> (and Uracil in RNA) — one ring. ("CUT" = pyrimidines.)</p>
+  </details>
+
+  <details>
+    <summary>5) State the base-pairing rule and the number of hydrogen bonds in each pair.</summary>
+    <p><strong>A = T</strong> (2 hydrogen bonds); <strong>G ≡ C</strong> (3 hydrogen bonds). GC pairs are more stable.</p>
+  </details>
+
+  <details>
+    <summary>6) What does it mean that DNA strands are "antiparallel"? Which group is at the 5' end vs 3' end?</summary>
+    <p>The two strands run in opposite orientations (one 5'→3', the other 3'→5'). <strong>5' end = phosphate group</strong>; <strong>3' end = hydroxyl (—OH) group</strong>.</p>
+  </details>
+
+  <details>
+    <summary>7) Define central dogma and name the three main processes (with directions).</summary>
+    <p>All reactions of information transfer in the cell. <strong>Replication</strong> (DNA→DNA), <strong>Transcription</strong> (DNA→RNA), <strong>Translation</strong> (RNA→Protein). Exception: <strong>reverse transcription</strong> (RNA→DNA).</p>
+  </details>
+</div>
+
+</div>
+
+<footer>
+  <strong>📌 Sıradaki bölüm:</strong> Bölüm 5 — <em>Chromosome Structure &amp; Packaging</em> (kromozom yapısı, histonlar, nükleozom, DNA paketlenmesi). Slayt 50 ve sonrası. "Devam et" demen yeterli.
+  <br><br>
+  Kaynak: Asst. Prof. Nilgün Karasu — Fundamentals of Inheritance and Chromosome Structure &amp; Packaging ders slaytları (Slayt 40–49).
+</footer>
+
+</body>
+</html>

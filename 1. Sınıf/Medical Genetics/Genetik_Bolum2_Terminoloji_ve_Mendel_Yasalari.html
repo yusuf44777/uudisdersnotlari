@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genetik – Bölüm 2: Terminoloji ve Mendel Yasaları</title>
+<style>
+  :root{
+    --ana:#1f2a8c; --ana2:#2e5db0; --metin:#1d2230; --soft:#f5f7fb;
+    --klinik:#0a7d63; --klinik-bg:#e7f8f2;
+    --spot:#b8860b; --spot-bg:#fff7e0;
+    --dikkat:#b22222; --dikkat-bg:#fdeaea;
+    --flash:#5a2a9c; --flash-bg:#f3ecfd;
+    --mnemo:#005f73; --mnemo-bg:#e3f4f8;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;line-height:1.7;
+    color:var(--metin);margin:0;padding:0 0 60px;background:#fafbfe;}
+  header.kapak{background:linear-gradient(135deg,#1f2a8c 0%,#2e5db0 100%);
+    color:#fff;padding:42px 28px;text-align:center;}
+  header.kapak h1{margin:0 0 8px;font-size:1.9rem;letter-spacing:.3px;}
+  header.kapak p{margin:4px 0;opacity:.92;font-size:1.02rem;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px;}
+  h2{color:#fff;background:var(--ana);padding:12px 18px;border-radius:10px;
+    margin:42px 0 18px;font-size:1.4rem;}
+  h3{color:var(--ana);border-bottom:3px solid var(--ana2);padding-bottom:6px;
+    margin:32px 0 12px;font-size:1.15rem;}
+  p{margin:10px 0;}
+  ul,ol{margin:10px 0 10px 6px;padding-left:22px;}
+  li{margin:7px 0;}
+  strong{color:var(--ana);}
+  em{color:#444;}
+  mark{background:#ffe98a;padding:1px 4px;border-radius:3px;}
+  .kutu{border-radius:12px;padding:16px 18px 16px 50px;margin:18px 0;position:relative;
+    box-shadow:0 2px 6px rgba(0,0,0,.06);}
+  .kutu .ikon{position:absolute;left:14px;top:14px;font-size:1.4rem;}
+  .kutu .baslik{font-weight:700;display:block;margin-bottom:5px;font-size:1.02rem;}
+  .klinik{background:var(--klinik-bg);border-left:6px solid var(--klinik);}
+  .klinik .baslik{color:var(--klinik);}
+  .spot{background:var(--spot-bg);border-left:6px solid var(--spot);}
+  .spot .baslik{color:#8a6500;}
+  .dikkat{background:var(--dikkat-bg);border-left:6px solid var(--dikkat);}
+  .dikkat .baslik{color:var(--dikkat);}
+  .mnemo{background:var(--mnemo-bg);border-left:6px solid var(--mnemo);}
+  .mnemo .baslik{color:var(--mnemo);}
+  .flash{background:var(--flash-bg);border:2px dashed var(--flash);border-radius:12px;
+    padding:14px 18px;margin:14px 0;}
+  .flash .baslik{color:var(--flash);font-weight:700;display:block;margin-bottom:8px;}
+  .flash details{margin:8px 0;background:#fff;border-radius:8px;padding:6px 12px;
+    border:1px solid #e0d4f5;}
+  .flash summary{cursor:pointer;font-weight:600;color:#3d1f6e;}
+  .flash details p{margin:8px 0 4px;color:#222;}
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.96rem;}
+  th,td{border:1px solid #c8d2e8;padding:9px 11px;text-align:left;vertical-align:top;}
+  th{background:var(--ana);color:#fff;}
+  tr:nth-child(even) td{background:var(--soft);}
+  .slayt-et{display:inline-block;background:#dfe6f5;color:var(--ana);font-size:.78rem;
+    font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:4px;}
+  .punnett{width:auto;text-align:center;}
+  .punnett td,.punnett th{text-align:center;font-weight:600;min-width:60px;}
+  footer{max-width:980px;margin:40px auto 0;padding:18px 22px;color:#666;font-size:.9rem;
+    border-top:1px solid #ddd;}
+</style>
+</head>
+<body>
+
+<header class="kapak">
+  <h1>Fundamentals of Inheritance — Vocabulary &amp; Mendel's Laws</h1>
+  <p><strong>Temel Terminoloji ve Mendel Yasaları</strong></p>
+  <p>Asst. Prof. Nilgün Karasu — Dept. of Medical Genetics</p>
+  <p style="margin-top:14px;font-size:.95rem;">📗 BÖLÜM 2 — Genetik Terminoloji, Mendel'in 3 Yasası ve Hastalık Sınıflandırması (Slayt 14–27)</p>
+</header>
+
+<div class="wrap">
+
+<!-- ============ VOCABULARY ============ -->
+<h2>1) Temel Genetik Sözlüğü (Vocabulary)</h2>
+
+<span class="slayt-et">Slayt 14</span>
+<ul>
+  <li>Bireyler arasında farklılık gösteren, kalıtılan bir özelliğe <strong>karakter (character)</strong> denir. <em>(Örn: göz rengi.)</em></li>
+  <li>Bir karakterin her bir varyantına (versiyonuna) <strong>özellik / nitelik (trait)</strong> denir. <em>(Örn: mavi göz, kahverengi göz.)</em></li>
+  <li>Her birey, her karakter için <strong>iki alel (two alleles)</strong> taşır. <em>(Biri anneden, biri babadan.)</em></li>
+</ul>
+
+<h3>Çekirdek Tanımlar</h3>
+<span class="slayt-et">Slayt 15</span>
+<table>
+  <tr><th>Terim</th><th>Tanım (Türkçe + İngilizce)</th></tr>
+  <tr><td><strong>Alleles</strong><br>(aleller)</td><td>Aynı genin farklı formları / bir genin alternatif versiyonları (<em>different forms of the same gene / alternative versions of a gene</em>).</td></tr>
+  <tr><td><strong>Gene</strong><br>(gen)</td><td>Kalıtımın temel <strong>fiziksel ve fonksiyonel birimi</strong> (<em>basic physical and functional unit of heredity</em>). Kromozomlar (<strong>chromosomes</strong>) üzerinde bulunur ve bir organizmanın nasıl geliştiğini kontrol eder.</td></tr>
+  <tr><td><strong>Genotype</strong><br>(genotip)</td><td>Organizmanın <strong>genetik yapısı / kalıtsal şifresi</strong> (<em>the genetic makeup of the organism</em>). Örn: <em>Aa</em>.</td></tr>
+  <tr><td><strong>Phenotype</strong><br>(fenotip)</td><td><strong>Dışa vuran / ifade edilen özellik</strong> (<em>the expressed trait</em>). Genotipin gözlemlenebilir sonucu. Örn: mavi göz.</td></tr>
+</table>
+
+<div class="kutu spot">
+  <span class="ikon">🎯</span>
+  <span class="baslik">Spot Bilgi — Genotype vs Phenotype</span>
+  <strong>Genotype = kod (içeride, DNA'da yazılı)</strong>; <strong>Phenotype = görünüm (dışarıda, gözlenen)</strong>. Aynı fenotip, farklı genotiplerden gelebilir (örn. <em>AA</em> ve <em>Aa</em> ikisi de baskın fenotipi gösterir). Bu, "fenotipe bakarak genotipi her zaman bilemezsin" ilkesinin temelidir.
+</div>
+
+<h3>Baskınlık ve Yazım Kuralı</h3>
+<span class="slayt-et">Slayt 16</span>
+<ul>
+  <li>Bir alel, diğerini (<strong>recessive / çekinik</strong> alel) etkin biçimde <strong>bastırıyorsa (overrules)</strong>, o alel <strong>baskın (dominant)</strong> kabul edilir.</li>
+  <li><strong>Baskın aleller BÜYÜK harfle</strong> gösterilir → <em>A</em>.</li>
+  <li><strong>Çekinik aleller küçük harfle</strong> gösterilir → <em>a</em>.</li>
+</ul>
+
+<h3>Zigotluk Durumu (Zygosity)</h3>
+<span class="slayt-et">Slayt 17</span>
+<ul>
+  <li><strong>Heterozygous (heterozigot):</strong> Bir özellik için iki alel <strong>FARKLI</strong> ise → <em>Aa</em>.</li>
+  <li><strong>Homozygous (homozigot):</strong> İki alel <strong>AYNI</strong> ise.</li>
+</ul>
+<table>
+  <tr><th>Genotip Adı</th><th>Gösterim</th></tr>
+  <tr><td>Homozygous Dominant Genotype (homozigot baskın)</td><td><strong>AA</strong></td></tr>
+  <tr><td>Homozygous Recessive Genotype (homozigot çekinik)</td><td><strong>aa</strong></td></tr>
+  <tr><td>Heterozygous Genotype (heterozigot)</td><td><strong>Aa</strong></td></tr>
+</table>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — Homo / Hetero</span>
+  <strong>HOMO</strong> = Yunanca "aynı" → <strong>aynı</strong> iki alel (AA veya aa). &nbsp;|&nbsp; <strong>HETERO</strong> = "farklı" → <strong>farklı</strong> iki alel (Aa). Hatırlatıcı: "Homo<u>jen</u> = tek tip" mantığıyla bağla.
+</div>
+
+<div class="kutu klinik">
+  <span class="ikon">🦷</span>
+  <span class="baslik">Klinik Önemi</span>
+  Diş anomalilerinde genotip-fenotip ilişkisi sınavda ve klinikte kritiktir. Örneğin <em>amelogenesis imperfecta</em>'nın bazı formları otozomal dominant; bir ebeveyn etkilenmişse (heterozigot <em>Aa</em>) çocuğa geçme olasılığını hesaplamak için bu yazım kurallarını ve zigotluk kavramını kullanırsın.
+</div>
+
+<!-- ============ MENDEL'S LAWS ============ -->
+<h2>2) Mendel'in Üç Temel Yasası (Three Main Principles)</h2>
+<span class="slayt-et">Slayt 18</span>
+<p>Mendel'in genetiğe kazandırdığı <strong>üç ana ilke</strong>:</p>
+<ol>
+  <li><strong>Law of Uniformity</strong> (Tek Tiplilik / Yeknesaklık Yasası)</li>
+  <li><strong>Law of Segregation</strong> (Ayrılma Yasası)</li>
+  <li><strong>Law of Independent Assortment</strong> (Bağımsız Dağılım Yasası)</li>
+</ol>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — Mendel'in 3 yasası: "U-S-I"</span>
+  <strong>U</strong>niformity → <strong>S</strong>egregation → <strong>I</strong>ndependent assortment.<br>
+  Türkçe köprü: <strong>"Ünlü Sınav Iraksaması"</strong> ya da sıralı hikâye: <em>önce hepsi aynı olur (Uniformity), sonra alleler ayrılır (Segregation), sonra bağımsızca dağılır (Independent assortment)</em>.
+</div>
+
+<h3>① Law of Uniformity (Tek Tiplilik Yasası)</h3>
+<span class="slayt-et">Slayt 19</span>
+<p>
+Farklı alellere sahip <strong>iki homozigot (two homozygotes with different alleles)</strong> çaprazlandığında (örn. <em>AA × aa</em>), <strong>F1 (first filial) jenerasyonundaki tüm yavrular birbirinin aynısı (identical) ve heterozigottur (heterozygous → Aa)</strong>.
+</p>
+<table class="punnett">
+  <tr><th>×</th><th>a</th><th>a</th></tr>
+  <tr><th>A</th><td>Aa</td><td>Aa</td></tr>
+  <tr><th>A</th><td>Aa</td><td>Aa</td></tr>
+</table>
+<p style="text-align:center;"><em>F1: %100 Aa (hepsi tek tip, heterozigot)</em></p>
+
+<h3>② Law of Segregation (Ayrılma Yasası)</h3>
+<span class="slayt-et">Slayt 20</span>
+<ul>
+  <li>Her birey, belirli bir özellik için <strong>iki gen (alel)</strong> taşır; ancak <strong>herhangi bir anda yalnızca biri aktarılabilir (only one can be transmitted at any one time)</strong>.</li>
+  <li>Yani mayoz sırasında <strong>maternal ve paternal aleller ayrı gametlere (separate daughter cells/gametes) ayrışır</strong>.</li>
+  <li><strong>Nadir istisna (rare exception): kromozomal ayrılmama (chromosomal nondisjunction)</strong> — homolog kromozomların/kardeş kromatitlerin ayrılamaması.</li>
+</ul>
+
+<div class="kutu dikkat">
+  <span class="ikon">⚠️</span>
+  <span class="baslik">Dikkat — Segregasyon İstisnası</span>
+  Ayrılma yasasının başlıca istisnası <strong>nondisjunction</strong>'dır. Bu olay, gametlere fazla ya da eksik kromozom gitmesine ve dolayısıyla <strong>anöploidi (aneuploidy)</strong> tablolarına (örn. Trisomy 21 / Down sendromu) yol açar. Sınavda "segregasyonun istisnası nedir?" sorusunun cevabı: <strong>nondisjunction</strong>.
+</div>
+
+<h3>③ Law of Independent Assortment (Bağımsız Dağılım Yasası)</h3>
+<span class="slayt-et">Slayt 21</span>
+<ul>
+  <li>Farklı gen çiftlerinin üyeleri, yavrulara <strong>birbirinden bağımsız olarak (independently of one another)</strong> dağılır.</li>
+  <li><strong>Gerçekte bu her zaman doğru değildir:</strong> Aynı kromozom üzerinde <strong>birbirine yakın (close together)</strong> olan genler birlikte kalıtılma eğilimindedir, çünkü <strong>bağlıdırlar ("linked" / linkage)</strong>.</li>
+</ul>
+
+<div class="kutu dikkat">
+  <span class="ikon">⚠️</span>
+  <span class="baslik">Dikkat — Linkage = Bağımsız Dağılımın İstisnası</span>
+  Bağımsız dağılım yasasının istisnası <strong>gen bağlantısı (linkage)</strong>'dır. Aynı kromozomda yakın konumdaki genler "paket" hâlinde geçer → bağımsız dağılmazlar. İki gen ne kadar yakınsa, birlikte kalıtılma olasılıkları o kadar yüksektir. (Çeldirici: "bağlı genler her zaman birlikte geçer" → yanlış; <strong>crossing-over / rekombinasyon</strong> onları ayırabilir.)
+</div>
+
+<div class="kutu spot">
+  <span class="ikon">🎯</span>
+  <span class="baslik">Spot Bilgi — Yasa + İstisna Eşleştirmesi (ÇOK ÖNEMLİ)</span>
+  <table style="margin:8px 0;">
+    <tr><th>Yasa</th><th>İstisnası</th></tr>
+    <tr><td>Law of Segregation</td><td><strong>Nondisjunction</strong></td></tr>
+    <tr><td>Law of Independent Assortment</td><td><strong>Linkage</strong> (gen bağlantısı)</td></tr>
+  </table>
+</div>
+
+<!-- ============ DISEASE CATEGORIES ============ -->
+<h2>3) Kalıtsal Hastalık Kategorileri</h2>
+<span class="slayt-et">Slayt 22</span>
+<p>Kalıtsal durumlar (<strong>hereditary conditions</strong>) geleneksel olarak üç başlık altında incelenir; günümüzde dördüncü bir kategori de eklenir:</p>
+<ol>
+  <li><strong>Single gene</strong> (tek gen / Mendelian) hastalıkları</li>
+  <li><strong>Chromosomal</strong> (kromozomal) hastalıklar</li>
+  <li><strong>Multifactorial</strong> (multifaktöriyel / çok etkenli) hastalıklar</li>
+  <li><strong>Acquired somatic genetic disease</strong> (edinilmiş somatik genetik hastalık) — ör. kanserler. <em>(Ek/dördüncü kategori.)</em></li>
+</ol>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — 4 Kategori</span>
+  <strong>"SCM + A"</strong> → <strong>S</strong>ingle gene, <strong>C</strong>hromosomal, <strong>M</strong>ultifactorial, <strong>+A</strong>cquired somatic. <br>
+  Köprü cümle: <strong>"S</strong>en <strong>Ç</strong>ok <strong>M</strong>utlu <strong>A</strong>damsın."
+</div>
+
+<!-- ============ EPIDEMIOLOGY TERMS ============ -->
+<h2>4) Epidemiyolojik Terimler</h2>
+
+<h3>Incidence vs Prevalence</h3>
+<span class="slayt-et">Slayt 23</span>
+<ul>
+  <li><strong>Incidence (insidans):</strong> <strong>Yeni vakaların ortaya çıkma hızı</strong> (<em>the rate at which new cases occur</em>) — hastalığın "başlangıç hızı".</li>
+  <li><strong>Prevalence (prevalans):</strong> <strong>Herhangi bir anda etkilenen popülasyon oranı</strong> (<em>the proportion of a population affected at any one time</em>) — hastalığın toplumdaki toplam yükü.</li>
+</ul>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — Incidence / Prevalence</span>
+  <strong>I</strong>ncidence = <strong>I</strong>n (içeri YENİ girenler / yeni vakalar, akış-hız). <br>
+  <strong>P</strong>revalence = <strong>P</strong>resent (şu an mevcut olan TÜM vakalar, fotoğraf-kare). <br>
+  Görsel: Incidence = musluktan akan su (hız); Prevalence = lavaboda biriken su (mevcut toplam).
+</div>
+
+<h3>Frequency (Sıklık)</h3>
+<span class="slayt-et">Slayt 24</span>
+<ul>
+  <li><strong>Frequency</strong>, bilimsel kesinliği zayıf, genel bir terimdir; ancak <strong>gen 'frequencies' (gen sıklıkları)</strong> hesaplanırken çoğu zaman <strong>incidence ile eş anlamlı</strong> kullanılır.</li>
+  <li>Bir olayın (hastalık, ölüm vb.) belirli bir popülasyonda <strong>kaç kez gerçekleştiğinin basit sayımıdır</strong> (<em>a simple count</em>).</li>
+</ul>
+
+<!-- ============ CONGENITAL & HEREDITARY ============ -->
+<h2>5) Congenital ve Hereditary Ayrımı</h2>
+
+<h3>Congenital (Doğumsal)</h3>
+<span class="slayt-et">Slayt 25</span>
+<ul>
+  <li><strong>Congenital</strong> = bir durumun <strong>doğumda mevcut olması (present at birth)</strong> demektir.</li>
+  <li>Örnek: <strong>Yarık damak (cleft palate)</strong> bir <strong>doğumsal malformasyon (congenital malformation)</strong> örneğidir.</li>
+</ul>
+
+<div class="kutu klinik">
+  <span class="ikon">🦷</span>
+  <span class="baslik">Klinik Önemi — DİŞ HEKİMLİĞİ İÇİN ALTIN BİLGİ</span>
+  <strong>Cleft palate (yarık damak)</strong> ve <strong>cleft lip (yarık dudak)</strong>, diş hekimliğini doğrudan ilgilendiren en sık doğumsal kraniyofasiyal anomalilerdendir ve genellikle <strong>multifaktöriyel (multifactorial)</strong> kalıtım gösterirler. Slaytta "congenital malformation" örneği olarak özellikle <em>cleft palate</em> seçilmesi tesadüf değil — bu, senin branşının klasik sınav örneğidir. Ezberle!
+</div>
+
+<h3>Hereditary (Kalıtsal)</h3>
+<span class="slayt-et">Slayt 26</span>
+<ul>
+  <li><strong>Hereditary</strong> = genler aracılığıyla anne-babadan yavruya <strong>doğal olarak geçen / geçebilen</strong> demektir (<em>passing naturally from parent to offspring through the genes</em>).</li>
+  <li><strong>Hereditary traits (kalıtsal özellikler):</strong> mavi göz (blue eyes), kıvırcık saç (curly hair), cilt tonu (skin tone).</li>
+  <li><strong>Hereditary disorders (kalıtsal hastalıklar):</strong> albinizm (albinism), kistik fibroz (cystic fibrosis).</li>
+</ul>
+
+<div class="kutu dikkat">
+  <span class="ikon">⚠️</span>
+  <span class="baslik">Dikkat — EN KRİTİK ÇELDİRİCİ (Slayt 27)</span>
+  <p style="margin:6px 0;"><strong>Congenital ≠ Hereditary!</strong> Bu iki kavram karıştırılmamalıdır:</p>
+  <ul style="margin:6px 0;">
+    <li><strong>Tüm genetik hastalıklar doğumda başlamaz</strong> (<em>Not all genetic disorders are congenital in age of onset</em>). Örn. Huntington hastalığı genetiktir ama yetişkinlikte başlar.</li>
+    <li><strong>Tüm doğumsal anomaliler genetik kökenli değildir</strong> (<em>not all congenital abnormalities are nongenetic in origin</em> — yani bazıları çevresel/teratojeniktir; örn. enfeksiyon, ilaç, alkol).</li>
+  </ul>
+  Bu cümle slaytta <strong>"!!"</strong> ile vurgulanmış — yani sınavda çıkma ihtimali çok yüksek bir tuzak noktası.
+</div>
+
+<!-- ============ FLASHCARDS ============ -->
+<div class="flash">
+  <span class="baslik">🃏 Flashcard'lar — Bölüm 2 (cevap için üstüne tıkla)</span>
+
+  <details>
+    <summary>1) Define genotype and phenotype. Give the genotype of a heterozygous individual.</summary>
+    <p><strong>Genotype</strong> = the genetic makeup of an organism (içsel kod). <strong>Phenotype</strong> = the expressed/observable trait (dış görünüm). Heterozygous genotype = <strong>Aa</strong>.</p>
+  </details>
+
+  <details>
+    <summary>2) When two homozygotes with different alleles (AA × aa) are crossed, what is the F1 generation? Which law is this?</summary>
+    <p>All F1 offspring are <strong>identical and heterozygous (Aa)</strong>. This is the <strong>Law of Uniformity</strong>.</p>
+  </details>
+
+  <details>
+    <summary>3) What is the rare exception to the Law of Segregation? And to the Law of Independent Assortment?</summary>
+    <p>Segregation → <strong>chromosomal nondisjunction</strong>. Independent assortment → <strong>linkage</strong> (genes close together on the same chromosome are inherited together).</p>
+  </details>
+
+  <details>
+    <summary>4) What is the difference between incidence and prevalence?</summary>
+    <p><strong>Incidence</strong> = rate at which NEW cases occur (hız). <strong>Prevalence</strong> = proportion of the population affected at any one time (mevcut toplam yük).</p>
+  </details>
+
+  <details>
+    <summary>5) What does "congenital" mean? Give the example used in the slides.</summary>
+    <p><strong>Congenital</strong> = present at birth. Slide example: <strong>cleft palate</strong> (a congenital malformation).</p>
+  </details>
+
+  <details>
+    <summary>6) "All congenital disorders are genetic, and all genetic disorders are present at birth." True or false? Explain.</summary>
+    <p><strong>FALSE.</strong> Not all genetic disorders are congenital in onset (e.g. adult-onset diseases), and not all congenital abnormalities are genetic in origin (some are environmental/teratogenic).</p>
+  </details>
+
+  <details>
+    <summary>7) Name the four categories of hereditary/genetic conditions.</summary>
+    <p><strong>Single gene, chromosomal, multifactorial</strong> + <strong>acquired somatic genetic disease</strong>.</p>
+  </details>
+</div>
+
+</div>
+
+<footer>
+  <strong>📌 Sıradaki bölüm:</strong> Bölüm 3 — <em>The Human Genome Project</em> (amaç ve hedefleri) ve devamında Kromozom Yapısı &amp; Paketlenmesi (Slayt 28 ve sonrası). "Devam et" demen yeterli.
+  <br><br>
+  Kaynak: Asst. Prof. Nilgün Karasu — Fundamentals of Inheritance and Chromosome Structure &amp; Packaging ders slaytları (Slayt 14–27).
+</footer>
+
+</body>
+</html>

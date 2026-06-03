@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genetik – Bölüm 6: Kromozom Paketlenmesi (II) ve Kromozom Anatomisi</title>
+<style>
+  :root{
+    --ana:#1f2a8c; --ana2:#2e5db0; --metin:#1d2230; --soft:#f5f7fb;
+    --klinik:#0a7d63; --klinik-bg:#e7f8f2;
+    --spot:#b8860b; --spot-bg:#fff7e0;
+    --dikkat:#b22222; --dikkat-bg:#fdeaea;
+    --flash:#5a2a9c; --flash-bg:#f3ecfd;
+    --mnemo:#005f73; --mnemo-bg:#e3f4f8;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;line-height:1.7;
+    color:var(--metin);margin:0;padding:0 0 60px;background:#fafbfe;}
+  header.kapak{background:linear-gradient(135deg,#1f2a8c 0%,#2e5db0 100%);
+    color:#fff;padding:42px 28px;text-align:center;}
+  header.kapak h1{margin:0 0 8px;font-size:1.75rem;letter-spacing:.3px;}
+  header.kapak p{margin:4px 0;opacity:.92;font-size:1.02rem;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px;}
+  h2{color:#fff;background:var(--ana);padding:12px 18px;border-radius:10px;
+    margin:42px 0 18px;font-size:1.4rem;}
+  h3{color:var(--ana);border-bottom:3px solid var(--ana2);padding-bottom:6px;
+    margin:32px 0 12px;font-size:1.15rem;}
+  p{margin:10px 0;}
+  ul,ol{margin:10px 0 10px 6px;padding-left:22px;}
+  li{margin:7px 0;}
+  strong{color:var(--ana);}
+  em{color:#444;}
+  mark{background:#ffe98a;padding:1px 4px;border-radius:3px;}
+  .kutu{border-radius:12px;padding:16px 18px 16px 50px;margin:18px 0;position:relative;
+    box-shadow:0 2px 6px rgba(0,0,0,.06);}
+  .kutu .ikon{position:absolute;left:14px;top:14px;font-size:1.4rem;}
+  .kutu .baslik{font-weight:700;display:block;margin-bottom:5px;font-size:1.02rem;}
+  .klinik{background:var(--klinik-bg);border-left:6px solid var(--klinik);}
+  .klinik .baslik{color:var(--klinik);}
+  .spot{background:var(--spot-bg);border-left:6px solid var(--spot);}
+  .spot .baslik{color:#8a6500;}
+  .dikkat{background:var(--dikkat-bg);border-left:6px solid var(--dikkat);}
+  .dikkat .baslik{color:var(--dikkat);}
+  .mnemo{background:var(--mnemo-bg);border-left:6px solid var(--mnemo);}
+  .mnemo .baslik{color:var(--mnemo);}
+  .flash{background:var(--flash-bg);border:2px dashed var(--flash);border-radius:12px;
+    padding:14px 18px;margin:14px 0;}
+  .flash .baslik{color:var(--flash);font-weight:700;display:block;margin-bottom:8px;}
+  .flash details{margin:8px 0;background:#fff;border-radius:8px;padding:6px 12px;
+    border:1px solid #e0d4f5;}
+  .flash summary{cursor:pointer;font-weight:600;color:#3d1f6e;}
+  .flash details p{margin:8px 0 4px;color:#222;}
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.95rem;}
+  th,td{border:1px solid #c8d2e8;padding:9px 11px;text-align:left;vertical-align:top;}
+  th{background:var(--ana);color:#fff;}
+  tr:nth-child(even) td{background:var(--soft);}
+  .slayt-et{display:inline-block;background:#dfe6f5;color:var(--ana);font-size:.78rem;
+    font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:4px;}
+  .akis{text-align:center;font-weight:700;color:var(--ana);font-size:1rem;
+    background:#eef2fb;border-radius:10px;padding:12px;margin:16px 0;line-height:2;}
+  .bitti{background:#e7f8f2;border:2px solid var(--klinik);border-radius:12px;
+    padding:16px 20px;margin:24px 0;text-align:center;color:var(--klinik);font-weight:600;}
+  footer{max-width:980px;margin:40px auto 0;padding:18px 22px;color:#666;font-size:.9rem;
+    border-top:1px solid #ddd;}
+</style>
+</head>
+<body>
+
+<header class="kapak">
+  <h1>Chromosome Packaging (II) &amp; Chromosome Anatomy</h1>
+  <p><strong>Kromozom Paketlenmesi (II) ve Kromozom Anatomisi</strong></p>
+  <p>Asst. Prof. Nilgün Karasu — Dept. of Medical Genetics</p>
+  <p style="margin-top:14px;font-size:.95rem;">🧬 BÖLÜM 6 (FİNAL) — Solenoid &amp; Üst Düzey Katlanma, Karyotip, Kromozom Anatomisi &amp; Kromatin Tipleri (Slayt 67–89)</p>
+</header>
+
+<div class="wrap">
+
+<!-- ============ FOLDING STAGES 2-4 ============ -->
+<h2>1) Katlanma Aşamaları (Chromatin Folding Stages 2–4)</h2>
+
+<h3>Aşama 2: Solenoid Yapı (30 nm)</h3>
+<span class="slayt-et">Slayt 67–68</span>
+<ul>
+  <li>Paketlemenin bir sonraki adımı <strong>30 nm çapında solenoid yapının (solenoid structure)</strong> oluşmasıdır.</li>
+  <li>Bu yapıda <strong>6 nükleozom radyal olarak (radially)</strong> dizilir ve bir <strong>heliks (helix)</strong> şeklinde devam eder.</li>
+  <li>Bu yapının oluşumunda <strong>H1 proteini ve histon kuyrukları (histone tails)</strong> rol oynar.</li>
+  <li>Bu aşamada DNA molekülü <strong>40 kat</strong> sıkıştırılmıştır.</li>
+</ul>
+
+<h3>Aşama 3: Kromatin Fibrillerinin Oluşumu (300 nm)</h3>
+<span class="slayt-et">Slayt 69</span>
+<ul>
+  <li>30 nm'lik yapılar katlanmaya devam ederek <strong>300 nm çapında kromatin fibrilleri (chromatin fibrils)</strong> oluşturur.</li>
+</ul>
+
+<h3>Aşama 4: Kardeş Kromatitlerin Oluşumu (700 nm)</h3>
+<span class="slayt-et">Slayt 70–71</span>
+<ul>
+  <li>Helikal kromatin fibrilleri katlanıp sıkışarak <strong>kardeş kromatitleri (sister chromatids)</strong> oluşturur — bunlar metafaz kromozomunun <strong>boyuna alt birimleridir</strong>.</li>
+  <li>Her kromatit kolu <strong>700 nm</strong> genişliğindedir. Bu yapıda DNA <strong>10.000 kat</strong> sıkıştırılmıştır.</li>
+  <li>Kardeş kromatit çiftinin oluşturduğu kromozomun genişliği yaklaşık <strong>1400 nm</strong>'dir.</li>
+</ul>
+
+<div class="kutu spot">
+  <span class="ikon">🎯</span>
+  <span class="baslik">Spot Bilgi — Tüm Paketleme Düzeyleri (TEK BAKIŞTA)</span>
+  <table style="margin:8px 0;">
+    <tr><th>Düzey</th><th>Çap</th><th>Sıkışma</th></tr>
+    <tr><td>DNA çift sarmalı</td><td>2 nm</td><td>—</td></tr>
+    <tr><td>Nükleozom (beads on a string)</td><td>11 nm</td><td>5–10×</td></tr>
+    <tr><td><strong>Solenoid (30-nm fiber)</strong></td><td>30 nm</td><td><strong>40×</strong></td></tr>
+    <tr><td>Kromatin fibrili (uzamış)</td><td>300 nm</td><td>—</td></tr>
+    <tr><td>Kardeş kromatit (yoğun)</td><td>700 nm</td><td><strong>10.000×</strong></td></tr>
+    <tr><td>Metafaz kromozomu (tüm)</td><td>~1400 nm</td><td>10.000×</td></tr>
+  </table>
+</div>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — Çapları Sırala</span>
+  <strong>2 → 11 → 30 → 300 → 700 → 1400</strong> nm. Köprü: "İki kişi, on bir basamak, otuz adım, üç yüz metre, yedi yüz, bin dört yüz." Solenoid'te <strong>6 nükleozom</strong> + <strong>40 kat</strong> sıkışma rakamlarını ayrıca işaretle.
+</div>
+
+<!-- ============ DNA TO GENE / GENOME ORG ============ -->
+<h2>2) DNA → Gen Hiyerarşisi ve Genom Organizasyonu</h2>
+<span class="slayt-et">Slayt 72</span>
+<p>Büyükten küçüğe organizasyon zinciri ve tanımlar:</p>
+<ul>
+  <li><strong>Hücre (Cell):</strong> Canlının en küçük yapısal ve işlevsel birimi.</li>
+  <li><strong>Çekirdek (Nucleus):</strong> İnsan DNA'sında ~3 milyar nükleotid vardır. DNA; çekirdek, <strong>mitokondri (mitochondria)</strong> ve <strong>kloroplast (chloroplast)</strong> organellerinde bulunur. ~2 metre uzunluğundaki DNA hücreye sığar.</li>
+  <li><strong>Kromozom (Chromosome):</strong> Hücre bölünmesi sırasında kromatinler kısalır, kalınlaşır ve katlanır; bu katlanmış yapıya kromozom denir. İnsanda <strong>46 kromozom</strong> vardır.</li>
+  <li><strong>Kromatin (Chromatin):</strong> Nükleozomlara sıkıca sarılmış DNA yapısı; DNA'dan daha kalın, iplik benzeri.</li>
+  <li><strong>Nükleozom (Nucleosome):</strong> DNA'nın sekiz histon proteinine yaklaşık iki kez sarılmasıyla oluşan yapı → DNA daha az yer kaplar.</li>
+  <li><strong>Gen (Gene):</strong> Belirli uzunluktaki işlevsel DNA segmentleri; kalıtsal özellikleri taşır ve farklı işlevli proteinlerin sentezini sağlar.</li>
+</ul>
+
+<h3>Genom = Bir Hikâye Kitabı (Genome as a Storybook)</h3>
+<span class="slayt-et">Slayt 73</span>
+<table>
+  <tr><th>Kitap Benzetmesi</th><th>Genetik Karşılık</th></tr>
+  <tr><td>Kitap = 23 bölüm</td><td><strong>Chromosomes</strong> (kromozomlar)</td></tr>
+  <tr><td>Her bölüm = binlerce hikâye</td><td><strong>Genes</strong> (genler)</td></tr>
+  <tr><td>Her hikâye = paragraflar</td><td><strong>Exons</strong> (ekzonlar)</td></tr>
+  <tr><td>Her paragraf = kelimeler</td><td><strong>Codons</strong> (kodonlar)</td></tr>
+  <tr><td>Her kelime = 3 harf</td><td><strong>Bases / A, T, G, C</strong> (bazlar)</td></tr>
+</table>
+
+<div class="kutu dikkat">
+  <span class="ikon">⚠️</span>
+  <span class="baslik">Dikkat — "3 harf" vs "4 harf"</span>
+  Bir <strong>kodon = 3 baz</strong>tır (bir kelime gibi). Ancak kullanılabilen <strong>harf alfabesi 4 tanedir: A, T, G, C</strong>. Yani "her kelime 3 harften oluşur, ama alfabe 4 harflidir." Bu nüans karıştırılmamalı.
+</div>
+
+<!-- ============ HISTORY OF CHROMOSOME ============ -->
+<h2>3) Kromozomun Keşif Tarihi</h2>
+<span class="slayt-et">Slayt 74</span>
+<ul>
+  <li>Kromozomlar, DNA'nın "genetik materyal" ve genlerin "kalıtım birimi" olduğunun keşfinden <strong>çok önce</strong> tanımlandı.</li>
+  <li>İlk kez <strong>1840'larda</strong> İsviçreli botanikçi <strong>Karl Wilhelm von Nägeli</strong> tarafından bitki hücrelerinde gözlemlendi.</li>
+  <li><strong>1880'lerde</strong> bazik boyalarla boyandığında ışık mikroskobunda görülebildiler. <strong>Wilhelm von Waldeyer Hartz (1836–1921)</strong> bu yapılara <strong>1888</strong>'de "kromozom" adını verdi.</li>
+</ul>
+
+<!-- ============ PLOIDY ============ -->
+<h2>4) Haploid / Diploid ve Homolog Kromozomlar</h2>
+<span class="slayt-et">Slayt 75</span>
+<ul>
+  <li>Tipik bir ökaryotik kromozomdaki DNA, uzunluğu <strong>on milyonlarca ile yüz milyonlarca baz çifti</strong> arasında değişen <strong>doğrusal, çift iplikli (linear double-stranded)</strong> bir moleküldür.</li>
+  <li><strong>Eşey hücreleri / gametler (gametes)</strong> yalnızca tek takım kromozom içerir → <strong>haploid (n)</strong>.</li>
+  <li>Haploid dişi ve erkek gametlerin döllenmesiyle oluşan her <strong>somatik hücre (somatic cell)</strong> çift takım kromozom içerir → <strong>diploid (2n)</strong>.</li>
+  <li>Her kromozom çiftine <strong>homolog kromozom (homologous chromosome)</strong> denir.</li>
+</ul>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — Haploid / Diploid</span>
+  <strong>Haploid = "Half" (yarım) = n</strong> → gametler (yumurta/sperm). <strong>Diploid = "Double" (çift) = 2n</strong> → vücut (somatik) hücreleri. Döllenme: n + n = 2n.
+</div>
+
+<h3>Türlerde Kromozom Sayısı</h3>
+<span class="slayt-et">Slayt 76</span>
+<ul>
+  <li>Kromozom sayısı türden türe değişir. <strong>Organizmanın genom büyüklüğü ile kromozom/gen sayısı arasında bir ilişki YOKTUR.</strong></li>
+  <li>Her türün kendine özgü kromozom sayısı ve morfolojik yapısı vardır.</li>
+  <li>Yüksek ökaryotlarda genom büyüklüğündeki artış, gen sayısının artmasından değil; <strong>tekrarlayan dizilerin (repetitive sequences) ve intronların (introns)</strong> varlığından kaynaklanır.</li>
+</ul>
+<table>
+  <tr><th>Organizma</th><th>Kromozom (n)</th><th>Genom</th><th>Gen (~)</th></tr>
+  <tr><td>Virus (T4 phage)</td><td>1</td><td>169 kb</td><td>300</td></tr>
+  <tr><td>Bacteria (E. coli)</td><td>1</td><td>4,6 Mb</td><td>4.300</td></tr>
+  <tr><td>Yeast (S. cerevisiae)</td><td>8</td><td>12 Mb</td><td>5.400</td></tr>
+  <tr><td>Fruit fly (D. melanogaster)</td><td>4</td><td>165 Mb</td><td>14.000</td></tr>
+  <tr><td>Rice (O. sativa)</td><td>12</td><td>430 Mb</td><td>62.500</td></tr>
+  <tr><td>Chimpanzee (P. troglodytes)</td><td>24</td><td>3050 Mb</td><td>21.500</td></tr>
+  <tr><td><strong>Human (Homo sapiens)</strong></td><td><strong>23</strong></td><td><strong>3000 Mb</strong></td><td><strong>20.000</strong></td></tr>
+</table>
+
+<div class="kutu dikkat">
+  <span class="ikon">⚠️</span>
+  <span class="baslik">Dikkat — Sürpriz Çeldirici</span>
+  <strong>Pirinç (rice) ~62.500 gen</strong> içerir — insandan (~20.000) ÇOK daha fazla! Bu, "daha gelişmiş canlının daha çok geni vardır" yanılgısını çürütür. Genom büyüklüğü ≠ karmaşıklık. Sınavda bu tür "ters" örnekler sorulur.
+</div>
+
+<!-- ============ HUMAN KARYOTYPE ============ -->
+<h2>5) İnsan Karyotipi</h2>
+<span class="slayt-et">Slayt 77</span>
+<p>
+İnsanda <strong>22 çift otozom (autosomes)</strong> ve <strong>1 çift gonozom (gonadosome / cinsiyet kromozomu)</strong> vardır (dişide <strong>XX</strong>, erkekte <strong>XY</strong>).
+</p>
+<div class="akis">
+  Kadın (♀): 44 (otozom) + XX (gonozom) = <strong>46 kromozom</strong><br>
+  Erkek (♂): 44 (otozom) + XY (gonozom) = <strong>46 kromozom</strong>
+</div>
+
+<div class="kutu spot">
+  <span class="ikon">🎯</span>
+  <span class="baslik">Spot Bilgi — 46 Kromozom Formülü</span>
+  <strong>46 = 44 otozom + 2 gonozom</strong> &nbsp;|&nbsp; Karyotip yazımı: Kadın = <strong>46,XX</strong>; Erkek = <strong>46,XY</strong>. (Otozomlar 1–22, sonra cinsiyet kromozomları.)
+</div>
+
+<h3>Karyotip ve İdeogram</h3>
+<span class="slayt-et">Slayt 78–82</span>
+<ul>
+  <li>Kromozomlar interfazda <strong>gevşek DNA iplikleri (loose DNA strings)</strong> hâlinde, çekirdeğe dağılmış bulunur (hücre döngüsünün büyük kısmı).</li>
+  <li>Mitoza giren hücrede kromozomlar <strong>profazda</strong> kısalıp kalınlaşır, <strong>metafazda</strong> en kısa/yoğun hâle gelir → <strong>mikroskopta görülebilir kromozomlar</strong> oluşur. Kromozomlar yalnızca bölünme sırasında görülür.</li>
+  <li><strong>Karyotype (karyotip):</strong> Kromozomların belirli bir sisteme göre sınıflandırılması. <strong>Ideogram (ideogram):</strong> Karyotipin şematik gösterimi.</li>
+  <li><strong>G-Banding (G-bantlama) yöntemi:</strong> Mitotik kromozomlar önce proteolitik enzim <strong>tripsin (trypsin)</strong> ile histon ve histon-olmayan proteinlerden ayrılır, sonra <strong>Giemsa</strong> ile boyanır. Her kromozom boyunca benzersiz bir bant deseni oluşur.</li>
+  <li>Genler kromozom boyunca dağılmıştır; bir kromozom <strong>birkaç yüz ila birkaç bin gen</strong> içerir. <strong>p/q kol</strong> tanımı, genlerin lokasyonunu belirtmede kullanılır.</li>
+</ul>
+
+<!-- ============ CHROMOSOME ANATOMY ============ -->
+<h2>6) Metafaz Kromozomunun Anatomisi</h2>
+<span class="slayt-et">Slayt 83–84, 87</span>
+<table>
+  <tr><th>Yapı</th><th>Tanım</th></tr>
+  <tr><td><strong>Short arm "p"</strong> (kısa kol)</td><td>Sentromerin <strong>üstünde</strong>. ("p" = Fransızca <em>petit</em> = küçük)</td></tr>
+  <tr><td><strong>Long arm "q"</strong> (uzun kol)</td><td>Sentromerin <strong>altında</strong>.</td></tr>
+  <tr><td><strong>Centromere</strong> (sentromer)</td><td>Kolların birleştiği daralmış bölge. Hücre bölünmesinde (mitoz ve mayoz) <strong>kromozom ayrımı (segregation)</strong> için ZORUNLUDUR.</td></tr>
+  <tr><td><strong>Kinetochore</strong> (kinetokor)</td><td>Sentromer üzerinde <strong>iğ ipliklerinin (spindle fibers)</strong> bağlandığı protein bölgesi.</td></tr>
+  <tr><td><strong>Telomere</strong> (telomer)</td><td>Kromozomların <strong>uçlarındaki</strong> koruyucu bölge; kromozomu <strong>kısalmaktan korur ve stabilize eder</strong>.</td></tr>
+  <tr><td><strong>Band</strong> (bant)</td><td>Boyama ile ortaya çıkan çizgili desen.</td></tr>
+</table>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — p / q Kolları</span>
+  <strong>p = "petit" (küçük/kısa), yukarıda.</strong> &nbsp; <strong>q</strong>, alfabede p'den sonra gelir → uzun kol, aşağıda. Köprü: "p küçük (petit), q kuyruk (queue) gibi uzun."<br>
+  <strong>Telomer = ayakkabı bağcığının ucundaki plastik (aglet)</strong> → ucu korur, çözülmesini önler.
+</div>
+
+<div class="kutu klinik">
+  <span class="ikon">🦷</span>
+  <span class="baslik">Klinik Önemi — Telomer, Sentromer ve Anöploidi</span>
+  <strong>Telomerler</strong> her bölünmede kısalır; bu yaşlanma ve oral dokuların yenilenme kapasitesiyle ilişkilidir. <strong>Sentromer/kinetokor</strong> kusurları ya da iğ ipliği hataları, kromozom ayrımının bozulmasına (<em>nondisjunction</em>) ve <strong>anöploidi</strong>ye (örn. Trisomy 21 = Down sendromu, <strong>47,XX/XY,+21</strong>) yol açar. Down sendromlu hastalarda diş hekimliği açısından önemli oral bulgular (makroglossi, periodontal hastalık eğilimi, gecikmiş diş sürmesi) görülür.
+</div>
+
+<h3>Sentromer Konumuna Göre Kromozom Sınıflandırması</h3>
+<span class="slayt-et">Slayt 85</span>
+<table>
+  <tr><th>Tip</th><th>Sentromer Konumu</th></tr>
+  <tr><td><strong>Metacentric</strong> (metasentrik)</td><td>Tam <strong>ortada</strong> (p ≈ q)</td></tr>
+  <tr><td><strong>Sub-metacentric</strong> (submetasentrik)</td><td>Ortadan <strong>hafif kaymış</strong></td></tr>
+  <tr><td><strong>Acrocentric</strong> (akrosentrik)</td><td>Uca <strong>yakın</strong> (kısa p kol; bazılarında <em>satellite</em>)</td></tr>
+  <tr><td><strong>Telocentric</strong> (telosentrik)</td><td>Tam <strong>uçta</strong></td></tr>
+</table>
+
+<div class="kutu dikkat">
+  <span class="ikon">⚠️</span>
+  <span class="baslik">Dikkat — İNSAN İÇİN KRİTİK İSTİSNA</span>
+  <strong>İnsan kromozomlarında TELOSENTRİK kromozom YOKTUR!</strong> İnsanda yalnızca metasentrik, submetasentrik ve akrosentrik tipler bulunur. "İnsanda hangi kromozom tipi bulunmaz?" → <strong>telocentric</strong>. Bu, çok sevilen bir sınav tuzağıdır.
+</div>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — Sentromer Konumu (orta → uç)</span>
+  <strong>Meta (orta) → Submeta (yarı) → Acro (akro=uca yakın) → Telo (telos=son/uç).</strong> "Telo" Yunanca "son" demek (telefon/televizyon "uzak/uç" çağrışımı). İnsanda <strong>Telo yok</strong>!
+</div>
+
+<!-- ============ SISTER / HOMOLOGOUS ============ -->
+<h2>7) Kardeş Kromatit vs Homolog Kromozom</h2>
+<span class="slayt-et">Slayt 86</span>
+<table>
+  <tr><th>Kavram</th><th>Tanım</th></tr>
+  <tr><td><strong>Sister chromatids</strong><br>(kardeş kromatitler)</td><td>Bir kromozomun, sentromerle birbirine bağlı <strong>iki özdeş kopyası (identical)</strong>. "Identical chromosomes" olarak da bilinir. (Replikasyon ürünü.)</td></tr>
+  <tr><td><strong>Homologous chromosomes</strong><br>(homolog kromozomlar)</td><td>Şekil ve boyut bakımından <strong>özdeş</strong>; biri <strong>anneden</strong>, biri <strong>babadan</strong> gelir ve <strong>aynı özellikleri</strong> etkiler. (Aleller aynı olmak zorunda DEĞİL.)</td></tr>
+</table>
+
+<div class="kutu dikkat">
+  <span class="ikon">⚠️</span>
+  <span class="baslik">Dikkat — KLASİK KARIŞTIRMA</span>
+  <strong>Kardeş kromatitler = ÖZDEŞ kopyalar</strong> (aynı DNA, sentromerle bağlı). <strong>Homolog kromozomlar = aynı boy/şekil ama biri anne biri baba kaynaklı</strong> (alelleri farklı olabilir!). Hocalar "özdeş olan hangisi?" diye sorarsa cevap <strong>kardeş kromatit</strong>tir, homolog değil.
+</div>
+
+<!-- ============ EU/HETEROCHROMATIN ============ -->
+<h2>8) İki Tip Kromatin: Euchromatin ve Heterochromatin</h2>
+<span class="slayt-et">Slayt 88–89</span>
+<table>
+  <tr><th>Özellik</th><th>Euchromatin (ökromatin)</th><th>Heterochromatin (heterokromatin)</th></tr>
+  <tr><td>Paketlenme</td><td><strong>Gevşek (loosely packed)</strong></td><td><strong>Yoğun/sıkı (densely compacted)</strong></td></tr>
+  <tr><td>Boyanma</td><td><strong>Açık (lightly stained)</strong></td><td><strong>Koyu (darkly stained)</strong></td></tr>
+  <tr><td>Gen aktivitesi</td><td><strong>Aktif</strong> — protein sentezleyen genleri içerir</td><td><strong>İnaktif</strong>, ifade edilmeyen veya tekrarlayan DNA</td></tr>
+  <tr><td>Konum</td><td>Kromozom kolları boyunca</td><td>Esas olarak <strong>sentromer ve telomer</strong> bölgelerinde</td></tr>
+</table>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — EU mu, HETERO mu?</span>
+  <strong>EU- = "iyi/öz" (euphoria gibi)</strong> → <strong>aktif, gevşek, açık renk, gen ifade eder.</strong><br>
+  <strong>HETERO- = "öteki/sessiz"</strong> → <strong>inaktif, sıkı, koyu, susturulmuş.</strong><br>
+  Köprü: "EU = açık ve çalışkan, HETERO = kapalı ve tembel."
+</div>
+
+<div class="kutu klinik">
+  <span class="ikon">🦷</span>
+  <span class="baslik">Klinik Önemi — Kromatin Durumu = Gen İfadesi</span>
+  Bir genin <strong>euchromatin</strong> bölgesinde (açık) olması ifade edilebileceği, <strong>heterochromatin</strong>de (kapalı) olması susturulduğu anlamına gelir. Diş gelişiminde doğru genin doğru zamanda "açık" olması bu kromatin durumuyla kontrol edilir; bu mekanizmalar <strong>epigenetik</strong> dersinde (bir sonraki konu) detaylanacak.
+</div>
+
+<!-- ============ FLASHCARDS ============ -->
+<div class="flash">
+  <span class="baslik">🃏 Flashcard'lar — Bölüm 6 (cevap için üstüne tıkla)</span>
+
+  <details>
+    <summary>1) The solenoid (30-nm) structure: how many nucleosomes, and how many times is the DNA compressed?</summary>
+    <p>It contains <strong>6 nucleosomes</strong> arranged radially as a helix; DNA is compressed about <strong>40 times</strong>. H1 and histone tails are involved.</p>
+  </details>
+
+  <details>
+    <summary>2) How many chromosomes do humans have, and what is the karyotype of a normal male and female?</summary>
+    <p><strong>46 chromosomes</strong> = 44 autosomes + 2 sex chromosomes. Female = <strong>46,XX</strong>; Male = <strong>46,XY</strong>.</p>
+  </details>
+
+  <details>
+    <summary>3) Define haploid and diploid, and give their symbols.</summary>
+    <p><strong>Haploid (n)</strong> = one set of chromosomes (gametes). <strong>Diploid (2n)</strong> = two sets (somatic cells).</p>
+  </details>
+
+  <details>
+    <summary>4) Name the short arm, long arm, the constriction between them, and the protein region where spindle fibers attach.</summary>
+    <p>Short arm = <strong>p</strong>; long arm = <strong>q</strong>; constriction = <strong>centromere</strong>; spindle attachment site = <strong>kinetochore</strong>.</p>
+  </details>
+
+  <details>
+    <summary>5) What are the four chromosome types by centromere position, and which one is ABSENT in humans?</summary>
+    <p>Metacentric, sub-metacentric, acrocentric, telocentric. <strong>Telocentric chromosomes are absent in humans.</strong></p>
+  </details>
+
+  <details>
+    <summary>6) Difference between sister chromatids and homologous chromosomes?</summary>
+    <p><strong>Sister chromatids</strong> = two identical copies joined at the centromere. <strong>Homologous chromosomes</strong> = same size/shape, one maternal + one paternal, affecting the same characteristics (alleles may differ).</p>
+  </details>
+
+  <details>
+    <summary>7) Compare euchromatin and heterochromatin (packing, staining, activity).</summary>
+    <p><strong>Euchromatin</strong>: loosely packed, lightly stained, active (gene-containing). <strong>Heterochromatin</strong>: densely packed, darkly stained, inactive/repetitive; mainly at centromeres and telomeres.</p>
+  </details>
+
+  <details>
+    <summary>8) What is a karyotype vs an ideogram, and what does G-banding use?</summary>
+    <p><strong>Karyotype</strong> = classification of chromosomes; <strong>ideogram</strong> = its schematic representation. G-banding uses <strong>trypsin</strong> then <strong>Giemsa</strong> stain.</p>
+  </details>
+
+  <details>
+    <summary>9) Who named "chromosomes" and when? Who first observed them?</summary>
+    <p>Named by <strong>Wilhelm von Waldeyer Hartz in 1888</strong>. First observed by <strong>Karl Wilhelm von Nägeli</strong> in plant cells in the <strong>1840s</strong>.</p>
+  </details>
+
+  <details>
+    <summary>10) Is there a correlation between genome size and organism complexity? Explain with an example.</summary>
+    <p><strong>No.</strong> e.g. rice has ~62,500 genes vs human ~20,000. Larger genomes in higher eukaryotes are due to <strong>repetitive sequences and introns</strong>, not more genes.</p>
+  </details>
+</div>
+
+<div class="bitti">
+  ✅ TEBRİKLER! Bu ders (Fundamentals of Inheritance and Chromosome Structure &amp; Packaging) — toplam <strong>89 slayt</strong> — 6 bölüm hâlinde tamamen işlendi.
+</div>
+
+</div>
+
+<footer>
+  <strong>📌 Tüm seri tamamlandı:</strong> Bölüm 1 (Tarih) · Bölüm 2 (Terminoloji &amp; Mendel) · Bölüm 3 (HGP &amp; Dallar) · Bölüm 4 (Hücresel/Moleküler Temel) · Bölüm 5 (Kromozom Paketlenmesi I) · Bölüm 6 (Kromozom Paketlenmesi II &amp; Anatomi).
+  <br><br>
+  İstersen sıradaki ders dosyalarına (Mendelian/Non-Mendelian Inheritance, Mutations, Epigenetics) geçebiliriz.
+  <br><br>
+  Kaynak: Asst. Prof. Nilgün Karasu — Fundamentals of Inheritance and Chromosome Structure &amp; Packaging ders slaytları (Slayt 67–89).
+</footer>
+
+</body>
+</html>

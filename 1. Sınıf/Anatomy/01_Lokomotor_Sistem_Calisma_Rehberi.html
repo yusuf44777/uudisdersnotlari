@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introduction to Locomotor System — Final Çalışma Rehberi</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#5b6472; --bg:#f6f7fb; --card:#ffffff;
+    --line:#e4e7ef; --accent:#3a5a9c;
+    --klinik-bg:#e8f4f8; --klinik-bd:#2a93b5; --klinik-tx:#0f5d72;
+    --spot-bg:#eaf7ee; --spot-bd:#2e9e57; --spot-tx:#1c6e3b;
+    --dikkat-bg:#fdeceb; --dikkat-bd:#d9483b; --dikkat-tx:#9e2a20;
+    --mnem-bg:#f1ecfb; --mnem-bd:#7b4fc4; --mnem-tx:#5331a0;
+    --flash-bg:#fff8e6; --flash-bd:#e3a008; --flash-tx:#8a5a00;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Segoe UI',Helvetica,Arial,system-ui,sans-serif;
+    line-height:1.65; font-size:17px;
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:28px 20px 80px;}
+  header.hero{
+    background:linear-gradient(135deg,#27345a,#3a5a9c);
+    color:#fff; border-radius:18px; padding:34px 30px; margin-bottom:26px;
+    box-shadow:0 8px 26px rgba(39,52,90,.25);
+  }
+  header.hero .badge{display:inline-block; background:rgba(255,255,255,.18);
+    padding:4px 12px; border-radius:999px; font-size:13px; letter-spacing:.5px; margin-bottom:12px;}
+  header.hero h1{margin:6px 0 8px; font-size:30px; line-height:1.25;}
+  header.hero p{margin:0; opacity:.92; font-size:15.5px;}
+  nav.toc{
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:18px 22px; margin-bottom:30px;
+  }
+  nav.toc h2{margin:0 0 10px; font-size:17px; color:var(--accent);}
+  nav.toc ol{margin:0; padding-left:20px; columns:2; column-gap:30px;}
+  nav.toc a{color:var(--ink); text-decoration:none; font-size:14.5px;}
+  nav.toc a:hover{color:var(--accent); text-decoration:underline;}
+  section.part{margin-bottom:14px;}
+  h2.part-title{
+    background:var(--accent); color:#fff; padding:12px 18px; border-radius:12px;
+    font-size:21px; margin:38px 0 18px; box-shadow:0 4px 12px rgba(58,90,156,.2);
+  }
+  h3{
+    font-size:19px; color:#27345a; border-left:5px solid var(--accent);
+    padding-left:12px; margin:30px 0 12px;
+  }
+  h4{font-size:16.5px; color:#34405c; margin:20px 0 8px;}
+  p{margin:10px 0;}
+  ul,ol{margin:10px 0; padding-left:24px;}
+  li{margin:5px 0;}
+  strong{color:#16223d;}
+  mark{background:#fff1a8; padding:0 3px; border-radius:3px;}
+  .lat{font-style:italic; color:#6b3fa0;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:6px 22px 14px; margin:14px 0; box-shadow:0 2px 8px rgba(31,36,48,.04);}
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14.5px;}
+  th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{background:#eef1f8; color:#27345a;}
+  tr:nth-child(even) td{background:#fafbfe;}
+  .box{border-radius:12px; padding:14px 18px 14px 18px; margin:16px 0; border-left:6px solid;}
+  .box .bt{font-weight:700; display:block; margin-bottom:6px; font-size:15.5px;}
+  .klinik{background:var(--klinik-bg); border-color:var(--klinik-bd);}
+  .klinik .bt{color:var(--klinik-tx);}
+  .spot{background:var(--spot-bg); border-color:var(--spot-bd);}
+  .spot .bt{color:var(--spot-tx);}
+  .dikkat{background:var(--dikkat-bg); border-color:var(--dikkat-bd);}
+  .dikkat .bt{color:var(--dikkat-tx);}
+  .mnem{background:var(--mnem-bg); border-color:var(--mnem-bd);}
+  .mnem .bt{color:var(--mnem-tx);}
+  .flash{background:var(--flash-bg); border:1.5px dashed var(--flash-bd); border-left:6px solid var(--flash-bd);
+    border-radius:12px; padding:14px 18px; margin:18px 0;}
+  .flash .ft{font-weight:700; color:var(--flash-tx); display:block; margin-bottom:8px; font-size:15px; letter-spacing:.3px;}
+  .flash .q{font-weight:600; margin:9px 0 2px; color:#5a3d00;}
+  .flash .a{margin:0 0 6px; padding-left:14px; border-left:3px solid var(--flash-bd); color:#3a3a3a;}
+  .flash .a::before{content:"➜ "; color:var(--flash-bd); font-weight:700;}
+  .pill{display:inline-block; background:#eef1f8; color:#27345a; border-radius:999px;
+    padding:2px 10px; font-size:13px; margin:2px 3px;}
+  hr{border:none; border-top:1px dashed var(--line); margin:26px 0;}
+  .tag{font-size:12px; color:var(--muted);}
+  footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:13.5px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="badge">ANATOMİ · 1. SINIF · FİNAL HAZIRLIK</span>
+  <h1>Introduction to Locomotor System<br><span style="font-size:19px; font-weight:500; opacity:.9;">Kas Sistemi (Myologia) &amp; Sinir Sistemine Giriş</span></h1>
+  <p>Asst. Prof. Gamze Ansen — Üsküdar Üniversitesi, Tıp Fakültesi, Anatomi A.D. · Tüm slaytlar Türkçe açıklamalı, İngilizce/Latince terimler korunarak işlenmiştir.</p>
+</header>
+
+<nav class="toc">
+  <h2>📚 İçindekiler</h2>
+  <ol>
+    <li><a href="#k1">Kas Tipleri (Myologia)</a></li>
+    <li><a href="#k2">Kas Lif Dizilimleri</a></li>
+    <li><a href="#k3">Kas İsimlendirmesi</a></li>
+    <li><a href="#k4">Bir Kasın Kısımları &amp; Yapısı</a></li>
+    <li><a href="#k5">İskelet Kaslarının Hareketleri</a></li>
+    <li><a href="#k6">İnervasyon &amp; Proprioseptörler</a></li>
+    <li><a href="#k7">Kontraksiyon Tipleri</a></li>
+    <li><a href="#k8">Fasya (Fascia)</a></li>
+    <li><a href="#s1">Nöron &amp; Nöroglia</a></li>
+    <li><a href="#s2">Nöronun Kısımları &amp; Miyelin</a></li>
+    <li><a href="#s3">Sinaps &amp; Nörotransmitterler</a></li>
+    <li><a href="#s4">Nöronların Fonksiyonel Sınıflaması</a></li>
+    <li><a href="#s5">Reseptörler</a></li>
+    <li><a href="#s6">Sinir Sisteminin Anatomik Bölümleri</a></li>
+    <li><a href="#s7">Kraniyal Sinirler (12 çift)</a></li>
+    <li><a href="#s8">Spinal Sinirler (31 çift)</a></li>
+    <li><a href="#s9">Fonksiyonel Sınıflama: Somatik/Otonom</a></li>
+    <li><a href="#s10">Ganglionlar</a></li>
+  </ol>
+</nav>
+
+<!-- ============ PART 1 ============ -->
+<section class="part">
+<h2 class="part-title">BÖLÜM 1 — KAS SİSTEMİ (MYOLOGIA)</h2>
+
+<p>Kas bilimine <span class="lat">Myologia</span> denir. Latince kas demek olan <strong>musculus</strong> kelimesi "küçük fare" (<em>mus = fare</em>) anlamından türemiştir; kasılan bir kas, deri altında koşan küçük bir fareyi andırdığı için bu isim verilmiştir. Kasların temel görevi <strong>iskeleti hareket ettirmek</strong>, dolayısıyla vücut parçalarını hareket ettirmektir.</p>
+
+<h3 id="k1">1.1 Kas Tipleri — Üç Temel Kas</h3>
+<p>Vücutta üç tip kas (<strong>three types of muscles</strong>) bulunur:</p>
+
+<div class="card">
+<table>
+  <thead>
+    <tr><th>Tip</th><th>İstemli mi?</th><th>İnervasyon</th><th>Özellikler</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1. Çizgili kas</strong><br>(<strong>Striated / skeletal muscle</strong>)</td>
+      <td>İstemli<br>(<strong>voluntary</strong>)</td>
+      <td><strong>Somatic nervous system</strong> (somatik sinir sistemi)</td>
+      <td>Hızlı ve güçlü kasılır. <strong>Myosin, actin, troponin, tropomyosin</strong> proteinlerini içerir. <strong>Myoglobin</strong> (oksijen bağlayan protein) ona <mark>kırmızı renk</mark> verir.</td>
+    </tr>
+    <tr>
+      <td><strong>2. Düz kas</strong><br>(<strong>Non-striated / smooth muscle</strong>)</td>
+      <td>İstemsiz<br>(<strong>involuntary</strong>)</td>
+      <td><strong>Autonomic nervous system</strong> (otonom sinir sistemi)</td>
+      <td>Yavaş kasılır (<strong>contract slowly</strong>).</td>
+    </tr>
+    <tr>
+      <td><strong>3. Kalp kası</strong><br>(<strong>Cardiac muscle</strong>)</td>
+      <td>İstemsiz<br>(<strong>involuntary</strong>)</td>
+      <td><strong>Autonomic nervous system</strong></td>
+      <td>Yapısal olarak <strong>çizgilidir</strong> (structurally striated) ama istem dışıdır.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  <ul style="margin:4px 0;">
+    <li>Erişkin bir insanda yaklaşık <mark><strong>650 çizgili kas</strong></mark> vardır.</li>
+    <li>Bir iskelet kası ancak boyunun yaklaşık <strong>%30'u kadar</strong> etkili biçimde kısalabilir (slayt 16'da bu oran <strong>1/3 – 1/2</strong> olarak da verilir — ikisini de bil).</li>
+    <li>Renk veren protein <strong>myoglobin'</strong>dir; kasılma proteinleri ise <strong>myosin + actin</strong>, regülatör proteinler <strong>troponin + tropomyosin'</strong>dir.</li>
+  </ul>
+</div>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat — Klasik Çeldirici</span>
+  <p style="margin:4px 0;">Kalp kası <strong>çizgili (striated)</strong> görünür fakat <strong>istemsizdir (involuntary)</strong> ve <strong>otonom</strong> kontrollüdür. "Çizgili = istemli" eşitliği <u>her zaman doğru değildir</u>; sınavda kalp kası bu kuralın istisnasıdır. Ayrıca düz kası "non-striated", çizgili kası bazen "striped" diye de sorabilirler.</p>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği</span>
+  <p style="margin:4px 0;">İnervasyon için: <strong>Sadece çizgili (skeletal) kas somatiktir; diğer ikisi (smooth + cardiac) otonomdur.</strong><br>
+  "İSKELETİMİ ben yönetirim (somatik = istemli), KALBİMİ ve İÇ ORGANLARIMI beyin arka planda yönetir (otonom = istemsiz)."</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Kas Tipleri</span>
+  <p class="q">S1. Which oxygen-binding protein gives striated muscle its red color?</p>
+  <p class="a">Myoglobin.</p>
+  <p class="q">S2. Cardiac muscle is structurally striated — is it voluntary or involuntary, and which system innervates it?</p>
+  <p class="a">İstemsiz (involuntary); otonom sinir sistemi (autonomic nervous system) tarafından innerve edilir.</p>
+  <p class="q">S3. Yaklaşık kaç çizgili kas vardır ve bir iskelet kası boyunun yüzde kaçı kısalabilir?</p>
+  <p class="a">~650 striated muscle; boyunun yaklaşık %30'u kadar (≈ 1/3) etkili kısalır.</p>
+</div>
+
+<hr>
+
+<h3 id="k2">1.2 Kas Lif Dizilimleri (Fiber Courses)</h3>
+<p>İskelet kasları, lif seyirlerine göre (<strong>according to their fiber courses</strong>) gruplandırılır. Sınavda şekil tanıma sorusu gelmesi çok olasıdır:</p>
+<ul>
+  <li><strong>Parallel</strong> — lifler uzun eksene paralel (örn. terzi kası benzeri uzun kaslar).</li>
+  <li><strong>Fusiform</strong> — iğ şeklinde, ortası şişkin uçları sivri (örn. <em>biceps brachii</em>).</li>
+  <li><strong>Convergent</strong> — geniş bir başlangıçtan tek bir tendona yakınsayan (örn. <em>pectoralis major</em>).</li>
+  <li><strong>Circular</strong> — halka biçiminde, sfinkter kaslar (örn. <em>orbicularis oris</em>).</li>
+  <li><strong>Unipennate</strong> — lifler tendonun bir yanına tüy gibi dizilir.</li>
+  <li><strong>Bipennate</strong> — lifler merkezi tendonun iki yanına dizilir (örn. <em>rectus femoris</em>).</li>
+  <li><strong>Multipennate</strong> — çok sayıda tendona tüy gibi dizilir (örn. <em>deltoid</em>).</li>
+</ul>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — "Pennate" ailesi</span>
+  <p style="margin:4px 0;">Latince <span class="lat">penna = tüy</span>. Tendonun etrafında tüy gibi dizilen kaslar "pennate"tir: <strong>UNI</strong> (tek yan) → <strong>BI</strong> (iki yan) → <strong>MULTI</strong> (çok yön). Sayma mantığıyla 1 → 2 → çok diye ilerle.</p>
+</div>
+
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi</span>
+  <p style="margin:4px 0;">Pennat (tüysü) kaslar daha çok lif barındırır → daha <strong>güçlü</strong> ama kısa hareket aralığına sahiptir. Çiğneme kasları (örn. <strong>masseter</strong>) güçlü ısırma kuvveti üretebilmek için yoğun, çok katlı lif diziliminden faydalanır — diş hekimliğinde oklüzal kuvvet ve TMJ analizinde bu prensip karşına çıkacak.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Lif Dizilimi</span>
+  <p class="q">S1. A muscle whose fibers attach to both sides of a central tendon like a feather is called?</p>
+  <p class="a">Bipennate.</p>
+  <p class="q">S2. Sfinkterlerde görülen, halka şeklindeki lif dizilimi nedir?</p>
+  <p class="a">Circular.</p>
+</div>
+
+<hr>
+
+<h3 id="k3">1.3 Kas İsimlendirmesi (Muscle Terminology)</h3>
+<p>Kaslar genel olarak <strong>şekillerine, konumlarına, karın (belly) sayılarına, fonksiyonlarına ve büyüklüklerine</strong> göre adlandırılır. Slayttaki örnekler ve isimlendirme mantığı:</p>
+<div class="card">
+<table>
+  <thead><tr><th>Örnek kas</th><th>İsim hangi özelliği yansıtır?</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Rhomboideus major</strong></td><td>Şekil (eşkenar dörtgen / rhombus) + boyut (major = büyük)</td></tr>
+    <tr><td><strong>Palmaris longus</strong></td><td>Konum (palmar/avuç) + boyut (longus = uzun)</td></tr>
+    <tr><td><strong>Biceps brachii</strong></td><td>Karın/baş sayısı (bi-ceps = iki başlı) + konum (brachium = kol)</td></tr>
+    <tr><td><strong>Tibialis posterior</strong></td><td>Konum (tibia + arka)</td></tr>
+    <tr><td><strong>Flexor carpi ulnaris</strong></td><td>Fonksiyon (flexor) + konum (carpus/bilek, ulna)</td></tr>
+    <tr><td><strong>Teres major – teres minor</strong></td><td>Şekil (teres = yuvarlak) + boyut (major/minor)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi — İsim çözümleme refleksi</span>
+  <p style="margin:4px 0;">Sınavda bilmediğin bir kas adı gördüğünde paniğe gerek yok: ad çoğu zaman kasın <strong>ne yaptığını, nerede olduğunu ve şeklini</strong> söyler. <span class="lat">flexor</span>=bükücü, <span class="lat">extensor</span>=açıcı, <span class="lat">longus/brevis</span>=uzun/kısa, <span class="lat">major/minor</span>=büyük/küçük, <span class="lat">biceps/triceps/quadriceps</span>=2/3/4 başlı.</p>
+</div>
+
+<hr>
+
+<h3 id="k4">1.4 Bir Kasın Kısımları &amp; İskelet Kası Yapısı</h3>
+
+<h4>Origo &amp; İnsersiyo (Origins &amp; Insertions)</h4>
+<ul>
+  <li>Her kas bir <strong>origin (origo)</strong>'da başlar, bir <strong>insertion (insersiyo)</strong>'da sonlanır.</li>
+  <li>Genel kural: <strong>origin sabit kalır, insertion hareket eder</strong> (the origin remains stationary, the insertion moves).</li>
+  <li>Origin, insertion'a göre daha <strong>proksimaldir</strong> (the origin is proximal to the insertion).</li>
+</ul>
+
+<h4>Kasın yapısal kısımları</h4>
+<ul>
+  <li><strong>Belly</strong> — kasın etli, kabarık orta kısmı (fleshy part).</li>
+  <li><strong>Tendon</strong> — bazı kaslarda yassı yaprak halinde olup <strong>aponeurosis</strong> adını alır. Tendonlar kemiğe, kıkırdağa, deriye veya yüzeyel fasyaya tutunur.</li>
+  <li><strong>Musculotendinous junction</strong> — kas ile tendonun birleştiği geçiş bölgesi.</li>
+</ul>
+
+<p>Histolojik bağ doku örtüleri (içten dışa):</p>
+<ul>
+  <li><strong>Endomysium</strong> — tek bir kas lifini saran en içteki tabaka.</li>
+  <li><strong>Perimysium</strong> — lif demetini (<strong>fascicle</strong>) saran tabaka.</li>
+  <li><strong>Epimysium</strong> — tüm kası saran en dış tabaka.</li>
+</ul>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Bağ doku katmanları</span>
+  <p style="margin:4px 0;">İçten dışa: <strong>ENDO → PERI → EPI</strong>. "<u>ENDO</u> en içte tek <u>END</u>iviyi sarar; <u>PERI</u> çevreleyip demeti sarar (peri = çevre); <u>EPI</u> en üstte hepsini örter (epi = üzeri)."</p>
+</div>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat</span>
+  <p style="margin:4px 0;">Yassı, geniş tendon = <strong>aponeurosis</strong>. "Tendon yalnızca ipliksi olur" demek hatadır. Ayrıca tendonlar her zaman kemiğe değil; <strong>deriye veya yüzeyel fasyaya</strong> da tutunabilir (örn. yüz mimik kasları). Bu, baş-yüz kasları dersinde çeldirici olabilir.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Kasın Kısımları</span>
+  <p class="q">S1. The connective tissue layer surrounding a single muscle fiber is the ___ ?</p>
+  <p class="a">Endomysium.</p>
+  <p class="q">S2. Origin ile insertion arasında hangisi sabit, hangisi proksimaldir?</p>
+  <p class="a">Origin sabit kalır ve insertion'a göre proksimaldir; insertion hareket eder.</p>
+  <p class="q">S3. A broad, sheet-like tendon is called?</p>
+  <p class="a">Aponeurosis.</p>
+</div>
+
+<hr>
+
+<h3 id="k5">1.5 İskelet Kaslarının Hareketleri (Actions)</h3>
+<div class="card">
+<table>
+  <thead><tr><th>Rol</th><th>Tanım</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Agonist</strong><br>(prime mover)</td><td>Belirli bir hareketi üretmekten <strong>asıl sorumlu</strong> olan kas — birincil hareket ettirici.</td></tr>
+    <tr><td><strong>Antagonist</strong></td><td>Agonistin hareketine <strong>karşı koyan / zıt</strong> hareket yapan kas.</td></tr>
+    <tr><td><strong>Synergist</strong></td><td>Agonistin kasılmayı tamamlamasına <strong>yardım eden</strong> kas.</td></tr>
+    <tr><td><strong>Fixator</strong></td><td>Eklemi <strong>sabitleyen / stabilize eden</strong> kas.</td></tr>
+  </tbody>
+</table>
+</div>
+<p><em>Agonists and antagonists are functional opposites</em> — agonist ve antagonist birbirinin fonksiyonel zıttıdır.</p>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — A.A.S.F.</span>
+  <p style="margin:4px 0;"><strong>A</strong>gonist → işi yapan kahraman, <strong>A</strong>ntagonist → karşı çıkan rakip, <strong>S</strong>ynergist → kahramanın yardımcısı (sinerji = yardımlaşma), <strong>F</strong>ixator → sahneyi sabit tutan dekor. Hikâye: "Kahraman (agonist) hareketi yapar, Rakip (antagonist) frenler, Yardımcı (synergist) destekler, Dekor (fixator) zemini sabitler."</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Kas Hareketleri</span>
+  <p class="q">S1. The muscle chiefly responsible for producing a particular movement is the ___ ?</p>
+  <p class="a">Agonist (prime mover).</p>
+  <p class="q">S2. Eklemi sabitleyen kasa ne ad verilir?</p>
+  <p class="a">Fixator.</p>
+</div>
+
+<hr>
+
+<h3 id="k6">1.6 İnervasyon &amp; Proprioseptörler</h3>
+<p>Kaslar iki tip sinir alır:</p>
+<ul>
+  <li><strong>Motor nerves</strong> — somatik veya otonom (somatic or autonomic).</li>
+  <li><strong>Sensory nerves</strong> — çizgili kaslarda <strong>muscle spindle (kas iğciği)</strong> ve <strong>Golgi tendon organs</strong> için.</li>
+</ul>
+
+<h4>Golgi Tendon Organı (Golgi tendon organ)</h4>
+<p>Bir <strong>mekanoreseptördür (mechanoreceptor)</strong> ve kasın <strong>gerilimi (tension)</strong> hakkında bilgi verir. Aşırı gerilimde (excess tension), refleks olarak kası <strong>gevşetir (relaxation response)</strong> — yani koruyucu bir geri besleme sağlar.</p>
+
+<h4>Kas İğciği (Muscle spindle — proprioceptor)</h4>
+<p>Özel, küçük, <strong>kapsüllü duyusal reseptördür</strong>. Kasın <strong>kasılma durumu</strong> hakkında bilgi alır; iskelet kaslarında bulunur ve CNS'ye kasın <strong>kasılma derecesini / boy değişimini</strong> bildirir (kas boyundaki değişimlere duyarlıdır) — böylece CNS kas aktivitesini kontrol edebilir.</p>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat — En sevilen çeldirici çift</span>
+  <table style="margin:6px 0;">
+    <tr><th>Golgi Tendon Organ</th><th>Muscle Spindle</th></tr>
+    <tr><td>Tendonda yer alır</td><td>Kas karnında (lifler arasında) yer alır</td></tr>
+    <tr><td><strong>GERİLİMİ (tension)</strong> ölçer</td><td><strong>BOYU/UZUNLUĞU (length)</strong> ölçer</td></tr>
+    <tr><td>Mekanoreseptör</td><td>Proprioseptör (kapsüllü)</td></tr>
+  </table>
+  <p style="margin:4px 0;">Hangisinin <u>gerilim</u>, hangisinin <u>uzunluk</u> ölçtüğü sınavda mutlaka karıştırılmak istenir.</p>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği</span>
+  <p style="margin:4px 0;"><strong>G</strong>olgi → <strong>G</strong>erilim (Tension), <strong>T</strong>endon. Üçü de aynı harfle başlamasa da "Golgi-Gerilim-Tendon" üçlemesini bir arada hatırla. Spindle (iğ) ise kasın <strong>uzunluğunu</strong> ölçer — "iğ uzar/kısalır → boyu ölçer".</p>
+</div>
+
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi</span>
+  <p style="margin:4px 0;">Çiğneme kaslarındaki kas iğcikleri, çene açıklığını ve ısırma kuvvetini ince ayarlar. Diş hekimliğinde sert bir cisme beklenmedik şekilde ısırınca devreye giren koruyucu refleksler (jaw-opening reflex) bu proprioseptörlere dayanır; protez ve oklüzyon uyumunda bu nörofizyoloji önem kazanır.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Proprioseptörler</span>
+  <p class="q">S1. Which receptor monitors muscle TENSION and triggers relaxation when tension is excessive?</p>
+  <p class="a">Golgi tendon organ.</p>
+  <p class="q">S2. Kasın boyundaki (uzunluğundaki) değişime duyarlı, kapsüllü proprioseptör hangisidir?</p>
+  <p class="a">Muscle spindle (kas iğciği).</p>
+</div>
+
+<hr>
+
+<h3 id="k7">1.7 Kontraksiyon (Contraction)</h3>
+<p>Bir kas kasıldığında boyu <strong>1/3 veya 1/2</strong> oranında kısalır.</p>
+<ul>
+  <li><strong>Isotonic contraction</strong> — boy <strong>kısalır</strong> (length decreases); kas hareket üretir.</li>
+  <li><strong>Isometric contraction</strong> — boy <strong>değişmez</strong> (length does not change); kuvvet üretilir ama hareket olmaz.</li>
+  <li><strong>Tonus</strong> — istirahatte yerçekimine karşı kasların hafif kasılı durumda kalması (slight contraction against gravity during rest).</li>
+</ul>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — İsoTONik / İsoMETrik</span>
+  <p style="margin:4px 0;"><strong>İso<u>MET</u>rik</strong> → "<u>met</u>re" sabit kalır → BOY DEĞİŞMEZ (metrik = ölçü/uzunluk sabit). <strong>İso<u>TON</u>ik</strong> → "<u>ton</u>" (gerilim) sabit, BOY kısalır → hareket var.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Kontraksiyon</span>
+  <p class="q">S1. In which contraction does muscle length stay the same?</p>
+  <p class="a">Isometric contraction.</p>
+  <p class="q">S2. İstirahatte yerçekimine karşı oluşan hafif kasılma durumuna ne denir?</p>
+  <p class="a">Tonus.</p>
+</div>
+
+<hr>
+
+<h3 id="k8">1.8 Fasya (Fascia)</h3>
+<p>Fasya, derinin altında ve kasların etrafında bulunan <strong>bağ dokusu tabakalarından</strong> oluşur. Fonksiyonları:</p>
+<ul>
+  <li>Tutunma, stabilizasyon ve damar açıklığının (vessel patency) korunması.</li>
+  <li>Kasları birbirinden ayırmak (to separate muscles).</li>
+  <li>Kasların serbestçe hareket etmesini sağlamak.</li>
+  <li>Farklı organları kuşatmak (to enclose different organs).</li>
+</ul>
+
+<div class="card">
+<table>
+  <thead><tr><th>Superficial fascia (Yüzeyel)</th><th>Deep fascia (Derin)</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Dermisin altındaki <strong>gevşek bağ dokusu</strong> tabakası. İki bileşeni:
+        <ul style="margin:6px 0;">
+          <li><strong><span class="lat">Lamina superficialis</span></strong>: ağırlıklı <strong>yağ dokusu (adipose)</strong>.</li>
+          <li><strong><span class="lat">Lamina profunda (deep)</span></strong>: daha derin membranöz tabaka; damar, sinir ve bazı deri kaslarını içerebilir.</li>
+        </ul>
+      </td>
+      <td>Kas kütlesini saran daha <strong>yoğun, fibröz</strong> bağ dokusu. Kasların çoğunu, tüm büyük damarları, tüm büyük sinirleri, derin lenfatikleri ve nodları, bazı bezleri örter.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Fasyalar fonksiyon ve konumlarına göre adlandırılır. Örnekler:</p>
+<p>
+  <span class="pill">thoracolumbar fascia</span>
+  <span class="pill">investing fascia</span>
+  <span class="pill">fascia lata</span>
+  <span class="pill">iliotibial tract</span>
+  <span class="pill">Camper's fascia (yağlı tabaka)</span>
+  <span class="pill">Scarpa's fascia (membranöz tabaka)</span>
+</p>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi — Karın ön duvarı yüzeyel fasyası</span>
+  <p style="margin:4px 0;">Karın ön duvarında yüzeyel fasyanın iki tabakası eponimlerle anılır: yüzeyel <strong>yağlı tabaka = Camper's fascia</strong>, derin <strong>membranöz tabaka = Scarpa's fascia</strong>. Bacakta derin fasyanın özel adı <strong>fascia lata'</strong>dır.</p>
+</div>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat</span>
+  <p style="margin:4px 0;">"Superficial fascia = gevşek + yağ", "Deep fascia = yoğun + fibröz". Hangi tabakanın yağ içerdiği (yüzeyel) ile büyük damar-sinirleri saranın (derin) yer değiştirilmesi tipik bir tuzaktır.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Fasya</span>
+  <p class="q">S1. Which layer of superficial fascia is mostly adipose tissue?</p>
+  <p class="a">Lamina superficialis (Camper's fascia, karın duvarında).</p>
+  <p class="q">S2. Büyük damarları, büyük sinirleri ve kasların çoğunu saran yoğun fibröz tabaka hangisidir?</p>
+  <p class="a">Deep fascia.</p>
+  <p class="q">S3. Karın ön duvarındaki membranöz yüzeyel tabakanın eponimi nedir?</p>
+  <p class="a">Scarpa's fascia.</p>
+</div>
+
+</section>
+
+<!-- ============ PART 2 ============ -->
+<section class="part">
+<h2 class="part-title">BÖLÜM 2 — SİNİR SİSTEMİNE GİRİŞ &amp; PERİFERİK SİNİRLER</h2>
+
+<p>Sinir sistemi (<strong>nervous system</strong>) vücuttaki sistemleri <strong>kontrol eder</strong> ve dış dünyadan alınan uyarılara (<strong>sensations / impulses</strong>) göre fonksiyonlarını düzenler.</p>
+
+<h3 id="s1">2.1 Mikroskobik Yapı — Nöron &amp; Nöroglia</h3>
+<p>Sinir sisteminde iki tip hücre vardır:</p>
+<ul>
+  <li><strong>Neuron (Nöron)</strong> — <strong>fonksiyonel birim (functional unit)</strong>.</li>
+  <li><strong>Neuroglia (Nöroglia)</strong> — <strong>destek hücreleri (supporting cells)</strong>.</li>
+</ul>
+<p>Nöronlar <strong>uyarılabilir (excitable) hücrelerdir</strong>; görevleri: duyunun algılanması (perception of sensation), motor ve duygusal yanıtların üretimi (motor and emotional responses), öğrenme (learning), bellek (memory) ve organ/sistemlerin kontrolü.</p>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  <p style="margin:4px 0;">Sinir sisteminin <strong>fonksiyonel birimi nörondur</strong>; nöroglia ise <u>destekleyici</u> hücredir (uyarı iletmez). Bu "functional unit = neuron" ifadesi neredeyse her sınavda geçer.</p>
+</div>
+
+<hr>
+
+<h3 id="s2">2.2 Nöronun Kısımları &amp; Miyelin</h3>
+<p>Tipik bir nöronun kısımları:</p>
+<ul>
+  <li><strong>Cell body / Soma</strong> — hücre gövdesi (çekirdeği içerir).</li>
+  <li><strong>Axon</strong> — uyarıyı taşıyan uzantı.</li>
+  <li><strong>Dendrites</strong> — uyarı alan dallı uzantılar.</li>
+  <li><strong>Synaptic terminals (axon terminals)</strong> — aksonun ucunda diğer nöronlarla bağlantı (<strong>synaps</strong>) kuran kısımlar.</li>
+</ul>
+
+<h4>Miyelin Kılıf (Myelin sheath)</h4>
+<ul>
+  <li>Büyük çaplı aksonlar genellikle bir miyelin kılıfla sarılıdır → bunlara <strong>myelinated axons (miyelinli aksonlar)</strong> denir.</li>
+  <li>Miyelin, aksonu <strong>yalıtır (insulates)</strong> ve <strong>uyarı iletim hızını artırır</strong>.</li>
+  <li>Sinir sistemindeki aksonların çoğu miyelinlidir.</li>
+  <li>Miyelin kılıftaki boşluklara <strong>Node of Ranvier (Ranvier boğumu)</strong> denir.</li>
+</ul>
+
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi</span>
+  <p style="margin:4px 0;">Miyelin = hızlı iletim. Lokal anestezide ince/miyelinsiz ağrı lifleri (örn. C lifleri), kalın miyelinli liflerden farklı duyarlılıkta bloke olur; bu yüzden anestezi sırasında önce ağrı, en son dokunma/basınç kaybolur. Diş hekimliği pratiğinde mandibular blok anestezisinin neden kademeli etki ettiğini bu prensiple açıklarsın.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Nöron &amp; Miyelin</span>
+  <p class="q">S1. What is the function of the myelin sheath?</p>
+  <p class="a">Aksonu yalıtır ve uyarı iletim hızını artırır.</p>
+  <p class="q">S2. Miyelin kılıftaki düzenli boşlukların adı nedir?</p>
+  <p class="a">Node of Ranvier (Ranvier boğumu).</p>
+</div>
+
+<hr>
+
+<h3 id="s3">2.3 Sinaps (Synapse) &amp; Nörotransmitterler</h3>
+<ul>
+  <li><strong>Synaps</strong>, nöronlar arası iletişimin (interneuronal communication) gerçekleştiği bölgedir.</li>
+  <li>Bir nöron tek bir nöronla ya da <strong>birçok nöronla</strong> sinaps yapabilir; çoğu nöron <mark><strong>1.000–15.000</strong></mark> başka nöronla sinaps kurar.</li>
+  <li>Bir sinapsta bilgi akışı <strong>her zaman aynı yöndedir</strong> (presinaptik → postsinaptik).</li>
+</ul>
+<p>Sinapsta iletim <strong>kimyasal (chemical)</strong> veya <strong>elektriksel (electrical)</strong> olabilir. Çoğu sinaps <strong>kimyasaldır</strong> ve iletim <strong>nörotransmitterler</strong> aracılığıyla olur:</p>
+<p><span class="pill">Acetylcholine (nicotinic)</span> <span class="pill">L-glutamate</span> <span class="pill">GABA</span></p>
+<p>Sinaptik aralığa (synaptic cleft) verilen nörotransmitter, ikinci nöronda bir <strong>aksiyon potansiyeli</strong> oluşturur. Bu aksiyon potansiyeli, başladığı yerden uzaklaşarak hücre zarı boyunca yayılır → buna <strong>sinir uyarısı (nerve impulse)</strong> denir.</p>
+<p>Sinir uyarısı şuraya iletilir: (a) uyarılan nöronun sinaps yaptığı <strong>diğer nöronlara</strong>, <strong>VEYA</strong> (b) fonksiyon gören vücut yapılarına (<strong>iskelet kasları, düz kaslar, bezler</strong>).</p>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat</span>
+  <p style="margin:4px 0;">Sinapstaki bilgi akışı <strong>tek yönlüdür</strong> ("always in the same direction"). "İletim çift yönlü olabilir" ifadesi yanlıştır. Ayrıca "çoğu sinaps elektrikseldir" da çeldiricidir — doğrusu çoğu sinaps <strong>kimyasaldır</strong>.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Sinaps</span>
+  <p class="q">S1. Most synapses use which type of conduction — chemical or electrical?</p>
+  <p class="a">Chemical (kimyasal), nörotransmitterler aracılığıyla.</p>
+  <p class="q">S2. Çoğu nöron yaklaşık kaç nöronla sinaps yapar?</p>
+  <p class="a">1.000–15.000 nöron.</p>
+  <p class="q">S3. Slaytta verilen üç nörotransmitter örneği nedir?</p>
+  <p class="a">Acetylcholine (nicotinic), L-glutamate, GABA.</p>
+</div>
+
+<hr>
+
+<h3 id="s4">2.4 Nöronların Fonksiyonel Sınıflaması</h3>
+<div class="card">
+<table>
+  <thead><tr><th>Nöron tipi</th><th>Görev</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Sensory neurons</strong><br>(afferent — getiren)</td><td>Deri, göz, iç kulak, burun, dilde bulunan <strong>periferik reseptörlerden</strong> uyarı alır ve bunları <strong>CNS'ye taşır</strong>.</td></tr>
+    <tr><td><strong>Motor neurons</strong><br>(efferent — götüren)</td><td>CNS tarafından üretilen uyarıları <strong>kaslara veya organlara</strong> iletir.</td></tr>
+    <tr><td><strong>Interneurons</strong><br>(ara nöronlar)</td><td>Diğer tüm nöronlar bu gruptadır. CNS nöronlarının çoğu interneurondur; <strong>aksonları CNS'yi terk etmez</strong>; duyusal bilgiyi analiz edip bir yanıt üretirler.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Afferent / Efferent</span>
+  <p style="margin:4px 0;"><strong>A</strong>fferent = <strong>A</strong>rrive (CNS'ye VARIR, duyusal). <strong>E</strong>fferent = <strong>E</strong>xit (CNS'den ÇIKAR, motor). "SAME" kuralı: <strong>S</strong>ensory = <strong>A</strong>fferent, <strong>M</strong>otor = <strong>E</strong>fferent.</p>
+</div>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat</span>
+  <p style="margin:4px 0;">İnterneuronların <strong>aksonu CNS'yi terk etmez</strong> — periferik sinir oluşturmazlar. "Interneuron periferik sinir yapar" tuzağına düşme.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Nöron Sınıfları</span>
+  <p class="q">S1. Afferent neurons carry impulses toward or away from the CNS?</p>
+  <p class="a">Toward (CNS'ye doğru — duyusal/sensory).</p>
+  <p class="q">S2. CNS'deki nöronların çoğu hangi tiptir?</p>
+  <p class="a">Interneuron.</p>
+</div>
+
+<hr>
+
+<h3 id="s5">2.5 Reseptörler (Receptors)</h3>
+<p>Dış ve iç ortamdan gelen duyular, özel <strong>duyusal sinir uçları / reseptörler</strong> tarafından alınır. Konumları: deri, göz, kulak, burun, ağız, iç organlar, kaslar, tendonlar, eklemler. Beş temel reseptör tipi:</p>
+<ul>
+  <li><strong>Mechanoreceptors</strong> — mekanik (basınç, dokunma, gerilme).</li>
+  <li><strong>Thermoreceptors</strong> — ısı/sıcaklık.</li>
+  <li><strong>Nociceptors</strong> — ağrı.</li>
+  <li><strong>Photoreceptors</strong> — ışık.</li>
+  <li><strong>Chemoreceptors &amp; baroreceptors</strong> — kimyasal &amp; basınç (damar).</li>
+</ul>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — 5 Reseptör</span>
+  <p style="margin:4px 0;">"<strong>M</strong>eta <strong>T</strong>oka <strong>N</strong>e <strong>P</strong>arlak <strong>C</strong>am" → <strong>M</strong>echano, <strong>T</strong>hermo, <strong>N</strong>oci, <strong>P</strong>hoto, <strong>C</strong>hemo(+baro). İngilizce karşılığına göre baş harfleri sırayla M-T-N-P-C.</p>
+</div>
+
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi</span>
+  <p style="margin:4px 0;">Diş pulpasında ağırlıklı olarak <strong>nociceptor</strong> bulunur; bu yüzden pulpa neredeyse her uyarana (sıcak, soğuk, basınç) <u>ağrı</u> olarak yanıt verir. Diş hassasiyeti ve pulpitis ağrısının nörofizyolojisini bu reseptör tipiyle açıklarsın.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Reseptörler</span>
+  <p class="q">S1. Which receptors detect pain?</p>
+  <p class="a">Nociceptors.</p>
+  <p class="q">S2. Işığı algılayan reseptör tipi hangisidir?</p>
+  <p class="a">Photoreceptors.</p>
+</div>
+
+<hr>
+
+<h3 id="s6">2.6 Sinir Sisteminin Anatomik Bölümleri</h3>
+<p>Sinir sisteminin iki anatomik bölümü (<strong>two anatomic divisions</strong>) vardır:</p>
+<div class="card">
+<table>
+  <thead><tr><th>Santral Sinir Sistemi (CNS)</th><th>Periferik Sinir Sistemi (PNS)</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>
+        <ul style="margin:6px 0;">
+          <li><strong>Brain (cerebrum)</strong></li>
+          <li><strong>Brainstem</strong> (Midbrain, Pons, Medulla)</li>
+          <li><strong>Cerebellum</strong></li>
+          <li><strong>Spinal cord</strong></li>
+        </ul>
+        Beyin, beyin sapı ve serebellum <strong>kranial kavitede</strong>; spinal kord <strong>vertebral kanalda</strong> yer alır.
+      </td>
+      <td>
+        <ul style="margin:6px 0;">
+          <li><strong>Cranial nerves</strong> (12 çift)</li>
+          <li><strong>Spinal (peripheral) nerves</strong> (31 çift)</li>
+          <li><strong>Ganglia</strong></li>
+        </ul>
+        CNS'yi terk eden bazı aksonlar <strong>periferik sinirleri</strong> oluşturur. Periferik sinirler ya duyusal ya motordur.
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi — Ganglion tanımı</span>
+  <p style="margin:4px 0;"><strong>Ganglion</strong> = sinir sistemi <u>dışında</u> bulunan nöron hücre gövdelerinin topluluğudur (collection of neuron cell bodies <strong>outside</strong> the nervous system). CNS içindeki benzer topluluk ise "nucleus" adını alır — bu ayrım sıkça sorulur.</p>
+</div>
+
+<hr>
+
+<h3 id="s7">2.7 Kraniyal Sinirler (Cranial Nerves) — 12 çift</h3>
+<p>Bu tablo sınavın en yüksek getirili konusudur. Her sinirin <strong>numarası, adı ve modalitesi (duyu/motor/karışık)</strong> bilinmelidir:</p>
+<div class="card">
+<table>
+  <thead><tr><th>No</th><th>Sinir (İng/Lat)</th><th>Tip</th><th>Görev / Hedef</th></tr></thead>
+  <tbody>
+    <tr><td>I</td><td><strong>Olfactory</strong></td><td>Duyu</td><td>Koku — burun (nose)</td></tr>
+    <tr><td>II</td><td><strong>Optic</strong></td><td>Duyu</td><td>Görme — göz (eye)</td></tr>
+    <tr><td>III</td><td><strong>Oculomotor</strong></td><td>Motor</td><td>IV ve VI hariç tüm göz kasları</td></tr>
+    <tr><td>IV</td><td><strong>Trochlear</strong></td><td>Motor</td><td><em>Superior oblique</em> kası</td></tr>
+    <tr><td>V</td><td><strong>Trigeminal</strong></td><td>Karışık</td><td><strong>Duyu:</strong> yüz, sinüsler, <mark>dişler</mark>; <strong>Motor:</strong> çiğneme kasları (muscles of mastication)</td></tr>
+    <tr><td>VI</td><td><strong>Abducent</strong></td><td>Motor</td><td><em>External (lateral) rectus</em> kası</td></tr>
+    <tr><td>VII</td><td><strong>Facial</strong></td><td>Karışık</td><td>Motor: yüz mimik kasları (muscles of face)</td></tr>
+    <tr><td>VIII</td><td><strong>Vestibulocochlear</strong></td><td>Duyu</td><td>İşitme &amp; denge — iç kulak (inner ear)</td></tr>
+    <tr><td>IX</td><td><strong>Glossopharyngeal</strong></td><td>Karışık</td><td>Motor: farinks kasları; Duyu: dilin arka kısmı, tonsil, farinks</td></tr>
+    <tr><td>X</td><td><strong>Vagus</strong></td><td>Karışık</td><td>Motor &amp; Duyu: kalp, akciğer, bronş, trakea, larinks, farinks, GİS, dış kulak</td></tr>
+    <tr><td>XI</td><td><strong>Accessory</strong></td><td>Motor</td><td><em>Sternocleidomastoid</em> &amp; <em>trapezius</em> kasları</td></tr>
+    <tr><td>XII</td><td><strong>Hypoglossal</strong></td><td>Motor</td><td>Dil kasları (muscles of the tongue)</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="tag">Not: Slaytta ayrıca <strong>Intermediate nerve</strong> (n. intermedius) belirtilir — Motor: submandibular/submaxillary &amp; sublingual bezler; Duyu: dilin ön kısmı &amp; yumuşak damak. Bu, fasiyal sinirin (VII) bir parçası olarak değerlendirilir.</p>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — Kraniyal Sinirler (sınav için altın anahtar)</span>
+  <p style="margin:4px 0;"><strong>İsim sırası (I→XII):</strong><br>
+  <em>"On Old Olympus' Towering Tops, A Finn And German Viewed Some Hops"</em><br>
+  → <strong>O</strong>lfactory, <strong>O</strong>ptic, <strong>O</strong>culomotor, <strong>T</strong>rochlear, <strong>T</strong>rigeminal, <strong>A</strong>bducent, <strong>F</strong>acial, <strong>A</strong>uditory(=Vestibulocochlear), <strong>G</strong>lossopharyngeal, <strong>V</strong>agus, <strong>S</strong>pinal accessory, <strong>H</strong>ypoglossal.</p>
+  <p style="margin:8px 0 4px;"><strong>Tip sırası (S=Sensory, M=Motor, B=Both):</strong><br>
+  <em>"Some Say Marry Money But My Brother Says Big Brains Matter Most"</em><br>
+  → <strong>S S M M B M B S B B M M</strong> (I→XII sırasıyla)</p>
+</div>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat — En çok karıştırılan göz sinirleri</span>
+  <ul style="margin:4px 0;">
+    <li><strong>IV (Trochlear)</strong> → yalnızca <em>superior oblique</em>.</li>
+    <li><strong>VI (Abducent)</strong> → yalnızca <em>lateral/external rectus</em>.</li>
+    <li><strong>III (Oculomotor)</strong> → <u>kalan tüm</u> göz kasları (IV ve VI hariç).</li>
+  </ul>
+  <p style="margin:4px 0;">Hatırlatıcı: <strong>"LR6 SO4"</strong> → Lateral Rectus = CN6, Superior Oblique = CN4; gerisi CN3.</p>
+</div>
+
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi — Diş hekimliği için kritik sinirler</span>
+  <p style="margin:4px 0;">
+  <strong>CN V (Trigeminal)</strong> dişlerin ve yüzün duyusunu, çiğneme kaslarının motor kontrolünü sağlar — diş anestezisinin (maksiller &amp; mandibular blok) tamamı bu sinir dallarına dayanır. <strong>CN VII (Facial)</strong> mimik kaslarını yönetir; mandibular blok sırasında yanlış uygulama geçici fasiyal felce yol açabilir. <strong>CN IX, X, XII</strong> ise yutma, öğürme refleksi ve dil hareketleri açısından klinikte önem taşır.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Kraniyal Sinirler</span>
+  <p class="q">S1. Which cranial nerve carries sensation from the teeth and motor to the muscles of mastication?</p>
+  <p class="a">CN V — Trigeminal (karışık/mixed).</p>
+  <p class="q">S2. Superior oblique kasını hangi sinir innerve eder?</p>
+  <p class="a">CN IV — Trochlear.</p>
+  <p class="q">S3. Sternocleidomastoid ve trapezius kaslarının motor siniri hangisidir?</p>
+  <p class="a">CN XI — Accessory.</p>
+  <p class="q">S4. CN III, IV, VI içinde "kalan tüm göz kaslarını" innerve eden hangisidir?</p>
+  <p class="a">CN III — Oculomotor.</p>
+</div>
+
+<hr>
+
+<h3 id="s8">2.8 Spinal Sinirler (Spinal Nerves) — 31 çift</h3>
+<p>Spinal sinirler omurilikten (spinal cord) çıkar. Omuriliğin her iki yanından <strong>31 çift</strong> spinal sinir çıkar:</p>
+<div class="card">
+<table>
+  <thead><tr><th>Bölge</th><th>Sayı</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Cervical</strong> (servikal)</td><td>8</td></tr>
+    <tr><td><strong>Thoracic</strong> (torakal)</td><td>12</td></tr>
+    <tr><td><strong>Lumbar</strong> (lumbal)</td><td>5</td></tr>
+    <tr><td><strong>Sacral</strong> (sakral)</td><td>5</td></tr>
+    <tr><td><strong>Coccygeal</strong> (koksigeal)</td><td>1</td></tr>
+    <tr><td><strong>TOPLAM</strong></td><td><strong>31</strong></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği — 8 / 12 / 5 / 5 / 1</span>
+  <p style="margin:4px 0;">Günlük yemek saatleri gibi düşün: <strong>Kahvaltı saat 8</strong> (Cervical=8), <strong>Öğle saat 12</strong> (Thoracic=12), <strong>Akşam saat 5</strong> (Lumbar=5), <strong>Atıştırma 5</strong> (Sacral=5), <strong>Yatış 1</strong> (Coccygeal=1). Toplam = 31.</p>
+</div>
+
+<h4>Bir spinal sinirin oluşumu</h4>
+<ul>
+  <li>Spinal sinir, omurilik segmentinden çıkan <strong>duyusal (dorsal/posterior) kök</strong> ile <strong>motor (ventral/anterior) kök'</strong>ün birleşmesiyle oluşur.</li>
+  <li>Oluşuma <strong>otonom lifler</strong> de katkı sağlar.</li>
+  <li>Böylece bir spinal sinir 4 tip akson taşır: <strong>GSA, GSE, GVA, GVE</strong>.</li>
+</ul>
+<div class="card">
+<table>
+  <thead><tr><th>Kısaltma</th><th>Açılım</th><th>Anlam</th></tr></thead>
+  <tbody>
+    <tr><td><strong>GSA</strong></td><td>General Somatic Afferent</td><td>Genel somatik duyu (deri vb. → CNS)</td></tr>
+    <tr><td><strong>GSE</strong></td><td>General Somatic Efferent</td><td>Genel somatik motor (iskelet kasına)</td></tr>
+    <tr><td><strong>GVA</strong></td><td>General Visceral Afferent</td><td>Genel visseral duyu (iç organ → CNS)</td></tr>
+    <tr><td><strong>GVE</strong></td><td>General Visceral Efferent</td><td>Genel visseral motor (düz kas/bez/otonom)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h4>Ramuslar ve pleksuslar</h4>
+<ul>
+  <li>Oluşan her spinal sinir bir <strong>ventral ramus</strong> ve bir <strong>dorsal ramus</strong> verir.</li>
+  <li><strong>Dorsal rami:</strong> sırta uzanarak sırt derisini ve sırt kaslarını innerve eder.</li>
+  <li><strong>Ventral rami:</strong> <u>torakal bölge hariç</u> pleksuslar oluşturur. Torakal spinal sinirlerin ventral ramileri pleksus yapmaz, <strong>interkostal sinirler (intercostal nerves)</strong> olarak devam eder.</li>
+</ul>
+<p>Oluşan pleksuslar: <span class="pill">Cervical plexus</span> <span class="pill">Brachial plexus</span> <span class="pill">Lumbar plexus</span> <span class="pill">Sacral plexus</span></p>
+
+<div class="box dikkat">
+  <span class="bt">⚠️ Dikkat — Sınavın klasik tuzakları</span>
+  <ul style="margin:4px 0;">
+    <li><strong>Dorsal kök = duyusal (sensory)</strong>; <strong>Ventral kök = motor</strong>. Bunların yeri değiştirilerek sorulur.</li>
+    <li><strong>Torakal ventral rami pleksus YAPMAZ</strong> → interkostal sinir olur. "Tüm spinal sinirler pleksus yapar" yanlıştır.</li>
+    <li>Servikal <strong>8</strong> spinal sinir vardır ama servikal <strong>7</strong> vertebra; sayıları karıştırma.</li>
+  </ul>
+</div>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi — Omurilik kesitinde anatomi</span>
+  <p style="margin:4px 0;">Gri madde (gray matter) "kelebek" şeklindedir: <strong>dorsal horn</strong> (arka boynuz), <strong>lateral horn</strong> (yan boynuz; preganglionik sempatik nöronlar — sadece <strong>T1–L2</strong>'de), <strong>ventral horn</strong> (ön boynuz; motor nöronlar). Arkada <strong>dorsal median sulcus</strong>, önde <strong>ventral median fissure</strong> bulunur. Dorsal kök üzerinde <strong>dorsal root ganglion (spinal ganglion)</strong> yer alır.</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Spinal Sinirler</span>
+  <p class="q">S1. How many pairs of spinal nerves are there, and how many are cervical?</p>
+  <p class="a">31 çift toplam; 8 çift servikal.</p>
+  <p class="q">S2. Which spinal nerves' ventral rami do NOT form a plexus, and what do they become?</p>
+  <p class="a">Torakal spinal sinirler; intercostal nerves olarak devam eder.</p>
+  <p class="q">S3. Dorsal root duyusal mı motor mu; üzerindeki ganglion nedir?</p>
+  <p class="a">Dorsal root duyusaldır (sensory); üzerinde dorsal root ganglion (spinal ganglion) bulunur.</p>
+  <p class="q">S4. GVE neyin kısaltmasıdır?</p>
+  <p class="a">General Visceral Efferent (genel visseral motor — düz kas/bez/otonom).</p>
+</div>
+
+<hr>
+
+<h3 id="s9">2.9 Sinir Sisteminin Fonksiyonel Sınıflaması</h3>
+<div class="card">
+<table>
+  <thead><tr><th>Somatik Sinir Sistemi</th><th>Otonom Sinir Sistemi</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>Dış ortamdan</strong> ve lokomotor sistemden gelen duyularla (dokunma, ısı, ağrı, kinestezi, görme, işitme, tat, koku) ilgilidir ve <strong>iskelet kaslarını</strong> kontrol eder.
+        <ul style="margin:6px 0;">
+          <li>Duyusal kısmı <strong>bilinçli (conscious)</strong></li>
+          <li>Motor kısmı <strong>istemli (voluntary)</strong></li>
+          <li>Motor kısım <strong>iskelet kaslarını</strong> uyarır</li>
+        </ul>
+      </td>
+      <td>
+        <strong>İç ortamdan</strong> (organlar ve sistemler) gelen duyularla ilgilidir ve organların/sistemlerin <strong>fonksiyonunu</strong> kontrol eder.
+        <ul style="margin:6px 0;">
+          <li>Duyusal kısmı <strong>bilinçsiz (unconscious)</strong></li>
+          <li>Motor kısmı <strong>istemsiz (involuntary)</strong></li>
+          <li>Motor kısım <strong>düz kasları ve bezleri</strong> uyarır (örn. tükürük bezleri, ter bezleri)</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="box klinik">
+  <span class="bt">🦷 Klinik Önemi</span>
+  <p style="margin:4px 0;">Tükürük bezleri (salivary glands) <strong>otonom</strong> kontrol altındadır. Diş hekimliğinde bazı ilaçlar (antikolinerjikler) otonom yolu etkileyerek <strong>ağız kuruluğu (xerostomia)</strong> yapar; bu da çürük riskini artırır. Somatik/otonom ayrımını bilmek bu yan etkileri açıklamanı sağlar.</p>
+</div>
+
+<div class="box mnem">
+  <span class="bt">🧠 Hafıza Tekniği</span>
+  <p style="margin:4px 0;"><strong>SO</strong>matik = <strong>S</strong>en yönetirsin (bilinçli + istemli + iskelet kası). <strong>O</strong>tonom = <strong>O</strong>tomatik (bilinçsiz + istemsiz + düz kas &amp; bezler).</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Somatik vs Otonom</span>
+  <p class="q">S1. Which system controls skeletal muscles and is voluntary?</p>
+  <p class="a">Somatic nervous system.</p>
+  <p class="q">S2. Tükürük ve ter bezlerini hangi sistemin motor kısmı uyarır?</p>
+  <p class="a">Autonomic (otonom) sinir sistemi.</p>
+</div>
+
+<hr>
+
+<h3 id="s10">2.10 Ganglionlar (Ganglia)</h3>
+<p>Ganglionlar iki ana grupta incelenir:</p>
+<ul>
+  <li><strong>Autonomic ganglia (Otonom ganglionlar):</strong> Sympathetic ganglia &amp; Parasympathetic ganglia.</li>
+  <li><strong>Sensory ganglia (Duyusal ganglionlar):</strong> Duyusal lif taşıyan tüm sinirlerin duyusal ganglionu vardır.
+    <ul>
+      <li>Dolayısıyla <strong>tüm spinal sinirlerin</strong> duyusal ganglionu vardır → <strong>31 çift ganglion</strong>, adı <strong>dorsal root ganglion / spinal ganglion'</strong>dur.</li>
+      <li>Duyusal lif taşıyan <strong>kraniyal sinirlerin</strong> de duyusal ganglionu vardır → örn. <strong>trigeminal sinir → trigeminal ganglion</strong>.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  <p style="margin:4px 0;">Duyusal lif = duyusal ganglion. Bu yüzden <strong>31 çift dorsal root ganglion</strong> vardır ve trigeminal sinirin duyusal ganglionu <strong>trigeminal ganglion'</strong>dur (diş hekimliği için kilit nokta).</p>
+</div>
+
+<div class="flash">
+  <span class="ft">📇 FLASHCARD — Ganglionlar</span>
+  <p class="q">S1. What is the sensory ganglion of the trigeminal nerve called?</p>
+  <p class="a">Trigeminal ganglion.</p>
+  <p class="q">S2. Spinal sinirlerin duyusal ganglionunun adı ve sayısı nedir?</p>
+  <p class="a">Dorsal root ganglion (spinal ganglion); 31 çift.</p>
+  <p class="q">S3. Ganglion ile nucleus arasındaki fark nedir?</p>
+  <p class="a">Ganglion = nöron gövdelerinin CNS DIŞINDAki topluluğu; nucleus = CNS İÇİNDEki topluluğu.</p>
+</div>
+
+</section>
+
+<footer>
+  <strong>Bu rehber, "Introduction to Locomotor System" dersinin 56 slaytının tamamından hazırlanmıştır.</strong><br>
+  Türkçe açıklama + İngilizce/Latince terminoloji korunarak, klinik notlar, mnemonikler ve final düzeyinde flashcard'larla zenginleştirilmiştir. Diğer slaytlara (Sırt &amp; Üst Ekstremite, Alt Ekstremite, Karın/Toraks, Baş-Yüz) geçmek için hazır olduğunda söyle — aynı formatta devam ederiz. Başarılar! 🦷
+</footer>
+
+</div>
+</body>
+</html>

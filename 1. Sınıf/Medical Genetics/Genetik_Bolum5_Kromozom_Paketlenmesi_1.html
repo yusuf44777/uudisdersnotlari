@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genetik – Bölüm 5: Kromozom Yapısı ve Paketlenmesi (I)</title>
+<style>
+  :root{
+    --ana:#1f2a8c; --ana2:#2e5db0; --metin:#1d2230; --soft:#f5f7fb;
+    --klinik:#0a7d63; --klinik-bg:#e7f8f2;
+    --spot:#b8860b; --spot-bg:#fff7e0;
+    --dikkat:#b22222; --dikkat-bg:#fdeaea;
+    --flash:#5a2a9c; --flash-bg:#f3ecfd;
+    --mnemo:#005f73; --mnemo-bg:#e3f4f8;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;line-height:1.7;
+    color:var(--metin);margin:0;padding:0 0 60px;background:#fafbfe;}
+  header.kapak{background:linear-gradient(135deg,#1f2a8c 0%,#2e5db0 100%);
+    color:#fff;padding:42px 28px;text-align:center;}
+  header.kapak h1{margin:0 0 8px;font-size:1.8rem;letter-spacing:.3px;}
+  header.kapak p{margin:4px 0;opacity:.92;font-size:1.02rem;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px;}
+  h2{color:#fff;background:var(--ana);padding:12px 18px;border-radius:10px;
+    margin:42px 0 18px;font-size:1.4rem;}
+  h3{color:var(--ana);border-bottom:3px solid var(--ana2);padding-bottom:6px;
+    margin:32px 0 12px;font-size:1.15rem;}
+  p{margin:10px 0;}
+  ul,ol{margin:10px 0 10px 6px;padding-left:22px;}
+  li{margin:7px 0;}
+  strong{color:var(--ana);}
+  em{color:#444;}
+  mark{background:#ffe98a;padding:1px 4px;border-radius:3px;}
+  .kutu{border-radius:12px;padding:16px 18px 16px 50px;margin:18px 0;position:relative;
+    box-shadow:0 2px 6px rgba(0,0,0,.06);}
+  .kutu .ikon{position:absolute;left:14px;top:14px;font-size:1.4rem;}
+  .kutu .baslik{font-weight:700;display:block;margin-bottom:5px;font-size:1.02rem;}
+  .klinik{background:var(--klinik-bg);border-left:6px solid var(--klinik);}
+  .klinik .baslik{color:var(--klinik);}
+  .spot{background:var(--spot-bg);border-left:6px solid var(--spot);}
+  .spot .baslik{color:#8a6500;}
+  .dikkat{background:var(--dikkat-bg);border-left:6px solid var(--dikkat);}
+  .dikkat .baslik{color:var(--dikkat);}
+  .mnemo{background:var(--mnemo-bg);border-left:6px solid var(--mnemo);}
+  .mnemo .baslik{color:var(--mnemo);}
+  .flash{background:var(--flash-bg);border:2px dashed var(--flash);border-radius:12px;
+    padding:14px 18px;margin:14px 0;}
+  .flash .baslik{color:var(--flash);font-weight:700;display:block;margin-bottom:8px;}
+  .flash details{margin:8px 0;background:#fff;border-radius:8px;padding:6px 12px;
+    border:1px solid #e0d4f5;}
+  .flash summary{cursor:pointer;font-weight:600;color:#3d1f6e;}
+  .flash details p{margin:8px 0 4px;color:#222;}
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.96rem;}
+  th,td{border:1px solid #c8d2e8;padding:9px 11px;text-align:left;vertical-align:top;}
+  th{background:var(--ana);color:#fff;}
+  tr:nth-child(even) td{background:var(--soft);}
+  .slayt-et{display:inline-block;background:#dfe6f5;color:var(--ana);font-size:.78rem;
+    font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:4px;}
+  .akis{text-align:center;font-weight:700;color:var(--ana);font-size:1rem;
+    background:#eef2fb;border-radius:10px;padding:12px;margin:16px 0;line-height:2;}
+  footer{max-width:980px;margin:40px auto 0;padding:18px 22px;color:#666;font-size:.9rem;
+    border-top:1px solid #ddd;}
+</style>
+</head>
+<body>
+
+<header class="kapak">
+  <h1>Structure and Packaging of Chromosomes — Part I</h1>
+  <p><strong>Kromozom Yapısı ve Paketlenmesi (I)</strong></p>
+  <p>Asst. Prof. Nilgün Karasu — Dept. of Medical Genetics</p>
+  <p style="margin-top:14px;font-size:.95rem;">🧬 BÖLÜM 5 — Kromatin, Histonlar, Nükleozom, Histon Oktameri &amp; Kromatozom (Slayt 50–66)</p>
+</header>
+
+<div class="wrap">
+
+<!-- ============ WHY PACKAGING ============ -->
+<h2>1) Neden Paketleme Gerekir? (The Packaging Problem)</h2>
+<span class="slayt-et">Slayt 50–51</span>
+<ul>
+  <li>Bir kromozom (<strong>chromosome</strong>), DNA çift sarmalının çapından <strong>çok daha geniştir</strong>.</li>
+  <li>İnsanda her hücrenin çekirdeğindeki DNA miktarı öyle fazladır ki, kromozomlardaki toplam DNA tamamen açılsa <strong>birkaç metre uzunluğunda (several meters long)</strong> olurdu!</li>
+  <li><strong>DNA "yaşamın planı" (blueprint of life)</strong> olarak adlandırılır; çünkü bir organizmanın <strong>büyümesi (grow), gelişmesi (develop), hayatta kalması (survive) ve üremesi (reproduce)</strong> için talimatları içerir.</li>
+  <li>DNA bunu <strong>protein sentezini kontrol ederek (controlling protein synthesis)</strong> yapar. Proteinler hücredeki işlerin çoğunu yapar ve hücrenin temel yapı/işlev birimidir.</li>
+</ul>
+
+<div class="kutu klinik">
+  <span class="ikon">🦷</span>
+  <span class="baslik">Klinik Önemi — Paketleme Mantığı</span>
+  Birkaç metrelik DNA'nın mikroskobik bir çekirdeğe sığabilmesi için müthiş bir paketleme gerekir. Bu paketlenmenin <strong>nasıl</strong> açılıp kapandığı (gen erişilebilirliği), hangi genlerin açık olduğunu belirler. Diş gelişiminde (örn. mine yapımı sırasında <em>amelogenin</em> geninin uygun hücrede açık olması) bu kromatin düzenlemesi belirleyicidir.
+</div>
+
+<!-- ============ ETYMOLOGY & DEFINITION ============ -->
+<h2>2) Kromozom ve Kromatin: Tanım ve Köken</h2>
+<span class="slayt-et">Slayt 52–54, 57</span>
+<ul>
+  <li>Her hücre, içinde iplik benzeri yapılar olan bir çekirdek içerir; bu yapılara <strong>kromozom (chromosomes)</strong> denir. Adlarını, belirli boyalara olan ilgilerinden (boyanma özelliklerinden) alırlar: <strong><em>chroma</em> = renk, <em>soma</em> = cisim/beden</strong>.</li>
+  <li><strong>Kromozom = DNA molekülü + proteinler</strong>; organizmanın <strong>kalıtsal bilgisini (hereditary information)</strong> içerir.</li>
+  <li>Ökaryotlarda DNA'nın büyük kısmı <strong>çekirdekte</strong> paketlenir.</li>
+  <li>Ökaryotik kromozomda, histon proteinlerinin DNA çevresine sıkıca paketlenmesiyle oluşan karmaşık yapıya <strong>kromatin (chromatin)</strong> denir. (DNA + protein karışımı, boyanabilir olduğu için "chroma"dan gelir.)</li>
+</ul>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — Etimoloji</span>
+  <strong>CHROMA</strong> (renk) + <strong>SOMA</strong> (cisim) = <strong>Chromosome</strong> → "boyanan cisim". Hatırlatıcı: laboratuvarda boyandığında <em>renklenir</em>, o yüzden "renkli cisim".
+</div>
+
+<!-- ============ PACKAGING LEVELS ============ -->
+<h2>3) Paketleme Düzeyleri (Orders of DNA Coiling &amp; Folding)</h2>
+<span class="slayt-et">Slayt 55–56, 58</span>
+<p>
+DNA'nın kromozoma paketlenmesi <strong>birkaç düzeyde sarmallaşma ve katlanma (several orders of coiling and folding)</strong> içerir. Önerilen <strong>solenoid modeli (solenoid model)</strong> gözle görülür kromozom yapısına yol açar. Çaplara göre düzeyler:
+</p>
+<div class="akis">
+  DNA çift sarmalı (<strong>2 nm</strong>) → Nükleozom / "tespih dizisi" (<strong>11 nm</strong>) → 30-nm kromatin lifi / solenoid (<strong>30 nm</strong>) → Uzamış kromozom kesiti (<strong>300 nm</strong>) → Yoğunlaşmış kesit (<strong>700 nm</strong>) → Metafaz kromozomu (<strong>~1400 nm</strong>)
+</div>
+
+<h3>Kromatinin Hücre Döngüsündeki Hâli</h3>
+<span class="slayt-et">Slayt 58</span>
+<ul>
+  <li><strong>İnterfaz (interphase) sırasında:</strong> kromatin çekirdeğe dağılmış hâldedir ve her kromozomun DNA'sı <strong>kopyalanır (S fazı)</strong>.</li>
+  <li><strong>Hücre döngüsü ilerledikçe:</strong> çoğu hücre mitoza girer ve kromatin yeniden <strong>gözle görülür kromozomlara yoğunlaşır (condenses)</strong>.</li>
+  <li>Bu yoğunlaşma sırasında her kromatin fibrili yaklaşık <strong>10.000 kat (~10,000 times)</strong> kısalır/büzülür.</li>
+</ul>
+
+<div class="kutu dikkat">
+  <span class="ikon">⚠️</span>
+  <span class="baslik">Dikkat — İki Farklı Sayıyı Karıştırma</span>
+  <strong>10.000 kat</strong> → metafazda toplam kromozom yoğunlaşması (kondensasyon). <strong>5–10 kat</strong> → sadece nükleozom oluşumunda (ilk düzey) DNA'nın yoğunlaşma oranı. Bu iki rakam farklı düzeylere aittir!
+</div>
+
+<!-- ============ PROTEINS OF CHROMATIN ============ -->
+<h2>4) Kromatini Oluşturan Proteinler</h2>
+<span class="slayt-et">Slayt 60</span>
+<p>Kromatin yapısındaki proteinler iki gruba ayrılır:</p>
+<ul>
+  <li><strong>A. Histon proteinleri (Histone proteins)</strong></li>
+  <li><strong>B. Histon-olmayan proteinler (Non-histone proteins)</strong></li>
+</ul>
+<table>
+  <tr><th>Bileşen</th><th>Oran</th></tr>
+  <tr><td>Kromatinin protein kısmı</td><td><strong>%50</strong> protein</td></tr>
+  <tr><td>Bunun içinde histon proteinleri</td><td><strong>%45</strong> (kromatinin)</td></tr>
+  <tr><td>Geriye kalan</td><td>~%5 histon-olmayan proteinler (+ %50 DNA)</td></tr>
+</table>
+
+<!-- ============ HISTONES ============ -->
+<h2>5) Histonlar (Histones)</h2>
+<span class="slayt-et">Slayt 59, 61, 63</span>
+<ul>
+  <li>Histon proteinlerini oluşturan amino asitlerin <strong>%20'den fazlası lizin (lysine) ve arginindir (arginine)</strong>; bunlar <strong>pozitif yüklüdür (positively charged)</strong>.</li>
+  <li>Bu sayede histonlar, DNA'nın <strong>negatif yüklü (negatively charged)</strong> kısımlarına (fosfat omurgası) <strong>bağlanır</strong>. (Zıt yükler çeker!)</li>
+  <li>Histonlar <strong>bazik (basic) ve küçük (small)</strong> proteinlerdir.</li>
+  <li>Beş tip vardır: <strong>H1, H2A, H2B, H3, H4</strong>.</li>
+  <li><strong>Nükleozom (nucleosome)</strong> yapısının oluşumundan sorumludurlar; nükleozom, kromatin yapısının <strong>birincil (primer) şeklidir</strong>.</li>
+  <li>Histonların kromatindeki toplam kütlesi, yaklaşık olarak <strong>DNA'nın kütlesine eşittir</strong>.</li>
+</ul>
+
+<div class="kutu spot">
+  <span class="ikon">🎯</span>
+  <span class="baslik">Spot Bilgi — Neden Histon DNA'ya Bağlanır?</span>
+  Histonlar <strong>pozitif (+)</strong> (çok sayıda lizin/arginin), DNA <strong>negatif (−)</strong> (fosfat grupları). <strong>+/− elektrostatik çekim</strong> sayesinde DNA histonların etrafına sıkıca sarılır. Bu, sınavda en sevilen "neden" sorusudur.
+</div>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — Pozitif Amino Asitler</span>
+  Histonun bağlanmasını sağlayan iki bazik amino asit: <strong>Lizin + Arginin</strong>. Hatırlatıcı: <strong>"L-A" → Lizin, Arginin = "Lastik Asılır"</strong> (DNA'ya yapışırlar). Bazik = pozitif = (−) DNA'yı çeker.
+</div>
+
+<!-- ============ NUCLEOSOME ============ -->
+<h2>6) Katlanma Aşaması 1: Nükleozom Oluşumu</h2>
+<span class="slayt-et">Slayt 62, 66</span>
+<ul>
+  <li>Kromatin organizasyonunun <strong>ilk adımı (first step)</strong> nükleozom oluşumudur.</li>
+  <li>Nükleozom yapısı <strong>disk şeklindedir (disc-shaped)</strong> ve çapı yaklaşık <strong>11 nm</strong>'dir.</li>
+  <li>Bu aşamada DNA, serbest hâline kıyasla yaklaşık <strong>5–10 kat</strong> yoğunlaşmıştır.</li>
+  <li>Nükleozom oluşumundan <strong>histonlar sorumludur</strong>.</li>
+  <li>Nükleozomlar, mikroskopta <strong>"bir ip üzerindeki boncuklar" (beads on a string)</strong> gibi görünür.</li>
+</ul>
+
+<h3>Histon Oktameri (Histone Octamer)</h3>
+<span class="slayt-et">Slayt 63–64</span>
+<ul>
+  <li>Histon oktameri, <strong>ikişer adet H2A, H2B, H3 ve H4</strong> histon proteininden oluşan yapıdır (toplam <strong>8 histon</strong>). Bunlara <strong>çekirdek (core) histonları</strong> denir.</li>
+  <li>Oktamerin etrafına sarılan DNA: <strong>core DNA = 146 baz çifti (146 bp)</strong>.</li>
+  <li>Nükleozomları birbirine bağlayan DNA: <strong>linker DNA = 20–60 bp</strong>.</li>
+</ul>
+
+<div class="kutu spot">
+  <span class="ikon">🎯</span>
+  <span class="baslik">Spot Bilgi — Oktamer Kompozisyonu (EZBERLE)</span>
+  <strong>Oktamer (core) = 2× H2A + 2× H2B + 2× H3 + 2× H4 = 8 histon.</strong> &nbsp; Dikkat: <strong>H1, oktamerin PARÇASI DEĞİLDİR</strong> (linker histonudur). Core DNA = <strong>146 bp</strong>, linker DNA = <strong>20–60 bp</strong>.
+</div>
+
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — Oktamer ("Çekirdek 4'lü, hepsi 2'şer")</span>
+  Core histonları: <strong>H2A, H2B, H3, H4</strong> (H1 yok!). Her biri <strong>2'şer</strong> → 4 × 2 = <strong>8 (oktamer)</strong>.<br>
+  "Okta" = 8 (oktopusun 8 kolu gibi). Sayı köprüsü: core DNA <strong>146</strong> → "<strong>1-4-6</strong>" diye ritimle.
+</div>
+
+<!-- ============ CHROMATOSOME ============ -->
+<h2>7) Kromatozom (Chromatosome)</h2>
+<span class="slayt-et">Slayt 65</span>
+<ul>
+  <li>Nükleozom oluştuktan sonra, <strong>H1 histon</strong> proteini <strong>linker DNA</strong>'ya bağlanır ve nükleozomu <strong>sabitler</strong>. Bu yapıya <strong>kromatozom (chromatosome)</strong> denir.</li>
+  <li><strong>Linker histonlar (H1)</strong>, nükleozomlara bağlanıp <strong>DNA'nın erişilebilirliğini (accessibility of DNA)</strong> ayarlayarak kromatin yapısında ve işlevinde temel rol oynar — örneğin <strong>gen transkripsiyonu</strong> ve <strong>DNA replikasyonu</strong> gibi süreçler için.</li>
+</ul>
+
+<div class="kutu dikkat">
+  <span class="ikon">⚠️</span>
+  <span class="baslik">Dikkat — Nükleozom vs Kromatozom (KLASİK TUZAK)</span>
+  <strong>Nükleozom</strong> = oktamer (8 histon) + sarılı core DNA (146 bp). &nbsp; <strong>Kromatozom</strong> = nükleozom + <strong>H1</strong> (linker DNA'ya bağlanır). Yani <strong>fark = H1 histonudur</strong>. "H1 nereye bağlanır?" → <strong>linker DNA</strong>.
+</div>
+
+<div class="kutu klinik">
+  <span class="ikon">🦷</span>
+  <span class="baslik">Klinik Önemi — Epigenetik Kapıcı</span>
+  H1 ve histon kuyruklarının kimyasal modifikasyonları (asetilasyon/metilasyon), DNA'nın "okunabilir" olup olmadığını belirler. Bu <strong>epigenetik</strong> kontrol, tükürük bezi tümörleri ve oral kanserlerin gelişiminde önemlidir (ileride epigenetik dersinde tekrar karşına çıkacak).
+</div>
+
+<!-- ============ ÖZET ============ -->
+<h2>📋 Hızlı Özet Tablosu</h2>
+<table>
+  <tr><th>Yapı</th><th>Çap / Boyut</th><th>Anahtar Nokta</th></tr>
+  <tr><td>DNA çift sarmalı</td><td>2 nm</td><td>Çıplak DNA</td></tr>
+  <tr><td>Nükleozom (beads on a string)</td><td>11 nm</td><td>Oktamer + 146 bp DNA; 5–10× yoğunlaşma</td></tr>
+  <tr><td>30-nm fiber (solenoid)</td><td>30 nm</td><td>Bir sonraki bölümde (Stage 2)</td></tr>
+  <tr><td>Histon oktameri</td><td>—</td><td>2× (H2A, H2B, H3, H4)</td></tr>
+  <tr><td>Kromatozom</td><td>—</td><td>Nükleozom + H1 (linker DNA)</td></tr>
+  <tr><td>Metafaz kromozomu</td><td>~1400 nm</td><td>~10.000× yoğunlaşma</td></tr>
+</table>
+
+<!-- ============ FLASHCARDS ============ -->
+<div class="flash">
+  <span class="baslik">🃏 Flashcard'lar — Bölüm 5 (cevap için üstüne tıkla)</span>
+
+  <details>
+    <summary>1) What is chromatin composed of, and what does the word "chromosome" mean etymologically?</summary>
+    <p>Chromatin = <strong>DNA + histone (and non-histone) proteins</strong>. Chromosome: <strong>chroma = color, soma = body</strong> (named for affinity to stains).</p>
+  </details>
+
+  <details>
+    <summary>2) Why do histones bind tightly to DNA?</summary>
+    <p>Histones are rich in <strong>lysine and arginine</strong> → <strong>positively charged (basic)</strong>; DNA is <strong>negatively charged</strong> → electrostatic attraction.</p>
+  </details>
+
+  <details>
+    <summary>3) What proteins form the histone octamer, and which histone is NOT part of it?</summary>
+    <p>Octamer = <strong>2 each of H2A, H2B, H3, H4</strong> (8 total, core histones). <strong>H1 is NOT part of the octamer</strong> — it is the linker histone.</p>
+  </details>
+
+  <details>
+    <summary>4) How many base pairs of DNA wrap the core (nucleosome), and how long is the linker DNA?</summary>
+    <p>Core DNA = <strong>146 bp</strong>; linker DNA = <strong>20–60 bp</strong>.</p>
+  </details>
+
+  <details>
+    <summary>5) What is a chromatosome and how does it differ from a nucleosome?</summary>
+    <p>A <strong>chromatosome = nucleosome + H1 histone</strong> (H1 binds the linker DNA and fixes the nucleosome). The difference is the addition of <strong>H1</strong>.</p>
+  </details>
+
+  <details>
+    <summary>6) Give the diameters: DNA helix, nucleosome, 30-nm fiber, metaphase chromosome.</summary>
+    <p>DNA helix = <strong>2 nm</strong>; nucleosome = <strong>11 nm</strong>; solenoid fiber = <strong>30 nm</strong>; metaphase chromosome ≈ <strong>1400 nm</strong>.</p>
+  </details>
+
+  <details>
+    <summary>7) By approximately how many times does each chromatin fibril contract during condensation into a visible chromosome?</summary>
+    <p>About <strong>10,000 times</strong>. (Not to be confused with the 5–10× concentration at the nucleosome level.)</p>
+  </details>
+</div>
+
+</div>
+
+<footer>
+  <strong>📌 Sıradaki bölüm:</strong> Bölüm 6 — Katlanma Aşaması 2 ve üstü: <em>solenoid (30 nm) → loop'lar → metafaz kromozomu</em> ve kromozom anatomisi (sentromer vb.). Slayt 67 ve sonrası. "Devam et" demen yeterli.
+  <br><br>
+  Kaynak: Asst. Prof. Nilgün Karasu — Fundamentals of Inheritance and Chromosome Structure &amp; Packaging ders slaytları (Slayt 50–66).
+</footer>
+
+</body>
+</html>

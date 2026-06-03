@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genetik – Bölüm 1: Kalıtımın Temelleri ve Tarihçe</title>
+<style>
+  :root{
+    --ana:#1f2a8c; --ana2:#2e5db0; --metin:#1d2230; --soft:#f5f7fb;
+    --klinik:#0a7d63; --klinik-bg:#e7f8f2;
+    --spot:#b8860b; --spot-bg:#fff7e0;
+    --dikkat:#b22222; --dikkat-bg:#fdeaea;
+    --flash:#5a2a9c; --flash-bg:#f3ecfd;
+    --mnemo:#005f73; --mnemo-bg:#e3f4f8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
+    line-height:1.7; color:var(--metin); margin:0; padding:0 0 60px;
+    background:#fafbfe;
+  }
+  header.kapak{
+    background:linear-gradient(135deg,#1f2a8c 0%,#2e5db0 100%);
+    color:#fff; padding:42px 28px; text-align:center;
+  }
+  header.kapak h1{margin:0 0 8px; font-size:2rem; letter-spacing:.3px;}
+  header.kapak p{margin:4px 0; opacity:.92; font-size:1.02rem;}
+  .wrap{max-width:980px; margin:0 auto; padding:0 22px;}
+  h2{
+    color:#fff; background:var(--ana); padding:12px 18px; border-radius:10px;
+    margin:42px 0 18px; font-size:1.4rem;
+  }
+  h3{
+    color:var(--ana); border-bottom:3px solid var(--ana2);
+    padding-bottom:6px; margin:32px 0 12px; font-size:1.15rem;
+  }
+  p{margin:10px 0;}
+  ul,ol{margin:10px 0 10px 6px; padding-left:22px;}
+  li{margin:7px 0;}
+  strong{color:var(--ana);}
+  em{color:#444;}
+  mark{background:#ffe98a; padding:1px 4px; border-radius:3px;}
+
+  .kutu{border-radius:12px; padding:16px 18px 16px 50px; margin:18px 0;
+        position:relative; box-shadow:0 2px 6px rgba(0,0,0,.06);}
+  .kutu .ikon{position:absolute; left:14px; top:14px; font-size:1.4rem;}
+  .kutu .baslik{font-weight:700; display:block; margin-bottom:5px; font-size:1.02rem;}
+
+  .klinik{background:var(--klinik-bg); border-left:6px solid var(--klinik);}
+  .klinik .baslik{color:var(--klinik);}
+  .spot{background:var(--spot-bg); border-left:6px solid var(--spot);}
+  .spot .baslik{color:#8a6500;}
+  .dikkat{background:var(--dikkat-bg); border-left:6px solid var(--dikkat);}
+  .dikkat .baslik{color:var(--dikkat);}
+  .mnemo{background:var(--mnemo-bg); border-left:6px solid var(--mnemo);}
+  .mnemo .baslik{color:var(--mnemo);}
+
+  .flash{background:var(--flash-bg); border:2px dashed var(--flash);
+        border-radius:12px; padding:14px 18px; margin:14px 0;}
+  .flash .baslik{color:var(--flash); font-weight:700; display:block; margin-bottom:8px;}
+  .flash details{margin:8px 0; background:#fff; border-radius:8px; padding:6px 12px;
+        border:1px solid #e0d4f5;}
+  .flash summary{cursor:pointer; font-weight:600; color:#3d1f6e;}
+  .flash details p{margin:8px 0 4px; color:#222;}
+
+  .zaman{border-left:4px solid var(--ana2); margin:18px 0; padding-left:18px;}
+  .zaman .yil{font-weight:700; color:var(--dikkat); font-size:1.05rem;}
+
+  table{border-collapse:collapse; width:100%; margin:16px 0; font-size:.96rem;}
+  th,td{border:1px solid #c8d2e8; padding:9px 11px; text-align:left; vertical-align:top;}
+  th{background:var(--ana); color:#fff;}
+  tr:nth-child(even) td{background:var(--soft);}
+  .slayt-et{display:inline-block; background:#dfe6f5; color:var(--ana);
+        font-size:.78rem; font-weight:700; padding:2px 9px; border-radius:20px; margin-bottom:4px;}
+  footer{max-width:980px; margin:40px auto 0; padding:18px 22px; color:#666;
+        font-size:.9rem; border-top:1px solid #ddd;}
+</style>
+</head>
+<body>
+
+<header class="kapak">
+  <h1>Fundamentals of Inheritance and Chromosome Structure & Packaging</h1>
+  <p><strong>Kalıtımın Temelleri ve Kromozom Yapısı / Paketlenmesi</strong></p>
+  <p>Asst. Prof. Nilgün Karasu — Dept. of Medical Genetics</p>
+  <p style="margin-top:14px; font-size:.95rem;">📘 BÖLÜM 1 — Giriş &amp; Genetiğin Tarihi ve Kilometre Taşları (Slayt 1–13)</p>
+</header>
+
+<div class="wrap">
+
+<!-- ================= GİRİŞ ================= -->
+<h2>1) Giriş: Genetik Bilimi Nedir?</h2>
+
+<span class="slayt-et">Slayt 1–2</span>
+<p>
+Bu ders, kalıtımın (<strong>inheritance</strong>) temel prensiplerini ve genetik bilginin fiziksel taşıyıcısı olan kromozomların (<strong>chromosomes</strong>) yapısını ve paketlenmesini (<strong>packaging</strong>) ele alır. Genetik (<strong>genetics</strong>); bir özelliğin anne-babadan yavruya nasıl aktarıldığını, bu aktarımın <em>anlamını (meaning), tarihini (history), dallarını (branches), önemini (importance) ve uygulamalarını (applications)</em> inceleyen bilim dalıdır.
+</p>
+
+<h3>Dersin Temel Kaynakları (Reference Textbooks)</h3>
+<ul>
+  <li><strong>Thompson &amp; Thompson — Genetics in Medicine</strong> (Nussbaum, McInnes, Willard) — Tıbbi genetiğin klasik temel kitabı.</li>
+  <li><strong>Emery's Elements of Medical Genetics</strong> (Turnpenny, Ellard).</li>
+  <li><strong>Thompson &amp; Thompson — Genetics and Genomics in Medicine</strong> (Cohn, Scherer, Hamosh) — güncel, genomik vurgulu baskı.</li>
+</ul>
+
+<div class="kutu klinik">
+  <span class="ikon">🦷</span>
+  <span class="baslik">Klinik Önemi</span>
+  Diş hekimliğinde birçok gelişimsel anomali (örn. <em>amelogenesis imperfecta</em>, <em>dentinogenesis imperfecta</em>, <em>hypodontia</em> = diş eksikliği) doğrudan kalıtsal kökenlidir. Bir hastanın diş anomalisinin <strong>Mendelian</strong> bir paternle ailede tekrarlayıp tekrarlamadığını anlamak için bu temel terminolojiye hâkim olman, ileride hasta yönlendirmesi (genetik danışma) yapabilmen için şarttır.
+</div>
+
+<!-- ================= TARİH ================= -->
+<h2>2) Genetiğin Zengin Tarihi (The Rich History of Genetics)</h2>
+
+<span class="slayt-et">Slayt 3</span>
+<p>Genetik tarihini üç zaman dilimine oturtmak akılda tutmayı kolaylaştırır:</p>
+<ul>
+  <li><strong>19. yüzyıl (19th century):</strong> Genetiğe dair <strong>temel bilimsel bulgular</strong> elde edilmeye başlandı.</li>
+  <li><strong>19. yüzyıl ortası (middle of the 19th century):</strong> Kalıtsal aktarım mekanizmalarını (<strong>hereditary transmission mechanisms</strong>) anlamaya çalışan <strong>modern genetik bilimi</strong>, <strong>Gregor Mendel</strong>'in çalışmalarıyla başladı.</li>
+  <li><strong>20. yüzyıl (20th century):</strong> Canlıların <strong>fiziksel temelleri (physical foundations)</strong> ve birbirleriyle ilişkileri anlaşılmaya başlandı.</li>
+</ul>
+
+<div class="kutu spot">
+  <span class="ikon">🎯</span>
+  <span class="baslik">Spot Bilgi</span>
+  Modern genetiğin <strong>başlangıç noktası = 19. yüzyıl ortası, Gregor Mendel</strong>. Sınavda "modern genetiğin babası kimdir / ne zaman başladı?" sorusunun cevabı budur.
+</div>
+
+<h3>Gregor Mendel — "Genetiğin Babası"</h3>
+<span class="slayt-et">Slayt 4–5</span>
+<ul>
+  <li>Avusturyalı bir <strong>keşiş (monk)</strong>; yaşam yılları <strong>1822–1884</strong>.</li>
+  <li><strong>1865</strong> yılında, bahçe bezelyesi (<strong>garden pea</strong>) üzerindeki çaprazlama (üreme) deneylerinin sonuçlarını <strong>Brünn Doğa Tarihi Derneği'ne (Natural History Society of Brünn)</strong> sundu. Brünn, Bohemya'da olup bugünkü Çek Cumhuriyeti'ndeki <strong>Brno</strong> şehridir.</li>
+  <li>Çalıştığı bitki: <strong>Pisum sativum (pea / bezelye)</strong>.</li>
+  <li>Mendel çalışmalarına başladığında <strong>kromozomların (chromosomes) ve mayoz bölünmenin (meiosis) rolü ve mekanizması hakkında hiçbir bilgi yoktu.</strong></li>
+  <li>Buna rağmen Mendel, farklı <strong>kalıtım birimlerinin (units of heredity)</strong> varlığını sezdi.</li>
+  <li>Mendel'in çalışması, esasen <strong>genlerin (genes)</strong> ve bunların nasıl kalıtıldığının <strong>keşfi</strong> olarak kabul edilir.</li>
+</ul>
+
+<div class="kutu dikkat">
+  <span class="ikon">⚠️</span>
+  <span class="baslik">Dikkat — Klasik Çeldirici</span>
+  Mendel <strong>"gen" veya "kromozom" kelimelerini kullanmadı</strong>; o sadece soyut "kalıtım birimleri"nin varlığını çıkarımladı. "Gen" terimi sonra (1909, Johannsen) ortaya çıktı. Sınavda Mendel'e "genleri ve kromozomları keşfetti" şıkkı çeldirici olarak konabilir — Mendel <em>genlerin kalıtımını</em> kavramsal olarak ortaya koydu, kromozomları değil.
+</div>
+
+<span class="slayt-et">Slayt 6</span>
+<div class="kutu dikkat">
+  <span class="ikon">⚠️</span>
+  <span class="baslik">Dikkat — "Görmezden gelinen yıllar"</span>
+  Mendel'in görüşleri, <strong>ek kanıtlar bulunana kadar (until additional evidence was found)</strong> kendisinden sonraki yıllarda <strong>görmezden gelindi (ignored)</strong>. Yani Mendel hayattayken çalışmaları takdir görmedi; ancak 1900'de "yeniden keşfedildi".
+</div>
+
+<!-- ================= MILESTONES ================= -->
+<h2>3) Tarih ve Kilometre Taşları (History &amp; Milestones)</h2>
+<p>Aşağıdaki kronoloji finalde <strong>"tarih + isim + katkı"</strong> eşleştirme sorusu olarak gelmeye en yatkın bölümdür. Kronolojik sırayı bir hikâye gibi izle:</p>
+
+<span class="slayt-et">Slayt 7–13</span>
+
+<div class="zaman">
+  <p class="yil">1900</p>
+  <p>Mendel'in prensipleri henüz <strong>yeniden keşfedilmeyi bekliyordu (awaiting rediscovery)</strong>; kromozomlar mikroskopta zar zor görülebiliyordu (<strong>barely visible</strong>) ve <strong>moleküler genetik (molecular genetics)</strong> bilimi henüz mevcut değildi.</p>
+</div>
+
+<div class="zaman">
+  <p class="yil">1903 — Farabee</p>
+  <p><strong>Farabee</strong>, insanda <strong>brachydactyly</strong> (parmakların anormal kısalığı) malformasyonunun kalıtımını analiz etti. Bu, kaydedilen <strong>ilk otozomal dominant (autosomal dominant) Mendelian özellik</strong> oldu. <strong>1951</strong>'de <strong>Bell</strong>, bu brachydactyly tipini <strong>tip A1 (BDA1)</strong> olarak sınıflandırdı.</p>
+</div>
+
+<div class="zaman">
+  <p class="yil">1906 — Bateson</p>
+  <p><strong>William Bateson</strong>, <strong>"genetics" (genetik)</strong> terimini <strong>ilk kez</strong> kullandı.</p>
+</div>
+
+<div class="zaman">
+  <p class="yil">1908 — Garrod</p>
+  <p><strong>Garrod</strong>, ilk kez <strong>doğuştan metabolik hastalıkları (congenital metabolic diseases)</strong> tanımladı ve dört hastalık tarif etti: <strong>Alkaptonuria, albinism, cystinuria, pentosuria.</strong> Neredeyse tüm metabolik hastalıklar <strong>otozomal resesif (autosomal recessive)</strong> kalıtım gösterir.</p>
+</div>
+
+<div class="zaman">
+  <p class="yil">1909 — Johannsen</p>
+  <p><strong>W. Johannsen</strong>, kalıtılabilir faktörleri (<strong>heritable factors</strong>) <strong>"gen" (genes)</strong> olarak tanımladı. Ayrıca <strong>genotype</strong> ve <strong>phenotype</strong> terimlerini literatüre kazandırdı.</p>
+</div>
+
+<div class="zaman">
+  <p class="yil">1910</p>
+  <p>Genetik, <strong>bağımsız bir bilim (independent science)</strong> hâline geldi.</p>
+</div>
+
+<div class="zaman">
+  <p class="yil">1915 — Morgan</p>
+  <p><strong>Kromozom kalıtım teorisi (Chromosome theory of inheritance)</strong> ortaya kondu — <strong>Thomas Hunt Morgan</strong>. (Genlerin kromozomlar üzerinde taşındığı fikri.)</p>
+</div>
+
+<div class="zaman">
+  <p class="yil">1944 — Avery, McCarty, MacLeod</p>
+  <p>New York'taki <strong>Rockefeller Institute</strong>'te <strong>Oswald Avery, Maclyn McCarty ve Colin MacLeod</strong>, <strong>Streptococcus pneumoniae</strong> üzerinde çalışırken <strong>DNA'yı genetik materyal (genetic material)</strong> olarak tanımladılar. ("DNA as the basis of inheritance.")</p>
+</div>
+
+<div class="kutu spot">
+  <span class="ikon">🎯</span>
+  <span class="baslik">Spot Bilgi — En çok sorulan dört eşleştirme</span>
+  <ul style="margin:6px 0;">
+    <li><strong>Bateson (1906)</strong> → "genetics" terimi</li>
+    <li><strong>Johannsen (1909)</strong> → "gene", "genotype", "phenotype" terimleri</li>
+    <li><strong>Morgan (1915)</strong> → Chromosome theory of inheritance</li>
+    <li><strong>Avery, McCarty &amp; MacLeod (1944)</strong> → DNA = genetik materyal (Streptococcus pneumoniae)</li>
+  </ul>
+</div>
+
+<div class="kutu dikkat">
+  <span class="ikon">⚠️</span>
+  <span class="baslik">Dikkat — Kalıtım Tiplerini Karıştırma!</span>
+  <ul style="margin:6px 0;">
+    <li><strong>Brachydactyly (Farabee, 1903)</strong> = ilk <strong>otozomal DOMINANT</strong> Mendelian özellik.</li>
+    <li><strong>Garrod'un metabolik hastalıkları (1908)</strong> = neredeyse tamamı <strong>otozomal RESESİF</strong>.</li>
+  </ul>
+  Hocalar bu ikisini çapraz (dominant↔resesif) vererek çeldirici kurmaya bayılır.
+</div>
+
+<h3>Tıbbi Genetiğin Doğuşu (History of Medical Genetics)</h3>
+<span class="slayt-et">Slayt 13</span>
+<p>
+Sonraki araştırmacılar kendi gözlemlerini <strong>Mendel'in çalışmasıyla ilişkilendirdi (correlated with Mendel's work)</strong>. Bu bağlantı, bugün <strong>Mendelian genetics</strong> olarak bilinen alanın temeli kabul edildi. Böylece genlerin <strong>anne-babadan yavruya nasıl aktarıldığı (how genes are passed from parents to offspring)</strong> açıklanmış oldu.
+</p>
+
+<!-- ================= MNEMONIK ================= -->
+<div class="kutu mnemo">
+  <span class="ikon">🧠</span>
+  <span class="baslik">Mnemoteknik — Tarih Şeridini Ezberle</span>
+  <p style="margin:6px 0;"><strong>İsim sırası (1903→1944):</strong> <em>Farabee → Bateson → Garrod → Johannsen → Morgan → Avery</em></p>
+  <p style="margin:6px 0;">Akrostiş cümle: <strong>"F</strong> akülteyi <strong>B</strong>itiren <strong>G</strong>enç <strong>J</strong>üri <strong>M</strong>endel'i <strong>A</strong>nlattı."</p>
+  <p style="margin:10px 0 4px;"><strong>Garrod'un 4 hastalığı (otozomal resesif):</strong> <em>Alkaptonuria, Albinism, Cystinuria, Pentosuria</em> → baş harfler <strong>"A-A-C-P"</strong>.</p>
+  <p style="margin:4px 0;">Hatırlatıcı: <strong>"A-A-Ç-P = Akşam Akşam Çorba Pişir"</strong> (4 metabolik hastalık, hepsi resesif "mutfak hatası" gibi — eksik bir enzim yüzünden).</p>
+</div>
+
+<!-- ================= FLASHCARDS ================= -->
+<div class="flash">
+  <span class="baslik">🃏 Flashcard'lar — Bölüm 1 (cevap için üstüne tıkla)</span>
+
+  <details>
+    <summary>1) Who used the term "genetics" for the first time and in which year?</summary>
+    <p><strong>William Bateson</strong>, in <strong>1906</strong>.</p>
+  </details>
+
+  <details>
+    <summary>2) Who introduced the terms "gene", "genotype" and "phenotype"? (year)</summary>
+    <p><strong>Wilhelm Johannsen</strong>, in <strong>1909</strong>. ("Gen" terimini ilk o tanımladı; "genetics" terimiyle karıştırma!)</p>
+  </details>
+
+  <details>
+    <summary>3) What was the first recorded autosomal dominant Mendelian trait in humans, and who described it?</summary>
+    <p><strong>Brachydactyly</strong>, described by <strong>Farabee (1903)</strong>; later classified by Bell (1951) as type <strong>A1 (BDA1)</strong>.</p>
+  </details>
+
+  <details>
+    <summary>4) Garrod (1908) described four congenital metabolic diseases. Name them and their inheritance pattern.</summary>
+    <p><strong>Alkaptonuria, albinism, cystinuria, pentosuria</strong> — almost all are <strong>autosomal recessive</strong>.</p>
+  </details>
+
+  <details>
+    <summary>5) Who proved DNA is the genetic material, when, and using which organism?</summary>
+    <p><strong>Avery, McCarty &amp; MacLeod (1944)</strong>, Rockefeller Institute, working on <strong>Streptococcus pneumoniae</strong>.</p>
+  </details>
+
+  <details>
+    <summary>6) Mendel'in deneyinde kullandığı bitkinin Latince adı ve Mendel deney yaptığında bilinmeyen iki mekanizma neydi?</summary>
+    <p>Bitki: <strong>Pisum sativum</strong>. Mendel döneminde <strong>kromozomların (chromosomes)</strong> ve <strong>mayozun (meiosis)</strong> rolü/mekanizması bilinmiyordu.</p>
+  </details>
+</div>
+
+</div>
+
+<footer>
+  <strong>📌 Sıradaki bölüm:</strong> Bölüm 2 — <em>Vocabulary</em> (character, trait, allele) ve devamında Kromozom Yapısı &amp; Paketlenmesi (Slayt 14 ve sonrası). Hazır olduğunda "devam et" demen yeterli; aynı format ve kutu sistemiyle sürdüreceğim.
+  <br><br>
+  Kaynak: Asst. Prof. Nilgün Karasu — Fundamentals of Inheritance and Chromosome Structure &amp; Packaging ders slaytları (Slayt 1–13).
+</footer>
+
+</body>
+</html>

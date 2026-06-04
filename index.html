@@ -27,10 +27,16 @@
           <small>ders notları</small>
         </span>
       </a>
-      <div class="top-actions" aria-label="Sayfa bağlantıları">
-        <a href="#dersler">Dersler</a>
-        <a href="#notlar">Notlar</a>
-        <a href="#siniflar">Sınıflar</a>
+      <div class="top-controls">
+        <div class="top-actions" aria-label="Sayfa bağlantıları">
+          <a href="#dersler">Dersler</a>
+          <a href="#notlar">Notlar</a>
+          <a href="#siniflar">Sınıflar</a>
+        </div>
+        <div class="language-switch" data-language-switch aria-label="Dil seçimi" translate="no">
+          <button type="button" data-lang-option="tr">TR</button>
+          <button type="button" data-lang-option="en">EN</button>
+        </div>
       </div>
     </nav>
 
@@ -61,7 +67,7 @@
 
     <section class="quick-stats" aria-label="Arşiv özeti">
       <article>
-        <span data-stat="notes">16</span>
+        <span data-stat="notes">19</span>
         <p>HTML not</p>
       </article>
       <article>
@@ -147,15 +153,15 @@
           </a>
         </article>
 
-        <article class="course-card pending">
+        <article class="course-card biochemistry">
           <div class="course-topline">
             <span>Biochemistry</span>
-            <strong>0 not</strong>
+            <strong>3 not</strong>
           </div>
-          <h3>Biyokimya klasörü hazır</h3>
-          <p>Biochemistry çalışma rehberleri geldiğinde bu katalogda filtrelenebilir olacak.</p>
+          <h3>Metabolizma ve hormon notları</h3>
+          <p>Glikoliz, TCA/Krebs döngüsü ve hipotalamus-hipofiz hormonları için biyokimya rehberleri.</p>
           <a href="#notlar" data-course-jump="Biochemistry">
-            <span>Klasörü göster</span>
+            <span>Biochemistry notları</span>
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M5 12h13M13 6l6 6-6 6"/>
             </svg>
@@ -209,7 +215,7 @@
         </div>
 
         <div class="catalog-status" aria-live="polite">
-          <span id="resultCount">11 kayıt gösteriliyor</span>
+          <span id="resultCount">14 kayıt gösteriliyor</span>
           <button class="ghost-button" type="button" id="resetProgress">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M3 12a9 9 0 1 0 3-6.7M3 4v6h6"/>
@@ -266,6 +272,7 @@
     </div>
   </footer>
 
+  <script src="assets/language.js" defer></script>
   <script src="assets/app.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Krebs / Sitrik Asit Döngüsü (TCA) — Slayt Slayt Final Rehberi</title>
+<style>
+  :root{
+    --bg:#f4f1ec;--paper:#fff;--ink:#231f1c;--muted:#5c534c;
+    --brand:#9a3412;--brand-dark:#7c2d12;--brand-soft:#fbeee6;
+    --teal:#0c7d8c;--teal-soft:#e6f5f7;
+    --amber:#b9770e;--amber-soft:#fdf4e3;
+    --red:#b3261e;--red-soft:#fcebe9;
+    --green:#1e7a46;--green-soft:#e8f6ee;
+    --purple:#5b3a91;--purple-soft:#f0eafa;
+    --line:#e4ded6;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Segoe UI",Calibri,system-ui,sans-serif;line-height:1.6;font-size:17px;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 18px 80px;}
+  header.hero{background:linear-gradient(135deg,var(--brand-dark),var(--brand));
+    color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:24px;
+    box-shadow:0 8px 24px rgba(124,45,18,.25);}
+  header.hero .tag{font-size:14px;letter-spacing:2px;text-transform:uppercase;opacity:.85;}
+  header.hero h1{margin:.2em 0 .15em;font-size:2rem;font-family:Georgia,serif;}
+  header.hero p{margin:.2em 0;opacity:.92;font-size:.95rem;}
+
+  .slide{background:var(--paper);border:1px solid var(--line);border-radius:14px;
+    padding:18px 22px;margin:18px 0;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .slide-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+  .snum{background:var(--brand);color:#fff;font-weight:800;font-size:.8rem;
+    padding:5px 12px;border-radius:20px;white-space:nowrap;letter-spacing:.5px;}
+  .stitle{font-family:Georgia,serif;color:var(--brand-dark);font-size:1.22rem;font-weight:700;}
+  .rxn-num{background:var(--teal);color:#fff;border-radius:50%;width:26px;height:26px;
+    display:inline-block;text-align:center;line-height:26px;font-weight:800;font-size:.85rem;}
+
+  strong{color:var(--brand-dark);}
+  em{color:var(--muted);}
+  mark{background:#ffe9a8;padding:0 3px;border-radius:3px;}
+  ul,ol{margin:.4em 0 .7em;padding-left:1.35em;}
+  li{margin:.3em 0;}
+  p{margin:.55em 0;}
+
+  .box{border-radius:12px;padding:13px 17px;margin:14px 0;border-left:6px solid;}
+  .box .bt{font-weight:800;display:block;margin-bottom:4px;}
+  .clinic{background:var(--teal-soft);border-color:var(--teal);} .clinic .bt{color:var(--teal);}
+  .spot{background:var(--green-soft);border-color:var(--green);} .spot .bt{color:var(--green);}
+  .warn{background:var(--red-soft);border-color:var(--red);} .warn .bt{color:var(--red);}
+  .mnemo{background:var(--purple-soft);border-color:var(--purple);} .mnemo .bt{color:var(--purple);}
+
+  .rxn{font-family:Consolas,"Courier New",monospace;background:#f6f1ea;border-radius:8px;
+    padding:8px 12px;margin:8px 0;font-size:.9rem;display:block;}
+
+  .fc-wrap{margin:16px 0 4px;border:2px dashed var(--amber);background:var(--amber-soft);
+    border-radius:14px;padding:12px 16px;}
+  .fc-wrap .fc-title{font-weight:800;color:var(--amber);letter-spacing:.5px;
+    text-transform:uppercase;font-size:.78rem;margin-bottom:6px;}
+  details.fc{background:#fff;border:1px solid #eedcb6;border-radius:10px;margin:7px 0;padding:3px 13px;}
+  details.fc summary{cursor:pointer;font-weight:700;padding:7px 0;list-style:none;}
+  details.fc summary::-webkit-details-marker{display:none;}
+  details.fc summary::before{content:"❓ ";}
+  details.fc[open] summary::before{content:"✅ ";}
+  details.fc .ans{padding:4px 0 11px;color:var(--brand-dark);border-top:1px solid #f0e6cf;margin-top:3px;}
+
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:.9rem;background:#fff;
+    border-radius:10px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+  th{background:var(--brand-dark);color:#fff;text-align:left;padding:9px 11px;font-size:.84rem;}
+  td{padding:9px 11px;border-top:1px solid var(--line);vertical-align:top;}
+  tr:nth-child(even) td{background:#faf7f3;}
+  .toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 20px;font-size:.92rem;}
+  .toc a{color:var(--brand-dark);text-decoration:none;} .toc a:hover{text-decoration:underline;}
+  .pill{font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:20px;color:#fff;}
+  .pill.rl{background:var(--red);} .pill.reg{background:var(--purple);}
+  footer{margin-top:50px;text-align:center;color:var(--muted);font-size:.85rem;}
+  .diag-note{font-style:italic;color:var(--muted);font-size:.92rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="tag">Medical Biochemistry · 1. Sınıf Final</div>
+  <h1>Krebs Cycle / Citric Acid Cycle (TCA)</h1>
+  <p>Sitrik Asit Döngüsü — Slayt Slayt Çalışma Rehberi (49 slayt)</p>
+  <p style="opacity:.8;font-size:.85rem;">Kaynak: Prof. Dr. Nilgün Tekkeşin — Üsküdar University, Faculty of Medicine, Dept. of Medical Biochemistry</p>
+</header>
+
+<div class="toc">
+<strong style="color:var(--brand-dark);">📋 Bu rehber kaynaktaki 49 slaytı sırayla işler.</strong> Hızlı geçiş:
+<span> · </span><a href="#s5">Piruvat & PDH (5–16)</a>
+<span> · </span><a href="#s17">Döngüye giriş (17–21)</a>
+<span> · </span><a href="#s22">8 Reaksiyon (22–31)</a>
+<span> · </span><a href="#s32">Enerji (32–33)</a>
+<span> · </span><a href="#s34">Regülasyon (34–37)</a>
+<span> · </span><a href="#s38">Sorular & Ezber (38–47)</a>
+</div>
+
+<!-- SLIDE 1 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 1</span><span class="stitle">Başlık</span></div>
+  <p><strong>Krebs Cycle · Citric Acid Cycle · TCA</strong> — Medical Biochemistry dersi. Prof. Dr. Nilgün Tekkeşin, Üsküdar University, Faculty of Medicine.</p>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 2</span><span class="stitle">Adlandırma ve Hans Krebs</span></div>
+  <p>Döngünün üç eş anlamlı ismi vardır: <strong>Citric acid cycle</strong> = <strong>Tricarboxylic acid cycle (TCA)</strong> = <strong>Krebs cycle</strong>.</p>
+  <p><strong>Sir Hans Adolf Krebs (1900–1981):</strong></p>
+  <ul>
+    <li>Alman doğumlu İngiliz hekim ve biyokimyacı (German-born British physician and biochemist).</li>
+    <li>Hücresel solunum (cellular respiration) çalışmalarının öncüsü.</li>
+    <li>Vücuttaki iki önemli kimyasal döngüyü keşfetti: <strong>i) urea cycle (üre döngüsü)</strong> ve <strong>ii) citric acid cycle</strong>.</li>
+    <li>1953 yılında <strong>Nobel Prize in Physiology or Medicine</strong> ödülünü aldı.</li>
+  </ul>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Krebs <strong>iki</strong> döngü keşfetti: üre döngüsü + sitrik asit döngüsü. "Krebs sadece TCA'yı buldu" ifadesi çeldiricidir.</div>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>TCA döngüsünün üç eş anlamlı ismi nedir?</summary><div class="ans">Citric acid cycle, Tricarboxylic acid cycle (TCA), Krebs cycle.</div></details>
+    <details class="fc"><summary>Hans Krebs hangi iki döngüyü keşfetti ve Nobel'i ne zaman aldı?</summary><div class="ans">Urea cycle ve citric acid cycle; Nobel 1953.</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 3</span><span class="stitle">Metabolizmanın "Merkezi" (Hub)</span></div>
+  <ul>
+    <li>Metabolik sistemin <strong>merkezi (hub)</strong> olarak adlandırılır.</li>
+    <li>Karbonhidrat, yağ asidi ve amino asit <strong>oksidasyonunun büyük kısmından</strong> sorumludur.</li>
+    <li>Aynı zamanda bu bileşiklerin ve diğerlerinin <strong>üretiminden</strong> de sorumludur.</li>
+    <li><mark><strong>Amphibolic (amfibolik):</strong></mark> hem <strong>katabolik</strong> hem de <strong>anabolik</strong> çalışır.</li>
+  </ul>
+  <p><strong>Net denklem (ezberlenmeli):</strong></p>
+  <span class="rxn">Acetyl-CoA + 3 NAD⁺ + FAD + GDP + Pi → 3 NADH + FADH₂ + GTP + CoA + 2 CO₂</span>
+  <div class="box mnemo"><span class="bt">🧠 Ezber — "Amphibolic" = Amphibian (kurbağa)</span>Kurbağa hem suda hem karada yaşar; TCA da hem yıkım (katabolik) hem yapım (anabolik) yapar.</div>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>"Amphibolic" ne demektir?</summary><div class="ans">Hem katabolik hem anabolik olarak çalışan yolak demektir.</div></details>
+    <details class="fc"><summary>Bir tur TCA'nın net ürünleri (asetil-CoA başına) nelerdir?</summary><div class="ans">3 NADH, 1 FADH₂, 1 GTP, 2 CO₂ ve serbest CoA.</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 4</span><span class="stitle">Genel Döngü Şeması (Diyagram)</span></div>
+  <p class="diag-note">Tüm sitrik asit döngüsünün ara ürünleri ve enzimlerini gösteren büyük "tekerlek" diyagramı. Oxaloacetate → Citrate → Isocitrate → α-Ketoglutarate → Succinyl-CoA → Succinate → Fumarate → Malate → (tekrar) Oxaloacetate. Detaylar Slide 22–31'de tek tek işleniyor.</p>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide" id="s5">
+  <div class="slide-head"><span class="snum">SLIDE 5</span><span class="stitle">Piruvatın Akıbetleri (Fates of Pyruvate)</span></div>
+  <p>Bölüm başlığı. Glikolizden gelen <strong>pyruvate</strong>'ın aerobik koşulda asetil-CoA'ya dönüşümü anlatılmaya başlanır.</p>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 6</span><span class="stitle">Piruvatın Oksidatif Dekarboksilasyonu</span></div>
+  <p><strong>Oxidative Decarboxylation of Pyruvate</strong> ve <strong>Allosteric Regulation (allosterik düzenleme)</strong> konularına giriş. Bu, glikoliz ile TCA arasındaki "köprü reaksiyonudur".</p>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Piruvat → Asetil-CoA reaksiyonu <strong>TCA'nın bir parçası DEĞİLDİR</strong>; döngüye giriş öncesi köprü (bridging) reaksiyondur. Klasik çeldirici.</div>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 7</span><span class="stitle">Tarihçe — Coenzyme A Keşfi</span></div>
+  <p><strong>Nathan Kaplan</strong> ve <strong>Fritz Lipmann</strong>, <strong>Coenzyme A (CoA)</strong>'yı keşfetti. <strong>Ochoa</strong> ve <strong>Lynen</strong>, <strong>acetyl-CoA</strong>'nın piruvattan sitrata geçişte bir ara ürün olduğunu gösterdi.</p>
+</div>
+
+<!-- SLIDE 8 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 8</span><span class="stitle">Acetyl-CoA Yüksek Enerjili Bir Bileşiktir</span></div>
+  <ul>
+    <li><strong>CoA</strong>, asetil gruplarının taşıyıcısıdır (carrier of acetyl groups).</li>
+    <li><strong>Acetyl-CoA</strong> "yüksek enerjili" bir bileşiktir; <strong>thioester bağının</strong> hidrolizinin ΔG′ değeri <strong>−31.5 kJ/mol</strong>'dür — bu, <mark>ATP hidrolizinden daha büyüktür</mark>.</li>
+    <li><strong>Pyruvate dehydrogenase</strong>, piruvatı asetil-CoA ve CO₂'ye dönüştürür.</li>
+  </ul>
+  <div class="box warn"><span class="bt">⚠️ Dikkat</span>Asetil-CoA'daki yüksek enerji <strong>thioester bağındadır</strong>; bu bağın hidroliz enerjisi ATP'ninkinden büyüktür. Bu enerji Reaksiyon 1'de sitrat oluşumunu sürükler.</div>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>Asetil-CoA'daki yüksek enerji nerededir ve hidroliz ΔG′'si kaçtır?</summary><div class="ans">Thioester bağında; ΔG′ ≈ −31.5 kJ/mol (ATP hidrolizinden büyük).</div></details>
+    <details class="fc"><summary>Piruvatı asetil-CoA + CO₂'ye hangi enzim çevirir?</summary><div class="ans">Pyruvate dehydrogenase (PDH).</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 9 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 9</span><span class="stitle">PDH — Multienzim Kompleksi</span></div>
+  <p><strong>Multienzyme complex (multienzim kompleksi):</strong> bir metabolik yolakta iki veya daha fazla ardışık basamağı katalize eden, kovalent olmayan bağlarla bir araya gelmiş enzim gruplarıdır.</p>
+  <p>PDH kompleksinin moleküler ağırlığı: <strong>4.600.000 Da</strong> (devasa).</p>
+</div>
+
+<!-- SLIDE 10 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 10</span><span class="stitle">PDH Kompleksinin 3 Enzimi</span></div>
+  <p><strong>Pyruvate dehydrogenase complex (PDH complex)</strong> üç enzimin moleküler agregatıdır:</p>
+  <ol>
+    <li><strong>Pyruvate dehydrogenase</strong> (PDH veya <strong>E1</strong>, "decarboxylase" da denir)</li>
+    <li><strong>Dihydrolipoyl transacetylase</strong> (<strong>E2</strong>)</li>
+    <li><strong>Dihydrolipoyl dehydrogenase</strong> (<strong>E3</strong>)</li>
+  </ol>
+  <div class="box mnemo"><span class="bt">🧠 Ezber — "E1-E2-E3 = Dekarboksilaz, Transasetilaz, Dehidrogenaz"</span>"<strong>D-T-D</strong>" sırası: önce karbonu at (Decarboxylase E1), sonra asetili aktar (Transacetylase E2), sonra elektronu ver (Dehydrogenase E3).</div>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>PDH kompleksini oluşturan üç enzim nedir?</summary><div class="ans">E1: pyruvate dehydrogenase (decarboxylase); E2: dihydrolipoyl transacetylase; E3: dihydrolipoyl dehydrogenase.</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 11 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 11</span><span class="stitle">Kompleksin Yapısı (Subünite Sayıları)</span></div>
+  <p>Yapısal kompozisyon (diyagram): <strong>24 E2 subünitesi</strong>, <strong>24 E1</strong> (turuncu, α ve β birlikte) ve <strong>12 E3</strong> (kırmızı).</p>
+</div>
+
+<!-- SLIDE 12 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 12</span><span class="stitle">Neden Bu Kadar Karmaşık Bir Kompleks?</span></div>
+  <p>Enzimler fiziksel olarak birbirine bağlıdır ve birlikte ardışık reaksiyonlar yürütür. Enzimler ayrı ayrı yüzmek yerine "bağlı" olduğundan, bir basamağın ürünü doğrudan bir sonraki enzime aktarılır (<em>substrate channeling</em>).</p>
+  <p><strong>Anahtar fikir:</strong> Tek yapı, bir yolağın birden çok basamağı.</p>
+  <p><strong>Örnekler:</strong> Pyruvate dehydrogenase complex (piruvat → asetil-CoA); Fatty acid synthase (yağ asidi sentezi).</p>
+  <p><strong>Neden varlar?</strong> Reaksiyonları hızlandırır, israfı azaltır, daha iyi kontrol sağlar → <strong>speed, efficiency, accuracy, regulation</strong> (hız, verim, doğruluk, regülasyon). Özellikle reaktif ara ürünleri olan veya yüksek akışlı (high flux) yolaklarda önemlidir.</p>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>Multienzim kompleksleri hangi 4 avantajı sağlar?</summary><div class="ans">Speed, efficiency, accuracy, regulation (hız, verim, doğruluk, düzenleme).</div></details>
+    <details class="fc"><summary>PDH dışında ders notunda verilen başka bir multienzim kompleksi örneği nedir?</summary><div class="ans">Fatty acid synthase (yağ asidi sentaz).</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 13 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 13</span><span class="stitle">PDH'nin 5 Koenzimi</span></div>
+  <p>PDH kompleksi, ara ürünler için taşıyıcı veya oksidan görevi gören <strong>5 koenzim</strong> içerir:</p>
+  <ul>
+    <li><strong>E1</strong> → <strong>thiamine pyrophosphate (TPP)</strong></li>
+    <li><strong>E2</strong> → <strong>lipoic acid</strong> ve <strong>CoA</strong></li>
+    <li><strong>E3</strong> → <strong>FAD</strong> ve <strong>NAD⁺</strong></li>
+  </ul>
+  <div class="box mnemo"><span class="bt">🧠 Ezber — 5 Koenzim: "Tender Loving Care For Nancy"</span><strong>T</strong>PP · <strong>L</strong>ipoic acid · <strong>C</strong>oA · <strong>F</strong>AD · <strong>N</strong>AD⁺. (Aynı 5 koenzim α-ketoglutarate dehydrogenase için de geçerlidir!)</div>
+  <div class="box clinic"><span class="bt">🦷 Klinik Önemi</span><strong>TPP, tiamin (B1 vitamini) türevidir.</strong> B1 eksikliği (örn. kronik alkolizm) → PDH ve α-KG dehidrogenaz çalışamaz → piruvat birikir → <strong>laktik asidoz</strong>, <strong>beriberi</strong> ve <strong>Wernicke-Korsakoff sendromu</strong>. Diş hekimi olarak alkol bağımlısı/malnütrisyonlu hastalarda bu eksiklik akılda tutulmalı.</div>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>PDH kompleksinin 5 koenzimi nedir?</summary><div class="ans">TPP, lipoic acid, CoA, FAD, NAD⁺.</div></details>
+    <details class="fc"><summary>TPP hangi vitaminden türer ve eksikliği ne yapar?</summary><div class="ans">Tiamin (B1); eksikliği laktik asidoz, beriberi, Wernicke-Korsakoff'a yol açar.</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 14 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 14</span><span class="stitle">PDH Net Reaksiyonu</span></div>
+  <span class="rxn">Pyruvate + CoA + NAD⁺ → Acetyl-CoA + CO₂ + NADH</span>
+  <p>Enzim 5 koenzim ve 5 reaksiyon gerektirir; sonuçta 3 karbonlu piruvat, 2 karbonlu asetil grubu olarak CoA'ya bağlanır, bir karbon CO₂ olarak çıkar ve bir NADH üretilir.</p>
+</div>
+
+<!-- SLIDE 15 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 15</span><span class="stitle">Kovalent Modifikasyon (E1 Aç/Kapa)</span></div>
+  <p>Ökaryotik PDH'nin <strong>E1</strong> enzimi açılıp kapatılabilir:</p>
+  <ul>
+    <li><strong>PDH kinase</strong> → fosfat ekler (phosphorylates) → E1 <strong>inaktif</strong> olur.</li>
+    <li><strong>PDH phosphatase</strong> → fosfatı çıkarır (dephosphorylates) → E1 <strong>aktif</strong> olur.</li>
+  </ul>
+  <p style="background:#fff3d6;padding:8px 12px;border-radius:8px;"><strong>Kısaca:</strong> Fosfat <em>yokken</em> = aktif; fosfat <em>varken</em> = inaktif (E1 için).</p>
+  <div class="box warn"><span class="bt">⚠️ Dikkat</span>Çoğu enzimde fosforilasyon mantığı farklıdır; burada <strong>fosfatlanma = KAPALI</strong>. Karıştırmaya yönelik klasik çeldirici.</div>
+</div>
+
+<!-- SLIDE 16 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 16</span><span class="stitle">PDH Kompleksinin Regülasyonu</span></div>
+  <ul>
+    <li><strong>cAMP'den bağımsız PDH kinase</strong>, E1'i fosforiller ve böylece <strong>inhibe</strong> eder; <strong>PDH phosphatase</strong> ise defosforile ederek <strong>aktive</strong> eder.</li>
+    <li><strong>Pyruvate</strong>, PDH kinase'in <mark>güçlü bir inhibitörüdür</mark> (substrat birikince kinaz durur → PDH aktif kalır → piruvat tüketilir).</li>
+    <li>Kovalent regülasyon ana mekanizma olsa da kompleks ayrıca <strong>ürün inhibisyonuna</strong> da tabidir: <strong>NADH</strong> ve <strong>acetyl-CoA</strong> kompleksi inhibe eder.</li>
+  </ul>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>PDH kinase ve PDH phosphatase E1'i nasıl etkiler?</summary><div class="ans">Kinase fosforiller → E1 inaktif; phosphatase defosforiller → E1 aktif.</div></details>
+    <details class="fc"><summary>PDH kompleksini hangi ürünler (product inhibition) inhibe eder?</summary><div class="ans">NADH ve acetyl-CoA. (Pyruvate ise PDH kinase'i inhibe ederek PDH'yi dolaylı aktive eder.)</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 17 -->
+<div class="slide" id="s17">
+  <div class="slide-head"><span class="snum">SLIDE 17</span><span class="stitle">Konum: Mitokondri Matriksi</span></div>
+  <p>Sitrik asit döngüsü enzimleri <strong>mitokondri matriksinde (matrix of the mitochondria)</strong> bulunur. Substratların mitokondrinin <strong>dış ve iç membranlarından</strong> geçmesi gerekir.</p>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span>TCA <mark>tamamen mitokondride</mark> (matriks) olur — glikolizin aksine (o sitozolde). İstisna: <strong>succinate dehydrogenase</strong> matrikste değil, iç mitokondri membranındadır (Slide 28).</div>
+</div>
+
+<!-- SLIDE 18 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 18</span><span class="stitle">Metabolizmadaki Yeri</span></div>
+  <p>Sitrik asit döngüsü, Stage 2'deki katabolik yolaklardan gelen ara ürün <strong>acetyl-CoA</strong>'yı, Stage 3'teki <strong>elektron transportu</strong> ve <strong>ATP sentezi</strong> ile birbirine bağlayan bir reaksiyon serisidir.</p>
+</div>
+
+<!-- SLIDE 19 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 19</span><span class="stitle">Genel Özellikler</span></div>
+  <ul>
+    <li>Oksidasyonun <strong>ortak son yolağı (final common pathway)</strong>.</li>
+    <li><strong>Yalnızca mitokondride (exclusively in mitochondria)</strong>.</li>
+    <li><strong>Başlıca ATP kaynağı</strong>.</li>
+    <li>Çoğunlukla katabolik, bazı anabolik özelliklerle.</li>
+    <li><strong>Sentetik (anabolik) reaksiyonlar:</strong> amino asitlerden glukoz, esansiyel olmayan amino asitler (nonessential amino acids), yağ asitleri (fatty acids), <strong>heme</strong>.</li>
+  </ul>
+  <div class="box mnemo"><span class="bt">🧠 Ezber — Anabolik çıktılar "GAYH"</span><strong>G</strong>lukoz · <strong>A</strong>mino asit · <strong>Y</strong>ağ asidi · <strong>H</strong>em. TCA ara ürünleri bu yapı taşlarını besler.</div>
+</div>
+
+<!-- SLIDE 20 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 20</span><span class="stitle">Çalışma Koşulları ve İsim Kökeni</span></div>
+  <ul>
+    <li><strong>Aerobik koşullarda</strong> çalışır.</li>
+    <li>Asetil-CoA'daki 2 karbonlu asetil grubunu <strong>CO₂</strong>'ye okside eder.</li>
+    <li>İndirgenmiş koenzimler <strong>NADH</strong> ve <strong>FADH₂</strong> ile <strong>GTP</strong> üretir.</li>
+    <li>Adını, ilk reaksiyonda oluşan 6 karbonlu <strong>citrate</strong> iyonundan alır — bir <strong>tricarboxylic acid (üç karboksil grubu)</strong> olan sitrik asit (C₆H₈O₇).</li>
+  </ul>
+  <div class="box warn"><span class="bt">⚠️ Dikkat</span>TCA aerobiktir ama O₂'yi <strong>doğrudan kullanmaz</strong>; O₂, döngünün ürettiği NADH/FADH₂'yi yeniden oksitlemek için <em>elektron transport zincirinde</em> gereklidir. O₂ olmazsa NAD⁺/FAD rejenere olmaz ve döngü durur.</div>
+</div>
+
+<!-- SLIDE 21 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 21</span><span class="stitle">Döngü Tekerleği (Diyagram)</span></div>
+  <p class="diag-note">Karbon sayıları ile döngü: Acetyl-CoA (2C) + Oxaloacetate (4C) → Citrate (6C) → ... → α-Ketoglutarate (5C, ilk CO₂) → Succinyl-CoA (4C, ikinci CO₂) → ... → Oxaloacetate. İki dekarboksilasyon noktası kırmızı renkle vurgulanmıştır.</p>
+</div>
+
+<!-- SLIDE 22 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 22</span><span class="stitle"><span class="rxn-num">1</span> Citrate Oluşumu</span></div>
+  <span class="rxn">Acetyl-CoA (2C) + Oxaloacetate (4C) → Citrate (6C) + CoA</span>
+  <p>Enzim: <strong>Citrate synthase</strong>. Asetil grubunun oksaloasetatla <strong>kondensasyonunu (condensation)</strong> katalize eder. Sitrat oluşumu için gereken enerji, asetil-CoA'daki <strong>yüksek enerjili thioester bağının hidrolizinden</strong> gelir. <mark>Ürünü olan citrate tarafından inhibe edilir.</mark></p>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>İlk TCA reaksiyonunda hangi iki molekül birleşir, ürün ve enzim nedir?</summary><div class="ans">Acetyl-CoA (2C) + Oxaloacetate (4C) → Citrate (6C); enzim citrate synthase.</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 23 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 23</span><span class="stitle"><span class="rxn-num">2</span> İzomerizasyon</span></div>
+  <span class="rxn">Citrate → (cis-Aconitate) → Isocitrate</span>
+  <p>Enzim: <strong>Aconitase</strong>. Sitrat (bir <strong>tertiary alcohol</strong>) önce dehidrate olup <strong>cis-aconitate</strong>'i, sonra hidrate olup <strong>isocitrate</strong> (bir <strong>secondary alcohol</strong>) oluşturur.</p>
+  <div class="box clinic"><span class="bt">🦷 Klinik Önemi</span><strong>Aconitase, fluoroacetate (florasetat) ile inhibe edilir</strong> — bir fare zehri (rat poison). Florasetat hücrede "fluorocitrate"a dönüşüp akonitazı bloklar → döngü durur. Toksikoloji açısından klasik bir örnektir.</div>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>Aconitase hangi zehirle inhibe olur?</summary><div class="ans">Fluoroacetate (fare zehri).</div></details>
+    <details class="fc"><summary>Sitrat ve izositratın alkol tipleri nedir?</summary><div class="ans">Citrate = tertiary alcohol; isocitrate = secondary alcohol.</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 24 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 24</span><span class="stitle"><span class="rxn-num">3</span> Oksidasyon + Dekarboksilasyon <span class="pill rl">HIZ KISITLAYICI</span></span></div>
+  <span class="rxn">Isocitrate → α-Ketoglutarate + CO₂ (+ 1. NADH)</span>
+  <p>Enzim: <strong>Isocitrate dehydrogenase</strong>. Döngünün <strong>ilk NADH</strong>'sini ve <strong>ilk CO₂</strong>'sini üretir. <mark>TCA'nın hız kısıtlayıcı (rate-limiting) basamaklarından biridir.</mark></p>
+  <p>Allosterik regülasyon: <strong>ADP (düşük enerji sinyali)</strong> ve <strong>Ca²⁺</strong> ile aktive olur; <strong>ATP</strong> ve <strong>NADH</strong> ile inhibe olur.</p>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span><strong>Isocitrate dehydrogenase = TCA'nın en önemli regülatör enzimi</strong> (ana hız kısıtlayıcı). İlk NADH + ilk CO₂ buradan çıkar.</div>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>TCA'nın hız kısıtlayıcı enzimi hangisidir, neyle aktive/inhibe olur?</summary><div class="ans">Isocitrate dehydrogenase; ADP + Ca²⁺ ile aktive, ATP + NADH ile inhibe olur.</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 25 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 25</span><span class="stitle"><span class="rxn-num">4</span> Dekarboksilasyon + Oksidasyon</span></div>
+  <span class="rxn">α-Ketoglutarate (5C) → Succinyl-CoA (4C) + CO₂ (+ 2. NADH)</span>
+  <p>Enzim: <strong>α-Ketoglutarate dehydrogenase</strong> — üç enzimden oluşan bir <strong>multimoleküler agregat</strong> (PDH'ye çok benzer!). α-KG dekarboksilasyona uğrar; CoA'daki thiol (—SH) grubunun oksidasyonu, NAD⁺'ya aktarılan hidrojeni sağlar → <strong>ikinci NADH</strong>. Reaksiyon <strong>ikinci CO₂</strong>'yi açığa çıkarır.</p>
+  <p>Koenzimleri: <strong>thiamine pyrophosphate, lipoic acid, FAD, NAD⁺, CoA</strong> (PDH ile aynı 5 koenzim).</p>
+  <div class="box mnemo"><span class="bt">🧠 Ezber</span>α-Ketoglutarate dehydrogenase = "mitokondrinin ikinci PDH'si". Aynı 5 koenzim, aynı 3-enzim mantığı. İki CO₂ da bu 3. ve 4. reaksiyonlarda çıkar — sonrası karbon kaybetmez.</div>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>Hangi enzim PDH'ye benzer ve aynı 5 koenzimi kullanır?</summary><div class="ans">α-Ketoglutarate dehydrogenase (TPP, lipoic acid, FAD, NAD⁺, CoA).</div></details>
+    <details class="fc"><summary>Döngüde iki CO₂ hangi reaksiyonlarda çıkar?</summary><div class="ans">Reaksiyon 3 (isocitrate DH) ve Reaksiyon 4 (α-KG DH).</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 26 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 26</span><span class="stitle"><span class="rxn-num">5</span> Hidroliz → GTP (Substrat Düzeyinde Fosforilasyon)</span></div>
+  <span class="rxn">Succinyl-CoA + GDP + Pi → Succinate + CoA + GTP</span>
+  <p>Enzim: <strong>Succinyl-CoA synthetase</strong> (= succinate thiokinase). Süksinil-CoA'daki thioester bağının hidrolizi süksinat ve CoA verir; açığa çıkan enerji, GDP + Pi'nin kondensasyonuna aktarılarak ATP'ye benzer yüksek enerjili <strong>GTP</strong> oluşturur.</p>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Bu, TCA'daki <strong>tek substrat düzeyinde fosforilasyon (substrate-level phosphorylation)</strong> örneğidir. GTP, ATP'ye eşdeğer enerji taşır.</div>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>TCA'da substrat düzeyinde fosforilasyon hangi reaksiyonda ve hangi enzimle olur?</summary><div class="ans">Reaksiyon 5; succinyl-CoA synthetase (succinate thiokinase); GTP üretilir.</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 27 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 27</span><span class="stitle">Karşılaştırma — Glikolizdeki Substrat Düzeyinde Fosforilasyon</span></div>
+  <p class="diag-note">Hatırlatma diyagramı: Glikolizde (sitozolde) substrat düzeyinde fosforilasyon iki yerde olur — <strong>phosphoglycerate kinase</strong> ve <strong>pyruvate kinase</strong>. TCA'daki succinyl-CoA synthetase ile aynı prensip.</p>
+</div>
+
+<!-- SLIDE 28 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 28</span><span class="stitle"><span class="rxn-num">6</span> Oksidasyon → FADH₂</span></div>
+  <span class="rxn">Succinate → Fumarate (+ FADH₂)</span>
+  <p>Enzim: <strong>Succinate dehydrogenase</strong>. Süksinat, bir C=C bağı içeren <strong>fumarate</strong>'a okside olur. Süksinattan kaybedilen 2H, koenzim <strong>FAD</strong>'ı <strong>FADH₂</strong>'ye indirger. <strong>Malonate ile inhibe edilir</strong> (kompetitif inhibisyonun klasik örneği).</p>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi (Çok kritik!)</span><strong>Succinate dehydrogenase, TCA'nın iç mitokondri membranına gömülü TEK enzimidir</strong> (diğerleri matrikste). Aynı zamanda <strong>elektron transport zincirinin Complex II</strong>'si olarak işlev görür. TCA ile ETC'yi fiziksel olarak birleştiren tek enzim.</p>
+  <div class="box warn"><span class="bt">⚠️ Dikkat</span>Bu reaksiyon NADH değil <strong>FADH₂</strong> üretir — döngüdeki tek FADH₂ üreten basamaktır. Ayrıca tek FAD kullanan basamaktır.</div>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>TCA'nın iç mitokondri membranındaki tek enzimi hangisidir ve ETC'de ne işlevi vardır?</summary><div class="ans">Succinate dehydrogenase; ETC'de Complex II olarak çalışır.</div></details>
+    <details class="fc"><summary>Succinate dehydrogenase'i hangi madde inhibe eder?</summary><div class="ans">Malonate (kompetitif inhibitör).</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 29 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 29</span><span class="stitle"><span class="rxn-num">7</span> Hidrasyon</span></div>
+  <span class="rxn">Fumarate + H₂O → Malate</span>
+  <p>Enzim: <strong>Fumarase</strong>. Fumaratın çift bağına su eklenir → <strong>malate</strong> (bir secondary alcohol). <strong>Fumarate</strong>; ayrıca <strong>üre döngüsünde</strong>, <strong>pürin sentezinde</strong> ve <strong>fenilalanin & tirozin</strong> amino asitlerinin katabolizmasında da üretilir.</p>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>Fumarat hangi diğer yolaklarda da üretilir?</summary><div class="ans">Üre döngüsü, pürin sentezi, fenilalanin/tirozin katabolizması.</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 30 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 30</span><span class="stitle"><span class="rxn-num">8</span> Oksidasyon → 3. NADH</span></div>
+  <span class="rxn">Malate → Oxaloacetate (+ 3. NADH)</span>
+  <p>Enzim: <strong>Malate dehydrogenase</strong>. Malattaki hidroksil grubu karbonil grubuna okside olur → <strong>oxaloacetate</strong>. Döngünün <strong>üçüncü ve son NADH</strong>'si burada üretilir. <strong>Aspartik asidin transaminasyonu</strong> da oksaloasetat üretir (anabolik bağlantı).</p>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>Döngünün son (3.) NADH'si hangi enzimle üretilir, ürün nedir?</summary><div class="ans">Malate dehydrogenase; ürün oxaloacetate.</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 31 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 31</span><span class="stitle">Özet — Sitrik Asit Döngüsü</span></div>
+  <ul>
+    <li>Bir asetil grubu oksaloasetatla birleşip <strong>citrate</strong> oluşturur.</li>
+    <li><strong>İki dekarboksilasyon</strong> iki karbonu <strong>2 CO₂</strong> olarak çıkarır.</li>
+    <li><strong>Dört oksidasyon</strong>, <strong>3 NADH</strong> ve <strong>1 FADH₂</strong> için hidrojen sağlar.</li>
+    <li>Bir doğrudan fosforilasyon <strong>GTP (ATP)</strong> oluşturur.</li>
+  </ul>
+  <div class="box mnemo"><span class="bt">🧠 Ezber — Bir tur çıktısı "3-1-1-2"</span><strong>3</strong> NADH · <strong>1</strong> FADH₂ · <strong>1</strong> GTP · <strong>2</strong> CO₂. "3112" şifresini ezberle.</div>
+</div>
+
+<!-- SLIDE 32 -->
+<div class="slide" id="s32">
+  <div class="slide-head"><span class="snum">SLIDE 32</span><span class="stitle">Enerji Verimi (Tablo)</span></div>
+  <table>
+    <tr><th>Enerji üreten reaksiyon</th><th>Üretilen ATP</th></tr>
+    <tr><td>3 NADH → 3 NAD⁺</td><td>9 ATP</td></tr>
+    <tr><td>FADH₂ → FAD</td><td>2 ATP</td></tr>
+    <tr><td>GDP + Pi → GTP</td><td>1 ATP</td></tr>
+    <tr><td><strong>Toplam</strong></td><td><strong>12 ATP / asetil-CoA</strong></td></tr>
+  </table>
+  <p>(Klasik hesaba göre her NADH ≈ 3 ATP, her FADH₂ ≈ 2 ATP. Modern değerlerde NADH ≈ 2.5, FADH₂ ≈ 1.5 olabilir; bu kaynak <strong>klasik 3/2</strong> değerlerini kullanır.)</p>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>Bir asetil-CoA, TCA'da toplam kaç ATP üretir (klasik hesap)?</summary><div class="ans">12 ATP (3 NADH×3=9, FADH₂=2, GTP=1).</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 33 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 33</span><span class="stitle">Tam Glukoz Oksidasyonunda Net ATP</span></div>
+  <table>
+    <tr><th>Basamak</th><th>ATP</th></tr>
+    <tr><td>Aerobik glikoliz</td><td>8 ATP</td></tr>
+    <tr><td>Oksidatif dekarboksilasyon (2×3)</td><td>6 ATP</td></tr>
+    <tr><td>Krebs döngüsü (2×12)</td><td>24 ATP</td></tr>
+    <tr><td><strong>NET</strong></td><td><strong>38 ATP</strong></td></tr>
+  </table>
+  <p>Her glukoz <strong>2 asetil</strong> molekülü ürettiği için, asetil başına değerleri <strong>×2</strong> yaparız.</p>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Bu kaynağa göre tam glukoz oksidasyonu = <strong>38 ATP</strong> (klasik değer). Bazı kitaplar 30–32 verir; sınavda bu kaynağın <strong>38</strong> rakamını esas al.</div>
+</div>
+
+<!-- SLIDE 34 -->
+<div class="slide" id="s34">
+  <div class="slide-head"><span class="snum">SLIDE 34</span><span class="stitle">Regülasyon — Bölge 1 (Reaksiyon 1) <span class="pill reg">REG</span></span></div>
+  <span class="rxn">Acetyl-CoA + Oxaloacetate → Citrate</span>
+  <p>Enzim: <strong>Citrate synthase</strong>. <strong>ATP ile inhibe</strong> olur.</p>
+</div>
+
+<!-- SLIDE 35 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 35</span><span class="stitle">Regülasyon — Bölge 2 (Reaksiyon 3) <span class="pill reg">REG</span></span></div>
+  <span class="rxn">Isocitrate → α-Ketoglutarate</span>
+  <p>Enzim: <strong>Isocitrate dehydrogenase</strong>. <strong>ATP & NADH ile inhibe</strong>, <strong>ADP & NAD⁺ ile uyarılır</strong>. (Döngünün ana kontrol noktası.)</p>
+</div>
+
+<!-- SLIDE 36 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 36</span><span class="stitle">Regülasyon — Bölge 3 (Reaksiyon 4) <span class="pill reg">REG</span></span></div>
+  <span class="rxn">α-Ketoglutarate → Succinyl-CoA</span>
+  <p>Enzim: <strong>α-Ketoglutarate dehydrogenase</strong>. PDH kompleksine benzer şekilde regüle edilir. <strong>Succinyl-CoA & NADH</strong> ile ve ayrıca <strong>yüksek enerji yükü (high-energy charge)</strong> ile inhibe olur.</p>
+  <div class="box mnemo"><span class="bt">🧠 Ezber — 3 Regülasyon noktası</span>Reaksiyon <strong>1, 3, 4</strong> → Citrate synthase, Isocitrate DH, α-KG DH. "<strong>1-3-4</strong>" basamakları kontrol noktalarıdır; hepsi <strong>ATP/NADH</strong> (yüksek enerji) ile baskılanır.</div>
+</div>
+
+<!-- SLIDE 37 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 37</span><span class="stitle">Regülasyon Özeti</span></div>
+  <p style="text-align:center;font-weight:700;color:var(--brand-dark);font-size:1.05rem;">Genel olarak TCA döngüsü <mark>YÜKSEK enerji yükü ile İNHİBE</mark>, <mark>DÜŞÜK enerji yükü ile UYARILIR.</mark></p>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>TCA'nın üç regülasyon enzimi ve genel mantık nedir?</summary><div class="ans">Citrate synthase (Rxn 1), Isocitrate DH (Rxn 3), α-KG DH (Rxn 4). Yüksek enerji yükü inhibe, düşük enerji yükü uyarır.</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 38 -->
+<div class="slide" id="s38">
+  <div class="slide-head"><span class="snum">SLIDE 38</span><span class="stitle">Study Check (Soru)</span></div>
+  <p>Bir tur sitrik asit döngüsünde aşağıdakilerden kaçar tane üretilir? A. ___ CO₂ &nbsp; B. ___ NADH &nbsp; C. ___ FADH₂ &nbsp; D. ___ GTP</p>
+</div>
+
+<!-- SLIDE 39 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 39</span><span class="stitle">Cevap</span></div>
+  <p><strong>A. 2 CO₂ &nbsp; B. 3 NADH &nbsp; C. 1 FADH₂ &nbsp; D. 1 GTP</strong></p>
+</div>
+
+<!-- SLIDE 40 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 40</span><span class="stitle">Soru — NADH Sayısı</span></div>
+  <p>Bir asetil-CoA molekülü TCA döngüsüne girince kaç NADH oluşturur? A) iki &nbsp; B) <strong>üç</strong> ✅ &nbsp; C) dört &nbsp; D) beş</p>
+  <p>Doğru cevap: <strong>B) three (üç)</strong>.</p>
+</div>
+
+<!-- SLIDE 41 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 41</span><span class="stitle">Ara Ürün Ezberi (Mnemonic)</span></div>
+  <div class="box mnemo"><span class="bt">🧠 Orijinal İngilizce Akrostiş</span>
+  <strong>"Our City Is Kept Safe and Secure From Mobsters"</strong>
+  <ul style="margin-top:6px;">
+    <li><strong>O</strong>ur → <strong>O</strong>xaloacetate</li>
+    <li><strong>C</strong>ity → <strong>C</strong>itrate</li>
+    <li><strong>I</strong>s → <strong>I</strong>socitrate</li>
+    <li><strong>K</strong>ept → α-<strong>K</strong>etoglutarate</li>
+    <li><strong>S</strong>afe → <strong>S</strong>uccinyl-CoA</li>
+    <li><strong>S</strong>ecure → <strong>S</strong>uccinate</li>
+    <li><strong>F</strong>rom → <strong>F</strong>umarate</li>
+    <li><strong>M</strong>obsters → <strong>M</strong>alate</li>
+  </ul>
+  </div>
+  <div class="box mnemo"><span class="bt">🧠 Türkçe Alternatif</span>"<strong>O</strong>tobüste <strong>C</strong>anan <strong>İ</strong>ki <strong>K</strong>edi <strong>S</strong>aydı, <strong>S</strong>onra <strong>F</strong>areyi <strong>M</strong>ışıl mışıl uyuttu." (Oxaloacetate–Citrate–Isocitrate–Ketoglutarate–Succinyl-CoA–Succinate–Fumarate–Malate)</div>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>TCA ara ürünlerini sitrattan başlayarak sırala.</summary><div class="ans">Citrate → Isocitrate → α-Ketoglutarate → Succinyl-CoA → Succinate → Fumarate → Malate → Oxaloacetate.</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 42 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 42</span><span class="stitle">Acetyl-CoA (Yapı)</span></div>
+  <p class="diag-note">Asetil-CoA molekülünün kimyasal yapısı. Asetil grubu, yüksek enerjili <strong>thioester bağı</strong> ile CoA'nın thiol (—SH) ucuna bağlanır.</p>
+</div>
+
+<!-- SLIDE 43 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 43</span><span class="stitle">FAD (Flavin Adenine Dinucleotide)</span></div>
+  <p class="diag-note"><strong>Flavin adenine dinucleotide (FAD)</strong> yapısı. Riboflavin (B2 vitamini) türevi; succinate dehydrogenase'in koenzimi. FAD + 2H → FADH₂.</p>
+</div>
+
+<!-- SLIDE 44 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 44</span><span class="stitle">NAD (Nicotinamide Adenine Dinucleotide)</span></div>
+  <p class="diag-note"><strong>Nicotinamide adenine dinucleotide (NAD)</strong> yapısı. Niasin (B3 vitamini) türevi; izositrat, α-KG ve malat dehidrogenazların koenzimi. NAD⁺ + 2H → NADH + H⁺.</p>
+</div>
+
+<!-- SLIDE 45 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 45</span><span class="stitle">Enzim Listesi + Döngü (Diyagram)</span></div>
+  <p class="diag-note">8 TCA enziminin özet listesi: Citrate synthase, Aconitase, Isocitrate dehydrogenase, α-Ketoglutarate dehydrogenase (multienzim kompleks), Succinyl-CoA synthetase, Succinate dehydrogenase, Fumarase, Malate dehydrogenase.</p>
+</div>
+
+<!-- SLIDE 46 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 46</span><span class="stitle">Genel Metabolizma Haritası (Diyagram)</span></div>
+  <p class="diag-note">Sitozol (glikoliz, glikojen, pentoz fosfat yolu) ile mitokondri (piruvat→asetil-CoA→TCA) ilişkisini gösteren büyük harita. TCA, mitokondri içinde kırmızı çerçeveyle vurgulanmıştır.</p>
+</div>
+
+<!-- SLIDE 47 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 47</span><span class="stitle">Genel Özet ve Mikroorganizmalar</span></div>
+  <ul>
+    <li>TCA, okside edilen her asetil-CoA için <strong>2 CO₂, 3 NADH, 1 FADH₂, 1 GTP</strong> üretir.</li>
+    <li>Döngü enzimleri mikroorganizmalar arasında yaygın dağılmıştır; tam döngü birçok <strong>aerobik bakteride</strong> işlevseldir. <strong>Fakültatif anaeroblar</strong> anaerobik koşulda tam TCA'yı kullanmaz.</li>
+    <li>Döngü, hem önemli bir <strong>enerji kaynağıdır</strong> hem de biyosentez için <strong>karbon iskeletleri</strong> sağlar.</li>
+    <li>Glikoliz + TCA ile 1 glukoz 6 CO₂'ye oksitlendiğinde <strong>doğrudan yalnızca 4 ATP</strong> sentezlenir; üretilen ATP'nin çoğu, NADH ve FADH₂'nin <strong>elektron transport zincirinde</strong> oksidasyonundan gelir.</li>
+  </ul>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Glikoliz + TCA'nın <strong>doğrudan (substrat düzeyinde)</strong> ATP katkısı sadece <strong>4 ATP</strong>'dir (glikolizde 2 + TCA'da 2 GTP). Geri kalan enerjinin tamamı ETC'de NADH/FADH₂ oksidasyonundan elde edilir.</div>
+  <div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+    <details class="fc"><summary>Glukozun tam oksidasyonunda doğrudan substrat düzeyinde kaç ATP üretilir?</summary><div class="ans">Sadece 4 ATP (glikoliz net 2 + TCA 2 GTP); kalan enerji ETC'den gelir.</div></details>
+    <details class="fc"><summary>Üretilen ATP'nin çoğu nereden gelir?</summary><div class="ans">NADH ve FADH₂'nin elektron transport zincirinde oksidasyonundan.</div></details>
+  </div>
+</div>
+
+<!-- SLIDE 48-49 -->
+<div class="slide">
+  <div class="slide-head"><span class="snum">SLIDE 48–49</span><span class="stitle">Kapanış / Ek Diyagram</span></div>
+  <p class="diag-note">Kapanış slaytları (özet diyagram / boş). Dersin sonu.</p>
+</div>
+
+<!-- MASTER -->
+<div class="slide" style="border:2px solid var(--brand);">
+  <div class="slide-head"><span class="snum" style="background:var(--purple);">ÖZET</span><span class="stitle">🧠 Tek Bakışta 8 Reaksiyon</span></div>
+  <table>
+    <tr><th>#</th><th>Reaksiyon</th><th>Enzim</th><th>Ürün/Not</th></tr>
+    <tr><td>1</td><td>Acetyl-CoA + OAA → Citrate</td><td>Citrate synthase</td><td><span class="pill reg">reg</span> ATP inhibe</td></tr>
+    <tr><td>2</td><td>Citrate → Isocitrate</td><td>Aconitase</td><td>fluoroacetate inhibe</td></tr>
+    <tr><td>3</td><td>Isocitrate → α-KG</td><td>Isocitrate DH</td><td><span class="pill rl">hız kısıtl.</span> 1.NADH + 1.CO₂</td></tr>
+    <tr><td>4</td><td>α-KG → Succinyl-CoA</td><td>α-KG DH</td><td>2.NADH + 2.CO₂ (PDH benzeri)</td></tr>
+    <tr><td>5</td><td>Succinyl-CoA → Succinate</td><td>Succinyl-CoA synthetase</td><td>GTP (substrat düzeyi)</td></tr>
+    <tr><td>6</td><td>Succinate → Fumarate</td><td>Succinate DH</td><td>FADH₂ · iç membran · Complex II</td></tr>
+    <tr><td>7</td><td>Fumarate → Malate</td><td>Fumarase</td><td>+H₂O</td></tr>
+    <tr><td>8</td><td>Malate → OAA</td><td>Malate DH</td><td>3.NADH</td></tr>
+  </table>
+  <div class="box mnemo"><span class="bt">🧠 Enzim sırası ezberi</span>"<strong>C</strong>anan <strong>A</strong>ç <strong>I</strong>ken <strong>K</strong>ısa <strong>S</strong>üre <strong>S</strong>onra <strong>F</strong>ena <strong>M</strong>utlu" → Citrate synthase, Aconitase, Isocitrate DH, α-KG DH, Succinyl-CoA synthetase, Succinate DH, Fumarase, Malate DH.</div>
+</div>
+
+<footer>
+  Krebs / Sitrik Asit Döngüsü (TCA) — 49 slayttan slayt slayt derlenmiştir.<br>
+  Flashcard kutularına tıklayarak cevapları açabilirsin. Başarılar! 🧬
+</footer>
+
+</div>
+<script src="../../assets/language.js" defer></script>
+</body>
+</html>

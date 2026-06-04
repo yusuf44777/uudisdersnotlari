@@ -89,6 +89,12 @@ svg {
   min-height: 58px;
 }
 
+.top-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -392,6 +398,12 @@ svg {
     linear-gradient(135deg, rgba(184, 73, 63, 0.08), transparent);
 }
 
+.course-card.biochemistry::after {
+  background:
+    repeating-linear-gradient(135deg, rgba(32, 122, 83, 0.14) 0 2px, transparent 2px 16px),
+    linear-gradient(135deg, rgba(32, 122, 83, 0.08), transparent);
+}
+
 .course-card.pending {
   background:
     linear-gradient(180deg, rgba(255, 253, 248, 0.96), rgba(255, 253, 248, 0.78)),
@@ -423,6 +435,10 @@ svg {
   color: var(--coral);
 }
 
+.course-card.biochemistry .course-topline strong {
+  color: #207a53;
+}
+
 .course-card.pending .course-topline strong {
   color: var(--gold);
 }
@@ -452,6 +468,10 @@ svg {
 
 .course-card.genetics a {
   background: var(--coral);
+}
+
+.course-card.biochemistry a {
+  background: #207a53;
 }
 
 .course-card.pending a {
@@ -622,6 +642,10 @@ svg {
 
 .note-card[data-course="Medical Genetics"] .course-dot::before {
   background: var(--coral);
+}
+
+.note-card[data-course="Biochemistry"] .course-dot::before {
+  background: #207a53;
 }
 
 .note-card h3 {
@@ -900,6 +924,11 @@ svg {
 
   .topbar {
     align-items: flex-start;
+  }
+
+  .top-controls {
+    align-items: flex-end;
+    flex-direction: column;
   }
 
   .top-actions {

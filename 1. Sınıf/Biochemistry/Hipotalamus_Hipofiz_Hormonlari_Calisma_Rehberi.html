@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hipotalamus & Hipofiz Hormonları — Biyokimya Final Rehberi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0f1c;
+    --bg2:#0e1526;
+    --surface:#121a2e;
+    --surface2:#172138;
+    --line:#243150;
+    --cream:#f4ede0;
+    --text:#cdd6ec;
+    --muted:#8b97b8;
+    --mint:#5fe0c0;
+    --mint-dim:#2a4d47;
+    --gold:#f0c66b;
+    --gold-dim:#4a3c1e;
+    --rose:#ef6a7c;
+    --rose-dim:#4d2230;
+    --navy-accent:#6d8cff;
+    --burg:#b8455f;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(900px 600px at 85% -5%, rgba(95,224,192,.07), transparent 60%),
+      radial-gradient(800px 600px at -5% 20%, rgba(109,140,255,.08), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Hanken Grotesk',system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+  }
+  .progress{position:fixed;top:0;left:0;height:4px;width:0%;
+    background:linear-gradient(90deg,var(--mint),var(--navy-accent));z-index:999;transition:width .1s linear;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px 120px;}
+
+  /* HEADER */
+  header.hero{padding:72px 0 38px;border-bottom:1px solid var(--line);margin-bottom:14px;position:relative;}
+  .kicker{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--mint);margin-bottom:18px;}
+  h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.1rem,5.4vw,3.5rem);
+    line-height:1.04;margin:0 0 16px;color:var(--cream);letter-spacing:-.01em;}
+  h1 .sub{display:block;font-size:.42em;font-weight:400;color:var(--muted);
+    font-family:'Hanken Grotesk',sans-serif;letter-spacing:0;margin-top:14px;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+  .pill{font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--surface);
+    border:1px solid var(--line);padding:7px 13px;border-radius:999px;color:var(--muted);}
+
+  /* TOC */
+  nav.toc{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 26px;margin:30px 0 46px;}
+  nav.toc h4{margin:0 0 14px;font-family:'JetBrains Mono',monospace;font-size:.74rem;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--mint);}
+  nav.toc ol{margin:0;padding-left:0;list-style:none;counter-reset:t;
+    columns:2;column-gap:32px;}
+  nav.toc li{counter-increment:t;margin:0 0 9px;break-inside:avoid;}
+  nav.toc a{color:var(--text);text-decoration:none;font-size:.92rem;display:flex;gap:10px;align-items:baseline;}
+  nav.toc a::before{content:counter(t,decimal-leading-zero);font-family:'JetBrains Mono',monospace;
+    font-size:.72rem;color:var(--navy-accent);min-width:22px;}
+  nav.toc a:hover{color:var(--mint);}
+
+  /* SECTIONS */
+  section{margin:54px 0;scroll-margin-top:30px;}
+  h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(1.55rem,3.6vw,2.15rem);
+    color:var(--cream);line-height:1.12;margin:0 0 6px;letter-spacing:-.01em;
+    padding-top:20px;border-top:1px solid var(--line);}
+  h2 .num{font-family:'JetBrains Mono',monospace;font-size:.5em;color:var(--mint);
+    display:block;margin-bottom:8px;letter-spacing:.1em;}
+  h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.28rem;color:var(--gold);
+    margin:34px 0 10px;}
+  h4{font-size:1.02rem;color:var(--cream);margin:22px 0 6px;font-weight:700;}
+  p{margin:12px 0;}
+  strong{color:var(--cream);font-weight:700;}
+  em{color:var(--mint);font-style:italic;}
+  mark{background:rgba(240,198,107,.22);color:var(--gold);padding:.05em .35em;border-radius:4px;font-weight:600;}
+  ul,ol{margin:12px 0;padding-left:22px;}
+  li{margin:7px 0;}
+  ul li::marker{color:var(--mint);}
+  a.ref{color:var(--navy-accent);}
+  .lead{font-size:1.08rem;color:var(--cream);border-left:3px solid var(--mint);padding-left:18px;}
+
+  /* CALLOUT BOXES */
+  .box{border-radius:14px;padding:18px 22px 18px 20px;margin:22px 0;position:relative;
+    border:1px solid;background:var(--surface);}
+  .box .tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+  .box p:first-of-type,.box ul:first-of-type{margin-top:4px;}
+  .box p:last-child,.box ul:last-child{margin-bottom:0;}
+
+  .klinik{border-color:var(--mint-dim);background:linear-gradient(180deg,rgba(95,224,192,.07),transparent);}
+  .klinik{border-left:5px solid var(--mint);}
+  .klinik .tag{color:var(--mint);}
+
+  .spot{border-color:var(--gold-dim);background:linear-gradient(180deg,rgba(240,198,107,.08),transparent);}
+  .spot{border-left:5px solid var(--gold);}
+  .spot .tag{color:var(--gold);}
+
+  .dikkat{border-color:var(--rose-dim);background:linear-gradient(180deg,rgba(239,106,124,.08),transparent);}
+  .dikkat{border-left:5px solid var(--rose);}
+  .dikkat .tag{color:var(--rose);}
+
+  .mnemo{border:1px dashed var(--navy-accent);background:rgba(109,140,255,.06);}
+  .mnemo .tag{color:var(--navy-accent);}
+  .mnemo .acro{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--cream);font-weight:600;}
+  .mnemo .acro b{color:var(--navy-accent);}
+
+  /* TABLES */
+  .tablewrap{overflow-x:auto;margin:22px 0;border:1px solid var(--line);border-radius:12px;}
+  table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:520px;}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:var(--surface2);color:var(--mint);font-family:'JetBrains Mono',monospace;
+    font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;}
+  tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:rgba(255,255,255,.02);}
+  td strong{color:var(--gold);}
+
+  /* FLASHCARDS */
+  .fc-head{display:flex;align-items:center;justify-content:space-between;gap:14px;
+    margin:34px 0 14px;flex-wrap:wrap;}
+  .fc-head .ttl{font-family:'JetBrains Mono',monospace;font-size:.8rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--mint);display:flex;align-items:center;gap:9px;}
+  .cards{display:grid;gap:14px;}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:18px 20px;cursor:pointer;transition:.22s;position:relative;overflow:hidden;}
+  .card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;
+    background:var(--gold);opacity:.6;transition:.22s;}
+  .card:hover{border-color:var(--gold);transform:translateY(-2px);}
+  .card .q{font-weight:600;color:var(--cream);display:flex;gap:11px;align-items:flex-start;}
+  .card .q .qmark{font-family:'JetBrains Mono',monospace;color:var(--gold);font-size:.85rem;flex-shrink:0;margin-top:2px;}
+  .card .a{max-height:0;opacity:0;overflow:hidden;transition:.3s ease;color:var(--text);
+    border-top:1px dashed transparent;margin-top:0;}
+  .card.open{border-color:var(--mint);}
+  .card.open::before{background:var(--mint);opacity:1;}
+  .card.open .a{max-height:400px;opacity:1;margin-top:13px;padding-top:13px;border-top-color:var(--line);}
+  .card .a .amark{font-family:'JetBrains Mono',monospace;color:var(--mint);font-size:.85rem;}
+  .card .hint{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--muted);
+    margin-top:10px;letter-spacing:.1em;text-transform:uppercase;}
+  .card.open .hint{display:none;}
+  .revealbtn{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;
+    text-transform:uppercase;background:var(--surface2);border:1px solid var(--line);color:var(--text);
+    padding:8px 14px;border-radius:999px;cursor:pointer;transition:.2s;}
+  .revealbtn:hover{border-color:var(--mint);color:var(--mint);}
+
+  .footer{margin-top:80px;padding-top:30px;border-top:1px solid var(--line);
+    color:var(--muted);font-size:.85rem;text-align:center;}
+  .footer b{color:var(--cream);}
+
+  @media(max-width:640px){
+    nav.toc ol{columns:1;}
+    body{font-size:16px;}
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="bar"></div>
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">Biyokimya · Dönem 1 · Endokrinoloji</div>
+  <h1>Hipotalamus &amp; Hipofiz Hormonlarının Biyokimyası
+    <span class="sub">Hipotalamo-hipofizer aks, sinyal yolakları ve geri besleme mekanizmalarının final odaklı tam rehberi</span>
+  </h1>
+  <div class="hero-meta">
+    <span class="pill">7 hipotalamik hormon</span>
+    <span class="pill">GPCR sinyal yolakları</span>
+    <span class="pill">JAK–STAT</span>
+    <span class="pill">Negatif geri besleme</span>
+    <span class="pill">İnteraktif flashcard'lar</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <h4>İçindekiler</h4>
+  <ol>
+    <li><a href="#s1">Genel Bakış: Hipotalamo-Hipofizer Aks</a></li>
+    <li><a href="#s2">Hipotalamus: Yapı ve Regülasyon</a></li>
+    <li><a href="#s3">Hipofiz Bezi ve İki Bağlantı Sistemi</a></li>
+    <li><a href="#s4">Yedi Hipotalamik Hormon</a></li>
+    <li><a href="#s5">TRH ve TRH/TSH Aksı</a></li>
+    <li><a href="#s6">CRH, POMC, ACTH ve Steroidogenez</a></li>
+    <li><a href="#s7">GHRH vs GHIH (Somatostatin)</a></li>
+    <li><a href="#s8">GH, GH Reseptörü ve IGF-1</a></li>
+    <li><a href="#s9">Prolaktin: PRH / PIH ve Sinyal</a></li>
+    <li><a href="#s10">GnRH, FSH/LH ve Kontrolü</a></li>
+    <li><a href="#s11">Posterior Hipofiz: Yapı ve Dolaşım</a></li>
+    <li><a href="#s12">Vazopressin Reseptörleri &amp; Akuaporin</a></li>
+    <li><a href="#s13">Oksitosin: Reseptör ve Sinyal</a></li>
+    <li><a href="#s14">Büyük Resim: Karşılaştırma Tabloları</a></li>
+  </ol>
+</nav>
+
+<!-- ===================== 1 ===================== -->
+<section id="s1">
+  <h2><span class="num">BÖLÜM 01</span>Genel Bakış: Hipotalamo-Hipofizer Aks</h2>
+  <p class="lead">Hipotalamus ve hipofiz (<strong>hypophysis / pituitary gland</strong>) birlikte, vücudun <strong>sinir sistemi</strong> ile <strong>endokrin sistem</strong> arasındaki <em>birincil arayüzünü</em> oluşturur. Yani beynin "düşündüğü" şey, bu aks üzerinden hormona çevrilir.</p>
+
+  <p>Akışın mantığı yukarıdan aşağıya doğru bir röle zinciridir: <strong>Çevresel uyarı → Santral Sinir Sistemi (CNS) → Hipotalamus → Hipotalamik hormonlar (releasing factors) → Hipofiz → Hipofiz tropik hormonları → Hedef bez → Periferik hormon → Hedef doku.</strong></p>
+
+  <p>Bu zincirde üç katman vardır:</p>
+  <ul>
+    <li><strong>First targets (Birincil hedef):</strong> Anterior ve posterior hipofiz.</li>
+    <li><strong>Second targets (İkincil hedef):</strong> Adrenal korteks, tiroid, gonadlar (over/testis), pankreas adacık hücreleri, adrenal medulla.</li>
+    <li><strong>Ultimate targets (Nihai hedef):</strong> Kaslar, karaciğer, kemik, meme bezi, böbrek, üreme organları gibi son dokular.</li>
+  </ul>
+
+  <div class="box klinik">
+    <div class="tag">🦷 Klinik Önemi</div>
+    <p>Bir diş hekimi olarak bu aksı bilmen şart: <strong>kronik stres</strong> CRH→ACTH→<strong>kortizol</strong> aksını aktive ederek tükürük kompozisyonunu, periodontal yara iyileşmesini ve immün yanıtı değiştirir. Ayrıca tiroid hastaları (TSH dengesizliği) ve gebeler (oksitosin/prolaktin) klinikte sıkça karşına çıkacak hasta gruplarıdır.</p>
+  </div>
+
+  <div class="fc-head">
+    <span class="ttl">⚡ Flashcard Seti</span>
+    <button class="revealbtn" onclick="toggleAll(this)">Tümünü Aç</button>
+  </div>
+  <div class="cards">
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Hipotalamo-hipofizer aks, vücutta hangi iki sistem arasındaki birincil arayüzdür?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>Sinir sistemi (nervous system)</strong> ile <strong>endokrin sistem (endocrine system)</strong> arasındaki arayüz.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>"Releasing factors / hipotalamik hormonlar" zincirde hangi katmanı hedef alır?</span></div>
+      <div class="a"><span class="amark">C —</span> İlk hedef olan <strong>hipofizi (first target)</strong>; oradan tropik hormonlar second target bezleri uyarır.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 2 ===================== -->
+<section id="s2">
+  <h2><span class="num">BÖLÜM 02</span>Hipotalamus: Yapı ve Regülasyon</h2>
+  <p>Hipotalamus (<strong>hypothalamus</strong>), orta beynin (<strong>midbrain</strong>) tabanında yer alan ve hipofizer sapa (<strong>hypophyseal/pituitary stalk</strong>) uzanarak <strong>arka hipofiz</strong> bezini (posterior hypophysis / <strong>neurohypophysis</strong>) oluşturan bir bezdir. Santral sinir sisteminden gelen mesajları alır ve entegre eder.</p>
+
+  <h3>Hipotalamusun düzenleyici (homeostatik) mekanizması</h3>
+  <p>Hipotalamus klasik bir <em>termostat / set-point</em> sistemi gibi çalışır:</p>
+  <ul>
+    <li><strong>Receiving:</strong> Vücudun her bölgesinden duyusal bilgi alır.</li>
+    <li><strong>Comparing:</strong> Bu bilgiyi biyolojik <strong>set point</strong> değerleriyle karşılaştırır.</li>
+    <li><strong>Adjusting:</strong> Sapma olduğunda dengeyi geri kurmak için sistemi ayarlar.</li>
+  </ul>
+  <p>Düzenlediği başlıca değişkenler: <strong>kan şekeri (blood sugar)</strong>, <strong>hormon düzeyleri</strong>, <strong>vücut ısısı (temperature)</strong> ve <strong>sodyum (sodium)</strong>.</p>
+
+  <div class="box mnemo">
+    <div class="tag">🧠 Hafıza Tekniği</div>
+    <p class="acro">Set-point değişkenleri → "<b>S</b>ı<b>H</b>ı<b>S</b>o" diye düşün:<br>
+    <b>S</b>ıcaklık (temperature) · <b>H</b>ormon · şeker (sugar) · <b>So</b>dyum.</p>
+    <p>Mantık: hepsi vücudun "iç dengesi"ni (homeostazis) tanımlayan termostat değerleridir.</p>
+  </div>
+
+  <div class="box spot">
+    <div class="tag">🎯 Spot Bilgi</div>
+    <p>Hipotalamus hem <strong>nöral</strong> hem <strong>endokrin</strong> özellik taşır: nöronları hormon üretir (<strong>nörosekresyon</strong>). Bu yüzden "endokrin sistemin koordinasyon merkezi" olarak adlandırılır.</p>
+  </div>
+
+  <div class="fc-head"><span class="ttl">⚡ Flashcard Seti</span><button class="revealbtn" onclick="toggleAll(this)">Tümünü Aç</button></div>
+  <div class="cards">
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Hipotalamus hangi yapıya uzanarak posterior hipofizi oluşturur?</span></div>
+      <div class="a"><span class="amark">C —</span> Hipofizer sapa (<strong>hypophyseal / pituitary stalk</strong>) uzanarak <strong>neurohypophysis</strong>'i oluşturur.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Hipotalamusun düzenlediği dört temel set-point değişkenini sayın.</span></div>
+      <div class="a"><span class="amark">C —</span> Kan şekeri, hormon düzeyleri, vücut ısısı (temperature) ve sodyum.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 3 ===================== -->
+<section id="s3">
+  <h2><span class="num">BÖLÜM 03</span>Hipofiz Bezi ve İki Bağlantı Sistemi</h2>
+  <p>Hipofiz bezi fonksiyonel olarak <strong>iki farklı kısımdan</strong> oluşur: <strong>Anterior pituitary (adenohypophysis)</strong> ve <strong>Posterior pituitary (neurohypophysis)</strong>. Hipotalamus bu iki kısma <em>tamamen farklı iki yolla</em> bağlanır — bu ayrım finalin en sevdiği çeldiricidir.</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Özellik</th><th>Anterior Pituitary</th><th>Posterior Pituitary</th></tr></thead>
+    <tbody>
+      <tr><td>Bağlantı tipi</td><td><strong>İndirekt (hormonal)</strong></td><td><strong>Direkt (nöral)</strong></td></tr>
+      <tr><td>Yol</td><td>Hypothalamo-hypophysial <strong>portal system</strong> (kapiller)</td><td>Hypothalamo-hypophysial <strong>tract</strong> (akson)</td></tr>
+      <tr><td>Mekanizma</td><td>Kana salınan hipotalamik hormonlara yanıt verir</td><td>Hipotalamustan köken alan nöronların <strong>aksonal uçlarını</strong> içerir</td></tr>
+      <tr><td>Salgıladığı</td><td>ACTH, TSH, FSH, LH, GH, PRL (tropinler)</td><td>Vazopressin (ADH), Oksitosin</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="box spot">
+    <div class="tag">🎯 Spot Bilgi</div>
+    <p><strong>Anterior</strong> hipofiz hormon <em>ÜRETİR</em> (kendi hücreleri sentezler). <strong>Posterior</strong> hipofiz hormon üretmez; sadece hipotalamusta yapılan ADH ve oksitozini <strong>depolar ve salar</strong>. Myelinsiz aksonlar bu hormonları sap boyunca aşağı taşır.</p>
+  </div>
+
+  <div class="box mnemo">
+    <div class="tag">🧠 Hafıza Tekniği</div>
+    <p class="acro"><b>P</b>osterior = <b>P</b>armak/sinir (akson, direkt) → "<b>P</b>ortakal değil <b>P</b>armak"</p>
+    <p>Posterior'da <strong>akson</strong> (nöral, direkt) var; Anterior'da <strong>portal kan damarı</strong> (hormonal, indirekt) var. "Anterior = kan yoluyla haberleşir" diye sabitle.</p>
+  </div>
+
+  <div class="box dikkat">
+    <div class="tag">⚠️ Dikkat — Klasik Çeldirici</div>
+    <p>"Posterior hipofiz oksitozini <em>sentezler</em>" → <strong>YANLIŞ.</strong> Sentez hipotalamustaki nörosekretuvar hücrelerde olur; posterior sadece salar. Aynı şekilde portal sistem <strong>anteriora</strong> aittir, posteriora değil.</p>
+  </div>
+
+  <div class="fc-head"><span class="ttl">⚡ Flashcard Seti</span><button class="revealbtn" onclick="toggleAll(this)">Tümünü Aç</button></div>
+  <div class="cards">
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Anterior hipofiz hipotalamusa hangi sistemle bağlanır?</span></div>
+      <div class="a"><span class="amark">C —</span> İndirekt olarak <strong>hypothalamo-hypophysial portal system</strong> (kapiller/kan) ile.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Posterior hipofizdeki aksonlar hangi iki hormonu taşır ve bu aksonlar myelinli midir?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>ADH (vazopressin)</strong> ve <strong>oksitozin</strong>i taşır; aksonlar <strong>myelinsiz (non-myelinated)</strong>'dir.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 4 ===================== -->
+<section id="s4">
+  <h2><span class="num">BÖLÜM 04</span>Yedi Hipotalamik Hormon (Releasing / Inhibiting)</h2>
+  <p>Anterior hipofiz salgısı, hipotalamustan gelen <strong>salgılatıcı (releasing)</strong> ve <strong>baskılayıcı (inhibitory)</strong> hormonlarla düzenlenir. Bilinmesi gereken yedi tanesi vardır:</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Hormon</th><th>Yapı</th><th>Hedef hücre</th><th>Yanıt</th></tr></thead>
+    <tbody>
+      <tr><td><strong>GHRH</strong> (GH-releasing)</td><td>Peptide</td><td>GH salgılayan hücre</td><td>GH salınımı ↑</td></tr>
+      <tr><td><strong>GHIH</strong> (somatostatin)</td><td>Small peptide</td><td>GH salgılayan hücre</td><td>GH salınımı ↓</td></tr>
+      <tr><td><strong>TRH</strong> (thyrotropin-rel.)</td><td>Small peptide</td><td>TSH hücresi</td><td>TSH ↑</td></tr>
+      <tr><td><strong>CRH</strong> (corticotropin-rel.)</td><td>Peptide</td><td>ACTH hücresi</td><td>ACTH ↑</td></tr>
+      <tr><td><strong>GnRH</strong> (gonadotropin-rel.)</td><td>Small peptide</td><td>LH/FSH hücresi</td><td>LH + FSH ↑</td></tr>
+      <tr><td><strong>PRH</strong> (prolactin-rel.)</td><td>Unknown</td><td>Prolaktin hücresi</td><td>Prolaktin ↑</td></tr>
+      <tr><td><strong>PIH</strong> (= dopamine)</td><td>Amino asit türevi</td><td>Prolaktin hücresi</td><td>Prolaktin ↓</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="box mnemo">
+    <div class="tag">🧠 Hafıza Tekniği — 7 Hormonu Unutma</div>
+    <p class="acro">"<b>G</b>oygoycu <b>G</b>ençler <b>T</b>üm <b>C</b>uma <b>G</b>ün <b>P</b>asta <b>P</b>işirir"</p>
+    <p><b>G</b>HRH · <b>G</b>HIH · <b>T</b>RH · <b>C</b>RH · <b>G</b>nRH · <b>P</b>RH · <b>P</b>IH. İlk iki "G" GH'yi (artır/azalt) yönetir; son iki "P" prolaktini (artır/azalt) yönetir; ortadakiler tropin uyarıcılarıdır.</p>
+  </div>
+
+  <div class="box spot">
+    <div class="tag">🎯 Spot Bilgi</div>
+    <p>İki hormon "yapısı bakımından" çeldiricidir: <strong>PRH'nin yapısı bilinmiyor (unknown)</strong> ve <strong>PIH bir amino asit türevidir (dopamin)</strong> — diğerlerinin hepsi peptiddir. Sınavda "hangisi peptid değildir?" → cevap <strong>dopamin (PIH)</strong>.</p>
+  </div>
+
+  <div class="box dikkat">
+    <div class="tag">⚠️ Dikkat</div>
+    <p>Prolaktin <em>tek</em> anterior hipofiz hormonudur ki <strong>baskın kontrolü inhibe edicidir (dopamin)</strong>. Yani hipofiz sapı kesilirse tüm hormonlar düşerken <strong>prolaktin paradoksal olarak ARTAR</strong> (dopamin freni kalkar). Çok sevilen bir final sorusu.</p>
+  </div>
+
+  <div class="fc-head"><span class="ttl">⚡ Flashcard Seti</span><button class="revealbtn" onclick="toggleAll(this)">Tümünü Aç</button></div>
+  <div class="cards">
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Yedi hipotalamik hormondan hangisi peptid değildir, kimyasal yapısı nedir?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>PIH = dopamin</strong>; bir <strong>amino asit türevidir</strong> (peptid değil).</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Hipofiz sapı kesilirse hangi hormon ARTAR, neden?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>Prolaktin</strong> artar; çünkü baskın kontrolü inhibitör olan <strong>dopaminin (PIH)</strong> freni ortadan kalkar.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 5 ===================== -->
+<section id="s5">
+  <h2><span class="num">BÖLÜM 05</span>TRH ve TRH/TSH Aksı</h2>
+  <h3>TRH sinyal yolağı</h3>
+  <p><strong>TRH (Thyrotropin Releasing Hormone)</strong>, <strong>G-protein kenetli reseptörler (GPCRs)</strong> üzerinden etki eder. Sinyal iletimi <strong>PLC (fosfolipaz C)</strong> ve <strong>inositol lipid (IP₃/DAG)</strong> yolağı ile gerçekleşir:</p>
+  <ul>
+    <li>TRH → <strong>G<sub>q/11</sub></strong> → <strong>PLCβ1</strong> aktivasyonu</li>
+    <li>PLC, <strong>PIP₂</strong>'yi → <strong>IP₃ + DAG</strong>'a böler</li>
+    <li><strong>IP₃</strong> → intraselüler havuzdan <strong>Ca²⁺</strong> salınımı</li>
+    <li><strong>DAG</strong> → <strong>PKC</strong> → <strong>MAPK</strong> aktivasyonu</li>
+  </ul>
+  <p>TRH reseptörleri sadece hipofizde değil; <strong>kalp (heart)</strong>, <strong>bağırsaklar (intestines)</strong> ve <strong>pankreas (pancreas)</strong> üzerinde de bulunur.</p>
+
+  <h3>TRH / TSH aksının regülasyonu</h3>
+  <p>TSH'nin sentez ve salınımı <strong>iki yolla</strong> kontrol edilir: <strong>Triiyodotironin (T₃)</strong> ve <strong>TRH</strong>. Dolaşımdaki TSH, tiroid foliküllerinin bazal membranındaki reseptörlere bağlanarak <strong>T₃ ve T₄</strong> salınımını artıran bir kaskadı tetikler.</p>
+  <p>Bu bir <strong>negatif geri besleme (negative feedback)</strong> sistemidir: artan dolaşan tiroid hormonu, TSH sentezini <strong>doğrudan hipofiz düzeyinde</strong> ve <strong>dolaylı olarak hipotalamus düzeyinde TRH salınımını azaltarak</strong> baskılar.</p>
+
+  <div class="box klinik">
+    <div class="tag">🦷 Klinik Önemi</div>
+    <p>Hipotiroidi hastalarında dilde <strong>makroglossi</strong>, gecikmiş diş sürmesi ve gingival değişiklikler görülür. Negatif feedback mantığını bilmen tanıyı okumana yarar: <strong>yüksek TSH + düşük T₄ = primer hipotiroidi</strong> (sorun tiroidde), <strong>düşük TSH + düşük T₄ = sekonder</strong> (sorun hipofizde).</p>
+  </div>
+
+  <div class="box spot">
+    <div class="tag">🎯 Spot Bilgi</div>
+    <p>TRH yolağını şöyle kodla: <strong>TRH = G<sub>q</sub> = PLC = IP₃/DAG/Ca²⁺</strong>. cAMP <em>kullanmaz</em>. Bu, onu CRH/GHRH grubundan ayıran ana noktadır.</p>
+  </div>
+
+  <div class="fc-head"><span class="ttl">⚡ Flashcard Seti</span><button class="revealbtn" onclick="toggleAll(this)">Tümünü Aç</button></div>
+  <div class="cards">
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>TRH sinyali hangi G-protein ve hangi ikincil haberci yolağıyla iletilir?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>G<sub>q/11</sub> → PLCβ1 → IP₃ + DAG</strong>; IP₃ ile Ca²⁺ salınımı, DAG ile PKC→MAPK.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Dolaşan T₃/T₄, TRH ve TSH üzerinde nasıl bir etki gösterir?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>Negatif geri besleme</strong>: hipofizde TSH sentezini doğrudan, hipotalamusta TRH salınımını dolaylı olarak baskılar.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Hipofiz dışında TRH reseptörü taşıyan üç dokuyu sayın.</span></div>
+      <div class="a"><span class="amark">C —</span> Kalp (heart), bağırsaklar (intestines), pankreas (pancreas).</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 6 ===================== -->
+<section id="s6">
+  <h2><span class="num">BÖLÜM 06</span>CRH, POMC, ACTH ve Adrenal Steroidogenez</h2>
+  <h3>CRH sinyali</h3>
+  <p><strong>CRH (Corticotropin Releasing Hormone)</strong>, hipofizden <strong>ACTH</strong> salınımını <em>POMC transkripsiyonunu artırarak</em> uyarır. <strong>Adenilat siklaza (adenylate cyclase)</strong> kenetli bir <strong>GPCR (CRHR1)</strong>'a bağlanır; <strong>cAMP</strong> sentezini ve <strong>PKA</strong> aktivitesini uyarır.</p>
+  <p>Korticotrof hücrede paralel yolaklar da işler: PKA → Rap1 → B-Raf → MEK1/2 → ERK1/2 ve L-tip Ca²⁺ kanalı → CaMKII. Sonuçta Nur77/Nurr1 transkripsiyon faktörleri NurRE bölgesine bağlanıp <strong>POMC</strong> transkripsiyonunu artırır.</p>
+
+  <h3>POMC: Tek prekürsör, çok hormon</h3>
+  <p><strong>Pro-opiomelanocortin (POMC)</strong>, çok sayıda hormonun ortak öncülü olan büyük bir polipeptiddir. Spesifik proteazlarla <strong>paired basic residues (Arg-Lys, Lys-Arg, Lys-Lys)</strong> noktalarından kesilir ve şunları üretir:</p>
+  <ul>
+    <li><strong>γ-MSH</strong> (melanocyte-stimulating hormone)</li>
+    <li><strong>ACTH</strong> → daha sonra <strong>α-MSH</strong> ve <strong>CLIP</strong></li>
+    <li><strong>β-Lipotropin</strong> → <strong>γ-lipotropin</strong> + <strong>β-endorphin</strong></li>
+    <li><strong>β-MSH</strong> ve <strong>Met-enkephalin</strong></li>
+  </ul>
+
+  <div class="box mnemo">
+    <div class="tag">🧠 Hafıza Tekniği — POMC Ürünleri</div>
+    <p class="acro">"<b>MEL</b>'in dört çocuğu" → <b>M</b>SH, <b>E</b>ndorphin, <b>L</b>ipotropin + ACTH</p>
+    <p>Ana dört aile: <strong>MSH</strong> (α/β/γ), <strong>endorphin</strong> (β), <strong>lipotropin</strong> (β/γ) ve <strong>ACTH/CLIP</strong>. "POMC pek cömert, herkese bir şey verir."</p>
+  </div>
+
+  <h3>ACTH'nin adrenal steroidogeneze etkisi</h3>
+  <p>ACTH, adrenal korteks hücresinde <strong>MC2R</strong> reseptörüne (yardımcı protein <strong>MRAP</strong> ile) bağlanır → <strong>G<sub>s</sub>α → adenilat siklaz → cAMP↑ → PKA↑</strong>. Ardından:</p>
+  <ul>
+    <li><strong>Hormon-sensitif lipaz↑</strong> → kolesterol esterleri → serbest kolesterol</li>
+    <li><strong>StAR proteini</strong> → kolesterolü mitokondriye taşır</li>
+    <li><strong>CREB</strong> fosforillenir → <strong>CYP11A1</strong> ve diğer steroidogenik enzimlerin transkripsiyonu↑</li>
+    <li>Kolesterol → <strong>Pregnenolon</strong> (steroid sentezinin ilk basamağı)</li>
+  </ul>
+  <p>Sonuçta üretilen <strong>kortizol (cortisol)</strong>, hem ACTH salınımını hem CRH nöronunu baskılayan negatif geri besleme sağlar.</p>
+
+  <div class="box spot">
+    <div class="tag">🎯 Spot Bilgi</div>
+    <p><strong>StAR (Steroidogenic Acute Regulatory protein)</strong> kolesterolü mitokondri dış→iç membranına taşır ve <strong>steroidogenezin hız kısıtlayıcı (rate-limiting) basamağıdır</strong>. Pregnenolon ise <strong>tüm steroid hormonların ortak öncülüdür</strong>.</p>
+  </div>
+
+  <div class="box dikkat">
+    <div class="tag">⚠️ Dikkat</div>
+    <p>CRH ve ACTH'nin ikisi de <strong>cAMP/PKA</strong> yolağını kullanır (G<sub>s</sub>). TRH ve GnRH'nin PLC yolağıyla karıştırma. "CRH/ACTH → cortisol → cAMP" üçlüsü hepsi "C" ile başlasın diye sabitle.</p>
+  </div>
+
+  <div class="fc-head"><span class="ttl">⚡ Flashcard Seti</span><button class="revealbtn" onclick="toggleAll(this)">Tümünü Aç</button></div>
+  <div class="cards">
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>CRH, ACTH salınımını moleküler düzeyde nasıl artırır?</span></div>
+      <div class="a"><span class="amark">C —</span> G<sub>s</sub>-kenetli GPCR → adenilat siklaz → <strong>cAMP↑ → PKA↑</strong>, böylece <strong>POMC transkripsiyonu</strong> artar.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>POMC'tan türeyen başlıca hormonları sayın.</span></div>
+      <div class="a"><span class="amark">C —</span> ACTH, α/β/γ-MSH, β-endorphin, β/γ-lipotropin, CLIP, met-enkephalin.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Adrenal steroidogenezde kolesterolü mitokondriye taşıyan ve hız kısıtlayıcı olan protein hangisidir?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>StAR</strong> (steroidogenic acute regulatory protein).</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 7 ===================== -->
+<section id="s7">
+  <h2><span class="num">BÖLÜM 07</span>GHRH vs GHIH (Somatostatin)</h2>
+  <p>Büyüme hormonu salınımı, biri uyarıcı biri baskılayıcı iki hipotalamik hormonun <strong>zıt G-protein etkisiyle</strong> dengelenir. Bu, "Gs vs Gi" mantığını öğrenmek için en temiz örnektir.</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th></th><th>GHRH (somatorelin)</th><th>GHIH / Somatostatin (SRIF)</th></tr></thead>
+    <tbody>
+      <tr><td>Etki</td><td>GH salınımını <strong>artırır</strong></td><td>GH salınımını <strong>baskılar</strong></td></tr>
+      <tr><td>G-protein</td><td><strong>G<sub>s</sub></strong></td><td><strong>G<sub>i</sub></strong></td></tr>
+      <tr><td>cAMP</td><td>cAMP <strong>↑</strong></td><td>cAMP <strong>↓</strong></td></tr>
+      <tr><td>Yapı/köken</td><td>Beyin peptidi; GH geni transkripsiyonu</td><td>Siklik peptid; <strong>pankreas adacıkları</strong> + CNS (nörotransmitter)</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>GHRH ayrıca GH salgılayan hücrenin uygun <strong>proliferasyon ve diferansiyasyonu</strong> için kritiktir. GHRH → cAMP↑ → PKA → <strong>CREB</strong> fosforilasyonu → <strong>FOS</strong> ve <strong>PIT1</strong> transkripsiyon faktörleri → GH geni ekspresyonu ve hücre proliferasyonu.</p>
+  <p><strong>Somatostatin (GHIH)</strong> sadece GH'yi değil; anterior hipofiz, pankreas, karaciğer ve gastrointestinal fonksiyon üzerinde de çok yönlü baskılayıcı etki gösterir.</p>
+
+  <div class="box mnemo">
+    <div class="tag">🧠 Hafıza Tekniği — Gs / Gi</div>
+    <p class="acro"><b>S</b>timule eden → G<b>s</b> (cAMP ↑) &nbsp;·&nbsp; <b>İ</b>nhibe eden → G<b>i</b> (cAMP ↓)</p>
+    <p>İlk harf eşleşir: <strong>S</strong>timulating-GH<strong>R</strong>H → G<strong>s</strong>; <strong>İ</strong>nhibiting-GH<strong>I</strong>H → G<strong>i</strong>. Aynı kural <strong>somatostatin ve dopamin (her iki inhibitör de Gi)</strong> için geçerlidir.</p>
+  </div>
+
+  <div class="box spot">
+    <div class="tag">🎯 Spot Bilgi</div>
+    <p>Somatostatin <strong>pankreas adacıklarında (delta hücreleri)</strong> üretilir ve CNS'de <strong>nörotransmitter</strong> görevi de görür. "Sadece hipotalamus hormonu" olduğunu düşünme — bu bir çeldirici.</p>
+  </div>
+
+  <div class="fc-head"><span class="ttl">⚡ Flashcard Seti</span><button class="revealbtn" onclick="toggleAll(this)">Tümünü Aç</button></div>
+  <div class="cards">
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>GHRH ve somatostatin cAMP düzeyini nasıl etkiler ve hangi G-proteini kullanır?</span></div>
+      <div class="a"><span class="amark">C —</span> GHRH: <strong>G<sub>s</sub> → cAMP↑</strong>; Somatostatin: <strong>G<sub>i</sub> → cAMP↓</strong>.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Somatostatinin GH dışındaki üretim yeri ve ikincil görevi nedir?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>Pankreas adacıklarında</strong> üretilir; CNS'de <strong>nörotransmitter</strong> olarak işlev görür (SRIF).</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 8 ===================== -->
+<section id="s8">
+  <h2><span class="num">BÖLÜM 08</span>GH (Somatotropin), GH Reseptörü ve IGF-1</h2>
+  <h3>Büyüme hormonu (GH)</h3>
+  <p><strong>GH</strong>, anterior hipofizin <em>en bol</em> hormonudur; GH salgılayan <strong>somatotrope</strong> hücreler toplam anterior hipofiz hücre popülasyonunun <mark>%50'sine kadarını</mark> oluşturur. Pituiter GH geni (<strong>hGH-N</strong>) alternatif kırpılma (splicing) ile iki ürün verir:</p>
+  <ul>
+    <li><strong>22-kDa GH</strong> (191 amino asit) — ana form</li>
+    <li><strong>20-kDa GH</strong> — daha az bol, benzer biyolojik aktivite</li>
+  </ul>
+  <p>Bazal salgı sırasında, pulslar arasında <strong>30, 16 ve 12 kDa</strong> formları da görülebilir.</p>
+
+  <h3>GH reseptörü (JAK2–STAT)</h3>
+  <p>GH, bir <strong>sitokin reseptörü ailesi</strong> üyesine bağlanır. En çok GH reseptörü <strong>karaciğer (liver)</strong> ve <strong>kıkırdakta (cartilage)</strong> bulunur. Yolak:</p>
+  <ul>
+    <li>GH → reseptör dimerizasyonu → <strong>JAK2</strong> aktivasyonu (fosforilasyon)</li>
+    <li>JAK2 → <strong>STATs</strong> → çekirdeğe geçer → hedef gen transkripsiyonu</li>
+    <li>JAK2 → <strong>SHC → MAPK</strong> → metabolizma/büyüme/proliferasyon/diferansiyasyon</li>
+    <li>JAK2 → <strong>IRS → PI3K</strong> → glikoz alımı</li>
+  </ul>
+
+  <h3>GH'nin direkt metabolik etkileri</h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Artırır (↑)</th><th>Azaltır (↓)</th></tr></thead>
+    <tbody>
+      <tr><td>Protein anabolizması, amino asit alımı, protein sentezi</td><td rowspan="4" style="vertical-align:middle"><strong>Protein oksidasyonu</strong></td></tr>
+      <tr><td>TAG yıkımı (lipoliz), yağ asidi (FA) oksidasyonu</td></tr>
+      <tr><td>Glikoz alımı azalır* / karaciğerde glikoz sentezi (glukoneogenez)↑</td></tr>
+      <tr><td>Lipid depolanması (adipositlere FA alımı)</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:.85rem;color:var(--muted)">Net etki: GH "diyabetojenik / anti-insülin" davranır → kan glikozunu yükseltir, yağı yakar, proteini korur.</p>
+
+  <h3>İndirekt etki ve IGF-1</h3>
+  <p>GH'nin birçok fizyolojik etkisi <strong>Insulin-like growth factors (IGFs)</strong> aracılığıyla <em>dolaylı</em> gerçekleşir; başlıca hedefler: <strong>karaciğer</strong>, <strong>kemik (kondrositler)</strong>, <strong>kas (miyoblastlar)</strong>.</p>
+  <p><strong>IGF-1</strong>, IGF'ler arasında en güçlü büyüme ve diferansiyasyon faktörüdür. Dolaşan IGF-1'in <em>ana kaynağı karaciğerdir</em>, ancak <strong>fibroblast</strong> gibi bağ dokusu hücrelerinde de sentezlenir. IGF-1, hem hipotalamusta GHRH'yi hem hipofizde GH'yi baskılayan <strong>negatif geri besleme</strong> sağlar.</p>
+
+  <div class="box spot">
+    <div class="tag">🎯 Spot Bilgi</div>
+    <p><strong>GH ve Prolaktin</strong> reseptörlerinin ikisi de <strong>JAK2–STAT</strong> (sitokin reseptör süper ailesi) kullanır — GPCR <em>değildir</em>. Bu ikisi "tek başına" sınavda gruplanır. GH ekseni: <strong>GHRH/somatostatin → GH → IGF-1</strong>.</p>
+  </div>
+
+  <div class="box klinik">
+    <div class="tag">🦷 Klinik Önemi</div>
+    <p>Erişkinde aşırı GH → <strong>akromegali</strong>: mandibula büyümesi (prognathism), dişler arası boşluk açılması (diastema), makroglossi ve malokluzyon. Bir diş hekimi bu kraniyofasiyal değişiklikleri ilk fark edenlerden olabilir.</p>
+  </div>
+
+  <div class="fc-head"><span class="ttl">⚡ Flashcard Seti</span><button class="revealbtn" onclick="toggleAll(this)">Tümünü Aç</button></div>
+  <div class="cards">
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>GH reseptörü hangi sinyal yolağını kullanır ve en çok hangi dokularda bulunur?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>JAK2–STAT</strong> (sitokin reseptörü); en çok <strong>karaciğer ve kıkırdakta</strong>.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Dolaşan IGF-1'in ana kaynağı hangi organdır ve geri besledeki rolü nedir?</span></div>
+      <div class="a"><span class="amark">C —</span> Ana kaynak <strong>karaciğer</strong>; IGF-1 hem GHRH'yi hem GH'yi baskılayarak <strong>negatif geri besleme</strong> yapar.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>GH geninin (hGH-N) alternatif kırpılmayla oluşturduğu iki ana form hangisidir?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>22-kDa</strong> (191 aa, ana form) ve <strong>20-kDa</strong> GH.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 9 ===================== -->
+<section id="s9">
+  <h2><span class="num">BÖLÜM 09</span>Prolaktin: PRH / PIH ve Sinyal</h2>
+  <p>Prolaktin salınımı zıt iki sinyalle dengelenir:</p>
+  <ul>
+    <li><strong>PRH</strong> → prolaktin salınımını <strong>G<sub>s</sub> kenetli reseptör + cAMP</strong> ile <em>artırır</em>.</li>
+    <li><strong>PIH (Dopamin)</strong> → <strong>G<sub>i</sub> kenetli reseptör</strong> ile etki eder ve <strong>potasyum kanallarını açar</strong>, salınımı <em>baskılar</em>.</li>
+  </ul>
+
+  <h3>Prolaktin reseptör sinyali (JAK–STAT)</h3>
+  <p>Prolaktinin kendisi hedef hücrede şu klasik basamakları izler: <strong>Ligand → Receptor → JAK → STAT → STAT dimerizasyonu → Transkripsiyon.</strong></p>
+  <ul>
+    <li>Prolaktin → reseptör <strong>dimerizasyonu</strong> → <strong>JAK2</strong> fosforilasyonu</li>
+    <li>JAK2 → <strong>Stat-5</strong> fosforilasyonu → Stat-5 <strong>dimerize</strong> olur</li>
+    <li>Stat-5 dimeri çekirdeğe girer → <strong>casein gen promotoru</strong>nda (GR, OCT-1, TBP ile) transkripsiyonu başlatır → süt proteini sentezi</li>
+  </ul>
+
+  <div class="box mnemo">
+    <div class="tag">🧠 Hafıza Tekniği</div>
+    <p class="acro">"Dopamin = Frene basan ayak"</p>
+    <p>PIH = dopamin, prolaktinin <strong>doğal freni</strong>dir (G<sub>i</sub>, K⁺ kanalı açar). Antipsikotikler (dopamin blokerleri) bu freni keser → <strong>hiperprolaktinemi</strong>. Klinikle bağlamak hatırlamayı kolaylaştırır.</p>
+  </div>
+
+  <div class="box dikkat">
+    <div class="tag">⚠️ Dikkat — Sinyal Çeldiricisi</div>
+    <p><strong>PRH/PIH</strong> (hipotalamik tetikleyiciler) GPCR/cAMP kullanır; ama <strong>prolaktinin kendi reseptörü JAK2–STAT5</strong> kullanır. "Prolaktin sinyali cAMP'dir" derlerse yanlış — hücre içinde JAK–STAT'tır. Aynı süper aile: <strong>GH ve Prolaktin</strong>.</p>
+  </div>
+
+  <div class="fc-head"><span class="ttl">⚡ Flashcard Seti</span><button class="revealbtn" onclick="toggleAll(this)">Tümünü Aç</button></div>
+  <div class="cards">
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>PIH (dopamin) prolaktini hangi G-protein ve hangi iyon kanalı üzerinden baskılar?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>G<sub>i</sub></strong> kenetli reseptör ile; <strong>potasyum (K⁺) kanallarını açarak</strong>.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Prolaktin reseptörünün hücre içi sinyal kaskadını sırayla yazın.</span></div>
+      <div class="a"><span class="amark">C —</span> Ligand → Reseptör dimerizasyonu → <strong>JAK2</strong> → <strong>STAT5</strong> → STAT dimerizasyonu → transkripsiyon (kazein geni).</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 10 ===================== -->
+<section id="s10">
+  <h2><span class="num">BÖLÜM 10</span>GnRH, FSH/LH ve Kontrolü</h2>
+  <p><strong>GnRH (Gonadotropin Releasing Hormone)</strong>, hipofizdeki GPCR'leri üzerinden <strong>PLC</strong> aracılığıyla etki eder ve <strong>FSH + LH</strong> salınımını uyarır.</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Gonadotropin</th><th>Erkekte etki</th><th>Kadında / Genel etki</th></tr></thead>
+    <tbody>
+      <tr><td><strong>FSH</strong></td><td>Sertoli hücrelerinde <strong>spermatogenezi başlatır</strong>; androjen sentez/salınımını artırır</td><td><strong>Oosit maturasyonunu</strong> destekler</td></tr>
+      <tr><td><strong>LH</strong></td><td><strong>Leydig hücrelerinde testosteron</strong> üretimini artırır</td><td>FSH ile birlikte oosit maturasyonu + <strong>ovulasyon</strong>; progesteron ve androjen sentezi↑</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>GnRH sinyal yolağı</h3>
+  <p>GnRH reseptörü iki kola ayrılır:</p>
+  <ul>
+    <li><strong>G<sub>q/11</sub> → PLCβ → PIP₂ → IP₃ + DAG</strong>: IP₃ ER'den Ca²⁺ salar → <strong>CaMK2</strong>; DAG → <strong>PKC → Src → Raf → MEK1/2 → ERK1/2 (MAPK)</strong>; ayrıca MEK3/6→p38 ve MEK4/7→JNK</li>
+    <li><strong>G<sub>αs</sub> → adenilat siklaz → cAMP → PKA</strong> (yardımcı kol)</li>
+  </ul>
+  <p>Tüm bu kollar çekirdekte birleşip <strong>gonadotropin biyosentezi ve salınımını</strong> sağlar.</p>
+
+  <h3>GnRH'nin kontrolü (geri besleme)</h3>
+  <p>Testiste: <strong>LH → Leydig → Testosteron (T)</strong>; <strong>FSH → Sertoli → Androgen-binding protein (ABP)</strong> ve <strong>inhibin</strong>. Geri besleme negatiftir:</p>
+  <ul>
+    <li><strong>Testosteron</strong> hem hipotalamusta GnRH'yi hem hipofizde LH'yi baskılar.</li>
+    <li><strong>Inhibin</strong>, özellikle <strong>FSH</strong> salınımını seçici olarak baskılar.</li>
+  </ul>
+
+  <div class="box mnemo">
+    <div class="tag">🧠 Hafıza Tekniği — FSH vs LH (Erkek)</div>
+    <p class="acro">"<b>F</b>SH → <b>S</b>ertoli (Fabrika) &nbsp;·&nbsp; <b>L</b>H → <b>L</b>eydig (Lokomotif=Testosteron)"</p>
+    <p>Her ikisinin de baş harfleri eşleşir: <strong>F</strong>SH→Sertoli/<strong>S</strong>perm; <strong>L</strong>H→<strong>L</strong>eydig. İnhibin "FSH'yi inhibe eder" (ikisi de F/I sesi).</p>
+  </div>
+
+  <div class="box spot">
+    <div class="tag">🎯 Spot Bilgi</div>
+    <p><strong>GnRH = PLC yolağı (TRH ile aynı grup)</strong>. Ancak GnRH'nin yardımcı bir cAMP kolu da vardır. Klinik altın kural: GnRH'nin <em>pulsatil</em> salınımı gonadotropinleri <strong>uyarır</strong>, <em>sürekli (continuous)</em> verilişi ise reseptör desensitizasyonuyla <strong>baskılar</strong>.</p>
+  </div>
+
+  <div class="fc-head"><span class="ttl">⚡ Flashcard Seti</span><button class="revealbtn" onclick="toggleAll(this)">Tümünü Aç</button></div>
+  <div class="cards">
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Erkekte LH ve FSH hangi hücreler üzerinde, hangi ürünü üretir?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>LH → Leydig → testosteron</strong>; <strong>FSH → Sertoli → spermatogenez + ABP/inhibin</strong>.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>İnhibin hangi gonadotropini seçici olarak baskılar?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>FSH</strong>'yi seçici olarak baskılar.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>GnRH'nin pulsatil ve sürekli verilişi gonadotropin salınımını nasıl etkiler?</span></div>
+      <div class="a"><span class="amark">C —</span> Pulsatil → <strong>uyarır</strong>; sürekli/continuous → reseptör desensitizasyonu ile <strong>baskılar</strong>.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 11 ===================== -->
+<section id="s11">
+  <h2><span class="num">BÖLÜM 11</span>Posterior Hipofiz: Yapı ve Dolaşım</h2>
+  <p>Posterior hipofiz (<strong>neurohypophysis</strong>), hipotalamustaki <strong>nörosekretuvar hücrelerin</strong> aksonal uçlarını içerir. <strong>Myelinsiz aksonlar</strong>, <strong>ADH</strong> ve <strong>oksitozini</strong> hipofizer sap boyunca aşağıya taşır.</p>
+
+  <h3>Vazopressin ve Oksitosin: Yapısal "ikizler"</h3>
+  <p>Oksitosin (OT) ile vazopressinin (VP) yapısı yalnızca <mark>2 amino asit</mark> farkla birbirine benzer — her ikisi de 9 amino asitlik, disülfid köprülü siklik peptidlerdir. Buna rağmen biyolojik etkileri çok farklıdır.</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Pozisyon</th><th>Oksitosin</th><th>Vazopressin (ADH)</th></tr></thead>
+    <tbody>
+      <tr><td>3. pozisyon</td><td><strong>Ile</strong> (izolösin)</td><td><strong>Phe</strong> (fenilalanin)</td></tr>
+      <tr><td>8. pozisyon</td><td><strong>Leu</strong> (lösin)</td><td><strong>Arg</strong> (arginin)</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>İşlevsel farklar:</p>
+  <ul>
+    <li><strong>Oksitosin:</strong> uterus ve meme bezine etki eder → <strong>uterin kontraksiyon</strong> ve <strong>süt salınımı (milk ejection)</strong>.</li>
+    <li><strong>Vazopressin:</strong> böbrekte <strong>su geri emilimini</strong> artırır ve damarları büzerek (vazokonstriksiyon) <strong>kan basıncını yükseltir</strong>.</li>
+  </ul>
+
+  <h3>Dolaşımdaki davranış</h3>
+  <ul>
+    <li>Her ikisi de plazma proteinlerine <strong>bağlanmadan</strong> dolaşır (VP yalnızca trombositlerdeki spesifik reseptörlere bağlanır).</li>
+    <li>Kısa yarı ömür: <strong>5–15 dakika</strong>; endotelyal ve dolaşan endo-/amino-peptidazlarca yıkılır.</li>
+    <li>Gebelikte <strong>plasental sistein amino-peptidaz</strong>, VP ve OT'yi hızla yıkar (peri-partum dönem).</li>
+  </ul>
+
+  <div class="box mnemo">
+    <div class="tag">🧠 Hafıza Tekniği — 2 Amino Asit Farkı</div>
+    <p class="acro">Vazopressin'de "<b>F</b>are <b>AR</b>gın" → <b>Phe</b> ve <b>Arg</b></p>
+    <p>VP = <strong>Phe (3)</strong> + <strong>Arg (8)</strong>. Oksitosin ise "<strong>İ</strong>yi <strong>L</strong>ezzet" → <strong>Ile</strong> + <strong>Leu</strong>. Arg, vazopressinin tam adında zaten var: <strong>Arg</strong>inine vasopressin.</p>
+  </div>
+
+  <div class="box dikkat">
+    <div class="tag">⚠️ Dikkat</div>
+    <p>OT ve VP "neredeyse aynı yapıda ama tamamen farklı işlev" en klasik final çeldiricisidir. Ayrıca posterior hipofiz hormonlarının <strong>peptid</strong> olduğunu unutma; lipid çözünür değiller, bu yüzden hücre yüzey reseptörü (GPCR) kullanırlar.</p>
+  </div>
+
+  <div class="fc-head"><span class="ttl">⚡ Flashcard Seti</span><button class="revealbtn" onclick="toggleAll(this)">Tümünü Aç</button></div>
+  <div class="cards">
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Oksitosin ve vazopressin yapısal olarak kaç amino asit farklıdır ve bunlar hangi pozisyonlardadır?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>2 amino asit</strong>: 3. pozisyon (OT=Ile / VP=Phe) ve 8. pozisyon (OT=Leu / VP=Arg).</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>VP ve OT'nin yarı ömrü ne kadardır, plazma proteinine bağlanırlar mı?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>5–15 dakika</strong>; plazma proteinine <strong>bağlanmazlar</strong> (VP yalnızca trombosit reseptörüne bağlanır).</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 12 ===================== -->
+<section id="s12">
+  <h2><span class="num">BÖLÜM 12</span>Vazopressin Reseptörleri &amp; Akuaporin</h2>
+  <p>Üç farklı vazopressin reseptör alt tipi vardır: <strong>V1a, V1b (V3), V2</strong>. Hepsi <strong>G-protein kenetlidir</strong> ve doku dağılımı, sinyal yolağı ve fonksiyonuna göre farklı genlerce kodlanır.</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Reseptör</th><th>Lokalizasyon</th><th>Sinyal (2. haberci)</th><th>Fonksiyon</th></tr></thead>
+    <tbody>
+      <tr><td><strong>V1a</strong> (418 aa)</td><td>Vasküler düz kas, karaciğer, trombosit, CNS</td><td><strong>G<sub>q/11</sub> → PLC</strong>: Ca²⁺, IP₃, DAG</td><td>Vazokonstriksiyon, glikojenoliz, trombosit agregasyonu, nöromodülasyon</td></tr>
+      <tr><td><strong>V1b</strong> (V3) (424 aa)</td><td><strong>Hipofiz korticotrof</strong> hücreleri</td><td>V1a gibi (G<sub>q</sub> → PLC)</td><td><strong>ACTH salınımını artırır</strong></td></tr>
+      <tr><td><strong>V2</strong> (370 aa)</td><td>Böbrek distal nefron + toplayıcı kanal <strong>bazolateral membran</strong></td><td><strong>G<sub>s</sub> → adenilat siklaz → cAMP → PKA</strong></td><td><strong>Aquaporin-2</strong> üretim ve etkisini artırır</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Vazopressin–Akuaporin sinyali</h3>
+  <p>V2 reseptör yolağında <strong>AVP → V2R → G<sub>s</sub> → AC → cAMP → PKA</strong>, hücresel düzeyde şu yanıtları üretir: AQP2 ekzositozu↑, AQP2 endositozu↓, F-aktin depolimerizasyonu, intraselüler Ca²⁺ mobilizasyonu, <em>Agp2</em> gen transkripsiyonu↑, AQP2 protein stabilitesi↑ ve AQP2 fosforilasyonu.</p>
+
+  <h3>Akuaporinler (su kanalları)</h3>
+  <ul>
+    <li>Membrandaki <strong>AQP</strong> varlığı, lümenden su geri emilimini ve <strong>konsantre idrar</strong> atılımını sağlar.</li>
+    <li>Bugüne dek <strong>13 memeli AQP</strong> tanımlanmıştır; bunların <strong>7'si (AQP1–4, AQP6–8) böbrekte</strong> bulunur.</li>
+    <li>İki aile: <strong>sadece-su kanalları</strong> ve <strong>aquaglyceroporins</strong> (gliserol, üre gibi küçük molekülleri de geçirir).</li>
+  </ul>
+
+  <div class="box mnemo">
+    <div class="tag">🧠 Hafıza Tekniği — V Reseptörleri</div>
+    <p class="acro">"V<b>2</b> = su<b>2</b> (aqua) → cAMP" · V1'ler → PLC/Ca²⁺</p>
+    <p>Tek başına farklı olan <strong>V2</strong>'dir: cAMP (G<sub>s</sub>) kullanır ve <strong>su (aquaporin-2)</strong> işidir. V1a + V1b ise G<sub>q</sub>/PLC ailesidir. "V1b = b → beyin/hipofiz (Pituitary) → ACTH" diye bağla.</p>
+  </div>
+
+  <div class="box klinik">
+    <div class="tag">🦷 Klinik Önemi</div>
+    <p>V2 reseptör mutasyonu → <strong>nefrojenik diabetes insipidus</strong> (böbrek ADH'ye yanıt vermez, aşırı dilüe idrar). Bu hastalarda kronik <strong>kserostomi (ağız kuruluğu)</strong> ve buna bağlı yüksek <strong>çürük riski</strong> görülür — doğrudan diş hekimliğini ilgilendirir.</p>
+  </div>
+
+  <div class="box dikkat">
+    <div class="tag">⚠️ Dikkat</div>
+    <p>Çeldirici: "Vazopressinin tüm reseptörleri Ca²⁺ kullanır" → YANLIŞ. <strong>V2 cAMP</strong> kullanır. Ayrıca tablodaki ek bilgi: V2 vasküler endotelde <strong>vWF + Faktör VIII salınımı</strong> ve vasküler düz kasta <strong>vazodilatasyon</strong> da yapar.</p>
+  </div>
+
+  <div class="fc-head"><span class="ttl">⚡ Flashcard Seti</span><button class="revealbtn" onclick="toggleAll(this)">Tümünü Aç</button></div>
+  <div class="cards">
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>V2 reseptörü nerede bulunur, hangi sinyali kullanır ve ne yapar?</span></div>
+      <div class="a"><span class="amark">C —</span> Böbrek toplayıcı kanal bazolateral membranı; <strong>G<sub>s</sub>→cAMP→PKA</strong>; <strong>aquaporin-2</strong> üretim/etkisini artırır.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>V1b reseptörü nerede bulunur ve görevi nedir?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>Hipofiz korticotrof hücrelerinde</strong>; görevi <strong>ACTH salınımını artırmak</strong> (sinyal V1a gibi: G<sub>q</sub>/PLC).</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Toplam kaç memeli akuaporini tanımlanmıştır ve kaçı böbrektedir?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>13</strong> AQP tanımlanmış; <strong>7'si</strong> (AQP1–4, AQP6–8) böbrekte.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 13 ===================== -->
+<section id="s13">
+  <h2><span class="num">BÖLÜM 13</span>Oksitosin: Reseptör ve Sinyal</h2>
+  <p>Oksitosin, büyük ölçüde <strong>üreme fonksiyonuyla</strong> ilgili çeşitli fizyolojik etkilere aracılık eder. Klasik fizyolojik rolleri:</p>
+  <ul>
+    <li>Meme bezi <strong>myoepitelyal hücrelerinin</strong> kasılması → <strong>süt ejeksiyonu (milk ejection)</strong>.</li>
+    <li>Uterus düz kasının kasılmasının uyarılması → <strong>doğum (childbirth)</strong>.</li>
+  </ul>
+
+  <h3>Oksitosin reseptörü</h3>
+  <ul>
+    <li><strong>GPCR</strong> ailesindendir.</li>
+    <li>Afinitesi <strong>Mg²⁺</strong> ve <strong>kolesterole</strong> bağlıdır; her ikisi de <strong>pozitif allosterik düzenleyici</strong> olarak davranır.</li>
+    <li>Meme bezi myoepitelyal hücrelerinde ve gebeliğin sonunda uterusun hem <strong>miyometrium</strong> hem <strong>endometriumunda</strong> eksprese olur.</li>
+    <li>CNS'de de bulunur: stres/anksiyete, sosyal hafıza ve tanıma, cinsel/agresif davranış, <strong>bağlanma (affiliation/bonding)</strong> ve <strong>maternal davranışı</strong> düzenler.</li>
+  </ul>
+
+  <h3>Oksitosin sinyali</h3>
+  <p>Oksitosin reseptörü <strong>G<sub>q/11</sub> → PLC</strong> ana koluyla çalışır:</p>
+  <ul>
+    <li>PLC → PIP₂ → <strong>IP₃ + DAG</strong></li>
+    <li>IP₃ → sarkoplazmik retikulumdan <strong>Ca²⁺</strong> + voltaj-bağımlı Ca²⁺ kanalından girişle → <strong>Ca²⁺–kalmodulin kompleksi → MLC kinaz → kontraksiyon</strong></li>
+    <li>DAG → <strong>PKC → MAPK kaskadı → cPLA2</strong> → <strong>prostaglandin üretimi</strong> → kontraksiyon</li>
+    <li><strong>RhoA/ROK</strong> aktivasyonu → <strong>MLC fosforilasyonu</strong> → kontraksiyon (Ca²⁺ duyarlılaştırma)</li>
+  </ul>
+
+  <div class="box spot">
+    <div class="tag">🎯 Spot Bilgi</div>
+    <p>Oksitosin reseptörünün afinitesi <strong>Mg²⁺ ve kolesterol</strong> tarafından <em>pozitif allosterik</em> olarak artırılır — bu çok spesifik ve sık sorulan bir detaydır. Oksitosin de TRH/GnRH gibi <strong>Gq/PLC</strong> grubundadır.</p>
+  </div>
+
+  <div class="box klinik">
+    <div class="tag">🦷 Klinik Önemi</div>
+    <p>Oksitosinin "bağlanma hormonu" rolü, hasta-hekim güveni ve dental anksiyete yönetimi açısından ilgi çekicidir; ayrıca emziren annelerde diş tedavisi planlanırken oksitosin/prolaktin fizyolojisi göz önünde bulundurulur.</p>
+  </div>
+
+  <div class="fc-head"><span class="ttl">⚡ Flashcard Seti</span><button class="revealbtn" onclick="toggleAll(this)">Tümünü Aç</button></div>
+  <div class="cards">
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Oksitosin reseptörünün afinitesini artıran iki pozitif allosterik düzenleyici nedir?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>Mg²⁺</strong> ve <strong>kolesterol</strong>.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Oksitosin sinyalinde kontraksiyona giden üç farklı kolu özetleyin.</span></div>
+      <div class="a"><span class="amark">C —</span> (1) IP₃→Ca²⁺→kalmodulin→<strong>MLC kinaz</strong>; (2) DAG→PKC→MAPK→cPLA2→<strong>prostaglandin</strong>; (3) <strong>RhoA/ROK</strong>→MLC fosforilasyonu.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 14 ===================== -->
+<section id="s14">
+  <h2><span class="num">BÖLÜM 14</span>Büyük Resim: Final İçin Karşılaştırma Tabloları</h2>
+  <p class="lead">Bu bölüm, dağınık bilgileri tek bakışta birleştiren "altın sayfa"dır. Final gecesi sadece burayı tekrar etmen çoğu sinyal sorusunu çözer.</p>
+
+  <h3>Tablo A — Sinyal Yolaklarına Göre Gruplama (EN YÜKSEK VERİMLİ)</h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>G-protein / Yolak</th><th>2. Haberci</th><th>Bu yolağı kullanan hormonlar/reseptörler</th></tr></thead>
+    <tbody>
+      <tr><td><strong>G<sub>s</sub></strong> (uyarıcı)</td><td>cAMP ↑ → PKA</td><td><strong>CRH, GHRH, PRH, V2 (ADH), GnRH'nin yan kolu</strong></td></tr>
+      <tr><td><strong>G<sub>i</sub></strong> (inhibitör)</td><td>cAMP ↓</td><td><strong>GHIH (somatostatin), PIH (dopamin)</strong> — her iki inhibitör hormon</td></tr>
+      <tr><td><strong>G<sub>q/11</sub></strong> → PLC</td><td>IP₃ + DAG → Ca²⁺ / PKC</td><td><strong>TRH, GnRH, Oksitosin, V1a, V1b</strong></td></tr>
+      <tr><td><strong>JAK–STAT</strong> (sitokin R.)</td><td>STAT dimerizasyonu</td><td><strong>GH (GHR), Prolaktin</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="box mnemo">
+    <div class="tag">🧠 Hafıza Tekniği — Yolak Grupları</div>
+    <p class="acro">G<b>q</b>/PLC kulübü: "<b>T</b>ek <b>G</b>ün <b>V</b>ahşi <b>V</b>ahşi <b>O</b>kudum"</p>
+    <p><b>T</b>RH · <b>G</b>nRH · <b>V</b>1a · <b>V</b>1b · <b>O</b>ksitosin → hepsi <strong>IP₃/DAG/Ca²⁺</strong>.<br>
+    Kalan kurallar otomatik: <strong>iki inhibitör (somatostatin + dopamin) = Gi</strong>; <strong>GH + Prolaktin = JAK-STAT</strong>; geri kalan releasing'ler büyük ölçüde <strong>Gs/cAMP</strong>.</p>
+  </div>
+
+  <h3>Tablo B — Hipotalamus → Hipofiz → Hedef → Periferik Hormon</h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Hipotalamik</th><th>Hipofiz tropini</th><th>Hedef bez</th><th>Periferik hormon</th></tr></thead>
+    <tbody>
+      <tr><td>CRH</td><td>ACTH</td><td>Adrenal korteks</td><td>Kortizol</td></tr>
+      <tr><td>TRH</td><td>TSH</td><td>Tiroid</td><td>T₃ / T₄</td></tr>
+      <tr><td>GnRH</td><td>FSH / LH</td><td>Gonadlar</td><td>Östrojen, progesteron, testosteron, inhibin</td></tr>
+      <tr><td>GHRH / SS</td><td>GH</td><td>Karaciğer, kemik</td><td>IGF-1</td></tr>
+      <tr><td>PRH / Dopamin</td><td>Prolaktin</td><td>Meme bezi</td><td>(Doğrudan etki — laktasyon)</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Tablo C — Posterior Hipofiz Özeti</h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Hormon</th><th>Reseptör(ler)</th><th>Ana hedef</th><th>Ana etki</th></tr></thead>
+    <tbody>
+      <tr><td>Vazopressin (ADH)</td><td>V1a (Gq), V1b (Gq), <strong>V2 (Gs)</strong></td><td>Damar / hipofiz / böbrek</td><td>Vazokonstriksiyon, ACTH↑, su geri emilimi (AQP2)</td></tr>
+      <tr><td>Oksitosin</td><td>OTR (Gq/PLC)</td><td>Uterus, meme bezi, CNS</td><td>Uterin kontraksiyon, süt ejeksiyonu, bağlanma</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="box spot">
+    <div class="tag">🎯 Spot Bilgi — Genel Geri Besleme Kuralı</div>
+    <p>Şema 339-1'in özü: <strong>periferik hormonlar (kortizol, T₃/T₄, testosteron/inhibin, östrojen/progesteron, IGF-1) hem hipofizi hem hipotalamusu negatif geri beslemeyle baskılar.</strong> "Yukarı ne kadar çıkarsa o kadar fren" mantığı tüm aksta geçerlidir (uzun, kısa ve ultra-kısa loop).</p>
+  </div>
+
+  <div class="fc-head"><span class="ttl">⚡ Final Flashcard Seti</span><button class="revealbtn" onclick="toggleAll(this)">Tümünü Aç</button></div>
+  <div class="cards">
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Hangi iki hormon/reseptör JAK–STAT yolağını kullanır?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>GH (büyüme hormonu reseptörü)</strong> ve <strong>Prolaktin</strong> reseptörü (sitokin reseptör süper ailesi, JAK2/STAT5).</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Gi yolağını (cAMP↓) kullanan iki hipotalamik hormon hangisidir ve ortak özellikleri nedir?</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>Somatostatin (GHIH)</strong> ve <strong>dopamin (PIH)</strong>; ikisi de <strong>inhibitör</strong> hormonlardır.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>Gq/PLC yolağını kullanan beş yapıyı sayın.</span></div>
+      <div class="a"><span class="amark">C —</span> <strong>TRH, GnRH, Oksitosin, V1a, V1b</strong> (hepsi IP₃ + DAG + Ca²⁺).</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+    <div class="card" onclick="flip(this)">
+      <div class="q"><span class="qmark">S</span><span>CRH → ? → adrenal korteks → ? geri besleme zincirini tamamlayın.</span></div>
+      <div class="a"><span class="amark">C —</span> CRH → <strong>ACTH</strong> → adrenal korteks → <strong>kortizol</strong>; kortizol hem hipofizi (ACTH) hem hipotalamusu (CRH) baskılar.</div>
+      <div class="hint">Cevabı görmek için tıkla</div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  <p><b>Hipotalamus &amp; Hipofiz Hormonları — Biyokimya Final Çalışma Rehberi</b></p>
+  <p>Tüm slayt içeriği, ders notuna sadık kalınarak akademik olarak zenginleştirilmiş; flashcard'lar aktif hatırlama için tasarlanmıştır. Tekrar ederken önce flashcard sorusunu kendine sor, sonra kartı aç.</p>
+</div>
+
+</div>
+
+<script>
+  function flip(card){ card.classList.toggle('open'); }
+  function toggleAll(btn){
+    var section = btn.closest('section');
+    var cards = section.querySelectorAll('.card');
+    var anyClosed = false;
+    cards.forEach(function(c){ if(!c.classList.contains('open')) anyClosed = true; });
+    cards.forEach(function(c){ c.classList.toggle('open', anyClosed); });
+    btn.textContent = anyClosed ? 'Tümünü Kapat' : 'Tümünü Aç';
+  }
+  // progress bar
+  window.addEventListener('scroll', function(){
+    var h = document.documentElement;
+    var scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    document.getElementById('bar').style.width = scrolled + '%';
+  });
+</script>
+<script src="../../assets/language.js" defer></script>
+</body>
+</html>

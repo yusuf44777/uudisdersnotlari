@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glikoliz (Glycolysis) — Final Çalışma Rehberi</title>
+<style>
+  :root{
+    --bg:#f4f6f8;
+    --paper:#ffffff;
+    --ink:#1f2933;
+    --muted:#52606d;
+    --teal:#0c7d8c;
+    --teal-dark:#075863;
+    --teal-soft:#e6f5f7;
+    --amber:#b9770e;
+    --amber-soft:#fdf4e3;
+    --red:#b3261e;
+    --red-soft:#fcebe9;
+    --green:#1e7a46;
+    --green-soft:#e8f6ee;
+    --purple:#5b3a91;
+    --purple-soft:#f0eafa;
+    --line:#dfe5ea;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Segoe UI",Calibri,system-ui,-apple-system,sans-serif;
+    line-height:1.65;font-size:17px;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:24px 18px 80px;}
+  header.hero{
+    background:linear-gradient(135deg,var(--teal-dark),var(--teal));
+    color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:26px;
+    box-shadow:0 8px 24px rgba(7,88,99,.25);
+  }
+  header.hero .tag{font-size:14px;letter-spacing:2px;text-transform:uppercase;opacity:.85;}
+  header.hero h1{margin:.2em 0 .15em;font-size:2.1rem;font-family:Georgia,"Times New Roman",serif;}
+  header.hero p{margin:.2em 0;opacity:.92;font-size:.95rem;}
+  h2{
+    font-family:Georgia,serif;color:var(--teal-dark);font-size:1.5rem;
+    border-bottom:3px solid var(--teal-soft);padding-bottom:8px;margin-top:48px;
+  }
+  h3{font-family:Georgia,serif;color:var(--teal);font-size:1.18rem;margin-top:30px;}
+  h4{color:var(--ink);font-size:1.02rem;margin:18px 0 6px;}
+  .slide-tag{
+    display:inline-block;background:var(--teal);color:#fff;font-size:.72rem;
+    font-weight:700;letter-spacing:.5px;padding:3px 10px;border-radius:20px;
+    vertical-align:middle;margin-right:8px;
+  }
+  strong{color:var(--teal-dark);}
+  em{color:var(--muted);}
+  mark{background:#fff2a8;padding:0 3px;border-radius:3px;}
+  ul,ol{margin:.4em 0 .8em;padding-left:1.4em;}
+  li{margin:.32em 0;}
+  p{margin:.6em 0;}
+  .lead{background:var(--paper);border:1px solid var(--line);border-radius:14px;
+    padding:18px 22px;box-shadow:0 2px 6px rgba(0,0,0,.04);margin:14px 0;}
+
+  /* Special boxes */
+  .box{border-radius:12px;padding:14px 18px 14px 16px;margin:16px 0;border-left:6px solid;}
+  .box .bt{font-weight:800;display:block;margin-bottom:4px;font-size:1.02rem;}
+  .clinic{background:var(--teal-soft);border-color:var(--teal);}
+  .clinic .bt{color:var(--teal-dark);}
+  .spot{background:var(--green-soft);border-color:var(--green);}
+  .spot .bt{color:var(--green);}
+  .warn{background:var(--red-soft);border-color:var(--red);}
+  .warn .bt{color:var(--red);}
+  .mnemo{background:var(--purple-soft);border-color:var(--purple);}
+  .mnemo .bt{color:var(--purple);}
+
+  /* Flashcards */
+  .fc-wrap{margin:18px 0 6px;border:2px dashed var(--amber);background:var(--amber-soft);
+    border-radius:14px;padding:14px 18px;}
+  .fc-wrap .fc-title{font-weight:800;color:var(--amber);letter-spacing:.5px;
+    text-transform:uppercase;font-size:.8rem;margin-bottom:8px;}
+  details.fc{background:#fff;border:1px solid #eedcb6;border-radius:10px;
+    margin:8px 0;padding:4px 14px;}
+  details.fc summary{cursor:pointer;font-weight:700;color:var(--ink);padding:8px 0;list-style:none;}
+  details.fc summary::-webkit-details-marker{display:none;}
+  details.fc summary::before{content:"❓ ";}
+  details.fc[open] summary::before{content:"✅ ";}
+  details.fc .ans{padding:4px 0 12px;color:var(--teal-dark);border-top:1px solid #f0e6cf;margin-top:4px;}
+
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.92rem;background:#fff;
+    border-radius:10px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+  th{background:var(--teal-dark);color:#fff;text-align:left;padding:9px 11px;font-size:.85rem;}
+  td{padding:9px 11px;border-top:1px solid var(--line);vertical-align:top;}
+  tr:nth-child(even) td{background:#fafcfd;}
+
+  .step-card{background:#fff;border:1px solid var(--line);border-left:6px solid var(--teal);
+    border-radius:12px;padding:14px 18px;margin:14px 0;box-shadow:0 2px 6px rgba(0,0,0,.04);}
+  .step-card.irrev{border-left-color:var(--red);}
+  .step-num{display:inline-block;background:var(--teal);color:#fff;width:30px;height:30px;
+    line-height:30px;text-align:center;border-radius:50%;font-weight:800;margin-right:8px;}
+  .step-card.irrev .step-num{background:var(--red);}
+  .rxn{font-family:Consolas,"Courier New",monospace;background:#f3f6f8;border-radius:8px;
+    padding:8px 12px;margin:8px 0;font-size:.9rem;display:block;color:var(--ink);}
+  .toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 22px;}
+  .toc a{color:var(--teal-dark);text-decoration:none;}
+  .toc a:hover{text-decoration:underline;}
+  .toc li{margin:.2em 0;}
+  .pill{font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:20px;color:#fff;}
+  .pill.irr{background:var(--red);}
+  .pill.atp{background:var(--green);}
+  .pill.nadh{background:var(--purple);}
+  footer{margin-top:60px;text-align:center;color:var(--muted);font-size:.85rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="tag">Medical Biochemistry · 1. Sınıf Final</div>
+  <h1>Glikoliz (Glycolysis)</h1>
+  <p>Overview · Reactions · Regulation — Embden–Meyerhof Pathway (EMP)</p>
+  <p style="opacity:.8;font-size:.85rem;">Kaynak: Assist. Prof. Tuğçe Demirel-Yalçıner — Faculty of Medicine, Dept. of Medical Biochemistry</p>
+</header>
+
+<div class="toc">
+  <strong style="color:var(--teal-dark);font-size:1.05rem;">📋 İçindekiler</strong>
+  <ol>
+    <li><a href="#giris">Giriş ve Temel Kavramlar</a></li>
+    <li><a href="#genel">Genel Bakış: İki Faz ve Kimyasal Strateji</a></li>
+    <li><a href="#glut">Glukozun Hücreye Girişi (GLUT Transporters)</a></li>
+    <li><a href="#hazirlik">Hazırlık Fazı — 10 Reaksiyon (Adım 1–5)</a></li>
+    <li><a href="#kazanc">Kazanç Fazı — 10 Reaksiyon (Adım 6–10)</a></li>
+    <li><a href="#net">Net Enerji Bilançosu</a></li>
+    <li><a href="#kaynaklar">Glikolize Giren Diğer Şekerler</a></li>
+    <li><a href="#piruvat">Piruvatın Akıbetleri</a></li>
+    <li><a href="#regulasyon">Glikolizin Regülasyonu</a></li>
+    <li><a href="#klinik">Klinik Korelasyonlar (Diş Çürüğü dahil)</a></li>
+    <li><a href="#master">🧠 Master Ezber Kartı</a></li>
+  </ol>
+</div>
+
+<!-- ============ GİRİŞ ============ -->
+<h2 id="giris">1. Giriş ve Temel Kavramlar</h2>
+
+<div class="lead">
+<span class="slide-tag">Slide 2-3</span>
+<strong>Glycolysis</strong> kelimesi <em>Glyco</em> (= glucose, glukoz) ve <em>lysis</em> (= breakdown, parçalanma) kelimelerinden gelir; yani <strong>glukozun parçalanması</strong> demektir.
+</div>
+
+<p>Bu yolağın bilmen gereken temel özellikleri:</p>
+<ul>
+  <li>Diğer adı <strong>Embden-Meyerhof Pathway (EMP)</strong>'dir. (Sınavda bu eş anlamlı isim çeldirici olarak çıkabilir.)</li>
+  <li>Keşfedilen <strong>ilk metabolik yolaktır</strong> (the first metabolic pathway discovered).</li>
+  <li><strong>Sitozolde (cytosol)</strong> gerçekleşir — mitokondride DEĞİL.</li>
+  <li>Vücuttaki <strong>tüm dokularda aktiftir</strong> (active in all tissues).</li>
+  <li><strong>Oksijen gerektirmez</strong> (does not require oxygen) — yani temelde anaerobik başlar.</li>
+</ul>
+
+<div class="box spot">
+<span class="bt">🎯 Spot Bilgi</span>
+Glikolizin yeri kesinlikle <strong>cytosol</strong>'dür. Çıkan ürünlerin (piruvat, NADH) ileri metabolizması için <em>mitokondriye taşınması</em> gerekir. "Glikoliz mitokondride olur" ifadesi <mark>yanlıştır</mark> ve klasik bir çeldiricidir.
+</div>
+
+<div class="box mnemo">
+<span class="bt">🧠 Ezber — "GLİKO-SOOO"</span>
+<strong>S</strong>itozol · <strong>O</strong>ksijensiz olabilir · <strong>O</strong>n basamak · <strong>O</strong>rtak (tüm dokularda). Glikolizin 4 ana karakterini "SOOO" diye hatırla.
+</div>
+
+<div class="fc-wrap">
+<div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Glikolizin alternatif (eş anlamlı) ismi nedir?</summary><div class="ans"><strong>Embden-Meyerhof Pathway (EMP)</strong>.</div></details>
+<details class="fc"><summary>Glikoliz hücrenin hangi kompartmanında gerçekleşir ve oksijene ihtiyaç duyar mı?</summary><div class="ans"><strong>Cytosol</strong>'de gerçekleşir; oksijene <strong>ihtiyaç duymaz</strong> (anaerobik koşullarda da işler).</div></details>
+<details class="fc"><summary>"Glyco" ve "lysis" kelimeleri ne anlama gelir?</summary><div class="ans">Glyco = glucose (glukoz); lysis = breakdown (parçalanma).</div></details>
+</div>
+
+<!-- ============ GENEL BAKIŞ ============ -->
+<h2 id="genel">2. Genel Bakış: İki Faz ve Kimyasal Strateji</h2>
+
+<div class="lead">
+<span class="slide-tag">Slide 4-5</span>
+Glikoliz, 6 karbonlu <strong>glucose</strong> ile başlar ve 3 karbonlu iki molekül <strong>pyruvate</strong> ile sonlanır. Toplam <strong>10 basamaktan</strong> oluşur ve bu basamaklar iki yarıya ayrılır.
+</div>
+
+<table>
+  <tr><th>Faz</th><th>Basamak</th><th>Olay</th><th>Enerji</th></tr>
+  <tr>
+    <td><strong>Preparatory phase</strong><br>(Hazırlık / yatırım fazı)</td>
+    <td>1–5 (5 adım)</td>
+    <td>Heksoz zinciri iki <strong>triose phosphate</strong>'a parçalanır</td>
+    <td><span class="pill irr">−2 ATP</span> (2 ATP harcanır)</td>
+  </tr>
+  <tr>
+    <td><strong>Payoff phase</strong><br>(Kazanç fazı)</td>
+    <td>6–10 (5 adım)</td>
+    <td>2 molekül <strong>glyceraldehyde 3-phosphate (G3P)</strong> → 2 pyruvate</td>
+    <td><span class="pill atp">+4 ATP</span> <span class="pill nadh">+2 NADH</span></td>
+  </tr>
+</table>
+
+<div class="box spot">
+<span class="bt">🎯 Spot Bilgi — Net Kazanç</span>
+Net ATP = <strong>2 ATP / glukoz</strong> (4 üretilir − 2 harcanır) + <strong>2 NADH</strong> + <strong>2 pyruvate</strong>.
+</div>
+
+<div class="lead">
+<span class="slide-tag">Slide 6-7</span>
+<strong>Kimyasal Strateji (Chemical strategy):</strong> Yolak, birbirine bağlı <strong>fosforil-transfer reaksiyonlarından (coupled phosphoryl-transfer reactions)</strong> oluşur. Üç aşamalı mantık:
+</div>
+<ol>
+  <li>Glukoza <strong>fosforil grupları (phosphoryl groups)</strong> eklenir.</li>
+  <li>Bu fosforillenmiş ara ürünler, <strong>yüksek fosfat grup transfer potansiyeline (high phosphate group-transfer potential)</strong> sahip bileşiklere dönüştürülür.</li>
+  <li>Bu reaktif bileşiklerin hidrolizi <strong>ATP sentezine</strong> kenetlenir (coupled to ATP synthesis).</li>
+</ol>
+
+<h4>Fosforillenmiş ara ürünler neden kritik? (3 sebep)</h4>
+<ul>
+  <li><strong>1. Negatif yük → membrandan kaçamaz (trapping):</strong> Fosfat grubunun negatif yükü, ara ürünün membrandan difüzyonunu engeller, yani molekülü hücre içinde "hapseder".</li>
+  <li><strong>2. Artmış reaktivite:</strong> Fosforilasyon, ara ürünleri bir sonraki enzimatik reaksiyonlara daha yatkın hale getirir.</li>
+  <li><strong>3. Enerji transferi:</strong> Bazı ara ürünlerde <strong>yüksek enerjili fosfat bağları</strong> bulunur ve bunlar ATP üretmek için kullanılır.</li>
+</ul>
+
+<div class="box mnemo">
+<span class="bt">🧠 Ezber — "HRE" (Hapis-Reaktif-Enerji)</span>
+Fosforilasyonun 3 amacı: <strong>H</strong>apis (trapping) · <strong>R</strong>eaktivite artışı · <strong>E</strong>nerji aktarımı (ATP). "Molekülü Hapset, Reaktif yap, Enerjisini al."
+</div>
+
+<div class="fc-wrap">
+<div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Glikoliz kaç basamaktan oluşur ve fazların ATP bilançosu nedir?</summary><div class="ans">10 basamak. Preparatory phase: −2 ATP harcanır. Payoff phase: +4 ATP ve +2 NADH üretilir. <strong>Net = +2 ATP, +2 NADH</strong>.</div></details>
+<details class="fc"><summary>Glikolizde ara ürünlerin fosforillenmesinin üç işlevsel amacı nedir?</summary><div class="ans">(1) Negatif yükle hücre içinde hapsetme, (2) reaktiviteyi artırma, (3) yüksek enerjili fosfat bağı ile ATP üretimine olanak tanıma.</div></details>
+<details class="fc"><summary>Glukoz kaç karbonludur ve glikoliz sonunda hangi 3 karbonlu ürüne dönüşür?</summary><div class="ans">Glukoz 6 karbonludur; iki molekül 3 karbonlu <strong>pyruvate</strong>'a dönüşür.</div></details>
+</div>
+
+<!-- ============ GLUT ============ -->
+<h2 id="glut">3. Glukozun Hücreye Girişi (GLUT Transporters)</h2>
+
+<div class="lead">
+<span class="slide-tag">Slide 8-9</span>
+Glukoz; 6 karbonlu, en bol bulunan monosakkarit ve suda çok çözünür bir moleküldür. Ancak <strong>büyük ve polar</strong> olduğu için fosfolipit membran tarafından itilir ve <strong>basit difüzyonla lipit çift tabakayı geçemez</strong>. Bu yüzden <strong>spesifik taşıyıcılara (specific transporters → GLUT transporters)</strong> ihtiyaç vardır.
+</div>
+
+<table>
+  <tr><th>Taşıyıcı</th><th>Doku dağılımı</th><th>İşlev / Özellik</th></tr>
+  <tr><td><strong>SGLT1</strong></td><td>Kidney, intestine (böbrek, bağırsak)</td><td>Na⁺-bağımlı aktif transport; apikal epitel membran</td></tr>
+  <tr><td><strong>GLUT1</strong></td><td>Ubiquitous; özellikle erythrocytes (RBC), plasenta, beyin, endotel</td><td>Bazal transport; kan–doku bariyeri</td></tr>
+  <tr><td><strong>GLUT2</strong></td><td>Liver, pancreatic β-cells, kidney, small intestine</td><td><strong>Düşük afiniteli (low-affinity)</strong>; <mark>glukoz sensörü</mark>nün parçası (karaciğer & adacıklar)</td></tr>
+  <tr><td><strong>GLUT3</strong></td><td>Neurons, placenta</td><td>Yüksek afiniteli (high-affinity)</td></tr>
+  <tr><td><strong>GLUT4</strong></td><td>Skeletal & cardiac muscle, adipose tissue</td><td><mark>İnsülinle uyarılan (insulin-stimulated)</mark> transport</td></tr>
+  <tr><td><strong>GLUT5</strong></td><td>Small intestine, spermatozoa</td><td>Yüksek afiniteli <strong>fructose</strong> taşıyıcısı</td></tr>
+  <tr><td><strong>GLUT7</strong></td><td>Liver</td><td>ER'den glukoz salınımı (glucose-6-phosphatase ile kenetli)</td></tr>
+</table>
+
+<div class="box clinic">
+<span class="bt">🦷 Klinik Önemi</span>
+<strong>GLUT4</strong> insüline duyarlı tek transporterdir ve kas + yağ dokusunda bulunur. Tip 2 diyabette GLUT4'ün membrana taşınması bozulur → hiperglisemi. Diyabetik bir hastada yara iyileşmesinin gecikmesi ve enfeksiyon riski (örn. periodontitis, çekim sonrası iyileşme sorunları) bu metabolik temele dayanır.
+</div>
+
+<div class="box mnemo">
+<span class="bt">🧠 Ezber — GLUT yerleşimleri</span>
+<strong>GLUT1</strong> → "1 numara her yerde" (ubiquitous + RBC).<br>
+<strong>GLUT2</strong> → "2 = çift organ" Liver + pancreas β-cell (sensör, düşük afinite).<br>
+<strong>GLUT4</strong> → "4 = Fitness" → Muscle + Fat, <em>insülinle</em> çalışır.<br>
+<strong>GLUT5</strong> → "5 = Fruit" → <strong>F</strong>ructose taşır (Five-Fructose).
+</div>
+
+<div class="fc-wrap">
+<div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Glukoz neden membrandan basit difüzyonla geçemez?</summary><div class="ans">Büyük ve polar olduğu için fosfolipit membran tarafından itilir; bu yüzden GLUT taşıyıcılarına ihtiyaç vardır.</div></details>
+<details class="fc"><summary>İnsülinle uyarılan glukoz taşıyıcısı hangisidir ve nerede bulunur?</summary><div class="ans"><strong>GLUT4</strong>; iskelet/kalp kası ve yağ dokusunda (adipose tissue).</div></details>
+<details class="fc"><summary>Hangi GLUT fruktoz taşıyıcısıdır?</summary><div class="ans"><strong>GLUT5</strong> (ince bağırsak ve spermatozoa).</div></details>
+</div>
+
+<!-- ============ HAZIRLIK FAZI ============ -->
+<h2 id="hazirlik">4. Hazırlık Fazı — Reaksiyonlar (Adım 1–5)</h2>
+<p>Bu faz <em>enerji-gerektiren (energy-requiring)</em> kısımdır: glukozu hücrede hapseder, fosforiller ve 6 karbonlu şekeri eşit olarak iki 3 karbonlu moleküle böler. <strong>2 ATP yatırılır.</strong></p>
+
+<!-- STEP 1 -->
+<div class="step-card irrev">
+<span class="slide-tag">Slide 10-15</span>
+<h4><span class="step-num">1</span> Glukozun Fosforilasyonu <span class="pill irr">GERİ DÖNÜŞSÜZ</span></h4>
+<span class="rxn">Glucose + ATP → Glucose 6-phosphate (G6P) + ADP &nbsp;|&nbsp; Mg²⁺</span>
+<p><strong>Enzim: Hexokinase</strong> (çoğu doku) veya <strong>Glucokinase</strong> (karaciğer & pankreas β-hücresi).</p>
+<ul>
+  <li><strong>Hexokinase</strong> neredeyse tüm organizmalarda bulunur. İnsan genomu <strong>4 farklı heksokinaz (I–IV)</strong> kodlar; hepsi aynı reaksiyonu katalize eder ama <strong>kinetik, regülasyon ve lokalizasyon</strong> bakımından farklıdır.</li>
+  <li>Aynı reaksiyonu katalize eden ancak <strong>farklı genlerle kodlanan</strong> iki/daha fazla enzime <strong>isozymes (izoenzim)</strong> denir.</li>
+  <li><strong>Hexokinase IV = Glucokinase</strong>.</li>
+</ul>
+<h4>Hexokinase vs Glucokinase (Çok kritik karşılaştırma)</h4>
+<table>
+  <tr><th>Özellik</th><th>Hexokinase</th><th>Glucokinase</th></tr>
+  <tr><td>Lokalizasyon</td><td>Çoğu doku (örn. kas, RBC)</td><td>Liver, pancreatic β-cells</td></tr>
+  <tr><td>Glukoza afinite</td><td><strong>Yüksek</strong> (düşük glukozda çalışır)</td><td><strong>Düşük</strong> (yüksek glukozda çalışır)</td></tr>
+  <tr><td><strong>Km</strong></td><td>Düşük (low Km)</td><td>Yüksek (high Km)</td></tr>
+  <tr><td><strong>Vmax</strong></td><td>Düşük</td><td>Yüksek</td></tr>
+  <tr><td>Regülasyon</td><td><strong>G6P ile inhibe</strong> olur</td><td>G6P ile inhibe <strong>olmaz</strong></td></tr>
+  <tr><td>İşlev</td><td>Sabit enerji sağlar</td><td>Glukoz algılama (sensing) & depolama</td></tr>
+</table>
+<p><strong>Km</strong> = enzimin substrata ne kadar güçlü bağlandığını gösterir (düşük Km = yüksek afinite). <strong>Vmax</strong> = enzim substratla tam doygunken ulaşılan maksimum hızdır.</p>
+<p style="background:#fff7d6;padding:8px 12px;border-radius:8px;"><strong>Özet kuralı:</strong> "Hexokinase = always working (her zaman çalışır)" · "Glucokinase = works when glucose is high (glukoz yüksekken çalışır)."</p>
+
+<div class="box clinic">
+<span class="bt">🦷 Klinik Önemi</span>
+<strong>Hexokinase eksikliği:</strong> Eritrositlerin (RBC) mitokondrisi olmadığı için tamamen glikolize bağımlıdırlar; heksokinaz eksikliği → ↓ATP → <strong>hemolytic anemia (hemolitik anemi)</strong>.<br>
+<strong>Glucokinase mutasyonları:</strong> İnsülin sekresyonunu bozar ve hafif hiperglisemiye yol açar — bu tablo <strong>MODY (Maturity Onset Diabetes of the Young)</strong> olarak bilinir.
+</div>
+<div class="box mnemo">
+<span class="bt">🧠 Ezber — Km mantığı</span>
+"<strong>D</strong>üşük Km = <strong>D</strong>üşük glukozda çalışır = <strong>D</strong>aima açık (Hexokinase)." Glucokinase tersi: yüksek Km, yüksek glukoz, tok karın enzimi.
+</div>
+</div>
+
+<!-- STEP 2 -->
+<div class="step-card">
+<span class="slide-tag">Slide 16</span>
+<h4><span class="step-num">2</span> G6P → F6P (İzomerizasyon)</h4>
+<span class="rxn">Glucose 6-phosphate ⇌ Fructose 6-phosphate &nbsp;|&nbsp; ΔG°′ = +1.7 kJ/mol</span>
+<p><strong>Enzim: Phosphohexose isomerase (phosphoglucose isomerase).</strong> Bir <strong>aldoz (aldose)</strong> olan G6P'yi, bir <strong>ketoz (ketose)</strong> olan F6P'ye geri dönüşümlü olarak izomerize eder.</p>
+</div>
+
+<!-- STEP 3 -->
+<div class="step-card irrev">
+<span class="slide-tag">Slide 17-18</span>
+<h4><span class="step-num">3</span> F6P → F1,6-BP (2. Fosforilasyon) <span class="pill irr">GERİ DÖNÜŞSÜZ · HIZ KISITLAYICI</span></h4>
+<span class="rxn">Fructose 6-phosphate + ATP → Fructose 1,6-bisphosphate + ADP &nbsp;|&nbsp; Mg²⁺ &nbsp;|&nbsp; ΔG°′ = −14.2 kJ/mol</span>
+<p><strong>Enzim: Phosphofructokinase-1 (PFK-1).</strong> Glikolizin iki "priming" (hazırlık) fosforilasyonundan ikincisidir. <mark>Bu adım glikolizin asıl kontrol noktasıdır (main control point / rate-limiting step).</mark></p>
+<p><strong>Terminoloji ayrımı (sık çeldirici):</strong></p>
+<ul>
+  <li>Molekülün <strong>farklı pozisyonlarına</strong> bağlı iki ayrı fosfat → <strong>bisphosphate</strong> denir (örn. fructose 1,6-<strong>bis</strong>phosphate, 1,3-<strong>bis</strong>phosphoglycerate).</li>
+  <li>İki fosfat <strong>birbirine bağlıysa (pyrophosphoryl grup)</strong> → <strong>diphosphate</strong> denir (örn. adenosine <strong>di</strong>phosphate = ADP).</li>
+</ul>
+<div class="box warn">
+<span class="bt">⚠️ Dikkat</span>
+"Fructose 1,6-<strong>di</strong>phosphate" yazılışı <mark>yanlıştır</mark>; doğru terim <strong>bis</strong>phosphate'tır (iki fosfat farklı karbonlarda). ADP'de ise fosfatlar birbirine bağlı olduğu için "di" kullanılır. Hocaların favori çeldiricisidir.
+</div>
+</div>
+
+<!-- STEP 4 -->
+<div class="step-card">
+<span class="slide-tag">Slide 19</span>
+<h4><span class="step-num">4</span> F1,6-BP'nin Parçalanması (Cleavage)</h4>
+<span class="rxn">Fructose 1,6-bisphosphate ⇌ DHAP + G3P &nbsp;|&nbsp; ΔG°′ = +23.8 kJ/mol</span>
+<p><strong>Enzim: Fructose 1,6-bisphosphate aldolase</strong> (kısaca <strong>aldolase</strong>). Bir <em>reverse aldol kondensasyonu</em> ile 6 karbonlu molekülü iki triose phosphate'a böler:</p>
+<ul>
+  <li><strong>Glyceraldehyde 3-phosphate (G3P)</strong> — bir aldoz</li>
+  <li><strong>Dihydroxyacetone phosphate (DHAP)</strong> — bir ketoz</li>
+</ul>
+</div>
+
+<!-- STEP 5 -->
+<div class="step-card">
+<span class="slide-tag">Slide 20-21</span>
+<h4><span class="step-num">5</span> Triose Fosfatların Birbirine Dönüşümü</h4>
+<span class="rxn">DHAP ⇌ Glyceraldehyde 3-phosphate (G3P) &nbsp;|&nbsp; ΔG°′ = +7.5 kJ/mol</span>
+<p><strong>Enzim: Triose phosphate isomerase.</strong> İki triose fosfattan yalnızca <strong>G3P</strong> doğrudan ilerleyebilir. <strong>DHAP</strong> hızla ve geri dönüşümlü olarak G3P'ye çevrilir — böylece her iki yarıdan gelen karbon glikolizin ikinci yarısına aktarılır.</p>
+<div class="box spot">
+<span class="bt">🎯 Spot Bilgi</span>
+5. adımdan sonra <strong>bir glukozdan 2 molekül G3P</strong> oluşur. Bu yüzden payoff fazındaki tüm ürünler (ATP, NADH) <strong>×2</strong> sayılır.
+</div>
+</div>
+
+<div class="box mnemo">
+<span class="bt">🧠 Ezber — Hazırlık fazı enzimleri (1→5)</span>
+<strong>"Her Pratisyen Felç Akşamları Tedavi eder"</strong><br>
+<strong>H</strong>exokinase → <strong>P</strong>hosphohexose isomerase → <strong>F</strong>(P)FK-1 → <strong>A</strong>ldolase → <strong>T</strong>riose phosphate isomerase.
+</div>
+
+<div class="fc-wrap">
+<div class="fc-title">🃏 Flashcards — Hazırlık Fazı</div>
+<details class="fc"><summary>Glikolizin hız kısıtlayıcı (rate-limiting) ve ana kontrol basamağı hangisidir, enzimi nedir?</summary><div class="ans">3. adım: F6P → F1,6-BP. Enzim <strong>Phosphofructokinase-1 (PFK-1)</strong>.</div></details>
+<details class="fc"><summary>Hexokinase ile Glucokinase'in Km ve regülasyon farkı nedir?</summary><div class="ans">Hexokinase: düşük Km (yüksek afinite), G6P ile inhibe olur. Glucokinase: yüksek Km, G6P ile inhibe olmaz, karaciğer/β-hücrede glukoz sensörü.</div></details>
+<details class="fc"><summary>İzoenzim (isozyme) tanımı nedir?</summary><div class="ans">Aynı reaksiyonu katalize eden ancak farklı genlerle kodlanan iki veya daha fazla enzim.</div></details>
+<details class="fc"><summary>Glucokinase mutasyonu hangi klinik tabloya yol açar?</summary><div class="ans"><strong>MODY</strong> (Maturity Onset Diabetes of the Young) — bozulmuş insülin sekresyonu ve hafif hiperglisemi.</div></details>
+</div>
+
+<!-- ============ KAZANÇ FAZI ============ -->
+<h2 id="kazanc">5. Kazanç Fazı — Reaksiyonlar (Adım 6–10)</h2>
+<p>Şimdiye kadar hücre 2 ATP harcadı ve 2 adet 3 karbonlu şeker üretti. Her iki molekül de bu fazdan geçer; harcanan 2 ATP geri ödenir ve <strong>kâr olarak +2 ATP ile +2 yüksek enerjili NADH</strong> üretilir.</p>
+
+<!-- STEP 6 -->
+<div class="step-card">
+<span class="slide-tag">Slide 22</span>
+<h4><span class="step-num">6</span> G3P'nin Oksidasyonu <span class="pill nadh">NADH üretimi</span></h4>
+<span class="rxn">G3P + Pi + NAD⁺ → 1,3-Bisphosphoglycerate + NADH + H⁺ &nbsp;|&nbsp; ΔG°′ = +6.3 kJ/mol</span>
+<p><strong>Enzim: Glyceraldehyde 3-phosphate dehydrogenase (GAPDH).</strong> Payoff fazının ilk adımıdır; G3P okside edilerek <strong>1,3-bisphosphoglycerate</strong> oluşur ve <strong>NAD⁺ → NADH</strong>'ye indirgenir. İnorganik fosfat (Pi) buradan girer.</p>
+</div>
+
+<!-- STEP 7 -->
+<div class="step-card">
+<span class="slide-tag">Slide 23</span>
+<h4><span class="step-num">7</span> İlk ATP Üretimi (Substrate-level phosphorylation) <span class="pill atp">+ATP</span></h4>
+<span class="rxn">1,3-Bisphosphoglycerate + ADP → 3-Phosphoglycerate + ATP</span>
+<p><strong>Enzim: Phosphoglycerate kinase.</strong> 1,3-BPG'nin karboksil grubundaki <strong>yüksek enerjili fosforil grubunu</strong> ADP'ye aktararak <strong>ATP</strong> ve 3-fosfogliserat oluşturur.</p>
+<div class="box spot">
+<span class="bt">🎯 Spot Bilgi — Substrate-level phosphorylation</span>
+Glikolizde ATP, oksidatif fosforilasyondan bağımsız olarak doğrudan substrattan üretilir. Bu iki adım: <strong>7 (phosphoglycerate kinase)</strong> ve <strong>10 (pyruvate kinase)</strong>. Her biri ×2 = toplam 4 ATP brüt.
+</div>
+</div>
+
+<!-- STEP 8 -->
+<div class="step-card">
+<span class="slide-tag">Slide 24</span>
+<h4><span class="step-num">8</span> 3-PG → 2-PG (Fosforil kayması)</h4>
+<span class="rxn">3-Phosphoglycerate ⇌ 2-Phosphoglycerate &nbsp;|&nbsp; Mg²⁺ &nbsp;|&nbsp; ΔG°′ = +4.4 kJ/mol</span>
+<p><strong>Enzim: Phosphoglycerate mutase.</strong> Fosforil grubunu C-3'ten C-2'ye geri dönüşümlü olarak kaydırır; reaksiyon için <strong>Mg²⁺</strong> şarttır.</p>
+</div>
+
+<!-- STEP 9 -->
+<div class="step-card">
+<span class="slide-tag">Slide 25</span>
+<h4><span class="step-num">9</span> Dehidrasyon (Su kaybı)</h4>
+<span class="rxn">2-Phosphoglycerate ⇌ Phosphoenolpyruvate (PEP) + H₂O &nbsp;|&nbsp; ΔG°′ = +7.5 kJ/mol</span>
+<p><strong>Enzim: Enolase.</strong> 2-fosfogliserattan bir molekül su uzaklaştırılarak <strong>yüksek fosforil grup transfer potansiyeline</strong> sahip <strong>phosphoenolpyruvate (PEP)</strong> oluşur.</p>
+</div>
+
+<!-- STEP 10 -->
+<div class="step-card irrev">
+<span class="slide-tag">Slide 26</span>
+<h4><span class="step-num">10</span> Son ATP Üretimi <span class="pill irr">GERİ DÖNÜŞSÜZ</span> <span class="pill atp">+ATP</span></h4>
+<span class="rxn">PEP + ADP → Pyruvate + ATP &nbsp;|&nbsp; K⁺ + Mg²⁺/Mn²⁺ &nbsp;|&nbsp; ΔG°′ = −31.4 kJ/mol</span>
+<p><strong>Enzim: Pyruvate kinase.</strong> Glikolizin son adımıdır; fosforil grubunu PEP'ten ADP'ye aktarır. <strong>K⁺</strong> ve <strong>Mg²⁺ (veya Mn²⁺)</strong> gerektirir.</p>
+</div>
+
+<div class="box warn">
+<span class="bt">⚠️ Dikkat — 3 Geri Dönüşsüz (Irreversible) Basamak</span>
+Glikolizdeki tek yönlü 3 reaksiyon, aynı zamanda <strong>regülasyon basamaklarıdır</strong>: <strong>(1) Hexokinase</strong>, <strong>(3) PFK-1</strong>, <strong>(10) Pyruvate kinase</strong>. Geri kalan 7 reaksiyon geri dönüşümlüdür. Gluconeogenesis bu 3 basamağı baypas eder.
+</div>
+
+<div class="box mnemo">
+<span class="bt">🧠 Ezber — 10 Enzim & 3 İrreversibl</span>
+<strong>İrreversibl 3 enzim:</strong> "<strong>Her Futbolcu Paslar</strong>" → <strong>H</strong>exokinase, <strong>F</strong>(P)FK-1, <strong>P</strong>yruvate kinase.<br>
+<strong>ATP üreten 2 enzim (substrate-level):</strong> <strong>P</strong>hosphoglycerate kinase + <strong>P</strong>yruvate kinase → "iki kinaz para basar".<br>
+<strong>NADH üreten tek enzim:</strong> GAPDH (6. adım).
+</div>
+
+<div class="fc-wrap">
+<div class="fc-title">🃏 Flashcards — Kazanç Fazı</div>
+<details class="fc"><summary>Glikolizde NADH'yi hangi enzim üretir ve hangi adımda?</summary><div class="ans"><strong>GAPDH (Glyceraldehyde 3-phosphate dehydrogenase)</strong>, 6. adımda (G3P → 1,3-BPG).</div></details>
+<details class="fc"><summary>Substrate-level phosphorylation ile ATP üreten iki glikoliz enzimi nedir?</summary><div class="ans">7. adım <strong>Phosphoglycerate kinase</strong> ve 10. adım <strong>Pyruvate kinase</strong>.</div></details>
+<details class="fc"><summary>Enolaz reaksiyonunun ürünü ve özelliği nedir?</summary><div class="ans">2-PG'den su çıkışıyla <strong>PEP (phosphoenolpyruvate)</strong> oluşur; PEP yüksek fosforil transfer potansiyeline sahiptir.</div></details>
+<details class="fc"><summary>Glikolizin geri dönüşsüz üç basamağı hangileridir?</summary><div class="ans">Hexokinase, PFK-1, Pyruvate kinase (aynı zamanda regülasyon noktaları).</div></details>
+</div>
+
+<!-- ============ NET ============ -->
+<h2 id="net">6. Net Enerji Bilançosu</h2>
+<div class="lead">
+<span class="slide-tag">Slide 27-28 · 32-34</span>
+6 karbonlu glukozun iki 3 karbonlu piruvata parçalanması 10 adımda olur: ilk 5 adım <strong>preparatory phase</strong>, son 5 adım <strong>payoff phase</strong>.
+</div>
+<table>
+  <tr><th>Faz</th><th>ATP</th><th>NADH</th></tr>
+  <tr><td>Energy investment (yatırım)</td><td>−2 ATP</td><td>—</td></tr>
+  <tr><td>Energy generation (üretim)</td><td>+4 ATP</td><td>+2 NADH</td></tr>
+  <tr><td><strong>NET (per glucose)</strong></td><td><strong>+2 ATP</strong></td><td><strong>+2 NADH</strong></td></tr>
+</table>
+<p>Ek notlar (Slide 32):</p>
+<ul>
+  <li>Glikoliz <strong>anaerobiktir</strong>; oksijen düşükken piruvat <strong>laktata</strong> çevrilir.</li>
+  <li>Oksijen varlığında piruvat aerobik olarak <strong>TCA cycle (sitrik asit döngüsü)</strong>'nde işlenir.</li>
+  <li>ATP üretilir ama oksidatif fosforilasyona kıyasla çok daha azdır; yine de özellikle <strong>kasta</strong> önemlidir.</li>
+  <li>Sitozolde olduğu için ara ürünlerin sonraki metabolizma için mitokondriye taşınması gerekir.</li>
+</ul>
+
+<div class="fc-wrap">
+<div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Bir glukoz molekülünden glikolizin net ürünleri nelerdir?</summary><div class="ans">2 Pyruvate + <strong>2 ATP (net)</strong> + 2 NADH.</div></details>
+<details class="fc"><summary>Brüt ATP üretimi ne kadardır ve neden net 2'dir?</summary><div class="ans">Brüt 4 ATP üretilir, 2 ATP hazırlık fazında yatırıldığı için net 2 ATP kalır.</div></details>
+</div>
+
+<!-- ============ KAYNAKLAR ============ -->
+<h2 id="kaynaklar">7. Glikolize Giren Diğer Şekerler</h2>
+<div class="lead">
+<span class="slide-tag">Slide 29-30</span>
+Glukoz dışındaki şekerler glikolitik yolağa <strong>farklı noktalardan</strong> girerler (özellikle hazırlık fazına).
+</div>
+<ul>
+  <li><strong>Disaccharides (disakkaritler):</strong> Maltose, lactose, trehalose, sucrose.</li>
+  <li><strong>Monosaccharides (monosakkaritler):</strong> Fructose, mannose, galactose.</li>
+  <li><strong>Storage polysaccharides (depo polisakkaritler):</strong> Starch (bitkiler) ve Glycogen (hayvanlar).</li>
+</ul>
+<div class="box mnemo">
+<span class="bt">🧠 Ezber — Disakkaritler "MaLToSu"</span>
+<strong>Ma</strong>ltose · <strong>L</strong>actose · <strong>T</strong>rehalose · <strong>Su</strong>crose → "MaLTSu".
+</div>
+<div class="fc-wrap">
+<div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Hayvanlardaki ve bitkilerdeki depo polisakkaritleri nelerdir?</summary><div class="ans">Hayvanlarda <strong>glycogen</strong>, bitkilerde <strong>starch (nişasta)</strong>.</div></details>
+<details class="fc"><summary>Glikolize giren üç monosakkarit örneği veriniz.</summary><div class="ans">Fructose, mannose, galactose.</div></details>
+</div>
+
+<!-- ============ PİRUVAT ============ -->
+<h2 id="piruvat">8. Piruvatın Akıbetleri (Fates of Pyruvate)</h2>
+<div class="lead">
+<span class="slide-tag">Slide 31</span>
+Glikoliz sonunda oluşan piruvatın üç olası katabolik yolu vardır + anabolik öncül olarak kullanım.
+</div>
+<table>
+  <tr><th>Yol</th><th>Koşul</th><th>Ürün</th></tr>
+  <tr><td><strong>Laktik fermentasyon</strong></td><td>Anaerobik (kas, RBC, bazı hücreler)</td><td>2 Lactate</td></tr>
+  <tr><td><strong>Alkol fermentasyonu</strong></td><td>Hipoksik/anaerobik (mayalarda)</td><td>2 Ethanol + 2 CO₂</td></tr>
+  <tr><td><strong>Aerobik oksidasyon</strong></td><td>Oksijen varlığında</td><td>2 Acetyl-CoA → TCA → 4 CO₂ + 4 H₂O</td></tr>
+  <tr><td><strong>Anabolik öncül</strong></td><td>—</td><td>Aminoasit vb. biyosentez</td></tr>
+</table>
+<div class="box mnemo">
+<span class="bt">🧠 Ezber — Piruvatın 3 yolu "LEA"</span>
+<strong>L</strong>actate (anaerobik) · <strong>E</strong>thanol (maya) · <strong>A</strong>cetyl-CoA (aerobik). "Piruvat LEA'ya gider."
+</div>
+<div class="fc-wrap">
+<div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Anaerobik koşullarda insan kasında piruvat hangi ürüne ve hangi enzimle dönüşür?</summary><div class="ans"><strong>Lactate</strong>'a; <strong>lactate dehydrogenase (LDH)</strong> ile (NAD⁺ rejenerasyonu sağlanır).</div></details>
+<details class="fc"><summary>Aerobik koşulda piruvat hangi moleküle dönüşüp nereye girer?</summary><div class="ans"><strong>Acetyl-CoA</strong>'ya dönüşür ve <strong>TCA cycle</strong>'a girer; son ürün 4 CO₂ + 4 H₂O.</div></details>
+</div>
+
+<!-- ============ REGÜLASYON ============ -->
+<h2 id="regulasyon">9. Glikolizin Regülasyonu</h2>
+<div class="lead">
+<span class="slide-tag">Slide 35-36</span>
+Glikoliz esas olarak <strong>hücrenin enerji durumuna (energy status)</strong> göre düzenlenir. Düzenleme, üç geri dönüşsüz enzim üzerinden yapılır.
+</div>
+<table>
+  <tr><th>Enzim</th><th>Yoldaki rolü</th><th>Regülasyon</th><th>Ana mesaj</th></tr>
+  <tr><td><strong>Hexokinase</strong></td><td>İlk adım (Glucose→G6P)</td><td><strong>Glucose-6-phosphate</strong> ile inhibe</td><td>Aşırı glukoz hapsini önler</td></tr>
+  <tr><td><strong>PFK-1</strong> ⭐</td><td><strong>Rate-limiting step</strong></td><td>↑ATP → inhibe · ↑AMP → aktive</td><td><mark>Ana kontrol noktası</mark></td></tr>
+  <tr><td><strong>Pyruvate kinase</strong></td><td>Son adım (PEP→Pyruvate)</td><td><strong>ATP</strong> ile inhibe</td><td>Son ATP üretimini kontrol eder</td></tr>
+</table>
+
+<h3>Hormonal Regülasyon (Sadece KARACİĞERDE — In LIVER ONLY)</h3>
+<p>Yavaş ve kalıcı bir mekanizmadır (enzim miktarının değişmesi):</p>
+<ul>
+  <li><strong>İnsülin → İndüksiyon (üretimi artırır):</strong> Glucokinase, PFK-1, Pyruvate kinase → <strong>Glikoliz ↑↑</strong>.</li>
+  <li><strong>Glukagon → Represyon (üretimi baskılar):</strong> Glucokinase, PFK-1, Pyruvate kinase → <strong>Glikoliz ↓↓</strong>.</li>
+</ul>
+<div class="box warn">
+<span class="bt">⚠️ Dikkat</span>
+Hormonal indüksiyon/represyon <mark>sadece karaciğerde</mark> bu üç enzim için geçerlidir. "Glukagon glikolizi her dokuda baskılar" ifadesi çeldiricidir — bu yavaş mekanizma karaciğere özgüdür.
+</div>
+<div class="box mnemo">
+<span class="bt">🧠 Ezber — Allosterik kontrol</span>
+"<strong>ATP böler, AMP açar</strong>": Yüksek ATP (tokluk) glikolizi durdurur (PFK-1 ve pyruvate kinase inhibisyonu); yüksek AMP (enerji açlığı) PFK-1'i aktive eder. Hücre "param var → harcamayı kes" mantığıyla çalışır.
+</div>
+<div class="fc-wrap">
+<div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>PFK-1 nasıl regüle edilir?</summary><div class="ans">↑ATP onu <strong>inhibe</strong> eder, ↑AMP onu <strong>aktive</strong> eder. Glikolizin ana kontrol noktasıdır.</div></details>
+<details class="fc"><summary>İnsülin karaciğerde hangi üç glikoliz enzimini indükler?</summary><div class="ans">Glucokinase, PFK-1 ve Pyruvate kinase.</div></details>
+<details class="fc"><summary>Hexokinase'i kendi ürünü nasıl etkiler?</summary><div class="ans">Ürünü olan <strong>Glucose-6-phosphate</strong> hexokinase'i inhibe eder (feedback inhibition).</div></details>
+</div>
+
+<!-- ============ KLİNİK ============ -->
+<h2 id="klinik">10. Klinik Korelasyonlar</h2>
+
+<h3>Genel Klinik İlişkiler <span class="slide-tag">Slide 37</span></h3>
+<ul>
+  <li><strong>Eritrositler (RBC):</strong> Mitokondrileri olmadığından ATP üretimi için <strong>tamamen glikolize</strong> bağımlıdırlar.</li>
+  <li><strong>Hipoksi:</strong> Düşük oksijende hücreler ATP için glikolize daha çok bağımlı hale gelir.</li>
+  <li><strong>Kanser hücreleri — Warburg Effect:</strong> Kanser hücreleri, <em>aerobik koşullarda bile</em> metabolizmalarını glikolize + laktat üretimine kaydırır. Glikoliz glukoz başına az ATP üretse de <strong>daha hızlıdır</strong> ve nükleotid, lipit, protein sentezi için ara ürünler sağlar — bu da hızlı hücre büyümesini ve proliferasyonu destekler.</li>
+</ul>
+
+<h3>Pyruvate Kinase Eksikliği & Hemolitik Anemi <span class="slide-tag">Slide 38</span></h3>
+<p>Eritrositler sadece anaerobik glikolize bağımlıdır. <strong>Glikolitik enzim eksikliklerinde</strong> (en sık <strong>pyruvate kinase ~%95</strong>, ardından <strong>phosphoglucose isomerase ~%4</strong>):</p>
+<p style="text-align:center;font-weight:600;color:var(--teal-dark);">↓glikoliz hızı → ↓ATP üretimi → RBC membran değişimi & şekil bozukluğu → dalak makrofajlarınca fagositoz → <span style="color:var(--red);">RBC lizisi & hemolitik anemi</span></p>
+<p>ATP, RBC'nin bikonkav ve esnek şeklini koruyan iyon pompaları için gereklidir.</p>
+
+<h3>2,3-BPG Şantı (RBC'de Anaerobik Glikoliz) <span class="slide-tag">Slide 39</span></h3>
+<p>Glikoliz, eritrositlerde <strong>oksijen taşınmasının regülasyonunda</strong> da rol oynar:</p>
+<ul>
+  <li><strong>1,3-bisphosphoglycerate</strong> bir yan yola saptırılır → <strong>2,3-bisphosphoglycerate (2,3-BPG)</strong> oluşur.</li>
+  <li>2,3-BPG, <strong>hemoglobin (Hb)</strong>'e bağlanır ve hemoglobinin <strong>oksijene afinitesini azaltır</strong>.</li>
+  <li>Sonuç: Oksijen dokulara <strong>daha kolay bırakılır</strong>.</li>
+</ul>
+
+<h3>Cori Döngüsü (Cori Cycle) <span class="slide-tag">Slide 40</span></h3>
+<p>Yoğun egzersizde iskelet kasında glukoz glikolizle piruvata yıkılır; düşük oksijen nedeniyle piruvat <strong>lactate dehydrogenase</strong> ile laktata çevrilir. Bu, <strong>NAD⁺'yı rejenere ederek</strong> glikolizin devamını sağlar. Laktat → kana → karaciğere taşınır; karaciğerde tekrar piruvata ve <strong>gluconeogenesis</strong> ile glukoza çevrilir (enerji gerektirir) ve kana verilerek tekrar kasa gönderilir. Cori döngüsü kasta enerji üretimini sürdürür ve laktat birikimini önler.</p>
+
+<h3>Laktik Asidoz (Lactic Acidosis) <span class="slide-tag">Slide 41</span></h3>
+<p>Hipoksi veya şok gibi durumlarda laktat üretimi karaciğerin temizleme kapasitesini aşar. Ayrıca karaciğer fonksiyonu bozuksa veya karaciğere kan akımı azalmışsa laktat klirensi düşer → kanda laktat birikimi → laktik asidoz.</p>
+
+<div class="box clinic">
+<span class="bt">🦷 Klinik Önemi — Glikoliz ve Diş Çürüğü (Dental Caries) · Slide 42</span>
+Bu, bir diş hekimi için <strong>en kritik klinik bağlantıdır</strong>:
+<div class="rxn">Glucose → Pyruvate → Lactate + H⁺</div>
+<ul>
+  <li>Ağız bakterileri (örn. <em>Streptococcus mutans</em>) diyetteki şekeri glikolizle yıkar.</li>
+  <li>Anaerobik koşullarda piruvat laktata çevrilir → <strong>laktik asit + protonlar (H⁺)</strong> açığa çıkar.</li>
+  <li>Sonuç: <strong>plak pH'sı düşer</strong>.</li>
+  <li><mark><strong>pH &lt; 5.5</strong> olduğunda mine (enamel) demineralizasyonu başlar.</mark></li>
+</ul>
+Bu eşik değer (<strong>kritik pH 5.5</strong>) sınavda kesinlikle sorulabilecek bir rakamdır ve klinikte çürük oluşum mekanizmasının temelidir.
+</div>
+
+<div class="box spot">
+<span class="bt">🎯 Spot Bilgi</span>
+Mine demineralizasyonunun başladığı <strong>kritik plak pH değeri = 5.5</strong>. Asidi üreten reaksiyon: anaerobik glikoliz sonucu <strong>laktik asit</strong> oluşumu.
+</div>
+
+<div class="fc-wrap">
+<div class="fc-title">🃏 Flashcards — Klinik</div>
+<details class="fc"><summary>Diş çürüğünde mine demineralizasyonunu başlatan kritik plak pH'sı kaçtır?</summary><div class="ans"><strong>pH &lt; 5.5</strong>. Neden: ağız bakterilerinin glikolizi sonucu üretilen <strong>laktik asit (lactate + H⁺)</strong>.</div></details>
+<details class="fc"><summary>Eritrositler neden tamamen glikolize bağımlıdır?</summary><div class="ans"><strong>Mitokondrileri yoktur</strong>, bu yüzden oksidatif fosforilasyon yapamazlar; tüm ATP'lerini glikolizden alırlar.</div></details>
+<details class="fc"><summary>Warburg Effect nedir?</summary><div class="ans">Kanser hücrelerinin aerobik koşullarda bile metabolizmayı glikoliz + laktat üretimine kaydırması; hızlı büyüme için ara ürünler ve hızlı ATP sağlar.</div></details>
+<details class="fc"><summary>2,3-BPG'nin hemoglobin üzerindeki etkisi nedir?</summary><div class="ans">Hb'nin oksijene afinitesini <strong>azaltır</strong>, böylece oksijen dokulara daha kolay verilir.</div></details>
+<details class="fc"><summary>Cori döngüsünde laktatın akıbeti nedir?</summary><div class="ans">Kastan kana, oradan karaciğere taşınır; karaciğerde piruvata ve gluconeogenesis ile glukoza çevrilip tekrar kasa gönderilir.</div></details>
+</div>
+
+<!-- ============ MASTER ============ -->
+<h2 id="master">🧠 Master Ezber Kartı (Tek Bakışta Glikoliz)</h2>
+<div class="lead">
+<table>
+  <tr><th>#</th><th>Substrat → Ürün</th><th>Enzim</th><th>Not</th></tr>
+  <tr><td>1</td><td>Glucose → G6P</td><td><strong>Hexokinase</strong>/Glucokinase</td><td><span class="pill irr">irreversibl</span> −ATP</td></tr>
+  <tr><td>2</td><td>G6P → F6P</td><td>Phosphohexose isomerase</td><td>aldoz→ketoz</td></tr>
+  <tr><td>3</td><td>F6P → F1,6-BP</td><td><strong>PFK-1</strong></td><td><span class="pill irr">irreversibl</span> −ATP · hız kısıtlayıcı</td></tr>
+  <tr><td>4</td><td>F1,6-BP → DHAP + G3P</td><td>Aldolase</td><td>6C→2×3C</td></tr>
+  <tr><td>5</td><td>DHAP ⇌ G3P</td><td>Triose phosphate isomerase</td><td>2×G3P oluşur</td></tr>
+  <tr><td>6</td><td>G3P → 1,3-BPG</td><td><strong>GAPDH</strong></td><td><span class="pill nadh">+NADH</span> +Pi</td></tr>
+  <tr><td>7</td><td>1,3-BPG → 3-PG</td><td>Phosphoglycerate kinase</td><td><span class="pill atp">+ATP</span></td></tr>
+  <tr><td>8</td><td>3-PG → 2-PG</td><td>Phosphoglycerate mutase</td><td>Mg²⁺</td></tr>
+  <tr><td>9</td><td>2-PG → PEP</td><td>Enolase</td><td>−H₂O</td></tr>
+  <tr><td>10</td><td>PEP → Pyruvate</td><td><strong>Pyruvate kinase</strong></td><td><span class="pill irr">irreversibl</span> <span class="pill atp">+ATP</span> · K⁺</td></tr>
+</table>
+</div>
+<div class="box mnemo">
+<span class="bt">🧠 Tam Enzim Zinciri Ezberi</span>
+<strong>"Her Pratisyen Felç Akşamı Tutar, GAPDH Pas verir, Mutasyon Enolazı Patlatır"</strong><br>
+<strong>H</strong>exokinase – <strong>P</strong>hosphohexose isomerase – <strong>F</strong>(P)FK-1 – <strong>A</strong>ldolase – <strong>T</strong>riose phosphate isomerase – <strong>GAPDH</strong> – <strong>P</strong>hosphoglycerate kinase – <strong>M</strong>utase – <strong>E</strong>nolase – <strong>P</strong>yruvate kinase.
+</div>
+
+<footer>
+  Glikoliz (Glycolysis) — 1. Sınıf Final Çalışma Rehberi · 43 slayttan derlenmiştir.<br>
+  Flashcard kutularına tıklayarak cevapları açıp kapatabilirsin. Başarılar! 🦷
+</footer>
+
+</div>
+<script src="../../assets/language.js" defer></script>
+</body>
+</html>

@@ -141,6 +141,36 @@ const notes = [
     path: "1.%20S%C4%B1n%C4%B1f/Medical%20Genetics/Ders6_Cancer_Genetics_Calisma_Rehberi.html",
     tags: ["kanser", "onkogen", "tümör baskılayıcı"],
   },
+  {
+    id: "biochemistry-01",
+    course: "Biochemistry",
+    grade: "1. Sınıf",
+    unit: "Metabolizma",
+    title: "Glikoliz (Glycolysis)",
+    subtitle: "Glikolizin fazları, GLUT taşıyıcıları, enerji bilançosu, regülasyon ve klinik korelasyonlar",
+    path: "1.%20S%C4%B1n%C4%B1f/Biochemistry/Glikoliz_Calisma_Rehberi.html",
+    tags: ["glikoliz", "glukoz", "ATP"],
+  },
+  {
+    id: "biochemistry-02",
+    course: "Biochemistry",
+    grade: "1. Sınıf",
+    unit: "Hormonlar",
+    title: "Hipotalamus & Hipofiz Hormonları",
+    subtitle: "Hipotalamo-hipofizer aks, releasing/inhibiting hormonlar, GH, prolaktin, GnRH ve posterior hipofiz",
+    path: "1.%20S%C4%B1n%C4%B1f/Biochemistry/Hipotalamus_Hipofiz_Hormonlari_Calisma_Rehberi.html",
+    tags: ["hipotalamus", "hipofiz", "hormon"],
+  },
+  {
+    id: "biochemistry-03",
+    course: "Biochemistry",
+    grade: "1. Sınıf",
+    unit: "Metabolizma",
+    title: "Krebs / Sitrik Asit Döngüsü (TCA)",
+    subtitle: "TCA döngüsü, ara ürünler, enerji üretimi ve final için metabolik bağlantılar",
+    path: "1.%20S%C4%B1n%C4%B1f/Biochemistry/TCA_Krebs_Dongusu_Calisma_Rehberi.html",
+    tags: ["TCA", "Krebs", "sitrik asit"],
+  },
 ];
 
 const STORAGE_KEY = "uudis-notlari-completed-v1";
@@ -148,6 +178,7 @@ const STORAGE_KEY = "uudis-notlari-completed-v1";
 const state = {
   filter: "all",
   query: "",
+  language: window.UUDISLanguage?.getLanguage?.() || "tr",
   completed: loadCompleted(),
 };
 
@@ -206,6 +237,12 @@ function icon(name) {
   return icons[name] || "";
 }
 
+function localizePath(path) {
+  return window.UUDISLanguage?.withLanguage
+    ? window.UUDISLanguage.withLanguage(path)
+    : path;
+}
+
 function noteSearchText(note) {
   const childText = note.children
     ? note.children.flatMap((child) => [child.label, child.title])
@@ -244,7 +281,7 @@ function render() {
       ? `
         <div class="chapter-list" aria-label="Ders içindeki bölümler">
           ${note.children.map((child) => `
-            <a href="${child.path}">
+            <a href="${localizePath(child.path)}">
               <strong>${escapeHtml(child.label)}</strong>
               <span>${escapeHtml(child.title)}</span>
             </a>
@@ -267,7 +304,7 @@ function render() {
         </div>
         <div></div>
         <div class="note-actions">
-          <a class="open-note" href="${note.path}">
+          <a class="open-note" href="${localizePath(note.path)}">
             <span>${note.children ? "Ders 1'e başla" : "Notu aç"}</span>
             ${icon("arrow")}
           </a>
@@ -287,6 +324,10 @@ function render() {
     ? "Bu aramada not bulunamadı."
     : `${state.filter} klasöründe henüz HTML not yok.`;
   resetProgress.disabled = state.completed.size === 0;
+
+  if (state.language === "en") {
+    window.UUDISLanguage?.translatePage?.();
+  }
 }
 
 function setFilter(filter) {
@@ -312,6 +353,11 @@ courseJumps.forEach((link) => {
 
 searchInput.addEventListener("input", (event) => {
   state.query = event.target.value;
+  render();
+});
+
+window.addEventListener("uudis:languagechange", (event) => {
+  state.language = event.detail.language;
   render();
 });
 

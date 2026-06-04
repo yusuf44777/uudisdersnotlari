@@ -357,7 +357,7 @@ svg {
 
 .course-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
   margin-top: 26px;
 }
@@ -392,6 +392,18 @@ svg {
     linear-gradient(135deg, rgba(184, 73, 63, 0.08), transparent);
 }
 
+.course-card.pending {
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0.96), rgba(255, 253, 248, 0.78)),
+    var(--porcelain);
+}
+
+.course-card.pending::after {
+  background:
+    repeating-linear-gradient(135deg, rgba(197, 150, 66, 0.16) 0 2px, transparent 2px 16px),
+    linear-gradient(135deg, rgba(197, 150, 66, 0.1), transparent);
+}
+
 .course-topline {
   display: flex;
   align-items: center;
@@ -409,6 +421,10 @@ svg {
 
 .course-card.genetics .course-topline strong {
   color: var(--coral);
+}
+
+.course-card.pending .course-topline strong {
+  color: var(--gold);
 }
 
 .course-card h3 {
@@ -436,6 +452,10 @@ svg {
 
 .course-card.genetics a {
   background: var(--coral);
+}
+
+.course-card.pending a {
+  background: #8a6a2f;
 }
 
 .catalog-band {
@@ -491,18 +511,18 @@ svg {
 
 .filter-tabs {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
   gap: 6px;
   padding: 6px;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 8px;
   background: rgba(255, 253, 248, 0.68);
 }
 
 .filter-tab {
   min-height: 40px;
   border: 0;
-  border-radius: 999px;
+  border-radius: 6px;
   background: transparent;
   color: var(--soft-ink);
   font-size: 0.9rem;

@@ -283,6 +283,9 @@ function render() {
   resultCount.textContent = `${visibleNotes.length} kayıt gösteriliyor`;
   completedCount.textContent = state.completed.size.toString();
   emptyState.hidden = visibleNotes.length > 0;
+  emptyState.textContent = state.query.trim()
+    ? "Bu aramada not bulunamadı."
+    : `${state.filter} klasöründe henüz HTML not yok.`;
   resetProgress.disabled = state.completed.size === 0;
 }
 

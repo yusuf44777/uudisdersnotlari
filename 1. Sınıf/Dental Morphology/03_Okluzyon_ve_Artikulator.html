@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diş Hekimliği Final Rehberi — Batch 3: Oklüzyon &amp; Artikülatör</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Spectral:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4efe6;--paper:#fbf8f1;--ink:#2a2620;--ink-soft:#5a5348;--line:#e0d7c6;
+    --accent:#9a3b2e;--accent-2:#1f5d57;
+    --clinic-bg:#e7f1ef;--clinic-br:#1f5d57;--clinic-ink:#13403b;
+    --spot-bg:#eaf3e4;--spot-br:#3f7d2f;--spot-ink:#274f1d;
+    --warn-bg:#fcefe0;--warn-br:#c5781a;--warn-ink:#8a4e07;
+    --card-bg:#efe9f5;--card-br:#6a4c93;--card-ink:#3f2c63;
+    --mnem-bg:#fdf2f4;--mnem-br:#9a3b2e;--mnem-ink:#6e271d;
+  }
+  *{box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Spectral',Georgia,serif;font-size:18px;line-height:1.7;background-image:radial-gradient(var(--line) 0.5px,transparent 0.5px);background-size:22px 22px;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px 90px;}
+  header.hero{text-align:center;padding:64px 20px 40px;margin-bottom:20px;}
+  header.hero .kick{font-family:'JetBrains Mono',monospace;letter-spacing:.32em;text-transform:uppercase;font-size:.72rem;color:var(--accent);}
+  header.hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:3rem;line-height:1.05;margin:.3em 0 .2em;}
+  header.hero p{color:var(--ink-soft);font-style:italic;margin:0;}
+  .tooth{font-size:2.6rem;display:block;margin-bottom:.1em;}
+  nav.toc{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin-bottom:50px;box-shadow:0 6px 22px -16px #00000040;}
+  nav.toc h2{font-family:'Fraunces',serif;font-size:1rem;text-transform:uppercase;letter-spacing:.14em;margin:0 0 12px;color:var(--accent-2);}
+  nav.toc ol{margin:0;padding-left:1.3em;columns:2;column-gap:34px;}
+  nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--line);}
+  nav.toc a:hover{color:var(--accent);}
+  section{margin-bottom:60px;}
+  h2.sec{font-family:'Fraunces',serif;font-weight:900;font-size:2rem;color:var(--accent);border-bottom:3px solid var(--accent);padding-bottom:.18em;margin:0 0 .2em;scroll-margin-top:20px;}
+  h2.sec .num{font-family:'JetBrains Mono',monospace;font-size:1rem;background:var(--accent);color:#fff;border-radius:8px;padding:2px 10px;margin-right:10px;vertical-align:middle;}
+  h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;color:var(--accent-2);margin:1.8em 0 .3em;scroll-margin-top:20px;}
+  h4{font-family:'Fraunces',serif;font-weight:600;font-size:1.12rem;color:var(--ink);margin:1.3em 0 .2em;}
+  p{margin:.5em 0;}
+  strong{color:var(--accent-2);font-weight:600;}
+  em{color:var(--ink-soft);}
+  mark{background:#ffe89c;padding:0 .18em;border-radius:3px;}
+  ul,ol{margin:.4em 0 .8em;padding-left:1.4em;}
+  li{margin:.3em 0;}
+  .lead{font-size:1.05rem;color:var(--ink-soft);font-style:italic;border-left:3px solid var(--line);padding-left:16px;margin:.6em 0 1.4em;}
+  .box{border-radius:12px;padding:16px 20px 16px 18px;margin:18px 0;border-left:6px solid;position:relative;font-size:.97rem;line-height:1.6;}
+  .box .lbl{font-family:'Fraunces',serif;font-weight:600;display:block;margin-bottom:4px;font-size:1.02rem;}
+  .box p{margin:.35em 0;}
+  .clinic{background:var(--clinic-bg);border-color:var(--clinic-br);}.clinic .lbl{color:var(--clinic-ink);}
+  .spot{background:var(--spot-bg);border-color:var(--spot-br);}.spot .lbl{color:var(--spot-ink);}
+  .warn{background:var(--warn-bg);border-color:var(--warn-br);}.warn .lbl{color:var(--warn-ink);}
+  .mnem{background:var(--mnem-bg);border-color:var(--mnem-br);}.mnem .lbl{color:var(--mnem-ink);}
+  .box strong{color:inherit;}
+  table{width:100%;border-collapse:collapse;margin:18px 0;background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:.9rem;}
+  caption{font-family:'Fraunces',serif;font-weight:600;text-align:left;color:var(--accent-2);margin-bottom:6px;font-size:1rem;}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:var(--accent-2);color:#fff;font-family:'Fraunces',serif;font-weight:600;font-size:.88rem;}
+  tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even){background:#f6f1e7;}
+  td code,.mono{font-family:'JetBrains Mono',monospace;font-size:.86em;}
+  .flash-wrap{background:var(--card-bg);border:1px solid var(--card-br);border-left:6px solid var(--card-br);border-radius:12px;padding:14px 20px 18px;margin:24px 0;}
+  .flash-wrap > .ttl{font-family:'Fraunces',serif;font-weight:600;color:var(--card-ink);font-size:1.05rem;display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+  details.fc{background:#fff;border:1px solid #d9cce8;border-radius:9px;margin:9px 0;padding:0;overflow:hidden;}
+  details.fc summary{cursor:pointer;list-style:none;padding:12px 16px;font-weight:600;color:var(--card-ink);display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.96rem;}
+  details.fc summary::-webkit-details-marker{display:none;}
+  details.fc summary::after{content:"Cevabı gör ▸";font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.05em;color:#fff;background:var(--card-br);padding:4px 9px;border-radius:20px;white-space:nowrap;}
+  details.fc[open] summary::after{content:"Gizle ▾";}
+  details.fc[open] summary{border-bottom:1px dashed #d9cce8;}
+  details.fc .ans{padding:12px 16px 14px;color:var(--ink);font-size:.95rem;background:#faf7fd;}
+  details.fc .ans strong{color:var(--card-ink);}
+  .divider{text-align:center;color:var(--line);margin:40px 0;font-size:1.4rem;letter-spacing:.5em;}
+  footer{text-align:center;color:var(--ink-soft);font-style:italic;font-size:.9rem;border-top:1px solid var(--line);padding-top:24px;margin-top:40px;}
+  .pill{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.7rem;background:var(--accent-2);color:#fff;padding:2px 9px;border-radius:20px;letter-spacing:.04em;}
+  @media(max-width:640px){header.hero h1{font-size:2.1rem;}nav.toc ol{columns:1;}body{font-size:16.5px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="tooth">🦷</span>
+  <span class="kick">Diş Hekimliği · Final Çalışma Rehberi · Batch 3</span>
+  <h1>Oklüzyon &amp; Artikülatör</h1>
+  <p>Occlusion · Articulators &amp; Facebow · Modellerin Artikülatöre Alınması</p>
+</header>
+
+<nav class="toc">
+  <h2>İçindekiler</h2>
+  <ol>
+    <li><a href="#s1">Oklüzyona Giriş &amp; Anatomi</a></li>
+    <li><a href="#s2">Statik Oklüzyon: CO vs CR</a></li>
+    <li><a href="#s3">Dinamik Oklüzyon &amp; Guidance</a></li>
+    <li><a href="#s4">Angle Sınıflaması</a></li>
+    <li><a href="#s5">Overjet, Overbite &amp; Kompansatris Eğriler</a></li>
+    <li><a href="#s6">Artikülatörler — Tanım &amp; Sınıflama</a></li>
+    <li><a href="#s7">Semi/Fully Adjustable &amp; Kayıtlar</a></li>
+    <li><a href="#s8">Oklüzyon Teorileri &amp; ARCON</a></li>
+    <li><a href="#s9">Face-bow &amp; Mounting</a></li>
+  </ol>
+</nav>
+
+<!-- S1 -->
+<section id="s1">
+  <h2 class="sec"><span class="num">01</span>Oklüzyona Giriş &amp; Anatomi</h2>
+  <p class="lead"><strong>Occlusion</strong>, fonksiyon ve parafonksiyon sırasında üst ve alt dişler arasındaki her türlü temas ilişkisidir. Mastikatör sistemin sağlığı için kritik.</p>
+  <ul>
+    <li><strong>Static occlusion:</strong> Çeneler kapalı ve hareketsizken dişlerin temas ilişkisi (istirahatte nasıl oturdukları).</li>
+    <li><strong>Dynamic occlusion:</strong> Çiğneme/konuşma gibi <em>hareket</em> sırasındaki etkileşim (fonksiyonel yön).</li>
+  </ul>
+  <p><strong>Önemi:</strong> fonksiyonel (besin parçalama, net konuşma), sağlık (aşırı diş aşınması, periodontal hastalık, TMJ bozukluklarını önler), estetik (dengeli gülüş).</p>
+
+  <h4>Oklüzyonun Anatomik Bileşenleri</h4>
+  <ul>
+    <li><strong>Periodontium:</strong>
+      <ul>
+        <li><strong>Gingiva:</strong> dişleri saran diş eti; koruyucu örtü.</li>
+        <li><strong>Periodontal ligament (PDL):</strong> kök ile alveolar kemiği bağlayan fibröz doku; yastıklama + stabilite + hafif harekete izin.</li>
+        <li><strong>Alveolar bone:</strong> kökleri barındırır; yapısal destek/ankraj.</li>
+      </ul>
+    </li>
+    <li><strong>Artikülasyon sistemi:</strong>
+      <ul>
+        <li><strong>TMJ:</strong> kondil + glenoid fossa + <strong>artiküler disk</strong>; çeneye yukarı-aşağı ve yana hareket sağlar.</li>
+        <li><strong>Çiğneme kasları:</strong> <mark>masseter, temporalis, pterygoidler</mark>.</li>
+      </ul>
+    </li>
+  </ul>
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Çiğneme kasları</span>
+    <p><strong>"MaTeP"</strong> → <strong>Ma</strong>sseter, <strong>Te</strong>mporalis, <strong>P</strong>terygoidler (medial + lateral). Köprü: <em>"Masseter ezer, Temporalis kaldırır, Pterygoidler kaydırır."</em></p>
+  </div>
+</section>
+
+<!-- S2 -->
+<section id="s2">
+  <h2 class="sec"><span class="num">02</span>Statik Oklüzyon: CO vs CR</h2>
+  <table>
+    <caption>Centric Occlusion vs Centric Relation</caption>
+    <thead><tr><th></th><th>Centric Occlusion (CO)</th><th>Centric Relation (CR)</th></tr></thead>
+    <tbody>
+      <tr><td>Diğer adı</td><td><strong>Maximum intercuspation</strong></td><td>Kemik-kemik (bone-to-bone) ilişkisi</td></tr>
+      <tr><td>Tanım</td><td>Cusp'ların maksimum interdigitasyonu; dişlerin en ideal teması.</td><td>Kondillerin glenoid fossa içinde <mark>en posterior-superior</mark> konumu.</td></tr>
+      <tr><td>Belirleyen</td><td><strong>Dişler</strong> (diş-belirlenimli)</td><td><strong>Eklem/kondil</strong> (diş temasından bağımsız)</td></tr>
+      <tr><td>Özellik</td><td>—</td><td>Tekrarlanabilir (repeatable), zorlanmasız (non-strained)</td></tr>
+      <tr><td>Klinik kullanım</td><td>Oklüzal teşhis/ayar için referans</td><td>Ölçü, protez ve okluzyon kurulumunda stabil referans</td></tr>
+    </tbody>
+  </table>
+  <div class="box spot">
+    <span class="lbl">🎯 Spot Bilgi — CO vs CR ayrımı</span>
+    <p><strong>CO = dişlerle</strong> (maksimum interkuspasyon, diş belirler). <strong>CR = kemikle/kondille</strong> (en posterior-superior, diş temasından bağımsız, tekrarlanabilir). Dişsiz hastada CO yoktur ama <mark>CR her zaman bulunabilir</mark> → bu yüzden total protezde temel kayıt CR'dir.</p>
+  </div>
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği</span>
+    <p><strong>CO → "C-usplar / C-O = dişler"</strong>; <strong>CR → "C-ondil / posterior-superior"</strong>. CR = "geriye-yukarıya kilitli kondil, tekrarlanabilir; dişe ihtiyaç duymaz."</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Statik Oklüzyon</div>
+    <details class="fc"><summary>Centric Occlusion'ın diğer adı nedir ve onu ne belirler?</summary>
+      <div class="ans"><strong>Maximum intercuspation</strong>; <strong>dişler</strong> (cusp interdigitasyonu) belirler.</div></details>
+    <details class="fc"><summary>Centric Relation'da kondiller nerede konumlanır?</summary>
+      <div class="ans">Glenoid fossa içinde <strong>en posterior ve superior</strong> konumda; diş temasından bağımsız, tekrarlanabilir.</div></details>
+    <details class="fc"><summary>Dişsiz hastada neden CR temel referanstır?</summary>
+      <div class="ans">CO diş gerektirir, dişsizde yoktur; <strong>CR diş temasından bağımsız</strong> olduğu için her zaman bulunabilir ve total protezde temel kayıttır.</div></details>
+  </div>
+</section>
+
+<!-- S3 -->
+<section id="s3">
+  <h2 class="sec"><span class="num">03</span>Dinamik Oklüzyon &amp; Guidance</h2>
+  <ul>
+    <li><strong>Posterior guidance (Condylar guidance):</strong> Lateral ve protrusif hareketlerde arka dişlerin kondil-arka diş ilişkisiyle yönlendirilmesi. Aşırı aşınmayı önler, fonksiyonel verimi korur.</li>
+    <li><strong>Anterior guidance (Incisal guidance):</strong> Eksantrik hareketlerde (yana/öne) ön dişlerin (özellikle kesicilerin) mandibulayı yönlendirmesi. Arka dişleri aşırı yükten korur, düzgün hareket sağlar.</li>
+  </ul>
+  <div class="box clinic">
+    <span class="lbl">🦷 Klinik Önemi — "Eklem yolu çizer, dişler teması düzenler"</span>
+    <p>Slayttaki altın cümle: <em>"The joint always guides the path, the teeth modify the contact."</em> Yani hareketin <strong>yolunu TMJ/kondil</strong> belirler, ancak <strong>temasın detayını dişler</strong> (anterior + posterior guidance) şekillendirir. Restorasyonlarda bu rehberliği bozmamak, TMJ sağlığı ve diş ömrü için kritiktir.</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Dinamik Oklüzyon</div>
+    <details class="fc"><summary>Anterior (incisal) guidance hangi dişler tarafından sağlanır ve ne işe yarar?</summary>
+      <div class="ans">Ön dişler (özellikle <strong>kesiciler/kaninler</strong>); eksantrik hareketlerde mandibulayı yönlendirir ve <strong>arka dişleri aşırı yükten korur</strong>.</div></details>
+    <details class="fc"><summary>"Eklem yolu çizer, dişler teması düzenler" ne anlama gelir?</summary>
+      <div class="ans">Hareketin yolunu <strong>TMJ/kondil</strong> belirler; temasın detayını ise <strong>dişler (guidance)</strong> şekillendirir.</div></details>
+  </div>
+</section>
+
+<!-- S4 -->
+<section id="s4">
+  <h2 class="sec"><span class="num">04</span>Angle Sınıflaması</h2>
+  <p class="lead">Referans: <strong>Maxiller 1. moların mesiobuccal cusp'ı</strong> ile <strong>mandibular 1. moların buccal groove'u</strong> ilişkisi.</p>
+  <table>
+    <thead><tr><th>Sınıf</th><th>MB cusp ↔ buccal groove</th><th>Özellik</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Class I</strong></td><td>MB cusp, buccal groove ile <mark>aynı hizada</mark></td><td>Normal oklüzyon.</td></tr>
+      <tr><td><strong>Class II</strong></td><td>MB cusp, groove'un <mark>anteriorunda (mesialinde)</mark></td><td>Div 1: protrüze (öne çıkık) üst kesiciler · Div 2: retrokline üst kesiciler. Sıklıkla overbite.</td></tr>
+      <tr><td><strong>Class III</strong></td><td>MB cusp, groove'un <mark>posteriorunda (distalinde)</mark></td><td>Prognati: belirgin mandibula ve/veya retrüde maxilla.</td></tr>
+    </tbody>
+  </table>
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Angle sınıfları</span>
+    <p><strong>Class I = "I gibi düz/hizalı"</strong> (cusp groove'a oturur).<br>
+    <strong>Class II = üst öne (mesiale) kaçmış</strong> → "iki = üst ileri" (Div 1 dişler dışa, Div 2 dişler içe).<br>
+    <strong>Class III = alt öne çıkmış</strong> (prognati) → "üç = alt taşmış".<br>
+    Hep referans: maxiller MB cusp <em>nereye</em> düşüyor.</p>
+  </div>
+  <div class="box warn">
+    <span class="lbl">⚠️ Dikkat — Div 1 vs Div 2</span>
+    <p>Her ikisi de Class II'dir; fark <em>üst kesicilerin eğiminde</em>: <strong>Div 1 = protrüzyon (labiale)</strong>, <strong>Div 2 = retroklinasyon (linguale)</strong>. Sınıfı değil bölümü karıştırmak klasik çeldiricidir.</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Angle Sınıflaması</div>
+    <details class="fc"><summary>Class I oklüzyonun tanımı nedir?</summary>
+      <div class="ans">Maxiller 1. moların <strong>mesiobuccal cusp'ı</strong>, mandibular 1. moların <strong>buccal groove'u</strong> ile aynı hizadadır (normal).</div></details>
+    <details class="fc"><summary>Class III'te molar ilişkisi ve iskelet eğilim nasıldır?</summary>
+      <div class="ans">MB cusp, buccal groove'un <strong>posteriorunda</strong>; sıklıkla <strong>prognati</strong> (belirgin mandibula / retrüde maxilla).</div></details>
+    <details class="fc"><summary>Class II Division 1 ile Division 2 farkı nedir?</summary>
+      <div class="ans">Div 1: <strong>protrüze üst kesiciler</strong>; Div 2: <strong>retrokline üst kesiciler</strong>.</div></details>
+  </div>
+</section>
+
+<!-- S5 -->
+<section id="s5">
+  <h2 class="sec"><span class="num">05</span>Overjet, Overbite &amp; Kompansatris Eğriler</h2>
+  <table>
+    <thead><tr><th></th><th>Overjet</th><th>Overbite</th></tr></thead>
+    <tbody>
+      <tr><td>Tanım</td><td><strong>Yatay (horizontal)</strong> mesafe: alt kesici labial yüzeyi ↔ üst kesici lingual yüzeyi</td><td><strong>Dikey (vertical)</strong> örtme: üst kesicilerin alt kesicileri örtmesi</td></tr>
+      <tr><td>Normal</td><td><mark>1–3 mm</mark></td><td><mark>2–4 mm</mark></td></tr>
+      <tr><td>Aşırı/az</td><td>Artmış → Class II; azalmış → Class III</td><td>Deep bite (çok örtme) / Open bite (örtme yok)</td></tr>
+    </tbody>
+  </table>
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Jet vs Bite</span>
+    <p><strong>Over<u>JET</u> = yatay</strong> (jet uçağı ileri/yatay uçar). <strong>Over<u>BITE</u> = dikey</strong> (ısırırken üst alt üzerine dikey iner). Normal: jet <strong>1–3</strong>, bite <strong>2–4</strong> mm.</p>
+  </div>
+
+  <h3>Kompansatris (Telafi Edici) Eğriler</h3>
+  <table>
+    <thead><tr><th>Eğri</th><th>Düzlem &amp; tanım</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Curve of Spee</strong></td><td><strong>Sagittal</strong> (anteroposterior) eğri; mandibular kaninden arka dişlere uzanır; oklüzal kuvvet dağılımına katkı.</td></tr>
+      <tr><td><strong>Curve of Wilson</strong></td><td><strong>Frontal/transvers</strong> (mediolateral) eğri; sağ-sol arka dişler arası; mandibular posteriorların lingual eğiminden oluşur.</td></tr>
+      <tr><td><strong>Sphere of Monson</strong></td><td>Spee + Wilson'ı birleştiren <strong>3 boyutlu</strong> kavram; dişler hayali bir kürenin yüzeyinde varsayılır; ideal oklüzal ilişkiyi temsil eder.</td></tr>
+    </tbody>
+  </table>
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Spee &amp; Wilson</span>
+    <p><strong>Spee → Sagittal</strong> (ikisi de "S"; önden arkaya). <strong>Wilson → Transvers/frontal</strong> (yanlamasına, "geniş" = wide). Monson = ikisinin birleşimi (küre). Köprü: <em>"Spee öne-arkaya Süzülür, Wilson sağa-sola yayılır, Monson küre yapar."</em></p>
+  </div>
+
+  <h4>Diğer Anahtar Kavramlar</h4>
+  <ul>
+    <li><strong>Interarch relationships:</strong> üst-alt arkların kapalıyken uzamsal ilişkisi.</li>
+    <li><strong>Crown angulation:</strong> dişin mesiodistal eğimi · <strong>Crown inclination:</strong> labiolingual/buccolingual eğimi.</li>
+    <li><strong>Tooth rotations</strong> (dönmeler) ve <strong>tight contacts</strong> (gapsiz interproksimal temas) oklüzal stabilite için gerekli.</li>
+  </ul>
+  <p><strong>Oklüzyonu etkileyen faktörler:</strong> genetik (diş boyutu, ark uzunluğu); çevresel (prenatal: anne sağlığı; postnatal: diyet, parmak emme, travma); kas basıncı.</p>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Overjet/Overbite/Eğriler</div>
+    <details class="fc"><summary>Overjet ve overbite'ın yönü ve normal aralıkları nedir?</summary>
+      <div class="ans">Overjet = <strong>yatay, 1–3 mm</strong>; Overbite = <strong>dikey, 2–4 mm</strong>.</div></details>
+    <details class="fc"><summary>Curve of Spee ve Curve of Wilson hangi düzlemlerdedir?</summary>
+      <div class="ans">Spee = <strong>sagittal</strong> (anteroposterior); Wilson = <strong>frontal/transvers</strong> (mediolateral).</div></details>
+    <details class="fc"><summary>Sphere of Monson neyi birleştirir?</summary>
+      <div class="ans">Curve of <strong>Spee</strong> ve Curve of <strong>Wilson</strong>'ı 3 boyutlu bir küre kavramında birleştirir.</div></details>
+  </div>
+</section>
+
+<!-- S6 -->
+<section id="s6">
+  <h2 class="sec"><span class="num">06</span>Artikülatörler — Tanım &amp; Sınıflama</h2>
+  <p class="lead"><strong>Artikülatör:</strong> çeneleri ve TMJ'yi temsil eden, alt-üst modellerin bağlandığı ve çene hareketlerinin tamamını/bir kısmını simüle eden mekanik cihaz.</p>
+  <h4>Kullanım Amaçları</h4>
+  <ul>
+    <li><strong>Tanı:</strong> dişlerin statik ve fonksiyonel ilişkilerinin incelenmesi.</li>
+    <li><strong>Tedavi planlama:</strong> selektif aşındırma (selective grinding), fonksiyonel/estetik wax-up, ortodontik diş dizimi.</li>
+    <li><strong>Sabit/hareketli protez</strong> yapımı.</li>
+  </ul>
+
+  <h3>Ayarlanabilirliğe Göre Sınıflama</h3>
+  <ol>
+    <li><strong>Average Value (Ortalama Değerli) Basit Artikülatörler</strong></li>
+    <li><strong>Semi-Adjustable (Yarı Ayarlanabilir)</strong></li>
+    <li><strong>Fully Adjustable (Tam Ayarlanabilir)</strong></li>
+  </ol>
+
+  <h3>Fonksiyonel Özelliklerine Göre Sınıflama</h3>
+  <table>
+    <thead><tr><th>Tip</th><th>Örnekler</th></tr></thead>
+    <tbody>
+      <tr><td>Sadece menteşe (Hinge-only)</td><td>GARIOT</td></tr>
+      <tr><td>Ön-ayarlı insizal/kondiler açılı</td><td>GRITMAN, BONWILL, GYSI SIMPLEX</td></tr>
+      <tr><td>Bireysel-ayarlı (Semi)</td><td>HANAU MODEL H, DENTATUS, GERBER CONDYLATOR, WHIP MIX</td></tr>
+      <tr><td>Bireysel-ayarlı (Fully)</td><td>TMJ, DENAR</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Average value</strong> en basit tiptir: doğru aktarılırsa interkuspal pozisyonu tekrarlayabilir, ama açma/protrusif/lateral hareketleri <em>tam</em> taklit edemez.</p>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Artikülatör Sınıflama</div>
+    <details class="fc"><summary>Ayarlanabilirliğe göre üç artikülatör tipi nedir?</summary>
+      <div class="ans"><strong>Average value (basit), semi-adjustable, fully adjustable.</strong></div></details>
+    <details class="fc"><summary>Average value artikülatör neyi yapabilir, neyi yapamaz?</summary>
+      <div class="ans">İnterkuspal pozisyonu tekrarlayabilir; ancak açma, protrusif ve lateral hareketleri tam taklit <strong>edemez</strong>.</div></details>
+  </div>
+</section>
+
+<!-- S7 -->
+<section id="s7">
+  <h2 class="sec"><span class="num">07</span>Semi/Fully Adjustable &amp; Gerekli Kayıtlar</h2>
+  <h3>Semi-Adjustable — 3 Ayarlanabilir Eleman</h3>
+  <table>
+    <thead><tr><th>Eleman</th><th>Tanım &amp; Etkisi</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Condylar guidance angle</strong></td><td>Sagittal düzlemde kondil ile artiküler eminens arasındaki açı. <em>Posterior fossa derinliğini ve cusp yüksekliğini</em> etkiler.</td></tr>
+      <tr><td><strong>Bennett angle</strong></td><td>Mandibula laterale hareket ederken sagittal düzlem ile kondiller arasındaki açı. <em>Arka dişlerin central fossa genişliğini</em> etkiler.</td></tr>
+      <tr><td><strong>Intercondylar distance</strong></td><td>Kondiller arası mesafe. <em>Cusp yollarını (cusp pathways)</em> etkiler.</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Gerekli kayıtlar (Semi):</strong> facebow transferi · interoklüzal centric relation kaydı · eksantrik interoklüzal kayıtlar. <em>Örnekler: Whip Mix, Dentatus.</em></p>
+
+  <h3>Fully Adjustable</h3>
+  <p>Çoğu mandibular hareketi taklit eder. Ayarlanabilenler: condylar guidance, Bennett angle, intercondylar distance, <strong>working-side condylar movement</strong>.</p>
+  <ul>
+    <li><strong>Working-side condylar movement:</strong> laterotrusif harekette çalışan (working) kondil sabit bir nokta etrafında dönmez; laterale kayarak cusp/fossa morfolojisini etkiler.</li>
+    <li><strong>Gerekli kayıtlar (Fully):</strong> tam hinge axis lokasyonu (özel aletler) · <strong>pantografik kayıt (pantographic tracing)</strong> · centric relation kaydı.</li>
+  </ul>
+
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Semi-adjustable 3 elemanı</span>
+    <p><strong>"C-B-I"</strong> → <strong>C</strong>ondylar guidance, <strong>B</strong>ennett angle, <strong>I</strong>ntercondylar distance. Etkileri: <em>Condylar → cusp yüksekliği; Bennett → central fossa genişliği; Intercondylar → cusp yolu.</em></p>
+  </div>
+  <div class="box spot">
+    <span class="lbl">🎯 Spot Bilgi — Kayıt farkı</span>
+    <p><strong>Semi:</strong> facebow + CR + eksantrik kayıtlar. <strong>Fully:</strong> kesin hinge axis + <mark>pantografik tracing</mark> + CR. "Pantograf" kelimesi geçiyorsa cevap <strong>fully adjustable</strong>'dır.</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Ayarlanabilir Artikülatörler</div>
+    <details class="fc"><summary>Semi-adjustable artikülatörün üç ayarlanabilir elemanı nedir?</summary>
+      <div class="ans"><strong>Condylar guidance angle, Bennett angle, intercondylar distance.</strong></div></details>
+    <details class="fc"><summary>Bennett açısı neyi etkiler?</summary>
+      <div class="ans">Arka dişlerin <strong>central fossa genişliğini</strong> (mandibula laterale hareket ederken sagittal düzlem-kondil açısı).</div></details>
+    <details class="fc"><summary>Fully adjustable için hangi özel kayıt gerekir?</summary>
+      <div class="ans"><strong>Pantografik tracing</strong> + kesin hinge axis lokasyonu + centric relation kaydı.</div></details>
+  </div>
+</section>
+
+<!-- S8 -->
+<section id="s8">
+  <h2 class="sec"><span class="num">08</span>Oklüzyon Teorileri &amp; ARCON</h2>
+  <table>
+    <caption>Artikülatör Tasarımının Altındaki Oklüzyon Teorileri</caption>
+    <thead><tr><th>Teori</th><th>Temel iddia &amp; cihaz</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Bonwill Teorisi</strong></td><td>İki kondil + insizal nokta arasında <mark>her kenarı 10 cm olan eşkenar üçgen</mark>. Bonwill artikülatörü lateral hareket yapar ama condylar guidance <strong>0°</strong> (horizontal, ayarsız).</td></tr>
+      <tr><td><strong>Conical (Konik) Teori</strong></td><td>Alt dişler, koni şeklindeki üst diş yüzeylerinde hareket eder; koni ekseni oklüzal düzleme <mark>45°</mark>. Hall otomatik artikülatörü (Rupert E. Hall); <strong>45° cusp'lı yapay dişler</strong> gerekir.</td></tr>
+      <tr><td><strong>Monson Sferik Teorisi</strong></td><td>Alt dişler <mark>10 cm yarıçaplı bir kürenin</mark> yüzeyinde hareket eder; Curve of Spee bu kürenin bir parçasıdır; küre merkezi <strong>glabella</strong>'dadır. Monson'ın "Maxillary-Mandibular Instrument"ı.</td></tr>
+    </tbody>
+  </table>
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Teoriler</span>
+    <p><strong>Bonwill = üçgen (10 cm)</strong>, <strong>Monson = küre (10 cm yarıçap, merkez glabella)</strong>, <strong>Konik = koni + 45°</strong>. Köprü: <em>"Bonwill üçgen çizer, Monson küre yapar, Hall koniyi 45°'ye eğer."</em></p>
+  </div>
+
+  <h3>ARCON vs NON-ARCON</h3>
+  <ul>
+    <li><strong>ARCON:</strong> Kondiler housing (glenoid fossa karşılığı) <mark>üst parçada</mark>; kondiler küreler (kondil başı karşılığı) <mark>alt parçada</mark>. TMJ anatomisini en yakın taklit eder. Bugün ideal kabul edilir. <em>Örnek: TMJ, Whip-Mix.</em></li>
+    <li><strong>NON-ARCON:</strong> Ters konfigürasyon. <em>Örnek: Dentatus, Gerber Condylator.</em></li>
+    <li>İkisi arasında <strong>fonksiyonel fark yoktur</strong>; kullanım kolaylığı, CR koruma vb. açıdan avantaj/dezavantajları vardır.</li>
+  </ul>
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — ARCON</span>
+    <p><strong>ARCON = Anatomik olarak doğru.</strong> Gerçek anatomide kondil <em>alt çenede (mandibulada)</em>dır → ARCON'da da kondil küreleri <strong>alt parçada</strong>, fossa üstte. Köprü: <em>"ARCON anatomiyle uyumlu: kondil aşağıda, fossa yukarıda."</em></p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Teoriler &amp; ARCON</div>
+    <details class="fc"><summary>Bonwill teorisindeki üçgenin kenar uzunluğu kaçtır?</summary>
+      <div class="ans"><strong>10 cm</strong> (iki kondil + insizal nokta arasında eşkenar üçgen).</div></details>
+    <details class="fc"><summary>Konik teoride koni ekseni oklüzal düzleme kaç derecedir, hangi diş kullanılır?</summary>
+      <div class="ans"><strong>45°</strong>; bu artikülatörde <strong>45° cusp'lı yapay dişler</strong> kullanılır (Hall artikülatörü).</div></details>
+    <details class="fc"><summary>ARCON artikülatörde kondiler housing ve küreler nerede konumlanır?</summary>
+      <div class="ans">Kondiler housing (fossa) <strong>üst parçada</strong>, kondiler küreler <strong>alt parçada</strong> — TMJ anatomisini taklit eder.</div></details>
+  </div>
+</section>
+
+<!-- S9 -->
+<section id="s9">
+  <h2 class="sec"><span class="num">09</span>Face-bow &amp; Modellerin Mounting'i</h2>
+  <h3>Face-bow (Yüz Arkı)</h3>
+  <p><strong>Face-bow</strong>, maxillanın uzamsal pozisyonunu kaydedip artikülatöre aktarır. Bu transfer ile hastaya özel kayıtlar artikülatöre doğru taşınır → en doğal oklüzal ilişki, dolayısıyla fonksiyon, fonasyon ve estetik optimize edilir.</p>
+  <table>
+    <thead><tr><th>Tip</th><th>Özellik</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Simple (Basit) Facebow</strong></td><td>Maxillayı TMJ'ye göre <mark>ortalama anatomik noktalara</mark> dayanarak yönlendirir; maxillaya bağlanır.</td></tr>
+      <tr><td><strong>Kinematic Facebow</strong></td><td>Pergel benzeri ayarlanabilir cihaz; mandibulanın <mark>gerçek transvers horizontal menteşe ekseni</mark> (hinge axis) belirlenir; bireysel anatomiye ince ayar.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Modellerin Artikülatöre Alınması (Mounting)</h3>
+  <ul>
+    <li>Model <strong>oklüzal düzleme paralel</strong> olmalı; hekimin model üzerine çizdiği orta hat, artikülatörün orta hattı (pin) ile çakışmalı.</li>
+    <li>Üst-alt modeller yerleştirmede ortalanmalı; mounting alçısı düzgün-temiz olmalı; <strong>izolasyon ajanı</strong> uygulanmalı.</li>
+    <li>Mounting öncesi, interoklüzal ilişkiyi temsil eden <strong>wax rim</strong> hazırlanmalı.</li>
+    <li><strong>Preklinikte:</strong> maxiller rim, mandibular rimin <mark>1–2 mm anterioruna</mark> konur; sıcak spatula ile birleştirilir.</li>
+  </ul>
+
+  <h4>Total Protezde Artikülatöre Aktarılan Kayıtlar</h4>
+  <ol>
+    <li><strong>Orientation relationship:</strong> Maxillanın mandibulaya göre konumu — <em>facebow</em> ile belirlenir.</li>
+    <li><strong>Vertical relationships:</strong> oklüzyonun dikey boyutu (<strong>vertical dimension of occlusion</strong>) + istirahat dikey boyutu (rest vertical dimension).</li>
+    <li><strong>Horizontal relationships:</strong> centric relation (oklüzyon) + protrusif + lateral ilişki.</li>
+  </ol>
+
+  <div class="box spot">
+    <span class="lbl">🎯 Spot Bilgi — Üç çene ilişkisi kaydı</span>
+    <p>Total protez için artikülatöre aktarılan 3 kayıt: <strong>(1) Orientation (facebow) · (2) Vertical (VDO + rest) · (3) Horizontal (centric/protrusif/lateral).</strong> "Facebow neyi kaydeder?" → <mark>orientation (maxilla konumu)</mark>.</p>
+  </div>
+  <div class="box clinic">
+    <span class="lbl">🦷 Klinik Önemi — Neden facebow?</span>
+    <p>Face-bow olmadan model gelişigüzel mountlanırsa, artikülatördeki kondiler hareketler hastanın gerçek TMJ'sini yansıtmaz → protez oklüzyonu hatalı olur. Bu yüzden hassas protez ve restorasyonda face-bow transferi standarttır.</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Face-bow &amp; Mounting</div>
+    <details class="fc"><summary>Kinematic facebow neyi belirler?</summary>
+      <div class="ans">Mandibulanın <strong>gerçek transvers horizontal menteşe eksenini (hinge axis)</strong>.</div></details>
+    <details class="fc"><summary>Preklinikte maxiller wax rim, mandibular rime göre nereye konur?</summary>
+      <div class="ans"><strong>1–2 mm anterioruna</strong>; sıcak spatula ile birleştirilir.</div></details>
+    <details class="fc"><summary>Total protezde artikülatöre aktarılan üç çene ilişkisi kaydı nedir?</summary>
+      <div class="ans"><strong>Orientation (facebow), Vertical (VDO + rest), Horizontal (centric/protrusif/lateral).</strong></div></details>
+  </div>
+</section>
+
+<div class="divider">• • •</div>
+
+<footer>
+  <p>🦷 <strong>Batch 3 tamamlandı —</strong> Oklüzyon · Artikülatör &amp; Face-bow · Mounting</p>
+  <p>Sıradaki: <em>Batch 4 — Total Protez (Destek dokular, Ölçü alma, Custom tray, Wax rim, Diş dizimi)</em></p>
+  <p style="opacity:.7;">Flashcard kutularına tıklayarak cevapları açıp kapat · İyi çalışmalar!</p>
+</footer>
+
+</div>
+<script src="../../assets/language.js" defer></script>
+</body>
+</html>

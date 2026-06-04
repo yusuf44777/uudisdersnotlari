@@ -398,6 +398,12 @@ svg {
     linear-gradient(135deg, rgba(184, 73, 63, 0.08), transparent);
 }
 
+.course-card.morphology::after {
+  background:
+    repeating-linear-gradient(135deg, rgba(91, 59, 140, 0.14) 0 2px, transparent 2px 16px),
+    linear-gradient(135deg, rgba(91, 59, 140, 0.08), transparent);
+}
+
 .course-card.biochemistry::after {
   background:
     repeating-linear-gradient(135deg, rgba(32, 122, 83, 0.14) 0 2px, transparent 2px 16px),
@@ -435,6 +441,10 @@ svg {
   color: var(--coral);
 }
 
+.course-card.morphology .course-topline strong {
+  color: #5b3b8c;
+}
+
 .course-card.biochemistry .course-topline strong {
   color: #207a53;
 }
@@ -468,6 +478,10 @@ svg {
 
 .course-card.genetics a {
   background: var(--coral);
+}
+
+.course-card.morphology a {
+  background: #5b3b8c;
 }
 
 .course-card.biochemistry a {
@@ -642,6 +656,10 @@ svg {
 
 .note-card[data-course="Medical Genetics"] .course-dot::before {
   background: var(--coral);
+}
+
+.note-card[data-course="Dental Morphology"] .course-dot::before {
+  background: #5b3b8c;
 }
 
 .note-card[data-course="Biochemistry"] .course-dot::before {

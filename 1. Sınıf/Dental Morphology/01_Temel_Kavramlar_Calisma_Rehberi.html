@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diş Hekimliği Final Rehberi — Batch 1: Temel Kavramlar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Spectral:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4efe6;
+    --paper:#fbf8f1;
+    --ink:#2a2620;
+    --ink-soft:#5a5348;
+    --line:#e0d7c6;
+    --accent:#9a3b2e;        /* deep brick */
+    --accent-2:#1f5d57;      /* deep teal */
+    --clinic-bg:#e7f1ef; --clinic-br:#1f5d57; --clinic-ink:#13403b;
+    --spot-bg:#eaf3e4; --spot-br:#3f7d2f; --spot-ink:#274f1d;
+    --warn-bg:#fcefe0; --warn-br:#c5781a; --warn-ink:#8a4e07;
+    --card-bg:#efe9f5; --card-br:#6a4c93; --card-ink:#3f2c63;
+    --mnem-bg:#fdf2f4; --mnem-br:#9a3b2e; --mnem-ink:#6e271d;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Spectral',Georgia,serif;font-size:18px;line-height:1.7;
+    background-image:radial-gradient(var(--line) 0.5px,transparent 0.5px);
+    background-size:22px 22px;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px 90px;}
+
+  header.hero{
+    text-align:center;padding:64px 20px 40px;margin-bottom:20px;
+  }
+  header.hero .kick{
+    font-family:'JetBrains Mono',monospace;letter-spacing:.32em;
+    text-transform:uppercase;font-size:.72rem;color:var(--accent);
+  }
+  header.hero h1{
+    font-family:'Fraunces',serif;font-weight:900;font-size:3rem;
+    line-height:1.05;margin:.3em 0 .2em;color:var(--ink);
+  }
+  header.hero p{color:var(--ink-soft);font-style:italic;margin:0;}
+  .tooth{font-size:2.6rem;display:block;margin-bottom:.1em;}
+
+  nav.toc{
+    background:var(--paper);border:1px solid var(--line);border-radius:14px;
+    padding:22px 26px;margin-bottom:50px;box-shadow:0 6px 22px -16px #00000040;
+  }
+  nav.toc h2{font-family:'Fraunces',serif;font-size:1rem;text-transform:uppercase;
+    letter-spacing:.14em;margin:0 0 12px;color:var(--accent-2);}
+  nav.toc ol{margin:0;padding-left:1.3em;columns:2;column-gap:34px;}
+  nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--line);}
+  nav.toc a:hover{color:var(--accent);}
+
+  section{margin-bottom:60px;}
+  h2.sec{
+    font-family:'Fraunces',serif;font-weight:900;font-size:2rem;color:var(--accent);
+    border-bottom:3px solid var(--accent);padding-bottom:.18em;margin:0 0 .2em;
+    scroll-margin-top:20px;
+  }
+  h2.sec .num{font-family:'JetBrains Mono',monospace;font-size:1rem;
+    background:var(--accent);color:#fff;border-radius:8px;padding:2px 10px;margin-right:10px;vertical-align:middle;}
+  h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;color:var(--accent-2);
+    margin:1.8em 0 .3em;scroll-margin-top:20px;}
+  h4{font-family:'Fraunces',serif;font-weight:600;font-size:1.12rem;color:var(--ink);margin:1.3em 0 .2em;}
+  p{margin:.5em 0;}
+  strong{color:var(--accent-2);font-weight:600;}
+  em{color:var(--ink-soft);}
+  mark{background:#ffe89c;padding:0 .18em;border-radius:3px;}
+  ul,ol{margin:.4em 0 .8em;padding-left:1.4em;}
+  li{margin:.3em 0;}
+  .lead{font-size:1.05rem;color:var(--ink-soft);font-style:italic;
+    border-left:3px solid var(--line);padding-left:16px;margin:.6em 0 1.4em;}
+
+  /* Callout boxes */
+  .box{border-radius:12px;padding:16px 20px 16px 18px;margin:18px 0;
+    border-left:6px solid;position:relative;font-size:.97rem;line-height:1.6;}
+  .box .lbl{font-family:'Fraunces',serif;font-weight:600;display:block;margin-bottom:4px;
+    font-size:1.02rem;letter-spacing:.01em;}
+  .box p{margin:.35em 0;}
+  .clinic{background:var(--clinic-bg);border-color:var(--clinic-br);}
+  .clinic .lbl{color:var(--clinic-ink);}
+  .spot{background:var(--spot-bg);border-color:var(--spot-br);}
+  .spot .lbl{color:var(--spot-ink);}
+  .warn{background:var(--warn-bg);border-color:var(--warn-br);}
+  .warn .lbl{color:var(--warn-ink);}
+  .mnem{background:var(--mnem-bg);border-color:var(--mnem-br);}
+  .mnem .lbl{color:var(--mnem-ink);}
+  .box strong{color:inherit;}
+
+  /* Tables */
+  table{width:100%;border-collapse:collapse;margin:18px 0;background:var(--paper);
+    border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:.92rem;}
+  caption{font-family:'Fraunces',serif;font-weight:600;text-align:left;color:var(--accent-2);
+    margin-bottom:6px;font-size:1rem;}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:var(--accent-2);color:#fff;font-family:'Fraunces',serif;font-weight:600;font-size:.9rem;}
+  tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even){background:#f6f1e7;}
+  td code,.mono{font-family:'JetBrains Mono',monospace;font-size:.86em;}
+
+  /* Flashcards */
+  .flash-wrap{background:var(--card-bg);border:1px solid var(--card-br);border-left:6px solid var(--card-br);
+    border-radius:12px;padding:14px 20px 18px;margin:24px 0;}
+  .flash-wrap > .ttl{font-family:'Fraunces',serif;font-weight:600;color:var(--card-ink);
+    font-size:1.05rem;display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+  details.fc{background:#fff;border:1px solid #d9cce8;border-radius:9px;margin:9px 0;padding:0;overflow:hidden;}
+  details.fc summary{cursor:pointer;list-style:none;padding:12px 16px;font-weight:600;color:var(--card-ink);
+    display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.96rem;}
+  details.fc summary::-webkit-details-marker{display:none;}
+  details.fc summary::after{content:"Cevabı gör ▸";font-family:'JetBrains Mono',monospace;font-size:.66rem;
+    letter-spacing:.05em;color:#fff;background:var(--card-br);padding:4px 9px;border-radius:20px;white-space:nowrap;}
+  details.fc[open] summary::after{content:"Gizle ▾";}
+  details.fc[open] summary{border-bottom:1px dashed #d9cce8;}
+  details.fc .ans{padding:12px 16px 14px;color:var(--ink);font-size:.95rem;background:#faf7fd;}
+  details.fc .ans strong{color:var(--card-ink);}
+
+  .divider{text-align:center;color:var(--line);margin:40px 0;font-size:1.4rem;letter-spacing:.5em;}
+  footer{text-align:center;color:var(--ink-soft);font-style:italic;font-size:.9rem;
+    border-top:1px solid var(--line);padding-top:24px;margin-top:40px;}
+  .pill{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.7rem;
+    background:var(--accent-2);color:#fff;padding:2px 9px;border-radius:20px;letter-spacing:.04em;}
+  @media(max-width:640px){
+    header.hero h1{font-size:2.1rem;}
+    nav.toc ol{columns:1;}
+    body{font-size:16.5px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="tooth">🦷</span>
+  <span class="kick">Diş Hekimliği · Final Çalışma Rehberi</span>
+  <h1>Temel Kavramlar</h1>
+  <p>Terminoloji · Diş Numaralama Sistemleri · Ağız Boşluğu Anatomisi &amp; Düzlemler</p>
+</header>
+
+<nav class="toc">
+  <h2>İçindekiler</h2>
+  <ol>
+    <li><a href="#s1">Diş Sınıfları &amp; Dentisyonlar</a></li>
+    <li><a href="#s2">Temel Anatomik Terimler</a></li>
+    <li><a href="#s3">Dişin Bölümleri &amp; Dokuları</a></li>
+    <li><a href="#s4">Dişin Yüzeyleri</a></li>
+    <li><a href="#s5">Morfoloji Terimleri (Cusp, Ridge, Fossa…)</a></li>
+    <li><a href="#s6">Kontak, Embrasure &amp; Dişin Bölünmesi</a></li>
+    <li><a href="#s7">Diş Numaralama Sistemleri</a></li>
+    <li><a href="#s8">Ağız Boşluğu Anatomisi</a></li>
+    <li><a href="#s9">Anatomik Düzlemler, Eksenler &amp; Hareketler</a></li>
+  </ol>
+</nav>
+
+<!-- ============ SECTION 1 ============ -->
+<section id="s1">
+  <h2 class="sec"><span class="num">01</span>Diş Sınıfları &amp; Dentisyonlar</h2>
+  <p class="lead">Diş anatomisi (<strong>dental anatomy</strong>) öncelikle dişin dış formu ve görünümüyle ilgilenir; ancak yalnızca diş morfolojisini değil, aynı zamanda kökleri (<strong>roots</strong>), pulpa odacıklarını (<strong>pulp chambers</strong>), kron konturlarını (<strong>crown contours</strong>), kontakları (<strong>contacts</strong>) ve kronlarla ilişkili embrasure'leri de kapsar.</p>
+
+  <h3>Diş Sınıfları (Classes of Teeth)</h3>
+  <p>Dişler görünüm, fonksiyon ve pozisyonlarına göre sınıflandırılır:</p>
+  <ul>
+    <li><strong>Incisors (Kesiciler):</strong> Ağzın ön kısmındadır. Yiyeceği <em>kesmek/dilimlemek (to incise)</em> için keskin, ince kenarları (kesici kenar) vardır.</li>
+    <li><strong>Cuspids / Canines (Kaninler):</strong> Ağzın köşelerinde (<strong>angles of the mouth</strong>) yer alır. Kesici kenar yerine <mark>tek bir cusp (tepe)</mark> taşır; kesme ve <em>yırtma (tearing)</em> için tasarlanmıştır.</li>
+    <li><strong>Bicuspids / Premolars (Premolarlar):</strong> Kaninlere benzer ama <mark>iki cusp</mark> taşır; kesme-yırtmaya ek olarak besini ezmek için daha geniş bir oklüzal yüzeye sahiptir.</li>
+    <li><strong>Molars (Molarlar):</strong> Ağzın arka kısmındadır. Boyutları 1. molardan 3. molara doğru gittikçe küçülür. Her molarda <mark>dört veya beş cusp</mark> bulunur; katı besini öğütmek (<strong>grinding</strong>) için geniş yüzey sağlar.</li>
+  </ul>
+
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Cusp sayısı</span>
+    <p><strong>Canine = 1, Premolar = 2, Molar = 4–5.</strong> "Cus<em>pid</em>" tekil tepe, "<em>Bi</em>cuspid" iki tepe (Latince <em>bi-</em> = iki). İsim doğrudan cusp sayısını söylüyor!</p>
+  </div>
+
+  <h3>Çene Kemikleri &amp; Bölgeler</h3>
+  <ul>
+    <li><strong>Mandible:</strong> Tek bir kemik çiftinden oluşan komple alt çene.</li>
+    <li><strong>Maxilla:</strong> Kanin, premolar ve molar dişleri taşıyan üst çene kemiği.</li>
+    <li><strong>Premaxilla:</strong> Maxilla'nın önünde, orta hatta her iki tarafta <em>kesici dişleri</em> taşıyan çift kemik.</li>
+  </ul>
+  <p>Ağız boşluğu <strong>4 kadrana (quadrant)</strong> bölünür; her kadran bir çenenin bir tarafını temsil eder ve yaşa bağlı olarak <strong>5 süt dişi</strong> veya <strong>8 daimî diş</strong> içerir.</p>
+
+  <h3>Süt Dentisyonu (Deciduous Dentition)</h3>
+  <ul>
+    <li>Toplam <strong>20 süt dişi</strong>: maxilla'da 10, mandibula'da 10.</li>
+    <li>Üç sınıf: <strong>incisors, canines, molars</strong> (premolar YOK).</li>
+    <li>Dağılım: <strong>8 kesici + 4 kanin + 8 molar</strong>.</li>
+    <li>Eş anlamlılar: <em>primary, milk, baby, temporary, lacteal, juvenile teeth.</em></li>
+    <li>İlk süren: <strong>kesiciler, ~6–9. ay</strong>. Son süren: ~24. ay. Daimî dişler sürene (~6 yaş) kadar kalır.</li>
+  </ul>
+
+  <h3>Daimî Dentisyon (Permanent Dentition)</h3>
+  <ul>
+    <li>Toplam <strong>32 daimî diş</strong>: 16 maxiller + 16 mandibular.</li>
+    <li>Dört sınıf: <strong>incisors, canines, premolars, molars</strong>.</li>
+    <li>Dağılım: <strong>8 kesici + 4 kanin + 8 premolar + 12 molar</strong>.</li>
+    <li>Eş anlamlılar: <em>secondary, permanent, succedaneous teeth.</em></li>
+    <li>İlk süren: <mark>1. molar, ~6 yaş</mark>. Son süren: <mark>3. molar, ~21 yaş</mark>. Diğerleri ~14 yaşa kadar tamamlanır.</li>
+  </ul>
+
+  <div class="box spot">
+    <span class="lbl">🎯 Spot Bilgi</span>
+    <p>Süt dişlerinde <strong>premolar bulunmaz</strong>. Daimî dentisyonda ilk süren diş <strong>1. molar (6 yaş)</strong>, son süren <strong>3. molar (~21 yaş)</strong>. Sürede ilk gelen kesicidir ama daimîde "ilk süren tip" molardır — bu ayrımı karıştırma!</p>
+  </div>
+  <div class="box warn">
+    <span class="lbl">⚠️ Dikkat — Çeldirici</span>
+    <p><strong>Succedaneous</strong> terimi, kendisinden önce bir süt dişinin yerini alan daimî dişleri tanımlar (kesiciler, kaninler, premolarlar). <em>Molarların</em> öncülü bir süt dişi yoktur — bu yüzden teknik olarak molarlar succedaneous değildir. Sınavda "tüm daimî dişler succedaneous'tur" ifadesi <mark>yanlıştır</mark>.</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Bölüm 1</div>
+    <details class="fc"><summary>Süt dentisyonunda kaç diş ve hangi sınıflar bulunur?</summary>
+      <div class="ans"><strong>20 diş</strong> (her çenede 10). Sınıflar: <strong>incisors, canines, molars</strong>. Dağılım: 8 incisor + 4 cuspid + 8 molar. Premolar yoktur.</div></details>
+    <details class="fc"><summary>Daimî dentisyonda ilk ve son süren dişler hangileri ve hangi yaşta?</summary>
+      <div class="ans">İlk: <strong>1. molar, ~6 yaş</strong>. Son: <strong>3. molar, ~21 yaş</strong>.</div></details>
+    <details class="fc"><summary>Premolarların molarlardan ayırt edici cusp özelliği nedir?</summary>
+      <div class="ans">Premolar (<strong>bicuspid</strong>) <strong>2 cusp</strong>; molar <strong>4–5 cusp</strong> taşır. Kanin tek cusp'lıdır.</div></details>
+  </div>
+</section>
+
+<!-- ============ SECTION 2 ============ -->
+<section id="s2">
+  <h2 class="sec"><span class="num">02</span>Temel Anatomik Terimler</h2>
+  <ul>
+    <li><strong>Dentition:</strong> Bireyin ağzındaki doğal dişlerin (ya da yapay protezlerin) dizilimi. İnsanda iki set: <em>primary</em> ve <em>permanent</em>.</li>
+    <li><strong>Dental arch (Diş arkı):</strong> Çenenin, dişlerin kök kısmına tutunma sağlayan ve dişleri pozisyonda tutan parçası. Üst ve altta iki ark vardır.</li>
+    <li><strong>Maxillary:</strong> Üst çene (maxilla) ile ilgili; <strong>Mandibular:</strong> alt çene (mandible) ile ilgili.</li>
+    <li><strong>Quadrant:</strong> Maxilla veya mandibula'nın bir tarafı; normalde bilateral simetriktir.</li>
+    <li><strong>Alveolus:</strong> Çene kemiğinin diş köklerini çevreleyen, periodontal ligamente (<strong>periodontal ligament</strong>) tutunma sağlayarak dişi destekleyen parçası.</li>
+  </ul>
+
+  <h3>Yön Terimleri: Anterior vs. Posterior</h3>
+  <ul>
+    <li><strong>Anterior:</strong> Dudaklara yakın, ön tarafa doğru yön. <strong>Anterior dişler</strong> = 6 üst + 6 alt ön diş (kesiciler + kaninler). Kesme + kavrama/yırtma; ayrıca <em>fonasyon</em> ve <em>estetik</em>te kritik rol.</li>
+    <li><strong>Posterior:</strong> Yanağa yakın, arka tarafa doğru yön. Posterior dişlerin ana fonksiyonu <strong>çiğneme (mastication)</strong>.</li>
+  </ul>
+
+  <div class="box clinic">
+    <span class="lbl">🦷 Klinik Önemi</span>
+    <p>Anterior dişler sadece kesmez; <strong>fonetik (konuşma)</strong> ve <strong>estetik</strong> için hayatidir. Bir hastada üst kesici kaybında "f/v" ve "s" seslerinin bozulması ve gülüş estetiğinin çökmesi, neden ön bölge restorasyonlarında bu kadar titiz olunduğunu açıklar — protez ve implant planlamasında ileride sürekli karşına çıkacak.</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Bölüm 2</div>
+    <details class="fc"><summary>Alveolus tam olarak neyi destekler ve neye tutunma sağlar?</summary>
+      <div class="ans">Diş köklerini çevreler ve <strong>periodontal ligamente</strong> tutunma sağlayarak dişi destekler.</div></details>
+    <details class="fc"><summary>Anterior dişlerin çiğneme dışındaki iki kritik fonksiyonu nedir?</summary>
+      <div class="ans"><strong>Fonasyon (konuşma)</strong> ve <strong>estetik</strong>.</div></details>
+  </div>
+</section>
+
+<!-- ============ SECTION 3 ============ -->
+<section id="s3">
+  <h2 class="sec"><span class="num">03</span>Dişin Bölümleri &amp; Dokuları</h2>
+
+  <h3>Dişin Parçaları (Parts of a Tooth)</h3>
+  <table>
+    <caption>Kron / Kök ve Anatomik–Klinik ayrımı</caption>
+    <thead><tr><th>Terim</th><th>Tanım</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Crown (Kron)</strong></td><td>Diş eti çizgisinin üstünde, ağızda görülen kısım.</td></tr>
+      <tr><td><strong>Root (Kök)</strong></td><td>Çene içine gömülü, dişi kemikte tutan kısım.</td></tr>
+      <tr><td><strong>Anatomical Crown</strong></td><td>Dişin <em>mine (enamel)</em> ile kaplı kron kısmı.</td></tr>
+      <tr><td><strong>Clinical Crown</strong></td><td>Ağızda görünen/açıkta olan kısım. Diş eti çekilmesi (recession) ile <mark>anatomik krondan büyük</mark> olabilir.</td></tr>
+      <tr><td><strong>Anatomical Root</strong></td><td>Kökün <em>sement (cementum)</em> ile kaplı kısmı.</td></tr>
+      <tr><td><strong>Clinical Root</strong></td><td>Diş eti içinde kalan, ağıza açılmayan kısım.</td></tr>
+      <tr><td><strong>Cervical line</strong></td><td>Anatomik kron ile kökü ayıran ince çizgi = <strong>cemento-enamel junction (CEJ)</strong>.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box warn">
+    <span class="lbl">⚠️ Dikkat — En sık çeldirici</span>
+    <p><strong>Klinik kron ≠ Anatomik kron.</strong> Diş eti çekilmesinde kökün bir kısmı açığa çıkar; o zaman <mark>klinik kron, anatomik krondan DAHA BÜYÜK</mark> olur. "Klinik kron her zaman daha küçüktür" ifadesi yanlıştır.</p>
+  </div>
+
+  <h3>Kök ve Kanal Yapıları</h3>
+  <ul>
+    <li><strong>Furcation:</strong> Çok köklü (genelde posterior) dişlerde köklerin birleşim noktası.
+      <ul><li><strong>Bifurcation:</strong> iki kök birleşimi · <strong>Trifurcation:</strong> üç kök birleşimi.</li></ul></li>
+    <li><strong>Apex:</strong> Kök ucunun sivrilen tepesi.</li>
+    <li><strong>Apical foramen:</strong> Periodontal membran ile pulpa arasındaki iletişim açıklığı; genelde apekstedir. (Çoğul: <em>foramina</em>.)</li>
+  </ul>
+
+  <h4>Pulpa Boşluğu (Pulp Cavity)</h4>
+  <ul>
+    <li><strong>Pulp cavity:</strong> Pulpayı barındıran merkezi boşluğun genel adı (kron + kök boyunca devamlı).</li>
+    <li><strong>Pulp chamber:</strong> Pulpa boşluğunun yalnızca <em>kronda</em> görülen kısmı.</li>
+    <li><strong>Pulp canal:</strong> <em>Kök kanalı/kanallarındaki</em> kısım.</li>
+    <li><strong>Pulp horn:</strong> Pulpa odacığının en yüksek noktası; krondaki cusp/kesici tepelerine karşılık gelir.</li>
+  </ul>
+
+  <h3>Dişin Dokuları (Tissues of a Tooth)</h3>
+  <p>Diş yapısal olarak <strong>4 farklı dokudan</strong> oluşur:</p>
+  <table>
+    <thead><tr><th>Doku</th><th>Konum &amp; Özellik</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Enamel (Mine)</strong></td><td>Kronun en dış kısmı; <mark>vücudun en sert dokusu</mark>. Avasküler ve aselüler → canlı doku sayılmaz.</td></tr>
+      <tr><td><strong>Dentin</strong></td><td>Mine ve sementin altında; dişin ana kütlesini oluşturur. <strong>İkinci en sert</strong> ama <em>canlı</em> dokudur; pulpayı her yönden sarar.</td></tr>
+      <tr><td><strong>Cementum (Sement)</strong></td><td>Kemiğe gömülü kök kısmını kaplar.</td></tr>
+      <tr><td><strong>Pulp (Pulpa)</strong></td><td>Dişin merkezinde, gevşek bağ dokusu. <strong>Sinir ve damarları</strong> içerir; apikal foramenden girer.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Sertlik sırası &amp; canlılık</span>
+    <p>Sertlik: <strong>Enamel &gt; Dentin &gt; Cementum</strong> (dıştan sert, içe yumuşar). Canlılık ayrımı: <strong>"Enamel ölü, gerisi canlı"</strong> — sadece mine avasküler/aselülerdir, dentin ve sement canlıdır. Mnemonik cümle: <em>"Mine ölür, Dentin direnir, Sement sarar, Pulpa pompalar (damar-sinir)."</em></p>
+  </div>
+  <div class="box spot">
+    <span class="lbl">🎯 Spot Bilgi</span>
+    <p><strong>Enamel</strong> = vücudun en sert dokusu, fakat <strong>canlı değildir</strong> (avasküler + aselüler). <strong>Dentin</strong> = ikinci en sert ve <strong>canlı</strong>. Pulpa damar-sinir taşır ve apikal foramenden beslenir.</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Bölüm 3</div>
+    <details class="fc"><summary>Cemento-enamel junction (CEJ) hangi yapının diğer adıdır?</summary>
+      <div class="ans"><strong>Cervical line</strong> — anatomik kron ile anatomik kökü ayıran ince çizgi.</div></details>
+    <details class="fc"><summary>Dört diş dokusundan hangisi canlı sayılmaz ve neden?</summary>
+      <div class="ans"><strong>Enamel (mine)</strong>; çünkü <strong>avasküler ve aselüler</strong>dir (damar ve hücre içermez).</div></details>
+    <details class="fc"><summary>Pulp horn neye karşılık gelir?</summary>
+      <div class="ans">Pulpa odacığının en yüksek noktasıdır; krondaki <strong>cusp / kesici tepelerine</strong> karşılık gelir.</div></details>
+    <details class="fc"><summary>Bifurcation ile trifurcation arasındaki fark?</summary>
+      <div class="ans"><strong>Bifurcation</strong> = iki kökün birleşim noktası; <strong>trifurcation</strong> = üç kökün birleşim noktası.</div></details>
+  </div>
+</section>
+
+<!-- ============ SECTION 4 ============ -->
+<section id="s4">
+  <h2 class="sec"><span class="num">04</span>Dişin Yüzeyleri</h2>
+  <p class="lead">Hem anterior hem posterior dişlerin <strong>beş yüzeyi</strong> vardır; konum ve fonksiyona göre adlandırılır.</p>
+
+  <table>
+    <caption>Dişin Yüzeyleri (Surfaces of a Tooth)</caption>
+    <thead><tr><th>Yüzey</th><th>Tanım / Köken</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Labial</strong></td><td>Dudağa (<em>labium</em>) bakan yüzey. <mark>Sadece anterior dişler</mark> için.</td></tr>
+      <tr><td><strong>Buccal</strong></td><td>Yanağa bakan yüzey. <mark>Sadece posterior dişler</mark> için. Adı <strong>buccinator</strong> kasından gelir.</td></tr>
+      <tr><td><strong>Facial</strong></td><td>Yüze bakan dış yüzey; <strong>hem labial hem buccal</strong> için kullanılan şemsiye terim.</td></tr>
+      <tr><td><strong>Lingual</strong></td><td>Dile bakan yüzey. Teknik olarak mandibula'ya özgü ama maxilla için de yaygın kullanılır.</td></tr>
+      <tr><td><strong>Palatal</strong></td><td>Damağa (palate) bakan yüzey. <mark>Sadece maxilla</mark> için; mandibulada kullanılmaz.</td></tr>
+      <tr><td><strong>Mesial</strong></td><td>Ark içinde <strong>orta hatta (midline) doğru</strong> yön.</td></tr>
+      <tr><td><strong>Distal</strong></td><td>Orta hattan <strong>en uzak</strong> yön. Her kadranın <em>son dişi hariç</em> (daimîde 3. molar) tüm dişlerde vardır.</td></tr>
+      <tr><td><strong>Proximal</strong></td><td>Mesial + distal'ı kapsayan genel terim; komşu dişe bakan yüzeyler. Bir dişin mesiali, komşunun distaline değer.</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Isırma / Boyun / Diş Eti Bölgeleri</h4>
+  <ul>
+    <li><strong>Incisal edge:</strong> Anterior dişlerin <em>ısırma kenarı</em>. Geniş çiğneme yüzeyi olmadığı için "yüzey" değil "kenar" denir.</li>
+    <li><strong>Occlusal surface:</strong> Posterior dişlerin ısırma/çiğneme yüzeyi.</li>
+    <li><strong>Cervical area:</strong> Latince "boyun"; CEJ yakınında, kron-kök buluşmasındaki daralma.</li>
+    <li><strong>Gingival area:</strong> Diş etine doğru olan yön.</li>
+  </ul>
+
+  <div class="box warn">
+    <span class="lbl">⚠️ Dikkat — Labial / Buccal / Palatal ayrımı</span>
+    <p><strong>Labial</strong> = yalnız <em>anterior</em> · <strong>Buccal</strong> = yalnız <em>posterior</em> · <strong>Palatal</strong> = yalnız <em>maxilla</em> · <strong>Lingual</strong> = teknik olarak <em>mandibula</em>. "Facial" ise hem labiali hem buccali kapsar. Hocalar en çok bu sınırları çeldirici yapar!</p>
+  </div>
+
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Buccal kelimesi</span>
+    <p><strong>B</strong>uccal → <strong>B</strong>uccinator → arka (posterior) yanak kası. "B" arkaya yapışır. Önde dudak (labium) olduğu için önde <strong>L</strong>abial. <em>Distal</em> = orta hattan u<strong>z</strong>aklaşır ("D" → "Distance/uzak"), <em>Mesial</em> = orta hatta yaklaşır.</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Bölüm 4</div>
+    <details class="fc"><summary>Palatal yüzey hangi çene için ve buccal yüzey hangi diş grubu için kullanılır?</summary>
+      <div class="ans"><strong>Palatal</strong> → sadece <strong>maxilla (üst çene)</strong>. <strong>Buccal</strong> → sadece <strong>posterior dişler</strong>.</div></details>
+    <details class="fc"><summary>Hangi diş(ler)in distal yüzeyi yoktur?</summary>
+      <div class="ans">Her kadranın <strong>son dişi</strong> — daimîde <strong>3. molar</strong>, sütte <strong>2. molar</strong>. (Aslında distal komşusu olmadığı için kontak açısından farklıdır; öğretim notu son dişi vurgular.)</div></details>
+    <details class="fc"><summary>"Facial" terimi neyi kapsar?</summary>
+      <div class="ans">Hem <strong>labial</strong> (anterior) hem <strong>buccal</strong> (posterior) yüzeyleri kapsayan şemsiye terim.</div></details>
+  </div>
+</section>
+
+<!-- ============ SECTION 5 ============ -->
+<section id="s5">
+  <h2 class="sec"><span class="num">05</span>Morfoloji Terimleri</h2>
+
+  <h3>Cusp (Tepe)</h3>
+  <p>Kron üzerinde "sivri" veya "yuvarlak yükselti". Kaninlerde, premolar ve molarların çiğneme yüzeyinde bulunur. Temel olarak bir <strong>piramit/koni</strong> şeklindedir:</p>
+  <ul>
+    <li><strong>İki cusp slope (ridge slope):</strong> tepede açı yapan eğimli yüzeyler → <em>mesial</em> ve <em>distal cusp slope</em> (cusp arms).</li>
+    <li><strong>Bir cusp tip (tepe noktası).</strong></li>
+    <li><strong>Labial/buccal/lingual ridge:</strong> ilgili cusp için bir tane.</li>
+    <li><strong>Triangular ridge:</strong> yalnız posteriorların oklüzal yüzeyinde.</li>
+  </ul>
+
+  <h3>Ridge Çeşitleri (Linear elevation = sırt)</h3>
+  <table>
+    <caption>Ridge tipleri ve konumları</caption>
+    <thead><tr><th>Ridge</th><th>Konum / Özellik</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Labial ridge</strong></td><td>Labial yüzeyde, serviko-insizal yönde, ~merkezde. Örn: kaninlerde belirgin.</td></tr>
+      <tr><td><strong>Buccal ridge</strong></td><td>Buccal yüzeyde, serviko-oklüzal yönde, ~merkezde. Örn: premolar/molarlarda.</td></tr>
+      <tr><td><strong>Lingual ridge</strong></td><td>Lingual yüzeyde; daimî kanin ve posteriorlarda <strong>cingulum'dan cusp tip'e</strong> uzanır.</td></tr>
+      <tr><td><strong>Marginal ridge</strong></td><td>Lingual/oklüzal yüzeyin mesial ve distal sınırlarını oluşturan yuvarlak mine kenarı. Her dişte <mark>iki tane</mark>: mesial MR + distal MR.</td></tr>
+      <tr><td><strong>Triangular ridge</strong></td><td><mark>Sadece premolar &amp; molar.</mark> Cusp tip'ten oklüzal yüzeyin merkezine iner; iki eğim üçgen oluşturur.</td></tr>
+      <tr><td><strong>Transverse ridge</strong></td><td>Buccal + lingual triangular ridge'lerin <strong>birleşimi</strong>; yüzeyi enine (buccolingual) geçer. Premolar ve <strong>daimî mandibular molarlarda</strong>.</td></tr>
+      <tr><td><strong>Oblique ridge</strong></td><td><strong>Mesiopalatal + distobuccal</strong> cusp triangular ridge'lerinin birleşimi; oblik yönde. <mark>Maxiller daimî molarlar</mark> ve maxiller 2. süt molarında.</td></tr>
+      <tr><td><strong>Cervical ridge</strong></td><td>Buccal yüzeyin servikal 1/3'ünde mesiodistal seyreder. Tüm süt dişlerinde + yalnız daimî molarlarda.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box spot">
+    <span class="lbl">🎯 Spot Bilgi — Çok sorulan üçlü</span>
+    <p><strong>Transverse ridge:</strong> buccal + lingual triangular ridge → premolar &amp; <em>mandibular</em> molar.<br>
+    <strong>Oblique ridge:</strong> mesiopalatal + distobuccal cusp → <em>maxiller</em> molar (özellikle maxiller 1. moların ayırt edici özelliği!).<br>
+    <strong>Triangular ridge:</strong> sadece premolar &amp; molarlarda (anteriorda YOK).</p>
+  </div>
+
+  <h3>Cingulum, Tubercle, Eminence</h3>
+  <ul>
+    <li><strong>Cingulum:</strong> Anterior dişlerin lingual yüzünün servikal 1/3'ündeki konveksite/lob.</li>
+    <li><strong>Tubercle:</strong> Fazladan mine oluşumuyla oluşan küçük yükselti. Örn: <strong>Tubercle of Carabelli</strong> — daimî maxiller 1. moların mesiopalatal cusp'ının palatal yüzünde; ilk kez 1842'de George Carabelli tarafından tanımlandı (küçük ek cusp).</li>
+    <li><strong>Eminence:</strong> Kemik/mine çıkıntısı. <strong>Canine eminence</strong> — daimî maxiller kaninin labial kök yüzeyinde belirgin, kozmetik değeri olan çıkıntı.</li>
+  </ul>
+
+  <div class="box clinic">
+    <span class="lbl">🦷 Klinik Önemi — Carabelli &amp; Canine Eminence</span>
+    <p><strong>Tubercle of Carabelli</strong> maxiller 1. moları tanımanın klasik ipucudur; sınavda "hangi diş?" sorusunda altın anahtar. <strong>Canine eminence</strong> ise total protez ve estetik dizimde dudak desteğini belirler — ileride protez dişi dizerken bu çıkıntıyı taklit edeceksin.</p>
+  </div>
+
+  <h3>Fossa Çeşitleri</h3>
+  <ul>
+    <li><strong>Lingual fossa:</strong> Anterior dişlerin (kesici, kanin) lingual yüzeyindeki düzensiz sığ çukur.</li>
+    <li><strong>Triangular fossa:</strong> Posteriorların oklüzal yüzeyinde, mesial/distal marginal ridge yanında (minör fossa).</li>
+    <li><strong>Central fossa:</strong> Maxiller ve mandibular <strong>molarların</strong> oklüzal yüzeyinde merkezi çukur (majör fossa). <mark>Premolarlarda central fossa yoktur</mark>, onlarda mesial+distal triangular fossa bulunur.</li>
+  </ul>
+
+  <h3>Groove, Sulcus, Pit, Fissure, Lobe, Mamelon</h3>
+  <table>
+    <thead><tr><th>Terim</th><th>Tanım</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Developmental groove</strong></td><td>Gelişim sırasında kronun/kökün primer parçaları arasındaki sığ çizgi; lobları ayırır.</td></tr>
+      <tr><td><strong>Supplemental groove</strong></td><td>Çok sayıda, daha az belirgin, sığ oluk; primer parçaların birleşimini <em>temsil etmez</em> (developmental'in aksine).</td></tr>
+      <tr><td><strong>Sulcus</strong></td><td>Ridge/cusp'lar arasındaki uzun vadi; merkeze doğru eğimli. Posteriorların oklüzal yüzeyinde.</td></tr>
+      <tr><td><strong>Pit</strong></td><td>Developmental groove'ların birleşim/uç noktasındaki iğne ucu çukur. Örn: buccal pit, lingual pit, central pit.</td></tr>
+      <tr><td><strong>Fissure</strong></td><td>Developmental groove'un derinindeki dar yarık; nadiren pulpaya kadar uzanır.</td></tr>
+      <tr><td><strong>Lobe</strong></td><td>Kron gelişiminde bir oluşum merkezi (primer bölüm). <mark>Her diş için minimum 4 lob</mark> gerekir. Posteriorlarda <strong>lob sayısı = cusp sayısı</strong>.</td></tr>
+      <tr><td><strong>Mamelon</strong></td><td>Yeni süren kesicilerin insizal kenarındaki yuvarlak mine çıkıntıları. <strong>3 tane</strong>: mesial, middle, distal. Mesial en büyük, middle en küçük. Çiğneme ile aşınır.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Sulcus vs Groove vs Fissure</span>
+    <p>Boyut/derinlik mantığı: <strong>Sulcus</strong> = geniş "vadi" (V tabanlı) → <strong>Groove</strong> = ince çizgi → <strong>Pit</strong> = nokta çukur → <strong>Fissure</strong> = en derin, patolojik yarık (çürük başlangıcı!). <em>"Vadiden çizgiye, noktadan yarığa daralır."</em></p>
+  </div>
+  <div class="box warn">
+    <span class="lbl">⚠️ Dikkat — Central fossa</span>
+    <p><strong>Central fossa yalnızca MOLARLARDA</strong> bulunur. Premolarlarda central fossa <em>yoktur</em>; onlarda mesial ve distal triangular fossa vardır. "Premolarda central fossa var" → <mark>çeldirici</mark>.</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Bölüm 5</div>
+    <details class="fc"><summary>Oblique ridge hangi dişlerde bulunur ve hangi cusp'ların birleşimidir?</summary>
+      <div class="ans"><strong>Maxiller daimî molarlar</strong> (ve maxiller 2. süt molar). <strong>Mesiopalatal + distobuccal</strong> cusp'ların triangular ridge'lerinin birleşimidir.</div></details>
+    <details class="fc"><summary>Tubercle of Carabelli hangi dişin ayırt edici özelliğidir?</summary>
+      <div class="ans">Daimî <strong>maxiller 1. molar</strong> — mesiopalatal cusp'ın palatal yüzeyinde.</div></details>
+    <details class="fc"><summary>Mamelonlar kaç tanedir, en büyüğü hangisidir?</summary>
+      <div class="ans"><strong>3 tane</strong> (mesial, middle, distal). En büyük <strong>mesial</strong>, en küçük <strong>middle</strong>.</div></details>
+    <details class="fc"><summary>Bir dişin gelişimi için minimum kaç lob gerekir, posteriorda lob–cusp ilişkisi nedir?</summary>
+      <div class="ans">Minimum <strong>4 lob</strong>. Posteriorda <strong>lob sayısı = cusp sayısı</strong>.</div></details>
+    <details class="fc"><summary>Central fossa hangi dişlerde vardır, premolarda neden yoktur?</summary>
+      <div class="ans">Sadece <strong>molarlarda</strong>. Premolarlarda merkezi çukur yerine <strong>mesial + distal triangular fossa</strong> bulunur.</div></details>
+  </div>
+</section>
+
+<!-- ============ SECTION 6 ============ -->
+<section id="s6">
+  <h2 class="sec"><span class="num">06</span>Kontak, Embrasure &amp; Dişin Bölünmesi</h2>
+  <ul>
+    <li><strong>Crest of curvature:</strong> Bir diş yüzeyindeki en büyük konveksite/şişkinlik.</li>
+    <li><strong>Contact point:</strong> Komşu iki dişin değdiği proksimal crest of curvature. <mark>Anteriorlarda "nokta"</mark> (kontak dar).</li>
+    <li><strong>Contact area:</strong> Aynı tanım, fakat <mark>posteriorlarda "alan"</mark> (kontak daha geniş).</li>
+    <li><strong>Diastema:</strong> Normalde temas etmesi gereken iki komşu diş arasındaki boşluk.</li>
+    <li><strong>Interproximal space:</strong> İki komşu diş arasında, kontak alanının servikalinde kalan üçgen boşluk.</li>
+    <li><strong>Interdental papilla:</strong> Bu interproksimal boşluğu dolduran üçgen diş eti dokusu.</li>
+  </ul>
+
+  <h3>Embrasure (Spillway)</h3>
+  <p>Kontak alanlarını çevreleyen, kontakta daralıp fasiyal/lingual/oklüzal yönlerde genişleyen <strong>"V" şeklinde potansiyel boşluk</strong>. "Spillway" da denir; çiğnerken besinin kaçışını sağlar ve <em>besin sıkışmasını (food impaction)</em> önler. Türleri:</p>
+  <ul>
+    <li>Labial/buccal embrasure (= <strong>facial embrasure</strong>)</li>
+    <li>Lingual/palatal embrasure</li>
+    <li>Occlusal/incisal embrasure</li>
+    <li>Gingival embrasure</li>
+  </ul>
+
+  <div class="box clinic">
+    <span class="lbl">🦷 Klinik Önemi — Embrasure &amp; Kontak</span>
+    <p>Dolgu veya kron yaparken <strong>kontak alanını ve embrasure'leri</strong> doğru oluşturmak şart. Yanlış (gevşek) kontak → besin sıkışması, diş eti iltihabı ve çürük; kapalı gingival embrasure → papil sağlığının bozulması. Restoratif diş hekimliğinin temel kalite kriteri budur.</p>
+  </div>
+
+  <h3>Dişin Üçe Bölünmesi (Division in Thirds)</h3>
+  <p>Tanımlayıcı amaçla diş üç yönde üçe bölünür:</p>
+  <table>
+    <thead><tr><th>Yön</th><th>Kron bölünmesi</th><th>Kök bölünmesi</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Cervico-incisal</strong> (anterior) / <strong>cervico-occlusal</strong> (posterior)</td><td>incisal/occlusal · middle · cervical third</td><td>cervical · middle · apical third</td></tr>
+      <tr><td><strong>Mesiodistal</strong></td><td>mesial · middle · distal third</td><td>—</td></tr>
+      <tr><td><strong>Labiolingual</strong> (ant.) / <strong>buccolingual</strong> (post.)</td><td>labial/buccal · middle · lingual third</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Bölüm 6</div>
+    <details class="fc"><summary>Anteriorda "contact point", posteriorda "contact area" neden farklı adlandırılır?</summary>
+      <div class="ans">Anterior kontak <strong>dar</strong> olduğu için "nokta"; posterior kontak <strong>daha geniş</strong> olduğu için "alan" denir.</div></details>
+    <details class="fc"><summary>Embrasure'ün fonksiyonel önemi nedir?</summary>
+      <div class="ans">Besinin çiğneme sırasında kaçışını sağlar (spillway) ve <strong>food impaction'ı (besin sıkışması)</strong> önler.</div></details>
+    <details class="fc"><summary>Interproximal boşluğu dolduran yapı nedir?</summary>
+      <div class="ans"><strong>Interdental papilla</strong> (üçgen diş eti dokusu).</div></details>
+  </div>
+</section>
+
+<!-- ============ SECTION 7 ============ -->
+<section id="s7">
+  <h2 class="sec"><span class="num">07</span>Diş Numaralama Sistemleri</h2>
+  <p class="lead">Her diş için harf/sayı ile uzaydaki konumu belirtmeye <strong>"dental formula / tooth formula"</strong> denir. İyi bir sistem: anlaşılır, telaffuzu kolay, basılabilir, bilgisayara aktarılabilir ve standart kartlara uyarlanabilir olmalıdır.</p>
+
+  <p>Her sistem 4 bilgi verir: <strong>(1)</strong> daimî mi/süt mü, <strong>(2)</strong> üst mü/alt mı, <strong>(3)</strong> sağ mı/sol mu, <strong>(4)</strong> diş tipi.</p>
+  <div class="box warn">
+    <span class="lbl">⚠️ Dikkat</span>
+    <p>1988'den beri <strong>40 farklı sistem</strong> kullanımda. Farklı sistem kullanımı → <mark>yanlış dişe tedavi</mark> ve hasta kayıtlarında karışıklık riski. Bu yüzden klinikte tek bir sistemde netleşmek hayati.</p>
+  </div>
+
+  <h3>1) Palmer (Chevron) Sistemi</h3>
+  <ul>
+    <li>Dişler kadran ve pozisyona göre, kadranı gösteren <strong>köşe sembolleri (┘ └ ┐ ┌)</strong> ile etiketlenir.</li>
+    <li>Daimî: <strong>1–8</strong> rakamları · Süt: <strong>A–E</strong> harfleri (klasik/eski versiyonda <strong>Roma rakamları I–V</strong>).</li>
+    <li>Örnek: "┘" + 1 = üst sağ santral kesici.</li>
+  </ul>
+
+  <h3>2) FDI (Uluslararası) Sistemi — <em>iki haneli</em></h3>
+  <p>Ağız 4 kadrana ayrılır. <strong>İlk hane = kadran</strong>, <strong>ikinci hane = diş pozisyonu</strong> (daimî 1–8, süt 1–5).</p>
+  <table>
+    <caption>FDI Kadran Kodları</caption>
+    <thead><tr><th>Kadran</th><th>Daimî</th><th>Süt</th></tr></thead>
+    <tbody>
+      <tr><td>Üst sağ</td><td><code>1</code> (11–18)</td><td><code>5</code> (51–55)</td></tr>
+      <tr><td>Üst sol</td><td><code>2</code> (21–28)</td><td><code>6</code> (61–65)</td></tr>
+      <tr><td>Alt sol</td><td><code>3</code> (31–38)</td><td><code>7</code> (71–75)</td></tr>
+      <tr><td>Alt sağ</td><td><code>4</code> (41–48)</td><td><code>8</code> (81–85)</td></tr>
+    </tbody>
+  </table>
+  <p>Örnekler: <span class="mono">16</span> = üst sağ 1. molar · <span class="mono">21</span> = üst sol santral kesici · <span class="mono">14</span> = üst sağ 1. premolar · <span class="mono">22</span> = üst sol lateral kesici. Süt: <span class="mono">61</span> = üst sol süt santral, <span class="mono">62</span> = üst sol süt lateral.</p>
+
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — FDI kadran sırası</span>
+    <p>Kadranlar <strong>saat yönünde, üst sağdan başlar</strong>: <strong>1→2→3→4</strong> (daimî), <strong>5→6→7→8</strong> (süt). "Üst sağ = 1, sonra <em>sola</em> dön, <em>aşağı</em> in, <em>sağa</em> dön." Süt dişleri daimîlerin +4 kaydırılmış halidir (1+4=5 üst sağ süt).</p>
+  </div>
+
+  <h3>3) Universal (ADA) Sistemi — ABD'de yaygın</h3>
+  <ul>
+    <li>Daimî: <strong>1–32</strong>. <mark>Diş 1 = üst sağ 3. molar (20 yaş dişi)</mark>; üst soldan döner, alt sola iner, <strong>alt sağ 3. molar = 32</strong> ile biter.</li>
+    <li>Süt: <strong>A–T</strong> harfleri. A = üst sağ 2. molar; T = alt sağ 2. molar.</li>
+    <li>(Alternatif gösterim: rakam + küçük "d" → süt; örn. 2d = üst sağ 1. süt molar.)</li>
+  </ul>
+  <p>Örnekler: <span class="mono">5</span> = üst sağ 1. premolar · <span class="mono">10</span> = üst sol lateral kesici.</p>
+
+  <div class="box spot">
+    <span class="lbl">🎯 Spot Bilgi — Üç sistemi ayırt et</span>
+    <p><strong>Palmer:</strong> köşe sembolü + 1–8 / A–E.<br>
+    <strong>FDI:</strong> iki haneli sayı (16, 21, 36…).<br>
+    <strong>Universal (ADA):</strong> tek dizi 1–32 (üst sağ 3. molardan başlar) / A–T.<br>
+    En çok sorulan: aynı dişin üç sistemdeki karşılığı. Örn. <em>üst sağ 1. molar</em> → FDI 16, Universal 3, Palmer ┌6.</p>
+  </div>
+  <div class="box warn">
+    <span class="lbl">⚠️ Dikkat — Universal vs FDI başlangıç noktası</span>
+    <p>Universal diş <strong>1 = üst sağ 3. molar</strong> (en arkadan başlar). FDI'de 11 = üst sağ <em>santral kesici</em> (orta hattan başlar). Başlangıç noktalarını karıştırmak en klasik hatadır!</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Bölüm 7</div>
+    <details class="fc"><summary>FDI sisteminde "36" hangi diştir?</summary>
+      <div class="ans">İlk hane 3 = <strong>alt sol</strong> kadran, ikinci hane 6 = <strong>1. molar</strong> → <strong>alt sol 1. molar</strong>.</div></details>
+    <details class="fc"><summary>Universal sistemde diş "1" ve diş "32" hangileridir?</summary>
+      <div class="ans">Diş 1 = <strong>üst sağ 3. molar</strong>; diş 32 = <strong>alt sağ 3. molar</strong>.</div></details>
+    <details class="fc"><summary>FDI'de süt dişi kadranları hangi rakamlarla başlar?</summary>
+      <div class="ans"><strong>5</strong> (üst sağ), <strong>6</strong> (üst sol), <strong>7</strong> (alt sol), <strong>8</strong> (alt sağ).</div></details>
+    <details class="fc"><summary>Palmer sisteminde daimî ve süt dişleri için hangi semboller kullanılır?</summary>
+      <div class="ans">Daimî: <strong>1–8 rakamları</strong>; süt: <strong>A–E harfleri</strong> (klasik versiyonda Roma rakamları I–V), kadranı gösteren köşe sembolüyle birlikte.</div></details>
+  </div>
+</section>
+
+<!-- ============ SECTION 8 ============ -->
+<section id="s8">
+  <h2 class="sec"><span class="num">08</span>Ağız Boşluğu Anatomisi <span class="pill">Cavum Oris</span></h2>
+  <p class="lead">Ağız boşluğu (<strong>cavum oris</strong>) sindirim sisteminin ilk parçasıdır; dudaklar, yanaklar, sert ve yumuşak damak ve dil ile sınırlanır. <strong>Giriş:</strong> dudaklarla çevrili açıklık (ağız). <strong>Çıkış:</strong> üstte sarkan <em>uvula</em> ile işaretlenen, farinkse açılan dar geçit.</p>
+
+  <h3>Ağız Boşluğunun İki Bölümü</h3>
+  <p>Ağız kapalıyken üst ve alt diş arkları ağzı ikiye böler:</p>
+  <ol>
+    <li><strong>Vestibulum oris (Oral vestibül):</strong> Ön bölüm — dudak/yanak iç yüzeyleri ile diş arklarının dış yüzeyleri arasında.</li>
+    <li><strong>Cavum oris propria (Oral cavity proper):</strong> Arka bölüm — diş arklarının iç yüzeyinden orofarinkse kadar.</li>
+  </ol>
+
+  <h3>Ağzın Tabanı &amp; Tavanı</h3>
+  <ul>
+    <li><strong>Taban (Floor):</strong> Başlıca <strong>mylohyoid kası</strong> oluşturur; U şeklindeki mandibula ile hyoid kemik arasında diyafram gibi uzanır.</li>
+    <li><strong>Tavan (Roof):</strong> Orta hatta her iki taraftan simetrik yapıların kaynaşmasıyla oluşur; ağzı burun boşluğundan ayırır.</li>
+    <li><strong>Hard palate (Sert damak):</strong> Ön 2/3 = her iki maxilla'nın <em>palatine process</em>'leri; arka 1/3 = palatine kemiklerin <em>horizontal plate</em>'leri.</li>
+  </ul>
+
+  <h3>Maxilla (Üst Çene)</h3>
+  <p>Orta hatta <strong>intermaxillary suture</strong> ile birleşen iki kemikten oluşur. Mandibula'dan sonra yüz iskeletini oluşturan <mark>en büyük kemik</mark>; ağız, burun, orbita ve sinüs boşluklarının sınırlarını yapar. Dört çıkıntısı (process) vardır:</p>
+  <table>
+    <thead><tr><th>Process</th><th>Bağlantı / Rol</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Frontal process</strong></td><td>Frontal kemikle birleşir; burun boşluğu lateral duvarına katkı.</td></tr>
+      <tr><td><strong>Zygomatic process</strong></td><td>Zygomatik kemikle (elmacık) birleşir.</td></tr>
+      <tr><td><strong>Alveolar process</strong></td><td>Diş köklerini barındırır; dişlere destek/stabilite sağlar.</td></tr>
+      <tr><td><strong>Palatine process</strong></td><td>Palatine kemikle birleşir; sert damak ve ağız tabanı oluşumuna katılır.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Maxilla'nın 4 process'i</span>
+    <p><strong>"FZAP"</strong> → <strong>F</strong>rontal, <strong>Z</strong>ygomatic, <strong>A</strong>lveolar, <strong>P</strong>alatine. Türkçe köprü: <em>"Frontal Zirvede Alveol Palatine"</em>. Alveolar = diş kökleri, Palatine = damak diye eşleştir.</p>
+  </div>
+
+  <h3>Mandibula (Alt Çene)</h3>
+  <p>Ağzı ön, alt ve yanlardan çevreleyen en önemli rijit yapı. Embriyolojik olarak iki ayrı kemikken <strong>~1 yaşında tek kemiğe kaynaşır</strong>. Kafa tabanına <strong>temporomandibular eklemler (TMJ)</strong> ile bağlanır. Üç parçası:</p>
+  <ul>
+    <li><strong>Corpus mandibulae (Gövde):</strong> Yatay parça; dişleri, alveolleri (alveolar part) ve kemik tabanını (basis mandibulae) içerir. İç ve dış yüzeyi vardır.</li>
+    <li><strong>Ramus mandibulae:</strong> Açıyla yukarı-geri yükselen parça. Ön kısım = <strong>coronoid process</strong>, arka kısım = <strong>condylar process</strong>.</li>
+    <li><strong>Angulus mandibulae:</strong> Ramus ile gövdenin açı yaptığı bölge.</li>
+  </ul>
+
+  <h3>Alveolar Kemik (Processus Alveolaris)</h3>
+  <p>Diş arklarında köklerin etrafında kemerlenen, bazal kemik üzerindeki yapı. Maxillaların alveolar process'leri birleşerek <strong>üst alveolar arkı</strong>, corpus mandibulae'nin üst kısmı <strong>alt alveolar arkı</strong> oluşturur.</p>
+
+  <h3>Temporal Kemik &amp; TMJ</h3>
+  <ul>
+    <li>Embriyolojik kökene göre üç parça: <strong>Squamous, Petrous, Tympanic part</strong>.</li>
+    <li>Mandibular kondil, temporal kemiğin <em>squamous</em> kısmındaki <strong>mandibular fossa (glenoid fossa)</strong> ile eklem yapar.</li>
+    <li><strong>Articular eminence</strong>'in eğimi, kondilin hareket yolunun açısını ve mandibulanın öne hareketini belirler.</li>
+    <li><strong>TMJ:</strong> Mandibulanın condylar process'i ile temporal kemiğin mandibular fossa'sı arasındaki eklem.</li>
+  </ul>
+
+  <div class="box clinic">
+    <span class="lbl">🦷 Klinik Önemi — Articular eminence &amp; TMJ</span>
+    <p><strong>Articular eminence eğimi</strong> kondil yolunu (condylar guidance) belirler ve bu, ileride <em>artikülatör ayarı</em> ve total protezde diş diziminin temelidir. TMJ anatomisi, çene ekleminin sesli/ağrılı disfonksiyonlarını (TMD) anlamanın anahtarı olacak — oklüzyon dersinde tekrar karşına çıkacak.</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Bölüm 8</div>
+    <details class="fc"><summary>Vestibulum oris ile cavum oris propria arasındaki sınır nedir?</summary>
+      <div class="ans">Diş arkları. <strong>Vestibül</strong> = dudak/yanak ile diş arkları arası (ön); <strong>cavity proper</strong> = arkların iç yüzeyinden orofarinkse (arka).</div></details>
+    <details class="fc"><summary>Sert damağın ön 2/3 ve arka 1/3'ünü hangi kemikler oluşturur?</summary>
+      <div class="ans">Ön 2/3 = maxillaların <strong>palatine process</strong>'leri; arka 1/3 = palatine kemiklerin <strong>horizontal plate</strong>'leri.</div></details>
+    <details class="fc"><summary>Ağzın tabanını oluşturan ana kas hangisidir?</summary>
+      <div class="ans"><strong>Mylohyoid kası</strong> (mandibula ile hyoid arasında diyafram gibi uzanır).</div></details>
+    <details class="fc"><summary>Mandibulanın üç ana parçası nelerdir, condylar process nerededir?</summary>
+      <div class="ans"><strong>Corpus, Ramus, Angulus</strong>. Condylar process ramus'un <strong>arka</strong> kısmıdır (ön kısım = coronoid process).</div></details>
+    <details class="fc"><summary>TMJ hangi iki yapı arasındaki eklemdir?</summary>
+      <div class="ans">Mandibulanın <strong>condylar process</strong>'i ile temporal kemiğin <strong>mandibular (glenoid) fossa</strong>'sı.</div></details>
+  </div>
+</section>
+
+<!-- ============ SECTION 9 ============ -->
+<section id="s9">
+  <h2 class="sec"><span class="num">09</span>Anatomik Düzlemler, Eksenler &amp; Hareketler</h2>
+
+  <h3>Üç Ana Düzlem (Planes)</h3>
+  <table>
+    <caption>Anatomik düzlemler ve böldükleri parçalar</caption>
+    <thead><tr><th>Düzlem</th><th>Böldüğü parçalar</th><th>Yön</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Sagittal plane</strong></td><td>Sol &amp; sağ</td><td>Önden arkaya uzanır</td></tr>
+      <tr><td><strong>Frontal (Coronal) plane</strong></td><td>Anterior (ön) &amp; posterior (arka)</td><td>Sağdan sola keser</td></tr>
+      <tr><td><strong>Horizontal (Transverse) plane</strong></td><td>Superior (üst) &amp; inferior (alt)</td><td>Enine keser</td></tr>
+    </tbody>
+  </table>
+  <ul>
+    <li><strong>Median plane:</strong> Vücudu iki eşit sol-sağ yarıya bölen sagittal düzlem. Median düzleme yakın = <strong>medial</strong>, uzak = <strong>lateral</strong>; tam üzerinde = <em>median</em>.</li>
+    <li>Frontal düzlem referansı: öne yakın = <strong>anterior/ventral</strong>, arkaya yakın = <strong>posterior/dorsal</strong>.</li>
+    <li>Horizontal düzlem referansı: başa yakın = <strong>superior/cephalic</strong>, alta yakın = <strong>inferior/caudal</strong>.</li>
+  </ul>
+
+  <h3>Üç Ana Eksen (Axes)</h3>
+  <table>
+    <thead><tr><th>Eksen</th><th>Seyir</th><th>Böldüğü parçalar</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Sagittal axis</strong></td><td>Önden arkaya</td><td>Sol &amp; sağ</td></tr>
+      <tr><td><strong>Frontal (vertical) axis</strong></td><td>Yandan yana</td><td>Anterior &amp; posterior</td></tr>
+      <tr><td><strong>Horizontal (transverse) axis</strong></td><td>Üstten alta</td><td>Üst &amp; alt</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box warn">
+    <span class="lbl">⚠️ Dikkat — Düzlem ile aynı adlı eksen FARKLI parçalara böler!</span>
+    <p>Klasik kafa karışıklığı: <strong>Sagittal düzlem</strong> sol-sağ ayırır; <strong>sagittal eksen</strong> de sol-sağ ayırır (uyumlu). Ama <strong>frontal düzlem</strong> ön-arka ayırırken, <strong>frontal eksen</strong> de ön-arka ayırır. Tablodaki seyir yönü (önden arkaya / yandan yana / üstten alta) ile böldüğü parçayı birlikte ezberle; sınavda eksen-düzlem eşleştirmesi sorulur.</p>
+  </div>
+
+  <h3>Konum &amp; Hareket Terimleri</h3>
+  <ul>
+    <li><strong>Proximal:</strong> Bir referans noktasına / tutunma noktasına daha yakın.</li>
+    <li><strong>Oblique:</strong> Diğer düzlemleri açıyla kesen düzlem.</li>
+    <li>Kombinasyonlar mümkündür: <em>posterolateral, anteromedial</em> gibi.</li>
+  </ul>
+  <table>
+    <caption>Temel Hareketler</caption>
+    <thead><tr><th>Hareket</th><th>Tanım</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Flexion</strong></td><td>İki vücut parçası arasındaki açıyı <em>azaltır</em> (dirseği bükmek).</td></tr>
+      <tr><td><strong>Extension</strong></td><td>Açıyı <em>artırır</em>, parçaları düzleştirir (kolu uzatmak).</td></tr>
+      <tr><td><strong>Abduction</strong></td><td>Parçayı orta hattan <em>uzaklaştırır</em> (kolu yana kaldırmak).</td></tr>
+      <tr><td><strong>Adduction</strong></td><td>Parçayı orta hatta <em>yaklaştırır</em> (kolu gövdeye indirmek).</td></tr>
+      <tr><td><strong>Circumduction</strong></td><td>Konik şekil çizen hareket; distal uç dairesel yol izlerken proksimal uç sabit. Flexion+extension+abduction+adduction kombinasyonu.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Abduction vs Adduction</span>
+    <p><strong>AB</strong>duction = "<strong>A</strong>way / a<strong>B</strong>road" → orta hattan <em>uzaklaşır</em>.<br>
+    <strong>AD</strong>duction = "<strong>ADD</strong> to body" → orta hatta <em>eklenir/yaklaşır</em>.<br>
+    <strong>Flex</strong>ion = "fle<strong>x</strong> → bük → açı küçülür"; <strong>Ext</strong>ension = "e<strong>x</strong>tend → uzat → açı büyür".</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Bölüm 9</div>
+    <details class="fc"><summary>Hangi düzlem vücudu superior ve inferior olarak böler?</summary>
+      <div class="ans"><strong>Horizontal (transverse) düzlem.</strong></div></details>
+    <details class="fc"><summary>Median plane'e yakın yapılar nasıl, uzak yapılar nasıl adlandırılır?</summary>
+      <div class="ans">Yakın = <strong>medial</strong>; uzak = <strong>lateral</strong>; tam üzerinde = <strong>median</strong>.</div></details>
+    <details class="fc"><summary>Circumduction hangi hareketlerin kombinasyonudur?</summary>
+      <div class="ans">Flexion + extension + abduction + adduction → distal uç dairesel/konik yol çizer, proksimal uç sabit kalır.</div></details>
+    <details class="fc"><summary>Frontal (coronal) düzlem vücudu hangi iki parçaya böler?</summary>
+      <div class="ans"><strong>Anterior (ön)</strong> ve <strong>posterior (arka)</strong>.</div></details>
+  </div>
+</section>
+
+<div class="divider">• • •</div>
+
+<footer>
+  <p>🦷 <strong>Batch 1 / 4 tamamlandı —</strong> Temel Kavramlar (Terminoloji · Diş Numaralama · Ağız Anatomisi &amp; Düzlemler)</p>
+  <p>Sıradaki batch: <em>Diş Anatomisi — Genel ilkeler &amp; tüm diş grupları (kesiciler, kaninler, premolarlar, molarlar)</em></p>
+  <p style="opacity:.7;">Flashcard kutularına tıklayarak cevapları açıp kapatabilirsin · İyi çalışmalar!</p>
+</footer>
+
+</div>
+<script src="../../assets/language.js" defer></script>
+</body>
+</html>

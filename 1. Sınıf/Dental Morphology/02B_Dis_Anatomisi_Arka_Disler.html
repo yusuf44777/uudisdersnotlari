@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diş Hekimliği Final Rehberi — Batch 2B: Arka Dişler</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Spectral:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4efe6;--paper:#fbf8f1;--ink:#2a2620;--ink-soft:#5a5348;--line:#e0d7c6;
+    --accent:#9a3b2e;--accent-2:#1f5d57;
+    --clinic-bg:#e7f1ef;--clinic-br:#1f5d57;--clinic-ink:#13403b;
+    --spot-bg:#eaf3e4;--spot-br:#3f7d2f;--spot-ink:#274f1d;
+    --warn-bg:#fcefe0;--warn-br:#c5781a;--warn-ink:#8a4e07;
+    --card-bg:#efe9f5;--card-br:#6a4c93;--card-ink:#3f2c63;
+    --mnem-bg:#fdf2f4;--mnem-br:#9a3b2e;--mnem-ink:#6e271d;
+  }
+  *{box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Spectral',Georgia,serif;font-size:18px;line-height:1.7;background-image:radial-gradient(var(--line) 0.5px,transparent 0.5px);background-size:22px 22px;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px 90px;}
+  header.hero{text-align:center;padding:64px 20px 40px;margin-bottom:20px;}
+  header.hero .kick{font-family:'JetBrains Mono',monospace;letter-spacing:.32em;text-transform:uppercase;font-size:.72rem;color:var(--accent);}
+  header.hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:3rem;line-height:1.05;margin:.3em 0 .2em;}
+  header.hero p{color:var(--ink-soft);font-style:italic;margin:0;}
+  .tooth{font-size:2.6rem;display:block;margin-bottom:.1em;}
+  nav.toc{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin-bottom:50px;box-shadow:0 6px 22px -16px #00000040;}
+  nav.toc h2{font-family:'Fraunces',serif;font-size:1rem;text-transform:uppercase;letter-spacing:.14em;margin:0 0 12px;color:var(--accent-2);}
+  nav.toc ol{margin:0;padding-left:1.3em;columns:2;column-gap:34px;}
+  nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--line);}
+  nav.toc a:hover{color:var(--accent);}
+  section{margin-bottom:60px;}
+  h2.sec{font-family:'Fraunces',serif;font-weight:900;font-size:2rem;color:var(--accent);border-bottom:3px solid var(--accent);padding-bottom:.18em;margin:0 0 .2em;scroll-margin-top:20px;}
+  h2.sec .num{font-family:'JetBrains Mono',monospace;font-size:1rem;background:var(--accent);color:#fff;border-radius:8px;padding:2px 10px;margin-right:10px;vertical-align:middle;}
+  h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;color:var(--accent-2);margin:1.8em 0 .3em;scroll-margin-top:20px;}
+  h4{font-family:'Fraunces',serif;font-weight:600;font-size:1.12rem;color:var(--ink);margin:1.3em 0 .2em;}
+  p{margin:.5em 0;}
+  strong{color:var(--accent-2);font-weight:600;}
+  em{color:var(--ink-soft);}
+  mark{background:#ffe89c;padding:0 .18em;border-radius:3px;}
+  ul,ol{margin:.4em 0 .8em;padding-left:1.4em;}
+  li{margin:.3em 0;}
+  .lead{font-size:1.05rem;color:var(--ink-soft);font-style:italic;border-left:3px solid var(--line);padding-left:16px;margin:.6em 0 1.4em;}
+  .box{border-radius:12px;padding:16px 20px 16px 18px;margin:18px 0;border-left:6px solid;position:relative;font-size:.97rem;line-height:1.6;}
+  .box .lbl{font-family:'Fraunces',serif;font-weight:600;display:block;margin-bottom:4px;font-size:1.02rem;}
+  .box p{margin:.35em 0;}
+  .clinic{background:var(--clinic-bg);border-color:var(--clinic-br);}.clinic .lbl{color:var(--clinic-ink);}
+  .spot{background:var(--spot-bg);border-color:var(--spot-br);}.spot .lbl{color:var(--spot-ink);}
+  .warn{background:var(--warn-bg);border-color:var(--warn-br);}.warn .lbl{color:var(--warn-ink);}
+  .mnem{background:var(--mnem-bg);border-color:var(--mnem-br);}.mnem .lbl{color:var(--mnem-ink);}
+  .box strong{color:inherit;}
+  table{width:100%;border-collapse:collapse;margin:18px 0;background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:.9rem;}
+  caption{font-family:'Fraunces',serif;font-weight:600;text-align:left;color:var(--accent-2);margin-bottom:6px;font-size:1rem;}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:var(--accent-2);color:#fff;font-family:'Fraunces',serif;font-weight:600;font-size:.88rem;}
+  tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even){background:#f6f1e7;}
+  td code,.mono{font-family:'JetBrains Mono',monospace;font-size:.86em;}
+  .flash-wrap{background:var(--card-bg);border:1px solid var(--card-br);border-left:6px solid var(--card-br);border-radius:12px;padding:14px 20px 18px;margin:24px 0;}
+  .flash-wrap > .ttl{font-family:'Fraunces',serif;font-weight:600;color:var(--card-ink);font-size:1.05rem;display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+  details.fc{background:#fff;border:1px solid #d9cce8;border-radius:9px;margin:9px 0;padding:0;overflow:hidden;}
+  details.fc summary{cursor:pointer;list-style:none;padding:12px 16px;font-weight:600;color:var(--card-ink);display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.96rem;}
+  details.fc summary::-webkit-details-marker{display:none;}
+  details.fc summary::after{content:"Cevabı gör ▸";font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.05em;color:#fff;background:var(--card-br);padding:4px 9px;border-radius:20px;white-space:nowrap;}
+  details.fc[open] summary::after{content:"Gizle ▾";}
+  details.fc[open] summary{border-bottom:1px dashed #d9cce8;}
+  details.fc .ans{padding:12px 16px 14px;color:var(--ink);font-size:.95rem;background:#faf7fd;}
+  details.fc .ans strong{color:var(--card-ink);}
+  .divider{text-align:center;color:var(--line);margin:40px 0;font-size:1.4rem;letter-spacing:.5em;}
+  footer{text-align:center;color:var(--ink-soft);font-style:italic;font-size:.9rem;border-top:1px solid var(--line);padding-top:24px;margin-top:40px;}
+  .pill{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.7rem;background:var(--accent-2);color:#fff;padding:2px 9px;border-radius:20px;letter-spacing:.04em;}
+  @media(max-width:640px){header.hero h1{font-size:2.1rem;}nav.toc ol{columns:1;}body{font-size:16.5px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="tooth">🦷</span>
+  <span class="kick">Diş Hekimliği · Final Çalışma Rehberi · Batch 2B</span>
+  <h1>Diş Anatomisi — Arka Dişler</h1>
+  <p>Premolarlar · Molarlar · Diş Gelişimi · Süt/Daimî Farkları · Pulpa Boşlukları</p>
+</header>
+
+<nav class="toc">
+  <h2>İçindekiler</h2>
+  <ol>
+    <li><a href="#s1">Premolarlar — Genel</a></li>
+    <li><a href="#s2">Maxiller Premolarlar (1. &amp; 2.)</a></li>
+    <li><a href="#s3">Mandibular Premolarlar (1. &amp; 2.)</a></li>
+    <li><a href="#s4">Molarlar — Genel</a></li>
+    <li><a href="#s5">Maxiller Molarlar (1·2·3)</a></li>
+    <li><a href="#s6">Mandibular Molarlar (1·2·3)</a></li>
+    <li><a href="#s7">Diş Gelişimi &amp; Sürme</a></li>
+    <li><a href="#s8">Süt vs Daimî Diş Farkları</a></li>
+    <li><a href="#s9">Pulpa Boşlukları</a></li>
+  </ol>
+</nav>
+
+<!-- S1 PREMOLARS GENERAL -->
+<section id="s1">
+  <h2 class="sec"><span class="num">01</span>Premolarlar — Genel <span class="pill">Bicuspid</span></h2>
+  <p class="lead"><strong>Premolarlar (bicuspids)</strong>, kanin ile molar arasındaki <em>geçiş (transitional)</em> dişleridir; besini molarlara aktarmadan önce ezmeye başlarlar. Süt molarlarının yerini alırlar (10–12 yaş). Toplam <strong>8 premolar</strong> (ark başına 4, kadran başına 2). Süt dentisyonunda premolar YOKTUR.</p>
+
+  <h4>Fonksiyonlar</h4>
+  <ul>
+    <li>Mastikasyon (ezme-öğütme, molarlarla birlikte).</li>
+    <li><strong>Vertical dimension</strong> (yüz/yanak yüksekliğini koruma).</li>
+    <li>Kaninlere kesmede yardım; ağız köşesi/yanak desteği (yaşlılarda sarkmayı önler).</li>
+    <li>Molar kaybında çiğneme telafisi.</li>
+  </ul>
+
+  <h4>Genel Karakteristikler</h4>
+  <ul>
+    <li>"Bicuspid" tam doğru değildir: <mark>mandibular 2. premolar 3 cusp'lı olabilir; mandibular 1. premolarda lingual cusp non-fonksiyoneldir</mark>.</li>
+    <li>Buccalden <strong>beşgen (pentagon)</strong> görünüm, kanine benzer. Keskin buccal cusp (delme) + öğütme için oklüzal yüzey.</li>
+    <li><strong>Thomas notches:</strong> buccal ridge'in iki yanındaki sığ çentikler — besin için "spillway".</li>
+    <li>Kron anteriorlardan kısa; kök kesicilerinkiyle benzer uzunlukta.</li>
+    <li>Buccal cusp tip uzun eksenin <em>hafif mesialinde</em> — <mark>tek istisna maxiller 1. premolar (hafif DISTAL)</mark>.</li>
+    <li>Oklüzal yüzeyde triangular ridge'ler birleşip <strong>transverse ridge</strong> yapar — <mark>istisna: 3 cusp'lı mandibular 2. premolarda transverse ridge yok</mark>.</li>
+  </ul>
+
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Buccal cusp tip yönü</span>
+    <p>Kural: premolar buccal cusp tip <strong>mesialde</strong> → bu yüzden <em>distal slope uzun</em>. <mark>TEK istisna maxiller 1. premolar</mark>: cusp tip distalde → <em>mesial slope uzun</em>. Köprü: <em>"İlk üst premolar ters çalışır — tepesi geriye (distal) bakar."</em></p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Premolarlar Genel</div>
+    <details class="fc"><summary>Thomas notches nedir ve ne işe yarar?</summary>
+      <div class="ans">Buccal ridge'in iki yanındaki sığ çentikler; besin için <strong>spillway</strong> görevi görür.</div></details>
+    <details class="fc"><summary>Hangi premolarda transverse ridge YOKTUR?</summary>
+      <div class="ans"><strong>3 cusp'lı mandibular 2. premolar</strong> (Y-paterni yüzünden).</div></details>
+    <details class="fc"><summary>Buccal cusp tip yönünde diğer premolarlardan ayrılan istisna hangisidir?</summary>
+      <div class="ans"><strong>Maxiller 1. premolar</strong> — cusp tip hafif distalde (mesial slope uzun); diğerlerinde tip mesialde.</div></details>
+  </div>
+</section>
+
+<!-- S2 MAXILLARY PREMOLARS -->
+<section id="s2">
+  <h2 class="sec"><span class="num">02</span>Maxiller Premolarlar</h2>
+
+  <h3>Maxiller 1. Premolar <span class="pill">FDI 14/24 · Univ 5/12</span></h3>
+  <ul>
+    <li>İki cusp (buccal + lingual) ve <mark>tipik olarak İKİ kök</mark> (buccal + palatal; bifurcation kökün orta 1/3'ünde).</li>
+    <li>Lingual cusp buccal cusp'tan ~1 mm kısa.</li>
+    <li>Buccal cusp tip hafif <strong>distal</strong> → mesial slope &gt; distal slope.</li>
+    <li><strong>Mesial marginal ridge groove:</strong> oklüzal yüzeyi geçip mesial marginal ridge'i keser.</li>
+    <li><strong>Mesial developmental depression ("canine fossa"):</strong> mesial yüzeyde köke uzanan konkavlık.</li>
+    <li>Oklüzal outline <strong>altıgen (hexagonal)</strong>; buccal cusp daha büyük.</li>
+    <li>Varyasyon: ~%20 tek köklü, nadiren üçüncü kök.</li>
+  </ul>
+  <div class="box spot">
+    <span class="lbl">🎯 Spot Bilgi — Maxiller 1. premoların "imza" özellikleri</span>
+    <p><strong>İki kök + mesial developmental depression + mesial marginal ridge groove + distal buccal cusp tip.</strong> Bu dört özellik onu maxiller 2. premolardan ayırır ve sınavda en sık sorulan ayrımdır.</p>
+  </div>
+
+  <h3>Maxiller 2. Premolar <span class="pill">FDI 15/25 · Univ 4/13</span></h3>
+  <ul>
+    <li>Tüm boyutlarda 1. premolardan biraz <strong>küçük ve daha yuvarlak</strong>.</li>
+    <li><mark>Buccal ve lingual cusp neredeyse eşit yükseklikte.</mark></li>
+    <li><strong>Mesial konkavlık ve mesial marginal ridge groove YOK.</strong></li>
+    <li>Genellikle <mark>TEK kök</mark>.</li>
+    <li>Oklüzal yüzey daha oval/yuvarlak; central groove daha kısa-düzensiz, daha çok supplemental groove.</li>
+    <li>Buccal cusp tip mesialde → distal slope &gt; mesial slope (genel premolar kuralı).</li>
+  </ul>
+
+  <table>
+    <caption>Maxiller 1. vs 2. Premolar — Hızlı Ayrım</caption>
+    <thead><tr><th>Özellik</th><th>1. Premolar</th><th>2. Premolar</th></tr></thead>
+    <tbody>
+      <tr><td>Kök sayısı</td><td><strong>2</strong> (buccal+palatal)</td><td><strong>1</strong></td></tr>
+      <tr><td>Cusp yüksekliği</td><td>Buccal &gt; lingual (~1 mm)</td><td>~Eşit</td></tr>
+      <tr><td>Buccal cusp tip</td><td>Distal (mesial slope uzun)</td><td>Mesial (distal slope uzun)</td></tr>
+      <tr><td>Mesial depresyon/groove</td><td><strong>Var</strong></td><td>Yok</td></tr>
+      <tr><td>Oklüzal şekil</td><td>Hexagonal</td><td>Oval/yuvarlak</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box clinic">
+    <span class="lbl">🦷 Klinik Önemi — İki kanal / endodonti</span>
+    <p>Maxiller 1. premoların iki kökü genelde <strong>iki kanal</strong> demektir; kanal tedavisinde bu mutlaka aranır. Mesial developmental depression, restorasyon ve kazımada (instrumentation) perforasyon riski açısından dikkat gerektirir.</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Maxiller Premolarlar</div>
+    <details class="fc"><summary>İki köklü tek premolar hangisidir, bifurcation nerede?</summary>
+      <div class="ans"><strong>Maxiller 1. premolar</strong> (buccal + palatal kök); bifurcation kökün <strong>orta 1/3</strong>'ünde.</div></details>
+    <details class="fc"><summary>Maxiller 2. premoları 1.'den ayıran üç özellik?</summary>
+      <div class="ans">Tek kök · eşit cusp yüksekliği · mesial depresyon ve marginal ridge groove'un olmaması.</div></details>
+  </div>
+</section>
+
+<!-- S3 MANDIBULAR PREMOLARS -->
+<section id="s3">
+  <h2 class="sec"><span class="num">03</span>Mandibular Premolarlar</h2>
+  <p class="lead">Mandibular premolarlar birbirine maxillerlerden <em>daha az</em> benzer. Buccolingual ≈ mesiodistal boyut. Tek buccal cusp her zaman lingual cusp(lar)dan belirgindir; proksimalden kron linguale eğimlidir.</p>
+
+  <h3>Mandibular 1. Premolar <span class="pill">FDI 34/44 · Univ 21/28</span></h3>
+  <ul>
+    <li><mark>Tüm premolarların EN KÜÇÜĞÜ.</mark> Süt 1. moların yerini alır.</li>
+    <li>İki cusp: büyük <strong>buccal (tek fonksiyonel)</strong> + çok küçük <strong>non-fonksiyonel lingual cusp</strong> (gelişmiş cingulum gibi).</li>
+    <li>Kanine form ve fonksiyonda benzer; oklüzal yüzey servikale doğru keskin biçimde linguale eğimli.</li>
+    <li><strong>Mesiolingual developmental groove:</strong> mesial marginal ridge köşesi + lingual cusp mesial slope'unda — ayırt edici işaret.</li>
+    <li>Mesial &amp; distal marginal ridge <strong>~45°</strong> açılı (anterior dişlere benzer); mesial kontak distalden daha aşağıda.</li>
+    <li>Tek konik kök; oklüzal outline elmas/rhomboidal.</li>
+  </ul>
+  <div class="box warn">
+    <span class="lbl">⚠️ Dikkat — "Non-fonksiyonel lingual cusp"</span>
+    <p>Mandibular 1. premoların lingual cusp'ı <mark>fonksiyonel değildir</mark> ve cingulum gibidir — bu yüzden "bicuspid" terimi bu diş için yanıltıcıdır. Mesiolingual groove varlığı sağ/sol ayrımında ve diğer premolardan ayrımda kilit ipucudur.</p>
+  </div>
+
+  <h3>Mandibular 2. Premolar <span class="pill">FDI 35/45 · Univ 20/29</span></h3>
+  <ul>
+    <li>1. premolardan büyük kron + daha uzun kök; öğütmede molara benzer.</li>
+    <li>İki ana form:
+      <ul>
+        <li><strong>3-cusp tip (en sık):</strong> 1 buccal + 2 lingual (mesiolingual &gt; distolingual). Oklüzal <mark>"Y" paterni</mark>; lingual groove iki lingual cusp'ı ayırır. <em>Transverse ridge yok.</em></li>
+        <li><strong>2-cusp tip:</strong> 1 buccal + 1 lingual (≈eşit yükseklik). Daha yuvarlak; <strong>transverse ridge VAR</strong>; belirgin lingual groove yok, geniş tek groove.</li>
+      </ul>
+    </li>
+    <li><mark>Mesiolingual developmental groove YOK</mark> (1. premolardan farkı); oklüzal kare görünüm.</li>
+  </ul>
+
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Alt premolar oklüzal paternler</span>
+    <p><strong>3-cusp → "Y"</strong> harfi (üç oluk üç cusp arasında). <strong>2-cusp → "H" / "U"</strong> (tek transverse ridge köprüsü). Köprü: <em>"Üç cusp Yıldız gibi dağılır, iki cusp köprüyle (transverse ridge) bağlanır."</em></p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Mandibular Premolarlar</div>
+    <details class="fc"><summary>Tüm premolarların en küçüğü hangisidir, lingual cusp'ı neden özeldir?</summary>
+      <div class="ans"><strong>Mandibular 1. premolar</strong>; lingual cusp <strong>non-fonksiyonel</strong>, gelişmiş cingulum gibidir.</div></details>
+    <details class="fc"><summary>Mandibular 2. premoların 3-cusp tipinde oklüzal patern nedir?</summary>
+      <div class="ans"><strong>"Y" paterni</strong> (1 buccal + 2 lingual cusp, lingual groove ile ayrılır); transverse ridge yoktur.</div></details>
+    <details class="fc"><summary>Mesiolingual developmental groove hangi alt premolarda var, hangisinde yok?</summary>
+      <div class="ans"><strong>Var:</strong> mandibular 1. premolar. <strong>Yok:</strong> mandibular 2. premolar.</div></details>
+  </div>
+</section>
+
+<!-- S4 MOLARS GENERAL -->
+<section id="s4">
+  <h2 class="sec"><span class="num">04</span>Molarlar — Genel <span class="pill">mola = değirmen taşı</span></h2>
+  <p class="lead">Latince <em>mola</em> ("millstone / değirmen taşı") → ana fonksiyon <strong>öğütme-ezme</strong>. Arkın <mark>en büyük dişleri</mark>; premolarların arkasında. Buccolingual ve mesiodistal boyut, cervico-occlusal boyuttan büyük; kronlar kısa ama oklüzal morfoloji karmaşık. Genelde ikiden fazla kök.</p>
+
+  <table>
+    <caption>Sürme Zamanları</caption>
+    <thead><tr><th>Molar</th><th>Lakap</th><th>Sürme</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1. molar</strong></td><td>Six-year molar</td><td>~6 yaş</td></tr>
+      <tr><td><strong>2. molar</strong></td><td>Twelve-year molar</td><td>~12 yaş</td></tr>
+      <tr><td><strong>3. molar</strong></td><td>Wisdom tooth (20'lik)</td><td>~17–25 yaş (değişken)</td></tr>
+    </tbody>
+  </table>
+  <p>Boyut 1.'den 3.'ye küçülür. <strong>1. molar</strong> oklüzyonun kurulmasında kritik (cornerstone); <strong>3. molar</strong> en değişken anatomi + impaksiyon riski.</p>
+
+  <div class="box clinic">
+    <span class="lbl">🦷 Klinik Önemi — Pit &amp; fissür çürüğü</span>
+    <p>Molarların karmaşık oklüzal pit ve fissürleri <strong>çürüğe en yatkın</strong> bölgelerdir; bu yüzden fissür örtücü (sealant) ilk molarlara uygulanır. Karmaşık kanal sistemleri nedeniyle özellikle 1. molarda kanal tedavisi zordur; 3. molar yer darlığından sık gömülü kalır ve maxiller sinüse yakınlığı çekimi zorlaştırır.</p>
+  </div>
+</section>
+
+<!-- S5 MAXILLARY MOLARS -->
+<section id="s5">
+  <h2 class="sec"><span class="num">05</span>Maxiller Molarlar</h2>
+  <h4>Ortak Özellikler</h4>
+  <ul>
+    <li>Kron <strong>rhomboidal</strong> (eşkenar dörtgen); buccolingual &gt; mesiodistal.</li>
+    <li>Tipik <strong>4 cusp</strong>: mesiopalatal (en büyük), mesiobuccal, distobuccal, distolingual (en küçük).</li>
+    <li><strong>Oblique ridge:</strong> mesiopalatal cusp + distobuccal cusp arasında, oklüzali oblik geçer.</li>
+    <li><mark>3 kök:</mark> iki buccal (mesiobuccal + distobuccal) + bir <strong>palatal/lingual (en uzun &amp; en büyük)</strong>.</li>
+  </ul>
+
+  <h3>Maxiller 1. Molar <span class="pill">FDI 16/26 · Univ 3/14</span></h3>
+  <ul>
+    <li>Maxiller arkın <mark>en büyük dişi</mark>; six-year molar.</li>
+    <li><strong>Cusp of Carabelli:</strong> mesiopalatal cusp'ın palatal yüzünde <em>5. (non-fonksiyonel)</em> cusp — bu dişin imzası.</li>
+    <li>Mesiopalatal cusp, kronun mesiodistal genişliğinin <strong>3/5</strong>'ini; distolingual cusp 2/5'ini oluşturur.</li>
+    <li>Oklüzal: rhomboidal; <strong>2 majör fossa</strong> (central — oblique ridge'in mesialinde; distal — distalinde) + <strong>2 minör fossa</strong> (mesial &amp; distal triangular).</li>
+    <li><strong>6 developmental groove</strong> (central, buccal, distal oblique, lingual, transverse groove of oblique ridge, fifth cusp groove) ve <strong>3 pit</strong> (central, mesial, distal).</li>
+    <li>Line angle: mesiobuccal &amp; distolingual = akut; mesiolingual &amp; distobuccal = obtuse.</li>
+  </ul>
+  <div class="box spot">
+    <span class="lbl">🎯 Spot Bilgi — Maxiller 1. molar imzaları</span>
+    <p><strong>Cusp of Carabelli + Oblique ridge + 4 fossa + 3 kök (palatal en uzun).</strong> "En büyük diş hangisi?" → maxiller 1. molar. "Carabelli hangi dişte?" → maxiller 1. molar (mesiopalatal cusp).</p>
+  </div>
+
+  <h3>Maxiller 2. Molar <span class="pill">FDI 17/27 · Univ 2/15</span></h3>
+  <ul>
+    <li><mark>Carabelli YOK.</mark> Kökler daha az ıraksak, birleşmiş (coalescent) olabilir.</li>
+    <li>Her iki distal cusp (distobuccal &amp; distolingual) daha az gelişmiş; kron 1. molardan küçük.</li>
+    <li>Oklüzal rhomboidal şekil daha belirgin (akut açılar azalır, obtuse açılar artar); daha çok supplemental groove/pit.</li>
+    <li>Palatal kök en uzun (buccal köklerden ~1 mm uzun).</li>
+  </ul>
+
+  <h3>Maxiller 3. Molar <span class="pill">FDI 18/28</span></h3>
+  <ul>
+    <li><mark>En küçük maxiller molar.</mark> Genelde <strong>üçgen/kalp (heart) şekilli, 3 cusp'lı (en sık tip)</strong> — distolingual cusp çok küçük/yok.</li>
+    <li>Kökler kısa, ıraksamamış, sık füzyone; mesiopalatal cusp en büyük.</li>
+    <li>Varyasyonlar: 4 cusp'lı rhomboidal, tek cusp'lı (peg-shaped), konjenital eksik.</li>
+  </ul>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Maxiller Molarlar</div>
+    <details class="fc"><summary>Oblique ridge hangi iki cusp'ı birleştirir, hangi molar grubuna özgüdür?</summary>
+      <div class="ans"><strong>Mesiopalatal + distobuccal</strong> cusp; <strong>maxiller molarlara</strong> özgüdür.</div></details>
+    <details class="fc"><summary>Maxiller 1. molarda en büyük ve en küçük cusp hangileri?</summary>
+      <div class="ans">En büyük: <strong>mesiopalatal</strong> (MD genişliğin 3/5'i). En küçük: <strong>distolingual</strong>. (Carabelli non-fonksiyonel 5. cusp.)</div></details>
+    <details class="fc"><summary>Maxiller 2. moları 1.'den ayıran temel fark?</summary>
+      <div class="ans"><strong>Cusp of Carabelli yokluğu</strong> + daha küçük distal cusp'lar + daha az ıraksak/birleşik kökler.</div></details>
+    <details class="fc"><summary>Maxiller molarların en uzun kökü hangisidir?</summary>
+      <div class="ans"><strong>Palatal (lingual) kök.</strong></div></details>
+  </div>
+</section>
+
+<!-- S6 MANDIBULAR MOLARS -->
+<section id="s6">
+  <h2 class="sec"><span class="num">06</span>Mandibular Molarlar</h2>
+  <h4>Ortak Özellikler</h4>
+  <ul>
+    <li>Mandibular arkın en büyük-en güçlü dişleri; mesiodistal daha geniş, 1.→3. küçülür.</li>
+    <li>Proksimalden rhomboidal, linguale eğimli; oklüzalden trapezoidal/dikdörtgen/pentagonal.</li>
+    <li>Tipik <strong>2 kök</strong> (mesial + distal).</li>
+  </ul>
+
+  <h3>Mandibular 1. Molar <span class="pill">FDI 36/46 · Univ 19/30</span></h3>
+  <ul>
+    <li><mark>5 cusp:</mark> 2 buccal (mesiobuccal + distobuccal) + 2 lingual (mesiolingual + distolingual) + 1 <strong>distal</strong>.</li>
+    <li>Buccal yüzey linguale eğimli; <strong>iki buccal groove</strong> (mesiobuccal groove distobuccal'den kısa) + olası buccal pit.</li>
+    <li>Oklüzal <strong>dikdörtgen</strong>: mesiodistal &gt; buccolingual (~1 mm). Oklüzalde <mark>"Y" groove paterni</mark>.</li>
+    <li>Cusp boyutu: mesiobuccal (en büyük) → mesiolingual → distolingual → distobuccal → distal (en küçük). MB+DB ≈ %80, distal cusp ≈ %20.</li>
+    <li>İki kök (mesial + distal); mesial kök biraz daha uzun ve buccolingual daha geniş. Bifurcation servikal çizginin ~3 mm altında.</li>
+    <li>Oklüzal: 1 majör (central) + 2 minör (mesial &amp; distal triangular) fossa; 4 developmental groove (central, mesiobuccal, distobuccal, lingual).</li>
+  </ul>
+  <div class="box spot">
+    <span class="lbl">🎯 Spot Bilgi — Mandibular 1. molar</span>
+    <p><strong>5 cusp + 2 kök + "Y" groove paterni + iki buccal groove + dikdörtgen (MD&gt;BL).</strong> Distal cusp varlığı onu mandibular 2. molardan ayırır. Erken sürdüğü için "oklüzyonun köşe taşı".</p>
+  </div>
+
+  <h3>Mandibular 2. Molar <span class="pill">FDI 37/47 · Univ 18/31</span></h3>
+  <ul>
+    <li>Tüm boyutlarda 1. molardan küçük; <mark>4 cusp (DISTAL CUSP YOK)</mark>, ~eşit boyutta 2 buccal + 2 lingual.</li>
+    <li>Tek buccal groove; oklüzalde buccal+lingual+central groove <strong>"+" (artı/cross) paterni</strong> oluşturur (dik açılarla central pit'te buluşur).</li>
+    <li>Oklüzal dikdörtgen; çok sayıda supplemental groove → yüzey pürüzlü.</li>
+    <li>Cusp boyutu: mesiobuccal (en büyük) → distolingual (en küçük). İki kök daha kısa, paralel, distale eğimli.</li>
+  </ul>
+
+  <h3>Mandibular 3. Molar <span class="pill">FDI 38/48</span></h3>
+  <ul>
+    <li>Bireyler arası çok değişken; form ve pozisyonda çok anomali.</li>
+    <li>Cusp sayısı ve oklüzal form açısından 1.'den çok <strong>2. molara benzer</strong>; daha yuvarlak oklüzal, distalde daha dar.</li>
+    <li>Genelde 2 kısa kök (mesial + distal), belirgin distal eğim; bazen füzyone/fazladan kök. Konjenital eksik olabilir.</li>
+  </ul>
+
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Alt molar cusp &amp; groove</span>
+    <p><strong>Mandibular 1. molar = 5 cusp, "Y" paterni</strong> (ekstra DISTAL cusp). <strong>Mandibular 2. molar = 4 cusp, "+" (cross) paterni</strong> (distal cusp düşmüş, simetrikleşmiş). Köprü: <em>"Birinci azı beş tepeli Y, ikinci azı dört tepeli artı (+)."</em></p>
+  </div>
+  <div class="box warn">
+    <span class="lbl">⚠️ Dikkat — Kök sayısı (Üst vs Alt molar)</span>
+    <p><mark>Maxiller molar = 3 kök</mark> (2 buccal + 1 palatal), <mark>mandibular molar = 2 kök</mark> (mesial + distal). Maxiller molarda <em>oblique ridge + Carabelli</em>, mandibular 1. molarda <em>5 cusp + distal cusp</em> ayırt edicidir. Bunları karıştırmak klasik hatadır.</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Mandibular Molarlar</div>
+    <details class="fc"><summary>Mandibular 1. moların kaç cusp'ı vardır ve dizilimi nedir?</summary>
+      <div class="ans"><strong>5 cusp:</strong> 2 buccal + 2 lingual + 1 distal. En büyük mesiobuccal, en küçük distal.</div></details>
+    <details class="fc"><summary>Mandibular 1. ve 2. moların oklüzal groove paternleri nasıl ayrılır?</summary>
+      <div class="ans">1. molar = <strong>"Y" paterni (5 cusp)</strong>; 2. molar = <strong>"+" / cross paterni (4 cusp, distal cusp yok)</strong>.</div></details>
+    <details class="fc"><summary>Mandibular 1. molarda oklüzal kron hangi boyutta daha geniştir?</summary>
+      <div class="ans"><strong>Mesiodistal &gt; buccolingual</strong> (~1 mm) — molarlar içinde dikdörtgen görünüm.</div></details>
+  </div>
+</section>
+
+<!-- S7 TOOTH DEVELOPMENT -->
+<section id="s7">
+  <h2 class="sec"><span class="num">07</span>Diş Gelişimi &amp; Sürme</h2>
+  <p>Kron ve kök gelişimi çene kemiği içinde olur. Diş şekline göre adlandırılan aşamalardan geçer:</p>
+  <ol>
+    <li><strong>Bud stage (Tomurcuk)</strong></li>
+    <li><strong>Cap stage (Şapka)</strong></li>
+    <li><strong>Bell stage (Çan)</strong></li>
+  </ol>
+  <p>Diş gelişiminin iki bileşeni: <strong>(1)</strong> kron-kök oluşumu, <strong>(2)</strong> sürme (eruption). Önce kron oluşur, sonra kök başlar. <mark>Diş sürerken kök henüz tamamlanmamıştır</mark>; kök oluşumu diş kullanıma girdikten sonra devam eder. Sürme, diş karşı çene dişiyle okluzyona girip komşularla temas edince durur.</p>
+
+  <div class="box spot">
+    <span class="lbl">🎯 Spot Bilgi — Süt dişleri sürme sırası</span>
+    <p>Baskın sıra: <strong>santral kesici → lateral kesici → 1. molar → kanin → 2. molar.</strong><br>
+    Süt dişleri ~<strong>6.5. ayda</strong> (mandibular santral kesici) sürmeye başlar, ~<strong>20–30. ayda</strong> (alt/üst 2. molar) tamamlanır. İlk DAİMÎ diş ise <strong>1. molar (6 yaş)</strong>.</p>
+  </div>
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Süt sürme sırası</span>
+    <p>Sıra: <strong>1 → 2 → 6 → 3 → 5</strong> (santral, lateral, 1.molar, kanin, 2.molar). Dikkat: <mark>kanin, 1. molardan SONRA sürer</mark> (sıra numarasının dışına çıkar). Köprü: <em>"Önce kesiciler, sonra ilk değirmen, sonra köşe taşı kanin, en son ikinci değirmen."</em></p>
+  </div>
+
+  <h4>Süt Dişlerinin Önemi</h4>
+  <ul>
+    <li>Daimî dişlere yer açar ve doğru pozisyona yönlendirir.</li>
+    <li>Malokluzyonu önler; uygun çiğneme; estetik; fonetik.</li>
+    <li>Kökler sürdükten sonra tamamlanır, bir süre sonra <strong>rezorpsiyon</strong> başlar → süt dişi düşer (exfoliation) → daimî halef sürer.</li>
+  </ul>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Diş Gelişimi</div>
+    <details class="fc"><summary>Diş gelişiminin üç morfolojik aşaması nedir?</summary>
+      <div class="ans"><strong>Bud (tomurcuk) → Cap (şapka) → Bell (çan)</strong> stage.</div></details>
+    <details class="fc"><summary>Süt dişlerinin sürme sırası nedir?</summary>
+      <div class="ans"><strong>Santral kesici → lateral kesici → 1. molar → kanin → 2. molar.</strong></div></details>
+    <details class="fc"><summary>İlk süren daimî diş hangisidir ve kaç yaşında?</summary>
+      <div class="ans"><strong>1. molar, ~6 yaş</strong> (six-year molar).</div></details>
+  </div>
+</section>
+
+<!-- S8 DECIDUOUS VS PERMANENT -->
+<section id="s8">
+  <h2 class="sec"><span class="num">08</span>Süt vs Daimî Diş Farkları</h2>
+  <table>
+    <caption>Genel Farklar</caption>
+    <thead><tr><th>Özellik</th><th>Süt Dişi</th><th>Daimî Diş</th></tr></thead>
+    <tbody>
+      <tr><td>Sayı</td><td>20</td><td>32</td></tr>
+      <tr><td>Boyut</td><td>Tüm boyutlarda küçük</td><td>Büyük</td></tr>
+      <tr><td>Renk</td><td>Daha beyaz &amp; opak</td><td>Daha sarımsı</td></tr>
+      <tr><td>Mine kalınlığı</td><td><strong>0.5–1 mm (ince)</strong></td><td><strong>1.5–2.5 mm</strong></td></tr>
+      <tr><td>Morfolojik varyasyon</td><td>Daha az</td><td>Daha fazla</td></tr>
+    </tbody>
+  </table>
+  <h4>Kron Farkları</h4>
+  <ul>
+    <li>Süt kronları serviste daha daralmış (constricted).</li>
+    <li><strong>Servikal ridge'ler tüm süt dişlerinde daha belirgin.</strong></li>
+    <li>İntercuspal mesafe buccolingual daha dar.</li>
+    <li>Süt anterior kronları mesiodistal daha geniş.</li>
+  </ul>
+  <h4>Kök Farkları</h4>
+  <ul>
+    <li>Süt molarlarında <strong>root trunk yok</strong>; kökler daha kısa, zayıf, dar.</li>
+    <li>Kökler krona <em>oranla</em> daha uzun.</li>
+    <li>Süt molar kökleri kronlarından daha geniş ayrık → altta gelişen daimî halefe yer açmak için.</li>
+  </ul>
+
+  <h4>Süt Dişi Cusp/Kök Sayıları</h4>
+  <table>
+    <thead><tr><th>Süt molar</th><th>Cusp</th><th>Kök</th></tr></thead>
+    <tbody>
+      <tr><td>Maxiller 1. molar</td><td>4 (ML en büyük, DL en küçük)</td><td><strong>3</strong> (lingual, MB, DB)</td></tr>
+      <tr><td>Maxiller 2. molar</td><td>5 (4 gelişmiş + 1 supplemental)</td><td><strong>3</strong></td></tr>
+      <tr><td>Mandibular 1. molar</td><td>4</td><td><strong>2</strong> (mesial, distal)</td></tr>
+      <tr><td>Mandibular 2. molar</td><td>5 (+ distal cusp)</td><td><strong>2</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Süt dişi farkları</span>
+    <p>Süt dişi = <strong>"daha beyaz, daha küçük, mine daha ince, serviste daha daralmış, servikal ridge daha belirgin."</strong> Kök mantığı: <em>"Süt molar kökleri yelpaze gibi açılır çünkü altta daimî diş hazırlanır."</em></p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Süt vs Daimî</div>
+    <details class="fc"><summary>Süt ve daimî dişlerde mine kalınlığı nasıl farklıdır?</summary>
+      <div class="ans">Süt: <strong>0.5–1 mm</strong> (ince); daimî: <strong>1.5–2.5 mm</strong>.</div></details>
+    <details class="fc"><summary>Süt molar kökleri neden kronlarından daha geniş ayrıktır?</summary>
+      <div class="ans">Altta gelişen <strong>daimî halef dişe yer açmak</strong> için.</div></details>
+    <details class="fc"><summary>Süt dişleri daimîlere göre neden daha beyaz görünür?</summary>
+      <div class="ans">Mineleri <strong>daha beyaz ve daha opak</strong> olduğu için.</div></details>
+  </div>
+</section>
+
+<!-- S9 PULP CAVITIES -->
+<section id="s9">
+  <h2 class="sec"><span class="num">09</span>Pulpa Boşlukları (Pulp Cavities)</h2>
+  <p class="lead">Pulpa, dişin yumuşak dokusudur; <strong>pulp chamber (kron)</strong> + <strong>pulp canal/root canal (kök)</strong> boşluklarını doldurur. <mark>Pulpa boşluğunun şekli dişin dış formuna karşılık gelir</mark> (chamber kron şeklini, canal kök şeklini izler). Boyut yaşa ve travma öyküsüne bağlıdır. Apikal foramenden nörovasküler demet girer. <strong>Pulp horn'lar</strong> ana cusp/loblara karşılık gelen pulpa çıkıntılarıdır.</p>
+
+  <table>
+    <caption>Kesitte Pulpa Odacığı Şekli (cross-section)</caption>
+    <thead><tr><th>Diş</th><th>Kesit şekli / Kanal notu</th></tr></thead>
+    <tbody>
+      <tr><td>Maxiller santral kesici</td><td><strong>Üçgen</strong> (taban labialde); labiolingual dar, mesiodistal geniş.</td></tr>
+      <tr><td>Maxiller lateral kesici</td><td>Üçgen, oval veya yuvarlak.</td></tr>
+      <tr><td>Maxiller kanin</td><td><strong>Oval</strong>; mesiodistal &lt; labiolingual.</td></tr>
+      <tr><td>Maxiller 1. premolar</td><td><strong>Böbrek (kidney) şekilli.</strong></td></tr>
+      <tr><td>Maxiller 2. premolar</td><td>Oval.</td></tr>
+      <tr><td>Maxiller 1. molar</td><td><strong>Rhomboidal.</strong></td></tr>
+      <tr><td>Maxiller 2. molar</td><td>1. molara benzer ama mesiodistal kesitte çok daha küçük.</td></tr>
+      <tr><td>Mandibular santral/lateral kesici</td><td>Genelde 1 kanal (bazen 2); yuvarlak/oval/eliptik. Lateral santrale benzer ama daha büyük.</td></tr>
+      <tr><td>Mandibular kanin</td><td>Maxiller kanine benzer (biraz kısa); oval.</td></tr>
+      <tr><td>Mandibular 1. premolar</td><td>Çoğunlukla 1 kanal (bazen 2); buccal pulp horn belirgin, lingual horn küçük/yok. Yuvarlak/eliptik.</td></tr>
+      <tr><td>Mandibular 2. premolar</td><td>Pulp horn'lar 1. premolardan belirgin; dikdörtgen/oval.</td></tr>
+      <tr><td>Mandibular 1. molar</td><td><strong>3 kanal:</strong> mesial kökte 2, distal kökte 1 (bazen distalde 2). Kesit <strong>dörtgen (quadrilateral)</strong>.</td></tr>
+      <tr><td>Mandibular 2. molar</td><td>1. molara benzer.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box spot">
+    <span class="lbl">🎯 Spot Bilgi — Kesit şekilleri</span>
+    <p>Sık sorulanlar: maxiller santral kesici → <strong>üçgen (taban labial)</strong>; maxiller 1. premolar → <strong>böbrek</strong>; maxiller 1. molar → <strong>rhomboidal</strong>; mandibular 1. molar → <strong>dörtgen + 3 kanal (mesial 2 / distal 1)</strong>.</p>
+  </div>
+  <div class="box clinic">
+    <span class="lbl">🦷 Klinik Önemi — Kanal anatomisi &amp; pulp horn</span>
+    <p>Kanal tedavisinde kanal sayısını bilmek hayati: mandibular 1. molar genelde <strong>3 kanal</strong>, maxiller 1. molar 3–4 kanal (mesiobuccal kökte 2. kanal sık atlanır). <strong>Pulp horn</strong>'lar cusp'lara uzandığından, derin kavite preparasyonunda pulpa açılma (ekspozisyon) riski yüksektir — özellikle genç dişlerde pulpa boşluğu büyüktür.</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Pulpa Boşlukları</div>
+    <details class="fc"><summary>Maxiller santral kesicinin pulpa odacığı kesiti hangi şekildedir?</summary>
+      <div class="ans"><strong>Üçgen</strong>, tabanı labialde.</div></details>
+    <details class="fc"><summary>Mandibular 1. moların kanal dağılımı nasıldır?</summary>
+      <div class="ans"><strong>3 kanal:</strong> mesial kökte 2, distal kökte 1 (bazen distalde 2). Kesit dörtgen.</div></details>
+    <details class="fc"><summary>Pulp horn nedir ve klinik riski nedir?</summary>
+      <div class="ans">Pulpanın cusp/loblara uzanan çıkıntıları. Derin kavite preparasyonunda <strong>pulpa ekspozisyonu</strong> riski yaratır.</div></details>
+  </div>
+</section>
+
+<div class="divider">• • •</div>
+
+<footer>
+  <p>🦷 <strong>Batch 2B tamamlandı —</strong> Arka Dişler · Diş Gelişimi · Süt/Daimî Farkları · Pulpa Boşlukları</p>
+  <p>Sıradaki: <em>Batch 3 — Oklüzyon, Artikülatör &amp; Face-bow, Modellerin Artikülatöre Alınması</em></p>
+  <p style="opacity:.7;">Flashcard kutularına tıklayarak cevapları açıp kapat · İyi çalışmalar!</p>
+</footer>
+
+</div>
+<script src="../../assets/language.js" defer></script>
+</body>
+</html>

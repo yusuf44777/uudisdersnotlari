@@ -110,6 +110,16 @@ const notes = [
     tags: ["custom tray", "base plate", "wax rim"],
   },
   {
+    id: "morphology-05",
+    course: "Dental Morphology",
+    grade: "1. Sınıf",
+    unit: "Batch 5",
+    title: "Diş Dokuları & Çiğneme Sistemi",
+    subtitle: "Diş dokuları, çiğneme sistemi ve morfoloji finali için bütünleyici çalışma notu",
+    path: "1.%20S%C4%B1n%C4%B1f/Dental%20Morphology/05_Dis_Dokulari_ve_Cigneme_Sistemi.html",
+    tags: ["diş dokuları", "çiğneme", "morfoloji"],
+  },
+  {
     id: "genetics-01",
     course: "Medical Genetics",
     grade: "1. Sınıf",

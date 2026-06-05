@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diş Hekimliği Final Rehberi — Batch 5: Diş Dokuları &amp; Çiğneme Sistemi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Spectral:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4efe6;--paper:#fbf8f1;--ink:#2a2620;--ink-soft:#5a5348;--line:#e0d7c6;
+    --accent:#9a3b2e;--accent-2:#1f5d57;
+    --clinic-bg:#e7f1ef;--clinic-br:#1f5d57;--clinic-ink:#13403b;
+    --spot-bg:#eaf3e4;--spot-br:#3f7d2f;--spot-ink:#274f1d;
+    --warn-bg:#fcefe0;--warn-br:#c5781a;--warn-ink:#8a4e07;
+    --card-bg:#efe9f5;--card-br:#6a4c93;--card-ink:#3f2c63;
+    --mnem-bg:#fdf2f4;--mnem-br:#9a3b2e;--mnem-ink:#6e271d;
+  }
+  *{box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Spectral',Georgia,serif;font-size:18px;line-height:1.7;background-image:radial-gradient(var(--line) 0.5px,transparent 0.5px);background-size:22px 22px;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px 90px;}
+  header.hero{text-align:center;padding:64px 20px 40px;margin-bottom:20px;}
+  header.hero .kick{font-family:'JetBrains Mono',monospace;letter-spacing:.32em;text-transform:uppercase;font-size:.72rem;color:var(--accent);}
+  header.hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:2.7rem;line-height:1.05;margin:.3em 0 .2em;}
+  header.hero p{color:var(--ink-soft);font-style:italic;margin:0;}
+  .tooth{font-size:2.6rem;display:block;margin-bottom:.1em;}
+  nav.toc{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin-bottom:50px;box-shadow:0 6px 22px -16px #00000040;}
+  nav.toc h2{font-family:'Fraunces',serif;font-size:1rem;text-transform:uppercase;letter-spacing:.14em;margin:0 0 12px;color:var(--accent-2);}
+  nav.toc ol{margin:0;padding-left:1.3em;columns:2;column-gap:34px;}
+  nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--line);}
+  nav.toc a:hover{color:var(--accent);}
+  section{margin-bottom:60px;}
+  h2.sec{font-family:'Fraunces',serif;font-weight:900;font-size:2rem;color:var(--accent);border-bottom:3px solid var(--accent);padding-bottom:.18em;margin:0 0 .2em;scroll-margin-top:20px;}
+  h2.sec .num{font-family:'JetBrains Mono',monospace;font-size:1rem;background:var(--accent);color:#fff;border-radius:8px;padding:2px 10px;margin-right:10px;vertical-align:middle;}
+  h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;color:var(--accent-2);margin:1.8em 0 .3em;scroll-margin-top:20px;}
+  h4{font-family:'Fraunces',serif;font-weight:600;font-size:1.12rem;color:var(--ink);margin:1.3em 0 .2em;}
+  p{margin:.5em 0;}
+  strong{color:var(--accent-2);font-weight:600;}
+  em{color:var(--ink-soft);}
+  mark{background:#ffe89c;padding:0 .18em;border-radius:3px;}
+  ul,ol{margin:.4em 0 .8em;padding-left:1.4em;}
+  li{margin:.3em 0;}
+  .lead{font-size:1.05rem;color:var(--ink-soft);font-style:italic;border-left:3px solid var(--line);padding-left:16px;margin:.6em 0 1.4em;}
+  .box{border-radius:12px;padding:16px 20px 16px 18px;margin:18px 0;border-left:6px solid;position:relative;font-size:.97rem;line-height:1.6;}
+  .box .lbl{font-family:'Fraunces',serif;font-weight:600;display:block;margin-bottom:4px;font-size:1.02rem;}
+  .box p{margin:.35em 0;}
+  .clinic{background:var(--clinic-bg);border-color:var(--clinic-br);}.clinic .lbl{color:var(--clinic-ink);}
+  .spot{background:var(--spot-bg);border-color:var(--spot-br);}.spot .lbl{color:var(--spot-ink);}
+  .warn{background:var(--warn-bg);border-color:var(--warn-br);}.warn .lbl{color:var(--warn-ink);}
+  .mnem{background:var(--mnem-bg);border-color:var(--mnem-br);}.mnem .lbl{color:var(--mnem-ink);}
+  .box strong{color:inherit;}
+  table{width:100%;border-collapse:collapse;margin:18px 0;background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:.9rem;}
+  caption{font-family:'Fraunces',serif;font-weight:600;text-align:left;color:var(--accent-2);margin-bottom:6px;font-size:1rem;}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:var(--accent-2);color:#fff;font-family:'Fraunces',serif;font-weight:600;font-size:.88rem;}
+  tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even){background:#f6f1e7;}
+  td code,.mono{font-family:'JetBrains Mono',monospace;font-size:.86em;}
+  .flash-wrap{background:var(--card-bg);border:1px solid var(--card-br);border-left:6px solid var(--card-br);border-radius:12px;padding:14px 20px 18px;margin:24px 0;}
+  .flash-wrap > .ttl{font-family:'Fraunces',serif;font-weight:600;color:var(--card-ink);font-size:1.05rem;display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+  details.fc{background:#fff;border:1px solid #d9cce8;border-radius:9px;margin:9px 0;padding:0;overflow:hidden;}
+  details.fc summary{cursor:pointer;list-style:none;padding:12px 16px;font-weight:600;color:var(--card-ink);display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.96rem;}
+  details.fc summary::-webkit-details-marker{display:none;}
+  details.fc summary::after{content:"Cevabı gör ▸";font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.05em;color:#fff;background:var(--card-br);padding:4px 9px;border-radius:20px;white-space:nowrap;}
+  details.fc[open] summary::after{content:"Gizle ▾";}
+  details.fc[open] summary{border-bottom:1px dashed #d9cce8;}
+  details.fc .ans{padding:12px 16px 14px;color:var(--ink);font-size:.95rem;background:#faf7fd;}
+  details.fc .ans strong{color:var(--card-ink);}
+  .divider{text-align:center;color:var(--line);margin:40px 0;font-size:1.4rem;letter-spacing:.5em;}
+  footer{text-align:center;color:var(--ink-soft);font-style:italic;font-size:.9rem;border-top:1px solid var(--line);padding-top:24px;margin-top:40px;}
+  .pill{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.7rem;background:var(--accent-2);color:#fff;padding:2px 9px;border-radius:20px;letter-spacing:.04em;}
+  @media(max-width:640px){header.hero h1{font-size:1.9rem;}nav.toc ol{columns:1;}body{font-size:16.5px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="tooth">🦷</span>
+  <span class="kick">Diş Hekimliği · Final Çalışma Rehberi · Batch 5</span>
+  <h1>Diş Dokuları &amp; Çiğneme Sistemi</h1>
+  <p>Mine · Dentin · Sement · Pulpa · Periodonsiyum · Stomatognatik Sistem &amp; TMJ Anatomisi</p>
+</header>
+
+<nav class="toc">
+  <h2>İçindekiler</h2>
+  <ol>
+    <li><a href="#s1">Dentisyon &amp; Diş Sınıfları</a></li>
+    <li><a href="#s2">Sert Dokular: Mine, Dentin, Sement</a></li>
+    <li><a href="#s3">Yumuşak Dokular: Pulpa &amp; Periodonsiyum</a></li>
+    <li><a href="#s4">Çiğneme (Stomatognatik) Sistem</a></li>
+    <li><a href="#s5">Mandibula &amp; Maxilla Anatomisi</a></li>
+    <li><a href="#s6">TMJ: Fossa &amp; Artiküler Eminens</a></li>
+  </ol>
+</nav>
+
+<!-- S1 -->
+<section id="s1">
+  <h2 class="sec"><span class="num">01</span>Dentisyon &amp; Diş Sınıfları</h2>
+  <p class="lead">Dişlerin genel dizilimine <strong>dentition (dentisyon)</strong> denir.</p>
+  <ul>
+    <li><strong>Primary dentition:</strong> süt (deciduous) dişleri.</li>
+    <li><strong>Secondary dentition:</strong> daimî (permanent) dişler.</li>
+    <li><strong>Mixed dentition:</strong> hem süt hem daimî dişlerin bir arada bulunması.</li>
+  </ul>
+  <p>Her ark sağ ve sol kadranlara bölünür. Sınıflar: <strong>incisors, canines (cuspids), premolars (bicuspids), molars.</strong> <em>Anterior</em> = kesiciler + kaninler; <em>posterior</em> = premolarlar + molarlar.</p>
+  <p>Her diş <strong>crown</strong> (mine ile örtülü) + <strong>root</strong> (sement ile örtülü); birleşim yeri <strong>cementoenamel junction (CEJ)</strong>; kronu kökten ayıran çizgi <strong>cervical line</strong>.</p>
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Doku-örtü eşleşmesi</span>
+    <p><strong>Kron → mine (enamel)</strong>, <strong>kök → sement (cementum)</strong>, sınır = <strong>CEJ</strong>. Dentin her ikisinin altında, dişin "iskeleti"dir; pulpa en içte.</p>
+  </div>
+</section>
+
+<!-- S2 -->
+<section id="s2">
+  <h2 class="sec"><span class="num">02</span>Sert Dokular: Mine, Dentin, Sement</h2>
+  <p>Dişin <strong>sert dokuları</strong>: enamel, dentin, cementum. (Yumuşak dokular: pulpa + periodontal membran.)</p>
+
+  <table>
+    <caption>Sert Dokuların Karşılaştırması</caption>
+    <thead><tr><th></th><th>Enamel (Mine)</th><th>Dentin</th><th>Cementum (Sement)</th></tr></thead>
+    <tbody>
+      <tr><td>Konum</td><td>Kronu örter</td><td>Dişin iskeleti; pulpayı sarar</td><td>Kök dentinini örter</td></tr>
+      <tr><td>Köken</td><td><strong>Ektodermal</strong></td><td>Ektomezenkimal</td><td>Ektomezenkimal</td></tr>
+      <tr><td>Hücre</td><td><strong>Asellüler</strong></td><td>Odontoblast yapar</td><td>Cellular + acellular</td></tr>
+      <tr><td>Damar/sinir</td><td>Yok → <mark>duyarsız</mark></td><td>Avasküler ama <mark>duyarlı</mark> (tübül)</td><td>Yok</td></tr>
+      <tr><td>İnorganik içerik</td><td><strong>~96%</strong> (1% org, 3% su)</td><td>~70% (20% org, 10% su)</td><td>~65% (23% org, 12% su)</td></tr>
+      <tr><td>Sertlik</td><td><mark>Vücudun en sert dokusu</mark></td><td>Sement &amp; kemikten sert</td><td>Kemik benzeri</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Mine (Enamel)</h4>
+  <ul>
+    <li>Vücudun <strong>en sert dokusu</strong>; yüksek mineralizasyon (~96% inorganik).</li>
+    <li>Asellüler, damarsız-sinirsiz → <mark>duyarsız (non-sensitive)</mark>.</li>
+    <li>Dış ortamdan özellikle <strong>florür</strong> alarak <strong>fluorapatite</strong> kristalleri oluşturur → yüzey daha sert, aside dirençli.</li>
+  </ul>
+  <h4>Dentin</h4>
+  <ul>
+    <li>Dişin morfolojik iskeleti; pulpayı sarar ve korur; ektomezenkimal köken.</li>
+    <li><strong>İçi boş tübüllerden</strong> oluşur; tübüller dentini yapan hücrelerin duyu uzantılarını içerir → <mark>canlı doku, sensitiviteyi iletir</mark>.</li>
+    <li><strong>Odontoblast</strong>'lar tarafından yapılır; kemiğe benzer ama <strong>avasküler</strong>; sement ve kemikten serttir.</li>
+  </ul>
+  <h4>Sement (Cementum)</h4>
+  <ul>
+    <li>Ektomezenkimal; kök dentinini örter; kemik benzeri; periodontal membranla ilişkili; damar/sinir yok.</li>
+    <li>İki tip: <strong>cellular</strong> (apikal 1/3 + furkasyon) ve <strong>acellular</strong> (kalan 2/3).</li>
+    <li><mark>Diğer diş dokularının aksine, sementin permeabilitesi yaşla ARTAR.</mark></li>
+  </ul>
+
+  <div class="box spot">
+    <span class="lbl">🎯 Spot Bilgi — Köken &amp; mineral sıralaması</span>
+    <p><strong>Sadece mine ektodermal</strong>; dentin, sement, pulpa ektomezenkimal.<br>
+    İnorganik içerik sırası: <strong>Mine (96) &gt; Dentin (70) &gt; Sement (65).</strong><br>
+    Duyarlılık: mine duyarsız, sement duyarsız, <strong>dentin duyarlı</strong> (tübüller).</p>
+  </div>
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Sement tipleri &amp; yaş</span>
+    <p><strong>Cellular sement = apikal 1/3 + furkasyon</strong> ("hücreli olan uçta ve çatalda"), <strong>acellular = üst 2/3</strong>. Yaşla artan tek özellik: <mark>sement permeabilitesi</mark> (istisna).</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Sert Dokular</div>
+    <details class="fc"><summary>Vücudun en sert dokusu hangisidir, neden duyarsızdır?</summary>
+      <div class="ans"><strong>Mine (enamel)</strong>; asellüler ve damar/sinir içermediği için duyarsızdır (~96% inorganik).</div></details>
+    <details class="fc"><summary>Dentin avasküler olmasına rağmen neden duyarlıdır?</summary>
+      <div class="ans">İçi boş <strong>tübüllerinde</strong> dentini yapan hücrelerin <strong>duyu uzantıları</strong> bulunur; canlı dokudur.</div></details>
+    <details class="fc"><summary>Cellular sement kökün hangi bölgelerini örter?</summary>
+      <div class="ans"><strong>Apikal 1/3 + furkasyon</strong>; kalan 2/3 acellular sementtir.</div></details>
+    <details class="fc"><summary>Hangi diş dokusunun kökeni diğerlerinden farklıdır?</summary>
+      <div class="ans"><strong>Mine</strong> tek <strong>ektodermal</strong> dokudur; dentin/sement/pulpa ektomezenkimaldir.</div></details>
+  </div>
+</section>
+
+<!-- S3 -->
+<section id="s3">
+  <h2 class="sec"><span class="num">03</span>Yumuşak Dokular: Pulpa &amp; Periodonsiyum</h2>
+  <h4>Pulpa</h4>
+  <p>Dentinle çevrilidir. İçeriği: <strong>bağ dokusu hücreleri, odontoblastlar, arter ve venler, miyelinli &amp; miyelinsiz sinir uçları.</strong></p>
+
+  <h4>Periodonsiyum (Periodontium)</h4>
+  <p>Dişi destekleyen fonksiyonel doku birimi: <strong>gingiva · dento-gingival junction · periodontal membran · cementum · alveolar kemik.</strong></p>
+  <ul>
+    <li><strong>Gingiva:</strong> kemiğe sıkıca tutunmuş, mukoza ile örtülü fibröz doku.</li>
+    <li><strong>Periodontal membran (ligament/aralık):</strong> dişi alveolar kemiğe bağlayan <em>yoğun fibröz bağ dokusu</em>. Birincil görevi <mark>dişi desteklemek</mark>; sement-kemik fizyolojik ilişkisini korur; kök apeksinde <strong>apikal foramen</strong> üzerinden pulpaya bağlanır; <strong>derin duyu ve basınç reseptörleri</strong> içerir.</li>
+  </ul>
+  <div class="box clinic">
+    <span class="lbl">🦷 Klinik Önemi — PDL'nin rolü</span>
+    <p>Periodontal ligament hem dişi yastıklar (kuvvet absorpsiyonu) hem de <strong>proprioseptif</strong> geri bildirim sağlar (ısırma kuvvetinin algılanması). Periodontal hastalıkta bu destek kaybolur; protez/implant planlamasında PDL'nin yokluğu (implant) biyomekaniği tümden değiştirir.</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Yumuşak Dokular</div>
+    <details class="fc"><summary>Pulpa hangi hücre ve yapıları içerir?</summary>
+      <div class="ans">Bağ dokusu hücreleri, <strong>odontoblastlar</strong>, arter/venler, miyelinli &amp; miyelinsiz sinir uçları.</div></details>
+    <details class="fc"><summary>Periodonsiyumu oluşturan beş bileşen nedir?</summary>
+      <div class="ans"><strong>Gingiva, dento-gingival junction, periodontal membran, cementum, alveolar kemik.</strong></div></details>
+    <details class="fc"><summary>Periodontal membran apekste neye bağlanır?</summary>
+      <div class="ans"><strong>Apikal foramen</strong> üzerinden pulpaya bağlanır.</div></details>
+  </div>
+</section>
+
+<!-- S4 -->
+<section id="s4">
+  <h2 class="sec"><span class="num">04</span>Çiğneme (Stomatognatik) Sistem</h2>
+  <p class="lead"><strong>Occlusion:</strong> çiğneme sisteminin nöromusküler kontrolüyle karşı dişler arasındaki her türlü temas. Oklüzal kayıp şunları etkiler: <strong>estetik, fonksiyon, fonasyon, doku adaptasyonu.</strong></p>
+  <p>Tam ve uyumlu oklüzyon için dişlerle birlikte çalışması gerekenler: <strong>kemikler, kaslar, ligamentler, periodonsiyum, TMJ.</strong></p>
+
+  <h4>Stomatognatik Sistemin Bileşenleri</h4>
+  <p>Sert ve yumuşak dokulardan oluşan fonksiyonel birim:</p>
+  <ul>
+    <li>Dişler; maxilla + mandibula; TMJ.</li>
+    <li>Çiğneme kasları: <strong>masseter, temporalis, medial &amp; lateral pterygoid</strong>.</li>
+    <li>Dudaklar, yanaklar, dil; tükürük bezleri; periodontal dokular; nöral kontrol.</li>
+  </ul>
+  <p>Sadece çiğnemeden değil; <strong>beslenme, yutma, konuşma ve yüz estetiğinden</strong> de sorumludur.</p>
+
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Çiğneme kasları (4'lü)</span>
+    <p><strong>Masseter · Temporalis · Medial pterygoid · Lateral pterygoid.</strong> İlk üçü çeneyi <em>kapatır/kaldırır</em>; <mark>lateral pterygoid çeneyi açan/öne süren</mark> ana kastır (istisna). Köprü: <em>"Üçü kapatır, lateral pterygoid açar."</em></p>
+  </div>
+</section>
+
+<!-- S5 -->
+<section id="s5">
+  <h2 class="sec"><span class="num">05</span>Mandibula &amp; Maxilla Anatomisi</h2>
+  <h3>Mandibula</h3>
+  <p>Alt dişleri taşıyan <strong>U-şekilli</strong> kemik; yüz iskeletinin alt kısmı. Maxillanın altında kas, ligament ve yumuşak dokularla asılı durur → <mark>çiğneme sisteminin hareketli (dinamik) parçası</mark>.</p>
+  <table>
+    <thead><tr><th>Yapı (Latince)</th><th>Açıklama</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Corpus mandibulae</strong></td><td>Gövde; yatay kısım; kesici ve molarların alveollerini barındırır.</td></tr>
+      <tr><td><strong>Ramus mandibulae</strong></td><td>Posterior, dikey yükselen kısım.</td></tr>
+      <tr><td><strong>Angulus mandibulae</strong></td><td>Ramus (dikey) ile corpus (yatay) birleşim açısı.</td></tr>
+      <tr><td><strong>Processus condylaris</strong></td><td>Kondil; kranium ile eklemleşir (TMJ); mandibular hareketlerin olduğu bölge.</td></tr>
+      <tr><td><strong>Processus coronoideus</strong></td><td>Anteriorda; coronoid çıkıntı.</td></tr>
+    </tbody>
+  </table>
+  <p><em>Ramus arkada oblik yükselir; coronoid önde, condylar arkada; condyle kraniumla eklemleşir.</em></p>
+
+  <h3>Maxilla</h3>
+  <p><strong>Corpus maxillae</strong> (büyük, içi boş gövde) + 4 çıkıntı:</p>
+  <ul>
+    <li><strong>Processus frontalis</strong> (frontal)</li>
+    <li><strong>Processus zygomaticus</strong> (zigomatik)</li>
+    <li><strong>Processus alveolaris</strong> (alveolar)</li>
+    <li><strong>Processus palatinus</strong> (palatin)</li>
+  </ul>
+  <p>Maxilla kafatasının <strong>sabit parçası</strong>dır → çiğneme sisteminin <mark>statik bileşeni</mark>.</p>
+
+  <div class="box spot">
+    <span class="lbl">🎯 Spot Bilgi — Statik vs Dinamik</span>
+    <p><strong>Maxilla = statik</strong> (kafatasına sabit), <strong>Mandibula = dinamik</strong> (asılı, hareketli). Maxilla 4 çıkıntılı (frontal, zigomatik, alveolar, palatin); mandibulada corpus + ramus + angulus + condylar + coronoid.</p>
+  </div>
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Maxilla 4 çıkıntı</span>
+    <p><strong>"F-Z-A-P"</strong> → <strong>F</strong>rontalis, <strong>Z</strong>ygomaticus, <strong>A</strong>lveolaris, <strong>P</strong>alatinus. Mandibula çıkıntıları: condylar (arka) + coronoid (ön) → "Co-Co ikilisi: arka eklemleşir, ön kasa yapışır."</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — Çene Kemikleri</div>
+    <details class="fc"><summary>Çiğneme sisteminin statik ve dinamik bileşenleri nedir?</summary>
+      <div class="ans">Statik = <strong>maxilla</strong> (kafatasına sabit); dinamik = <strong>mandibula</strong> (hareketli).</div></details>
+    <details class="fc"><summary>Maxillanın dört çıkıntısı nedir?</summary>
+      <div class="ans"><strong>Processus frontalis, zygomaticus, alveolaris, palatinus.</strong></div></details>
+    <details class="fc"><summary>Mandibulada hangi çıkıntı kraniumla eklemleşir?</summary>
+      <div class="ans"><strong>Processus condylaris</strong> (kondil) — TMJ'yi oluşturur.</div></details>
+  </div>
+</section>
+
+<!-- S6 -->
+<section id="s6">
+  <h2 class="sec"><span class="num">06</span>TMJ: Fossa &amp; Artiküler Eminens</h2>
+  <h4>Temporal Kemik</h4>
+  <p>Çift kranial kemik; her tarafı <strong>squamous, tympanic, mastoid, petrous</strong> parçalara ayrılır. Mandibular kondil, temporal kemiğin <strong>squamous</strong> kısmıyla kraniumun merkezinde eklemleşir.</p>
+  <ul>
+    <li><strong>Mandibular fossa (= glenoid fossa):</strong> bu eklem yüzeyi; <mark>konkav (içbükey)</mark> şekilli.</li>
+    <li><strong>Articular eminence (artiküler eminens):</strong> kondilin hemen anteriorunda <mark>konveks (dışbükey)</mark> kemik çıkıntı. Eğiminin derecesi çok önemli: <strong>kondiler hareket yolunu ve mandibular anterior translasyon açısını belirler.</strong></li>
+  </ul>
+  <div class="box warn">
+    <span class="lbl">⚠️ Dikkat — Fossa arka duvarı vs eminens</span>
+    <p><strong>Mandibular fossanın arka duvarı incedir</strong> ve aşırı kuvvete uygun değildir. Buna karşılık <strong>artiküler eminens daha yoğun kemik yapısına sahiptir</strong> → yüksek oklüzal yükleri absorbe edebilir. Çeldirici: "kuvveti hangi yapı taşır?" → eminens (ince arka duvar değil).</p>
+  </div>
+  <div class="box clinic">
+    <span class="lbl">🦷 Klinik Önemi — Eminens eğimi &amp; condylar guidance</span>
+    <p>Artiküler eminens eğimi, oklüzyon dersindeki <strong>condylar guidance angle</strong> kavramının anatomik temelidir. Eğim arttıkça arka dişlerin disklüzyonu (separasyonu) ve cusp yükseklikleri değişir; protez ve restorasyonda artikülatör ayarını doğrudan etkiler.</p>
+  </div>
+
+  <div class="box mnem">
+    <span class="lbl">🧠 Hafıza Tekniği — Fossa vs Eminens</span>
+    <p><strong>Fossa = konkav (çukur), kondili barındırır; arka duvarı ince.</strong> <strong>Eminens = konveks (tümsek), önde, yoğun kemik, kuvvet taşır, hareket yolunu belirler.</strong> Temporal kemik parçaları: <strong>"S-T-M-P"</strong> (Squamous, Tympanic, Mastoid, Petrous).</p>
+  </div>
+
+  <div class="flash-wrap">
+    <div class="ttl">🃏 Flashcard — TMJ Anatomisi</div>
+    <details class="fc"><summary>Mandibular kondil temporal kemiğin hangi parçasıyla eklemleşir?</summary>
+      <div class="ans"><strong>Squamous</strong> parçası ile; eklem yüzeyi konkav <strong>mandibular (glenoid) fossa</strong>dır.</div></details>
+    <details class="fc"><summary>Artiküler eminensin eğimi neyi belirler?</summary>
+      <div class="ans"><strong>Kondiler hareket yolunu</strong> ve mandibular anterior translasyon açısını (condylar guidance'ın anatomik temeli).</div></details>
+    <details class="fc"><summary>Mandibular fossa arka duvarı mı, artiküler eminens mi daha fazla kuvvet taşır?</summary>
+      <div class="ans"><strong>Artiküler eminens</strong> (yoğun kemik); fossa arka duvarı ince ve aşırı kuvvete uygun değildir.</div></details>
+  </div>
+</section>
+
+<div class="divider">• • •</div>
+
+<footer>
+  <p>🦷 <strong>Batch 5 tamamlandı —</strong> Diş Dokuları Histolojisi &amp; Çiğneme Sistemi / TMJ Anatomisi</p>
+  <p style="opacity:.8;">🎓 Bu, ders serisinin <strong>son çalışma rehberidir</strong>. Tüm konular tamamlandı — başarılar!</p>
+  <p style="opacity:.7;">Flashcard kutularına tıklayarak cevapları açıp kapat.</p>
+</footer>
+
+</div>
+<script src="../../assets/language.js" defer></script>
+</body>
+</html>

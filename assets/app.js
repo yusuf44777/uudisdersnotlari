@@ -351,7 +351,7 @@ function render() {
       ? `
         <div class="chapter-list" aria-label="Ders içindeki bölümler">
           ${note.children.map((child) => `
-            <a href="${localizePath(child.path)}">
+            <a href="${localizePath(child.path)}" target="_blank" rel="noopener">
               <strong>${escapeHtml(child.label)}</strong>
               <span>${escapeHtml(child.title)}</span>
             </a>
@@ -374,7 +374,7 @@ function render() {
         </div>
         <div></div>
         <div class="note-actions">
-          <a class="open-note" href="${localizePath(note.path)}">
+          <a class="open-note" href="${localizePath(note.path)}" target="_blank" rel="noopener">
             <span>${note.children ? "Ders 1'e başla" : "Notu aç"}</span>
             ${icon("arrow")}
           </a>

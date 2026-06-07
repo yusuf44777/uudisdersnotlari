@@ -410,6 +410,12 @@ svg {
     linear-gradient(135deg, rgba(32, 122, 83, 0.08), transparent);
 }
 
+.course-card.embryology::after {
+  background:
+    repeating-linear-gradient(135deg, rgba(194, 86, 42, 0.14) 0 2px, transparent 2px 16px),
+    linear-gradient(135deg, rgba(194, 86, 42, 0.08), transparent);
+}
+
 .course-card.pending {
   background:
     linear-gradient(180deg, rgba(255, 253, 248, 0.96), rgba(255, 253, 248, 0.78)),
@@ -449,6 +455,10 @@ svg {
   color: #207a53;
 }
 
+.course-card.embryology .course-topline strong {
+  color: #c2562a;
+}
+
 .course-card.pending .course-topline strong {
   color: var(--gold);
 }
@@ -486,6 +496,10 @@ svg {
 
 .course-card.biochemistry a {
   background: #207a53;
+}
+
+.course-card.embryology a {
+  background: #c2562a;
 }
 
 .course-card.pending a {
@@ -664,6 +678,10 @@ svg {
 
 .note-card[data-course="Biochemistry"] .course-dot::before {
   background: #207a53;
+}
+
+.note-card[data-course="Embryology"] .course-dot::before {
+  background: #c2562a;
 }
 
 .note-card h3 {

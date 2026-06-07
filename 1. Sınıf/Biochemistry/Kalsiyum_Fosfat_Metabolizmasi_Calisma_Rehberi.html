@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalsiyum & Fosfat Metabolizması — Slayt Slayt Final Rehberi</title>
+<style>
+  :root{
+    --bg:#eef1f4;--paper:#fff;--ink:#1b242b;--muted:#4c5862;
+    --brand:#1d6fa3;--brand-dark:#134c72;--brand-soft:#e4f0f7;
+    --teal:#0c7d8c;--teal-soft:#e6f5f7;
+    --amber:#b9770e;--amber-soft:#fdf4e3;
+    --red:#b3261e;--red-soft:#fcebe9;
+    --green:#1e7a46;--green-soft:#e8f6ee;
+    --purple:#5b3a91;--purple-soft:#f0eafa;
+    --line:#dde4e9;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Calibri,system-ui,sans-serif;line-height:1.6;font-size:17px;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 18px 80px;}
+  header.hero{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:24px;box-shadow:0 8px 24px rgba(19,76,114,.25);}
+  header.hero .tag{font-size:14px;letter-spacing:2px;text-transform:uppercase;opacity:.85;}
+  header.hero h1{margin:.2em 0 .15em;font-size:1.95rem;font-family:Georgia,serif;}
+  header.hero p{margin:.2em 0;opacity:.92;font-size:.95rem;}
+  .slide{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:18px 0;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .slide-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
+  .snum{background:var(--brand);color:#fff;font-weight:800;font-size:.8rem;padding:5px 12px;border-radius:20px;white-space:nowrap;letter-spacing:.5px;}
+  .stitle{font-family:Georgia,serif;color:var(--brand-dark);font-size:1.18rem;font-weight:700;}
+  strong{color:var(--brand-dark);} em{color:var(--muted);} mark{background:#ffe9a8;padding:0 3px;border-radius:3px;}
+  ul,ol{margin:.4em 0 .7em;padding-left:1.35em;} li{margin:.3em 0;} p{margin:.55em 0;}
+  .box{border-radius:12px;padding:13px 17px;margin:14px 0;border-left:6px solid;}
+  .box .bt{font-weight:800;display:block;margin-bottom:4px;}
+  .clinic{background:var(--teal-soft);border-color:var(--teal);} .clinic .bt{color:var(--teal);}
+  .spot{background:var(--green-soft);border-color:var(--green);} .spot .bt{color:var(--green);}
+  .warn{background:var(--red-soft);border-color:var(--red);} .warn .bt{color:var(--red);}
+  .mnemo{background:var(--purple-soft);border-color:var(--purple);} .mnemo .bt{color:var(--purple);}
+  .rxn{font-family:Consolas,"Courier New",monospace;background:#eef3f6;border-radius:8px;padding:8px 12px;margin:8px 0;font-size:.86rem;display:block;}
+  .fc-wrap{margin:16px 0 4px;border:2px dashed var(--amber);background:var(--amber-soft);border-radius:14px;padding:12px 16px;}
+  .fc-wrap .fc-title{font-weight:800;color:var(--amber);letter-spacing:.5px;text-transform:uppercase;font-size:.78rem;margin-bottom:6px;}
+  details.fc{background:#fff;border:1px solid #eedcb6;border-radius:10px;margin:7px 0;padding:3px 13px;}
+  details.fc summary{cursor:pointer;font-weight:700;padding:7px 0;list-style:none;}
+  details.fc summary::-webkit-details-marker{display:none;}
+  details.fc summary::before{content:"❓ ";} details.fc[open] summary::before{content:"✅ ";}
+  details.fc .ans{padding:4px 0 11px;color:var(--brand-dark);border-top:1px solid #f0e6cf;margin-top:3px;}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:.9rem;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+  th{background:var(--brand-dark);color:#fff;text-align:left;padding:9px 11px;font-size:.84rem;}
+  td{padding:9px 11px;border-top:1px solid var(--line);vertical-align:top;}
+  tr:nth-child(even) td{background:#f6f9fb;}
+  .toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 20px;font-size:.92rem;}
+  .toc a{color:var(--brand-dark);text-decoration:none;} .toc a:hover{text-decoration:underline;}
+  .diag-note{font-style:italic;color:var(--muted);font-size:.92rem;}
+  footer{margin-top:50px;text-align:center;color:var(--muted);font-size:.85rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="tag">Medical Biochemistry · 1. Sınıf Final</div>
+  <h1>Kalsiyum & Fosfat Metabolizması</h1>
+  <p>Calcium and Phosphate Metabolism — Slayt Slayt Çalışma Rehberi (53 slayt)</p>
+  <p style="opacity:.8;font-size:.85rem;">Kaynak: Prof. Dr. Nilgün Tekkeşin — Üsküdar University, Faculty of Medicine, Dept. of Medical Biochemistry</p>
+</header>
+
+<div class="toc">
+<strong style="color:var(--brand-dark);">📋 Kaynaktaki 53 slayt sırayla işlendi.</strong> Hızlı geçiş:
+<a href="#s4">Ca dağılımı & formlar (3–10)</a> ·
+<a href="#s11">Ca regülasyonu & emilim (11–16)</a> ·
+<a href="#s17">Vitamin D (17–23)</a> ·
+<a href="#s24">PTH & Kalsitonin (24–34)</a> ·
+<a href="#s37">Hastalıklar (37–45)</a> ·
+<a href="#s46">Fosfor (46–50)</a>
+</div>
+
+<!-- 1 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 1</span><span class="stitle">Başlık</span></div>
+<p><strong>Calcium and Phosphate Metabolism</strong>. Prof. Dr. Nilgün Tekkeşin, Üsküdar University, Faculty of Medicine, Dept. of Medical Biochemistry.</p></div>
+
+<!-- 2 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 2</span><span class="stitle">Hücresel Süreçlerde Kalsiyum</span></div>
+<ul>
+<li>Vücutta bol bulunan bir <strong>katyondur (cation)</strong> — erişkinde yaklaşık <strong>1000 g</strong>.</li>
+<li><strong>RDA = 1000–1500 mg/gün</strong>. (RDA = <em>Recommended Dietary Allowance</em>: besin gereksinimini karşılamaya yeten ortalama günlük alım düzeyi.)</li>
+</ul>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Erişkin vücudundaki toplam kalsiyum miktarı ve günlük RDA nedir?</summary><div class="ans">~1000 g toplam; RDA 1000–1500 mg/gün.</div></details>
+</div></div>
+
+<!-- 3 -->
+<div class="slide" id="s4"><div class="slide-head"><span class="snum">SLIDE 3</span><span class="stitle">Kalsiyum Dağılımı (Başlık)</span></div>
+<p>Bölüm başlığı: <strong>Calcium Distribution</strong>.</p></div>
+
+<!-- 4 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 4</span><span class="stitle">Plazmada Kalsiyumun İki Formu</span></div>
+<p>Plazmadaki kalsiyum iki ana formdadır:</p>
+<ul>
+<li><strong>2- Filterable (filtre edilebilir) — %55</strong></li>
+<li><strong>1- Bound (bağlı) — %45</strong></li>
+</ul></div>
+
+<!-- 5 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 5</span><span class="stitle">Kalsiyumun Farklı Formları</span></div>
+<ol>
+<li><strong>Proteinlere bağlı kalsiyum</strong> (başlıca <strong>albumin</strong>) — <strong>%45</strong>.</li>
+<li><strong>Plazmadaki (filtre edilebilir) kalsiyum</strong> — <strong>%55</strong>:
+  <ul>
+    <li>a) <strong>Anyonlarla kompleks halinde</strong> (~%10). Vücuttaki kalsiyumun çoğu <strong>hydroxyapatite, Ca₁₀(PO₄)₆(OH)₂</strong> minerali olarak bulunur.</li>
+    <li>b) <strong>İyonize kalsiyum</strong> — <mark>fizyolojik olarak aktif form</mark> (serbest, filtre edilebilen kısım).</li>
+  </ul>
+</li>
+</ol>
+<p>Hipoalbüminemide iyonize kalsiyumu tahmin etmek için <strong>düzeltme formülü</strong>:</p>
+<span class="rxn">[Ca²⁺]Düzeltilmiş = [Ca²⁺]Ölçülen + [ 0.8 × (4 − Albumin) ]</span>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Albumin düştüğünde toplam kalsiyum yanıltıcı şekilde düşük görünür ama <strong>iyonize (aktif) kalsiyum normal olabilir</strong>. O yüzden düzeltme formülü kullanılır. <strong>Hydroxyapatite, Ca₁₀(PO₄)₆(OH)₂</strong> formülünü ezberle — kemiğin ve dişin mineral matriksidir.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Kalsiyumun fizyolojik olarak aktif formu hangisidir?</summary><div class="ans">İyonize (serbest) kalsiyum.</div></details>
+<details class="fc"><summary>Hipoalbüminemide kalsiyum düzeltme formülü nedir?</summary><div class="ans">[Ca]düzeltilmiş = [Ca]ölçülen + 0.8 × (4 − albumin).</div></details>
+<details class="fc"><summary>Kemik/diş mineralinin kimyasal formülü nedir?</summary><div class="ans">Hydroxyapatite: Ca₁₀(PO₄)₆(OH)₂.</div></details>
+</div></div>
+
+<!-- 6 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 6</span><span class="stitle">Kalsiyum ve pH</span></div>
+<ul>
+<li>Bağlı kalsiyum yüzdesi <strong>pH'ye bağlıdır</strong>.</li>
+<li><strong>Alkalemi → ↓ serbest kalsiyum</strong> (daha fazla albumine bağlanır).</li>
+<li><strong>Asidemi → ↑ serbest kalsiyum</strong>.</li>
+<li>1 g/dL albumin değişimi = 0.8 mg/dL kalsiyum değişimi.</li>
+<li>1 g/dL globulin değişimi = 0.16 mg/dL kalsiyum değişimi.</li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span><strong>Alkaloz (örn. hiperventilasyon)</strong> → serbest Ca²⁺ düşer → <strong>tetani</strong>, kas spazmları, ağız çevresinde uyuşma. Diş tedavisinde anksiyeteyle hiperventile olan hastada bu tablo görülebilir.</div>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"<strong>A</strong>lkali <strong>A</strong>z serbest Ca; <strong>A</strong>sit <strong>A</strong>rtırır." (Asitte H⁺ albumine bağlanır, Ca²⁺ serbest kalır.)</div>
+</div>
+
+<!-- 7 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 7</span><span class="stitle">Kalsiyum ve pH (Diyagram)</span></div>
+<p class="diag-note">pH'nin albumine kalsiyum bağlanması üzerindeki etkisini gösteren şema (asidoz→serbest Ca artışı; alkaloz→serbest Ca azalışı).</p></div>
+
+<!-- 8 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 8</span><span class="stitle">Yaşa Göre Gereksinim</span></div>
+<table>
+<tr><th>Yaş (yıl)</th><th>Kalsiyum gereksinimi</th></tr>
+<tr><td>1–3</td><td>500 mg</td></tr>
+<tr><td>4–8</td><td>800 mg</td></tr>
+<tr><td>9–18</td><td>1300 mg</td></tr>
+<tr><td>19–50</td><td>1000 mg</td></tr>
+<tr><td>51+</td><td>1500 mg</td></tr>
+</table>
+<p>Gebe ve emziren kadınlar için önerilen günlük alım <strong>1000 mg</strong>.</p>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>En yüksek gereksinim <strong>9–18 yaş (1300 mg)</strong> ve <strong>51+ yaş (1500 mg)</strong> gruplarındadır — büyüme ve kemik kaybı dönemleri.</div>
+</div>
+
+<!-- 9 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 9</span><span class="stitle">Kaynaklar</span></div>
+<p>Kalsiyum kaynakları: <strong>süt ve süt ürünleri</strong>, koyu yeşil yapraklı sebzeler, deniz ürünleri, badem, kara pekmez (blackstrap molasses), brokoli, zenginleştirilmiş soya/pirinç sütü, incir, soya fasulyesi ve tofu.</p></div>
+
+<!-- 10 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 10</span><span class="stitle">Kalsiyumun Biyolojik İşlevleri</span></div>
+<ul>
+<li>Kemik ve diş mineralizasyonu (<strong>bone and teeth mineralization</strong>)</li>
+<li>Nöromüsküler uyarılabilirliğin düzenlenmesi</li>
+<li>Kan pıhtılaşması (blood coagulation)</li>
+<li>Sekretuar süreçler, membran bütünlüğü, plazma membran transportu</li>
+<li>Enzim reaksiyonları</li>
+<li>Hormon ve nörotransmitter salınımı</li>
+<li><strong>Hücre içi ikincil haberci (intracellular second messenger)</strong></li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span>Kalsiyum hem <strong>diş mineralizasyonu</strong> hem de <strong>kan pıhtılaşması (faktör IV)</strong> için kritiktir. Diş çekimi sonrası hemostazda kalsiyumun rolü vardır.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Kalsiyumun pıhtılaşmadaki rolü nedir?</summary><div class="ans">Koagülasyon kaskadında Faktör IV olarak görev alır (kan pıhtılaşması).</div></details>
+</div></div>
+
+<!-- 11 -->
+<div class="slide" id="s11"><div class="slide-head"><span class="snum">SLIDE 11</span><span class="stitle">Kalsiyum Neyle Düzenlenir?</span></div>
+<ul>
+<li><strong>Intestinal absorption</strong> (bağırsak emilimi)</li>
+<li><strong>Renal absorption</strong> (böbrek geri emilimi)</li>
+<li><strong>Bone turnover</strong> (kemik döngüsü)</li>
+<li><strong>Calcium receptors (CaSR):</strong> paratiroid bezi, böbrek, beyin ve diğer organlarda bulunur.</li>
+<li><strong>Hormonlar:</strong> PTH, calcitriol, iyonize Ca²⁺, Vitamin D.</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber — 3 organ ekseni</span>Kalsiyum dengesi <strong>3 organla</strong> kontrol edilir: <strong>Bağırsak (emilim) – Böbrek (geri emilim) – Kemik (depo)</strong>. Üçünü de PTH ve vitamin D yönetir.</div>
+</div>
+
+<!-- 12 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 12</span><span class="stitle">GİS'te Kalsiyum Emilimi</span></div>
+<ul>
+<li><strong>Aktif emilim:</strong> duodenumun ilk ve ikinci kısmından, <strong>konsantrasyon gradyanına karşı</strong>. Bir <strong>taşıyıcı protein</strong> ve <strong>Ca-bağımlı ATPaz</strong> gerektirir.</li>
+<li><strong>Pasif emilim:</strong> bağırsağın tüm uzunluğu boyunca.</li>
+</ul>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Kalsiyumun aktif emilimi nerede ve nasıl olur?</summary><div class="ans">Duodenumun ilk/ikinci kısmında, gradyana karşı, taşıyıcı protein + Ca-bağımlı ATPaz ile.</div></details>
+</div></div>
+
+<!-- 13 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 13</span><span class="stitle">Emilimi Artıran ve Azaltan Faktörler</span></div>
+<table>
+<tr><th>Artıran (Increased)</th><th>Azaltan (Inhibiting)</th></tr>
+<tr><td>Calcitriol (aktif Vit-D), PTH, asidik pH, Lys ve Arg</td><td>Fitik asit (phytic acid), oksalatlar, fosfat, Mg, kafein</td></tr>
+</table>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"<strong>Asit emdirir, fitat/oksalat engeller</strong>." Asidik pH ve aktif D vitamini emilimi artırır; bitkisel fitat/oksalat kalsiyumu bağlayıp emilimi düşürür.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Kalsiyum emilimini azaltan diyet bileşenleri nelerdir?</summary><div class="ans">Fitik asit, oksalatlar, fosfat, magnezyum, kafein.</div></details>
+</div></div>
+
+<!-- 14 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 14</span><span class="stitle">Kalsiyum ve Kemik Metabolizması</span></div>
+<ul>
+<li>Vücuttaki kalsiyumun <strong>büyük kısmı kemiktedir</strong>.</li>
+<li><strong>Osteoclast (yıkım)</strong> ve <strong>osteoblast (yapım)</strong> homeostazı sağlar.</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber — Osteoblast vs Osteoclast</span>"Osteo<strong>B</strong>last = <strong>B</strong>uild (yapar). Osteo<strong>C</strong>last = <strong>C</strong>rush/Consume (yıkar)." PTH osteoklastı aktive eder → Ca kana salınır.</div>
+</div>
+
+<!-- 15 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 15</span><span class="stitle">Kalsiyum Metabolizmasının Hormonal Regülasyonu</span></div>
+<table>
+<tr><th>Hormon</th><th>Hedef</th><th>Etki</th></tr>
+<tr><td><strong>PTH (Parathyroid hormone)</strong></td><td>Kemik, böbrek</td><td>Plazma Ca'yı <strong>artırır</strong>: 1) Osteoklast aktivasyonu (kemikten Ca salınımı), 2) Böbrekte Ca geri emilimi ↑, 3) Vit D₃ sentezi aktivasyonu → bağırsak emilimi ↑</td></tr>
+<tr><td><strong>Vitamin D</strong></td><td>Bağırsak, kemik, böbrek</td><td>Ca emilimini ve plazma Ca'yı artırır</td></tr>
+<tr><td><strong>Calcitonin</strong></td><td>Kemik</td><td>Plazma Ca'yı <strong>azaltır</strong></td></tr>
+</table>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi — En önemli denge</span><strong>PTH + Vitamin D → Ca'yı YÜKSELTİR; Calcitonin → Ca'yı DÜŞÜRÜR.</strong> Bu üçlü, kalsiyum homeostazının temelidir.</div>
+</div>
+
+<!-- 16 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 16</span><span class="stitle">Kalsiyum Turnover (Diyagram)</span></div>
+<p class="diag-note">Günlük kalsiyum akışı: Alım <strong>350 mg/gün</strong> → bağırsaktan emilim 350, sekresyon 250, dışkıyla 900 mg. <strong>ECF havuzu 1300 mg</strong>; hücrelerde 13.000 mg; <strong>kemikte 1.000.000 mg</strong> (deposit 500 / absorpsiyon 500). Böbrek: filtrasyon 9980, geri emilim 9880, idrarla atılan <strong>100 mg/gün</strong>.</p>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Kemik, vücudun <strong>en büyük kalsiyum deposudur</strong> (~1.000.000 mg). Böbrek filtre ettiği kalsiyumun <strong>~%99'unu geri emer</strong>.</div>
+</div>
+
+<!-- 17 -->
+<div class="slide" id="s17"><div class="slide-head"><span class="snum">SLIDE 17</span><span class="stitle">Vitamin D₃ Sentezi (Basamaklar)</span></div>
+<ol>
+<li>Diyet kolesterolü <strong>7-dehydrocholesterol</strong>'e çevrilir ve deriye taşınır.</li>
+<li>Deride <strong>UV ışık (290–320 nm)</strong> provitamini (7-dehidrokolesterol) previtamine kırar; izomerizasyonla <strong>Cholecalciferol (Vitamin D₃)</strong>'e dönüşür.</li>
+<li><strong>Karaciğerde</strong>: kolekalsiferol <strong>25-hydroxylation</strong> ile <strong>25(OH)Vit-D (Calcidiol)</strong> olur.</li>
+<li><strong>Böbrekte</strong>: kalsidiol <strong>1α-hydroxylation</strong> ile <strong>1,25-dihydroxy Vit-D (Calcitriol)</strong> olur. Bu basamağı <strong>1α-hydroxylase</strong> enzimi katalize eder.</li>
+</ol>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi — Aktivasyon yolu</span><mark>Deri → Karaciğer (25-OH) → Böbrek (1-OH) = Aktif Calcitriol.</mark> Aktif form <strong>1,25-(OH)₂-D₃ (Calcitriol)</strong>. Böbrekteki <strong>1α-hidroksilaz</strong> hız kısıtlayıcı/düzenleyici enzimdir.</div>
+<div class="box mnemo"><span class="bt">🧠 Ezber — "25 Karaciğer, 1 Böbrek"</span>Karaciğerde <strong>25.</strong> pozisyon hidroksillenir (calcidiol), böbrekte <strong>1.</strong> pozisyon hidroksillenir (calcitriol). "Liver=25, Kidney=1." Sayı küçüldükçe organ aşağı iner ve vitamin aktifleşir.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Vitamin D'nin aktif formu nedir ve hangi organda son aktivasyonu olur?</summary><div class="ans">Calcitriol = 1,25-(OH)₂-D₃; son aktivasyon böbrekte (1α-hydroxylase ile).</div></details>
+<details class="fc"><summary>Karaciğer ve böbrekte hangi pozisyonlar hidroksillenir?</summary><div class="ans">Karaciğer: 25. pozisyon (calcidiol). Böbrek: 1. pozisyon (calcitriol).</div></details>
+</div></div>
+
+<!-- 18 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 18</span><span class="stitle">Vitamin D₃ Yolağı (Diyagram)</span></div>
+<p class="diag-note">Şema: 7-Dehydrocholesterol → (deride UV ışık + ısı) → Previtamin D3 → <strong>Vitamin D3 (Cholecalciferol)</strong> → Karaciğer (enzim) → <strong>25-OH-D (Calcidiol)</strong> → Böbrek (enzim) → <strong>1,25-dihydroxy-Vitamin D3 (Calcitriol)</strong>.</p></div>
+
+<!-- 19 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 19</span><span class="stitle">Vitamin D₃ Yolağı — Enzimlerle (Diyagram)</span></div>
+<p class="diag-note">Detaylı şema: Güneş UVB → deride 7-dehidrokolesterol → pre-vitamin D₃ → Vitamin D₃; ayrıca diyetten D₂. Kanda <strong>DBP (D-binding protein)</strong> ile taşınır → Karaciğer <strong>CYP27A1</strong> → 25(OH)D → Böbrek <strong>CYP27B1</strong> → 1,25(OH)₂ → <strong>VDR</strong> hedef dokular: ↑Ca emilimi, ↓Ca atılımı, ↑immünite, ↓proliferasyon/inflamasyon.</p>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi — Enzim isimleri</span>Karaciğer 25-hidroksilaz = <strong>CYP27A1</strong>; böbrek 1α-hidroksilaz = <strong>CYP27B1</strong>. Vitamin D reseptörü = <strong>VDR</strong> (steroid hormon reseptörü ailesinden).</div>
+</div>
+
+<!-- 20 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 20</span><span class="stitle">1α-Hidroksilaz ve Calcitriol Etkileri</span></div>
+<p><strong>Böbrek 1α-hidroksilaz aktivitesini artıranlar:</strong></p>
+<ul>
+<li>Azalmış serum Ca²⁺</li>
+<li>Artmış PTH düzeyi</li>
+<li>Azalmış serum fosfat</li>
+</ul>
+<p><strong>Calcitriol (1,25-(OH)₂-D, AKTİF FORM) etkileri:</strong></p>
+<ul>
+<li>Bağırsakta <strong>Ca²⁺ emilimini</strong> artırır.</li>
+<li>Bağırsakta <strong>fosfat emilimini</strong> artırır.</li>
+<li>Böbrekte Ca²⁺ ve fosfat geri emilimini artırır.</li>
+<li><strong>Osteoklast aktivitesini</strong> (kemik rezorpsiyonu) artırır.</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>Calcitriol = "Hem Ca hem fosfatı bağırsaktan içeri al." (PTH'den farkı: PTH fosfatı atar, calcitriol ise bağırsaktan fosfat emilimini artırır.)</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Böbrek 1α-hidroksilazı uyaran üç faktör nedir?</summary><div class="ans">Düşük serum Ca²⁺, yüksek PTH, düşük serum fosfat.</div></details>
+</div></div>
+
+<!-- 21 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 21</span><span class="stitle">Vitamin D₃ ve Kalsiyum Kontrolü (Diyagram)</span></div>
+<p class="diag-note">Akış: Deri Cholecalciferol → Karaciğer → 25-Hydroxycholecalciferol → Böbrek (<strong>PTH ile aktivasyon</strong>) → 1,25-Dihydroxycholecalciferol → bağırsak epiteli → <strong>CaBP, Ca-uyarılmış ATPaz, alkalen fosfataz</strong> → bağırsaktan Ca emilimi → plazma Ca²⁺ artışı. Yüksek plazma Ca²⁺, PTH'yi geri besleyerek (inhibition) baskılar.</p></div>
+
+<!-- 22 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 22</span><span class="stitle">Vitamin D₃ Bağırsak Ca Emilimini Artırır</span></div>
+<ul>
+<li>Vitamin D₃, <strong>steroid hormon benzeri reseptörler (VDR)</strong> üzerinden transkripsiyon ve translasyonu artırır.</li>
+<li>Bir gen ürünü <strong>kalsiyum bağlayıcı protein (CaBP / calbindin)</strong>'dir.</li>
+<li>CaBP, bağırsak hücrelerinin kalsiyum alımını kolaylaştırır.</li>
+<li><strong>Östrojen, prolaktin ve büyüme hormonu</strong> da 1α-hidroksilazı uyararak gebelik, laktasyon ve büyümede Ca emilimini artırır.</li>
+</ul>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Vitamin D'nin uyardığı kalsiyum bağlayıcı protein nedir?</summary><div class="ans">CaBP (calbindin) — bağırsak hücrelerinde Ca alımını kolaylaştırır.</div></details>
+</div></div>
+
+<!-- 23 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 23</span><span class="stitle">Vitamin D₃'ün Kemik Üzerine Etkileri</span></div>
+<ul>
+<li>1,25-(OH)₂-D₃'ün diğer önemli hedefi <strong>kemiktir</strong>.</li>
+<li><mark>Vitamin D₃ reseptörü <strong>osteoblastlarda</strong> vardır, osteoklastlarda YOKTUR.</mark></li>
+<li>1,25-(OH)₂-D₃ osteoblastlara etki eder; bunlar bir <strong>parakrin sinyal</strong> üreterek osteoklastları aktive eder → kemik matriksinden Ca²⁺ rezorpsiyonu.</li>
+<li>Ayrıca <strong>osteositik osteolizi</strong> uyarır.</li>
+<li>Yokluğunda, osteoblastik kolajen sentezi baskılanamadığı için <strong>aşırı osteoid birikir</strong> (mineralize olmamış kemik → osteomalazi/raşitizm).</li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi (Sık çeldirici)</span>Vitamin D ve PTH osteoklastı <strong>doğrudan değil, osteoblast üzerinden (parakrin/RANKL)</strong> aktive eder — çünkü osteoklastta reseptör yoktur. "Vitamin D doğrudan osteoklasta bağlanır" ifadesi <mark>yanlıştır</mark>.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Vitamin D reseptörü hangi kemik hücresinde bulunur?</summary><div class="ans">Osteoblastlarda (osteoklastlarda yoktur); osteoklast dolaylı/parakrin yolla aktive edilir.</div></details>
+</div></div>
+
+<!-- 24 -->
+<div class="slide" id="s24"><div class="slide-head"><span class="snum">SLIDE 24</span><span class="stitle">Parathyroid Hormon (PTH) — Yapı & İşlev</span></div>
+<ul>
+<li><strong>pre-pro-PTH (115 aa)</strong> olarak sentezlenir → <strong>pro-PTH (90 aa)</strong> → salgılanmadan önce <strong>PTH (84 aa)</strong> oluşur.</li>
+<li>İntakt PTH yarı ömrü (T½) <strong>3–4 dakika</strong>; normal düzey 1.3–6.8 pmol/L.</li>
+<li><strong>Paratiroid bezinin chief (ana) hücrelerinden</strong> salgılanır.</li>
+<li><strong>İşlevi:</strong> renal fosfat atılımını artırır ve plazma kalsiyumunu artırır:
+  <ul>
+    <li>Osteoklastik kemik rezorpsiyonunu artırarak (hızlı).</li>
+    <li>Bağırsak Ca emilimini artırarak (yavaş yanıt).</li>
+    <li>1,25-(OH)₂D₃ sentezini artırarak (GİS emilimini uyarır).</li>
+    <li>Renal tübüler Ca geri emilimini artırarak.</li>
+  </ul>
+</li>
+</ul>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>PTH hangi hücrelerden salgılanır ve yarı ömrü nedir?</summary><div class="ans">Paratiroid chief hücrelerinden; T½ 3–4 dakika.</div></details>
+</div></div>
+
+<!-- 25 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 25</span><span class="stitle">PTH Etkisi (Özet)</span></div>
+<ul>
+<li>PTH'nin genel etkisi: <strong>plazma Ca²⁺'ı ARTIRMAK</strong> ve <strong>plazma fosfatı AZALTMAK</strong>.</li>
+<li>Doğrudan <strong>kemiğe</strong> (Ca rezorpsiyonu) ve <strong>böbreğe</strong> (distal tübülde Ca geri emilimi ↑; fosfat geri emilimi ↓ → fosfat atılımı ↑) etki eder.</li>
+<li>Dolaylı olarak <strong>bağırsağa</strong> 1,25-(OH)₂-D sentezini uyararak etki eder → GİS'ten Ca emilimini artırır.</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber — PTH = "Phosphate Trashing Hormone"</span>PTH kalsiyumu <strong>yukarı</strong>, fosfatı <strong>aşağı</strong> çeker (fosfatı idrarla "çöpe atar"). Calcitriol'den farkı budur.</div>
+<div class="box warn"><span class="bt">⚠️ Dikkat</span>PTH ↑ Ca ama ↓ fosfat yapar. Vitamin D ise <strong>hem Ca hem fosfatı artırır</strong>. Bu ikisinin fosfat üzerindeki zıt etkisi sık sorulur.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>PTH plazma kalsiyum ve fosfatını nasıl değiştirir?</summary><div class="ans">Ca²⁺'ı artırır, fosfatı azaltır (renal atılımı artırarak).</div></details>
+</div></div>
+
+<!-- 26 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 26</span><span class="stitle">PTH Regülasyonu (1)</span></div>
+<ul>
+<li>PTH'nin baskın düzenleyicisi <strong>plazma Ca²⁺</strong>'dır.</li>
+<li>PTH salgısı [Ca²⁺] ile <strong>ters orantılıdır</strong>.</li>
+<li>Maksimum PTH salgısı plazma Ca²⁺ <strong>&lt; 3.5 mg/dL</strong> iken olur.</li>
+<li>Ca²⁺ <strong>&gt; 5.5 mg/dL</strong> iken PTH salgısı maksimum baskılanır.</li>
+<li>PTH, plazma Ca²⁺'taki küçük değişimlere <strong>saniyeler içinde</strong> yanıt verir.</li>
+</ul></div>
+
+<!-- 27 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 27</span><span class="stitle">PTH Regülasyonu (2) — CaSR Mekanizması</span></div>
+<ul>
+<li>Paratiroid hücre membranındaki <strong>kalsiyum reseptörü (CaSR)</strong>, ekstrasellüler Ca²⁺ değişimlerini algılar.</li>
+<li>Bu tipik bir <strong>G-protein coupled receptor (GPCR)</strong>'dır; <strong>fosfolipaz C</strong> ve <strong>adenilat siklazı</strong> aktive eder. Sonuç: hücre içi Ca²⁺ artışı (inositol fosfatlar) ve <strong>cAMP azalması</strong> → bu, PTH'nin sekretuar granüllerden ekzositozunu engeller.</li>
+<li><strong>Ca²⁺ düştüğünde → cAMP yükselir → PTH salgılanır.</strong></li>
+<li><strong>1,25-(OH)₂-D, PTH gen ekspresyonunu inhibe eder</strong> (ek geri besleme).</li>
+<li>Ca-fosfat ilişkisine rağmen, fosfat PTH'yi <strong>doğrudan kontrol etmez</strong>.</li>
+</ul>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>CaSR hangi reseptör tipindendir ve düşük Ca'da ne olur?</summary><div class="ans">G-protein coupled receptor (GPCR); düşük Ca → cAMP ↑ → PTH salgılanır.</div></details>
+</div></div>
+
+<!-- 28 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 28</span><span class="stitle">PTH-Vitamin D ile Homeostaz (Diyagram)</span></div>
+<p class="diag-note">Geri besleme döngüsü: Normal serum Ca → Ca alımı azalır → serum Ca düşer → <strong>PTH ↑ (CaSR algılar)</strong>, sklerostin azalır → distal tübül Ca geri emilimi ↑, renal CYP27B1 & 1,25(OH)₂D ↑, renal kemik rezorpsiyonu ↑ → idrar Ca ↓, bağırsak & renal Ca emilimi ↑ → serum Ca normale döner. <em>"Nötr kalsiyum dengesinde: emilim = atılım."</em></p></div>
+
+<!-- 29 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 29</span><span class="stitle">PTH Regülasyonu (Özet)</span></div>
+<ul>
+<li><strong>Düşük serum [Ca²⁺] → PTH salgısı ARTAR.</strong></li>
+<li><strong>Yüksek serum [Ca²⁺] → PTH salgısı AZALIR.</strong></li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"Kalsiyum düşer, PTH coşar." Ters orantı: Ca↓ → PTH↑.</div>
+</div>
+
+<!-- 30 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 30</span><span class="stitle">Calcitonin — Yapı & İşlev</span></div>
+<ul>
+<li><strong>Tiroidin C-hücrelerinden (parafoliküler)</strong> üretilir.</li>
+<li>Polipeptit (<strong>32 aa</strong>), MW 35 KD, T½ 10 dakika.</li>
+<li>Salgı için ana uyaran: <strong>plazma Ca²⁺ yükselmesi</strong>.</li>
+<li><strong>PTH'nin fizyolojik antagonistidir</strong> (Ca homeostazı açısından).</li>
+<li>Hedef hücre: <strong>osteoclast</strong>. cAMP artışı üzerinden osteoklast hareketliliğini ve şeklini inhibe edip inaktive eder.</li>
+<li>Ana etki: kemik rezorpsiyonunu inhibe ederek <strong>Ca²⁺'da hızlı düşüş</strong>.</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber — "Calci-TONE-in"</span>Calcitonin kalsiyumu <strong>"tonlar/düşürür"</strong> ve kalsiyumu kemiğe geri koyar ("puts calcium <strong>IN</strong> the bone"). C-hücreleri (Thyroid <strong>C</strong>-cells), osteoklastı durdurur.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Calcitonin nereden salgılanır, hedef hücresi ve etkisi nedir?</summary><div class="ans">Tiroid C-hücrelerinden; hedef osteoklast; kemik rezorpsiyonunu inhibe ederek plazma Ca'yı düşürür.</div></details>
+</div></div>
+
+<!-- 31 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 31</span><span class="stitle">Kalsiyum Homeostazı Döngüsü (Diyagram)</span></div>
+<p class="diag-note">Denge çemberi: Kan Ca²⁺ <strong>yükselince</strong> → tiroid <strong>Calcitonin</strong> salar → kemikte kalsiyum tuzu birikimini uyarır. Kan Ca²⁺ <strong>düşünce</strong> → paratiroid <strong>PTH</strong> salar → osteoklastlar kemik matriksini yıkıp Ca²⁺'ı kana verir. Hedef: kan Ca homeostazı <strong>9–11 mg/100 mL</strong>.</p>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Normal kan kalsiyum aralığı <strong>9–11 mg/dL</strong>. PTH ↔ Calcitonin zıt yönlü çalışır.</div>
+</div>
+
+<!-- 32 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 32</span><span class="stitle">Calcitonin — Klinik Kullanım</span></div>
+<p>Calcitonin bir <strong>Ca²⁺ düşürücü hormondur</strong>. Klinik kullanımları: <strong>malign hiperkalsemi</strong>, <strong>osteoporoz</strong>, <strong>Paget hastalığı</strong>.</p>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Calcitonin hangi durumlarda tedavi amaçlı kullanılır?</summary><div class="ans">Malign hiperkalsemi, osteoporoz, Paget hastalığı.</div></details>
+</div></div>
+
+<!-- 33 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 33</span><span class="stitle">Östrojenler</span></div>
+<ul>
+<li>Postmenopozal kadınlarda kalsiyum atılımı premenopozal kadınlardan <strong>daha yüksektir</strong>.</li>
+<li>Erken postmenopozal kadınlarda östrojen verilmesi idrar Ca²⁺ atılımını <strong>azaltır</strong>, PTH ve 1,25(OH)₂D₃'ü artırır.</li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span>Menopozda östrojen kaybı → kemik kaybı hızlanır → <strong>postmenopozal osteoporoz</strong>. Bu hastalarda çene kemiği yoğunluğu da azalır, diş kaybı ve implant başarısızlığı riski artabilir.</div>
+</div>
+
+<!-- 34 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 34</span><span class="stitle">Tiroid Hormonları</span></div>
+<ul>
+<li><strong>Tirotoksikoz → hiperkalsemi</strong>.</li>
+<li>Kemik demineralizasyonu ve kemik döngüsü belirteçlerindeki değişimlerle ilişkilidir.</li>
+<li>Hipertiroidide Ca²⁺ transport hızları düşer.</li>
+</ul></div>
+
+<!-- 35 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 35</span><span class="stitle">İnhibe Edici Faktörler (1)</span></div>
+<ul>
+<li>Bir öğünde tek seferde tüketilen kalsiyum miktarı emilimi etkiler: <strong>miktar arttıkça emilim oranı azalır</strong>.</li>
+<li>Bu yüzden kalsiyum tüketimini <strong>güne yaymak</strong> en iyisidir.</li>
+<li><strong>Yaş</strong> da emilimi etkiler (yaşla azalır).</li>
+</ul></div>
+
+<!-- 36 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 36</span><span class="stitle">İnhibe Edici Faktörler (2)</span></div>
+<ul>
+<li><strong>Lif (özellikle buğday kepeği)</strong> içerdiği <strong>fitat</strong> nedeniyle Ca emilimini engelleyebilir.</li>
+<li><strong>Diyet sodyumu ve proteini</strong>, alımı arttıkça Ca atılımını artırır.</li>
+<li><strong>Kafein</strong>: Ca emiliminde küçük etki; geçici olarak atılımı artırıp emilimi hafifçe azaltabilir.</li>
+</ul>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Yüksek sodyum ve protein alımı kalsiyumu nasıl etkiler?</summary><div class="ans">Kalsiyum atılımını (idrarla) artırır.</div></details>
+</div></div>
+
+<!-- 37 -->
+<div class="slide" id="s37"><div class="slide-head"><span class="snum">SLIDE 37</span><span class="stitle">Eksiklik Hastalıkları</span></div>
+<p>Vücutta kalsiyum eksikliği birkaç hastalığa yol açabilir:</p>
+<ul>
+<li><strong>Rickets (raşitizm)</strong></li>
+<li><strong>Adult osteomalacia</strong></li>
+<li><strong>Osteoporosis</strong></li>
+</ul></div>
+
+<!-- 38 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 38</span><span class="stitle">Rickets & Osteomalacia</span></div>
+<ul>
+<li><strong>Rickets (raşitizm):</strong> <mark>çocuklarda</mark> kemik yumuşaması; kırık ve deformiteye yol açabilir. Başlıca neden <strong>vitamin D eksikliği</strong>; diyette kalsiyum eksikliği de neden olabilir.</li>
+<li><strong>Osteomalacia:</strong> <mark>erişkinde</mark> defektif kemik mineralizasyonuna bağlı kemik yumuşaması. Yaygın vücut ağrıları, kemik kırılganlığı. Yaygın neden vitamin D eksikliğidir (diyet ve/veya güneş ışığından elde edilir).</li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi (Sık çeldirici)</span><strong>Rickets = ÇOCUK; Osteomalacia = ERİŞKİN.</strong> İkisi de vitamin D eksikliği → mineralize olmamış osteoid birikimi. Mekanizma aynı, yaş farklı.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Rickets ile osteomalazi arasındaki temel fark nedir?</summary><div class="ans">Rickets çocuklarda (büyüyen kemik), osteomalazi erişkinde görülür; ikisi de vitamin D eksikliği kaynaklı mineralizasyon defektidir.</div></details>
+</div></div>
+
+<!-- 39 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 39</span><span class="stitle">Osteoporosis</span></div>
+<p><strong>Osteoporoz:</strong> düşük kemik kütlesi ve kemik dokusunun yapısal bozulması ile karakterize; kemik kırılganlığı ve <strong>kalça, omurga, el bileği</strong> kırığı riskinde artışa yol açar. Hem erkekleri hem kadınları etkiler; kadınlarda görülme oranı yüksektir.</p>
+<div class="box warn"><span class="bt">⚠️ Dikkat — Osteoporoz vs Osteomalazi</span>Osteoporozda kemik <strong>miktarı azalır</strong> ama mevcut kemik normal mineralizedir. Osteomalazide kemik <strong>miktarı normal</strong> ama <strong>yetersiz mineralizedir</strong>. Karıştırma!</div>
+</div>
+
+<!-- 40 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 40</span><span class="stitle">Bazı Kalsiyum Bozuklukları (Başlık)</span></div>
+<p>Bölüm başlığı: <strong>Some calcium disorders</strong>.</p></div>
+
+<!-- 41 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 41</span><span class="stitle">Kalsiyum Metabolizması Bozuklukları</span></div>
+<ul>
+<li><strong>Hypercalcemia</strong> (hiperkalsemi)</li>
+<li><strong>Hypocalcemia</strong> (hipokalsemi)</li>
+<li><strong>Hyperparathyroidism</strong> (hiperparatiroidizm)</li>
+</ul></div>
+
+<!-- 42 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 42</span><span class="stitle">Hiperkalsemi</span></div>
+<ul>
+<li>Vücutta kalsiyum düzeyinin normalin üzerinde olduğu durum.</li>
+<li>Ana neden: <strong>paratiroid bezinin aşırı çalışması (hiperparatiroidizm)</strong>.</li>
+<li><strong>Kanser</strong> ve bazı ilaçlar da kalsiyum düzeyinde aşırılığa yol açabilir.</li>
+</ul></div>
+
+<!-- 43 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 43</span><span class="stitle">Hiperkalsemi — Komplikasyonlar</span></div>
+<ul>
+<li><strong>Metastatik kalsifikasyon (metastatic calcification)</strong></li>
+<li><strong>Böbrek taşları (renal stones)</strong></li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span>Hiperparatiroidizmde çene kemiğinde <strong>"brown tumor" (kahverengi tümör)</strong> ve genel kemik rezorpsiyonu görülebilir; panoramik radyografide lamina dura kaybı diş hekimi için ipucu olabilir.</div>
+</div>
+
+<!-- 44 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 44</span><span class="stitle">Hipokalsemi</span></div>
+<ul>
+<li>Kalsiyum düzeyinin normalin altında olduğu durum.</li>
+<li>Nedenler: <strong>düşük PTH düzeyi</strong>, düşük magnezyum, <strong>vitamin D eksikliği</strong>.</li>
+<li><strong>Böbrek disfonksiyonu</strong> da rol oynar.</li>
+</ul></div>
+
+<!-- 45 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 45</span><span class="stitle">Hipokalsemi — Komplikasyon (Tetani)</span></div>
+<p><strong>Tetany (tetani):</strong> vücutta mineral dengesizliğine bağlı <strong>şiddetli kas spazmları</strong>. Genellikle ekstrasellüler sıvıda <strong>Ca²⁺ konsantrasyonu normalin altına</strong> düştüğünde oluşur.</p>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span>Hipokalsemik tetaninin erken bulguları ağız çevresinde uyuşma, <strong>Chvostek belirtisi</strong> (fasiyal sinire vurunca yüz kası seğirmesi) ve <strong>Trousseau belirtisi</strong>dir. Diş hekimliğinde fasiyal sinir testi bu açıdan anlamlıdır.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Hipokalseminin tipik nöromüsküler komplikasyonu nedir?</summary><div class="ans">Tetani (şiddetli kas spazmları); Chvostek ve Trousseau belirtileri.</div></details>
+</div></div>
+
+<!-- 46 -->
+<div class="slide" id="s46"><div class="slide-head"><span class="snum">SLIDE 46</span><span class="stitle">Fosforun İşlevleri</span></div>
+<ul>
+<li><strong>ATP, ADP, cAMP, 2,3-DPG</strong>, birçok protein ve hayati bileşikte bulunur.</li>
+<li>Proteinlerin <strong>fosforilasyon & defosforilasyonu</strong> → hücre işlevinin düzenlenmesi.</li>
+<li>Kemik ve dişlere <strong>sertlik (rigidity)</strong> verir.</li>
+<li>Normal doku işlevi için önemli bir <strong>anyondur</strong>.</li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span>Fosfat, kalsiyumla birlikte <strong>hydroxyapatite</strong> oluşturarak dişe sertlik verir. Mineralizasyon için hem Ca hem fosfat gereklidir.</div>
+</div>
+
+<!-- 47 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 47</span><span class="stitle">Vücut Fosforunun Dağılımı</span></div>
+<ul>
+<li><strong>%85 iskelette</strong></li>
+<li>%14–15 hücre içi sıvıda (I.C.F.)</li>
+<li>&lt;%1 hücre dışı sıvıda (E.C.F.)</li>
+<li>Toplam plazma fosfatı: <strong>3–4 mg/dL</strong></li>
+</ul>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Vücut fosforunun yüzde kaçı iskelettedir?</summary><div class="ans">~%85.</div></details>
+</div></div>
+
+<!-- 48 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 48</span><span class="stitle">Fosforun Bağırsak Emilimi</span></div>
+<ul>
+<li>Bir kısmı, emilmeyen Ca ile birleşerek <strong>dışkıyla kaybedilir</strong>.</li>
+<li>Kalanı kolayca emilir.</li>
+</ul></div>
+
+<!-- 49 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 49</span><span class="stitle">Fosforun Renal İşlenmesi</span></div>
+<ul>
+<li>Renal eşik <strong>1 mmol/L</strong>'nin üzerinde fosfat idrarla kaybedilir.</li>
+<li><strong>PTH tarafından güçlü şekilde uyarılır</strong> (fosfat atılımı artar).</li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span><strong>PTH böbrekte fosfat atılımını artırır</strong> (fosfat geri emilimini inhibe eder). Bu yüzden PTH → plazma fosfatı düşer.</div>
+</div>
+
+<!-- 50 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 50</span><span class="stitle">Fosfor Metabolizması (Diyagram)</span></div>
+<p class="diag-note">Şema: Diyet <strong>900 mg/gün</strong> → Duodenum & ince bağırsak (aktif transport/pasif difüzyon) → <strong>ECF</strong> ↔ <strong>Kemik</strong> (her iki yön 3 mg/kg/gün) ; ECF → Glomerüler filtrat (<strong>%90 proksimal tübülde geri emilir</strong>) → idrarla <strong>600 mg/gün</strong> atılır.</p></div>
+
+<!-- 51-53 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 51–53</span><span class="stitle">Kapanış / Ek Görseller</span></div>
+<p class="diag-note">Kapanış ve ek görsel slaytları. Dersin sonu.</p></div>
+
+<!-- MASTER -->
+<div class="slide" style="border:2px solid var(--brand);">
+<div class="slide-head"><span class="snum" style="background:var(--purple);">ÖZET</span><span class="stitle">🧠 Tek Bakışta Hormonal Kontrol</span></div>
+<table>
+<tr><th>Hormon</th><th>Kaynak</th><th>Plazma Ca</th><th>Plazma Fosfat</th><th>Ana etki</th></tr>
+<tr><td><strong>PTH</strong></td><td>Paratiroid chief hücre</td><td>↑</td><td>↓ (idrarla atar)</td><td>Osteoklast ↑, renal Ca geri emilimi ↑, vit D aktivasyonu ↑</td></tr>
+<tr><td><strong>Calcitriol</strong> (1,25-(OH)₂D)</td><td>Böbrek (1α-hidroksilaz)</td><td>↑</td><td>↑</td><td>Bağırsaktan Ca + fosfat emilimi ↑</td></tr>
+<tr><td><strong>Calcitonin</strong></td><td>Tiroid C-hücre</td><td>↓</td><td>↓</td><td>Osteoklast inhibisyonu</td></tr>
+</table>
+<div class="box mnemo"><span class="bt">🧠 Final ezberi</span>"<strong>PTH ve D yükseltir, Calcitonin düşürür.</strong> Fosfatta ayrım: PTH fosfatı ATAR (↓), D ise fosfatı ALIR (↑)." Vitamin D aktivasyonu: <strong>Deri → 25(Karaciğer) → 1(Böbrek) → Calcitriol</strong>.</div>
+</div>
+
+<footer>
+  Kalsiyum & Fosfat Metabolizması — 53 slayttan slayt slayt derlenmiştir.<br>
+  Flashcard kutularına tıklayarak cevapları açabilirsin. Başarılar! 🦴
+</footer>
+
+</div>
+</body>
+</html>

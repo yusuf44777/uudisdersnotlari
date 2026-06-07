@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maddelerin Vücuttaki Akıbeti — Slayt Slayt Final Rehberi</title>
+<style>
+  :root{
+    --bg:#ecf3f4;--paper:#fff;--ink:#162226;--muted:#46575c;
+    --brand:#0e7490;--brand-dark:#0a5566;--brand-soft:#e0f2f5;
+    --teal:#0c7d8c;--teal-soft:#e6f5f7;
+    --amber:#a16207;--amber-soft:#fdf6e3;
+    --red:#b3261e;--red-soft:#fcebe9;
+    --green:#1e7a46;--green-soft:#e8f6ee;
+    --purple:#5b3a91;--purple-soft:#f0eafa;
+    --line:#d6e3e6;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Calibri,system-ui,sans-serif;line-height:1.6;font-size:17px;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 18px 80px;}
+  header.hero{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:24px;box-shadow:0 8px 24px rgba(10,85,102,.25);}
+  header.hero .tag{font-size:14px;letter-spacing:2px;text-transform:uppercase;opacity:.85;}
+  header.hero h1{margin:.2em 0 .15em;font-size:1.9rem;font-family:Georgia,serif;}
+  header.hero p{margin:.2em 0;opacity:.92;font-size:.95rem;}
+  .slide{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:18px 0;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .slide-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
+  .snum{background:var(--brand);color:#fff;font-weight:800;font-size:.8rem;padding:5px 12px;border-radius:20px;white-space:nowrap;letter-spacing:.5px;}
+  .stitle{font-family:Georgia,serif;color:var(--brand-dark);font-size:1.18rem;font-weight:700;}
+  strong{color:var(--brand-dark);} em{color:var(--muted);} mark{background:#ffe9a8;padding:0 3px;border-radius:3px;}
+  ul,ol{margin:.4em 0 .7em;padding-left:1.35em;} li{margin:.3em 0;} p{margin:.55em 0;}
+  .box{border-radius:12px;padding:13px 17px;margin:14px 0;border-left:6px solid;}
+  .box .bt{font-weight:800;display:block;margin-bottom:4px;}
+  .clinic{background:var(--teal-soft);border-color:var(--teal);} .clinic .bt{color:var(--teal);}
+  .spot{background:var(--green-soft);border-color:var(--green);} .spot .bt{color:var(--green);}
+  .warn{background:var(--red-soft);border-color:var(--red);} .warn .bt{color:var(--red);}
+  .mnemo{background:var(--purple-soft);border-color:var(--purple);} .mnemo .bt{color:var(--purple);}
+  .rxn{font-family:Consolas,"Courier New",monospace;background:#e9f2f4;border-radius:8px;padding:8px 12px;margin:8px 0;font-size:.86rem;display:block;}
+  .fc-wrap{margin:16px 0 4px;border:2px dashed var(--amber);background:var(--amber-soft);border-radius:14px;padding:12px 16px;}
+  .fc-wrap .fc-title{font-weight:800;color:var(--amber);letter-spacing:.5px;text-transform:uppercase;font-size:.78rem;margin-bottom:6px;}
+  details.fc{background:#fff;border:1px solid #eedcb6;border-radius:10px;margin:7px 0;padding:3px 13px;}
+  details.fc summary{cursor:pointer;font-weight:700;padding:7px 0;list-style:none;}
+  details.fc summary::-webkit-details-marker{display:none;}
+  details.fc summary::before{content:"❓ ";} details.fc[open] summary::before{content:"✅ ";}
+  details.fc .ans{padding:4px 0 11px;color:var(--brand-dark);border-top:1px solid #f0e6cf;margin-top:3px;}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:.9rem;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+  th{background:var(--brand-dark);color:#fff;text-align:left;padding:9px 11px;font-size:.84rem;}
+  td{padding:9px 11px;border-top:1px solid var(--line);vertical-align:top;}
+  tr:nth-child(even) td{background:#f4fafb;}
+  .toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 20px;font-size:.92rem;}
+  .toc a{color:var(--brand-dark);text-decoration:none;} .toc a:hover{text-decoration:underline;}
+  footer{margin-top:50px;text-align:center;color:var(--muted);font-size:.85rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="tag">Medical Biochemistry · 1. Sınıf Final</div>
+  <h1>Maddelerin Vücuttaki Akıbeti</h1>
+  <p>The Fate of Substances in the Body — Slayt Slayt Çalışma Rehberi (28 slayt)</p>
+  <p style="opacity:.8;font-size:.85rem;">Kaynak: Prof. Dr. Nilgün Tekkeşin — Üsküdar University, Faculty of Medicine, Dept. of Medical Biochemistry</p>
+</header>
+
+<div class="toc">
+<strong style="color:var(--brand-dark);">📋 Kaynaktaki 28 slayt sırayla işlendi.</strong> Hızlı geçiş:
+<a href="#s3">Su, asit-baz, pH (3–8)</a> ·
+<a href="#s9">Biyomoleküller (9–19)</a> ·
+<a href="#s20">Besinler & vitaminler (20–24)</a> ·
+<a href="#s25">Mineraller (25–28)</a>
+</div>
+
+<!-- 1 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 1</span><span class="stitle">Başlık</span></div>
+<p><strong>The Fate of Substances in the Body</strong> (Maddelerin Vücuttaki Akıbeti). Prof. Dr. Nilgün Tekkeşin, Üsküdar University, Faculty of Medicine, Dept. of Medical Biochemistry.</p></div>
+
+<!-- 2 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 2</span><span class="stitle">İnorganik ve Organik Bileşikler</span></div>
+<p>Kimyasal bileşikler genellikle iki kategoriye ayrılır:</p>
+<ol>
+<li><strong>İnorganik bileşikler (inorganic compounds):</strong> görece küçük moleküllerden oluşur ve <strong>iyonik bağlıdır</strong>. Bazı tuzlar (<strong>NaCl, CaCl₂</strong>) insan vücudunda <strong>suda çözünmüş</strong> halde bulunur.</li>
+<li><strong>Organik bileşikler (organic compounds):</strong> esas olarak <strong>karbon ve hidrojenden</strong> oluşur ve insan vücudunu inşa eder.</li>
+</ol>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"Organik = <strong>Karbonlu</strong> (canlı yapı taşı). İnorganik = tuz/su gibi karbonsuz, iyonik." Karbon iskeleti = organik kimliğin imzası.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Organik bileşiklerin temel elementleri nedir?</summary><div class="ans">Karbon ve hidrojen (genellikle O, N de içerir).</div></details>
+</div></div>
+
+<!-- 3 -->
+<div class="slide" id="s3"><div class="slide-head"><span class="snum">SLIDE 3</span><span class="stitle">Su Molekülü</span></div>
+<ul>
+<li>Vücudumuzun <strong>%62'den fazlası sudur</strong>.</li>
+<li>Bu yüzde yaşa bağlıdır — <strong>çocuklarda erişkinden daha yüksektir</strong>.</li>
+<li>Günlük su tüketimi yaklaşık <strong>2.7 L</strong>; kaynaklar: besin, metabolizma, içme suyu vb.</li>
+<li>H₂O <strong>homeostazı düzenler</strong>; vücut susuz düzgün çalışamaz.</li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Vücut suyunun kaynaklarından biri de <strong>metabolik sudur</strong> (besin oksidasyonundan açığa çıkar). Su oranı çocukta &gt; erişkinde.</div>
+</div>
+
+<!-- 4 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 4</span><span class="stitle">Su Molekülü — Özellikler</span></div>
+<ul>
+<li>H₂O'nun <strong>polaritesi (polarity)</strong> hidrojen bağı (H bonding) oluşumuna izin verir.</li>
+<li>Su, <strong>H⁺ ve OH⁻</strong>'ye ayrışır (disassociate).</li>
+<li>H⁺ ve OH⁻ dengesizliği <strong>asit ve bazları</strong> doğurur — <strong>pH</strong> ile ölçülür.</li>
+<li>pH, protein üzerindeki amino asit gruplarının yükünü etkiler → spesifik aktiviteye neden olur.</li>
+<li><strong>Tampon sistemleri (buffering systems)</strong> hücre içi ve dışı pH'yi korur.</li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span>pH'nin protein yükünü etkilemesi, enzim aktivitesinin neden dar bir pH aralığında optimum olduğunu açıklar. Ağız ortamında pH düşüşü (asit) hem enzimleri hem mine mineralini etkiler.</div>
+</div>
+
+<!-- 5 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 5</span><span class="stitle">Hidrofobik & Hidrofilik</span></div>
+<table>
+<tr><th>Özellik</th><th>Tanım</th></tr>
+<tr><td><strong>Hydrophobic</strong> ("sudan korkan")</td><td>Polar değildir, H bağı yapamaz, sudan itilir → <strong>çözünmez (insoluble)</strong></td></tr>
+<tr><td><strong>Hydrophilic</strong> ("suyu seven")</td><td>Polardır, suyla H bağı yapar → <strong>çözünür (soluble)</strong></td></tr>
+</table>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"<strong>Phobic = korkar = yağ/çözünmez</strong>; <strong>Philic = sever = su/çözünür</strong>." Lipidler hidrofobik, şekerler/iyonlar hidrofilik.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Hidrofilik bir molekülün suyla ilişkisi nasıldır?</summary><div class="ans">Polardır, suyla hidrojen bağı yapar, suda çözünür.</div></details>
+</div></div>
+
+<!-- 6 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 6</span><span class="stitle">Asitler, Bazlar ve Tuzlar</span></div>
+<ul>
+<li><strong>Asit (acid):</strong> suda çözündüğünde <strong>H⁺ (hidrojen iyonu)</strong> serbestleyen madde.</li>
+<li><strong>Baz (base):</strong> <strong>OH⁻ (hidroksil iyonu)</strong> serbestleyen madde.</li>
+<li><strong>Tuz (salt):</strong> OH⁻ veya O²⁻ dışında bir negatif iyon içeren iyonik madde.</li>
+<li>Asit bir bazla reaksiyona girdiğinde ürünler <strong>tuz ve su</strong>dur → bu işleme <strong>nötralizasyon (neutralization)</strong> denir.</li>
+</ul>
+<span class="rxn">Asit + Baz → Tuz + Su &nbsp;(nötralizasyon)</span>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Asit ve baz reaksiyonunun ürünleri nedir?</summary><div class="ans">Tuz ve su (nötralizasyon).</div></details>
+</div></div>
+
+<!-- 7 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 7</span><span class="stitle">pH</span></div>
+<ul>
+<li>Asitlik veya alkaliliği ölçen sayısal skala <strong>pH skalasıdır</strong>.</li>
+<li>Değerler <strong>0–14</strong> arasındadır.</li>
+<li>Suyun pH'si <strong>7</strong>'dir → <strong>nötr</strong> kabul edilir.</li>
+<li>pH &gt; 7 → ... (slaytta "asidik" yazsa da bu bir hatadır; doğrusu: pH &gt; 7 <strong>bazik</strong>, pH &lt; 7 <strong>asidik</strong>tir).</li>
+<li>Homeostaz için vücut sıvılarının (kan dahil) <strong>göreceli sabit bir pH</strong>'si olmalıdır.</li>
+</ul>
+<div class="box warn"><span class="bt">⚠️ Dikkat</span>Doğru kural: <strong>pH &lt; 7 = asidik</strong>, <strong>pH &gt; 7 = bazik (alkali)</strong>, <strong>pH = 7 nötr</strong>. Kan pH'si normalde dar bir aralıkta tutulur (~7.35–7.45). Slayttaki ifade ters yazılmış olabilir; doğrusunu ezberle.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>pH 7'nin altı ve üstü ne anlama gelir?</summary><div class="ans">pH &lt; 7 asidik, pH &gt; 7 bazik, pH = 7 nötr.</div></details>
+</div></div>
+
+<!-- 8 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 8</span><span class="stitle">Tamponlar (Buffers)</span></div>
+<ul>
+<li>Vücutta güçlü bir asit veya baz ortaya çıkarsa, hücreler için <strong>yıkıcı</strong> olabilir.</li>
+<li><strong>Buffers (tamponlar)</strong> — bir çözeltide <strong>zayıf asit/baz ve onların tuzlarının kombinasyonu</strong> — vücut sıvılarının pH değişimine direnmesine ve dengeyi korumasına yardım eder.</li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Tampon = <strong>zayıf asit + eşlenik bazı (tuzu)</strong>. Vücudun en önemli tamponu <strong>bikarbonat (HCO₃⁻/H₂CO₃)</strong> sistemidir. Tampon, ani pH değişimini sönümler.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Tampon nasıl bir karışımdan oluşur ve ne işe yarar?</summary><div class="ans">Zayıf asit/baz + tuzu; pH değişimine direnerek dengeyi korur.</div></details>
+</div></div>
+
+<!-- 9 -->
+<div class="slide" id="s9"><div class="slide-head"><span class="snum">SLIDE 9</span><span class="stitle">Karbonhidrat</span></div>
+<ul>
+<li>Çoğu hücre için <strong>başlıca enerji kaynağıdır</strong>; hücrelerde parçalanarak enerji açığa çıkarır.</li>
+<li>Kompozisyon: <strong>karbon, hidrojen, oksijen</strong>; <mark>hidrojen, oksijenin iki katı oranındadır</mark> (örn. CH₂O).</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"Karbon<strong>hidrat</strong> = karbon + hidrat (su)." Genel formül (CH₂O)ₙ: H:O oranı 2:1, tıpkı sudaki gibi.</div>
+</div>
+
+<!-- 10 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 10</span><span class="stitle">Karbonhidrat Tipleri</span></div>
+<ul>
+<li><strong>Monosaccharides:</strong> en basit karbonhidratlar; daha karmaşık şekerlerin yapı taşı; hidrolizle parçalanamaz.</li>
+<li><strong>Disaccharides</strong> (Di = 2): iki monosakkaridin birleşimi; aynı kimyasal formül, farklı yapı.</li>
+<li><strong>Polysaccharides</strong> (poly = çok): yüzlerce-binlerce monosakkarit içeren polimer zincirler; genel formül <strong>(C₆H₁₀O₅)ₙ</strong>.</li>
+</ul>
+<div class="box warn"><span class="bt">⚠️ Dikkat</span>Slaytta disakkarit örneği olarak "glucose, fructose" verilmiş; ancak <strong>glukoz ve fruktoz aslında monosakkarittir</strong>. Doğru disakkarit örnekleri: <strong>sukroz, laktoz, maltoz</strong>. Sınavda bu ayrımı doğru bilmek önemli.</div>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"<strong>Mono = 1, Di = 2, Poly = çok.</strong> Mono (glukoz/fruktoz/galaktoz) → Di (sukroz/laktoz/maltoz) → Poly (nişasta/glikojen/selüloz)."</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Glukoz ve fruktoz hangi karbonhidrat sınıfındandır?</summary><div class="ans">Monosakkarit (disakkarit değil!).</div></details>
+<details class="fc"><summary>Polisakkaritlerin genel formülü nedir?</summary><div class="ans">(C₆H₁₀O₅)ₙ.</div></details>
+</div></div>
+
+<!-- 11 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 11</span><span class="stitle">Diyet Karbonhidratları</span></div>
+<ul>
+<li>Diyetsel enerji sağlayan iki karbonhidrat türü: <strong>nişasta (starch)</strong> ve <strong>şekerler (sugars)</strong>.</li>
+<li><strong>Diyet lifi (dietary fibre)</strong> de bir karbonhidrattır ama <strong>enerji için sindirilmez</strong>.</li>
+<li>Nişastalı karbonhidrat önemli bir enerji kaynağıdır.</li>
+</ul>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Hangi karbonhidrat enerji için sindirilmez?</summary><div class="ans">Diyet lifi (dietary fibre).</div></details>
+</div></div>
+
+<!-- 12 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 12</span><span class="stitle">Yağlar (Fats)</span></div>
+<ul>
+<li>Enerjiden zengin moleküllerdir; <strong>besin rezervi ve uzun süreli yakıt</strong> kaynağıdır.</li>
+<li>Vücutta <strong>nötr yağlar / triglyceride</strong> formunda depolanır.</li>
+<li>Her yağ molekülü <strong>gliserol (glycerol) + yağ asitlerinden (fatty acids)</strong> oluşur.</li>
+<li>İki tip yağ asidi:
+  <ul>
+    <li><strong>Doymuş (saturated):</strong> oda sıcaklığında katı.</li>
+    <li><strong>Doymamış (unsaturated) – yağlar (oils):</strong> oda sıcaklığında sıvı.</li>
+  </ul>
+</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"Doymuş = katı (tereyağı); Doymamış = sıvı (zeytinyağı)." Çift bağ arttıkça (doymamışlık) erime noktası düşer.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Bir yağ molekülü hangi iki bileşenden oluşur?</summary><div class="ans">Gliserol + yağ asitleri (trigliserit olarak depolanır).</div></details>
+</div></div>
+
+<!-- 13 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 13</span><span class="stitle">Fosfolipidler (Phospholipids)</span></div>
+<ul>
+<li>Alkol, yağ asitleri ve bir <strong>fosfat grubu (PO₄³⁻)</strong> içeren yağ bileşikleridir; sıklıkla azot içeren bir grupla bağlıdır.</li>
+<li>Yapı: <strong>gliserol + 2 yağ asidi + fosfat + alkol</strong>.</li>
+<li>Her fosfolipidin <strong>hidrofilik bir başı (hydrophilic head)</strong> ve <strong>polar olmayan kuyrukları (non-polar tails)</strong> vardır.</li>
+<li>Bu özellik <strong>hücre membranı</strong> oluşumu için kritiktir: suyu seven başlar bir yüzde, kuyruklar diğer yüzde dizilir (lipid çift tabaka).</li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Fosfolipidin <strong>amfipatik (amphipathic)</strong> yapısı — hidrofilik baş + hidrofobik kuyruk — lipid çift tabakalı hücre membranının temelidir.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Fosfolipidlerin amfipatik yapısı neden önemlidir?</summary><div class="ans">Hidrofilik baş + hidrofobik kuyruk → hücre membranının lipid çift tabakasını oluşturur.</div></details>
+</div></div>
+
+<!-- 14 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 14</span><span class="stitle">Proteinler</span></div>
+<p>Vücut dokularının çoğunu oluşturan organik bileşiklerdir. İçerirler: <strong>karbon, hidrojen, oksijen, azot (bazen kükürt), fosfor ve demir</strong>.</p>
+<p>Proteinler şu görevleri yapar:</p>
+<ul>
+<li>Kimyasal aktiviteyi kontrol eden <strong>enzimleri</strong> oluşturur (örn. midede besin yıkımı).</li>
+<li><strong>Antikorlar</strong> şeklinde hastalıklara karşı korur.</li>
+<li>Vücutta <strong>oksijen taşır</strong> (hemoglobin).</li>
+<li>Bazı <strong>hormonları</strong> oluşturur.</li>
+<li><strong>Genetik bilgiyi ifade eder</strong> ve gösterge (indicator) olarak hizmet eder.</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber — Protein görevleri</span>"<strong>E-A-O-H-G</strong>": <strong>E</strong>nzim, <strong>A</strong>ntikor, <strong>O</strong>ksijen taşıma, <strong>H</strong>ormon, <strong>G</strong>en ifadesi.</div>
+</div>
+
+<!-- 15 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 15</span><span class="stitle">Amino Asitler</span></div>
+<ul>
+<li>Proteinlerin temel yapı birimidir.</li>
+<li>Molekülün bir ucunda daima <strong>amino grup (NH₂)</strong>, diğer ucunda <strong>karboksil grup (—COOH)</strong> bulunur.</li>
+<li>Bir <strong>değişken bileşen (R group / yan zincir)</strong> içerir; farklı kimyasal kombinasyonlarda olabilir.</li>
+<li>En basit amino asit <strong>glisin (glycine)</strong>'dir; yan zinciri yalnızca bir hidrojen atomudur.</li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>En basit amino asit = <strong>glycine</strong> (R = H). Bu, onu kollajen heliksinin merkezine sığacak kadar küçük yapar (bkz. Kemik dersi).</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Amino asidin iki sabit fonksiyonel grubu ve en basit amino asit nedir?</summary><div class="ans">Amino grup (NH₂) ve karboksil grup (COOH); en basit amino asit glisin.</div></details>
+</div></div>
+
+<!-- 16 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 16</span><span class="stitle">Steroidler</span></div>
+<ul>
+<li>Yağda çözünen (fat-soluble) bileşiklerdir; <strong>dört bağlı karbon halkasından (four bonded carbon rings)</strong>, toplam <strong>17 karbondan</strong> oluşur.</li>
+<li>Örnekler: <strong>kolesterol (cholesterol)</strong>, erkek ve dişi seks hormonları vb.</li>
+<li><strong>Steroid hormonlar</strong>, metabolizmanın bazı evrelerini düzenler (örn. puberte, menopoz).</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"Steroid = <strong>4 halka + 17 karbon</strong>; temeli kolesterol." Tüm steroid hormonlar kolesterolden türer.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Steroidlerin temel iskeleti nedir?</summary><div class="ans">4 bağlı karbon halkası (toplam 17 karbon); örnek kolesterol.</div></details>
+</div></div>
+
+<!-- 17 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 17</span><span class="stitle">Nükleik Asitler</span></div>
+<ul>
+<li>Çok büyük ve karmaşık moleküllerdir; <strong>kalıtsal mesajları taşır</strong> ve protein sentezini düzenler.</li>
+<li>Yapı taşları <strong>nükleotidlerdir (nucleotides)</strong>.</li>
+<li>İki tür: <strong>deoxyribonucleic acid (DNA)</strong> ve <strong>ribonucleic acid (RNA)</strong>.</li>
+</ul>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Nükleik asitlerin yapı taşı nedir?</summary><div class="ans">Nükleotidler.</div></details>
+</div></div>
+
+<!-- 18 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 18</span><span class="stitle">DNA ve RNA</span></div>
+<table>
+<tr><th>DNA</th><th>RNA</th></tr>
+<tr><td>Hücre çekirdeğindeki <strong>kromozomları</strong> oluşturur</td><td>Çekirdekte veya sitoplazmada bulunabilir</td></tr>
+<tr><td><strong>Genetik kodu</strong> tutar; kalıtımı kontrol eder</td><td>3 tip: <strong>mRNA</strong> (DNA'dan genetik bilgi taşır), <strong>tRNA</strong> (protein sentezinde amino asit aktivasyonu), <strong>rRNA</strong> (ribozom yapısı)</td></tr>
+<tr><td>Hangi proteinlerin sentezleneceğini belirler → hücre aktivitesini kontrol eder</td><td>—</td></tr>
+</table>
+<div class="box mnemo"><span class="bt">🧠 Ezber — 3 RNA</span>"<strong>m</strong>RNA = <strong>m</strong>esaj (taşır), <strong>t</strong>RNA = <strong>t</strong>aşıyıcı (amino asit getirir), <strong>r</strong>RNA = <strong>r</strong>ibozom yapısı."</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Üç RNA tipi ve görevleri nedir?</summary><div class="ans">mRNA: genetik bilgi taşır; tRNA: amino asit aktivasyonu/taşınması; rRNA: ribozom yapısı.</div></details>
+</div></div>
+
+<!-- 19 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 19</span><span class="stitle">ATP</span></div>
+<ul>
+<li>Vücuttaki kimyasal reaksiyonlardan üretilen enerji, <strong>ATP (adenosine triphosphate)</strong> adlı küçük organik molekülde depolanır.</li>
+<li>Enerji gerektiğinde ATP <strong>hidrolizle</strong> parçalanır ve gerekli enerjiyi açığa çıkarır.</li>
+</ul>
+<span class="rxn">ATP → ADP + Pi (inorganik fosfat) + Enerji</span>
+<div class="box warn"><span class="bt">⚠️ Dikkat</span>Slaytta ADP "adenosine triphosphate" olarak yazılmış; doğrusu <strong>ADP = adenosine <u>di</u>phosphate</strong>'tır. ATP (tri = 3 fosfat) hidrolizle ADP (di = 2 fosfat) + Pi'ye ayrılır.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>ATP hidrolizinin ürünleri nedir?</summary><div class="ans">ADP (adenosine diphosphate) + Pi (inorganik fosfat) + enerji.</div></details>
+</div></div>
+
+<!-- 20 -->
+<div class="slide" id="s20"><div class="slide-head"><span class="snum">SLIDE 20</span><span class="stitle">Besinler (Nutrients)</span></div>
+<p>Besin yenir ve vücutta sindirilerek enerji ve besin ögelerinin emilimi sağlanır. İki tür besin ögesi vardır:</p>
+<ul>
+<li><strong>Makrobesinler (macronutrients)</strong></li>
+<li><strong>Mikrobesinler (micronutrients)</strong></li>
+</ul>
+<p>Sağlık için üç temel makrobesin: <strong>karbonhidrat, protein, yağ</strong>. Makrobesinler <strong>gram (g)</strong> cinsinden ölçülür.</p>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"<strong>Makro = gram</strong> (karb-protein-yağ); <strong>Mikro = mg/µg</strong> (vitamin-mineral)." Makro çok, mikro az miktarda gerekir.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Üç makrobesin nedir ve hangi birimde ölçülür?</summary><div class="ans">Karbonhidrat, protein, yağ; gram (g) cinsinden.</div></details>
+</div></div>
+
+<!-- 21 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 21</span><span class="stitle">Mikrobesinler</span></div>
+<p>İki tür mikrobesin: <strong>vitaminler</strong> ve <strong>mineraller</strong>. Makrobesinlerden çok daha küçük miktarlarda gereklidir; miktarları <strong>miligram (mg) ve mikrogram (µg)</strong> cinsinden ölçülür.</p>
+</div>
+
+<!-- 22 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 22</span><span class="stitle">Vitaminler</span></div>
+<table>
+<tr><th>Grup</th><th>Özellik</th><th>Örnek</th></tr>
+<tr><td><strong>Yağda çözünen (fat-soluble)</strong></td><td>Vücutta <strong>depolanabilir</strong></td><td>Vitamin <strong>A</strong> ve <strong>D</strong> (ayrıca E, K)</td></tr>
+<tr><td><strong>Suda çözünen (water-soluble)</strong></td><td>Depolanamaz → <strong>her gün alınmalı</strong></td><td><strong>B vitaminleri</strong> ve <strong>Vitamin C</strong></td></tr>
+</table>
+<div class="box mnemo"><span class="bt">🧠 Ezber — Vitamin çözünürlüğü</span>"Yağda çözünenler = <strong>ADEK</strong> (depolanır). Suda çözünenler = <strong>B ve C</strong> (her gün gerekir)." Yağda çözünenler depolandığı için fazlası <strong>toksik</strong> olabilir.</div>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span>Yağda çözünen vitaminler depolandığından <strong>aşırı doz toksisitesi</strong> riski vardır (örn. A, D). Suda çözünenler (B, C) idrarla atıldığı için günlük alım gerekir; C vitamini eksikliği diş eti sağlığını bozar.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Hangi vitaminler depolanabilir, hangileri her gün alınmalıdır?</summary><div class="ans">Yağda çözünenler (A, D, E, K) depolanır; suda çözünenler (B grubu, C) depolanmaz, günlük alınır.</div></details>
+</div></div>
+
+<!-- 23 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 23</span><span class="stitle">Yağda Çözünen Vitaminler — A ve D</span></div>
+<table>
+<tr><th>Vitamin A</th><th>Vitamin D</th></tr>
+<tr><td>Bağışıklık sisteminin normal çalışmasına yardım eder</td><td>Vücudun <strong>kalsiyum emilimine</strong> yardım eder; sağlıklı kemik ve kasları inşa/koruma</td></tr>
+<tr><td>Görmeye (vision) yardım eder</td><td>Bağışıklık sisteminin düzgün çalışmasına yardım eder</td></tr>
+<tr><td>Normal cilt bakımına yardım eder</td><td>—</td></tr>
+</table>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"Vitamin <strong>A</strong> → görme (<strong>A</strong>ydınlık). Vitamin <strong>D</strong> → kemik/<strong>D</strong>iş (kalsiyum emilimi)."</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Vitamin D'nin kalsiyum üzerindeki rolü nedir?</summary><div class="ans">Bağırsaktan kalsiyum emilimini artırarak sağlıklı kemik ve dişlerin yapımına yardım eder.</div></details>
+</div></div>
+
+<!-- 24 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 24</span><span class="stitle">Suda Çözünen Vitaminler — B Grubu</span></div>
+<p>Birçok farklı B vitamini vardır ve her birinin vücutta spesifik bir işlevi vardır:</p>
+<ul>
+<li>Vitamin B1 (<strong>Thiamin</strong>)</li>
+<li>Vitamin B2 (<strong>Riboflavin</strong>)</li>
+<li>Vitamin B3 (<strong>Niacin</strong>)</li>
+<li>Vitamin B6</li>
+<li>Vitamin B12</li>
+<li>Folate / folik asit</li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span>B vitamini eksiklikleri sıklıkla <strong>ağız bulgularıyla</strong> karşımıza çıkar: B2/B3/B6 eksikliğinde <strong>glossit (dil iltihabı), angular cheilitis (ağız kenarı çatlağı), stomatit</strong>; B12/folat eksikliğinde dilde yanma ve atrofi. Diş hekimi bu bulguları erken fark edebilir.</div>
+<div class="box mnemo"><span class="bt">🧠 Ezber — B1-B2-B3</span>"<strong>T</strong>iamin(1) – <strong>R</strong>iboflavin(2) – <strong>N</strong>iasin(3)" → koenzim bağlantıları: B1→TPP (PDH/α-KG DH), B2→FAD, B3→NAD. (Diğer derslerle bağlantı!)</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>B1, B2, B3 vitaminlerinin diğer isimleri nedir?</summary><div class="ans">B1 = thiamin, B2 = riboflavin, B3 = niacin.</div></details>
+</div></div>
+
+<!-- 25 -->
+<div class="slide" id="s25"><div class="slide-head"><span class="snum">SLIDE 25</span><span class="stitle">Mineraller</span></div>
+<ul>
+<li>Mineraller, vücudun çeşitli işlevler için küçük miktarlarda ihtiyaç duyduğu <strong>inorganik maddelerdir</strong>.</li>
+<li>Her mineral için gereksinim farklıdır; kişiye göre değişir: <strong>yaş, cinsiyet, fizyolojik durum (örn. gebelik)</strong>.</li>
+</ul>
+</div>
+
+<!-- 26 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 26</span><span class="stitle">Kalsiyum (Calcium)</span></div>
+<ul>
+<li>Vücutta <strong>diğer tüm minerallerden daha fazla bulunur</strong>.</li>
+<li>Güçlü <strong>kemik ve dişlerin</strong> yapımı/korunmasına yardım eder.</li>
+<li>Sinir ve kasların normal çalışmasına yardım eder.</li>
+<li>Kanın normal <strong>pıhtılaşmasına</strong> yardım eder.</li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span><strong>Kalsiyum, vücutta en bol bulunan mineraldir</strong> ve çoğu kemik/dişte (hidroksiapatit) depolanır. Diş hekimliği için en kritik mineraldir.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Vücutta en bol bulunan mineral ve üç ana işlevi nedir?</summary><div class="ans">Kalsiyum; kemik/diş yapımı, sinir-kas işlevi, kan pıhtılaşması.</div></details>
+</div></div>
+
+<!-- 27 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 27</span><span class="stitle">Demir (Iron)</span></div>
+<ul>
+<li>Vücutta oksijen taşıyan <strong>kırmızı kan hücrelerinin (red blood cells)</strong> yapımına yardım eder.</li>
+<li>Bağışıklık sisteminin çalışmasına ve beynin normal işlevine yardım eder.</li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span>Demir eksikliği anemisi ağızda <strong>solgun mukoza, atrofik glossit ve angular cheilitis</strong> ile kendini gösterebilir.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Demirin temel işlevi nedir?</summary><div class="ans">Oksijen taşıyan kırmızı kan hücrelerinin (hemoglobin) yapımı.</div></details>
+</div></div>
+
+<!-- 28 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 28</span><span class="stitle">Sodyum (Sodium)</span></div>
+<ul>
+<li>Tüm hücrelerde ve vücut sıvılarında bulunur.</li>
+<li>Vücuttaki <strong>su içeriğini düzenler</strong>.</li>
+<li>Sofra tuzunun bir bileşenidir: <strong>sodyum klorür (NaCl)</strong>.</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"<strong>Sodyum = Su dengesi</strong>." Na⁺ ekstrasellüler sıvının ana katyonudur; su sodyumu takip eder ("water follows salt").</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Sodyumun ana işlevi nedir?</summary><div class="ans">Vücudun su içeriğini (sıvı dengesini) düzenlemek; NaCl'nin bileşeni.</div></details>
+</div></div>
+
+<!-- MASTER -->
+<div class="slide" style="border:2px solid var(--brand);">
+<div class="slide-head"><span class="snum" style="background:var(--purple);">ÖZET</span><span class="stitle">🧠 Tek Bakışta Vücudun Yapı Taşları</span></div>
+<table>
+<tr><th>Madde</th><th>Yapı taşı</th><th>Ana işlev</th></tr>
+<tr><td>Su</td><td>H₂O (polar)</td><td>%62 vücut; homeostaz, çözücü</td></tr>
+<tr><td>Karbonhidrat</td><td>Monosakkarit</td><td>Başlıca enerji kaynağı (CH₂O)ₙ</td></tr>
+<tr><td>Yağ</td><td>Gliserol + yağ asidi</td><td>Uzun süreli enerji deposu (trigliserit)</td></tr>
+<tr><td>Fosfolipid</td><td>Gliserol+2 FA+fosfat</td><td>Hücre membranı (amfipatik)</td></tr>
+<tr><td>Protein</td><td>Amino asit</td><td>Enzim, antikor, taşıma, hormon</td></tr>
+<tr><td>Steroid</td><td>4 halka, 17 C</td><td>Kolesterol, seks hormonları</td></tr>
+<tr><td>Nükleik asit</td><td>Nükleotid</td><td>DNA (kalıtım), RNA (protein sentezi)</td></tr>
+<tr><td>ATP</td><td>Adenozin + 3 fosfat</td><td>Enerji para birimi</td></tr>
+</table>
+<div class="box mnemo"><span class="bt">🧠 Final ezberi</span>"Makro (g): <strong>K</strong>arbonhidrat-<strong>P</strong>rotein-<strong>Y</strong>ağ. Mikro (mg/µg): <strong>V</strong>itamin-<strong>M</strong>ineral. Vitaminler: yağda <strong>ADEK</strong> (depolanır), suda <strong>B+C</strong> (günlük). Mineraller: <strong>Ca</strong> (en bol, kemik/diş), <strong>Fe</strong> (oksijen), <strong>Na</strong> (su dengesi)."</div>
+</div>
+
+<footer>
+  Maddelerin Vücuttaki Akıbeti — 28 slayttan slayt slayt derlenmiştir.<br>
+  Flashcard kutularına tıklayarak cevapları açabilirsin. Başarılar! 🧪
+</footer>
+
+</div>
+</body>
+</html>

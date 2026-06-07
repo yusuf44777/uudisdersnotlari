@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kemik Metabolizması Biyokimyası — Slayt Slayt Final Rehberi</title>
+<style>
+  :root{
+    --bg:#eef0f1;--paper:#fff;--ink:#1f262b;--muted:#505b62;
+    --brand:#475569;--brand-dark:#334155;--brand-soft:#e8edf2;
+    --teal:#0c7d8c;--teal-soft:#e6f5f7;
+    --amber:#a16207;--amber-soft:#fdf6e3;
+    --red:#b3261e;--red-soft:#fcebe9;
+    --green:#1e7a46;--green-soft:#e8f6ee;
+    --purple:#5b3a91;--purple-soft:#f0eafa;
+    --line:#dde3e8;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Calibri,system-ui,sans-serif;line-height:1.6;font-size:17px;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 18px 80px;}
+  header.hero{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:24px;box-shadow:0 8px 24px rgba(51,65,85,.25);}
+  header.hero .tag{font-size:14px;letter-spacing:2px;text-transform:uppercase;opacity:.85;}
+  header.hero h1{margin:.2em 0 .15em;font-size:1.95rem;font-family:Georgia,serif;}
+  header.hero p{margin:.2em 0;opacity:.92;font-size:.95rem;}
+  .slide{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:18px 0;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .slide-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
+  .snum{background:var(--brand);color:#fff;font-weight:800;font-size:.8rem;padding:5px 12px;border-radius:20px;white-space:nowrap;letter-spacing:.5px;}
+  .stitle{font-family:Georgia,serif;color:var(--brand-dark);font-size:1.18rem;font-weight:700;}
+  strong{color:var(--brand-dark);} em{color:var(--muted);} mark{background:#ffe9a8;padding:0 3px;border-radius:3px;}
+  ul,ol{margin:.4em 0 .7em;padding-left:1.35em;} li{margin:.3em 0;} p{margin:.55em 0;}
+  .box{border-radius:12px;padding:13px 17px;margin:14px 0;border-left:6px solid;}
+  .box .bt{font-weight:800;display:block;margin-bottom:4px;}
+  .clinic{background:var(--teal-soft);border-color:var(--teal);} .clinic .bt{color:var(--teal);}
+  .spot{background:var(--green-soft);border-color:var(--green);} .spot .bt{color:var(--green);}
+  .warn{background:var(--red-soft);border-color:var(--red);} .warn .bt{color:var(--red);}
+  .mnemo{background:var(--purple-soft);border-color:var(--purple);} .mnemo .bt{color:var(--purple);}
+  .rxn{font-family:Consolas,"Courier New",monospace;background:#eef2f5;border-radius:8px;padding:8px 12px;margin:8px 0;font-size:.86rem;display:block;}
+  .fc-wrap{margin:16px 0 4px;border:2px dashed var(--amber);background:var(--amber-soft);border-radius:14px;padding:12px 16px;}
+  .fc-wrap .fc-title{font-weight:800;color:var(--amber);letter-spacing:.5px;text-transform:uppercase;font-size:.78rem;margin-bottom:6px;}
+  details.fc{background:#fff;border:1px solid #eedcb6;border-radius:10px;margin:7px 0;padding:3px 13px;}
+  details.fc summary{cursor:pointer;font-weight:700;padding:7px 0;list-style:none;}
+  details.fc summary::-webkit-details-marker{display:none;}
+  details.fc summary::before{content:"❓ ";} details.fc[open] summary::before{content:"✅ ";}
+  details.fc .ans{padding:4px 0 11px;color:var(--brand-dark);border-top:1px solid #f0e6cf;margin-top:3px;}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:.9rem;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+  th{background:var(--brand-dark);color:#fff;text-align:left;padding:9px 11px;font-size:.84rem;}
+  td{padding:9px 11px;border-top:1px solid var(--line);vertical-align:top;}
+  tr:nth-child(even) td{background:#f6f8fa;}
+  .toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 20px;font-size:.92rem;}
+  .toc a{color:var(--brand-dark);text-decoration:none;} .toc a:hover{text-decoration:underline;}
+  .diag-note{font-style:italic;color:var(--muted);font-size:.92rem;}
+  footer{margin-top:50px;text-align:center;color:var(--muted);font-size:.85rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="tag">Medical Biochemistry · 1. Sınıf Final</div>
+  <h1>Kemik Metabolizması Biyokimyası</h1>
+  <p>Biochemistry of Bone Metabolism — Slayt Slayt Çalışma Rehberi (50 slayt)</p>
+  <p style="opacity:.8;font-size:.85rem;">Kaynak: Assist. Prof. Tuğçe Demirel-Yalçıner — Faculty of Medicine, Dept. of Medical Biochemistry</p>
+</header>
+
+<div class="toc">
+<strong style="color:var(--brand-dark);">📋 Kaynaktaki 50 slayt sırayla işlendi.</strong> Hızlı geçiş:
+<a href="#s5">Kompozisyon & kollajen (5–19)</a> ·
+<a href="#s20">Kemik hücreleri & RANKL (20–29)</a> ·
+<a href="#s30">Remodeling (30–39)</a> ·
+<a href="#s40">Turnover belirteçleri (40–41)</a> ·
+<a href="#s45">Hastalıklar (45–49)</a>
+</div>
+
+<!-- 1 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 1</span><span class="stitle">Başlık</span></div>
+<p><strong>Biochemistry of Bone Metabolism</strong>. Assist. Prof. Tuğçe Demirel-Yalçıner, Faculty of Medicine, Dept. of Medical Biochemistry.</p></div>
+
+<!-- 2 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 2</span><span class="stitle">Öğrenme Hedefleri</span></div>
+<ul>
+<li>Kemik yapısı ve kompozisyonunu anlamak.</li>
+<li><strong>Bone remodeling cycle</strong>'ı açıklamak.</li>
+<li>Kalsiyum ve fosfat homeostazını tanımlamak.</li>
+<li>Hormonal regülasyonu (PTH, Vitamin D, Calcitonin) anlamak.</li>
+</ul></div>
+
+<!-- 3 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 3</span><span class="stitle">Dişler ve Alveolar Kemik</span></div>
+<ul>
+<li>Dişler <strong>alveolar bone (alveolar kemik)</strong> tarafından desteklenir (dişleri tutar ve stabilize eder).</li>
+<li>Diş stabilitesinin korunması için <strong>kemik remodeling</strong> şarttır.</li>
+<li>Kemik metabolizması bozulursa → <strong>diş desteği zayıflar</strong>.</li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span>Bir diş hekimi için bu dersin <strong>temel mantığı</strong> budur: dişin sağlamlığı, onu çevreleyen alveolar kemiğin sağlıklı remodeling'ine bağlıdır.</div>
+</div>
+
+<!-- 4 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 4</span><span class="stitle">Kemik Metabolizması Diş Hekimliğinde Neden Önemli?</span></div>
+<ul>
+<li>Diş desteğini sürdürür.</li>
+<li><strong>Periodontal kemik kaybını</strong> açıklar.</li>
+<li><strong>Ortodontik diş hareketini</strong> mümkün kılar.</li>
+<li><strong>İmplant başarısını</strong> belirler.</li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Ortodonti, kontrollü kemik remodeling sayesinde çalışır: basınç tarafında osteoklast (rezorpsiyon), gerilim tarafında osteoblast (yapım).</div>
+</div>
+
+<!-- 5 -->
+<div class="slide" id="s5"><div class="slide-head"><span class="snum">SLIDE 5</span><span class="stitle">Giriş</span></div>
+<p>Kemik, özelleşmiş bir <strong>bağ dokusudur (specialized connective tissue)</strong>.</p></div>
+
+<!-- 6 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 6</span><span class="stitle">Kemiğin Ana İşlevleri</span></div>
+<ol>
+<li>Kas aktivitesi için <strong>mekanik destek</strong>.</li>
+<li>Doku ve iç organlara <strong>fiziksel koruma</strong>.</li>
+<li>Sistemik <strong>mineral homeostazının</strong> düzenlenmesi.</li>
+</ol>
+<p>Kemik dokusu ayrıca ihtiyaç anında çekilebilen bir <strong>"mineral bankası" (mineral bank)</strong> görevi görür.</p>
+<div class="box mnemo"><span class="bt">🧠 Ezber — "DKM Bankası"</span><strong>D</strong>estek (mekanik) · <strong>K</strong>oruma (organ) · <strong>M</strong>ineral bankası (Ca deposu). Kemiğin 3 işlevi.</div>
+</div>
+
+<!-- 7 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 7</span><span class="stitle">Kemiğin Kompozisyonu (Tablo)</span></div>
+<table>
+<tr><th>Bileşen</th><th>Detay</th></tr>
+<tr><td><strong>Hücreler (Cells)</strong></td><td>Osteoprogenitor, osteoblast, osteocyte, osteoclast</td></tr>
+<tr><td><strong>Organik kısım %33–35</strong></td><td>Kollajen %88–90 (Type 1); non-kollajen %10–11: glikoproteinler %6–9, proteoglikanlar %8, sialoproteinler %35, lipidler %4</td></tr>
+<tr><td><strong>İnorganik kısım %65–67</strong></td><td>Kalsiyum & fosfat, magnezyum, eser elementler (nikel, demir, florür, kadmiyum, çinko)</td></tr>
+</table>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Kemik ≈ <strong>2/3 inorganik (sertlik) + 1/3 organik (esneklik)</strong>. Organik kısmın büyük çoğunluğu (%90) <strong>Type 1 collagen</strong>'dir.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Kemiğin inorganik/organik oranı ve organik kısmın ana proteini nedir?</summary><div class="ans">~%65 inorganik, ~%35 organik; organik kısmın ~%90'ı Type 1 collagen.</div></details>
+</div></div>
+
+<!-- 8 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 8</span><span class="stitle">Organik Faz — Kollajen</span></div>
+<ul>
+<li>Organik fazın ana bileşenleri proteinler ve <strong>type 1 collagen</strong>'dir.</li>
+<li>Bazı kemikler az miktarda <strong>type V collagen</strong> içerir.</li>
+<li>İmmatür kemik dokusunda <strong>proteoglikanlar</strong> bulunur.</li>
+<li>Kemik kollajeni, tendon/deri kollajeniyle aynı primer yapıya sahip olsa da <strong>daha kompakt, daha az çözünür ve mekanik direnci yüksektir</strong>.</li>
+<li>Bu özellikler, <strong>lizin ve prolin residülerinin artmış hidroksilasyonu</strong> ve <strong>lizin residülerinin artmış glikolasyonu</strong> ile sağlanır.</li>
+</ul>
+</div>
+
+<!-- 9 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 9</span><span class="stitle">Kollajen Yapısı</span></div>
+<ul>
+<li>Kemik kollajeni <strong>üçlü heliks (triple helical)</strong> yapıdadır: <strong>iki α1 ve bir α2</strong> zinciri.</li>
+<li>Her zincirde tekrarlayan amino asit dizisi: <strong>glisin, prolin, hidroksiprolin</strong>.</li>
+<li><strong>Glisin</strong>, en küçük amino asit olduğu için heliksin merkezinde yer alır ve sıkı paketlenmeye izin verir.</li>
+<li><strong>Prolin ve hidroksiprolin</strong> yapının stabilitesine katkıda bulunur; özellikle hidroksiprolin <strong>hidrojen bağıyla</strong> heliksi stabilize eder.</li>
+<li>Prolin ve lizinin <strong>hidroksilasyonu</strong> doğru kollajen oluşumu için şarttır; lizin ayrıca glikozillenir.</li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi — Vitamin C & Skorbüt</span>Prolin/lizin hidroksilasyonu <strong>Vitamin C (askorbat)</strong> gerektirir (prolyl/lysyl hidroksilaz kofaktörü). <strong>C vitamini eksikliği (scurvy)</strong> → defektif kollajen → <strong>diş eti kanaması, diş kaybı, kötü yara iyileşmesi</strong>. Diş hekimliğinde klasik bir bağlantıdır.</div>
+<div class="box mnemo"><span class="bt">🧠 Ezber — Kollajen dizisi</span>"<strong>Gly-Pro-Hyp</strong>" tekrarı: <strong>G</strong>lisin (en küçük, merkezde) – <strong>P</strong>rolin – <strong>H</strong>idroksiprolin. "Her üçüncü artık Glisin."</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Kemik kollajeninin zincir kompozisyonu ve tekrar dizisi nedir?</summary><div class="ans">2 α1 + 1 α2 zinciri; tekrar dizisi Gly-Pro-Hyp.</div></details>
+<details class="fc"><summary>Kollajen hidroksilasyonu için hangi vitamin gerekir, eksikliğinde ne olur?</summary><div class="ans">Vitamin C; eksikliğinde skorbüt (diş eti kanaması, diş kaybı).</div></details>
+</div></div>
+
+<!-- 10 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 10</span><span class="stitle">Kemik Matriksi</span></div>
+<ul>
+<li>Kompozisyon; anatomik bölge, yaş, beslenme ve hastalık varlığına göre değişir.</li>
+<li>Genel olarak: <strong>%60–70 inorganik faz</strong>, <strong>%5–8 su</strong>, kalanı organik matriks.</li>
+<li>Organik matriksin <strong>%90'ı kollajen</strong>, %8'i kollajen dışı proteinler.</li>
+<li>En önemli inorganik bileşen <strong>calcium hydroxyapatite</strong>'tir; kemiğe hem güç hem esneklik verir.</li>
+<li>Kristalde fosfat yerine <strong>karbonat</strong>, hidroksil yerine <strong>klorür veya florür</strong> geçtiğinde çözünürlük gibi özellikler değişebilir.</li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi — Florür</span>Hidroksiapatitteki <strong>—OH yerine florür (F⁻) geçince fluorapatite</strong> oluşur; bu daha az çözünür ve asitlere daha dirençlidir. <mark>Diş çürüğüne karşı florür koruması</mark>nın biyokimyasal temeli budur.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Hidroksiapatitte hidroksil yerine florür geçerse ne oluşur ve neden önemlidir?</summary><div class="ans">Fluorapatite; daha az çözünür ve aside dirençli → çürüğe karşı koruma.</div></details>
+</div></div>
+
+<!-- 11 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 11–13</span><span class="stitle">Kemik Matriksi / Hidroksiapatit (Diyagramlar)</span></div>
+<p class="diag-note">Hidroksiapatit kristal yapısı, kollajen-mineral ilişkisi ve kemik matriks organizasyonunu gösteren görseller.</p></div>
+
+<!-- 14 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 14</span><span class="stitle">Önemli Kollajen Dışı Proteinler</span></div>
+<ul>
+<li><strong>Osteocalcin</strong></li>
+<li><strong>Osteopontin</strong></li>
+<li><strong>Bone sialoprotein</strong></li>
+</ul></div>
+
+<!-- 15 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 15</span><span class="stitle">Osteocalcin</span></div>
+<ul>
+<li><strong>5.8 kDa</strong> küçük bir protein.</li>
+<li><strong>Bone γ-carboxyglutamic acid protein</strong> (Gla proteini).</li>
+<li><strong>Osteoblast ve osteositlerde</strong> sentezlenir.</li>
+<li>Hücre içinde <strong>üç glutamat residüsü</strong> üzerinden <strong>gamma carboxylase</strong> enzimiyle karboksillenir.</li>
+<li><strong>Vitamin K bağımlı bir proteindir</strong>: gamma-karboksilasyon için K vitamini gerekir; bu, kalsiyuma <strong>güçlü bağlanmayı</strong> sağlar.</li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span><strong>Osteocalcin = Vitamin K bağımlı + kalsiyum bağlayan kemik formasyon belirteci.</strong> γ-karboksilasyon (Vitamin K) sayesinde Ca²⁺'ya bağlanır. Klinikte <strong>kemik yapımının (osteoblast aktivitesinin) belirtecidir</strong>.</div>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"Osteo<strong>K</strong>alsin → Vitamin <strong>K</strong> + <strong>K</strong>alsiyum bağlar." Üç K: Kalsin, K vitamini, Kalsiyum.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Osteokalsin hangi vitamine bağımlıdır ve neyi belirtir?</summary><div class="ans">Vitamin K (gamma-karboksilasyon); kemik formasyonunun (osteoblast aktivitesinin) belirteci.</div></details>
+</div></div>
+
+<!-- 16-17 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 16–17</span><span class="stitle">Osteocalcin (Diyagramlar)</span></div>
+<p class="diag-note">Osteokalsinin γ-karboksilasyonu ve kalsiyum/hidroksiapatite bağlanmasını gösteren şemalar.</p></div>
+
+<!-- 18 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 18</span><span class="stitle">Osteopontin</span></div>
+<p><strong>Osteopontin</strong>: kemik matriksinde hücre adezyonu ve mineralizasyonun düzenlenmesinde rol oynayan, fosforillenmiş bir kollajen dışı glikoprotein. Osteoklastların kemik yüzeyine tutunmasına aracılık eder.</p></div>
+
+<!-- 19 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 19</span><span class="stitle">Bone Sialoprotein</span></div>
+<p><strong>Bone sialoprotein (BSP)</strong>: mineralizasyon başlangıcında (nükleasyon) ve hücre-matriks etkileşiminde görev alan kollajen dışı bir protein; aynı zamanda bir kemik rezorpsiyon belirteci olarak da kullanılır.</p></div>
+
+<!-- 20 -->
+<div class="slide" id="s20"><div class="slide-head"><span class="snum">SLIDE 20</span><span class="stitle">Kemik Doku Hücreleri</span></div>
+<p>Kemiğin yıkım ve yapımından sorumlu hücreler: <strong>osteocytes, osteoblasts, osteoclasts</strong>.</p>
+<div class="box mnemo"><span class="bt">🧠 Ezber — 3 Hücre</span>"Osteo<strong>B</strong>last = <strong>B</strong>uild (yapar). Osteo<strong>C</strong>last = <strong>C</strong>rush/Consume (yıkar). Osteo<strong>cyte</strong> = oturur, matriksi korur (lacuna içinde)."</div>
+</div>
+
+<!-- 21 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 21</span><span class="stitle">Osteoblast</span></div>
+<ul>
+<li><strong>Mezenkimden (mesenchyme)</strong> köken alır.</li>
+<li>Matrikse gömülüdür; yeni kemik katmanları ekler.</li>
+<li>Ürettiği <strong>osteoid</strong> esas olarak <strong>type 1 collagen</strong>'den oluşur.</li>
+<li>Yapıya <strong>kalsiyum fosfat kristalleri</strong> eklenmesiyle sert kemik matriksine dönüşür (mineralizasyon).</li>
+<li>Ana rolü: kemik oluşumunda yer alan proteinleri (ECM proteinleri, sitokinler, kollajen, büyüme faktörleri) sentezleyip salgılamak ve ekstrasellüler matriksi mineralizasyonla kemiğe çevirmek.</li>
+</ul>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Osteoblast hangi kökten gelir ve hangi mineralize olmamış matriksi salgılar?</summary><div class="ans">Mezenkimden; salgıladığı mineralize olmamış matriks "osteoid"dir.</div></details>
+</div></div>
+
+<!-- 22 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 22</span><span class="stitle">Osteocyte</span></div>
+<ul>
+<li>Osteoblast matriksi salgıladıktan sonra, <strong>LACUNA</strong> denen küçük boşlukta <strong>osteosite</strong> dönüşür.</li>
+<li>Yassılaşmış çekirdekli, sitoplazmik uzantıları olan <strong>olgun kemik hücresidir</strong>; <strong>bölünemez</strong>, matriksi korur.</li>
+<li>Lakunalar <strong>CANALICULI</strong> denen küçük kanallarla birbirine bağlanır.</li>
+<li>Kanaliküllerdeki osteosit uzantıları <strong>GAP JUNCTIONS</strong> ile birbirine bağlanır.</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"Osteosit = emekli osteoblast." Lakunada oturur, kanaliküllerle komşularına gap junction'la haber verir (mekanik sensör).</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Osteosit hangi boşlukta yer alır ve uzantıları hangi kanallardan geçer?</summary><div class="ans">Lacuna içinde; uzantıları canaliculi'den geçer, gap junction'larla bağlanır.</div></details>
+</div></div>
+
+<!-- 23-24 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 23–24</span><span class="stitle">Osteosit / Lakuna-Kanalikül (Diyagramlar)</span></div>
+<p class="diag-note">Osteositin lakuna içindeki yerleşimi, kanaliküler ağ ve gap junction bağlantılarını gösteren histolojik görseller.</p></div>
+
+<!-- 25 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 25</span><span class="stitle">Osteoclast</span></div>
+<p><strong>Osteoclasts</strong>, <strong>hematopoietik kök hücrelerden</strong> türeyen, dokuya özgü <strong>makrofajlardır (tissue-specific macrophages)</strong>.</p>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi (Sık çeldirici!)</span><strong>Osteoblast = mezenkim kökenli (yapar); Osteoclast = hematopoietik/makrofaj kökenli (yıkar).</strong> İki hücrenin kökeni farklıdır — sınavda sık karıştırılır.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Osteoklast hangi kök hücreden köken alır?</summary><div class="ans">Hematopoietik kök hücreler (makrofaj soyu).</div></details>
+</div></div>
+
+<!-- 26 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 26</span><span class="stitle">RANKL-RANK-OPG Sinyal Yolağı</span></div>
+<table>
+<tr><th>Molekül</th><th>Açılımı / Yer</th><th>İşlev</th></tr>
+<tr><td><strong>RANKL</strong></td><td>Receptor activator of NF-κB <strong>ligand</strong>; osteoblastlarca eksprese</td><td>Osteoklast oluşumu, işlevi ve sağkalımında <strong>kritik</strong></td></tr>
+<tr><td><strong>RANK</strong></td><td>Receptor activator of NF-κB; osteoklast öncülleri ve olgun osteoklastlarda</td><td>RANKL'ın <strong>reseptörüdür</strong></td></tr>
+<tr><td><strong>OPG</strong></td><td>Osteoprotegerin; osteoblast + dalak, ilik, kalp, karaciğer</td><td>RANKL'a bağlanıp <strong>inhibe eder</strong>; kemik kaybına karşı <strong>koruyucu</strong></td></tr>
+</table>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi — Ders boyunca en kritik konu</span><strong>RANKL → osteoklastı AKTİVE eder (kemik yıkımı). OPG → RANKL'ı bağlayıp BLOKLAR (kemik korur).</strong> Denge RANKL/OPG oranına bağlıdır. İlginç olan: yıkıcı sinyal RANKL, <strong>yapıcı hücre olan osteoblasttan</strong> gelir.</div>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"<strong>RANKL Rezorbe ettirir; OPG (decoy) Önler.</strong> RANK<strong>L</strong> = <strong>L</strong>igand (osteoblastta). OPG = sahte tuzak reseptör, RANKL'ı kapar."</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>RANKL, RANK ve OPG'nin rolleri nedir?</summary><div class="ans">RANKL (osteoblastta) osteoklastı aktive eder; RANK osteoklasttaki reseptördür; OPG decoy olarak RANKL'ı bağlayıp kemik kaybını önler.</div></details>
+</div></div>
+
+<!-- 27 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 27</span><span class="stitle">Osteoklast Aktivasyonu (Diyagram)</span></div>
+<p class="diag-note">Şema: Osteoblastlar <strong>RANKL</strong> eksprese eder; osteoklast öncülündeki <strong>RANK</strong>'a bağlanır → diferansiyasyon → osteoklast → aktivasyon → aktif osteoklast. <strong>OPG</strong> RANKL'ı bloklar. <mark><strong>Estradiol (östrojen), RANKL salınımını sınırlar</strong></mark> (kemik koruyucu etki).</p>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span>Menopozda östrojen düşer → RANKL artar, OPG azalır → osteoklast aktivitesi artar → <strong>postmenopozal osteoporoz</strong>. Bu mekanizma, kadınlarda çene kemiği kaybı ve diş kaybı riskini de açıklar.</div>
+</div>
+
+<!-- 28 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 28</span><span class="stitle">Osteoklast Aktivasyonu (Diyagram-devam)</span></div>
+<p class="diag-note">Osteoklastın kemik yüzeyine tutunması, "ruffled border" oluşumu ve asit + enzim (TRACP, cathepsin K) salgılayarak rezorpsiyon yapmasını gösteren görsel.</p></div>
+
+<!-- 29 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 29</span><span class="stitle">Kemik Hücrelerinin Diferansiyasyonu (Diyagram)</span></div>
+<p class="diag-note">Şema: <strong>GM-CFU → (M-CSF) → osteoklast öncülü → (IL-6, IL-11, RANKL) → preosteoklast → osteoklast</strong> (OPG bloklar). <strong>Mezenkimal kök hücre → (IL-1, PTH, Vitamin D3) → preosteoblast → (TNF-α) → osteoblast</strong>; <strong>Wnt</strong> osteoblastı uyarır, <strong>Dkk-1</strong> Wnt'i negatif düzenler.</p>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Osteoklast oluşumu için iki sinyal şart: <strong>M-CSF</strong> (proliferasyon) + <strong>RANKL</strong> (diferansiyasyon). <strong>Wnt yolağı</strong> osteoblast yapımını destekler; <strong>Dkk-1</strong> onu baskılar.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Osteoklast farklılaşması için gereken iki ana faktör nedir?</summary><div class="ans">M-CSF ve RANKL.</div></details>
+</div></div>
+
+<!-- 30 -->
+<div class="slide" id="s30"><div class="slide-head"><span class="snum">SLIDE 30</span><span class="stitle">Bone Remodeling — Basit Tanım</span></div>
+<p>Basitçe: <strong>osteoklast tarafından eski/olgun mineralize kemiğin uzaklaştırılması</strong> + <strong>osteoblast tarafından yeni kemik matriksinin/dokusunun oluşturulması</strong>.</p></div>
+
+<!-- 31 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 31</span><span class="stitle">Bone Remodeling — İşlevi</span></div>
+<ul>
+<li>Kemik mimarisini değişen mekanik ihtiyaçlara göre ayarlar.</li>
+<li>Kemik matriksindeki <strong>mikrohasarları onarır</strong>, eski kemik birikimini önler.</li>
+<li>Plazma <strong>kalsiyum homeostazının</strong> korunmasında önemlidir.</li>
+<li>Remodeling döngüsünde <strong>beş anahtar basamak (five key steps)</strong> vardır.</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber — Remodeling 5 basamağı</span>"<strong>A-R-R-F-M</strong>": <strong>A</strong>ktivasyon → <strong>R</strong>ezorpsiyon (osteoklast) → <strong>R</strong>eversal (geçiş) → <strong>F</strong>ormasyon (osteoblast/osteoid) → <strong>M</strong>ineralizasyon (+ dinlenme).</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Kemik remodeling döngüsünün 5 basamağı nedir?</summary><div class="ans">Aktivasyon, Rezorpsiyon, Reversal, Formasyon, Mineralizasyon (dinlenme).</div></details>
+</div></div>
+
+<!-- 32 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 32</span><span class="stitle">Remodeling Döngüsü (Animasyon)</span></div>
+<p class="diag-note">Remodeling döngüsünün adım adım animasyonu (video slaytı): aktivasyon → osteoklastik rezorpsiyon → reversal → osteoblastik formasyon → mineralizasyon.</p></div>
+
+<!-- 33 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 33</span><span class="stitle">Kemiği Etkileyen Faktörler — Mineral & Vitaminler</span></div>
+<p><strong>Mineraller:</strong> büyük miktarda <strong>kalsiyum ve fosfor</strong>; daha az miktarda magnezyum, florür ve manganez gerekir.</p>
+<p><strong>Vitaminler:</strong></p>
+<ul>
+<li><strong>Vitamin A</strong> → osteoblast aktivitesini uyarır.</li>
+<li><strong>Vitamin C</strong> → kollajen sentezi için gerekli.</li>
+<li><strong>Vitamin D</strong> → GİS'ten kalsiyum emilimini artırarak kemik yapımına yardım eder.</li>
+<li><strong>Vitamin K ve B12</strong> → kemik proteinlerinin sentezi için gerekli.</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber — Kemik vitaminleri</span><strong>A</strong> osteoblast, <strong>C</strong> kollajen, <strong>D</strong> kalsiyum emilimi, <strong>K</strong> osteokalsin/protein. "ACDK kemik dörtlüsü."</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Hangi vitamin kollajen sentezi, hangisi kalsiyum emilimi için gereklidir?</summary><div class="ans">C vitamini kollajen sentezi; D vitamini kalsiyum emilimi.</div></details>
+</div></div>
+
+<!-- 34 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 34</span><span class="stitle">Faktörler (Diyagram)</span></div>
+<p class="diag-note">Kemik büyümesi ve remodeling'i etkileyen mineral, vitamin ve hormonları özetleyen görsel.</p></div>
+
+<!-- 35 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 35</span><span class="stitle">Hormonlar</span></div>
+<ul>
+<li><strong>Östrojen ve testosteron</strong> kemik büyümesinde dramatik etkilidir:
+  <ul>
+    <li>Ergenlikteki ani <strong>"büyüme atağı (growth spurt)"</strong>ın nedeni.</li>
+    <li>Kadınlarda pelvis genişlemesi gibi değişiklikleri teşvik eder.</li>
+    <li><strong>Epifiz plaklarında büyümeyi durdurur</strong> (kapatır).</li>
+  </ul>
+</li>
+<li><strong>Parathyroid hormone (PTH), calcitriol ve calcitonin</strong> remodeling'i etkileyen diğer hormonlardır.</li>
+</ul>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Östrojen/testosteron epifiz plaklarında ne yapar?</summary><div class="ans">Büyümeyi durdurur (plakları kapatır), önce büyüme atağını tetikler.</div></details>
+</div></div>
+
+<!-- 36 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 36</span><span class="stitle">Parathyroid Hormone (PTH)</span></div>
+<p><strong>PTH</strong>, vücutta kalsiyum regülasyonu için önemli bir hormondur (kemik, böbrek ve dolaylı olarak bağırsak üzerinden plazma Ca²⁺'ı yükseltir).</p></div>
+
+<!-- 37 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 37</span><span class="stitle">PTH ve Osteoklast Reseptörü</span></div>
+<p><mark>PTH kemik rezorpsiyonuna neden olur ama <strong>osteoklastların bu hormon için reseptörü YOKTUR</strong>. Reseptör <strong>osteoblast hücresindedir</strong>.</mark></p>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi (Çok sık sorulur!)</span>PTH (ve Vitamin D), osteoklastı <strong>doğrudan değil, osteoblast üzerinden</strong> aktive eder: PTH osteoblasta bağlanır → osteoblast <strong>RANKL</strong> salgılar → RANKL osteoklasttaki RANK'a bağlanır → kemik rezorpsiyonu. "PTH doğrudan osteoklasta etki eder" ifadesi <strong>yanlıştır</strong>.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>PTH osteoklastı nasıl aktive eder?</summary><div class="ans">Doğrudan değil; osteoblasttaki reseptöre bağlanır → osteoblast RANKL salar → RANKL osteoklastı aktive eder.</div></details>
+</div></div>
+
+<!-- 38 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 38</span><span class="stitle">PTH Etki Mekanizması (Diyagram)</span></div>
+<p class="diag-note">PTH'nin osteoblast üzerinden RANKL salınımını artırarak osteoklast aktivasyonuna yol açmasını gösteren şema.</p></div>
+
+<!-- 39 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 39</span><span class="stitle">Uzun Zincirli PUFA'ların Etkisi (Diyagram)</span></div>
+<p class="diag-note">Uzun zincirli çoklu doymamış yağ asitlerinin (long-chain PUFA) kemik hücreleri üzerindeki potansiyel düzenleyici mekanizmalarını gösteren şema.</p></div>
+
+<!-- 40 -->
+<div class="slide" id="s40"><div class="slide-head"><span class="snum">SLIDE 40</span><span class="stitle">Kemik Turnover Belirteçlerinin Sınıflandırması</span></div>
+<table>
+<tr><th>Kategori</th><th>Belirteçler</th></tr>
+<tr><td><strong>Formasyon belirteçleri</strong> (osteoblast)</td><td>Bone ALP (BALP), <strong>Osteocalcin (OC)</strong>, Procollagen type 1 C-terminal propeptide (P1CP), N-terminal propeptide (P1NP)</td></tr>
+<tr><td><strong>Rezorpsiyon — kollajen ürünleri</strong></td><td>Hydroxyproline (OHP), hydroxylysine-glycoside, Pyridinoline (PYD), Deoxypyridinoline (DPY), <strong>CTX</strong> (C-terminal telopeptid), <strong>NTX</strong> (N-terminal telopeptid)</td></tr>
+<tr><td><strong>Rezorpsiyon — non-kollajen</strong></td><td>Bone sialoprotein, osteocalcin fragmanları</td></tr>
+<tr><td><strong>Rezorpsiyon — osteoklast enzimleri</strong></td><td><strong>TRACP</strong> (tartrate-resistant acid phosphatase), <strong>Cathepsin K</strong>, RANK</td></tr>
+</table>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span><strong>Formasyon belirteci → Osteocalcin & ALP & P1NP</strong> (osteoblast). <strong>Rezorpsiyon belirteci → CTX, NTX, deoxypyridinoline, TRACP, Cathepsin K</strong> (osteoklast/kollajen yıkımı). Kemiğin yapım mı yıkım mı baskın olduğunu bu belirteçler gösterir.</div>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"Yapım = osteo<strong>B</strong>last → osteo<strong>K</strong>alsin, A<strong>L</strong>P, P1NP. Yıkım = osteo<strong>C</strong>last → <strong>C</strong>TX/N<strong>T</strong>X, <strong>C</strong>athepsin K, TRACP."</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>İki kemik formasyon ve iki rezorpsiyon belirteci say.</summary><div class="ans">Formasyon: osteokalsin, BALP/P1NP. Rezorpsiyon: CTX/NTX, deoxypyridinoline/TRACP/cathepsin K.</div></details>
+</div></div>
+
+<!-- 41 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 41</span><span class="stitle">Serum/İdrar Belirteçleri ve Yöntemler (Tablo)</span></div>
+<p class="diag-note">Tablo: her belirteç için aktivite (formasyon/rezorpsiyon), örnek tipi (S=serum, P=plazma, U=idrar) ve ölçüm yöntemi (ELISA, RIA, HPLC vb.). Örn: deoksipiridinolin (rezorpsiyon, idrar, HPLC); osteokalsin (formasyon, serum, RIA/ELISA).</p></div>
+
+<!-- 42 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 42</span><span class="stitle">Kemik Homeostazı — Osteoblast/Osteoklast İlişkisi</span></div>
+<ul>
+<li>Kemik homeostazı iki süreçten oluşur: <strong>osteoblastlarca yapım</strong> + <strong>osteoklastlarca rezorpsiyon</strong>.</li>
+<li>Bu denge, osteoblast diferansiyasyonu ile osteoklast aktivasyonu arasındaki etkileşimle düzenlenir.</li>
+<li><mark>Yaş ilerledikçe denge <strong>rezorpsiyon (yıkım) lehine</strong> kayar</mark> → kemik kaybı.</li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Genç sağlıklı kemikte yapım = yıkım (denge). Yaşla yıkım &gt; yapım → osteopeni/osteoporoz. Diş hekimliğinde yaşlı hastada implant başarısı bu dengeye bağlıdır.</div>
+</div>
+
+<!-- 43 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 43</span><span class="stitle">Gebelik ve Laktasyon</span></div>
+<ul>
+<li>Gebelikte artan kalsiyum ihtiyacı nedeniyle <strong>kemik yıkımı artar</strong>.</li>
+<li>Laktasyondaki kadının iskeletinde kalsiyumun hızla geri kazanılması, mekanizması tam anlaşılmamış bir süreçle olur.</li>
+<li>Bazı kadınlar gebelik/laktasyon sonucu kırılganlık kırıkları yaşayabilse de, çoğu kadında bu adaptasyonlar <strong>sessizce ve kalıcı olumsuz sonuç olmadan</strong> gerçekleşir.</li>
+</ul></div>
+
+<!-- 44 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 44</span><span class="stitle">miRNA'nın Epigenetik Düzenlemesi (Diyagram)</span></div>
+<p class="diag-note">Kemik remodeling'inde miRNA'ların epigenetik düzenleyici rolünü gösteren şema (ileri düzey içerik).</p></div>
+
+<!-- 45 -->
+<div class="slide" id="s45"><div class="slide-head"><span class="snum">SLIDE 45</span><span class="stitle">Metabolik Kemik Hastalıkları</span></div>
+<ul>
+<li>Osteoporoz, <strong>osteopetrosis</strong> ve <strong>rickets</strong> gibi metabolik kemik hastalıkları remodeling sürecini etkiler; dengeyi pozitif (aşırı yapım) veya negatif (aşırı rezorpsiyon) yönde bozar.</li>
+<li><strong>Osteopetrosis:</strong> pozitif kemik dengesine yol açar (aşırı yoğun ama kırılgan kemik; osteoklast işlev kaybı).</li>
+<li><strong>Rickets:</strong> vitamin D eksikliğinden kaynaklanır → osteoblast öncüllerini inhibe eder, <strong>RANKL'ı artırır, OPG'yi azaltır</strong> → artmış rezorpsiyon ve turnover.</li>
+<li><strong>Multiple myeloma</strong> (plazma hücre kanseri) de remodeling dengesizliğiyle şiddetli kemik yıkımına yol açar.</li>
+</ul>
+<div class="box warn"><span class="bt">⚠️ Dikkat — Osteopetrosis vs Osteoporosis</span><strong>Osteo<u>petro</u>sis</strong> = "taş kemik", aşırı yoğun (osteoklast çalışmaz). <strong>Osteo<u>poro</u>sis</strong> = "gözenekli kemik", azalmış kütle. Benzer isimler, zıt tablolar — karıştırma!</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Osteopetrosis ve osteoporosis arasındaki fark nedir?</summary><div class="ans">Osteopetrosis: aşırı yoğun/kırılgan kemik (osteoklast disfonksiyonu). Osteoporosis: düşük kemik kütlesi/kırılganlık.</div></details>
+</div></div>
+
+<!-- 46 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 46</span><span class="stitle">Osteopeni & Osteoporoz</span></div>
+<ul>
+<li>En yaygın metabolik kemik bozuklukları <strong>osteopeni ve osteoporoz</strong>dur; ikisi de <strong>kemik mineral yoğunluğu (BMD) kaybını</strong> tanımlar.</li>
+<li>Osteoporoz tek bir hastalık değil, bir grup durumdur: <strong>primer tip 1, primer tip 2 ve sekonder</strong>.</li>
+<li><strong>Tip 1 (postmenopozal):</strong> en sık; <strong>östrojen eksikliği</strong> → RANKL ↑, OPG ↓, osteoklast apoptozu ↓.</li>
+<li><strong>Tip 2 (senil / yaşa bağlı):</strong> hem erkek hem kadında yaşla görülür.</li>
+<li><strong>Sekonder:</strong> ilaç yan etkisi, fiziksel aktivite değişimi veya başka bir hastalığa bağlı.</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"Tip <strong>1</strong> = menop<strong>oz</strong> (östrojen↓, RANKL↑). Tip <strong>2</strong> = yaşlılık (senil)." Sekonder = başka bir nedenin sonucu.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Postmenopozal osteoporozun (Tip 1) mekanizması nedir?</summary><div class="ans">Östrojen eksikliği → RANKL ↑, OPG ↓, osteoklast apoptozu ↓ → artmış rezorpsiyon.</div></details>
+</div></div>
+
+<!-- 47 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 47</span><span class="stitle">Osteoporoz (Diyagram)</span></div>
+<p class="diag-note">Sağlıklı kemik ile osteoporotik kemiğin (azalmış trabekül, artmış gözeneklilik) karşılaştırmalı görseli.</p></div>
+
+<!-- 48 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 48</span><span class="stitle">Kemik Rejenerasyonu Teknikleri</span></div>
+<p>Yaşlılarda kemik kırığına bağlı mortaliteyi azaltmak için kemik rejenerasyonu ve onarımını teşvik eden teknikler geliştirilmiştir: <strong>allograftlar, gen tedavisi ve hücre temelli tedaviler</strong> — hepsi hastalarda test edilmiştir.</p></div>
+
+<!-- 49 -->
+<div class="slide" id="s49"><div class="slide-head"><span class="snum">SLIDE 49</span><span class="stitle">Diş Hekimliğinde Kemik Metabolizmasının Klinik Önemi</span></div>
+<ul>
+<li><strong>Periodontal hastalık:</strong> İnflamasyon → <strong>↑ osteoklast aktivitesi</strong> → kemik kaybı.</li>
+<li><strong>Ortodontik diş hareketi:</strong> Kontrollü kemik remodeling ile çalışır; osteoklast ve osteoblast <strong>dengeli</strong> olmalıdır.</li>
+<li><strong>Dental implantlar:</strong> Başarılı implant için sağlıklı kemik metabolizması gerekir; <strong>kemik yapımı, rezorpsiyonu aşmalıdır</strong>.</li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi — Final Özeti</span>Bu slayt, tüm dersin diş hekimliğiyle bağlantısını özetler: <strong>periodontitis = aşırı osteoklast; ortodonti = dengeli remodeling; implant = yapım &gt; yıkım</strong>. RANKL/OPG dengesi her üçünün de merkezindedir.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Periodontal hastalıkta kemik kaybının mekanizması nedir?</summary><div class="ans">İnflamasyon → osteoklast aktivitesi artar → alveolar kemik kaybı.</div></details>
+<details class="fc"><summary>Dental implant başarısı için kemik dengesi nasıl olmalıdır?</summary><div class="ans">Kemik yapımı (osteoblast), rezorpsiyonu (osteoklast) aşmalıdır.</div></details>
+</div></div>
+
+<!-- 50 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 50</span><span class="stitle">Kapanış</span></div>
+<p>"Thank you…" — dersin sonu.</p></div>
+
+<!-- MASTER -->
+<div class="slide" style="border:2px solid var(--brand);">
+<div class="slide-head"><span class="snum" style="background:var(--purple);">ÖZET</span><span class="stitle">🧠 Tek Bakışta Kemik Hücreleri & RANKL Ekseni</span></div>
+<table>
+<tr><th>Hücre</th><th>Köken</th><th>İşlev</th><th>Belirteç</th></tr>
+<tr><td>Osteoblast</td><td>Mezenkim</td><td>Yapar (osteoid, mineralize eder)</td><td>Osteokalsin, ALP, P1NP</td></tr>
+<tr><td>Osteocyte</td><td>Osteoblast (lakuna)</td><td>Matriksi korur, mekanosensör</td><td>—</td></tr>
+<tr><td>Osteoclast</td><td>Hematopoietik (makrofaj)</td><td>Yıkar (rezorpsiyon)</td><td>CTX, NTX, TRACP, Cathepsin K</td></tr>
+</table>
+<div class="box mnemo"><span class="bt">🧠 Final ezberi</span>"<strong>Osteoblast RANKL salar → osteoklasttaki RANK'ı aktive eder → kemik yıkımı. OPG (decoy) RANKL'ı bağlar → korur.</strong> PTH & Vitamin D osteoklasta DOLAYLI (osteoblast/RANKL üzerinden) etki eder. Östrojen RANKL'ı baskılar; menopozda kaybı → osteoporoz."</div>
+</div>
+
+<footer>
+  Kemik Metabolizması Biyokimyası — 50 slayttan slayt slayt derlenmiştir.<br>
+  Flashcard kutularına tıklayarak cevapları açabilirsin. Başarılar! 🦴
+</footer>
+
+</div>
+</body>
+</html>

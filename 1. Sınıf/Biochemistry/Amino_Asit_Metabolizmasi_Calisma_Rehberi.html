@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amino Asit Metabolizması & Üre Döngüsü — Slayt Slayt Final Rehberi</title>
+<style>
+  :root{
+    --bg:#eef0f6;--paper:#fff;--ink:#1d2130;--muted:#4d5468;
+    --brand:#3730a3;--brand-dark:#272063;--brand-soft:#eae9f7;
+    --teal:#0c7d8c;--teal-soft:#e6f5f7;
+    --amber:#b9770e;--amber-soft:#fdf4e3;
+    --red:#b3261e;--red-soft:#fcebe9;
+    --green:#1e7a46;--green-soft:#e8f6ee;
+    --purple:#7c3aed;--purple-soft:#f1eafe;
+    --line:#dee0ea;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Calibri,system-ui,sans-serif;line-height:1.6;font-size:17px;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 18px 80px;}
+  header.hero{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:24px;box-shadow:0 8px 24px rgba(39,32,99,.25);}
+  header.hero .tag{font-size:14px;letter-spacing:2px;text-transform:uppercase;opacity:.85;}
+  header.hero h1{margin:.2em 0 .15em;font-size:1.9rem;font-family:Georgia,serif;}
+  header.hero p{margin:.2em 0;opacity:.92;font-size:.95rem;}
+  .slide{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:18px 0;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .slide-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
+  .snum{background:var(--brand);color:#fff;font-weight:800;font-size:.8rem;padding:5px 12px;border-radius:20px;white-space:nowrap;letter-spacing:.5px;}
+  .stitle{font-family:Georgia,serif;color:var(--brand-dark);font-size:1.2rem;font-weight:700;}
+  .rxn-num{background:var(--teal);color:#fff;border-radius:50%;width:26px;height:26px;display:inline-block;text-align:center;line-height:26px;font-weight:800;font-size:.85rem;}
+  strong{color:var(--brand-dark);} em{color:var(--muted);} mark{background:#ffe9a8;padding:0 3px;border-radius:3px;}
+  ul,ol{margin:.4em 0 .7em;padding-left:1.35em;} li{margin:.3em 0;} p{margin:.55em 0;}
+  .box{border-radius:12px;padding:13px 17px;margin:14px 0;border-left:6px solid;}
+  .box .bt{font-weight:800;display:block;margin-bottom:4px;}
+  .clinic{background:var(--teal-soft);border-color:var(--teal);} .clinic .bt{color:var(--teal);}
+  .spot{background:var(--green-soft);border-color:var(--green);} .spot .bt{color:var(--green);}
+  .warn{background:var(--red-soft);border-color:var(--red);} .warn .bt{color:var(--red);}
+  .mnemo{background:var(--purple-soft);border-color:var(--purple);} .mnemo .bt{color:var(--purple);}
+  .rxn{font-family:Consolas,"Courier New",monospace;background:#f0f0f8;border-radius:8px;padding:8px 12px;margin:8px 0;font-size:.86rem;display:block;}
+  .fc-wrap{margin:16px 0 4px;border:2px dashed var(--amber);background:var(--amber-soft);border-radius:14px;padding:12px 16px;}
+  .fc-wrap .fc-title{font-weight:800;color:var(--amber);letter-spacing:.5px;text-transform:uppercase;font-size:.78rem;margin-bottom:6px;}
+  details.fc{background:#fff;border:1px solid #eedcb6;border-radius:10px;margin:7px 0;padding:3px 13px;}
+  details.fc summary{cursor:pointer;font-weight:700;padding:7px 0;list-style:none;}
+  details.fc summary::-webkit-details-marker{display:none;}
+  details.fc summary::before{content:"❓ ";} details.fc[open] summary::before{content:"✅ ";}
+  details.fc .ans{padding:4px 0 11px;color:var(--brand-dark);border-top:1px solid #f0e6cf;margin-top:3px;}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:.9rem;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+  th{background:var(--brand-dark);color:#fff;text-align:left;padding:9px 11px;font-size:.84rem;}
+  td{padding:9px 11px;border-top:1px solid var(--line);vertical-align:top;}
+  tr:nth-child(even) td{background:#f7f7fb;}
+  .toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 20px;font-size:.92rem;}
+  .toc a{color:var(--brand-dark);text-decoration:none;} .toc a:hover{text-decoration:underline;}
+  .diag-note{font-style:italic;color:var(--muted);font-size:.92rem;}
+  footer{margin-top:50px;text-align:center;color:var(--muted);font-size:.85rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="tag">Medical Biochemistry · 1. Sınıf Final</div>
+  <h1>Amino Asit Metabolizması & Üre Döngüsü</h1>
+  <p>Amino Acid Metabolism — Slayt Slayt Çalışma Rehberi (28 slayt)</p>
+  <p style="opacity:.8;font-size:.85rem;">Kaynak: Assist. Prof. Tuğçe Demirel-Yalçıner — Faculty of Medicine, Dept. of Medical Biochemistry</p>
+</header>
+
+<div class="toc">
+<strong style="color:var(--brand-dark);">📋 Kaynaktaki 28 slayt sırayla işlendi.</strong> Hızlı geçiş:
+<a href="#s7">Azot metabolizması (7–16)</a> ·
+<a href="#s17">Üre döngüsü (17–21)</a> ·
+<a href="#s22">Özel yolaklar (22–26)</a> ·
+<a href="#s27">ALT/AST (27)</a>
+</div>
+
+<!-- 1 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 1</span><span class="stitle">Başlık</span></div>
+<p><strong>Amino Acid Metabolism</strong> (Amino Asit Metabolizması). Assist. Prof. Tuğçe Demirel-Yalçıner, Faculty of Medicine, Dept. of Medical Biochemistry.</p></div>
+
+<!-- 2 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 2</span><span class="stitle">Öğrenme Hedefleri</span></div>
+<ul>
+<li>Amino asit katabolizmasının ana basamaklarını tanımlamak.</li>
+<li><strong>Transamination</strong> ve <strong>oxidative deamination</strong> reaksiyonlarını açıklamak.</li>
+<li><strong>Urea cycle</strong>'ı ve fizyolojik rolünü özetlemek.</li>
+<li>Amino asit karbon iskeletinin metabolik yolaklara nasıl girdiğini belirlemek.</li>
+<li>Anahtar enzim ve kofaktörlerin rolünü tanımak.</li>
+<li>Amino asit metabolizmasını klinik bozukluklarla ilişkilendirmek (örn. <strong>üre döngüsü defektleri</strong>).</li>
+<li>İlgili temel laboratuvar belirteçlerini yorumlamak (<strong>ALT, AST</strong>).</li>
+</ul></div>
+
+<!-- 3 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 3</span><span class="stitle">Amino Asit Yapısı (Başlık)</span></div>
+<p>Bölüm başlığı: <strong>Amino Acid Structure</strong>.</p></div>
+
+<!-- 4 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 4</span><span class="stitle">Amino Asit Yapısı (Diyagram)</span></div>
+<p class="diag-note">Genel amino asit yapısı: merkezde <strong>α-karbon</strong>; ona bağlı bir <strong>amino grup (—NH₂/—NH₃⁺)</strong>, bir <strong>karboksil grup (—COOH/—COO⁻)</strong>, bir <strong>hidrojen (H)</strong> ve değişken bir <strong>yan zincir (R group)</strong>. R grubu amino asidin kimliğini ve özelliklerini belirler.</p>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Amino asidin α-karbonuna bağlı 4 grup nedir?</summary><div class="ans">Amino grup (—NH₃⁺), karboksil grup (—COO⁻), hidrojen (H) ve yan zincir (R group).</div></details>
+</div></div>
+
+<!-- 5 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 5</span><span class="stitle">Amino Asit Metabolizmasına Genel Bakış (Başlık)</span></div>
+<p>Bölüm başlığı: <strong>Overview of Amino Acid Metabolism</strong>.</p></div>
+
+<!-- 6 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 6</span><span class="stitle">Amino Asit Katabolizmasının Genel Yolağı (Diyagram)</span></div>
+<p class="diag-note">Şema: <strong>Tissular protein</strong> + <strong>Dietary protein</strong> → peptit bağlarının yıkımı → <strong>Amino acids</strong>. Buradan 3 yol:</p>
+<ol>
+<li><strong>Protein synthesis</strong> (protein sentezi).</li>
+<li><strong>+ cofactors</strong> → <strong>Amino acid derivatives</strong> (türevler).</li>
+<li><strong>Transamination / Deamination / Decarboxylation</strong> → ürünler ikiye ayrılır:
+  <ul>
+    <li><strong>NH₄⁺</strong> → <strong>Urea cycle</strong> → <strong>Urea</strong>.</li>
+    <li><strong>Carbon skeletons</strong> → FA synthesis (yağ asidi), Gluconeogenesis (glukoz), Ketogenesis (keton cisimleri), TCA cycle (ATP), Synthesis (kolesterol).</li>
+  </ul>
+</li>
+</ol>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span><strong>Doku proteini yıkımı, açlık/uzamış açlık (fasting/starvation) dönemlerinde artar.</strong> Bu, vücudun enerji ve glukoz kaynağı arayışıdır.</div>
+</div>
+
+<!-- 7 -->
+<div class="slide" id="s7"><div class="slide-head"><span class="snum">SLIDE 7</span><span class="stitle">İki Ana Bileşen</span></div>
+<p>Amino asit metabolizması iki ana bileşenden oluşur:</p>
+<ol>
+<li><strong>Nitrogen metabolism (azot metabolizması):</strong> Transamination, Oxidative deamination.</li>
+<li><strong>Carbon Skeleton metabolism (karbon iskeleti metabolizması).</strong></li>
+</ol>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>Amino asit = <strong>Azot (—NH₂) + Karbon iskeleti</strong>. Katabolizma da bu ikisini ayrı ayrı ele alır: önce azotu çıkar (transaminasyon→deaminasyon→üre), sonra karbon iskeletini yolaklara sok.</div>
+</div>
+
+<!-- 8 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 8</span><span class="stitle">Transaminasyon — Tanım</span></div>
+<p><strong>Transamination:</strong> bir <strong>α-amino grubunun</strong>, bir donör α-amino asitten, bir akseptör <strong>α-keto asidin</strong> keto karbonuna aktarılmasıdır. Sonuçta donörün <strong>α-keto türevi</strong> ve akseptöre karşılık gelen <strong>yeni amino asit</strong> oluşur.</p>
+<p>Kısaca: Amino grubu bir AA'dan bir keto aside aktarılarak <strong>yeni bir AA + yeni bir keto asit (KA)</strong> oluşur.</p>
+</div>
+
+<!-- 9 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 9</span><span class="stitle">Transaminasyon (Diyagram Başlığı)</span></div>
+<p class="diag-note">"Transamination" diyagram slaytı — amino grubunun aktarımını şematik gösterir (detay Slide 11'de).</p></div>
+
+<!-- 10 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 10</span><span class="stitle">Transaminasyon — Özellikleri</span></div>
+<ul>
+<li>Transaminasyon <strong>kolayca geri dönüşümlüdür (readily reversible)</strong>.</li>
+<li><strong>Aminotransferase (transaminase)</strong> enzimleri tarafından katalize edilir.</li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi — Kofaktör</span>Tüm transaminazlar <strong>pyridoxal phosphate (PLP)</strong> — yani <strong>B6 vitamini</strong> türevi — kofaktörünü kullanır. (Sınavda en sık sorulan kofaktör bağlantısıdır.)</div>
+</div>
+
+<!-- 11 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 11</span><span class="stitle">Transaminasyon Reaksiyonu (Diyagram)</span></div>
+<p>Genel reaksiyon:</p>
+<span class="rxn">Amino acid + α-keto acid ⇌ (Transaminase) → New α-keto acid + New amino acid</span>
+<p>Örnek (diyagramdan):</p>
+<span class="rxn">Alanine + α-ketoglutarate ⇌ (Alanine transaminase / ALT) → Pyruvate + Glutamate</span>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Transaminasyonda amino grubunu kabul eden en yaygın α-keto asit hangisidir?</summary><div class="ans">α-ketoglutarate (glutamat oluşturur).</div></details>
+</div></div>
+
+<!-- 12 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 12</span><span class="stitle">Glutamat — Azotun Toplandığı Merkez</span></div>
+<ul>
+<li><strong>Glutamate</strong> ve <strong>α-ketoglutarate</strong>, transaminasyon reaksiyonlarında en yaygın <strong>donör/akseptör çiftidir</strong> ve birçok farklı aminotransferaza katılır.</li>
+<li>Transaminasyona uğrayan amino asitlerin <strong>tüm amino azotu glutamatta yoğunlaşır</strong>; çünkü <mark>L-glutamate, kayda değer hızda <strong>oksidatif deaminasyona</strong> uğrayan tek amino asittir.</mark></li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi (Kritik mantık)</span>Vücut, dağınık amino asitlerin azotunu önce <strong>tek bir molekülde — glutamatta — toplar</strong>, sonra glutamatı deamine ederek serbest amonyağı (NH₄⁺) açığa çıkarır ve üre döngüsüne yollar. "Azotu topla → tek kapıdan çıkar" stratejisi.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Neden tüm amino azot glutamatta toplanır?</summary><div class="ans">Çünkü L-glutamate, kayda değer hızda oksidatif deaminasyona uğrayan tek amino asittir.</div></details>
+</div></div>
+
+<!-- 13 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 13</span><span class="stitle">Transaminaz Örnekleri (Diyagram)</span></div>
+<span class="rxn">Alanine + α-ketoglutarate ⇌ Pyruvate + Glutamate &nbsp;(<strong>alanine transaminase = ALT</strong>)</span>
+<span class="rxn">Aspartate + α-ketoglutarate ⇌ Oxaloacetate + Glutamate &nbsp;(<strong>aspartate transaminase = AST</strong>)</span>
+<span class="rxn">Tyrosine + α-ketoglutarate ⇌ p-hydroxyphenylpyruvate + Glutamate &nbsp;(<strong>tyrosine transaminase</strong>)</span>
+<div class="box mnemo"><span class="bt">🧠 Ezber — ALT vs AST</span><strong>AL</strong>T → <strong>AL</strong>anine → Pyruvate. <strong>AS</strong>T → <strong>AS</strong>partate → Oxaloacetate. (İsmin ilk amino asidi her zaman substrattır; ürün ise onun keto asididir.)</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>AST ve ALT'nin kataliz ettiği reaksiyonlardaki keto asit ürünleri nedir?</summary><div class="ans">AST: aspartate → oxaloacetate; ALT: alanine → pyruvate (ikisi de α-KG'yi glutamata çevirir).</div></details>
+</div></div>
+
+<!-- 14 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 14</span><span class="stitle">Transaminasyon Net Deaminasyon Yapmaz</span></div>
+<p><mark><strong>Transamination => does not result => net deamination.</strong></mark></p>
+<p>Transaminasyonda amino grubu bir molekülden diğerine sadece <strong>aktarılır</strong>; serbest amonyak (NH₃) açığa çıkmaz. Yani azot vücuttan uzaklaştırılmaz, sadece yer değiştirir.</p>
+<div class="box warn"><span class="bt">⚠️ Dikkat</span>Net azot kaybı (serbest NH₄⁺ oluşumu) <strong>yalnızca oksidatif deaminasyonla</strong> olur (Slide 15–16). Transaminasyon tek başına azotu vücuttan atmaz — klasik çeldirici.</div>
+</div>
+
+<!-- 15 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 15</span><span class="stitle">Glutamatın Oksidatif Deaminasyonu (Başlık)</span></div>
+<p>Bölüm başlığı: <strong>Oxidative deamination of Glutamate</strong>.</p></div>
+
+<!-- 16 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 16</span><span class="stitle">Oksidatif Deaminasyon (Diyagram + Reaksiyon)</span></div>
+<p class="diag-note">Diyagram: Karaciğerde çeşitli amino asitler (1–4) transaminasyonla azotunu <strong>Glutamate</strong>'ta toplar → Glutamat <strong>deaminasyonla</strong> <strong>Ammonia (NH₃/NH₄⁺)</strong> verir → amonyak <strong>Urea cycle</strong>'a girer → <strong>Urea</strong> oluşur. Sıra: Transamination → Deamination → Urea cycle.</p>
+<p>Anahtar reaksiyon:</p>
+<span class="rxn">Glutamate + NAD(P)⁺ + H₂O → α-Ketoglutarate + NH₄⁺ + NAD(P)H</span>
+<p>Enzim: <strong>Glutamate dehydrogenase (GDH)</strong>. NH₄⁺'yı serbest bırakır (net deaminasyon) ve α-ketoglutarat'ı yeniden transaminasyon için geri kazandırır.</p>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Oksidatif deaminasyonu hangi enzim yapar, ürünleri nedir?</summary><div class="ans">Glutamate dehydrogenase; ürünler α-ketoglutarate + NH₄⁺ + NAD(P)H.</div></details>
+</div></div>
+
+<!-- 17 -->
+<div class="slide" id="s17"><div class="slide-head"><span class="snum">SLIDE 17</span><span class="stitle">Üre Döngüsü — Genel Bilgiler</span></div>
+<ul>
+<li><strong>Krebs ve Henseleit</strong> tarafından keşfedildi → bu yüzden <strong>Krebs-Henseleit cycle</strong> de denir.</li>
+<li>Üre sentezi <strong>hepatositlerde (karaciğer hücreleri)</strong> gerçekleşir.</li>
+<li><strong>Beş ardışık enzimatik reaksiyondan</strong> oluşur.</li>
+<li><mark>İlk iki reaksiyon <strong>mitokondride</strong>, kalan üç reaksiyon <strong>sitozolde</strong> gerçekleşir.</mark></li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Üre döngüsü <strong>sadece karaciğerde</strong> tamamlanır. Lokalizasyon: <strong>2 mitokondri + 3 sitozol</strong>. Bu "2+3" dağılımı sınav favorisidir.</div>
+</div>
+
+<!-- 18 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 18</span><span class="stitle">Üre Döngüsü — Tam Şema (Diyagram)</span></div>
+<p>Beş reaksiyon (diyagramdan tam okunmuş hali):</p>
+<table>
+<tr><th>#</th><th>Reaksiyon</th><th>Enzim</th><th>Yer</th></tr>
+<tr><td>1</td><td>NH₄⁺ + HCO₃⁻ + 2 ATP → Carbamoyl phosphate</td><td><strong>Carbamoyl phosphate synthase I (CPS-I)</strong></td><td>Mitokondri</td></tr>
+<tr><td>2</td><td>Carbamoyl phosphate + Ornithine → Citrulline</td><td><strong>Ornithine transcarbamoylase (OTC)</strong></td><td>Mitokondri</td></tr>
+<tr><td>3</td><td>Citrulline + Aspartate + ATP → Argininosuccinate</td><td><strong>Argininosuccinate synthase</strong></td><td>Sitozol</td></tr>
+<tr><td>4</td><td>Argininosuccinate → Arginine + Fumarate</td><td><strong>Argininosuccinate lyase</strong></td><td>Sitozol</td></tr>
+<tr><td>5</td><td>Arginine + H₂O → Ornithine + Urea</td><td><strong>Arginase</strong></td><td>Sitozol</td></tr>
+</table>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi — Enerji & Bağlantılar</span>Döngüde <strong>toplam ~4 yüksek enerjili fosfat bağı</strong> harcanır (CPS-I'de 2 ATP, argininosüksinat sentazda ATP→AMP+PPi = 2 bağ). <strong>Fumarate</strong> (4. reaksiyon) üre döngüsünü <strong>TCA döngüsüne</strong> bağlar. Ürenin <strong>iki azotu</strong> farklı kaynaklardan gelir: biri <strong>amonyaktan (NH₄⁺)</strong>, diğeri <strong>aspartattan</strong>.</div>
+<div class="box mnemo"><span class="bt">🧠 Ezber — Ara ürün sırası</span>"<strong>O</strong>rnitin <strong>C</strong>itrullin'i <strong>A</strong>rar, <strong>A</strong>rginin'e <strong>U</strong>laşır" → <strong>O</strong>rnithine → <strong>C</strong>itrulline → <strong>A</strong>rgininosuccinate → <strong>A</strong>rginine → (Ornithine) + <strong>U</strong>rea.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Üre döngüsünün ilk ve hız kısıtlayıcı enzimi nedir, nerede çalışır?</summary><div class="ans">Carbamoyl phosphate synthase I (CPS-I); mitokondride; 2 ATP harcar.</div></details>
+<details class="fc"><summary>Ürenin iki azot atomu hangi kaynaklardan gelir?</summary><div class="ans">Biri serbest amonyaktan (NH₄⁺), diğeri aspartattan.</div></details>
+<details class="fc"><summary>Üre döngüsünü TCA'ya bağlayan ara ürün hangisidir?</summary><div class="ans">Fumarate (argininosuccinate lyase reaksiyonunda oluşur).</div></details>
+</div></div>
+
+<!-- 19 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 19</span><span class="stitle">Üre Döngüsü — Basitleştirilmiş Şema (Diyagram)</span></div>
+<p class="diag-note">Sadeleştirilmiş döngü: Ammonia + CO₂ → Carbamoyl phosphate → Citrulline → Argininosuccinate → Arginine → (+H₂O) → Urea + Ornithine. Üre kana verilir → böbreklerden idrarla atılır.</p></div>
+
+<!-- 20 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 20</span><span class="stitle">Üre Döngüsünün Regülasyonu</span></div>
+<p><strong>Uzun vadeli (long-term) regülasyon:</strong></p>
+<ul>
+<li>Gen ekspresyonu düzeyinde düzenleme.</li>
+<li><strong>Aç hayvanlar</strong> ve <strong>çok yüksek proteinli diyet</strong> → üre döngüsü enzimlerinin sentezinde artış.</li>
+</ul>
+<p><strong>Kısa vadeli (short-term) regülasyon:</strong></p>
+<ul>
+<li>Anahtar bir enzimin <strong>allosterik regülasyonu</strong>.</li>
+<li><strong>Carbamoyl phosphate synthetase I (CPS-I)</strong> → <mark><strong>N-acetylglutamate (NAG)</strong> ile aktive edilir.</mark></li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span><strong>N-acetylglutamate (NAG)</strong>, CPS-I'in zorunlu allosterik aktivatörüdür ve <strong>N-acetylglutamate synthase</strong> ile Acetyl-CoA + Glutamat'tan yapılır; <strong>arginine</strong> bu sentazı uyarır. Bol amino asit/azot varlığı → NAG ↑ → üre döngüsü hızlanır.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>CPS-I'in zorunlu allosterik aktivatörü nedir?</summary><div class="ans">N-acetylglutamate (NAG).</div></details>
+</div></div>
+
+<!-- 21 -->
+<div class="slide" id="s21b"><div class="slide-head"><span class="snum">SLIDE 21</span><span class="stitle">Diyet Proteini ve Karaciğerde İşlenme (Diyagram)</span></div>
+<p class="diag-note"><strong>A)</strong> Dietary protein → sindirim & emilim → amino acids → (i) protein synthesis, (ii) nitrogen compounds, (iii) <em>amino asit fazlası</em> → amino acid oxidation. <strong>B)</strong> Karaciğerde amino asit ikiye ayrılır: <strong>amino group</strong> → urea cycle → <strong>UREA</strong>; <strong>carbon skeleton</strong> → gluconeogenesis ve Krebs cycle → <strong>ATP</strong>.</p>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Amino asitler <strong>depolanamaz</strong>; fazlası ya yakılır (oksidasyon) ya da karbon iskeletinden glukoz/yağ yapılır, azotu ise üreye çevrilip atılır.</div>
+</div>
+
+<!-- 22 -->
+<div class="slide" id="s22"><div class="slide-head"><span class="snum">SLIDE 22</span><span class="stitle">Amino Asitlerin Özel Yolakları</span></div>
+<p>Amino asitler; <strong>nörotransmitterler, hormonlar ve heme</strong> gibi biyolojik olarak aktif moleküllerin öncülleridir (precursors).</p>
+<ul>
+<li><strong>Phenylalanine → Tyrosine</strong></li>
+<li><strong>Tyrosine → Catecholamines</strong></li>
+<li><strong>Tryptophan → Serotonin / Melatonin</strong></li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber — 4 özel yolak</span>"<strong>F</strong>enilalanin <strong>T</strong>irozin'e, Tirozin <strong>K</strong>ateşolamine, <strong>T</strong>riptofan <strong>S</strong>erotonine, <strong>G</strong>lisin <strong>H</strong>em'e." (Phe→Tyr→Catecholamine; Trp→Serotonin; Gly→Heme)</div>
+</div>
+
+<!-- 23 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 23</span><span class="stitle"><span class="rxn-num">1</span> Phenylalanine → Tyrosine Yolağı</span></div>
+<span class="rxn">Phenylalanine → (Phenylalanine hydroxylase, BH₄) → Tyrosine</span>
+<ul>
+<li><strong>Phenylalanine</strong> esansiyel bir amino asittir.</li>
+<li><strong>Phenylalanine hydroxylase</strong> ile tirozine dönüşür.</li>
+<li>Kofaktör: <strong>tetrahydrobiopterin (BH₄)</strong>.</li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi — Phenylketonuria (PKU)</span>Enzim eksikliği → <strong>fenilalanin ↑</strong>. Sonuçlar: <strong>zekâ geriliği (intellectual disability)</strong>, <strong>küflü/fare idrarı kokusu (musty odor)</strong>, <strong>hipopigmentasyon</strong> (tirozin→melanin yapılamadığı için açık ten/saç). Yenidoğan taramasıyla yakalanır; tedavi fenilalaninsiz diyettir.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>PKU'da eksik olan enzim ve kofaktör nedir?</summary><div class="ans">Phenylalanine hydroxylase; kofaktör tetrahydrobiopterin (BH₄).</div></details>
+<details class="fc"><summary>PKU'nun üç klasik bulgusu nedir?</summary><div class="ans">Zekâ geriliği, küflü idrar kokusu, hipopigmentasyon.</div></details>
+</div></div>
+
+<!-- 24 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 24</span><span class="stitle"><span class="rxn-num">2</span> Tyrosine → Catecholamines Yolağı</span></div>
+<ul>
+<li><strong>Dopamine</strong> → CNS (santral sinir sistemi) nörotransmitteri.</li>
+<li><strong>Norepinephrine</strong> → sempatik sinir sistemi.</li>
+<li><strong>Epinephrine</strong> → adrenal medulla hormonu.</li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span>Dopamin bozuklukları → <strong>Parkinson hastalığı</strong> (substantia nigra'da dopaminerjik nöron kaybı).</div>
+<div class="box mnemo"><span class="bt">🧠 Ezber — Katekolamin sırası</span>Tyrosine → DOPA → <strong>D</strong>opamine → <strong>N</strong>orepinephrine → <strong>E</strong>pinephrine. "Tirozin DOPA'dan geçer, sonra DNE."</div>
+</div>
+
+<!-- 25 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 25</span><span class="stitle"><span class="rxn-num">3</span> Tryptophan → Serotonin & Melatonin Yolağı</span></div>
+<ul>
+<li><strong>Serotonin:</strong> ruh hali (mood) düzenlemesi, uyku, iştah.</li>
+<li><strong>Melatonin:</strong> sirkadiyen ritim, uyku-uyanıklık döngüsü.</li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span>Düşük serotonin → <strong>depresyon</strong>. (SSRI antidepresanlar serotonin düzeyini artırarak etki eder.)</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Triptofandan hangi iki aktif molekül üretilir ve işlevleri nedir?</summary><div class="ans">Serotonin (mood/uyku/iştah) ve melatonin (sirkadiyen ritim/uyku-uyanıklık).</div></details>
+</div></div>
+
+<!-- 26 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 26</span><span class="stitle"><span class="rxn-num">4</span> Glycine → Heme Sentezi Yolağı</span></div>
+<span class="rxn">Glycine + Succinyl-CoA → ALA → ... → Heme</span>
+<ul>
+<li>Anahtar enzim: <strong>ALA synthase (δ-aminolevulinate synthase)</strong> — <strong>Vitamin B6 (PLP)</strong> gerektirir.</li>
+<li><strong>Heme</strong> şunlar için gereklidir: <strong>hemoglobin, myoglobin, cytochromes</strong>.</li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi — Porfiriler (Porphyrias)</span>Heme sentez yolağındaki defektler <strong>porfiri</strong>lere yol açar. Belirtiler: <strong>nörovisseral ataklar</strong> (karın ağrısı, nöropati) ve <strong>fotosensitivite</strong> (ışığa duyarlılık). Bazı porfiri tiplerinde diş ve diş etlerinde <em>kırmızımsı renklenme (erythrodontia)</em> görülebilir.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Heme sentezinin ilk/anahtar enzimi ve kofaktörü nedir?</summary><div class="ans">ALA synthase; kofaktör Vitamin B6 (PLP). Başlangıç maddeleri glisin + süksinil-CoA.</div></details>
+</div></div>
+
+<!-- 27 -->
+<div class="slide" id="s27"><div class="slide-head"><span class="snum">SLIDE 27</span><span class="stitle">Laboratuvar Belirteçleri: ALT ve AST</span></div>
+<p>Bu enzimler normalde <strong>hücre içindedir</strong>; hücreler hasar görünce kana sızar (leak).</p>
+<table>
+<tr><th></th><th>ALT</th><th>AST</th></tr>
+<tr><td>Bulunduğu yer</td><td>Esas olarak <strong>karaciğer</strong></td><td>Karaciğer, <strong>kalp</strong>, iskelet kası</td></tr>
+<tr><td>Özgüllük</td><td>Hepatosellüler hasara <strong>daha özgül</strong></td><td>Daha az özgül</td></tr>
+</table>
+<p>Yorumlama:</p>
+<ul>
+<li><strong>Her ikisi de yüksek</strong> → hepatosellüler hasarı düşündürür.</li>
+<li><strong>ALT &gt; AST</strong> → viral hepatit, non-alkolik yağlı karaciğer hastalığı (NAFLD).</li>
+<li><strong>AST &gt; ALT (sıklıkla &gt;2:1)</strong> → <strong>alkolik karaciğer hastalığı</strong>.</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber — AST/ALT oranı</span>"<strong>A</strong>ST &gt; ALT, oran &gt;2 → <strong>A</strong>lkol." ALT karaciğere özgü ("<strong>L</strong> = <strong>L</strong>iver"); AST her yerde (kalp, kas) olduğundan daha az özgüldür.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Hangi enzim karaciğere daha özgüldür ve neden?</summary><div class="ans">ALT; çünkü esas olarak karaciğerde bulunur (AST kalp ve kasta da var).</div></details>
+<details class="fc"><summary>AST:ALT oranının &gt;2:1 olması neyi düşündürür?</summary><div class="ans">Alkolik karaciğer hastalığını.</div></details>
+</div></div>
+
+<!-- 28 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 28</span><span class="stitle">Kapanış</span></div>
+<p>"THANK YOU…" — dersin sonu.</p></div>
+
+<!-- MASTER -->
+<div class="slide" style="border:2px solid var(--brand);">
+<div class="slide-head"><span class="snum" style="background:var(--purple);">ÖZET</span><span class="stitle">🧠 Tek Bakışta Azot Akışı + Üre Döngüsü</span></div>
+<p><strong>Azotun yolculuğu:</strong></p>
+<span class="rxn">Amino asitler → (Transaminasyon, PLP/B6) → Glutamate → (Oksidatif deaminasyon, GDH) → NH₄⁺ → (Üre döngüsü, karaciğer) → Urea → böbrek → idrar</span>
+<table>
+<tr><th>#</th><th>Reaksiyon</th><th>Enzim</th><th>Yer</th></tr>
+<tr><td>1</td><td>NH₄⁺ + HCO₃⁻ + 2ATP → Carbamoyl-P</td><td>CPS-I <em>(NAG ile aktive)</em></td><td>Mito</td></tr>
+<tr><td>2</td><td>+ Ornithine → Citrulline</td><td>Ornithine transcarbamoylase</td><td>Mito</td></tr>
+<tr><td>3</td><td>+ Aspartate + ATP → Argininosuccinate</td><td>Argininosuccinate synthase</td><td>Sitozol</td></tr>
+<tr><td>4</td><td>→ Arginine + Fumarate</td><td>Argininosuccinate lyase</td><td>Sitozol</td></tr>
+<tr><td>5</td><td>+ H₂O → Ornithine + Urea</td><td>Arginase</td><td>Sitozol</td></tr>
+</table>
+<div class="box mnemo"><span class="bt">🧠 Lokalizasyon</span>"İlk <strong>2</strong> Mitokondri, son <strong>3</strong> Sitozol." Enzimler: CPS-I, OTC, ASS, ASL, Arginase.</div>
+</div>
+
+<footer>
+  Amino Asit Metabolizması & Üre Döngüsü — 28 slayttan slayt slayt derlenmiştir.<br>
+  Flashcard kutularına tıklayarak cevapları açabilirsin. Başarılar! 🧬
+</footer>
+
+</div>
+</body>
+</html>

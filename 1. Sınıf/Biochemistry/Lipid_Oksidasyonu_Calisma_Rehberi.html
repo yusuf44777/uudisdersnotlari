@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lipid / Yağ Asidi Oksidasyonu (β-Oxidation) — Slayt Slayt Final Rehberi</title>
+<style>
+  :root{
+    --bg:#eef3f0;--paper:#fff;--ink:#1c2421;--muted:#4f5b55;
+    --brand:#15803d;--brand-dark:#14532d;--brand-soft:#e7f5ec;
+    --teal:#0c7d8c;--teal-soft:#e6f5f7;
+    --amber:#b9770e;--amber-soft:#fdf4e3;
+    --red:#b3261e;--red-soft:#fcebe9;
+    --green:#1e7a46;--green-soft:#e8f6ee;
+    --purple:#5b3a91;--purple-soft:#f0eafa;
+    --line:#dde6e1;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Segoe UI",Calibri,system-ui,sans-serif;line-height:1.6;font-size:17px;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 18px 80px;}
+  header.hero{background:linear-gradient(135deg,var(--brand-dark),var(--brand));
+    color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:24px;box-shadow:0 8px 24px rgba(20,83,45,.25);}
+  header.hero .tag{font-size:14px;letter-spacing:2px;text-transform:uppercase;opacity:.85;}
+  header.hero h1{margin:.2em 0 .15em;font-size:1.95rem;font-family:Georgia,serif;}
+  header.hero p{margin:.2em 0;opacity:.92;font-size:.95rem;}
+  .slide{background:var(--paper);border:1px solid var(--line);border-radius:14px;
+    padding:18px 22px;margin:18px 0;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .slide-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
+  .snum{background:var(--brand);color:#fff;font-weight:800;font-size:.8rem;padding:5px 12px;border-radius:20px;white-space:nowrap;letter-spacing:.5px;}
+  .stitle{font-family:Georgia,serif;color:var(--brand-dark);font-size:1.2rem;font-weight:700;}
+  .rxn-num{background:var(--teal);color:#fff;border-radius:50%;width:26px;height:26px;display:inline-block;text-align:center;line-height:26px;font-weight:800;font-size:.85rem;}
+  strong{color:var(--brand-dark);}
+  em{color:var(--muted);} mark{background:#ffe9a8;padding:0 3px;border-radius:3px;}
+  ul,ol{margin:.4em 0 .7em;padding-left:1.35em;} li{margin:.3em 0;} p{margin:.55em 0;}
+  .box{border-radius:12px;padding:13px 17px;margin:14px 0;border-left:6px solid;}
+  .box .bt{font-weight:800;display:block;margin-bottom:4px;}
+  .clinic{background:var(--teal-soft);border-color:var(--teal);} .clinic .bt{color:var(--teal);}
+  .spot{background:var(--green-soft);border-color:var(--green);} .spot .bt{color:var(--green);}
+  .warn{background:var(--red-soft);border-color:var(--red);} .warn .bt{color:var(--red);}
+  .mnemo{background:var(--purple-soft);border-color:var(--purple);} .mnemo .bt{color:var(--purple);}
+  .rxn{font-family:Consolas,"Courier New",monospace;background:#eef4f0;border-radius:8px;padding:8px 12px;margin:8px 0;font-size:.88rem;display:block;}
+  .fc-wrap{margin:16px 0 4px;border:2px dashed var(--amber);background:var(--amber-soft);border-radius:14px;padding:12px 16px;}
+  .fc-wrap .fc-title{font-weight:800;color:var(--amber);letter-spacing:.5px;text-transform:uppercase;font-size:.78rem;margin-bottom:6px;}
+  details.fc{background:#fff;border:1px solid #eedcb6;border-radius:10px;margin:7px 0;padding:3px 13px;}
+  details.fc summary{cursor:pointer;font-weight:700;padding:7px 0;list-style:none;}
+  details.fc summary::-webkit-details-marker{display:none;}
+  details.fc summary::before{content:"❓ ";} details.fc[open] summary::before{content:"✅ ";}
+  details.fc .ans{padding:4px 0 11px;color:var(--brand-dark);border-top:1px solid #f0e6cf;margin-top:3px;}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:.9rem;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+  th{background:var(--brand-dark);color:#fff;text-align:left;padding:9px 11px;font-size:.84rem;}
+  td{padding:9px 11px;border-top:1px solid var(--line);vertical-align:top;}
+  tr:nth-child(even) td{background:#f7faf8;}
+  .toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 20px;font-size:.92rem;}
+  .toc a{color:var(--brand-dark);text-decoration:none;} .toc a:hover{text-decoration:underline;}
+  .diag-note{font-style:italic;color:var(--muted);font-size:.92rem;}
+  footer{margin-top:50px;text-align:center;color:var(--muted);font-size:.85rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="tag">Medical Biochemistry · 1. Sınıf Final</div>
+  <h1>Lipid / Yağ Asidi Oksidasyonu (β-Oxidation)</h1>
+  <p>Oxidation of Lipids — Slayt Slayt Çalışma Rehberi (38 slayt)</p>
+  <p style="opacity:.8;font-size:.85rem;">Kaynak: Assist. Prof. Tuğçe Demirel-Yalçıner — Faculty of Medicine, Dept. of Medical Biochemistry</p>
+</header>
+
+<div class="toc">
+<strong style="color:var(--brand-dark);">📋 Bu rehber kaynaktaki 38 slaytı sırayla işler.</strong> Hızlı geçiş:
+<a href="#s12">FA tipleri & Carnitine (12–16)</a> ·
+<a href="#s16">β-Oksidasyon basamakları (16–23)</a> ·
+<a href="#s24">Ürünlerin akıbeti & Enerji (24–26)</a> ·
+<a href="#s28">Özel oksidasyonlar (28–30)</a> ·
+<a href="#s31">Keton cisimleri & Regülasyon (31–36)</a> ·
+<a href="#s37">Hastalıklar (37)</a>
+</div>
+
+<!-- 1 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 1</span><span class="stitle">Başlık</span></div>
+<p><strong>Oxidation of Lipids</strong> (Lipidlerin Oksidasyonu). Assist. Prof. Tuğçe Demirel-Yalçıner, Faculty of Medicine, Dept. of Medical Biochemistry.</p></div>
+
+<!-- 2 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 2</span><span class="stitle">Öğrenme Hedefleri</span></div>
+<ul>
+<li>Yağ asidi oksidasyonu (fatty acid oxidation) sürecini tanımlamak.</li>
+<li>Yağ asitlerinin mitokondriye taşınmasını açıklamak (<strong>carnitine shuttle</strong>).</li>
+<li><strong>β-oxidation</strong> basamaklarını sıralamak.</li>
+<li>Lipid oksidasyonunun ürünlerini ve enerji verimini belirlemek.</li>
+<li>Lipid oksidasyonu ile <strong>keton cismi (ketone body)</strong> oluşumu arasındaki ilişkiyi açıklamak.</li>
+<li>Diş hekimliğinde lipid metabolizmasının klinik önemini tartışmak.</li>
+</ul></div>
+
+<!-- 3 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 3</span><span class="stitle">Lipidler Nedir?</span></div>
+<ul>
+<li>Lipidler <strong>hidrofobik (hydrophobic / suda çözünmeyen)</strong> biyomoleküllerdir; başlıca <strong>C, H, O</strong>'dan oluşur.</li>
+<li>Suda çözünmez, organik çözücülerde çözünür; <strong>yüksek enerji içeriklidirler</strong>.</li>
+<li>Gerçek polimer değildirler (protein/nükleik asitlerin aksine).</li>
+</ul>
+<p>Lipid sınıfları ve işlevleri:</p>
+<ul>
+<li><strong>Fatty acids (yağ asitleri)</strong> → yapı taşları (building blocks)</li>
+<li><strong>Triglycerides (trigliseritler)</strong> → enerji deposu</li>
+<li><strong>Phospholipids (fosfolipidler)</strong> → hücre membranları</li>
+<li><strong>Steroids (steroidler)</strong> → sinyal & yapı</li>
+</ul>
+<p>Yağ asitleri enerji üretmek için okside edilir → <strong>lipid oksidasyonu = majör metabolik yolak</strong>.</p>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Dört lipid sınıfını işlevleriyle eşleştir.</summary><div class="ans">Fatty acids = yapı taşı; triglycerides = enerji deposu; phospholipids = membran; steroids = sinyal/yapı.</div></details>
+</div></div>
+
+<!-- 4 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 4</span><span class="stitle">Diyet Yağları İnce Bağırsakta Emilir</span></div>
+<p class="diag-note">Diyet yağlarının (dietary fats) ince bağırsakta (small intestine) emilimini gösteren diyagram. Safra tuzlarıyla emülsifikasyon, lipaz ile sindirim, misel oluşumu ve enterosite alım.</p></div>
+
+<!-- 5 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 5</span><span class="stitle">Lipid Oksidasyonuna Genel Bakış</span></div>
+<ul>
+<li>Başlıca <strong>mitokondride</strong> gerçekleşir.</li>
+<li>Ana süreç: <strong>β-oxidation</strong>.</li>
+<li>Yağ asitleri → <strong>Acetyl-CoA</strong>.</li>
+<li>Üretilenler: <strong>NADH</strong> ve <strong>FADH₂</strong> → ATP üretimine yol açar.</li>
+</ul></div>
+
+<!-- 6 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 6</span><span class="stitle">Beta-Oksidasyon</span></div>
+<ul>
+<li><strong>Katabolik</strong> bir süreçtir.</li>
+<li>Yağ asidi molekülleri parçalanır ve <strong>Acetyl-CoA</strong> üretir.</li>
+<li>Reaksiyon yeri: <strong>mitochondria / peroxisome</strong>.</li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>"β-oksidasyon" adı, oksidasyonun yağ asidinin <strong>β-karbonunda</strong> gerçekleşmesinden gelir (Slide 9). Her turda zincirden <strong>2 karbon (asetil grubu)</strong> kopar.</div>
+</div>
+
+<!-- 7 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 7</span><span class="stitle">Soru: Vücut Lipidleri Ne Zaman Enerji İçin Kullanır?</span></div>
+<p>Geçiş slaytı — vücudun lipidleri yakıt olarak kullandığı fizyolojik durumlara giriş.</p></div>
+
+<!-- 8 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 8</span><span class="stitle">Açlık Durumu (Fasting State)</span></div>
+<p><strong>Açlık (fasting) durumunda</strong> yağ asitleri okside edilir ve enerji üretilir. Glukoz tükendiğinde vücut depo yağ dokusuna yönelir.</p>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span>Uzun süre aç kalan, oruç tutan veya kontrolsüz diyabetik hastalarda lipid oksidasyonu artar → keton cisimleri yükselir. Bu hastalarda ağız kokusunda <strong>aseton/"fruity breath"</strong> fark edilebilir (Slide 32).</div>
+</div>
+
+<!-- 9 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 9</span><span class="stitle">β-Karbon ve Karbon Numaralandırması</span></div>
+<p>Oksidasyon ve 2 karbonlu birimlerin kopması <strong>beta-carbon atom (β-karbon)</strong> üzerinde olur.</p>
+<span class="rxn">CH₃-CH₂-CH₂-CH₂-CH₂-CH₂-COOH<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;β&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;α&nbsp;&nbsp;&nbsp;(COOH = C1)</span>
+<p>Karboksil grubuna komşu karbon <strong>α</strong>, ondan sonraki <strong>β</strong>'dir. Yağ asidi katabolizmasının ana yoludur.</p>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"<strong>α yanında, β bir sonraki</strong>." Oksidasyon hep β-karbonda → "<strong>β</strong>eta = <strong>B</strong>ölünme noktası."</div>
+</div>
+
+<!-- 10 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 10</span><span class="stitle">Lipolizden Enerjiye (Diyagram)</span></div>
+<p class="diag-note">Akış: <strong>Lipolysis</strong> ile TAG (triaçilgliserol) → <strong>Glycerol</strong> + <strong>Fatty acids</strong>. Yağ asitleri mitokondride <strong>β-oxidation</strong> ile <strong>Acetyl-CoA</strong>'ya, ardından <strong>TCA</strong>'ya girer; <strong>NADH + FADH₂</strong> üretilir. Tetikleyiciler: <strong>Fasting & Starvation</strong> (açlık ve uzamış açlık).</p></div>
+
+<!-- 11 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 11</span><span class="stitle">β-Oksidasyonun 3 Aşaması</span></div>
+<ol>
+<li><strong>Activation</strong> — yağ asidinin <strong>sitozolde</strong> aktivasyonu.</li>
+<li><strong>Transport</strong> — yağ asidinin sitozolden mitokondriye <strong>Carnitine Transport System</strong> ile taşınması.</li>
+<li><strong>β-Oxidation</strong> — yağ asidinin <strong>mitokondride</strong> oksidasyonu.</li>
+</ol>
+<div class="box mnemo"><span class="bt">🧠 Ezber — "AktTaB"</span><strong>Akt</strong>ivasyon (sitozol) → <strong>Ta</strong>şıma (carnitine) → <strong>B</strong>eta-oksidasyon (mitokondri).</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>β-oksidasyonun üç aşaması ve gerçekleştiği yerler nedir?</summary><div class="ans">1) Aktivasyon (sitozol), 2) Carnitine ile taşıma, 3) β-oksidasyon (mitokondri matriksi).</div></details>
+</div></div>
+
+<!-- 12 -->
+<div class="slide" id="s12"><div class="slide-head"><span class="snum">SLIDE 12</span><span class="stitle">Serbest Yağ Asidi (FFA) Tipleri</span></div>
+<p>Yağ asitleri zincir uzunluğuna göre sınıflandırılır:</p>
+<table>
+<tr><th>Tip</th><th>Karbon sayısı</th><th>Örnek</th></tr>
+<tr><td><strong>SCFA</strong> (short-chain)</td><td>≤ 5 karbon</td><td>butyric acid</td></tr>
+<tr><td><strong>MCFA</strong> (medium-chain)</td><td>6–12 karbon</td><td>medium-chain triglycerides oluşturabilir</td></tr>
+<tr><td><strong>LCFA</strong> (long-chain)</td><td>13–21 karbon</td><td>—</td></tr>
+<tr><td><strong>VLCFA</strong> (very long-chain)</td><td>≥ 22 karbon</td><td>peroksizomda okside olur</td></tr>
+</table>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span><strong>12 karbon sınırı</strong> kritiktir: ≤12C (kısa/orta zincir) carnitine olmadan girer; &gt;12C (uzun zincir) <mark>carnitine shuttle</mark> gerektirir (Slide 13).</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>VLCFA kaç karbonludur ve nerede okside olur?</summary><div class="ans">≥22 karbon; peroksizomda (peroxisome) β-oksidasyona girer.</div></details>
+</div></div>
+
+<!-- 13 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 13</span><span class="stitle">Yağ Asidi Mitokondriye Nasıl Girer?</span></div>
+<ul>
+<li><strong>Kısa ve orta zincirli</strong> yağ asitleri mitokondri membranından <strong>pasif difüzyonla</strong> geçer.</li>
+<li><strong>12 karbondan uzun</strong> yağ asitlerinin taşınması için <strong>carnitine</strong> adlı özel bir taşıyıcı sistem gerekir.</li>
+<li><strong>Carnitine</strong>, karaciğer ve böbrekte <strong>lizin (lysine)</strong> ve <strong>metiyonin (methionine)</strong> amino asitlerinden sentezlenir.</li>
+</ul>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Carnitine hangi organlarda, hangi amino asitlerden sentezlenir?</summary><div class="ans">Karaciğer ve böbrekte; lizin ve metiyoninden.</div></details>
+<details class="fc"><summary>Hangi yağ asitleri carnitine gerektirmez?</summary><div class="ans">Kısa ve orta zincirliler (≤12C) — pasif difüzyonla geçerler.</div></details>
+</div></div>
+
+<!-- 14 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 14</span><span class="stitle">Carnitine'in Kimyasal Yapısı</span></div>
+<p>Carnitine kimyasal olarak: <strong>β-Hydroxy-γ-Trimethyl Ammonium Butyrate</strong> &nbsp;(=&nbsp; <strong>3-Hydroxy-4-Trimethyl Ammonium Butyrate</strong>).</p></div>
+
+<!-- 15 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 15</span><span class="stitle">Aşama 1 — Sitozolde Aktivasyon</span></div>
+<span class="rxn">Fatty acid + CoA-SH + ATP → Acyl-CoA + AMP + PPi &nbsp;|&nbsp; Mg²⁺</span>
+<p>Enzim: <strong>Acyl-CoA synthetase</strong> (= <strong>Thiokinase</strong>). Yağ asidini aktif "<strong>Acyl-CoA</strong>" (aktif yağ asidi) formuna çevirir.</p>
+<div class="box warn"><span class="bt">⚠️ Dikkat</span>Bu, yağ asidi oksidasyonunda <strong>ATP gerektiren TEK basamaktır</strong>. ATP → AMP + PPi olur; yani <mark>iki yüksek enerjili fosfat bağı (two high-energy bonds)</mark> harcanır. Enerji hesabında bu, "−2 ATP eşdeğeri" olarak düşülür.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Aktivasyon basamağında hangi enzim çalışır ve kaç yüksek enerjili bağ harcanır?</summary><div class="ans">Acyl-CoA synthetase (thiokinase); ATP→AMP+PPi olduğu için 2 yüksek enerjili bağ harcanır.</div></details>
+</div></div>
+
+<!-- 16 -->
+<div class="slide" id="s16"><div class="slide-head"><span class="snum">SLIDE 16</span><span class="stitle">Carnitine Shuttle + β-Oksidasyonun 4 Reaksiyonu</span></div>
+<p><strong>Carnitine taşıma sistemi (diyagram):</strong> Sitozolde Acyl-CoA, <strong>Carnitine acyltransferase 1 (CPT I)</strong> ile açil-karnitine çevrilir → <strong>translocase/transporter (CACT)</strong> ile iç membrandan geçer → matrikste <strong>Carnitine acyltransferase 2 (CPT II)</strong> ile tekrar Acyl-CoA'ya döner, carnitine geri salınır.</p>
+<p><strong>Step 3 — β-Oksidasyon, tekrarlayan 4 reaksiyon dizisidir:</strong></p>
+<ol>
+<li><strong>Dehydrogenation (FAD)</strong> → FADH₂</li>
+<li><strong>Hydration</strong> (su eklenir)</li>
+<li><strong>Dehydrogenation (NAD)</strong> → NADH</li>
+<li><strong>Cleavage</strong> (thiolysis) → Acetyl-CoA kopar</li>
+</ol>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi — En önemli klinik nokta</span><strong>CPT I (Carnitine Palmitoyl Transferase I)</strong> hız kısıtlayıcı basamaktır ve <mark>malonyl-CoA tarafından inhibe edilir</mark> (Slide 33). Bu, lipid oksidasyonu ile lipid sentezini birbirine kenetler.</div>
+<div class="box mnemo"><span class="bt">🧠 Ezber — 4 basamak "DHDC"</span><strong>D</strong>ehidrogenasyon (FAD) → <strong>H</strong>idrasyon → <strong>D</strong>ehidrogenasyon (NAD) → <strong>C</strong>leavage. Not: Bu sıra, TCA'nın <em>süksinat→fumarat→malat→OAA</em> bölümüyle <strong>birebir aynı kimyadır</strong> (FAD-oksidasyon, su ekleme, NAD-oksidasyon).</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Carnitine shuttle'ın üç bileşeni nedir?</summary><div class="ans">CPT I (dış membran), translocase/CACT (iç membran), CPT II (matriks).</div></details>
+<details class="fc"><summary>β-oksidasyonun 4 reaksiyonu sırasıyla nedir?</summary><div class="ans">Dehidrogenasyon (FAD→FADH₂), hidrasyon, dehidrogenasyon (NAD→NADH), cleavage (thiolysis → acetyl-CoA).</div></details>
+</div></div>
+
+<!-- 17 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 17</span><span class="stitle"><span class="rxn-num">1</span> Dehydrogenation (Dehidrogenasyon)</span></div>
+<span class="rxn">Acyl-CoA → trans-Δ²-Enoyl-CoA &nbsp;(+ FADH₂)</span>
+<p>Enzim: <strong>Acyl-CoA dehydrogenase</strong>. α ve β karbonları arasında bir <strong>çift bağ (trans double bond)</strong> oluşur; <strong>FAD → FADH₂</strong>'ye indirgenir.</p></div>
+
+<!-- 18 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 18</span><span class="stitle"><span class="rxn-num">2</span> Hydration (Hidrasyon)</span></div>
+<span class="rxn">trans-Δ²-Enoyl-CoA + H₂O → L-β-Hydroxyacyl-CoA</span>
+<p>Enzim: <strong>Enoyl-CoA hydratase</strong>. Çift bağa su eklenir; β-karbona bir <strong>hidroksil (-OH)</strong> grubu girer.</p></div>
+
+<!-- 19 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 19</span><span class="stitle"><span class="rxn-num">3</span> Dehydrogenation (Dehidrogenasyon)</span></div>
+<span class="rxn">L-β-Hydroxyacyl-CoA → β-Ketoacyl-CoA &nbsp;(+ NADH)</span>
+<p>Enzim: <strong>β-Hydroxyacyl-CoA dehydrogenase</strong>. β-karbondaki hidroksil grubu <strong>keto (karbonil)</strong> grubuna okside olur; <strong>NAD⁺ → NADH</strong>'ye indirgenir.</p></div>
+
+<!-- 20 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 20</span><span class="stitle"><span class="rxn-num">4</span> Cleavage / Thiolysis</span></div>
+<span class="rxn">β-Ketoacyl-CoA + CoA-SH → Acyl-CoA (n−2) + Acetyl-CoA</span>
+<p>Enzim: <strong>β-Ketothiolase (thiolase / acyl-CoA acetyltransferase)</strong>. β-keto grubunda kesim olur; <strong>2 karbon</strong> <strong>Acetyl-CoA</strong> olarak ayrılır, geriye 2 karbon kısalmış <strong>Acyl-CoA</strong> kalır ve tekrar 1. basamağa döner.</p>
+<div class="box mnemo"><span class="bt">🧠 Ezber — Slide 17–20 enzimleri</span>"Her turda <strong>Dehidrogenaz–Hidrataz–Dehidrogenaz–Tiyolaz</strong> aynı sırayla çalışır." Sonuç her döngüde: <strong>1 FADH₂ + 1 NADH + 1 Acetyl-CoA</strong>.</div>
+</div>
+
+<!-- 21 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 21</span><span class="stitle">Doymuş Yağ Asidi Oksidasyonu: 4 Temel Basamak</span></div>
+<p>Özet: <strong>The Oxidation of Saturated Fatty Acids Has Four Basic Steps</strong> — Dehydrogenation, Hydration, Dehydrogenation, Cleavage (yukarıdaki 4 reaksiyon).</p></div>
+
+<!-- 22 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 22</span><span class="stitle">Cleavage Detayı + Palmitat Örneği (Diyagram)</span></div>
+<p class="diag-note">β-Ketoacyl-CoA, <strong>acyl-CoA acetyltransferase (thiolase)</strong> ve CoA-SH ile parçalanır → C₁₄ <strong>Acyl-CoA (myristoyl-CoA)</strong> + <strong>Acetyl-CoA</strong>. Şema (b): C₁₆ palmitat ardışık turlarla C₁₄→C₁₂→C₁₀→C₈→C₆→C₄ olarak kısalır; her turda bir Acetyl-CoA çıkar, sonunda toplam <strong>8 Acetyl-CoA</strong> oluşur.</p></div>
+
+<!-- 23 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 23</span><span class="stitle">β-Oksidasyonun Genel Süreci (Palmitoyl-CoA)</span></div>
+<p><strong>Palmitoyl-CoA (C16)</strong> için: <mark>7 cycle (7 döngü)</mark> ile ardışık 2 karbonlu birim çıkarımı sonucu:</p>
+<span class="rxn">Palmitoyl-CoA → 8 Acetyl-CoA + 7 NADH + 7 FADH₂</span>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi — Döngü sayısı kuralı</span>n karbonlu doymuş yağ asidi için: <strong>Döngü sayısı = (n/2) − 1</strong> ve <strong>Acetyl-CoA sayısı = n/2</strong>. Palmitat (C16): 7 döngü, 8 acetyl-CoA. <mark>Son turda 2 acetyl-CoA çıkar, o yüzden döngü "bir eksik"tir.</mark></div>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi — Palmitat ATP bilançosu (klasik 3/2 hesabı)</span>
+8 Acetyl-CoA × 12 = 96 · 7 NADH × 3 = 21 · 7 FADH₂ × 2 = 14 → toplam <strong>131</strong>; aktivasyonda harcanan <strong>−2</strong> → <strong>net ≈ 129 ATP</strong>. (Modern P/O değerleriyle ≈ 106 ATP; bu kaynak TCA'da klasik 3/2 kullandığı için <strong>129</strong> tutarlıdır.)</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>C16 palmitat kaç döngüde, hangi ürünleri verir?</summary><div class="ans">7 döngü → 8 Acetyl-CoA + 7 NADH + 7 FADH₂.</div></details>
+<details class="fc"><summary>n karbonlu doymuş yağ asidi için döngü ve acetyl-CoA sayısı formülü nedir?</summary><div class="ans">Döngü = (n/2)−1; Acetyl-CoA = n/2.</div></details>
+</div></div>
+
+<!-- 24 -->
+<div class="slide" id="s24"><div class="slide-head"><span class="snum">SLIDE 24</span><span class="stitle">β-Oksidasyon Ürünlerinin Akıbeti</span></div>
+<p>Bölüm başlığı: <strong>Fates of the products of β-oxidation of fatty acid</strong>.</p></div>
+
+<!-- 25 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 25</span><span class="stitle">Ürünlerin Akıbeti — Detay</span></div>
+<ul>
+<li><strong>NADH+H⁺ ve FADH₂</strong> → <strong>ETC</strong>'de yeniden okside olarak ATP üretir.</li>
+<li><strong>Acetyl-CoA</strong> → tam oksidasyon için <strong>TCA cycle</strong>'a girer.</li>
+<li><strong>Acyl-CoA</strong> (kısalmış) → β-oksidasyonun <strong>bir sonraki turuna</strong> girer.</li>
+</ul>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>β-oksidasyonda üretilen Acetyl-CoA nereye gider?</summary><div class="ans">TCA döngüsüne girer ve tam okside edilir.</div></details>
+</div></div>
+
+<!-- 26 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 26</span><span class="stitle">Yağ Asidi Oksidasyon Tipleri (Tablo)</span></div>
+<table>
+<tr><th>Oksidasyon</th><th>Organel</th><th>Yağ asidi</th></tr>
+<tr><td><strong>Beta oxidation</strong></td><td>Mitochondria</td><td>Long, medium, short chain FA</td></tr>
+<tr><td><strong>Beta oxidation</strong></td><td>Peroxisomes</td><td>Very long chain FA (VLCFA)</td></tr>
+<tr><td><strong>Omega (ω) oxidation</strong></td><td>Endoplasmic reticulum</td><td>Mitokondri orta zinciri okside edemediğinde devreye girer</td></tr>
+<tr><td><strong>Alpha (α) oxidation</strong></td><td>Peroxisomes</td><td>Branched chain (dallı zincirli) FA</td></tr>
+</table>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span><strong>Alpha oksidasyon</strong> dallı zincirli <em>phytanic acid</em> için gereklidir; bozukluğunda <strong>Refsum hastalığı</strong> oluşur. <strong>Peroksizomal β-oksidasyon</strong> defekti → <strong>Zellweger sendromu</strong> (VLCFA birikimi).</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>VLCFA ve dallı zincirli yağ asitleri hangi organelde, hangi tip oksidasyonla yıkılır?</summary><div class="ans">VLCFA: peroksizomda β-oksidasyon; dallı zincirli: peroksizomda α-oksidasyon.</div></details>
+</div></div>
+
+<!-- 27 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 27</span><span class="stitle">İnsan Vücudunda Çok Çeşitli Yağ Asidi Vardır</span></div>
+<p class="diag-note">Doymuş, tekli doymamış ve çoklu doymamış yağ asidi yapılarını gösteren görsel. Doymamışlar için β-oksidasyona ek enzimler gerekir (Slide 28–29).</p></div>
+
+<!-- 28 -->
+<div class="slide" id="s28"><div class="slide-head"><span class="snum">SLIDE 28</span><span class="stitle">Tekli Doymamış Yağ Asidi Oksidasyonu</span></div>
+<p><strong>Oxidation of monounsaturated fatty acid.</strong> Standart β-oksidasyon mevcut çift bağa ulaşınca durur; <strong>cis</strong> konfigürasyonundaki bağ β-oksidasyonun tanıdığı <strong>trans</strong> forma çevrilmelidir. Bunun için ek enzim gerekir: <strong>enoyl-CoA isomerase</strong>.</p>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Tekli doymamışlarda ek enzim = <strong>enoyl-CoA isomerase</strong> (1 ek enzim). Bu basamakta <strong>FADH₂ üretilmez</strong> (çift bağ zaten mevcuttur) → enerji verimi biraz daha düşüktür.</div>
+</div>
+
+<!-- 29 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 29</span><span class="stitle">Çoklu Doymamış Yağ Asidi Oksidasyonu</span></div>
+<p><strong>Oxidation of polyunsaturated fatty acid.</strong> Birden fazla çift bağ olduğundan iki ek enzim gerekir: <strong>enoyl-CoA isomerase</strong> ve <strong>2,4-dienoyl-CoA reductase</strong> (NADPH kullanır).</p>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Çoklu doymamış yağ asidi oksidasyonunda gereken iki ek enzim nedir?</summary><div class="ans">Enoyl-CoA isomerase ve 2,4-dienoyl-CoA reductase.</div></details>
+</div></div>
+
+<!-- 30 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 30</span><span class="stitle">Tek Sayılı (Odd-Number) Yağ Asidi Oksidasyonu</span></div>
+<p>Tek karbonlu yağ asitlerinin son turunda 2 karbonlu acetyl-CoA yerine <strong>3 karbonlu Propionyl-CoA</strong> kalır. Dönüşüm yolu:</p>
+<span class="rxn">Propionyl-CoA → (D)-Methylmalonyl-CoA → (L)-Methylmalonyl-CoA → Succinyl-CoA → (TCA)</span>
+<ul>
+<li><strong>Propionyl-CoA carboxylase</strong> (HCO₃⁻, ATP, <strong>biotin</strong> kofaktörü) → D-methylmalonyl-CoA</li>
+<li><strong>Methylmalonyl-CoA epimerase</strong> → L-methylmalonyl-CoA</li>
+<li><strong>Methylmalonyl-CoA mutase</strong> (<strong>coenzyme B₁₂</strong> kofaktörü) → Succinyl-CoA</li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span>Son basamak <strong>B₁₂ (kobalamin)</strong> gerektirir. <strong>B₁₂ eksikliğinde</strong> methylmalonyl-CoA birikir → <strong>metilmalonik asidemi</strong> ve nörolojik bulgular. Biotin eksikliği de propionyl-CoA carboxylase'ı etkiler.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Tek sayılı yağ asitleri son turda hangi ürünü verir ve hangi vitamin gereklidir?</summary><div class="ans">Propionyl-CoA; Succinyl-CoA'ya dönüşümünde son basamak coenzyme B₁₂ (ayrıca biotin) gerektirir.</div></details>
+</div></div>
+
+<!-- 31 -->
+<div class="slide" id="s31"><div class="slide-head"><span class="snum">SLIDE 31</span><span class="stitle">Keton Cismi (Ketone Body) Oluşumu</span></div>
+<span class="rxn">Açlık → Yağ yıkımı → Acetyl-CoA ↑ → TCA ↓ → Ketone bodies ↑</span>
+<p>Açlıkta oksaloasetat gluconeogenesis'e kaydığı için TCA yavaşlar; biriken <strong>Acetyl-CoA</strong> karaciğerde <strong>keton cisimlerine</strong> çevrilir: <strong>acetoacetate</strong>, <strong>β-hydroxybutyrate</strong> ve <strong>acetone</strong>.</p>
+<div class="box mnemo"><span class="bt">🧠 Ezber — 3 keton cismi "ABA"</span><strong>A</strong>cetoacetate · <strong>B</strong>eta-hydroxybutyrate · <strong>A</strong>cetone. (Aseton uçucudur → nefeste hissedilir.)</div>
+</div>
+
+<!-- 32 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 32</span><span class="stitle">Açlık / Diyabet → "Fruity Breath"</span></div>
+<span class="rxn">Fasting / Diabetes → Lipid oksidasyonu ↑ → Acetyl-CoA ↑ → Ketone bodies ↑ (acetone) → Fruity breath</span>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi (Diş Hekimliği — Çok kritik!)</span>Diş hekimleri, <strong>"fruity breath" (meyvemsi/aseton ağız kokusu)</strong> gibi ağız bulguları üzerinden <mark>sistemik metabolik bozuklukları (özellikle diyabetik ketoasidoz)</mark> tespit edebilir. Kontrolsüz Tip 1 diyabette aşırı keton üretimi → ketoasidoz → karakteristik nefes kokusu. Muayenede bu kokuyu fark etmek hayat kurtarabilir.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>"Fruity breath" hangi uçucu keton cismine bağlıdır ve hangi durumda görülür?</summary><div class="ans">Acetone'a; açlık ve kontrolsüz diyabet (ketoasidoz) durumunda.</div></details>
+</div></div>
+
+<!-- 33 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 33</span><span class="stitle">Malonyl-CoA ve CPT I İnhibisyonu</span></div>
+<p><strong>Malonyl-CoA</strong>, yağ asidi <strong>sentezi</strong> sırasında <strong>Acetyl-CoA Carboxylase</strong> enzimiyle Acetyl-CoA'dan üretilir.</p>
+<p>Yağ asidi sentezinin öncülü olan <strong>Malonyl-CoA</strong>, <strong>Carnitine Palmitoyl Transferase I (CPT I)</strong>'i <mark>inhibe eder</mark>.</p>
+<p>Yağ asidi oksidasyonunun bu kontrolü, başlıca <strong>yağ asidinin mitokondriye girişi</strong> basamağında uygulanır.</p>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi — Resiprokal regülasyon</span>Hücre yağ <em>sentezi</em> yaparken (tokluk) malonyl-CoA yükselir → CPT I bloke → yağ <em>oksidasyonu</em> durur. Böylece sentez ve yıkım aynı anda çalışmaz (futile cycle önlenir). <strong>CPT I = lipid oksidasyonunun hız kısıtlayıcı/kontrol basamağı.</strong></div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Malonyl-CoA neyi inhibe eder ve bunun anlamı nedir?</summary><div class="ans">CPT I'i inhibe eder → yağ asidi mitokondriye giremez → oksidasyon durur (sentez aktifken yıkım kapalı).</div></details>
+<details class="fc"><summary>Malonyl-CoA'yı hangi enzim üretir?</summary><div class="ans">Acetyl-CoA carboxylase (yağ asidi sentezinin ilk/kontrol basamağı).</div></details>
+</div></div>
+
+<!-- 34 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 34</span><span class="stitle">Yağ Asidi Oksidasyonu Sıkı Düzenlenir</span></div>
+<p><strong>Fatty Acid Oxidation Is Tightly Regulated.</strong> Ana kontrol noktası mitokondriye giriş (CPT I / malonyl-CoA) üzerindedir.</p></div>
+
+<!-- 35 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 35</span><span class="stitle">Transkripsiyonel Regülasyon (PPAR)</span></div>
+<p>Transkripsiyon faktörleri, lipid katabolizması proteinlerinin sentezini açar. Transkripsiyonel regülasyon, yağ asidi oksidasyonu enzimlerinin <strong>sayısını dakikalar–saatler ölçeğinde</strong> değiştirir. <strong>PPAR (peroxisome proliferator-activated receptor) ailesi</strong>, çeşitli yağ asidi benzeri ligandlara yanıt veren <strong>nükleer reseptör</strong> transkripsiyon faktörleridir.</p>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Lipid katabolizması enzimlerinin uzun vadeli (transkripsiyonel) düzenlenmesinden hangi reseptör ailesi sorumludur?</summary><div class="ans">PPAR (nükleer reseptör) ailesi.</div></details>
+</div></div>
+
+<!-- 36 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 36</span><span class="stitle">PPARα Algılaması (Diyagram)</span></div>
+<p class="diag-note">Şema: Fazla enerji (glukoz/yağ asidi) → <strong>PPARα sensing</strong>. <em>Etkili (effective)</em> ise → artmış yağ asidi oksidasyonu → enerji yanması. <em>Defektif</em> ise → azalmış yağ asidi oksidasyonu → trigliserit birikimi, <strong>hepatic steatosis (karaciğer yağlanması)</strong>, lipotoksisite ve steatohepatit. PPARγ ise adipogenez/yağ depolamayı artırır.</p></div>
+
+<!-- 37 -->
+<div class="slide" id="s37"><div class="slide-head"><span class="snum">SLIDE 37</span><span class="stitle">Yağ Asidi β-Oksidasyon Hastalıkları</span></div>
+<p>β-oksidasyon bozuklukları 5 grupta sınıflandırılır:</p>
+<table>
+<tr><th>Grup</th><th>Bozukluk örnekleri</th></tr>
+<tr><td><strong>1. Plazma membran fonksiyonları</strong></td><td>Carnitine uptake defect; long-chain FA transport/binding defect</td></tr>
+<tr><td><strong>2. Mitokondri membranı taşıma</strong></td><td><strong>CPT I deficiency</strong>, <strong>CACT deficiency</strong>, <strong>CPT II deficiency</strong></td></tr>
+<tr><td><strong>3. Uzun zincir β-oksidasyon</strong></td><td><strong>VLCAD deficiency</strong>; trifunctional protein / LCHAD deficiency</td></tr>
+<tr><td><strong>4. Orta zincir β-oksidasyon</strong></td><td><strong>MCAD deficiency</strong>; medium/short-chain LCHAD; MC 3-ketoacyl-CoA thiolase deficiency</td></tr>
+<tr><td><strong>5. Kısa zincir β-oksidasyon</strong></td><td><strong>SCAD deficiency</strong></td></tr>
+</table>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span><strong>MCAD deficiency</strong> en sık görülen β-oksidasyon bozukluğudur; açlıkta hipoketotik hipoglisemi ile başvurur ve yenidoğan taramalarında aranır. <strong>Carnitine eksikliği</strong> kas güçsüzlüğü ve kardiyomiyopatiye yol açar.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>En sık görülen β-oksidasyon bozukluğu hangisidir?</summary><div class="ans">MCAD deficiency (medium-chain acyl-CoA dehydrogenase eksikliği).</div></details>
+<details class="fc"><summary>Carnitine taşıma sistemiyle ilgili üç enzim eksikliği nedir?</summary><div class="ans">CPT I, CACT (translocase), CPT II eksiklikleri.</div></details>
+</div></div>
+
+<!-- 38 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 38</span><span class="stitle">Kapanış</span></div>
+<p>"Thank you…" — dersin sonu.</p></div>
+
+<!-- MASTER -->
+<div class="slide" style="border:2px solid var(--brand);">
+<div class="slide-head"><span class="snum" style="background:var(--purple);">ÖZET</span><span class="stitle">🧠 Tek Bakışta β-Oksidasyon</span></div>
+<table>
+<tr><th>Aşama</th><th>Olay</th><th>Anahtar</th></tr>
+<tr><td>Aktivasyon (sitozol)</td><td>FA → Acyl-CoA</td><td>Acyl-CoA synthetase; −2 ATP eşdeğeri</td></tr>
+<tr><td>Taşıma (membran)</td><td>Carnitine shuttle</td><td>CPT I (hız kısıtlayıcı) → CACT → CPT II; malonyl-CoA inhibe eder</td></tr>
+<tr><td>β-oksidasyon turu 1</td><td>Dehidrogenasyon</td><td>FADH₂ (acyl-CoA dehydrogenase)</td></tr>
+<tr><td>tur 2</td><td>Hidrasyon</td><td>enoyl-CoA hydratase</td></tr>
+<tr><td>tur 3</td><td>Dehidrogenasyon</td><td>NADH (β-hydroxyacyl-CoA DH)</td></tr>
+<tr><td>tur 4</td><td>Cleavage</td><td>Acetyl-CoA (thiolase)</td></tr>
+</table>
+<div class="box mnemo"><span class="bt">🧠 Her tur kazancı</span>Her β-oksidasyon turu = <strong>1 FADH₂ + 1 NADH + 1 Acetyl-CoA</strong>. Palmitat (C16) = 7 tur → 8 Acetyl-CoA + 7 NADH + 7 FADH₂ → net ≈ 129 ATP (klasik).</div>
+</div>
+
+<footer>
+  Lipid / Yağ Asidi Oksidasyonu (β-Oxidation) — 38 slayttan slayt slayt derlenmiştir.<br>
+  Flashcard kutularına tıklayarak cevapları açabilirsin. Başarılar! 🧬
+</footer>
+
+</div>
+</body>
+</html>

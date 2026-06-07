@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaynak 3 — 2nd & 3rd Week | Final Rehberi</title>
+<style>
+  :root{
+    --bg:#f7f8fb; --card:#ffffff; --ink:#1f2733; --muted:#5b6776;
+    --primary:#5b4bdb; --primary-soft:#ece9ff;
+    --pink:#d6336c; --pink-soft:#ffe3ee;
+    --blue:#1565c0; --blue-soft:#e3f0ff;
+    --green:#1b7a44; --green-soft:#e3f7ec;
+    --amber:#b26a00; --amber-soft:#fff3df;
+    --teal:#0c8599; --teal-soft:#e0f7fb;
+    --border:#e5e8ef;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;padding:0 0 60px}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px}
+  header.hero{background:linear-gradient(135deg,#0c8599,#1565c0);color:#fff;
+    padding:42px 20px 34px;text-align:center;box-shadow:0 6px 24px rgba(91,75,219,.25)}
+  header.hero .tag{display:inline-block;background:rgba(255,255,255,.18);
+    padding:5px 14px;border-radius:30px;font-size:.8rem;letter-spacing:1px;margin-bottom:10px}
+  header.hero h1{margin:6px 0 4px;font-size:2rem}
+  header.hero p{margin:0;opacity:.92;font-size:.98rem}
+  h2{margin-top:46px;font-size:1.5rem;color:var(--primary);
+    border-bottom:3px solid var(--primary-soft);padding-bottom:8px}
+  h3{margin-top:30px;font-size:1.18rem;color:#33405a}
+  h4{margin:18px 0 6px;font-size:1.02rem;color:#3a2f8f}
+  p{margin:10px 0} ul,ol{margin:10px 0;padding-left:24px} li{margin:6px 0}
+  strong{color:#11203a} em{color:var(--muted)}
+  mark{background:#fff1a8;padding:0 3px;border-radius:3px}
+  .slide-badge{display:inline-block;background:var(--primary-soft);color:var(--primary);
+    font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:6px;margin-bottom:4px;letter-spacing:.5px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+    padding:20px 24px;margin:18px 0;box-shadow:0 2px 8px rgba(30,40,60,.04)}
+  .box{border-radius:12px;padding:14px 18px;margin:16px 0;border-left:6px solid}
+  .box .bt{font-weight:800;display:block;margin-bottom:4px;font-size:.95rem}
+  .clinic{background:var(--teal-soft);border-color:var(--teal)} .clinic .bt{color:var(--teal)}
+  .spot{background:var(--green-soft);border-color:var(--green)} .spot .bt{color:var(--green)}
+  .warn{background:var(--amber-soft);border-color:var(--amber)} .warn .bt{color:var(--amber)}
+  .mnemo{background:var(--pink-soft);border-color:var(--pink)} .mnemo .bt{color:var(--pink)}
+  .flash{background:var(--blue-soft);border:1px dashed var(--blue);border-radius:12px;padding:14px 18px;margin:18px 0}
+  .flash .ft{font-weight:800;color:var(--blue);display:block;margin-bottom:8px;font-size:.92rem}
+  details{background:#fff;border:1px solid #cfe0f5;border-radius:8px;margin:8px 0;padding:4px 12px}
+  details summary{cursor:pointer;font-weight:600;color:#16345c;padding:6px 0}
+  details[open] summary{border-bottom:1px solid #e3ecf7;margin-bottom:6px}
+  details p{margin:6px 0;color:#243446}
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+  th,td{border:1px solid var(--border);padding:9px 11px;text-align:left;vertical-align:top}
+  th{background:var(--primary-soft);color:#33267a}
+  tr:nth-child(even) td{background:#fafbff}
+  .toc{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 24px;margin:24px 0}
+  .toc a{color:var(--primary);text-decoration:none} .toc a:hover{text-decoration:underline}
+  .pill{display:inline-block;background:#eef0f6;border-radius:6px;padding:1px 7px;font-size:.82rem;color:#444}
+</style>
+</head>
+<body>
+<header class="hero">
+  <span class="tag">KAYNAK 3 / 4 · EMBRİYOLOJİ FİNALİ</span>
+  <h1>🌱 2nd &amp; 3rd Week of Development</h1>
+  <p>Bilaminar &amp; Trilaminar Disk · Gastrülasyon · Notokord · Trofoblast — Asım Savlu M.D.</p>
+</header>
+
+<div class="wrap">
+
+<div class="toc">
+  <strong>📑 İçindekiler</strong>
+  <ul>
+    <li><a href="#gun8">1. Gün 8 — İki Tabakalı Disk Oluşumu</a></li>
+    <li><a href="#gun9">2. Gün 9 — Lakünar Evre &amp; Primitif Yolk Kesesi</a></li>
+    <li><a href="#gun1112">3. Gün 11–12 — Uteroplasental Dolaşım</a></li>
+    <li><a href="#gun13">4. Gün 13 — Primer Villus &amp; Sekonder Yolk Kesesi</a></li>
+    <li><a href="#anormal">5. Anormal İmplantasyon (Klinik Altın)</a></li>
+    <li><a href="#gastrulasyon">6. Gastrülasyon — Üç Tabakalı Disk</a></li>
+    <li><a href="#notokord">7. Notokord, Membranlar &amp; Allantois</a></li>
+    <li><a href="#trofoblast">8. Trofoblast Gelişimi — Villus Tipleri</a></li>
+    <li><a href="#ozet">9. Final Süper-Özet</a></li>
+  </ul>
+</div>
+
+<!-- DAY 8 -->
+<h2 id="gun8">1. Gün 8 — İki Tabakalı (Bilaminar) Disk</h2>
+<div class="card">
+<span class="slide-badge">SLAYT 2–6, 10</span>
+<p>8. günde blastokist, endometrial stromaya <strong>kısmen gömülüdür</strong>. İki kilit farklılaşma olur:</p>
+
+<h4>Trofoblast iki tabakaya ayrılır</h4>
+<ul>
+  <li><strong>Sitotrofoblast (cytotrophoblast)</strong> → iç tabaka; <strong>tek çekirdekli (mononükleer)</strong> hücreler. <mark>Mitoz BURADA görülür.</mark></li>
+  <li><strong>Sinsityotrofoblast (syncytiotrophoblast)</strong> → dış tabaka; <strong>çok çekirdekli (multinükleer)</strong>, hücre sınırları belirsiz. <mark>Mitoz YOKTUR.</mark></li>
+  <li>Sitotrofoblast hücreleri bölünüp sinsityotrofoblasta göç eder, orada kaynaşarak (füzyon) bireysel hücre membranlarını kaybeder.</li>
+</ul>
+
+<h4>Embriyoblast iki tabakaya ayrılır → Bilaminar disk</h4>
+<ul>
+  <li><strong>Hipoblast (hypoblast)</strong> → blastokist boşluğuna komşu, küçük <strong>kübik</strong> hücre tabakası.</li>
+  <li><strong>Epiblast (epiblast)</strong> → amniyotik boşluğa komşu, <strong>yüksek prizmatik (kolumnar)</strong> hücre tabakası.</li>
+  <li>İkisi birlikte yassı bir <strong>disk (bilaminar germ disc)</strong> oluşturur.</li>
+  <li>Epiblast içinde küçük bir boşluk belirir → büyüyerek <strong>amniyotik boşluk (amniotic cavity)</strong> olur. Sitotrofoblasta komşu epiblast hücreleri <strong>amnioblast (amnioblasts)</strong> adını alır.</li>
+</ul>
+
+<div class="box mnemo">
+  <span class="bt">🧠 Akılda Tutma — Trofoblast & Disk</span>
+  <strong>"Sito = Single nukleus + mitoZ var (içte); Sinsityo = çok çekirdek, mitoz Sıfır (dışta)."</strong><br>
+  Disk: <strong>EPİblast = Üst (amniyona bakar) / HİPoblast = Alt (yolk'a bakar)</strong> → "EPi yukarıda, HİP aşağıda".
+</div>
+<div class="box warn">
+  <span class="bt">⚠️ Dikkat (Çok Sık Çeldirici)</span>
+  Mitoz <strong>sadece sitotrofoblastta</strong> görülür; sinsityotrofoblast bölünmez (zaten füzyonla büyür). Epiblast = kolumnar/üst, hipoblast = kübik/alt — bunları ters sormak klasiktir.
+</div>
+<div class="box clinic">
+  <span class="bt">🦷 Klinik Önemi</span>
+  Sinsityotrofoblast <strong>hCG</strong> salgılar → gebelik testlerinin temeli ve corpus luteumun devamını sağlayan hormon. Ayrıca tüm germ tabakaları <strong>epiblasttan</strong> köken alır — bu, ileride gastrülasyonun mantığını kurar.
+</div>
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Trofoblastın hangi tabakasında mitoz görülür?</summary><p>Sitotrofoblastta (sinsityotrofoblast bölünmez).</p></details>
+  <details><summary>Bilaminar diskin üst ve alt tabakaları nelerdir ve hücre tipleri?</summary><p>Üst: epiblast (kolumnar); alt: hipoblast (kübik).</p></details>
+  <details><summary>Amnioblast nedir?</summary><p>Sitotrofoblasta komşu, amniyotik boşluğu döşeyen epiblast hücreleri.</p></details>
+</div>
+</div>
+
+<!-- DAY 9 -->
+<h2 id="gun9">2. Gün 9 — Lakünar Evre &amp; Primitif Yolk Kesesi</h2>
+<div class="card">
+<span class="slide-badge">SLAYT 7–9</span>
+<ul>
+  <li>Blastokist endometriuma daha derin gömülür; yüzey epitelindeki giriş defekti <strong>fibrin pıhtısıyla (fibrin coagulum)</strong> kapanır.</li>
+  <li>Sinsityumda <strong>vakuoller</strong> belirir; bunlar birleşince büyük <strong>lakünalar (lacunae)</strong> oluşturur → bu döneme <strong>lakünar evre (lacunar stage)</strong> denir.</li>
+  <li><strong>Abembriyonik kutupta</strong>, hipoblasttan köken alan yassı hücreler ince bir zar oluşturur: <strong>eksoselomik (Heuser) membranı (exocoelomic / Heuser's membrane)</strong>. Bu zar sitotrofoblastın iç yüzeyini döşer.</li>
+  <li>Bu membran + hipoblast birlikte, <strong>eksoselomik boşluğu = primitif yolk kesesini (primitive yolk sac)</strong> döşer.</li>
+</ul>
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  Gün 9 = <strong>lakünar evre</strong>. <strong>Heuser membranı</strong> hipoblasttan köken alır ve <strong>primitif yolk kesesini</strong> döşer.
+</div>
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Lakünar evre hangi gün ve hangi tabakada başlar?</summary><p>9. gün; sinsityotrofoblast içinde (vakuollerin birleşmesiyle).</p></details>
+  <details><summary>Heuser (eksoselomik) membranı neyden köken alır, neyi döşer?</summary><p>Hipoblasttan köken alır; primitif yolk kesesini döşer.</p></details>
+</div>
+</div>
+
+<!-- DAY 11-12 -->
+<h2 id="gun1112">3. Gün 11–12 — Uteroplasental Dolaşımın Başlangıcı</h2>
+<div class="card">
+<span class="slide-badge">SLAYT 11–17</span>
+<ul>
+  <li>11–12. günde blastokist endometriuma <strong>tamamen gömülür</strong>; yüzey defekti neredeyse tümüyle kapanır.</li>
+  <li>Sinsityum içindeki lakünalar <strong>birbiriyle bağlantılı bir ağ</strong> oluşturur.</li>
+  <li>Sinsityotrofoblast stromaya daha derin girer ve <strong>maternal kapiller endotelini erode eder</strong>. Bu konjeste/dilate kapillerlere <strong>sinüzoid (sinusoids)</strong> denir.</li>
+  <li>Lakünalar sinüzoidlerle <strong>devamlı hâle gelir</strong> → maternal kan laküna sistemine girer → <strong>uteroplasental dolaşım (uteroplacental circulation)</strong> başlar.</li>
+  <li>Bu sırada sitotrofoblastın iç yüzeyi ile eksoselomik boşluğun dış yüzeyi arasında yeni bir hücre topluluğu belirir → yolk kesesi hücrelerinden köken alan <strong>ekstraembriyonik mezoderm (extraembryonic mesoderm)</strong>.</li>
+  <li>Ekstraembriyonik mezodermde büyük boşluklar gelişir, birleşince <strong>ekstraembriyonik boşluk = koryonik boşluk (chorionic cavity)</strong> oluşur.</li>
+  <li>Ekstraembriyonik mezoderm ikiye ayrılır:
+    <ul>
+      <li><strong>Ekstraembriyonik somatik mezoderm</strong> → sitotrofoblast ve amniyonu döşer.</li>
+      <li><strong>Ekstraembriyonik splanknik mezoderm</strong> → yolk kesesini örter.</li>
+    </ul>
+  </li>
+</ul>
+<div class="box clinic">
+  <span class="bt">🦷 Klinik Önemi</span>
+  Uteroplasental dolaşımın kurulması, embriyonun anne kanından beslenmeye başladığı andır. İmplantasyon kanaması ve erken gebelik döneminde maternal kan-sinsityum teması, ilaç/teratojen ve enfeksiyon geçişinin de kapısıdır.
+</div>
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  Gün 11–12 = <strong>uteroplasental dolaşım başlar</strong> (lakünalar ↔ sinüzoidler). Ekstraembriyonik mezoderm <strong>somatik (amniyon/sito) + splanknik (yolk kesesi)</strong> olarak ikiye ayrılır; koryonik boşluğu oluşturur.
+</div>
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Uteroplasental dolaşım kaçıncı günlerde kurulmaya başlar?</summary><p>11–12. günlerde (laküna–sinüzoid bağlantısı ile).</p></details>
+  <details><summary>Ekstraembriyonik somatik ve splanknik mezoderm neyi döşer?</summary><p>Somatik → amniyon/sitotrofoblast; splanknik → yolk kesesi.</p></details>
+</div>
+</div>
+
+<!-- DAY 13 -->
+<h2 id="gun13">4. Gün 13 — Primer Villus &amp; Sekonder Yolk Kesesi</h2>
+<div class="card">
+<span class="slide-badge">SLAYT 18–22</span>
+<ul>
+  <li>13. günde endometrium yüzey defekti genellikle iyileşmiştir.</li>
+  <li>Trofoblast artık <strong>villöz yapılarla</strong> karakterizedir: sitotrofoblast hücreleri lokal çoğalıp sinsityotrofoblasta girerek, sinsityumla çevrili <strong>hücresel kolonlar</strong> oluşturur → bunlara <strong>primer villus (primary villi)</strong> denir.</li>
+  <li>Hipoblast, eksoselomik membran boyunca göç eden ek hücreler üretir → eksoselomik boşluk içinde yeni bir boşluk oluşur: <strong>sekonder (definitif) yolk kesesi (secondary / definitive yolk sac)</strong>. Bu, orijinal primitif yolk kesesinden <strong>daha küçüktür</strong>.</li>
+  <li>Ekstraembriyonik sölom genişler → <strong>koryonik boşluk</strong>. Sitotrofoblastın içini döşeyen ekstraembriyonik mezoderm artık <strong>koryonik plak (chorionic plate)</strong> adını alır.</li>
+  <li>Ekstraembriyonik mezodermin koryonik boşluğu kat ettiği tek yer = <strong>bağlayıcı sap (connecting stalk)</strong>. Kan damarları geliştikçe bu sap <strong>göbek kordonuna (umbilical cord)</strong> dönüşür.</li>
+</ul>
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  Gün 13 = <strong>primer villus</strong> + <strong>sekonder (definitif) yolk kesesi</strong>. <strong>Bağlayıcı sap → göbek kordonu</strong>. Koryonik plak = sitotrofoblastı döşeyen mezoderm.
+</div>
+<div class="box warn">
+  <span class="bt">⚠️ Dikkat</span>
+  Sekonder yolk kesesi, primitif (orijinal) yolk kesesinden <strong>DAHA KÜÇÜKTÜR</strong> — "büyür" diyen seçenek yanlıştır.
+</div>
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Primer villus neyden oluşur?</summary><p>Sinsityumla çevrili sitotrofoblastik hücre kolonlarından.</p></details>
+  <details><summary>Bağlayıcı sap (connecting stalk) ileride neye dönüşür?</summary><p>Göbek kordonuna (umbilical cord).</p></details>
+  <details><summary>Sekonder yolk kesesi, primitif yolk kesesine göre nasıldır?</summary><p>Daha küçüktür.</p></details>
+</div>
+</div>
+
+<!-- ABNORMAL -->
+<h2 id="anormal">5. Anormal İmplantasyon (Klinik Altın 🩺)</h2>
+<div class="card">
+<span class="slide-badge">SLAYT 23–25</span>
+<p>Normalde blastokist, uterus gövdesinin <strong>ön veya arka duvarına</strong> implante olur. Sapmalar:</p>
+<ul>
+  <li><strong>Placenta previa:</strong> Blastokist <strong>internal os'a (serviks iç ağzı)</strong> yakın implante olur → plasenta açıklığı köprüler → gebeliğin ikinci yarısında ve doğumda <strong>şiddetli, hayatı tehdit edici kanama</strong>.</li>
+  <li><strong>Ektopik (dış) gebelik (ectopic pregnancy):</strong> İmplantasyon uterus dışında olur.</li>
+</ul>
+<h4>Ektopik gebelik yerleşim oranları (sınavlık rakamlar)</h4>
+<table>
+  <tr><th>Yer</th><th>Oran</th></tr>
+  <tr><td>Uterin tuba (toplam)</td><td><strong>%95</strong></td></tr>
+  <tr><td>— Ampulla</td><td><strong>%80</strong></td></tr>
+  <tr><td>— Tubal (diğer)</td><td>%12</td></tr>
+  <tr><td>— İnterstisyel (tubanın dar kısmı)</td><td>%0.2</td></tr>
+  <tr><td>İnternal os bölgesi (→ sıklıkla placenta previa)</td><td>%0.2</td></tr>
+  <tr><td>Over (ovarian)</td><td>%0.2</td></tr>
+  <tr><td>Abdominal kavite</td><td>Nadir — en sık <strong>rektouterin boşluk / Douglas çıkmazı</strong>'na yapışır</td></tr>
+</table>
+<div class="box mnemo">
+  <span class="bt">🧠 Akılda Tutma</span>
+  <strong>"95 → 80": Ektopiklerin %95'i tubada, tubadakilerin çoğu (%80) ampullada."</strong> Douglas çıkmazı = abdominal ektopikte en sık yer.
+</div>
+<div class="box clinic">
+  <span class="bt">🦷 Klinik Önemi</span>
+  Tubal gebelik, tuba duvarını yırtarak (rüptür) <strong>hayatı tehdit eden intraabdominal kanamaya</strong> yol açar — acil cerrahi gerektirir. Placenta previa, üçüncü trimester ağrısız vajinal kanamanın klasik nedenidir.
+</div>
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Ektopik gebeliklerin yüzde kaçı tubada, kaçı ampulladadır?</summary><p>%95 tubada; bunların %80'i ampullada.</p></details>
+  <details><summary>Plasenta internal os'u köprülerse hangi durum oluşur?</summary><p>Placenta previa (şiddetli kanama riski).</p></details>
+  <details><summary>Abdominal ektopik gebelikte en sık yerleşim yeri?</summary><p>Rektouterin boşluk (Douglas çıkmazı).</p></details>
+</div>
+</div>
+
+<!-- GASTRULATION -->
+<h2 id="gastrulasyon">6. Gastrülasyon — Üç Tabakalı (Trilaminar) Disk</h2>
+<div class="card">
+<span class="slide-badge">SLAYT 27–30</span>
+<p><strong>Gastrülasyon (gastrulation)</strong>, gelişimin <strong>3. haftasında</strong> üç germ tabakasını (<strong>ektoderm, mezoderm, endoderm</strong>) kuran süreçtir. Epiblast yüzeyinde <strong>primitif çizgi (primitive streak)</strong> oluşumuyla başlar.</p>
+<ul>
+  <li>15–16 günlük embriyoda primitif çizgi, iki yanı hafif kabarık dar bir oluk olarak net görünür.</li>
+  <li>Çizginin sefalik (baş) ucunda <strong>primitif düğüm (primitive node)</strong>, onun ortasında küçük <strong>primitif çukur (primitive pit)</strong> bulunur.</li>
+  <li>Epiblast hücreleri çizgiye doğru göç eder; oraya varınca <strong>şişe biçimini</strong> alıp epiblasttan ayrılır ve altına kayar → bu içe hareket <strong>invajinasyon (invagination)</strong>'dur.</li>
+</ul>
+
+<h4>Moleküler kontrol</h4>
+<ul>
+  <li>Hücre göçü ve özelleşmesini <strong>FGF8 (fibroblast growth factor 8)</strong> kontrol eder (çizgi hücrelerinin kendisi üretir).</li>
+  <li>FGF8, hücreleri birbirine bağlayan <strong>E-cadherin'i baskılayarak (downregulation)</strong> hareketi sağlar.</li>
+  <li>FGF8, <strong>Brachyury (T)</strong> ekspresyonunu düzenleyerek mezoderme özelleşmeyi yönetir. <em>(Brachyury = T-box transkripsiyon faktörü; mezoderm oluşumu/farklılaşması için gerekli genleri açar.)</em></li>
+</ul>
+
+<h4>Üç tabakanın doğuşu (HEPSİ epiblasttan)</h4>
+<ul>
+  <li>İnvajine olan ilk hücreler <strong>hipoblastı iter</strong> → <strong>embriyonik endoderm</strong>.</li>
+  <li>Epiblast ile yeni endoderm arasına yerleşenler → <strong>mezoderm</strong>.</li>
+  <li>Epiblastta kalan hücreler → <strong>ektoderm</strong>.</li>
+</ul>
+<div class="box mnemo">
+  <span class="bt">🧠 Akılda Tutma</span>
+  <strong>"Hepsi EPİblasttan doğar."</strong> Sıra (içe gidiş): önce <strong>ENDoderm</strong> (hipoblastı iter), sonra <strong>MEZoderm</strong> (arada kalır), kalan <strong>EKToderm</strong>. Moleküller: <strong>"FGF8 → E-cadherin'i kıs → Brachyury'i aç → Mezoderm."</strong>
+</div>
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  Gastrülasyon <strong>3. hafta</strong>, primitif çizgi ile başlar. <strong>Tüm 3 germ tabakası epiblasttan</strong> köken alır. Anahtar moleküller: <strong>FGF8, E-cadherin, Brachyury (T)</strong>.
+</div>
+<div class="box warn">
+  <span class="bt">⚠️ Dikkat</span>
+  Endoderm <strong>hipoblastın yerini alarak</strong> oluşur ama <strong>hipoblastın kendisi değildir</strong>; epiblasttan invajine olan hücrelerden gelir. Bu ayrım sık sorulur.
+</div>
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Üç germ tabakası da hangi tek tabakadan köken alır?</summary><p>Epiblasttan.</p></details>
+  <details><summary>Gastrülasyonda mezoderm özelleşmesini hangi gen düzenler?</summary><p>Brachyury (T) — FGF8 tarafından regüle edilir.</p></details>
+  <details><summary>FGF8 hücre hareketini nasıl sağlar?</summary><p>E-cadherin'i baskılayarak (hücreler arası bağı gevşeterek).</p></details>
+</div>
+</div>
+
+<!-- NOTOCHORD -->
+<h2 id="notokord">7. Notokord, Membranlar &amp; Allantois</h2>
+<div class="card">
+<span class="slide-badge">SLAYT 31–35</span>
+<h3>Prekordal Plak &amp; Orofaringeal Membran</h3>
+<ul>
+  <li>Sefalik yönde göçen hücreler <strong>prekordal plağın (prechordal plate)</strong> iki yanından geçer.</li>
+  <li>Prekordal plak, notokord ucu ile orofaringeal membran arasında, düğümden orta hatta ilk geçen hücrelerden oluşur → ileride <strong>ön beyin (forebrain) indüksiyonu</strong> için önemlidir.</li>
+  <li><strong>Orofaringeal membran (oropharyngeal membrane)</strong>: diskin kranial ucunda, sıkıca yapışık ektoderm + endoderm hücrelerinden oluşur (arada mezoderm yok) → gelecekteki <strong>ağız boşluğu açıklığı</strong>.</li>
+</ul>
+
+<h3>Notokordun Oluşumu</h3>
+<ul>
+  <li>Primitif çukurda invajine olan <strong>prenotokordal hücreler</strong> ileri ilerleyip prekordal plağa ulaşır.</li>
+  <li>Bu hücreler hipoblasta <strong>interkale (araya girer)</strong> olur → kısa süre için orta hat iki tabakalı: <strong>notokordal plak (notochordal plate)</strong>.</li>
+  <li>Notokordal plak hücreleri çoğalıp endodermden ayrılır → katı bir hücre kordonu = <strong>definitif notokord (definitive notochord)</strong> → <strong>aksiyel iskeletin (axial skeleton)</strong> temeli.</li>
+  <li>Notokord <strong>kranialden kaudale</strong> uzar (önce kranial uç oluşur).</li>
+  <li>Primitif çukurun epiblastta yaptığı çöküntüde, <strong>nörenterik kanal (neurenteric canal)</strong> geçici olarak amniyotik ve yolk kesesi boşluklarını birleştirir.</li>
+</ul>
+
+<h3>Kloakal Membran &amp; Allantois</h3>
+<ul>
+  <li><strong>Kloakal membran (cloacal membrane)</strong>: diskin kaudal ucunda; orofaringeal membrana benzer (ektoderm + endoderm, arada mezoderm yok).</li>
+  <li>Kloakal membran belirince, yolk kesesinin arka duvarı bağlayıcı sapa uzanan küçük bir divertikül oluşturur: <strong>allantoenterik divertikül = allantois</strong>; yaklaşık <strong>16. günde</strong> belirir.</li>
+  <li>İnsanda allantois <strong>rudimenter</strong> kalır ama <strong>mesane gelişim anomalilerinde</strong> rol oynayabilir.</li>
+</ul>
+<div class="box mnemo">
+  <span class="bt">🧠 Akılda Tutma — İki Membran</span>
+  <strong>Orofaringeal (kranial, ileride ağız) ve Kloakal (kaudal, ileride anüs)</strong> membranların ortak özelliği: <strong>arada mezoderm YOK</strong>, sadece ektoderm+endoderm. "Baş ucu ağız, kuyruk ucu anüs."
+</div>
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  Notokord → <strong>aksiyel iskelet</strong> ekseni (ileride nukleus pulposus). Allantois ~<strong>16. gün</strong>, insanda rudimenter (→ urakus, mesane ile ilişkili). İki membranda da <strong>mezoderm yoktur</strong>.
+</div>
+<div class="box clinic">
+  <span class="bt">🦷 Klinik Önemi</span>
+  Notokord, erişkinde <strong>nukleus pulposus</strong> (omurlar arası disk çekirdeği) olarak kalıntı bırakır; kalıntılarından <strong>kordoma</strong> tümörü gelişebilir. Diş hekimliği açısından: prekordal plak ve orofaringeal membran, <strong>ağız boşluğunun</strong> ve kraniofasiyal gelişimin başlangıç noktalarıdır.
+</div>
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Notokord hangi yapının temelini oluşturur ve erişkinde kalıntısı nedir?</summary><p>Aksiyel iskelet; erişkinde nukleus pulposus olarak kalır.</p></details>
+  <details><summary>Orofaringeal ve kloakal membranların ortak özelliği nedir?</summary><p>Aralarında mezoderm bulunmaz; sadece sıkıca yapışık ektoderm+endodermden oluşur.</p></details>
+  <details><summary>Allantois kaçıncı günde belirir ve insanda işlevi nedir?</summary><p>~16. gün; insanda rudimenterdir (mesane gelişimiyle ilişkili).</p></details>
+</div>
+</div>
+
+<!-- TROPHOBLAST -->
+<h2 id="trofoblast">8. Trofoblast Gelişimi — Villus Tipleri</h2>
+<div class="card">
+<span class="slide-badge">SLAYT 36–42</span>
+<p>3. haftada villuslar olgunlaşır. <strong>Üç villus tipi</strong> sınavın klasik sorusudur:</p>
+<table>
+  <tr><th>Villus Tipi</th><th>Çekirdek (Kor) Yapısı</th></tr>
+  <tr><td><strong>Primer villus</strong></td><td><strong>Sitotrofoblast korusu</strong> + sinsityum örtüsü.</td></tr>
+  <tr><td><strong>Sekonder villus</strong></td><td><strong>Mezoderm korusu</strong> + sitotrofoblast + sinsityum.</td></tr>
+  <tr><td><strong>Tersiyer (definitif) villus</strong></td><td>Korudaki mezoderm hücreleri <strong>kan hücreleri + kapiller</strong>e farklılaşır (villöz kapiller sistemi).</td></tr>
+</table>
+<ul>
+  <li>3. hafta sonunda tersiyer villuslardaki kapillerler, koryonik plak ve bağlayıcı saptaki damarlarla bağlanır → <strong>intraembriyonik dolaşım sistemiyle</strong> birleşir.</li>
+  <li>Böylece <strong>4. haftada kalp atmaya başladığında</strong>, villöz sistem embriyoyu besin ve oksijenle beslemeye hazırdır.</li>
+  <li>Sitotrofoblast hücreleri sinsityumu delip maternal endometriuma ulaşır, komşu villus saplarıyla birleşip ince bir <strong>dış sitotrofoblast kabuğu (cytotrophoblast shell)</strong> oluşturur → koryonik keseyi endometriuma sıkıca bağlar.</li>
+  <li><strong>Stem (anchoring / tutturucu) villus:</strong> Koryonik plaktan desidua bazalise uzananlar.</li>
+  <li><strong>Serbest (terminal) villus:</strong> Stem villusların yanlarından dallananlar → besin/madde <strong>değişimi BURADA</strong> olur.</li>
+</ul>
+<div class="box mnemo">
+  <span class="bt">🧠 Akılda Tutma — Villus Korusu</span>
+  <strong>"1: Sito → 2: Mezo → 3: Damar (kan)."</strong><br>
+  Primer = sadece sito, Sekonder = mezoderm geldi, Tersiyer = mezoderm damara dönüştü.
+</div>
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  <strong>Tersiyer villus = damar içerir = fonksiyonel.</strong> Madde değişimi <strong>terminal (serbest) villuslarda</strong> olur. Kalp <strong>4. haftada</strong> atmaya başlar.
+</div>
+<div class="box warn">
+  <span class="bt">⚠️ Dikkat</span>
+  Madde değişimi <strong>stem (anchoring) villusta değil, terminal (serbest) villusta</strong> olur. Kan damarı yalnızca <strong>tersiyer</strong> villusta vardır.
+</div>
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Üç villus tipini korularına göre ayırt et.</summary><p>Primer: sito korusu; Sekonder: mezoderm korusu; Tersiyer: mezoderm içinde kan damarları/kapiller.</p></details>
+  <details><summary>Anne-fetüs madde değişimi hangi villuslarda olur?</summary><p>Terminal (serbest) villuslarda.</p></details>
+  <details><summary>Villöz sistem ne zaman embriyoyu besleyecek hâle gelir?</summary><p>4. haftada, kalp atmaya başladığında.</p></details>
+</div>
+</div>
+
+<!-- OZET -->
+<h2 id="ozet">9. Final Süper-Özet (Gün Gün 2.–3. Hafta)</h2>
+<div class="card">
+<table>
+  <tr><th>Gün</th><th>Kilit Olay</th></tr>
+  <tr><td>8</td><td>Trofoblast → sito + sinsityo; embriyoblast → epiblast + hipoblast (bilaminar disk); amniyotik boşluk</td></tr>
+  <tr><td>9</td><td>Lakünar evre; Heuser membranı; primitif yolk kesesi</td></tr>
+  <tr><td>11–12</td><td>Tam gömülme; uteroplasental dolaşım başlar; ekstraembriyonik mezoderm + koryonik boşluk</td></tr>
+  <tr><td>13</td><td>Primer villus; sekonder (definitif) yolk kesesi; koryonik plak; connecting stalk</td></tr>
+  <tr><td>15–16</td><td>Primitif çizgi → gastrülasyon başlar</td></tr>
+  <tr><td>16</td><td>Allantois belirir; prenotokordal göç</td></tr>
+  <tr><td>17–20</td><td>Notokord oluşumu; sekonder→tersiyer villus; embriyo connecting stalk ile asılı</td></tr>
+</table>
+<div class="box mnemo">
+  <span class="bt">🧠 Büyük Resim — Tek Cümlede</span>
+  <em>"2. hafta = İKİLER haftası (2 trofoblast tabakası, 2 disk tabakası, 2 boşluk: amniyon + yolk). 3. hafta = ÜÇLER haftası (gastrülasyonla 3 germ tabakası, 3 villus tipi, notokord)."</em>
+</div>
+</div>
+
+<p style="text-align:center;color:var(--muted);margin-top:40px;font-size:.9rem">
+✅ <strong>Kaynak 3 / 4 tamamlandı: 2nd &amp; 3rd Week of Development.</strong>
+</p>
+
+</div>
+</body>
+</html>

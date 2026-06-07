@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaynak 1 — Gametogenesis | Final Çalışma Rehberi</title>
+<style>
+  :root{
+    --bg:#f7f8fb; --card:#ffffff; --ink:#1f2733; --muted:#5b6776;
+    --primary:#5b4bdb; --primary-soft:#ece9ff;
+    --pink:#d6336c; --pink-soft:#ffe3ee;
+    --blue:#1565c0; --blue-soft:#e3f0ff;
+    --green:#1b7a44; --green-soft:#e3f7ec;
+    --amber:#b26a00; --amber-soft:#fff3df;
+    --teal:#0c8599; --teal-soft:#e0f7fb;
+    --border:#e5e8ef;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;padding:0 0 60px}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px}
+  header.hero{background:linear-gradient(135deg,#5b4bdb,#8a4bdb);color:#fff;
+    padding:42px 20px 34px;text-align:center;box-shadow:0 6px 24px rgba(91,75,219,.25)}
+  header.hero .tag{display:inline-block;background:rgba(255,255,255,.18);
+    padding:5px 14px;border-radius:30px;font-size:.8rem;letter-spacing:1px;margin-bottom:10px}
+  header.hero h1{margin:6px 0 4px;font-size:2rem}
+  header.hero p{margin:0;opacity:.92;font-size:.98rem}
+  h2{margin-top:46px;font-size:1.5rem;color:var(--primary);
+    border-bottom:3px solid var(--primary-soft);padding-bottom:8px}
+  h3{margin-top:30px;font-size:1.18rem;color:#33405a}
+  h4{margin:18px 0 6px;font-size:1.02rem;color:#3a2f8f}
+  p{margin:10px 0}
+  ul,ol{margin:10px 0;padding-left:24px}
+  li{margin:6px 0}
+  strong{color:#11203a}
+  em{color:var(--muted)}
+  mark{background:#fff1a8;padding:0 3px;border-radius:3px}
+  .lat{font-style:italic;color:#6a4ea0}
+  .slide-badge{display:inline-block;background:var(--primary-soft);color:var(--primary);
+    font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:6px;margin-bottom:4px;letter-spacing:.5px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+    padding:20px 24px;margin:18px 0;box-shadow:0 2px 8px rgba(30,40,60,.04)}
+  .box{border-radius:12px;padding:14px 18px;margin:16px 0;border-left:6px solid}
+  .box .bt{font-weight:800;display:block;margin-bottom:4px;font-size:.95rem}
+  .clinic{background:var(--teal-soft);border-color:var(--teal)} .clinic .bt{color:var(--teal)}
+  .spot{background:var(--green-soft);border-color:var(--green)} .spot .bt{color:var(--green)}
+  .warn{background:var(--amber-soft);border-color:var(--amber)} .warn .bt{color:var(--amber)}
+  .mnemo{background:var(--pink-soft);border-color:var(--pink)} .mnemo .bt{color:var(--pink)}
+  .flash{background:var(--blue-soft);border:1px dashed var(--blue);border-radius:12px;
+    padding:14px 18px;margin:18px 0}
+  .flash .ft{font-weight:800;color:var(--blue);display:block;margin-bottom:8px;font-size:.92rem}
+  details{background:#fff;border:1px solid #cfe0f5;border-radius:8px;margin:8px 0;padding:4px 12px}
+  details summary{cursor:pointer;font-weight:600;color:#16345c;padding:6px 0}
+  details[open] summary{border-bottom:1px solid #e3ecf7;margin-bottom:6px}
+  details p{margin:6px 0;color:#243446}
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+  th,td{border:1px solid var(--border);padding:9px 11px;text-align:left}
+  th{background:var(--primary-soft);color:#33267a}
+  tr:nth-child(even) td{background:#fafbff}
+  .toc{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 24px;margin:24px 0}
+  .toc a{color:var(--primary);text-decoration:none}
+  .toc a:hover{text-decoration:underline}
+  .pill{display:inline-block;background:#eef0f6;border-radius:6px;padding:1px 7px;font-size:.82rem;color:#444}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="tag">KAYNAK 1 / 4 · EMBRİYOLOJİ FİNALİ</span>
+  <h1>🧬 Gametogenesis</h1>
+  <p>Oogenesis &amp; Spermatogenesis — Asım Savlu M.D. (Histology &amp; Embryology)</p>
+</header>
+
+<div class="wrap">
+
+<div class="toc">
+  <strong>📑 İçindekiler</strong>
+  <ul>
+    <li><a href="#giris">1. Genel Bakış — Gametogenesis Nedir?</a></li>
+    <li><a href="#bolunme">2. Mitoz, Meioz I &amp; Meioz II</a></li>
+    <li><a href="#karsilastirma">3. Olgunlaşma Bölünmelerinin Karşılaştırması (Kritik Şema)</a></li>
+    <li><a href="#oogenesis">4. OOGENESIS</a></li>
+    <li><a href="#regulasyon">5. Ovulasyonun Regülasyonu &amp; Corpus Luteum</a></li>
+    <li><a href="#tasima">6. Oosit Taşınması</a></li>
+    <li><a href="#spermato">7. SPERMATOGENESIS</a></li>
+    <li><a href="#spermio">8. Spermiogenesis &amp; Spermatozoon Yapısı</a></li>
+    <li><a href="#ozet">9. Final Öncesi Süper-Özet Tablosu</a></li>
+  </ul>
+</div>
+
+<!-- ============ 1. GİRİŞ ============ -->
+<h2 id="giris">1. Genel Bakış — Gametogenesis Nedir?</h2>
+
+<div class="card">
+<span class="slide-badge">SLAYT 1–3</span>
+<p><strong>Gametogenesis</strong>, gametlerin (yumurta ve sperm) oluşma sürecidir ve iki kola ayrılır: dişide <strong>oogenesis</strong>, erkekte <strong>spermatogenesis</strong>.</p>
+
+<p>Gametler, <strong>primordiyal germ hücrelerinden (primordial germ cells, PGCs)</strong> köken alır. Bu hücrelerle ilgili bilinmesi gereken kronoloji şudur:</p>
+<ul>
+  <li>PGC'ler, gelişimin <strong>2. haftasında</strong> <span class="pill">epiblast</span> içinde oluşur (<strong>epiblast</strong>).</li>
+  <li>Buradan göç ederek <strong>yolk kesesi (yolk sac)</strong> duvarına yerleşirler.</li>
+  <li>Daha sonra yolk kesesinden, gelişmekte olan <strong>gonadlara (developing gonads)</strong> doğru göç ederler.</li>
+  <li>Hem göç sırasında hem de gonada vardıklarında <strong>mitoz bölünmelerle (mitotic divisions)</strong> sayıları artar.</li>
+</ul>
+
+<p>Döllenmeye (fertilization) hazırlık olarak germ hücreleri gametogenesis sürecinden geçer. Bu süreç <strong>mayoz (meiosis)</strong> içerir ve iki temel amacı vardır:</p>
+<ol>
+  <li><strong>Kromozom sayısının yarıya indirilmesi</strong> — diploid (2n, 46) → haploid (1n, 23).</li>
+  <li><strong>Sitodiferansiyasyon (cytodifferentiation)</strong> ile olgunlaşmanın tamamlanması.</li>
+</ol>
+
+<div class="box clinic">
+  <span class="bt">🦷 Klinik Önemi</span>
+  PGC'lerin göç yolundan sapması, vücudun anormal bölgelerinde (örn. mediastinum, sakrokoksigeal bölge) <strong>germ hücreli tümörlere / teratomlara</strong> yol açabilir. "Yanlış yere göç eden germ hücresi" mantığı, ileride patolojide teratom kaynağını anlamanın anahtarıdır.
+</div>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  PGC'ler <strong>2. haftada epiblastta</strong> belirir, <strong>yolk kesesine</strong> yerleşir, oradan <strong>gonada göç</strong> eder. Sayıları <strong>mitozla</strong> artar; kromozom sayısı ise <strong>mayozla</strong> azalır.
+</div>
+
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>PGC'ler hangi haftada ve hangi tabakada ortaya çıkar?</summary><p>2. haftada, <strong>epiblast</strong> içinde; ardından yolk kesesi duvarına göç ederler.</p></details>
+  <details><summary>Gametogenesis'in iki temel amacı nedir?</summary><p>(1) Kromozom sayısını yarıya indirmek (mayoz), (2) sitodiferansiyasyonla olgunlaşmayı tamamlamak.</p></details>
+  <details><summary>PGC sayısı göç sırasında nasıl artar?</summary><p>Mitoz bölünmelerle (mayozla değil!).</p></details>
+</div>
+</div>
+
+<!-- ============ 2. BÖLÜNME ============ -->
+<h2 id="bolunme">2. Mitoz, Meioz I &amp; Meioz II</h2>
+
+<div class="card">
+<span class="slide-badge">SLAYT 4–5</span>
+<h3>Mitoz (Mitosis)</h3>
+<p>Bir ana hücreden, ana hücreyle <strong>genetik olarak özdeş</strong> iki yavru hücre oluşturur. Kromozom sayısı korunur (diploid → diploid). Gametogenesisin <strong>çoğalma (proliferasyon)</strong> aşamalarında kullanılır.</p>
+
+<h3>Mayoz (Meiosis) — İki ardışık bölünme</h3>
+<p>Mayoz <strong>tek bir DNA replikasyonunu takip eden iki bölünmeden</strong> oluşur ve diploid germ hücresinden dört haploid gamet potansiyeli yaratır.</p>
+
+<h4>Birinci Mayoz Bölünme — Meiosis I (Redüksiyon bölünmesi)</h4>
+<ul>
+  <li>Homolog kromozomlar eşleşir (<strong>synapsis</strong>) ve <strong>tetrad</strong> oluşturur.</li>
+  <li>Homologlar arası genetik madde değişimi olur: <strong>crossing-over</strong> (çapraz değişim) → genetik çeşitlilik.</li>
+  <li>Homolog kromozomlar ayrılır; her yavru hücre <strong>23 adet "çift yapılı" (double-structured) kromozom</strong> alır → kromozom sayısı yarıya iner (2n → 1n).</li>
+</ul>
+
+<h4>İkinci Mayoz Bölünme — Meiosis II (Ekvasyonel)</h4>
+<ul>
+  <li>DNA replikasyonu <strong>OLMADAN</strong> gerçekleşir.</li>
+  <li>Kardeş kromatidler ayrılır → her hücre <strong>23 adet "tek yapılı" (single) kromozom</strong> alır.</li>
+  <li>Mitoza benzer ama haploid hücrede gerçekleşir.</li>
+</ul>
+
+<div class="box mnemo">
+  <span class="bt">🧠 Akılda Tutma</span>
+  <strong>"I'de homolog ayrılır, II'de kardeş kromatid ayrılır."</strong><br>
+  Hatırlatma: <em>Meiosis <strong>I</strong> = sayı <strong>I</strong>kiye iner (redüksiyon). Meiosis <strong>II</strong> = mit<strong>II</strong>z gibi (kromatidler ayrılır, sayı değişmez).</em>
+</div>
+
+<div class="box warn">
+  <span class="bt">⚠️ Dikkat (Klasik Çeldirici)</span>
+  Meioz II öncesinde <strong>DNA kopyalanmaz</strong>. Hocalar "Mayoz II'den önce S fazı vardır" diye sorarsa → <strong>YANLIŞ</strong>. S fazı (DNA replikasyonu) yalnızca Mayoz I'den önce bir kez gerçekleşir.
+</div>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  Mayoz I sonrası kromozom = <strong>23, çift yapılı (2 kromatid)</strong>. Mayoz II sonrası = <strong>23, tek yapılı (1 kromatid)</strong>. "Çift yapılı / tek yapılı" ayrımı sınavda çok sevilir.
+</div>
+
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Crossing-over hangi bölünmede, hangi evrede gerçekleşir?</summary><p>Mayoz I'in profazında (homolog kromozomlar synapsis yaparken).</p></details>
+  <details><summary>Mayoz II hangi yönüyle mitoza benzer?</summary><p>DNA replikasyonu olmadan kardeş kromatidlerin ayrılması yönüyle.</p></details>
+  <details><summary>Tek bir diploid germ hücresinden teorik olarak kaç haploid hücre oluşur?</summary><p>Dört (4) haploid hücre.</p></details>
+</div>
+</div>
+
+<!-- ============ 3. KARŞILAŞTIRMA ============ -->
+<h2 id="karsilastirma">3. Olgunlaşma Bölünmelerinin Karşılaştırması</h2>
+
+<div class="card">
+<span class="slide-badge">SLAYT 8 · Figure 2.5 (ÇOK YÜKSEK İHTİMALLİ)</span>
+<p>Bu şema, dişi ve erkek germ hücrelerinin <strong>aynı mayoz olaylarını yaşadığı ama farklı sayıda gamet ürettiği</strong> kritik karşılaştırmadır.</p>
+
+<table>
+  <tr><th>Özellik</th><th>Dişi (Primary Oocyte)</th><th>Erkek (Primary Spermatocyte)</th></tr>
+  <tr><td>DNA replikasyonu sonrası</td><td>46 çift-yapılı kromozom</td><td>46 çift-yapılı kromozom</td></tr>
+  <tr><td>Mayoz I sonrası</td><td>1 sekonder oosit + 1 polar cisim (her biri 23 çift-yapılı)</td><td>2 sekonder spermatosit (her biri 23 çift-yapılı)</td></tr>
+  <tr><td>Mayoz II sonrası</td><td>1 olgun oosit (22+X) + polar cisimler</td><td>4 spermatid → 4 spermatozoa</td></tr>
+  <tr><td>Sonuç gamet sayısı</td><td><mark>1 fonksiyonel gamet</mark></td><td><mark>4 fonksiyonel gamet</mark></td></tr>
+  <tr><td>Sitoplazma dağılımı</td><td>Eşitsiz (oosite yoğunlaşır)</td><td>Eşit</td></tr>
+</table>
+
+<div class="box clinic">
+  <span class="bt">🦷 Klinik Önemi</span>
+  Dişide sitoplazmanın tek bir hücreye (oosit) toplanması, embriyonun ilk bölünmeleri için gereken besin ve organel deposunu sağlar. <strong>Polar cisimler</strong> ise fazla kromozomu "atık" olarak uzaklaştırır — bu strateji, preimplantasyon genetik tanıda (polar body biyopsisi) klinik olarak da kullanılır.
+</div>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  Bir <strong>primer oosit → 1 olgun yumurta</strong>; bir <strong>primer spermatosit → 4 sperm</strong>. Bu "1'e karşı 4" oranı klasik final sorusudur.
+</div>
+
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Neden oogenesiste sadece 1 gamet, spermatogenesiste 4 gamet oluşur?</summary><p>Oogenesiste sitoplazma eşitsiz dağılır; fazla kromozom seti polar cisimler olarak atılır, böylece tek bir besin-zengini oosit oluşur. Spermatogenesiste bölünme eşittir.</p></details>
+  <details><summary>Olgun oositin kromozom yapısı nasıl ifade edilir?</summary><p>22 + X (haploid, tek yapılı).</p></details>
+</div>
+</div>
+
+<!-- ============ 4. OOGENESIS ============ -->
+<h2 id="oogenesis">4. OOGENESIS</h2>
+
+<div class="card">
+<span class="slide-badge">SLAYT 9–11</span>
+<h3>Tanım ve Doğum Öncesi Başlangıç</h3>
+<p><strong>Oogenesis</strong>, oogonyumların <strong>(oogonia)</strong> olgun oositlere <strong>(oocytes)</strong> farklılaştığı süreçtir. Kritik özelliği: <mark>oositlerin olgunlaşması DOĞUMDAN ÖNCE başlar.</mark></p>
+<ul>
+  <li>PGC'ler genetik dişinin gonadına vardığında <strong>oogonyumlara</strong> farklılaşır.</li>
+  <li>Oogonyumlar çok sayıda <strong>mitoz</strong> geçirir ve kümeler hâlinde dizilir; her küme, yassı epitel hücrelerinden oluşan bir tabakayla çevrilidir.</li>
+  <li>Bu yassı epitel hücreleri <strong>folikül hücreleri (follicular cells)</strong> olarak adlandırılır ve overin yüzey epitelinden köken alır.</li>
+  <li>Oogonyumların çoğu mitozla bölünmeye devam ederken, bir kısmı <strong>Mayoz I'in profazında</strong> bölünmesini durdurur → bunlara artık <strong>primer oosit (primary oocyte)</strong> denir.</li>
+  <li>Bir primer oosit + onu çevreleyen yassı epitel hücreleri = <strong>primordiyal folikül (primordial follicle)</strong>.</li>
+</ul>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  Primordiyal folikül = <strong>primer oosit + tek sıra yassı folikül hücresi</strong>. Primer oosit, doğumdan çok önce <strong>Mayoz I profazında</strong> durmuş hâldedir.
+</div>
+</div>
+
+<div class="card">
+<span class="slide-badge">SLAYT 15</span>
+<h3>Pubertede Olgunlaşmanın Devamı &amp; Oosit Sayıları</h3>
+<ul>
+  <li>Doğuma yakın dönemde tüm primer oositler Mayoz I'in profazını tamamlamıştır; ancak metafaza geçmek yerine <strong>diploten (diplotene)</strong> evresine girer ve burada beklerler.</li>
+  <li>Primer oositler, puberte gelene kadar <strong>profazda arrest (duraklamış)</strong> kalır; ilk mayoz bölünmelerini bitiremezler.</li>
+  <li>Bu duraklamayı, folikül hücrelerinin salgıladığı küçük bir peptit olan <strong>oosit olgunlaşma inhibitörü (oocyte maturation inhibitor, OMI)</strong> sağlar.</li>
+</ul>
+
+<h4>Oosit sayıları (sınavlık rakamlar)</h4>
+<ul>
+  <li>Doğumda toplam primer oosit: <strong>600.000 – 800.000</strong>.</li>
+  <li>Çocukluk boyunca çoğu <strong>atretik (atretic)</strong> hâle gelir (dejenere olur).</li>
+  <li>Pubertede yaklaşık <strong>40.000</strong> kalır.</li>
+  <li>Üreme yaşamı boyunca yalnızca <strong>~400 tanesi ovüle</strong> edilir.</li>
+</ul>
+
+<div class="box warn">
+  <span class="bt">⚠️ Dikkat</span>
+  Primer oosit, Mayoz I'i <strong>diploten</strong> evresinde durdurur — "metafaz I'de durur" şeklindeki seçenek <strong>çeldiricidir</strong>. Ayrıca duraklamayı sağlayan molekül <strong>OMI</strong>'dir (LH değil).
+</div>
+
+<div class="box clinic">
+  <span class="bt">🦷 Klinik Önemi</span>
+  Primer oositin onlarca yıl Mayoz I'de beklemesi, ileri anne yaşında <strong>nondisjunction (ayrılmama)</strong> riskini artırır → <strong>Trizomi 21 (Down sendromu)</strong> sıklığının yaşla artmasının embriyolojik temeli budur.
+</div>
+
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Primer oosit Mayoz I'in hangi alt evresinde duraklar ve hangi molekül sayesinde?</summary><p>Diploten evresinde; folikül hücrelerinden salgılanan OMI (oocyte maturation inhibitor) sayesinde.</p></details>
+  <details><summary>Doğumda, pubertede ve toplam ovülasyon sayıları nedir?</summary><p>Doğum: ~600.000–800.000; puberte: ~40.000; ovüle edilen: ~400.</p></details>
+  <details><summary>İleri anne yaşında Down sendromu riskinin artmasının embriyolojik nedeni nedir?</summary><p>Primer oositin uzun süre Mayoz I'de duraklaması → nondisjunction riskinin artması.</p></details>
+</div>
+</div>
+
+<div class="card">
+<span class="slide-badge">SLAYT 16–19, 21</span>
+<h3>Folikül Gelişimi — Primordiyal'den Graaf Folikülüne</h3>
+<p>Bu sıralama, oogenesisin <strong>en çok soru gelen</strong> kısmıdır. Aşamaları:</p>
+
+<h4>1) Primer Folikül (Primary follicle)</h4>
+<ul>
+  <li>Primordiyal folikül büyümeye başladığında, çevredeki folikül hücreleri <strong>yassı (flat) → kübik (cuboidal)</strong> hâle gelir.</li>
+  <li>Bunlar çoğalarak çok katlı bir epitel oluşturur: <strong>granuloza hücreleri (granulosa cells)</strong> → buna <strong>primer folikül</strong> denir.</li>
+  <li>Granuloza hücreleri bir <strong>bazal membran (basement membrane)</strong> üzerinde oturur; bu membran onları stromal hücrelerden ayırır. Stromal hücreler de <strong>theca folliculi</strong>'yi oluşturur.</li>
+</ul>
+
+<h4>2) Zona Pellucida'nın oluşumu</h4>
+<ul>
+  <li>Granuloza hücreleri ve oosit birlikte, oosit yüzeyinde bir glikoprotein tabakası salgılar: <strong>zona pellucida</strong>.</li>
+</ul>
+
+<h4>3) Theca tabakalarının organizasyonu</h4>
+<ul>
+  <li>Folikül büyüdükçe theca hücreleri iki tabakaya ayrılır:</li>
+  <li><strong>Theca interna</strong> → iç, salgı yapan (sekretuar) hücre tabakası.</li>
+  <li><strong>Theca externa</strong> → dış, fibröz kapsül.</li>
+</ul>
+
+<h4>4) Sekonder / Antral (Vesiküler) Folikül</h4>
+<ul>
+  <li>Granuloza hücreleri arasında sıvı birikir ve <strong>antrum</strong> denen boşluk oluşur → folikül artık <strong>antral (vesiküler) folikül</strong> aşamasındadır.</li>
+  <li>Oositi çevreleyip ona tutunmuş kalan granuloza hücreleri <strong>cumulus oophorus</strong> adını alır.</li>
+</ul>
+
+<h4>5) Olgun / Graaf Folikülü (Graafian follicle)</h4>
+<ul>
+  <li>Sıvı birikmeye devam eder; ovülasyondan hemen önce folikül oldukça şişer → <strong>olgun folikül = Graaf folikülü</strong>.</li>
+  <li>Olgun vesiküler folikül <strong>25 mm veya daha büyük</strong> çapa ulaşabilir.</li>
+</ul>
+
+<p><strong>Folikül havuzu dinamiği:</strong> Pubertede, primordiyal folikül deposundan sürekli beslenen bir "büyüyen folikül havuzu" kurulur. Her ay bu havuzdan <strong>15–20 folikül</strong> seçilir; bir kısmı ölür (atrezi), diğerleri antrum geliştirir. Her ovaryan siklusta birden çok folikül başlasa da, <mark>genellikle yalnızca biri tam olgunluğa ulaşır</mark>; diğerleri atretik olur.</p>
+
+<div class="box mnemo">
+  <span class="bt">🧠 Akılda Tutma — Folikül Sırası</span>
+  <strong>"Primordiyal Profesör Sınıfta Antrum Görür"</strong><br>
+  <strong>Primordiyal → Primer → Sekonder (Antral) → Graaf</strong><br>
+  Eşlik eden değişim: <em>Yassı → Kübik → Çok katlı + Antrum → Şişmiş + büyük antrum</em>.
+</div>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  <strong>Zona pellucida</strong> = oosit + granuloza ortak ürünü (glikoprotein). <strong>Cumulus oophorus</strong> = oosite yapışık granuloza hücreleri. <strong>Antrum</strong> = sekonder folikülü tanımlayan sıvı boşluğu. <strong>Graaf folikülü</strong> = ovülasyon öncesi olgun folikül.
+</div>
+
+<div class="box warn">
+  <span class="bt">⚠️ Dikkat</span>
+  <strong>Theca interna</strong> salgısaldır (hormon yapımına katılır), <strong>theca externa</strong> fibröz/destek dokudur. Bu ikisini ters sormak en sık çeldiricidir. Ayrıca granuloza hücreleri ile theca'yı ayıran <strong>bazal membrandır</strong>.
+</div>
+
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Folikül gelişim sırasını söyle.</summary><p>Primordiyal → Primer → Sekonder (Antral/Vesiküler) → Olgun (Graaf) folikül.</p></details>
+  <details><summary>Zona pellucida'yı hangi hücreler üretir?</summary><p>Oosit ve granuloza hücreleri birlikte üretir.</p></details>
+  <details><summary>Theca interna ile theca externa arasındaki fonksiyonel fark nedir?</summary><p>Theca interna salgısal (hormon üretimine katkı), theca externa fibröz dış kapsüldür.</p></details>
+  <details><summary>Olgun vesiküler folikülün çapı yaklaşık kaçtır?</summary><p>25 mm veya daha fazla.</p></details>
+</div>
+</div>
+
+<div class="card">
+<span class="slide-badge">SLAYT 22</span>
+<h3>Ovülasyon Öncesi Olgunlaşma ve Mayozun Tamamlanması</h3>
+<ul>
+  <li>Sekonder folikül olgunlaştığında, <strong>luteinizan hormon (luteinizing hormone, LH)</strong> artışı <strong>preovülatuar büyüme fazını</strong> başlatır.</li>
+  <li><strong>Mayoz I tamamlanır</strong> → eşit olmayan boyutta iki yavru hücre: bir büyük <strong>sekonder oosit</strong> ve bir küçük <strong>birinci polar cisim (first polar body)</strong>. Her biri <strong>23 çift yapılı kromozom</strong> taşır.</li>
+  <li>Hücre hemen <strong>Mayoz II</strong>'ye girer ama <strong>metafaz II'de yeniden duraklar</strong> (ovülasyondan ~3 saat önce).</li>
+  <li><mark>Mayoz II yalnızca oosit DÖLLENİRSE tamamlanır</mark>; döllenme olmazsa hücre ovülasyondan ~24 saat sonra dejenere olur.</li>
+  <li>Birinci polar cisim de bir bölünme daha geçirebilir.</li>
+</ul>
+
+<div class="box warn">
+  <span class="bt">⚠️ Dikkat — En Sevilen Çeldirici</span>
+  Ovülasyon sırasında atılan hücre <strong>sekonder oosit</strong>tir ve <strong>Metafaz II'de duraklamış</strong> hâldedir. "Ovülasyonda olgun yumurta atılır" → <strong>YANLIŞ</strong>. Mayoz II ancak <strong>döllenme</strong> ile tamamlanır.
+</div>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  İki arrest noktası: <strong>(1) Primer oosit → Profaz I (diploten)</strong>, doğumdan pubertyye kadar. <strong>(2) Sekonder oosit → Metafaz II</strong>, döllenmeye kadar.
+</div>
+
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Ovülasyonda atılan hücre hangisidir ve hangi evrede durmuştur?</summary><p>Sekonder oosit; Metafaz II'de duraklamıştır.</p></details>
+  <details><summary>Mayoz II ne zaman tamamlanır?</summary><p>Sadece döllenme gerçekleşirse.</p></details>
+  <details><summary>Oogenesisteki iki mayotik arrest noktasını söyle.</summary><p>Profaz I (diploten) — primer oosit; Metafaz II — sekonder oosit.</p></details>
+</div>
+</div>
+
+<!-- ============ 5. REGÜLASYON ============ -->
+<h2 id="regulasyon">5. Ovulasyonun Regülasyonu &amp; Corpus Luteum</h2>
+
+<div class="card">
+<span class="slide-badge">SLAYT 24–26</span>
+<h3>Hipotalamus–Hipofiz–Over Ekseni</h3>
+<p>Pubertede dişi düzenli <strong>seksüel siklusları</strong> yaşamaya başlar. Bu sikluslar hipotalamus tarafından kontrol edilir:</p>
+<ol>
+  <li>Hipotalamus → <strong>Gonadotropin-releasing hormone (GnRH)</strong> salgılar.</li>
+  <li>GnRH, hipofiz ön lobuna <strong>(anterior lobe / adenohypophysis)</strong> etki eder.</li>
+  <li>Ön hipofiz → iki gonadotropin salgılar: <strong>Follicle-stimulating hormone (FSH)</strong> ve <strong>Luteinizing hormone (LH)</strong>.</li>
+  <li>FSH ve LH, overdeki siklik değişiklikleri uyarır ve kontrol eder.</li>
+</ol>
+
+<h4>Folikül (Proliferatif) Faz</h4>
+<ul>
+  <li>Her siklusun başında <strong>15–20 primer folikül</strong> FSH etkisiyle büyümeye uyarılır.</li>
+  <li>Normal koşullarda yalnızca <strong>biri tam olgunluğa</strong> ulaşır; tek bir oosit atılır, diğerleri dejenere olur (atrezi).</li>
+  <li>FSH ayrıca granuloza hücrelerinin olgunlaşmasını uyarır.</li>
+  <li><strong>Theca interna + granuloza hücreleri birlikte östrojen (estrogen) üretir.</strong></li>
+  <li>Östrojen etkisiyle uterus endometriumu <strong>folliküler/proliferatif faza</strong> girer; servikal mukus incelir (sperm geçişine izin vermek için); ön hipofiz LH salgılamak üzere uyarılır.</li>
+</ul>
+
+<h4>LH Dalgası (LH surge) — Siklus ortası</h4>
+<p>Siklus ortasında bir <strong>LH dalgası</strong> oluşur ve şunları yapar:</p>
+<ul>
+  <li><strong>Maturation-promoting factor (MPF)</strong> düzeyini yükseltir → oositler <strong>Mayoz I'i tamamlar</strong> ve Mayoz II'yi başlatır.</li>
+  <li>Folliküler stromal hücrelerde <strong>progesteron</strong> üretimini uyarır (luteinizasyon).</li>
+  <li><strong>Folikül rüptürünü ve ovülasyonu</strong> başlatır.</li>
+</ul>
+
+<div class="box mnemo">
+  <span class="bt">🧠 Akılda Tutma — Hormon Görev Dağılımı</span>
+  <strong>"FSH = Folikül büyütür (Follicle), LH = Lüleyi patlatır (ovülasyon + Luteinizasyon)."</strong><br>
+  Eksen sırası: <strong>GnRH → FSH/LH</strong> ("Generalden Önce, Sonra Hareket": GnRH önce, gonadotropinler sonra).
+</div>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  <strong>FSH</strong> → folikül büyümesi + östrojen. <strong>LH surge</strong> → Mayoz I tamamlanması + ovülasyon + luteinizasyon (progesteron). Östrojen kaynağı = <strong>theca interna + granuloza</strong> işbirliği.
+</div>
+
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>LH dalgasının üç temel etkisi nedir?</summary><p>(1) Mayoz I'in tamamlanması (MPF artışı), (2) progesteron üretimi/luteinizasyon, (3) folikül rüptürü ve ovülasyon.</p></details>
+  <details><summary>Östrojen overde hangi hücrelerin işbirliğiyle üretilir?</summary><p>Theca interna ve granuloza hücreleri.</p></details>
+  <details><summary>HPO ekseninin hormon sırası nedir?</summary><p>GnRH (hipotalamus) → FSH ve LH (ön hipofiz) → over.</p></details>
+</div>
+</div>
+
+<div class="card">
+<span class="slide-badge">SLAYT 28</span>
+<h3>Corpus Luteum</h3>
+<ul>
+  <li>Ovülasyondan sonra, folikül duvarında kalan <strong>granuloza hücreleri</strong> ve <strong>theca interna</strong> hücreleri çevredeki damarlarla beslenir.</li>
+  <li><strong>LH etkisiyle</strong> bu hücreler sarımsı pigment kazanır ve <strong>lutein hücrelerine (lutein cells)</strong> dönüşür → <strong>corpus luteum</strong>'u oluşturur.</li>
+  <li>Corpus luteum <strong>östrojen ve progesteron</strong> salgılar.</li>
+  <li><strong>Progesteron</strong> (bir miktar östrojenle birlikte) uterus mukozasını <strong>sekretuar (salgı) evreye</strong> sokar → implantasyona hazırlık.</li>
+</ul>
+
+<div class="box clinic">
+  <span class="bt">🦷 Klinik Önemi</span>
+  Gebelik olmazsa corpus luteum gerileyerek <strong>corpus albicans</strong>'a döner; progesteron düşer ve menstruasyon başlar. Gebelikte ise <strong>hCG</strong> corpus luteumu canlı tutarak progesteron desteğini sürdürür — bu, gebelik testlerinin temelidir.
+</div>
+
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Corpus luteum hangi iki hücre tipinden oluşur ve hangi hormonu salgılar?</summary><p>Granuloza + theca interna hücrelerinden (lutein hücreleri); ağırlıklı olarak progesteron, ayrıca östrojen salgılar.</p></details>
+  <details><summary>Progesteron endometriumu hangi evreye sokar?</summary><p>Sekretuar (salgı) evreye — implantasyona hazırlık.</p></details>
+</div>
+</div>
+
+<!-- ============ 6. TAŞIMA ============ -->
+<h2 id="tasima">6. Oosit Taşınması (Oocyte Transport)</h2>
+
+<div class="card">
+<span class="slide-badge">SLAYT 30</span>
+<ul>
+  <li>Ovülasyondan hemen önce, uterin tubanın <strong>fimbriaları</strong> over yüzeyini süpürür ve tuba ritmik olarak kasılmaya başlar.</li>
+  <li>Bir miktar granuloza hücresiyle çevrili oosit, fimbriaların süpürme hareketleri ve epitel yüzeyindeki <strong>sil (cilia)</strong> hareketleriyle tubaya alınır.</li>
+  <li>Tuba içinde oosit, <strong>peristaltik kas kasılmaları</strong> ve mukozadaki sillerle ilerletilir.</li>
+  <li>İnsanda döllenmiş oosit, uterus boşluğuna yaklaşık <strong>3–4 gün</strong>de ulaşır.</li>
+</ul>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  Taşınma iki mekanizmayla olur: <strong>kas kasılması (peristaltizm) + silyer hareket</strong>. Uterusa varış süresi: <strong>3–4 gün</strong>.
+</div>
+
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Oositin tubadan uterusa taşınmasını sağlayan iki mekanizma nedir?</summary><p>Peristaltik kas kasılmaları ve tubal mukozadaki sillerin (cilia) hareketi.</p></details>
+  <details><summary>Döllenmiş oosit uterusa kaç günde ulaşır?</summary><p>Yaklaşık 3–4 gün.</p></details>
+</div>
+</div>
+
+<!-- ============ 7. SPERMATOGENESIS ============ -->
+<h2 id="spermato">7. SPERMATOGENESIS</h2>
+
+<div class="card">
+<span class="slide-badge">SLAYT 32–37</span>
+<h3>Erkek Üreme Sistemi &amp; Testis Yapısı</h3>
+<p>Erkek üreme sistemi: askıda duran iki <strong>testis</strong>, testis içi/dışı genital kanal sistemi, ilişkili bezler ve kopulatuar organ <strong>penis</strong>'ten oluşur.</p>
+
+<h4>Fonksiyonlar</h4>
+<ul>
+  <li><strong>Spermatozoa üretimi</strong> (spermatogenesis).</li>
+  <li>Spermatozoanın testisten vücut dışına <strong>taşınması</strong>.</li>
+  <li>Bezlerin <strong>salgıları</strong> (seminal sıvı).</li>
+  <li>Spermatozoanın <strong>dişi üreme yoluna yerleştirilmesi</strong>.</li>
+</ul>
+
+<h4>Kanal sistemi (spermin yolu)</h4>
+<ul>
+  <li>Her bir <strong>lobulus testis</strong> 1–4 adet <strong>seminifer tübül (seminiferous tubule)</strong> içerir.</li>
+  <li>Yol sırası: Seminifer tübüller → <strong>tubuli recti</strong> (düz kanallar) → <strong>rete testis (mediastinum testis içinde)</strong> → <strong>ductuli efferentes</strong> → <strong>epididymis</strong> → <strong>ductus deferens</strong>.</li>
+  <li>Ductus deferens'in ampullası <strong>seminal vezikül</strong> ile birleşir → <strong>prostat bezi</strong>ne girer ve <strong>prostatik üretra</strong>ya açılır.</li>
+</ul>
+
+<h4>Testisin iki kritik hücresi</h4>
+<ul>
+  <li><strong>Leydig hücreleri (interstisyel hücreler)</strong> → seminifer tübüller <em>arasında</em>; <strong>testosteron</strong> üretir. (Endoplazmik retikulumdan zengin, steroid üreten hücrelerdir.)</li>
+  <li><strong>Sertoli hücreleri (destek hücreleri)</strong> → seminifer tübül <em>içinde</em>; germ hücrelerini destekler, besler ve korur.</li>
+</ul>
+
+<div class="box mnemo">
+  <span class="bt">🧠 Akılda Tutma — Spermin Yolu</span>
+  <strong>"SE-TU-RE-EF-EP-De" → Seminifer → Tubuli recti → REte testis → EFferent kanallar → EPididim → Ductus Deferens.</strong><br>
+  İngilizce klasik: <strong>"SEVEN UP"</strong> → <u>S</u>eminiferous tubules, <u>E</u>pididymis, <u>V</u>as (ductus) deferens, <u>E</u>jaculatory duct, (<u>N</u>othing), <u>U</u>rethra, <u>P</u>enis.
+</div>
+
+<div class="box warn">
+  <span class="bt">⚠️ Dikkat — Leydig vs Sertoli</span>
+  <strong>Leydig = tübül DIŞI, testosteron.</strong> <strong>Sertoli = tübül İÇİ, destek + besleme.</strong> Bu ikisinin yeri ve görevi sürekli ters sorulur.
+</div>
+
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Testosteronu hangi hücre, nerede üretir?</summary><p>Leydig (interstisyel) hücreleri, seminifer tübüller arasında.</p></details>
+  <details><summary>Spermin testisten üretraya kadar izlediği yolu sırala.</summary><p>Seminifer tübül → tubuli recti → rete testis → ductuli efferentes → epididymis → ductus deferens → ejakülatör kanal → üretra.</p></details>
+  <details><summary>Sertoli hücrelerinin görevleri nelerdir?</summary><p>Germ hücrelerini desteklemek, beslemek, korumak ve olgun spermatozoanın salınmasına yardım etmek.</p></details>
+</div>
+</div>
+
+<div class="card">
+<span class="slide-badge">SLAYT 39–40</span>
+<h3>Spermatogenesis Hücre Dizisi</h3>
+<ul>
+  <li>Doğumda erkek bebeğin testisinde germ hücreleri, destek hücreleriyle çevrili <strong>büyük, soluk hücreler</strong> olarak tanınır.</li>
+  <li>Destek hücreleri (yüzey epitelinden köken alır, tıpkı folikül hücreleri gibi) → <strong>Sertoli hücreleri</strong> olur.</li>
+  <li>Pubertten kısa süre önce: seks kordonları <strong>lümen kazanır</strong> → <strong>seminifer tübüller</strong> oluşur. Aynı dönemde PGC'ler <strong>spermatogonial kök hücrelere</strong> dönüşür.</li>
+  <li>Kök hücre havuzundan düzenli aralıklarla <strong>Tip A spermatogonyum (type A spermatogonia)</strong> çıkar → spermatogenesisin başlangıcını işaretler.</li>
+  <li>Tip A hücreleri sınırlı sayıda mitoz geçirir; son bölünme <strong>Tip B spermatogonyum (type B spermatogonia)</strong> üretir.</li>
+  <li>Tip B → <strong>primer spermatosit (primary spermatocyte)</strong> oluşturur.</li>
+  <li>Primer spermatositler <strong>uzun bir profaza (~22 gün)</strong> girer, ardından Mayoz I hızla tamamlanır → <strong>sekonder spermatosit (secondary spermatocyte)</strong>.</li>
+  <li>Sekonder spermatositler hemen Mayoz II'ye girer → haploid <strong>spermatid (spermatids)</strong> oluşur.</li>
+  <li>Spermatogonyumlar ve spermatidler, gelişimleri boyunca <strong>Sertoli hücrelerinin derin girintilerine gömülü</strong> kalır.</li>
+</ul>
+
+<div class="box mnemo">
+  <span class="bt">🧠 Akılda Tutma — Spermatogenesis Sırası</span>
+  <strong>"A-B Primer Sekonder Spermatid Sperm"</strong><br>
+  <strong>Tip A → Tip B spermatogonyum → Primer spermatosit → Sekonder spermatosit → Spermatid → Spermatozoon</strong>
+</div>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  <strong>Tip A</strong> = kök hücre havuzunu yenileyen ("yedek"). <strong>Tip B</strong> = primer spermatosite ilerleyen ("ileri giden"). Primer spermatositin profazı <strong>~22 gün</strong> sürer.
+</div>
+
+<div class="box warn">
+  <span class="bt">⚠️ Dikkat</span>
+  <strong>Mitoz</strong> spermatogonyum aşamasında (Tip A→B), <strong>Mayoz</strong> ise primer spermatositten itibaren olur. "Sekonder spermatosit diploiddir" → <strong>YANLIŞ</strong>; sekonder spermatosit zaten haploiddir (23 çift-yapılı).
+</div>
+
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Tip A ve Tip B spermatogonyum arasındaki fark nedir?</summary><p>Tip A kök hücre havuzunu yeniler; Tip B primer spermatosite farklılaşır.</p></details>
+  <details><summary>Primer spermatosit ne kadar süren bir profaz geçirir?</summary><p>Yaklaşık 22 gün.</p></details>
+  <details><summary>Spermatidler hangi hücrenin içine gömülü olarak gelişir?</summary><p>Sertoli hücrelerinin derin girintilerinde.</p></details>
+</div>
+</div>
+
+<!-- ============ 8. SPERMİOGENESİS ============ -->
+<h2 id="spermio">8. Spermiogenesis &amp; Spermatozoon Yapısı</h2>
+
+<div class="card">
+<span class="slide-badge">SLAYT 43</span>
+<h3>Spermiogenesis (Spermatid → Spermatozoon dönüşümü)</h3>
+<p><strong>Spermiogenesis</strong>, yuvarlak spermatidin olgun, hareketli spermatozoona dönüştüğü morfolojik değişim serisidir. Dört temel değişim:</p>
+<ol>
+  <li><strong>Akrozom (acrosome) oluşumu</strong> — çekirdek yüzeyinin yarısını örter; döllenmede oositin örtülerini delmeye yarayan <strong>enzimleri</strong> içerir.</li>
+  <li><strong>Çekirdeğin yoğunlaşması (condensation of the nucleus)</strong>.</li>
+  <li><strong>Boyun (neck), orta parça (middle piece) ve kuyruk (tail)</strong> oluşumu.</li>
+  <li><strong>Sitoplazmanın büyük kısmının atılması</strong> → <strong>rezidüel cisimler (residual bodies)</strong> hâlinde Sertoli hücrelerince <strong>fagosite</strong> edilir.</li>
+</ol>
+
+<h4>Zaman ve sayı (sınavlık)</h4>
+<ul>
+  <li>Bir spermatogonyumdan olgun spermatozoona: <strong>~74 gün</strong>.</li>
+  <li>Günlük üretilen sperm: <strong>~300 milyon</strong>.</li>
+  <li>Olgun spermatozoa seminifer tübül lümenine geçer; tübül duvarındaki kasılmalarla <strong>epididime</strong> itilir. Başlangıçta hareketsizdirler; <strong>tam hareketliliği (motiliteyi) EPİDİDİMDE kazanırlar.</strong></li>
+</ul>
+
+<div class="box mnemo">
+  <span class="bt">🧠 Akılda Tutma — Spermiogenesis 4 Adımı</span>
+  <strong>"A-Ç-B-S" → Akrozom, Çekirdek yoğunlaşması, Boyun-orta parça-kuyruk, Sitoplazma atılması.</strong>
+</div>
+
+<div class="box warn">
+  <span class="bt">⚠️ Dikkat</span>
+  Sperm <strong>tam motiliteyi epididimde</strong> kazanır (testiste değil). Ayrıca döllenme yeteneği için dişi yolunda <strong>kapasitasyon (capacitation)</strong> gerekir — bu detay sonraki konuda işlenir ama çeldirici olarak çıkabilir.
+</div>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  Spermatogenesis süresi <strong>~74 gün</strong>; günde <strong>~300 milyon</strong> sperm; motilite kazanımı <strong>epididim</strong>de.
+</div>
+</div>
+
+<div class="card">
+<span class="slide-badge">SLAYT 46</span>
+<h3>Spermatozoa'nın Yapısı (Structure of Spermatozoa)</h3>
+<table>
+  <tr><th>Bölge</th><th>Yapı</th><th>Özellik / İçerik</th></tr>
+  <tr><td rowspan="4"><strong>Baş (Head)</strong></td><td>Haploid çekirdek</td><td>Başın ana bileşeni (genetik materyal).</td></tr>
+  <tr><td>Akrozomal başlık (acrosomal cap)</td><td>Hidrolitik enzimler ve proteazlar (<strong>acrosin</strong>).</td></tr>
+  <tr><td>Post-akrozomal kılıf</td><td>Çekirdeğin tabanını sarar.</td></tr>
+  <tr><td>Reseptör molekülleri</td><td>Homolog oositi tanır (tür-spesifik bağlanma).</td></tr>
+  <tr><td rowspan="3"><strong>Kuyruk (Tail)</strong></td><td>Boyun (neck)</td><td>Bir <strong>sentriol (centriole)</strong> içerir.</td></tr>
+  <tr><td>Orta parça (middle piece)</td><td>Merkezi + periferik mikrotübüller (+ mitokondri kını, enerji).</td></tr>
+  <tr><td>Uç parça (end piece)</td><td>Yalnızca mikrotübüller içerir.</td></tr>
+</table>
+
+<div class="box clinic">
+  <span class="bt">🦷 Klinik Önemi</span>
+  <strong>Acrosin</strong> ve akrozom enzimleri zona pellucida'yı delmek için şarttır; <strong>akrozom reaksiyonu</strong> bozuksa erkek infertilitesi görülür. Orta parçadaki <strong>mitokondriler</strong> kuyruğun hareketi için ATP sağlar — mitokondri bozukluğu → düşük motilite.
+</div>
+
+<div class="box spot">
+  <span class="bt">🎯 Spot Bilgi</span>
+  <strong>Akrozom = enzim (acrosin) deposu, döllenmede zarı deler.</strong> <strong>Boyunda sentriol</strong>, <strong>orta parçada mitokondri (enerji)</strong> bulunur.
+</div>
+
+<div class="flash">
+  <span class="ft">🃏 Flashcard</span>
+  <details><summary>Akrozomdaki başlıca proteolitik enzim nedir ve görevi nedir?</summary><p>Acrosin; döllenmede oositin örtülerini (zona pellucida vb.) delmeye yardım eder.</p></details>
+  <details><summary>Spermin enerji üretiminden sorumlu mitokondriler hangi parçada yoğunlaşır?</summary><p>Orta parçada (middle piece).</p></details>
+  <details><summary>Sperm tam hareketliliği nerede kazanır?</summary><p>Epididimde.</p></details>
+</div>
+</div>
+
+<!-- ============ 9. ÖZET TABLO ============ -->
+<h2 id="ozet">9. Final Öncesi Süper-Özet Tablosu</h2>
+
+<div class="card">
+<table>
+  <tr><th>Karşılaştırma</th><th>Oogenesis (♀)</th><th>Spermatogenesis (♂)</th></tr>
+  <tr><td>Başlangıç zamanı</td><td>Fetal dönemde (doğumdan önce)</td><td>Pubertede</td></tr>
+  <tr><td>Kök hücre</td><td>Oogonyum (doğumda biter)</td><td>Spermatogonyum (ömür boyu devam eder)</td></tr>
+  <tr><td>Mayoz I arrest</td><td>Profaz I (diploten) — yıllarca</td><td>Arrest yok (sürekli)</td></tr>
+  <tr><td>Mayoz II arrest</td><td>Metafaz II (döllenmeye kadar)</td><td>Arrest yok</td></tr>
+  <tr><td>Gamet sayısı / hücre</td><td>1 oosit + polar cisimler</td><td>4 spermatozoa</td></tr>
+  <tr><td>Süre</td><td>Onlarca yıl sürebilir</td><td>~74 gün</td></tr>
+  <tr><td>Destek hücresi</td><td>Granuloza hücreleri</td><td>Sertoli hücreleri</td></tr>
+  <tr><td>Steroid üreten hücre</td><td>Theca interna + granuloza (östrojen)</td><td>Leydig (testosteron)</td></tr>
+  <tr><td>Son şekillenme</td><td>—</td><td>Spermiogenesis</td></tr>
+</table>
+
+<div class="box mnemo">
+  <span class="bt">🧠 Büyük Resim — Tek Cümlede</span>
+  <em>"Kadında bir hücre ömür boyu duraklayıp tek bir besili yumurta verirken (2 arrest, 1 gamet); erkekte 74 günde durmaksızın dört sperm üretilir (0 arrest, 4 gamet)."</em>
+</div>
+</div>
+
+<p style="text-align:center;color:var(--muted);margin-top:40px;font-size:.9rem">
+✅ <strong>Kaynak 1 / 4 tamamlandı: Gametogenesis.</strong><br>
+Sırada: Fertilization &amp; 1st Week of Life · 2nd &amp; 3rd Week · 3rd–8th Week &amp; Fetal Period
+</p>
+
+</div>
+</body>
+</html>

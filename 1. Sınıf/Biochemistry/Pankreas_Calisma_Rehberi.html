@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pankreas (Endokrin & Ekzokrin) — Slayt Slayt Final Rehberi</title>
+<style>
+  :root{
+    --bg:#f5f0e9;--paper:#fff;--ink:#241e16;--muted:#5a4f44;
+    --brand:#b45309;--brand-dark:#7c3a06;--brand-soft:#fdf0dd;
+    --teal:#0c7d8c;--teal-soft:#e6f5f7;
+    --amber:#a16207;--amber-soft:#fdf6e3;
+    --red:#b3261e;--red-soft:#fcebe9;
+    --green:#1e7a46;--green-soft:#e8f6ee;
+    --purple:#5b3a91;--purple-soft:#f0eafa;
+    --line:#e6ddd0;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Calibri,system-ui,sans-serif;line-height:1.6;font-size:17px;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 18px 80px;}
+  header.hero{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff;border-radius:18px;padding:34px 30px;margin-bottom:24px;box-shadow:0 8px 24px rgba(124,58,6,.25);}
+  header.hero .tag{font-size:14px;letter-spacing:2px;text-transform:uppercase;opacity:.85;}
+  header.hero h1{margin:.2em 0 .15em;font-size:1.95rem;font-family:Georgia,serif;}
+  header.hero p{margin:.2em 0;opacity:.92;font-size:.95rem;}
+  .slide{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:18px 0;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .slide-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
+  .snum{background:var(--brand);color:#fff;font-weight:800;font-size:.8rem;padding:5px 12px;border-radius:20px;white-space:nowrap;letter-spacing:.5px;}
+  .stitle{font-family:Georgia,serif;color:var(--brand-dark);font-size:1.18rem;font-weight:700;}
+  strong{color:var(--brand-dark);} em{color:var(--muted);} mark{background:#ffe9a8;padding:0 3px;border-radius:3px;}
+  ul,ol{margin:.4em 0 .7em;padding-left:1.35em;} li{margin:.3em 0;} p{margin:.55em 0;}
+  .box{border-radius:12px;padding:13px 17px;margin:14px 0;border-left:6px solid;}
+  .box .bt{font-weight:800;display:block;margin-bottom:4px;}
+  .clinic{background:var(--teal-soft);border-color:var(--teal);} .clinic .bt{color:var(--teal);}
+  .spot{background:var(--green-soft);border-color:var(--green);} .spot .bt{color:var(--green);}
+  .warn{background:var(--red-soft);border-color:var(--red);} .warn .bt{color:var(--red);}
+  .mnemo{background:var(--purple-soft);border-color:var(--purple);} .mnemo .bt{color:var(--purple);}
+  .rxn{font-family:Consolas,"Courier New",monospace;background:#f5efe6;border-radius:8px;padding:8px 12px;margin:8px 0;font-size:.86rem;display:block;}
+  .fc-wrap{margin:16px 0 4px;border:2px dashed var(--amber);background:var(--amber-soft);border-radius:14px;padding:12px 16px;}
+  .fc-wrap .fc-title{font-weight:800;color:var(--amber);letter-spacing:.5px;text-transform:uppercase;font-size:.78rem;margin-bottom:6px;}
+  details.fc{background:#fff;border:1px solid #eedcb6;border-radius:10px;margin:7px 0;padding:3px 13px;}
+  details.fc summary{cursor:pointer;font-weight:700;padding:7px 0;list-style:none;}
+  details.fc summary::-webkit-details-marker{display:none;}
+  details.fc summary::before{content:"❓ ";} details.fc[open] summary::before{content:"✅ ";}
+  details.fc .ans{padding:4px 0 11px;color:var(--brand-dark);border-top:1px solid #f0e6cf;margin-top:3px;}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:.9rem;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+  th{background:var(--brand-dark);color:#fff;text-align:left;padding:9px 11px;font-size:.84rem;}
+  td{padding:9px 11px;border-top:1px solid var(--line);vertical-align:top;}
+  tr:nth-child(even) td{background:#faf6ef;}
+  .toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 20px;font-size:.92rem;}
+  .toc a{color:var(--brand-dark);text-decoration:none;} .toc a:hover{text-decoration:underline;}
+  .diag-note{font-style:italic;color:var(--muted);font-size:.92rem;}
+  footer{margin-top:50px;text-align:center;color:var(--muted);font-size:.85rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="tag">Medical Biochemistry · 1. Sınıf Final</div>
+  <h1>Pankreas — Endokrin & Ekzokrin İşlev</h1>
+  <p>Endocrine Function of Pancreas — Slayt Slayt Çalışma Rehberi (49 slayt)</p>
+  <p style="opacity:.8;font-size:.85rem;">Kaynak: Assist. Prof. Tuğçe Demirel-Yalçıner — Faculty of Medicine, Dept. of Medical Biochemistry</p>
+</header>
+
+<div class="toc">
+<strong style="color:var(--brand-dark);">📋 Kaynaktaki 49 slayt sırayla işlendi.</strong> Hızlı geçiş:
+<a href="#s3">Pankreas & islet hücreleri (3–8)</a> ·
+<a href="#s9">İnsülin yapı & biyosentez (9–20)</a> ·
+<a href="#s21">Sekresyon mekanizması (21–26)</a> ·
+<a href="#s27">İnsülin reseptörü & sinyal (27–35)</a> ·
+<a href="#s36">Diyabet & hipoglisemi (36–38)</a> ·
+<a href="#s39">Glukagon (39–47)</a>
+</div>
+
+<!-- 1 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 1</span><span class="stitle">Başlık</span></div>
+<p><strong>Endocrine Function of Pancreas</strong>. Assist. Prof. Tuğçe Demirel-Yalçıner, Faculty of Medicine, Dept. of Medical Biochemistry.</p></div>
+
+<!-- 2 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 2</span><span class="stitle">Öğrenme Hedefleri</span></div>
+<ul>
+<li>Ekzokrin pankreası ve pankreatik enzimleri tanımlamak.</li>
+<li>Endokrin pankreası ve pankreatik hormonları tanımlamak.</li>
+<li>İnsülin/glukagonun metabolizma üzerindeki etkisini tartışmak.</li>
+</ul></div>
+
+<!-- 3 -->
+<div class="slide" id="s3"><div class="slide-head"><span class="snum">SLIDE 3</span><span class="stitle">Pankreas — Genel</span></div>
+<ul>
+<li><strong>Heterokrin bez</strong> (hem ekzokrin hem endokrin); midenin arkasında yerleşir.</li>
+<li><strong>Acinar cells (asiner hücreler)</strong> sindirim için enzimden zengin bir sıvı üretir (ekzokrin ürün).</li>
+<li><strong>Pankreatik adacıklar (islets of Langerhans)</strong>, yakıt depolanması ve kullanımını düzenleyen hormonlar üretir (endokrin ürün).</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>"<strong>A</strong>siner = <strong>A</strong>tar (enzim salgılar, ekzokrin). <strong>A</strong>dacık = <strong>A</strong>yarlar (hormon, endokrin)."</div>
+</div>
+
+<!-- 4 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 4</span><span class="stitle">İki Ana İşlev</span></div>
+<p>Pankreas, yediğimiz besini hücreler için yakıta çeviren karın organıdır. İki ana işlevi vardır:</p>
+<ol>
+<li><strong>Ekzokrin işlev</strong> — sindirime yardım eder.</li>
+<li><strong>Endokrin işlev</strong> — kan şekerini (blood sugar) düzenler.</li>
+</ol></div>
+
+<!-- 5 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 5</span><span class="stitle">Ekzokrin İşlev</span></div>
+<p>Pankreas, sindirim için önemli enzimler üreten ekzokrin bezler içerir:</p>
+<ul>
+<li><strong>Trypsin</strong> ve <strong>chymotrypsin</strong> → proteinleri sindirir.</li>
+<li><strong>Amylase</strong> → karbonhidratları sindirir.</li>
+<li><strong>Lipase</strong> → yağları parçalar.</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber — 3 enzim sınıfı</span>"<strong>P</strong>rotein → tripsin/kimotripsin, <strong>K</strong>arbonhidrat → amilaz, <strong>Y</strong>ağ → lipaz." Üç makrobesin, üç enzim.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Pankreasın protein, karbonhidrat ve yağ sindiren enzimleri nelerdir?</summary><div class="ans">Protein: tripsin, kimotripsin; karbonhidrat: amilaz; yağ: lipaz.</div></details>
+</div></div>
+
+<!-- 6 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 6</span><span class="stitle">Pankreas Anatomisi (Diyagram)</span></div>
+<p class="diag-note">Pankreasın anatomik görünümü ve asiner hücreler ile Langerhans adacıklarının histolojik yerleşimini gösteren görsel.</p></div>
+
+<!-- 7 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 7</span><span class="stitle">Endokrin İşlev</span></div>
+<p>Endokrin sistemin ana işlevi hormonları doğrudan kan dolaşımına salmaktır. İki ana pankreatik hormon:</p>
+<ul>
+<li><strong>Insulin</strong> → kan şekerini <strong>düşürür</strong>.</li>
+<li><strong>Glucagon</strong> → kan şekerini <strong>yükseltir</strong>.</li>
+</ul>
+</div>
+
+<!-- 8 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 8</span><span class="stitle">Langerhans Adacıkları</span></div>
+<p>~1 milyon adacık; pankreatik kütlenin <strong>%1–2'si</strong>. Endokrin işlev bu adacıklarca yürütülür.</p>
+<table>
+<tr><th>Hücre</th><th>Hormon</th><th>Etki</th></tr>
+<tr><td><strong>Beta (β)</strong></td><td><strong>Insulin</strong></td><td>Hücre alımını artırarak kan glukozunu düşürür; glikojen, lipid, protein sentezini uyarır</td></tr>
+<tr><td><strong>Alpha (α)</strong></td><td><strong>Glucagon</strong></td><td>Karaciğerde glikojen yıkımı ve glukoneogenezi uyararak kan glukozunu yükseltir</td></tr>
+<tr><td><strong>Delta (δ)</strong></td><td><strong>Somatostatin</strong></td><td>İnsülin ve glukagon salgısını inhibe eder; adacık içi lokal düzenleyici</td></tr>
+<tr><td><strong>F (PP)</strong></td><td><strong>Pancreatic Polypeptide</strong></td><td>Pankreas salgısını ve GİS motilitesini düzenler</td></tr>
+</table>
+<div class="box mnemo"><span class="bt">🧠 Ezber — Adacık hücreleri</span>"<strong>B</strong>eta = <strong>B</strong>elow (glukozu aşağı çeker, insülin). <strong>A</strong>lpha = <strong>A</strong>bove (glukozu yukarı çeker, glukagon). <strong>D</strong>elta = <strong>D</strong>ampens (somatostatin, ikisini de baskılar)."</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>α, β, δ ve F hücreleri hangi hormonları salgılar?</summary><div class="ans">α=glukagon, β=insülin, δ=somatostatin, F(PP)=pankreatik polipeptit.</div></details>
+<details class="fc"><summary>Somatostatinin adacıktaki rolü nedir?</summary><div class="ans">Hem insülin hem glukagon salgısını inhibe eden lokal düzenleyici.</div></details>
+</div></div>
+
+<!-- 9 -->
+<div class="slide" id="s9"><div class="slide-head"><span class="snum">SLIDE 9</span><span class="stitle">İnsülin — Genel</span></div>
+<ul>
+<li>Langerhans adacıklarındaki <strong>β-hücrelerinden</strong> salgılanan bir <strong>peptit hormondur</strong>.</li>
+<li>Ana işlevi serum glukozunu düşürmek ve <strong>anabolizmayı (anabolism)</strong> teşvik etmektir.</li>
+<li>Normal gelişim için gerekli, esansiyel bir <strong>büyüme faktörüdür (growth factor)</strong>.</li>
+</ul></div>
+
+<!-- 10 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 10</span><span class="stitle">İnsülin — Tarihsel "İlk"ler</span></div>
+<p>İnsülin şu özelliklere sahip <strong>ilk proteindir</strong>:</p>
+<ul>
+<li>Hormonal etkisi gösterilen ilk protein.</li>
+<li>Saf kristal formda elde edilen ilk protein (Abel, 1926).</li>
+<li>Tam olarak dizilenen (sequenced) ilk protein (Sanger ve ark., 1955).</li>
+<li>Kimyasal olarak sentezlenen ilk protein (1964).</li>
+<li>Büyük öncül molekül olarak sentezlendiği gösterilen ilk protein (Steiner ve ark., 1967).</li>
+<li><strong>DNA rekombinant teknolojisiyle</strong> ticari amaçla üretilen ilk protein (1979).</li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span><strong>Sanger</strong> insülini dizileyen kişidir (1955) — protein dizilemesinde dönüm noktası. Sık sorulur.</div>
+</div>
+
+<!-- 11 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 11</span><span class="stitle">İnsülinin Yapısı</span></div>
+<ul>
+<li>İnsan insülini: <strong>51 amino asit</strong>; MW <strong>5.7 kDa</strong>.</li>
+<li><strong>İki polipeptit zinciri</strong>: <strong>A zinciri (21 aa)</strong> ve <strong>B zinciri (30 aa)</strong>.</li>
+<li>İki zincir, <strong>iki zincirler arası (interchain) disülfid köprüsü</strong> ile bağlanır: A7–B7 ve A20–B19.</li>
+<li>Üçüncü bir <strong>zincir içi (intrachain) disülfid köprüsü</strong> A zincirinin 6 ve 11. residülerini bağlar.</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber — İnsülin yapısı "51 = 21 + 30"</span>A zinciri 21, B zinciri 30 → toplam 51 aa. <strong>3 disülfid bağı</strong>: 2 interchain (A7-B7, A20-B19) + 1 intrachain (A6-A11).</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>İnsülin kaç amino asit, kaç zincir ve kaç disülfid bağı içerir?</summary><div class="ans">51 aa; 2 zincir (A=21, B=30); 3 disülfid bağı (2 interchain + 1 intrachain).</div></details>
+</div></div>
+
+<!-- 12 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 12</span><span class="stitle">İnsülin Biyosentezi — 3 Ana Basamak</span></div>
+<p>Yer: <strong>adacıkların β-hücreleri</strong>. İnsülin, kaba ER'nin (rough ER) ribozomlarında büyük bir öncül peptit olarak sentezlenir ve salgılanmadan önce olgun hormona dönüştürülür.</p>
+<ol>
+<li><strong>Preproinsulin</strong> sentezi.</li>
+<li>Preproinsulin → <strong>Proinsulin</strong> dönüşümü.</li>
+<li>Proinsulin → <strong>Insulin</strong> dönüşümü.</li>
+</ol></div>
+
+<!-- 13 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 13</span><span class="stitle">İnsülin Biyosentezi — Boyutlar</span></div>
+<span class="rxn">Preproinsulin (110 aa) → Proinsulin (86 aa) → Insulin (51 aa) + C-peptide</span>
+<p>İnsülin, yüksek molekül ağırlıklı öncül <strong>preproinsulin (110 aa)</strong> olarak sentezlenir; ara öncül <strong>proinsulin (86 aa)</strong> üzerinden olgun <strong>insulin (51 aa)</strong> molekülüne işlenir.</p>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Boyut sırası: <strong>110 → 86 → 51</strong>. Proinsülinin işlenmesinde insülinin yanında <strong>C-peptide</strong> de açığa çıkar (Slide 19–20). Bu, klinikte hayati önem taşır.</div>
+</div>
+
+<!-- 14-18 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 14–18</span><span class="stitle">Peptit Hormon Sentezi, Paketlenmesi ve Salınımı</span></div>
+<p>Tüm peptit hormonlar için geçerli genel basamaklar (animasyonlu diyagram, adım adım):</p>
+<ol>
+<li><strong>(1)</strong> Ribozomlardaki mRNA, amino asitleri <strong>preprohormone</strong> denen bir peptit zincirine bağlar. Zincir, bir <strong>sinyal dizisi (signal sequence)</strong> ile ER lümenine yönlendirilir.</li>
+<li><strong>(2)</strong> ER'deki enzimler sinyal dizisini keser → inaktif <strong>prohormone</strong> oluşur.</li>
+<li><strong>(3)</strong> Prohormon, ER'den <strong>Golgi kompleksine</strong> geçer.</li>
+<li><strong>(4)</strong> Golgi'den enzim + prohormon içeren <strong>sekretuar veziküller</strong> tomurcuklanır; enzimler prohormonu bir/birden çok aktif peptit + ek peptit fragmanlarına böler.</li>
+<li><strong>(5)</strong> Sekretuar vezikül içeriğini <strong>ekzositozla</strong> ekstrasellüler boşluğa salar.</li>
+<li><strong>(6)</strong> Hormon dolaşıma girip hedefine taşınır.</li>
+</ol>
+<div class="box mnemo"><span class="bt">🧠 Ezber — Peptit hormon yolu</span>"<strong>R</strong>ibozom → <strong>ER</strong> → <strong>G</strong>olgi → <strong>V</strong>ezikül → <strong>E</strong>kzositoz → <strong>K</strong>an." Sinyal dizisi ER'de, asıl kesim veziküllerde olur.</div>
+</div>
+
+<!-- 19 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 19</span><span class="stitle">İnsülin İşlenmesi & C-Peptide (Diyagram)</span></div>
+<span class="rxn">Preproinsulin → Proinsulin → Insulin + C-peptide</span>
+<p class="diag-note">Diyagram, peptit hormon yolunun insülin için uygulanışını gösterir. Proinsülin kesilince <strong>insülin</strong> ve <strong>C-peptide</strong> birlikte (1:1 oranında) salınır.</p>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span><strong>C-peptide ölçümü, diyabetik hastalarda endojen insülin üretimini değerlendirmeye yarar.</strong> İnsülin ve C-peptid eşit molar oranda salgılandığından, C-peptid β-hücre işlevinin güvenilir bir göstergesidir.</div>
+</div>
+
+<!-- 20 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 20</span><span class="stitle">C-Peptide — Klinik Önemi (Detay)</span></div>
+<ul>
+<li>C-peptide'in glukoz düşürücü etkisi <strong>yok denecek kadar azdır</strong>.</li>
+<li><strong>Endojen insülin salgısının</strong> önemli bir belirtecidir.</li>
+<li>Dışarıdan enjekte edilen (eksojen) insülin genellikle <strong>C-peptide içermez</strong>.</li>
+<li><strong>Düşük C-peptide → Tip 1 diyabet</strong>i düşündürür.</li>
+<li><strong>Normal/yüksek C-peptide → Tip 2 diyabet</strong>te sık görülür.</li>
+<li>β-hücre işlevini değerlendirmede ve <strong>insulinoma</strong> tanısında yararlıdır.</li>
+<li><strong>Yüksek insülin + düşük C-peptide → eksojen insülin kullanımı</strong> (örn. gizli insülin enjeksiyonu).</li>
+<li><strong>Yüksek insülin + yüksek C-peptide → endojen hiperinsülinizm</strong> (örn. insulinoma).</li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi (Çok kritik ayrım!)</span>Yüksek insülin + <mark>düşük</mark> C-peptid = <strong>dışarıdan insülin</strong> (kötüye kullanım/intihar girişimi). Yüksek insülin + <mark>yüksek</mark> C-peptid = <strong>insulinoma</strong>. Bu ayrım adli tıp ve klinikte sık sorulur.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Yüksek insülin + düşük C-peptid neyi gösterir?</summary><div class="ans">Eksojen (dışarıdan) insülin kullanımını.</div></details>
+<details class="fc"><summary>Tip 1 ve Tip 2 diyabette C-peptid nasıl beklenir?</summary><div class="ans">Tip 1: düşük (β-hücre yıkımı); Tip 2: normal/yüksek.</div></details>
+</div></div>
+
+<!-- 21 -->
+<div class="slide" id="s21"><div class="slide-head"><span class="snum">SLIDE 21</span><span class="stitle">Glukozun İnsülin Sekresyonunu Düzenlemesi</span></div>
+<table>
+<tr><th></th><th>Düşük kan glukozu</th><th>Yüksek kan glukozu</th></tr>
+<tr><td>ATP</td><td>Düşük</td><td>Yüksek</td></tr>
+<tr><td>K⁺ akışı (efflux)</td><td>Artar</td><td>Azalır</td></tr>
+<tr><td>Ca²⁺ girişi (influx)</td><td>Düşük</td><td>Yüksek</td></tr>
+<tr><td>İnsülin sekresyonu</td><td><strong>Düşük</strong></td><td><strong>Yüksek</strong></td></tr>
+</table>
+</div>
+
+<!-- 22 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 22</span><span class="stitle">β-Hücresi Dinlenmede (Diyagram)</span></div>
+<p class="diag-note"><strong>Düşük kan glukozunda</strong> (beta cell at rest): (1) glukoz ↓ → (2) metabolizma yavaşlar → (3) ATP ↓ → (4) <strong>K<sub>ATP</sub> kanalı AÇIK</strong>, K⁺ hücreden sızar → (5) dinlenme membran potansiyeli → (6) voltaj kapılı Ca²⁺ kanalı KAPALI → (7) <strong>insülin sekresyonu yok</strong>.</p>
+</div>
+
+<!-- 23 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 23</span><span class="stitle">β-Hücresi Aktif (Diyagram)</span></div>
+<p class="diag-note"><strong>Yüksek kan glukozunda</strong>: (1) glukoz ↑ → GLUT ile girer → (2) glikoliz + sitrik asit döngüsü ↑ → (3) <strong>ATP ↑</strong> → (4) <strong>K<sub>ATP</sub> kanalı KAPANIR</strong> → (5) daha az K⁺ çıkar → (6) hücre <strong>depolarize</strong> olur → (7) voltaj kapılı Ca²⁺ kanalı AÇILIR → (8) Ca²⁺ girişi <strong>ekzositozu tetikler ve insülin salgılanır</strong>.</p>
+</div>
+
+<!-- 24 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 24</span><span class="stitle">Glukoza Bağımlı İnsülin Salınımı</span></div>
+<ul>
+<li>β-hücrelerinde <strong>kalsiyum konsantrasyonu artışı</strong> aracılık eder.</li>
+<li>β-hücreye alınan glukoz fosforillenir ve metabolize edilir → <strong>ATP üretimi</strong>.</li>
+<li><strong>ATP-duyarlı K⁺ kanalları (K<sub>ATP</sub>)</strong> kapanır → <strong>depolarizasyon</strong>.</li>
+<li>Voltaj kapılı Ca²⁺ kanalları açılır → hücreye Ca²⁺ girişi.</li>
+<li>Ca²⁺, insülin içeren veziküllerin β-hücreden <strong>ekzositozuna</strong> neden olur.</li>
+</ul>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi — Sülfonilüreler</span><strong>Sulfonylurea</strong>lar (oral hipoglisemik ajanlar), <strong>K<sub>ATP</sub> kanallarını kapatarak</strong> insülin sekresyonunu artırır. Bu ilaçları kullanan hastalarda dental işlem öncesi/sırasında <strong>hipoglisemi riski</strong> akılda tutulmalıdır.</div>
+<div class="box mnemo"><span class="bt">🧠 Ezber — Sekresyon zinciri</span>"<strong>Glukoz → ATP → K<sub>ATP</sub> kapanır → Depolarizasyon → Ca²⁺ girer → İnsülin çıkar.</strong>" (G-A-K-D-Ca-İ)</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>İnsülin sekresyonunda ekzositozu doğrudan tetikleyen iyon hangisidir?</summary><div class="ans">Ca²⁺ (voltaj kapılı kanaldan girer).</div></details>
+<details class="fc"><summary>Sülfonilüreler insülini nasıl artırır?</summary><div class="ans">ATP-duyarlı K⁺ (K<sub>ATP</sub>) kanallarını kapatarak depolarizasyon ve Ca girişi sağlar.</div></details>
+</div></div>
+
+<!-- 25 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 25</span><span class="stitle">İnsülin Reseptörü (Diyagram)</span></div>
+<p class="diag-note">İnsülin reseptörünün α₂β₂ yapısı ve tirozin kinaz aktivasyonunu gösteren şema (detay Slide 27–28).</p></div>
+
+<!-- 26 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 26</span><span class="stitle">İnsülin Sekresyonunun Eşik Değerleri</span></div>
+<ul>
+<li>Plazma glukozu <strong>&lt; 50 mg/dL</strong> iken insülin üretilmez.</li>
+<li>Yarı-maksimal insülin yanıtı <strong>150 mg/dL</strong>'de oluşur.</li>
+<li>Maksimum insülin yanıtı <strong>300 mg/dL</strong>'de oluşur.</li>
+</ul>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>İnsülin salgısı hangi plazma glukoz düzeyinin altında durur?</summary><div class="ans">50 mg/dL'nin altında.</div></details>
+</div></div>
+
+<!-- 27 -->
+<div class="slide" id="s27"><div class="slide-head"><span class="snum">SLIDE 27</span><span class="stitle">İnsülin Reseptörü (IR)</span></div>
+<ul>
+<li>İnsülin, hedef hücre yüzeyindeki <strong>insülin reseptörü (IR)</strong> aracılığıyla etki eder.</li>
+<li><strong>Tirozin-kinaz aktivitesine sahip</strong> bir hücre yüzeyi reseptörüdür → substrat proteinlerini <strong>tirozin residülerinde</strong> fosforiller.</li>
+<li><strong>Heterotetramerik glikoprotein</strong>: 2 hücre dışı <strong>α</strong> + 2 transmembran <strong>β</strong> alt birim, disülfid bağlarıyla bağlı → <strong>α₂β₂</strong>. MW 300 kDa.</li>
+<li><strong>α alt birimleri</strong> → insülin bağlanma bölgesi. <strong>β alt birimleri</strong> → tirozin kinaz aktivitesi, hücre içi sinyalleşme.</li>
+<li>Çoğu memeli dokusunda eksprese; en yüksek yoğunluk <strong>yağ (adipose) ve karaciğerde</strong> (&gt;300.000 reseptör/hücre).</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber — IR yapısı</span>"<strong>α dışta bağlar, β içeride fosforiller</strong>." α₂β₂ = 2 dış (alpha=attach) + 2 transmembran (beta=büyü/kinaz).</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>İnsülin reseptörünün alt birim yapısı ve enzimatik aktivitesi nedir?</summary><div class="ans">α₂β₂ heterotetramer; tirozin kinaz aktivitesi (β alt birimde). α insülini bağlar.</div></details>
+</div></div>
+
+<!-- 28 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 28</span><span class="stitle">İnsülinin Etki Mekanizması</span></div>
+<span class="rxn">İnsülin α-alt birime bağlanır → β-alt birim fosforilasyonu → IRS fosforilasyonu → sinyal</span>
+<ul>
+<li>İnsülin hem metabolik enzimleri hem <strong>gen ekspresyonunu</strong> düzenler.</li>
+<li><strong>Hücreye girmez</strong>; sinyali yüzey reseptöründen sitozole ve çekirdeğe taşır.</li>
+<li>Sonuçta <strong>gen ekspresyonu, metabolizma ve büyümede</strong> değişiklikler olur.</li>
+</ul>
+</div>
+
+<!-- 29 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 29</span><span class="stitle">İnsülin Sinyalleşmesi</span></div>
+<p>İnsülin sinyalleşmesi en önemli sinyal ağlarından biridir; şu temel işlevleri düzenler:</p>
+<ul>
+<li>Glukoz ve lipid metabolizması</li>
+<li>Protein sentezi</li>
+<li>Hücre proliferasyonu, farklılaşması ve <strong>apoptoz</strong></li>
+</ul></div>
+
+<!-- 30 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 30</span><span class="stitle">İki Ana Sinyal Yolağı</span></div>
+<p>İnsülin tarafından aktive edilen <strong>iki ana sinyal yolağı</strong> vardır: <strong>MAPK yolağı</strong> (büyüme) ve <strong>PI3K-AKT yolağı</strong> (metabolizma).</p>
+<div class="box mnemo"><span class="bt">🧠 Ezber — İki yolak</span>"<strong>MAPK = Mitoz/büyüme</strong>; <strong>PI3K-AKT = Metabolizma/GLUT4</strong>." Biri büyütür, biri besler.</div>
+</div>
+
+<!-- 31 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 31</span><span class="stitle">MAPK Yolağı</span></div>
+<p><strong>Ras/MAPK yolağı</strong>; hücre farklılaşması, bölünmesi, proliferasyonu, inflamasyon, stres yanıtı, metabolizma ve apoptozu düzenler. Sinyali plazma membranından sitoplazma yoluyla çekirdeğe taşır. İnsülinin <strong>uzun vadeli etkilerine (büyüme ve mitojenez)</strong> aracılık eder.</p>
+<p><strong>Oyuncular:</strong> Grb2 (adaptör), Sos (GEF), Ras (GTPaz anahtar protein), Raf (MAPKKK), MEK (MAPKK), ERK (MAPK).</p>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>MAPK yolağı insülinin hangi tür etkilerine aracılık eder?</summary><div class="ans">Uzun vadeli etkiler: büyüme ve mitojenez (hücre çoğalması).</div></details>
+</div></div>
+
+<!-- 32 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 32</span><span class="stitle">MAPK — Grb2/Sos İşe Alımı</span></div>
+<ul>
+<li><strong>Grb2</strong> adaptör proteini, IRS'nin fosfotirozin (PT) residülerine <strong>SH2 domain</strong>'leri ile bağlanır.</li>
+<li>Grb2, IRS ile <strong>Sos</strong>'u bir araya getirir.</li>
+<li>Grb2, <strong>SH3 domain</strong>'i ile Sos'un prolin-zengin bölgesine bağlanır.</li>
+</ul></div>
+
+<!-- 33 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 33</span><span class="stitle">MAPK — Basamaklar</span></div>
+<ol>
+<li>Ligand (insülin) ile IR dimerizasyonu ve sitozolik domain otofosforilasyonu.</li>
+<li>Aktif IR tarafından <strong>IRS fosforilasyonu</strong>.</li>
+<li>Grb2'nin SH2 ile IRS'ye işe alımı; Grb2 SH3 ile Sos'a bağlanır.</li>
+<li>Sos bir <strong>GEF</strong> olarak Ras üzerindeki GDP'yi GTP ile değiştirir.</li>
+<li>Aktif <strong>Ras-GTP → Raf</strong>'ı membrana çağırır ve aktive eder.</li>
+<li>Raf-1 → <strong>MEK</strong>'i (iki Ser) fosforiller; MEK → <strong>ERK</strong>'i (bir Thr + bir Tyr) fosforiller.</li>
+<li>Aktif <strong>MAPK (ERK)</strong> çekirdeğe taşınıp transkripsiyon faktörlerini fosforiller.</li>
+</ol>
+<div class="box mnemo"><span class="bt">🧠 Ezber — MAPK kaskadı</span>"<strong>Ras → Raf → MEK → ERK</strong>." (Üç basamaklı kinaz kaskadı: MAPKKK→MAPKK→MAPK.)</div>
+</div>
+
+<!-- 34 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 34</span><span class="stitle">PI3K-AKT Yolağı</span></div>
+<ul>
+<li>Hücre büyümesi, proliferasyonu, metabolizması, hareketi, sağkalımı ve apoptozun anahtar düzenleyicisidir.</li>
+<li>İnsülinin <strong>metabolik etkilerinden sorumludur</strong>.</li>
+<li><mark><strong>GLUT4 veziküllerinin plazma membranına taşınmasını (translocation)</strong> sağlar</mark> → kas hücreleri ve adipositlerde glukoz alımı.</li>
+<li>PI3K/AKT yolağının anormal aktivasyonu, birçok insan kanserinde tümör hücrelerinin sağkalım ve çoğalmasını destekler.</li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi (Çok kritik!)</span>İnsülinin <strong>kana glukoz aldıran (GLUT4) etkisi PI3K-AKT yolağı</strong> üzerindendir. "İnsülin GLUT4'ü membrana taşır" → metabolik etki = PI3K-AKT. Tip 2 diyabette bu yolak direnci görülür.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>İnsülinin GLUT4 taşınmasını sağlayan sinyal yolağı hangisidir?</summary><div class="ans">PI3K-AKT yolağı (insülinin metabolik etkilerinden sorumlu).</div></details>
+</div></div>
+
+<!-- 35 -->
+<div class="slide" id="s35b"><div class="slide-head"><span class="snum">SLIDE 35</span><span class="stitle">İnsülin Dokuları Farklı Etkiler (Özet Diyagram)</span></div>
+<table>
+<tr><th>Doku</th><th>İnsülinin etkisi</th></tr>
+<tr><td><strong>Muscle (kas)</strong></td><td>↑ glukoz alımı, ↑ glikojen sentezi</td></tr>
+<tr><td><strong>Liver (karaciğer)</strong></td><td>↑ glikojen sentezi, ↓ glukoz salınımı, ↓ glukoneogenez, ↑ lipogenez</td></tr>
+<tr><td><strong>Adipose (yağ dokusu)</strong></td><td>↑ glukoz alımı/depolanması, ↑ lipogenez, ↓ lipoliz</td></tr>
+<tr><td><strong>Brain (beyin)</strong></td><td>Hepatik glikojenolizi inhibe eder, lipolizi inhibe eder, iştahı azaltır</td></tr>
+</table>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>İnsülin = <strong>anabolik "depolama" hormonu</strong>: her dokuda yapımı artırır (glikojen, yağ, protein), yıkımı azaltır. <strong>Beyin glukoz alımı için insüline bağımlı DEĞİLDİR</strong> (GLUT1/3 insülinden bağımsız).</div>
+</div>
+
+<!-- 36 -->
+<div class="slide" id="s36"><div class="slide-head"><span class="snum">SLIDE 36</span><span class="stitle">İnsülin Eksikliği / Disfonksiyonu → Diyabet</span></div>
+<table>
+<tr><th></th><th>Tip 1 DM (T1DM)</th><th>Tip 2 DM (T2DM)</th></tr>
+<tr><td>Mekanizma</td><td>β-hücrelerinin <strong>otoimmün yıkımı</strong> → insülin üretimi yok</td><td><strong>İnsülin direnci</strong> + göreceli insülin eksikliği</td></tr>
+<tr><td>Başlangıç</td><td>Çocukluk/ergenlik</td><td>Erişkin; obezite, sedanter yaşam, genetik</td></tr>
+<tr><td>Tedavi</td><td>Ömür boyu insülin</td><td>Yaşam tarzı, oral ilaçlar, bazen insülin</td></tr>
+</table>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span>Diyabetik hastalarda <strong>periodontal hastalık, kserostomi (ağız kuruluğu), kandida enfeksiyonu, gecikmiş yara iyileşmesi</strong> sık görülür. Kötü kontrollü diyabet, diş tedavilerinde enfeksiyon riskini artırır.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Tip 1 ve Tip 2 DM'nin temel mekanizma farkı nedir?</summary><div class="ans">Tip 1: otoimmün β-hücre yıkımı (mutlak insülin eksikliği). Tip 2: insülin direnci + göreceli eksiklik.</div></details>
+</div></div>
+
+<!-- 37 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 37</span><span class="stitle">Diyabet (Diyagram)</span></div>
+<p class="diag-note">Tip 1 ve Tip 2 diyabetin patofizyolojisini karşılaştıran görsel şema.</p></div>
+
+<!-- 38 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 38</span><span class="stitle">Hipoglisemi & İnsulinoma</span></div>
+<p><strong>2. Hipoglisemi (Insulin Shock):</strong> Aşırı insülinden, özellikle insülin tedavisi alan diyabetiklerde olabilir. Belirtiler glukoz düzeyiyle değişir:</p>
+<ul>
+<li><strong>50–70 mg/dL:</strong> SSS irritabilitesi.</li>
+<li><strong>20–50 mg/dL:</strong> Konfüzyon, konvülziyon.</li>
+<li><strong>&lt; 20 mg/dL:</strong> Koma.</li>
+</ul>
+<p><strong>3. Insulinoma:</strong> Pankreas β-hücrelerinin tümörü → aşırı insülin salgısı → tekrarlayan hipoglisemi (konfüzyon, terleme, bayılma). Açlık testleri ve görüntüleme ile tanı, cerrahi tedavi.</p>
+<div class="box warn"><span class="bt">⚠️ Dikkat</span>Hipoglisemi, hiperglisemiden <strong>daha akut tehlikelidir</strong>; beyin glukoza bağımlı olduğundan hızla konvülziyon ve komaya ilerleyebilir. Diş koltuğunda bilinç bulanıklığı olan diyabetikte ilk akla gelmesi gereken hipoglisemidir.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Insulinoma'da insülin ve C-peptid nasıl beklenir?</summary><div class="ans">İkisi de yüksek (endojen hiperinsülinizm).</div></details>
+</div></div>
+
+<!-- 39 -->
+<div class="slide" id="s39"><div class="slide-head"><span class="snum">SLIDE 39</span><span class="stitle">Glukagon — Genel</span></div>
+<ul>
+<li><strong>29 amino asitlik</strong> bir polipeptit hormon; güçlü bir <strong>hiperglisemik (kan şekeri yükselten)</strong> ajandır.</li>
+<li>Pankreasta <strong>α hücrelerinden</strong> üretilir.</li>
+<li>Ana hedefi <strong>karaciğerdir</strong>; orada şunları teşvik eder:
+  <ul>
+    <li><strong>Glycogenolysis</strong> — glikojenin glukoza yıkımı.</li>
+    <li><strong>Gluconeogenesis</strong> — laktik asit ve karbonhidrat olmayan kaynaklardan glukoz sentezi.</li>
+    <li>Karaciğer hücrelerinden kana glukoz salınımı.</li>
+  </ul>
+</li>
+</ul>
+<div class="box mnemo"><span class="bt">🧠 Ezber — İnsülin vs Glukagon</span>"İnsülin <strong>51</strong> aa & <strong>β</strong> hücre & düşürür; Glukagon <strong>29</strong> aa & <strong>α</strong> hücre & yükseltir." (Zıt kardeşler.)</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Glukagon kaç aa, hangi hücreden, hangi organ üzerinden etki eder?</summary><div class="ans">29 aa; α hücrelerinden; ana hedef karaciğer (glikojenoliz + glukoneogenez).</div></details>
+</div></div>
+
+<!-- 40 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 40</span><span class="stitle">Glukagon Sentezi</span></div>
+<span class="rxn">α hücrelerinde DNA → mRNA → Preproglucagon → Proglucagon → Glucagon</span>
+<p>İnsülinde olduğu gibi, glukagon da bir öncül (preproglukagon) üzerinden olgunlaştırılır.</p></div>
+
+<!-- 41 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 41</span><span class="stitle">Glukagonun Etki Mekanizması (Diyagram)</span></div>
+<p class="diag-note">α hücrelerinden salınan glukagonun karaciğerde reseptörüne (GPCR) bağlanıp <strong>cAMP</strong> aracılı sinyalle glikojen yıkımını uyarmasını gösteren şema.</p>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Glukagon bir <strong>Gs-protein kuplajlı reseptör</strong> üzerinden <strong>cAMP'yi artırarak</strong> (PKA aktivasyonu) etki eder. İnsülin ise tirozin kinaz reseptörü kullanır — mekanizmaları temelden farklıdır.</div>
+</div>
+
+<!-- 42 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 42</span><span class="stitle">Glukagonun Biyolojik Etkileri</span></div>
+<table>
+<tr><th>ARTAR (Increased)</th><th>AZALIR (Decreased)</th></tr>
+<tr><td>Glycogenolysis, Gluconeogenesis, Fatty Acid Oxidation, Ketogenesis, amino asit alımı</td><td>Glycogenesis (glikojen sentezi)</td></tr>
+</table>
+<div class="box mnemo"><span class="bt">🧠 Ezber</span>Glukagon = "açlık hormonu" → her şeyi <strong>yıkar ve glukoz/keton üretir</strong> (glikojenoliz, glukoneogenez, yağ oksidasyonu, ketogenez ↑), sadece glikojen yapımını ↓. İnsülinin tam tersi.</div>
+<div class="fc-wrap"><div class="fc-title">🃏 Flashcards</div>
+<details class="fc"><summary>Glukagon hangi süreci azaltır?</summary><div class="ans">Glycogenesis (glikojen sentezini) — geri kalan yıkıcı/üretici süreçleri artırır.</div></details>
+</div></div>
+
+<!-- 43 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 43</span><span class="stitle">Uzamış Açlık Yanıtı</span></div>
+<p>Beyne glukoz sağlamak için karaciğer, besin alınmayan bir organizmada en "gözden çıkarılabilir" bazı proteinleri yıkar. Bunların <strong>esansiyel olmayan amino asitleri transamine veya deamine edilir</strong>; fazla amino gruplar <strong>üreye</strong> çevrilir, kan yoluyla böbreklere taşınıp idrarla atılır.</p>
+<div class="box clinic"><span class="bt">🦷 Klinik Önemi</span>Bu, amino asit metabolizması (üre döngüsü) ile bağlantıyı kurar: uzamış açlıkta protein katabolizması artar → kan üre azotu (BUN) değişir.</div>
+</div>
+
+<!-- 44 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 44</span><span class="stitle">Glukagon Sekresyonunu Etkileyen Faktörler</span></div>
+<p class="diag-note">Glukagon salgısını etkileyen faktörleri özetleyen slayt: <strong>hipoglisemi (düşük kan glukozu)</strong> ve aminoasitler glukagonu artırır; <strong>hiperglisemi, insülin ve somatostatin</strong> glukagonu baskılar.</p></div>
+
+<!-- 45 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 45</span><span class="stitle">Glukagonun Hücreler Üzerine Etkisi (Diyagram)</span></div>
+<p class="diag-note">Şema: <strong>↓Plazma glukoz</strong> → α hücreleri ↑glukagon (β hücreleri ↓insülin) → karaciğerde <strong>glikojenoliz, glukoneogenez, keton</strong> üretimi (kas/yağ dokusundan laktat, piruvat, amino asit, yağ asidi sağlanır) → ↑plazma glukoz (negatif geri besleme) → beyin ve periferik dokular için kullanılır.</p></div>
+
+<!-- 46 -->
+<div class="slide" id="s46b"><div class="slide-head"><span class="snum">SLIDE 46</span><span class="stitle">İnsülin & Glukagon Metabolizmayı Düzenler (Diyagram)</span></div>
+<table>
+<tr><th>Durum</th><th>Baskın hormon</th><th>Etki</th></tr>
+<tr><td><strong>Tok (Fed state)</strong></td><td>Insulin</td><td>↑ Glukoz oksidasyonu, glikojen sentezi, yağ sentezi, protein sentezi</td></tr>
+<tr><td><strong>Aç (Fasted state)</strong></td><td>Glucagon</td><td>↑ Glikojenoliz, glukoneogenez, ketogenez</td></tr>
+</table>
+<div class="box mnemo"><span class="bt">🧠 Ezber — Terazi mantığı</span>Tokta insülin ağır basar (depola), açlıkta glukagon ağır basar (yık ve üret). İkisi bir teraziye benzer; oranları (insülin/glukagon) metabolizmanın yönünü belirler.</div>
+</div>
+
+<!-- 47 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 47</span><span class="stitle">Kan Glukozu Düzeyinin Regülasyonu (Diyagram)</span></div>
+<p class="diag-note">Homeostaz çemberi (normal 70–110 mg/dL): <strong>Kan glukozu yükselince</strong> → β hücreleri insülin salar → glukoz transportu↑, glikojen sentezi↑, amino asit/protein sentezi↑, trigliserit sentezi↑ → kan glukozu düşer. <strong>Kan glukozu düşünce</strong> → α hücreleri glukagon salar → glikojenoliz↑, yağ→yağ asidi↑, karaciğerden glukoz salınımı↑ → kan glukozu yükselir.</p>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Normal kan glukoz aralığı <strong>70–110 mg/dL</strong>. İnsülin ve glukagon zıt yönlü çalışarak bu dar aralığı korur.</div>
+</div>
+
+<!-- 48-49 -->
+<div class="slide"><div class="slide-head"><span class="snum">SLIDE 48–49</span><span class="stitle">Kapanış</span></div>
+<p class="diag-note">Ek görsel ve "THANK YOU…" kapanış slaytı.</p></div>
+
+<!-- MASTER -->
+<div class="slide" style="border:2px solid var(--brand);">
+<div class="slide-head"><span class="snum" style="background:var(--purple);">ÖZET</span><span class="stitle">🧠 Tek Bakışta İnsülin vs Glukagon</span></div>
+<table>
+<tr><th></th><th>Insulin</th><th>Glucagon</th></tr>
+<tr><td>Hücre</td><td>β (beta)</td><td>α (alpha)</td></tr>
+<tr><td>Boyut</td><td>51 aa (A=21, B=30)</td><td>29 aa</td></tr>
+<tr><td>Kan glukozu</td><td>↓ Düşürür</td><td>↑ Yükseltir</td></tr>
+<tr><td>Reseptör</td><td>Tirozin kinaz (α₂β₂)</td><td>GPCR → cAMP ↑</td></tr>
+<tr><td>Metabolizma</td><td>Anabolik (depola)</td><td>Katabolik (yık/üret)</td></tr>
+<tr><td>Salgı uyaranı</td><td>Yüksek glukoz</td><td>Düşük glukoz</td></tr>
+</table>
+<div class="box mnemo"><span class="bt">🧠 Final ezberi</span>"<strong>İnsülin = Anabolik İkiz (β, 51 aa, depolar); Glukagon = Katabolik İkiz (α, 29 aa, yıkar).</strong> β-hücrede sekresyon zinciri: Glukoz→ATP→K<sub>ATP</sub> kapanır→depolarizasyon→Ca²⁺→ekzositoz. C-peptid = endojen insülinin belirteci."</div>
+</div>
+
+<footer>
+  Pankreas (Endokrin & Ekzokrin) — 49 slayttan slayt slayt derlenmiştir.<br>
+  Flashcard kutularına tıklayarak cevapları açabilirsin. Başarılar! 🫀
+</footer>
+
+</div>
+</body>
+</html>

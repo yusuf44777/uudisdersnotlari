@@ -439,8 +439,13 @@ function getVisibleNotes() {
   });
 }
 
+function countHtmlNotes(noteList) {
+  return noteList.reduce((total, note) => total + (note.children ? note.children.length : 1), 0);
+}
+
 function render() {
   const visibleNotes = getVisibleNotes();
+  const visibleHtmlNotes = countHtmlNotes(visibleNotes);
 
   grid.innerHTML = visibleNotes.map((note) => {
     const completed = state.completed.has(note.id);
@@ -487,7 +492,7 @@ function render() {
     `;
   }).join("");
 
-  resultCount.textContent = `${visibleNotes.length} kayıt gösteriliyor`;
+  resultCount.textContent = `${visibleHtmlNotes} HTML not, ${visibleNotes.length} kart gösteriliyor`;
   completedCount.textContent = state.completed.size.toString();
   emptyState.hidden = visibleNotes.length > 0;
   emptyState.textContent = state.query.trim()

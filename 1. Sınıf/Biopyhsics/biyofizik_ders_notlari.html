@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MDS 112 Biyofizik — Ders Notları (Membranlar & Asit-Baz)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Spline+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1d2433; --ink-soft:#46506a; --paper:#f6f3ec; --paper-2:#fffdf8; --line:#e3ddd0;
+    --tooth:#0d8f8f; --tooth-bg:#e6f6f4; --gold:#b8860b; --gold-bg:#fdf4dd;
+    --danger:#c0392b; --danger-bg:#fceae7; --card:#4f46b8; --card-bg:#eceafb;
+    --correct:#1e7d4f; --correct-bg:#e4f5ea; --accent:#7a2e2e; --blue:#1f5f99; --blue-bg:#e6eff7;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:radial-gradient(circle at 12% 8%,#fffefb 0%,transparent 40%),var(--paper);
+    color:var(--ink);font-family:'Spline Sans',system-ui,sans-serif;line-height:1.65;font-size:16.5px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:920px;margin:0 auto;padding:32px 22px 90px;}
+  header.hero{background:linear-gradient(135deg,#1c2733 0%,#22404a 55%,#0d6e6e 100%);color:#f6f1e8;
+    border-radius:22px;padding:42px 38px;position:relative;overflow:hidden;box-shadow:0 24px 50px -22px rgba(20,40,40,.55);}
+  header.hero::after{content:"🧫";position:absolute;right:-6px;bottom:-22px;font-size:150px;opacity:.10;transform:rotate(-10deg);}
+  header.hero .kicker{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:#7fe0d4;font-weight:600;}
+  header.hero h1{font-family:'Fraunces',serif;font-weight:700;font-size:2.4rem;line-height:1.06;margin:10px 0 8px;}
+  header.hero p{margin:0;max-width:640px;color:#dceae6;font-size:1.02rem;}
+  header.hero .meta{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;}
+  header.hero .meta span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);padding:5px 13px;border-radius:30px;font-size:.8rem;font-weight:500;}
+
+  .toc{background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:20px 24px;margin:24px 0;}
+  .toc h3{margin:0 0 10px;font-family:'Fraunces';color:var(--accent);font-size:1.15rem;}
+  .toc ol{margin:0;padding-left:20px;columns:2;column-gap:30px;font-size:.92rem;}
+  .toc a{color:var(--ink-soft);text-decoration:none;}
+  .toc a:hover{color:var(--tooth);text-decoration:underline;}
+
+  h2.part{font-family:'Fraunces',serif;font-size:1.8rem;color:#fff;background:linear-gradient(100deg,var(--accent),#9c4a3a);
+    padding:16px 22px;border-radius:14px;margin:54px 0 10px;}
+  h2.part span{display:block;font-size:.9rem;font-family:'Spline Sans';font-weight:400;color:#f3d9d2;margin-top:3px;}
+  h3.sec{font-family:'Fraunces',serif;font-size:1.35rem;color:var(--accent);margin:38px 0 4px;border-bottom:2px solid var(--line);padding-bottom:7px;}
+  h4.sub{font-size:1.05rem;color:var(--blue);margin:22px 0 4px;}
+
+  .note{background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:20px 24px;margin:16px 0;box-shadow:0 10px 24px -20px rgba(40,30,20,.5);}
+  .note p{margin:8px 0;}
+  ul.clean{margin:8px 0;padding-left:22px;}
+  ul.clean li{margin-bottom:6px;}
+  ul.clean li::marker{color:var(--tooth);}
+
+  .box{border-radius:14px;padding:14px 18px;margin:14px 0;font-size:.93rem;border:1px solid transparent;}
+  .box .bt{font-weight:700;display:block;margin-bottom:3px;font-size:.9rem;}
+  .klinik{background:var(--tooth-bg);border-color:#bfe6e1;border-left:5px solid var(--tooth);} .klinik .bt{color:var(--tooth);}
+  .spot{background:var(--gold-bg);border-color:#ecd9a3;border-left:5px solid var(--gold);} .spot .bt{color:#946c08;}
+  .dikkat{background:var(--danger-bg);border-color:#f1c4bd;border-left:5px solid var(--danger);} .dikkat .bt{color:var(--danger);}
+  .mnemo{background:#f2eefb;border-color:#d9d0f4;border-left:5px solid var(--card);} .mnemo .bt{color:var(--card);}
+
+  table.tbl{width:100%;border-collapse:collapse;font-size:.9rem;margin:14px 0;}
+  table.tbl th{background:var(--accent);color:#fff;padding:9px 11px;text-align:left;}
+  table.tbl td{padding:8px 11px;border-bottom:1px solid var(--line);vertical-align:top;}
+  table.tbl tr:nth-child(even) td{background:#faf7f0;}
+
+  .flash{margin:16px 0 2px;}
+  .flash .fhead{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--card);font-weight:700;margin-bottom:8px;}
+  details.fc{background:var(--card-bg);border:1px solid #d4cdf2;border-radius:12px;margin-bottom:9px;overflow:hidden;}
+  details.fc summary{cursor:pointer;padding:12px 16px;font-weight:600;font-size:.94rem;list-style:none;display:flex;gap:9px;align-items:flex-start;}
+  details.fc summary::-webkit-details-marker{display:none;}
+  details.fc summary::before{content:"Q";background:var(--card);color:#fff;border-radius:6px;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-family:'Fraunces';font-size:.8rem;flex:none;}
+  details.fc[open] summary{border-bottom:1px solid #d4cdf2;}
+  details.fc .ans{padding:12px 16px 14px;font-size:.93rem;background:#fbfaff;}
+  details.fc .ans::before{content:"A ";font-weight:700;color:var(--card);}
+
+  strong{color:var(--ink);} mark{background:#ffe9a8;padding:0 3px;border-radius:3px;} em{color:var(--accent);font-style:italic;}
+  .latin{font-style:italic;}
+  footer{text-align:center;margin-top:60px;color:var(--ink-soft);font-size:.85rem;}
+  a.top{color:var(--tooth);text-decoration:none;font-weight:600;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">Üsküdar University · MDS 112 Biyofizik · Asst. Prof. Denizhan Karış</div>
+  <h1>Ders Notları<br>Hücre Membranları &amp; Asit-Baz Dengesi</h1>
+  <p>İki ders slayt setinin (Cellular Membranes / Transport Mechanisms ve Acid-Base Disturbances / Blood Gasses) eksiksiz Türkçe özeti. Tüm terimler İngilizce/Latince korunmuştur. Klinik kutular, ezber teknikleri ve flashcard'larla final odaklı hazırlanmıştır.</p>
+  <div class="meta"><span>🧫 Membran Yapısı</span><span>🔄 Transport</span><span>🩸 Tampon &amp; Asit-Baz</span><span>💨 Kan Gazları</span></div>
+</header>
+
+<div class="toc">
+  <h3>İçindekiler</h3>
+  <ol>
+    <li><a href="#models">Hücre &amp; Membran Modelleri</a></li>
+    <li><a href="#struct">Membran Yapısı &amp; Özellikleri</a></li>
+    <li><a href="#func">Membran Fonksiyonları</a></li>
+    <li><a href="#lipid">Lipidler &amp; Akışkanlık</a></li>
+    <li><a href="#protein">Proteinler</a></li>
+    <li><a href="#carb">Karbonhidratlar &amp; Glikokaliks</a></li>
+    <li><a href="#perm">Permeabilite Sınıflaması</a></li>
+    <li><a href="#capacitor">Elektriksel Kapasitör Modeli</a></li>
+    <li><a href="#transport">Transport — Genel</a></li>
+    <li><a href="#passive">Pasif Transport &amp; Difüzyon</a></li>
+    <li><a href="#facil">Kolaylaştırılmış Difüzyon</a></li>
+    <li><a href="#osmosis">Osmoz &amp; Diyaliz</a></li>
+    <li><a href="#active">Aktif Transport &amp; Pompalar</a></li>
+    <li><a href="#vesicle">Veziküler Transport</a></li>
+    <li><a href="#ab-balance">Asit-Baz Dengesi &amp; Organlar</a></li>
+    <li><a href="#buffers">Tampon Sistemleri</a></li>
+    <li><a href="#disturb">Asit-Baz Bozuklukları</a></li>
+    <li><a href="#gaslaws">Gaz Yasaları</a></li>
+    <li><a href="#partial">Parsiyel Basınçlar &amp; Kan Gazı Değerleri</a></li>
+    <li><a href="#gasdiff">Gaz Difüzyonu &amp; Solunum Membranı</a></li>
+    <li><a href="#bga">Kan Gazı Analizi</a></li>
+  </ol>
+</div>
+
+<!-- ==================== PART 1 ==================== -->
+<h2 class="part" id="part1">Ders 1 — Hücre Membranları &amp; Transport Mekanizmaları<span>Biophysical Features of Cellular Membranes and Transport Mechanisms Through Membranes</span></h2>
+
+<h3 class="sec" id="models">1 · Hücre &amp; Membran Modelleri</h3>
+<div class="note">
+  <p>Hücre, organizmada işlev gören temel yapıdır ve üç temel bölümden oluşur: <strong>hücre membranı (cell membrane)</strong>, <strong>sitoplazma (cytoplasm)</strong> ve <strong>çekirdek (nucleus)</strong>. Membran modeli tarihsel olarak şu aşamalardan geçmiştir:</p>
+  <table class="tbl">
+    <tr><th>Yıl / Bilim insanı</th><th>Model</th><th>Ana fikir</th></tr>
+    <tr><td>1925 — Gorter &amp; Grendel</td><td><strong>Bilayer Lipid Model</strong></td><td>Membran çift tabaka lipidden oluşur. Lipidler <strong>amfipatiktir (amphipathic)</strong>: hidrofilik baş <em>dışta</em>, hidrofobik kuyruk <em>içte</em>.</td></tr>
+    <tr><td>1935 — Daniel &amp; Dawson</td><td><strong>Symmetric Membrane Model</strong></td><td>Lipid çift tabakanın iki yüzü de protein tabakasıyla kaplı; lipidlerin polar başları dışta.</td></tr>
+    <tr><td>1971 — Singer</td><td><strong>Mosaic Model</strong></td><td>Proteinler lipidler arasına serpiştirilmiştir.</td></tr>
+    <tr><td>1972 — Singer &amp; Nicholson</td><td><strong>Fluid Mosaic Model</strong> ✅</td><td>Bugün kabul edilen model: proteinler <em>viskoz/akışkan</em> bir lipid denizinde yüzer; hücrenin tüm özelliklerini tanımlar.</td></tr>
+  </table>
+  <div class="box mnemo"><span class="bt">🧠 Ezber Tekniği</span>Kronoloji → <strong>"Gorter Daniel Singer Nicholson"</strong> = <strong>Bi → Sim → Mozaik → Akışkan Mozaik</strong>. "Önce iki katlı (bilayer), sonra simetri, sonra mozaik, en son akışkanlaştı."</div>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Güncel/geçerli model = <strong>Fluid Mosaic Model (Singer &amp; Nicholson, 1972)</strong>. Sınavda "hangi model tüm özellikleri tanımlar?" → bu.</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Bugün geçerli membran modeli hangisidir ve kim tanımlamıştır?</summary><div class="ans">Fluid Mosaic Model — Singer &amp; Nicholson, 1972. Proteinler akışkan lipid tabakada yüzer.</div></details>
+    <details class="fc"><summary>Lipidlerin "amfipatik" olması ne demektir?</summary><div class="ans">Aynı molekülde hem hidrofilik (su seven) baş hem hidrofobik (su sevmez) kuyruk bulunması. Baş dışa, kuyruk içe döner.</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="struct">2 · Membran Yapısı &amp; Kantitatif Özellikler</h3>
+<div class="note">
+  <p>Membran tüm prokaryot ve ökaryot hücrelerin sitoplazmasını sarar; elektron mikroskobunda <strong>üç tabakalı</strong> görünür. Yapısı hücreden hücreye benzer ama fonksiyona göre lipid/protein içeriği değişir. Bu çift tabakayı korumak için membran yaklaşık <strong>%30 su</strong> içerir.</p>
+  <h4 class="sub">Tüm biyolojik membranların ortak özellikleri</h4>
+  <ul class="clean">
+    <li>İnce lipid çift tabaka + içine gömülü protein molekülleri + <strong>dışta karbonhidratlar (outside the cell)</strong>.</li>
+    <li>Membranlar <strong>dinamik (dynamic)</strong> yapılardır.</li>
+    <li>Moleküllerin çoğu <strong>hareketlidir (mobile)</strong>.</li>
+    <li>Membranlar <strong>asimetriktir (asymmetric)</strong>.</li>
+  </ul>
+  <h4 class="sub">Kantitatif değerler (ezberlik)</h4>
+  <table class="tbl">
+    <tr><th>Özellik</th><th>Değer</th></tr>
+    <tr><td>Kalınlık (thickness)</td><td>6–10 nm (≈75–100 Å)</td></tr>
+    <tr><td>Kapasitans (capacitance)</td><td>0.5–1.3 µF/cm²</td></tr>
+    <tr><td>Direnç (resistance)</td><td>10²–10⁵ Ω·cm²</td></tr>
+    <tr><td>Yıkım potansiyeli (destruction potential)</td><td>100–150 mV</td></tr>
+    <tr><td>Su geçirgenliği</td><td>(0.4–400)×10⁻⁶ m/s</td></tr>
+    <tr><td>Yüzey gerilimi (surface tension)</td><td>0.03–0.1 N/m</td></tr>
+  </table>
+  <div class="box dikkat"><span class="bt">⚠️ Dikkat</span>"Symmetric" kelimesi en sık kullanılan çeldiricidir — membranın kuralı <mark>asimetri</mark>dir. Karbonhidratlar <mark>her zaman dışta</mark>.</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Membranın üç temel özelliğini İngilizce say.</summary><div class="ans">Dynamic, (mostly) mobile, asymmetric.</div></details>
+    <details class="fc"><summary>Membran kalınlığı yaklaşık kaçtır?</summary><div class="ans">6–10 nm (75–100 Å).</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="func">3 · Membran Fonksiyonları (9 madde)</h3>
+<div class="note">
+  <ul class="clean">
+    <li>Hücreye madde giriş-çıkışını kontrol eder (<strong>selective permeability — homeostasis</strong>).</li>
+    <li>Hücre içi ve dışı ortamların farklı bileşimini korur.</li>
+    <li>Metabolik süreçlerin düzenlenmesinde rol oynar.</li>
+    <li>Hücresel metabolizmada uyarı ve yanıtları düzenler.</li>
+    <li>Diğer hücrelerle entegrasyonu organize eder.</li>
+    <li>Endositoz ve ekzositoz dâhil tüm salgı/emilim işlevlerinde yer alır.</li>
+    <li>Hücre içi <strong>pH</strong>'ı düzenler.</li>
+    <li><strong>Biyoelektrik potansiyellerin</strong> üretimi ve iletimini sağlar.</li>
+    <li><strong>İmmünokimyasal</strong> süreçlerde yer alır.</li>
+  </ul>
+  <div class="box klinik"><span class="bt">🦷 Klinik Önemi</span>"Biyoelektrik potansiyel üretimi ve iletimi" maddesi, ilerleyen derslerdeki <strong>aksiyon potansiyeli</strong> ve <strong>pulpa duyarlılık testleri (electric pulp test)</strong>'nin temelidir — diş hekimi bir nöronun membranına elektrik uygular ve canlılığı ölçer.</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Membranın madde geçişini kontrol etme özelliğinin adı nedir?</summary><div class="ans">Selektif geçirgenlik (selective permeability) → homeostazı sağlar.</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="lipid">4 · Lipidler &amp; Membran Akışkanlığı</h3>
+<div class="note">
+  <p>Membranın temel bileşeni <strong>lipidlerdir</strong>. Lipidin başı hidrofilik, kuyrukları hidrofobiktir. Sulu ortamda lipidler termodinamik yasalar gereği kendiliğinden <strong>misel/çift tabaka (micelle/bilayer)</strong> oluşturur — hidrofilik başlar suya, hidrofobik kuyruklar sudan uzağa döner. Bu düzen <strong>en düşük serbest enerji (minimum free energy)</strong> durumudur; oluşan yapı esnek, akışkan ve kısmen geçirgendir.</p>
+  <h4 class="sub">Membran lipid içeriği (≈ oranlar)</h4>
+  <table class="tbl">
+    <tr><th>Lipid türü</th><th>Oran</th><th>Örnekler</th></tr>
+    <tr><td><strong>Phospholipids</strong></td><td>%60</td><td>Phosphatidylcholine, -ethanolamine, -serine, -inositol, Sphingomyelin</td></tr>
+    <tr><td><strong>Glycolipids</strong></td><td>%30</td><td>Cerebroside, ganglioside</td></tr>
+    <tr><td><strong>Cholesterol</strong></td><td>%10</td><td>Yağ asidi zincirlerine paralel yerleşir</td></tr>
+  </table>
+  <p>Başta <strong>fosfat, karbonhidrat ve hidroksil grupları</strong>; kuyrukta <strong>doymuş ve doymamış yağ asitleri</strong> bulunur. Lipid çift tabaka iyonlara ve glukoz, amino asit, protein, nükleik asit gibi polar moleküllere <strong>geçirgen değildir</strong>.</p>
+  <h4 class="sub">Lipid hareketleri (5 tip)</h4>
+  <ul class="clean">
+    <li><strong>Lateral diffusion</strong> (yana kayma — çok hızlı)</li>
+    <li><strong>Rotation</strong> (dönme)</li>
+    <li><strong>Swing</strong> (sallanma)</li>
+    <li><strong>Flexion</strong> (bükülme)</li>
+    <li><strong>Transverse diffusion</strong> (flip-flop — çapraz, nadir/yavaş)</li>
+  </ul>
+  <h4 class="sub">Kolesterol &amp; akışkanlık</h4>
+  <p>Lipidler arasında kovalent bağ yoktur, bu yüzden membran statik değil <strong>akışkandır (fluid)</strong>. Kolesterol akışkanlığı düzenler: <strong>kolesterol içeriği arttıkça akışkanlık ve geçirgenlik azalır</strong> (yağ asitlerinin lateral hareketi kısıtlanır). İlişki <em>ters orantılıdır</em>.</p>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span><strong>Kolesterol ↑ → Akışkanlık ↓ → Geçirgenlik ↓</strong>. Bu ters ilişki klasik sınav sorusudur.</div>
+  <div class="box mnemo"><span class="bt">🧠 Ezber Tekniği</span>Lipid oranları → "<strong>6-3-1</strong>": Fosfolipid %<u>60</u>, Glikolipid %<u>30</u>, Kolesterol %<u>10</u>.</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Kolesterol membran akışkanlığını nasıl etkiler?</summary><div class="ans">Ters orantılı — kolesterol arttıkça akışkanlık ve geçirgenlik azalır.</div></details>
+    <details class="fc"><summary>Membranda en bol bulunan lipid türü hangisidir?</summary><div class="ans">Fosfolipidler (≈%60).</div></details>
+    <details class="fc"><summary>Lipidler sulu ortamda neden kendiliğinden çift tabaka yapar?</summary><div class="ans">En düşük serbest enerjiye (minimum free energy) ulaşmak için — hidrofobik kuyruklar sudan kaçar.</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="protein">5 · Membran Proteinleri</h3>
+<div class="note">
+  <p>Lipidler membranın <em>matriksini</em> oluştururken, <strong>proteinler spesifik hücre fonksiyonlarını</strong> yürütür: iyon/madde transportu, enzimatik işlev, hormon/nörotransmitter reseptörü, antijen işlevi. Membrandaki en önemli protein formu <strong>glikoproteinlerdir</strong> ve membrana <strong>kovalent bağ</strong> ile bağlanırlar.</p>
+  <h4 class="sub">Fiziksel forma göre</h4>
+  <ul class="clean">
+    <li><strong>α-helix proteinler:</strong> iyi organize amino asit zinciri.</li>
+    <li><strong>Globular proteinler:</strong> hidrofobik bölgeye gömülü; besin ve atık transportunu katalize eder (endositoz).</li>
+  </ul>
+  <h4 class="sub">Konuma göre — KRİTİK ayrım</h4>
+  <table class="tbl">
+    <tr><th>Özellik</th><th>Peripheral (extrinsic)</th><th>Integral (intrinsic)</th></tr>
+    <tr><td>Bağlanma</td><td>Gevşek bağlı, kolay ayrılır</td><td>Güçlü bağlı</td></tr>
+    <tr><td>Lipid tabakaya gömülme</td><td>Gömülü <strong>değil</strong></td><td>Lipid çift tabakaya gömülü</td></tr>
+    <tr><td>Membranı geçme</td><td>Boylamasına geçmez</td><td>Membranı <strong>boylamasına geçer</strong></td></tr>
+    <tr><td>İşlev</td><td>İki yüzeyde de bulunur</td><td><strong>İyon kanalı / taşıyıcı</strong>; lateral hareket eder</td></tr>
+  </table>
+  <h4 class="sub">Membran proteinlerinin 6 fonksiyonu</h4>
+  <p><strong>a)</strong> Transport · <strong>b)</strong> Enzymatic activity · <strong>c)</strong> Signal transduction · <strong>d)</strong> Cell-cell recognition · <strong>e)</strong> Intercellular joining · <strong>f)</strong> Attachment to extracellular matrix.</p>
+  <div class="box dikkat"><span class="bt">⚠️ Dikkat</span><strong>Micelle formation</strong> bir protein fonksiyonu DEĞİLDİR (lipid özelliğidir). Finalde "hangisi protein fonksiyonu değildir?" sorusunda cevap budur.</div>
+  <div class="box mnemo"><span class="bt">🧠 Ezber Tekniği</span>6 fonksiyon → <strong>"TESCİA"</strong>: <u>T</u>ransport · <u>E</u>nzymatic · <u>S</u>ignal transduction · <u>C</u>ell-cell recognition · <u>İ</u>ntercellular joining · <u>A</u>ttachment to ECM. <br>Integral vs peripheral → "<strong>Integral = İçeri gömülü &amp; geçer; Peripheral = kenarda &amp; çıkar.</strong>"</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>İntegral ve periferal proteinin en büyük farkı nedir?</summary><div class="ans">İntegral protein lipid tabakaya gömülüdür ve membranı boylamasına geçer (iyon kanalı/taşıyıcı); periferal protein gömülü değildir, gevşek bağlıdır ve kolay ayrılır.</div></details>
+    <details class="fc"><summary>Membrandaki en önemli protein formu nedir ve nasıl bağlanır?</summary><div class="ans">Glikoproteinler — membrana kovalent bağ ile bağlanır.</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="carb">6 · Karbonhidratlar &amp; Glikokaliks</h3>
+<div class="note">
+  <p>Karbonhidratlar daima hücrenin <strong>dış yüzeyinde</strong> bulunur ve bağlandıkları yapıya göre adlandırılır: proteinle → <strong>glycoprotein</strong>, lipidle → <strong>glycolipid</strong>. Membran lipidlerinin %10'u glikolipiddir. Glikolipidler <strong>antijenik işlev</strong> görür; bir hücreyi tanıyarak reddedebilir.</p>
+  <h4 class="sub">Glikokaliks (Glycocalyx = Cell Mantle)</h4>
+  <p>Membran yüzeyindeki <strong>karbonhidrat tabakasıdır</strong>. Fonksiyonları:</p>
+  <ul class="clean">
+    <li><strong>Tissue integration</strong> (doku entegrasyonu) sağlar.</li>
+    <li>Hücreyi <strong>mekanik yaralanmalara</strong> karşı korur.</li>
+    <li><strong>Virüs, bakteri, hormon</strong> vb. için <strong>reseptör</strong> görevi görür.</li>
+  </ul>
+  <div class="box dikkat"><span class="bt">⚠️ Dikkat</span>Glikokaliks bir <mark>karbonhidrat tabakasıdır</mark> — "protein tabakası" ifadesi çeldiricidir.</div>
+  <div class="box klinik"><span class="bt">🦷 Klinik Önemi</span>Diş yüzeyindeki <span class="latin">pellicle</span> ve bakteriyel glikokaliks, <strong>dental plak/biyofilm</strong>'in ilk yapışma basamağıdır. Bakterinin mineyi "tanıyıp tutunması" bu yapışkan örtüyle olur — çürük ve periodontal hastalığın başlangıç biyofiziği.</div>
+  <div class="box mnemo"><span class="bt">🧠 Ezber Tekniği</span>Glikokaliks → <strong>"KaplaR-KoruR-TanıR"</strong>: doku <u>kaplama</u>/entegrasyon, mekanik <u>koruma</u>, virüs/bakteri <u>tanıma</u> (reseptör).</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Glikokaliksin üç fonksiyonu nedir?</summary><div class="ans">Doku entegrasyonu, mekanik korumaya karşı koruma, virüs/bakteri/hormon için reseptör.</div></details>
+    <details class="fc"><summary>Glikolipidlerin temel işlevi nedir?</summary><div class="ans">Antijenik işlev — hücreyi tanıyıp reddedebilme (immün tanıma).</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="perm">7 · Permeabiliteye Göre Membran Sınıflaması</h3>
+<div class="note">
+  <table class="tbl">
+    <tr><th>Membran tipi</th><th>Ne geçer?</th></tr>
+    <tr><td><strong>Non-permeable</strong></td><td>Sadece gazlar geçer</td></tr>
+    <tr><td><strong>Semi-permeable</strong></td><td>Su geçer; protein ve iyon geçemez</td></tr>
+    <tr><td><strong>Selective permeable</strong></td><td>Su ve bazı iyonlar geçer</td></tr>
+    <tr><td><strong>Ultrafilter / dialysate</strong></td><td>Su ve tüm iyonlar geçer; protein geçemez</td></tr>
+    <tr><td><strong>Simple filtered</strong></td><td>Su, protein, iyon geçer; eritrosit/trombosit gibi şekilli elemanlar geçemez</td></tr>
+  </table>
+  <h4 class="sub">Maddelerin geçiş kolaylığı sıralaması</h4>
+  <ol style="margin:8px 0;padding-left:22px;">
+    <li><strong>Çok kolay:</strong> Su</li>
+    <li><strong>Kolay:</strong> Gazlar (O₂, N₂, CO₂); yağda çözünenler (alkol, eter, kloroform)</li>
+    <li><strong>Zor:</strong> Glukoz, amino asit, gliserol, yağ asidi</li>
+    <li><strong>Çok zor:</strong> İnorganik tuzlar, asidik/alkali maddeler, disakkaritler (sakkaroz, maltoz, laktoz)</li>
+    <li><strong>Asla geçemez:</strong> Proteinler, polisakkaritler, fosfolipidler</li>
+  </ol>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span>En kolay geçen = <strong>su</strong>; asla geçemeyen = <strong>protein, polisakkarit, fosfolipid</strong>. Diyaliz membranı (ultrafilter) proteini tutar, iyonu geçirir.</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Semi-permeable membrandan ne geçer, ne geçemez?</summary><div class="ans">Su geçer; protein ve iyonlar geçemez.</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="capacitor">8 · Elektriksel Kapasitör Modeli</h3>
+<div class="note">
+  <p><strong>Hermann von Helmholtz (1879)</strong> biyolojik membranı bir <strong>elektriksel kapasitöre (electrical capacitor)</strong> benzetti. Kapasitör, elektrik yükünü kısa süre depolayan, iki iletken plaka arasında yalıtkan bir ortam bulunan devre elemanıdır. Membranda lipid çift tabaka <strong>yalıtkan</strong>, hücre içi ve dışı sıvılar ise <strong>iletken</strong> plakalar gibi davranır.</p>
+  <p>Lipid çift tabaka, hücre içi ve dışı arasındaki yükü (Q) ayırır; bu yük ayrımı membran boyunca bir <strong>elektriksel potansiyel farkı = membran potansiyeli (membrane potential)</strong> yaratır. <strong>Membran kapasitansı</strong>, zıt işaretli yükleri ayırma yeteneğini belirler. Bir iyonun hareket yönünü <strong>elektrokimyasal sürükleyici kuvvet (electrochemical driving force)</strong> belirler.</p>
+  <div class="box klinik"><span class="bt">🦷 Klinik Önemi</span>Membranın kapasitör gibi davranması, sinir hücresinin yük depolayıp aksiyon potansiyeli oluşturmasının fiziksel temelidir — lokal anestezinin "iletimi durdurma" mekanizması tam da bu elektriksel modeli hedefler.</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Membranı kapasitöre benzeten bilim insanı kimdir?</summary><div class="ans">Hermann von Helmholtz (1879).</div></details>
+    <details class="fc"><summary>Membran potansiyeli nasıl oluşur?</summary><div class="ans">Lipid çift tabaka hücre içi/dışı yükleri ayırır; bu yük ayrımı membran boyunca bir potansiyel farkı yaratır.</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="transport">9 · Transport — Genel İlkeler</h3>
+<div class="note">
+  <p>Plazma membranı suda çözünen maddelerin serbest hareketine karşı etkili bir bariyerdir; çoğu önemli madde geçmek için <strong>protein aracılı yol</strong> gerektirir. Bir bariyer iki ortamı ayırıyorsa, madde taşınması için aralarında bir <strong>potansiyel enerji farkı</strong> bulunmalıdır.</p>
+  <h4 class="sub">Olası potansiyel enerji farkları</h4>
+  <ul class="clean">
+    <li><strong>Chemical potential energy</strong> = derişim gradyanı (concentration gradient)</li>
+    <li><strong>Hydrostatic pressure difference</strong></li>
+    <li><strong>Electrical potential energy</strong></li>
+    <li><strong>Thermal energy</strong></li>
+  </ul>
+  <h4 class="sub">Transport sınıflaması</h4>
+  <table class="tbl">
+    <tr><th>Kritere göre</th><th>Tipler</th></tr>
+    <tr><td>Madde boyutu</td><td>Küçük moleküller → pasif + aktif transport · Büyük moleküller → endositoz/ekzositoz</td></tr>
+    <tr><td>Enerji tüketimi</td><td><strong>ATP gerekmez:</strong> Facilitated (passive) transport · <strong>ATP gerekir:</strong> Active transport, endositoz, ekzositoz</td></tr>
+  </table>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span><strong>Enerjisiz (pasif):</strong> simple diffusion, facilitated diffusion, osmosis. <strong>Enerjili (ATP):</strong> active transport, endocytosis, exocytosis.</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Madde taşınması için iki ortam arasında ne bulunmalıdır?</summary><div class="ans">Bir potansiyel enerji farkı (kimyasal/derişim, hidrostatik, elektriksel veya termal).</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="passive">10 · Pasif Transport &amp; Difüzyon</h3>
+<div class="note">
+  <p><strong>Pasif transport</strong> en basit yöntemdir; derişim gradyanına, molekül boyutuna ve yüke bağlıdır. Yüklü madde hem derişim gradyanına hem de membran potansiyeli nedeniyle <strong>elektrokimyasal gradyana</strong> göre hareket eder.</p>
+  <p><strong>Difüzyon</strong>, partiküllerin yüksek derişimden düşük derişime net pasif hareketidir; <em>gradyan aşağı</em> gerçekleşir. Klasik örnekler: ısı difüzyonu, moleküler difüzyon, <strong>Brownian motion</strong> (1827, Robert Brown — partiküllerin çarpışma kaynaklı rastgele hareketi, sıcaklığa bağlı). Matematiksel tanım: Fourier (1822), <strong>Adolf Fick (1855)</strong>, Einstein (1905).</p>
+  <h4 class="sub">Fick Yasaları</h4>
+  <p><strong>Fick'in 1. yasası:</strong> Difüzyona bağlı molar akı (flux, J) derişim gradyanıyla orantılıdır:</p>
+  <p style="text-align:center;font-size:1.05rem;"><strong>J = −D · (dc/dx)</strong></p>
+  <ul class="clean">
+    <li><strong>dc/dx:</strong> birim uzunluk başına derişim gradyanı</li>
+    <li><strong>Negatif işaret:</strong> partiküller yüksekten düşüğe gider</li>
+    <li><strong>D:</strong> difüzyon katsayısı</li>
+  </ul>
+  <h4 class="sub">Difüzyon hızını etkileyen faktörler</h4>
+  <p style="text-align:center;font-size:1.02rem;"><strong>Difüzyon hızı ∝ (Gradyan × Yüzey alanı × Sıcaklık) ⁄ (Molekül boyutu × Mesafe)</strong></p>
+  <table class="tbl">
+    <tr><th>Faktör</th><th>Etki</th></tr>
+    <tr><td>Derişim gradyanı ↑</td><td>Hız ↑ (doğru orantı)</td></tr>
+    <tr><td>Yüzey alanı ↑</td><td>Hız ↑</td></tr>
+    <tr><td>Sıcaklık ↑</td><td>Hız ↑</td></tr>
+    <tr><td>Molekül/iyon boyutu ↑</td><td>Hız ↓ (ters orantı)</td></tr>
+    <tr><td>Membran kalınlığı / mesafe ↑</td><td>Hız ↓ (ters orantı)</td></tr>
+  </table>
+  <p><strong>Bioenerjetik:</strong> Difüzyonda entropi (S) <em>artar</em>, sistemin serbest enerjisi (G) <em>azalır</em>; süreç <strong>kendiliğinden (spontaneous)</strong> gerçekleşir.</p>
+  <div class="box mnemo"><span class="bt">🧠 Ezber Tekniği</span>"<strong>GYS yukarı çıkarır, MM aşağı çeker</strong>": <u>G</u>radyan-<u>Y</u>üzey-<u>S</u>ıcaklık hızı artırır; <u>M</u>olekül boyutu-<u>M</u>esafe (kalınlık) düşürür.</div>
+  <div class="box klinik"><span class="bt">🦷 Klinik Önemi</span>Topikal florür ve lokal anesteziklerin mukozadan emilimi tam bir Fick problemidir: ince mukoza (kısa mesafe) + geniş temas yüzeyi + yüksek konsantrasyon → hızlı emilim.</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Fick'in 1. yasasını sözel ifade et.</summary><div class="ans">Difüzyon akısı (J) derişim gradyanı ile doğru orantılıdır; J = −D·(dc/dx), negatif işaret yüksekten düşüğe akışı gösterir.</div></details>
+    <details class="fc"><summary>Difüzyonda entropi ve serbest enerji nasıl değişir?</summary><div class="ans">Entropi artar (S↑), serbest enerji azalır (G↓); süreç kendiliğinden olur.</div></details>
+    <details class="fc"><summary>Brownian hareketini kim, ne zaman tanımladı?</summary><div class="ans">Robert Brown, 1827 — partiküllerin çarpışmaya bağlı rastgele, sıcaklığa bağımlı hareketi.</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="facil">11 · Kolaylaştırılmış Difüzyon &amp; Taşıyıcılar</h3>
+<div class="note">
+  <p><strong>Facilitated diffusion</strong>, spesifik moleküllerin <strong>spesifik bir taşıyıcı protein (carrier protein)</strong> aracılığıyla yüksekten düşük derişime geçişidir. Seçim boyut, şekil ve yüke göre yapılır.</p>
+  <h4 class="sub">Üç ayırt edici özellik</h4>
+  <ul class="clean">
+    <li><strong>Spesifiktir (Specific):</strong> bir taşıyıcı yalnızca belirli molekül/iyonları taşır.</li>
+    <li><strong>Pasiftir (Passive):</strong> net hareket yönünü iç/dış derişimler belirler; ATP gerektirmez.</li>
+    <li><strong>Doygunluk noktası vardır (Saturation Point):</strong> tüm taşıyıcılar dolunca hız platoya ulaşır.</li>
+  </ul>
+  <p>İki tip taşıma proteini vardır: <strong>channel proteins</strong> (kanal) ve <strong>carrier proteins</strong> (taşıyıcı). Taşıma yönüne göre:</p>
+  <table class="tbl">
+    <tr><th>Tip</th><th>Tanım</th></tr>
+    <tr><td><strong>Uniport</strong></td><td>Tek bir molekül/iyonu tek yönde taşır</td></tr>
+    <tr><td><strong>Symport</strong></td><td>İki molekülü <strong>aynı yönde</strong> birlikte taşır</td></tr>
+    <tr><td><strong>Antiport</strong></td><td>İki molekülü <strong>zıt yönde</strong> taşır</td></tr>
+  </table>
+  <p><strong>Bioenerjetik:</strong> Taşıyıcı protein, transmembran difüzyon için gereken <strong>ΔG'yi azaltır</strong>; entropi yine artar.</p>
+  <div class="box dikkat"><span class="bt">⚠️ Dikkat</span>Basit difüzyondan farkı: <mark>spesifiklik</mark> ve <mark>doygunluk</mark>. "Taşıyıcıya spesifik değildir" ifadesi yanlıştır. İkisi de enerjisizdir.</div>
+  <div class="box mnemo"><span class="bt">🧠 Ezber Tekniği</span><strong>Uni</strong> = tek yolcu · <strong>Sym</strong> = "sympathy/aynı yöne beraber" · <strong>Anti</strong> = "antagonist/zıt yöne".</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Kolaylaştırılmış difüzyonun üç ayırt edici özelliği nedir?</summary><div class="ans">Spesifik, pasif (enerjisiz), doygunluk noktalı.</div></details>
+    <details class="fc"><summary>Symport ve antiport arasındaki fark nedir?</summary><div class="ans">Symport: iki çözünen aynı yönde; antiport: iki çözünen zıt yönde.</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="osmosis">12 · Osmoz, Ozmotik Basınç &amp; Diyaliz</h3>
+<div class="note">
+  <p><strong>Osmoz</strong>, difüzyonun özel bir hâlidir: <strong>suyun</strong> yüksek çözünen derişimli ortama doğru hareketidir. Osmozda yalnızca su geçer; su <strong>aquaporinler</strong> üzerinden hareket eder ve <strong>enerji gerektirmez (pasif)</strong>.</p>
+  <p><strong>Ozmotik basınç:</strong> Yarı geçirgen membran boyunca çözücü akışını durdurmak için gereken basınç farkıdır; çözeltideki <strong>çözünen partikül molar derişimiyle</strong> orantılıdır. <strong>Osmol</strong> = ozmotik basınca katkıda bulunan çözünen mol sayısı (1 gram-molekül glukoz = 180 g = 1 osmol).</p>
+  <h4 class="sub">Tonisite</h4>
+  <table class="tbl">
+    <tr><th>Çözelti</th><th>Göreli çözünen derişimi</th></tr>
+    <tr><td><strong>Hypertonic</strong></td><td>Daha yüksek (hücre su kaybeder, büzüşür)</td></tr>
+    <tr><td><strong>Hypotonic</strong></td><td>Daha düşük (hücre su alır, şişer)</td></tr>
+    <tr><td><strong>Isotonic</strong></td><td>Eşit (net değişim yok)</td></tr>
+  </table>
+  <h4 class="sub">Osmoregülasyon örnekleri &amp; Diyaliz</h4>
+  <p>Bitki köklerinin su emilimi; nefronun proksimal/distal tübüllerinde su geri emilimi; doku sıvısının venül uçlarından geri emilimi. <strong>Diyaliz:</strong> yarı geçirgen membranla farklı (makro)moleküllerin ayrılması — <strong>por boyutu</strong> hangi molekülün geçeceğini belirler. <strong>Hemodiyaliz</strong>, ciddi böbrek hastalıklarında kandan çözünür toksik kimyasalları uzaklaştırır.</p>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span><strong>Osmoz = su hareketi + enerjisiz + aquaporin.</strong> Ozmotik basınç çözünen <em>partikül sayısına</em> bağlıdır (madde cinsine değil).</div>
+  <div class="box dikkat"><span class="bt">⚠️ Dikkat</span>Sınav tuzağı: "Osmoz ATP gerektirir" → <mark>YANLIŞ</mark>. Osmoz pasiftir.</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Osmozda ne hareket eder, hangi protein kullanılır, enerji gerekir mi?</summary><div class="ans">Su hareket eder; aquaporinlerden; enerji gerekmez (pasif).</div></details>
+    <details class="fc"><summary>Ozmotik basınç neye bağlıdır?</summary><div class="ans">Çözeltideki çözünen partiküllerin molar derişimine (sayısına).</div></details>
+    <details class="fc"><summary>Hipertonik ortamda hücreye ne olur?</summary><div class="ans">Su kaybeder ve büzüşür (dışarısı daha yüksek çözünen derişimli olduğu için su dışarı çıkar).</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="active">13 · Aktif Transport &amp; Pompalar</h3>
+<div class="note">
+  <p><strong>Active transport</strong>, bir molekül/iyonu membran boyunca taşımak için <strong>her zaman enerji</strong> kullanır. Yüklü, büyük veya yüksek polariteli moleküllerde geçerlidir. <strong>Elektrokimyasal gradyana karşı</strong> taşır, <strong>termodinamik olarak elverişsizdir</strong>, <strong>ATP hidrolizi</strong> gerçekleşir.</p>
+  <p>Birden fazla molekül taşırsa <strong>cotransport</strong> denir: aynı yön → <strong>symporter</strong>, zıt yön → <strong>antiporter</strong>.</p>
+  <h4 class="sub">İki tip aktif transport</h4>
+  <table class="tbl">
+    <tr><th>Tip</th><th>Mekanizma</th></tr>
+    <tr><td><strong>Primary active transport</strong></td><td>Taşıyıcı protein, <strong>ATP hidrolizini doğrudan</strong> taşımayla eşler; konformasyon değişimi olur (ATP olmadan elverişsiz). Örn. Na⁺/K⁺ pompası.</td></tr>
+    <tr><td><strong>Secondary active transport</strong></td><td>Bir derişim gradyanının (primer transportla yaratılmış) enerjisini kullanır. Daima <strong>cotransporter</strong>'dır (symport veya antiport). Örn. glukoz ve nötr amino asitlerin Na⁺ gradyanıyla simport taşınması.</td></tr>
+  </table>
+  <h4 class="sub">Pompa tipleri</h4>
+  <p>Na⁺/K⁺ pompası · H⁺ pompası · H⁺/K⁺ pompası · Ca⁺⁺ pompası.</p>
+  <h4 class="sub">Na⁺/K⁺ Pompası — KRİTİK</h4>
+  <p>Pompa, <strong>Na⁺'yi hücre dışında, K⁺'yi hücre içinde</strong> yoğunlaştıran bir gradyan kurar ve korur. Stökiyometri: <strong>3 Na⁺ dışarı / 2 K⁺ içeri / 1 ATP</strong>. İki iyon zıt yönde taşındığı için <strong>antiporter</strong>'dır; gradyana <em>karşı</em> çalışır.</p>
+  <p><strong>Bioenerjetik:</strong> Aktif transportta entropi <em>azalır</em> (S↓, çözünen daha düzenli hâle gelir), sistemin serbest enerjisi <em>artar</em> (G↑). Sistem serbest enerji <strong>kazanır</strong>.</p>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span><strong>3 Na⁺↑ / 2 K⁺↓ / 1 ATP.</strong> Net 1(+) yük dışarı çıkar → pompa <em>elektrojeniktir</em>, dinlenim potansiyeline katkı verir.</div>
+  <div class="box mnemo"><span class="bt">🧠 Ezber Tekniği</span>"<strong>Na naughty → 3 dışarı kovuldu; K kal → 2 içeri girdi</strong>." Primer = ATP'yi <em>doğrudan</em> yakar; Sekonder = başka iyonun gradyanını <em>ödünç alır</em>.</div>
+  <div class="box klinik"><span class="bt">🦷 Klinik Önemi</span>Na⁺/K⁺ pompası dinlenim membran potansiyelini ayakta tutar; bu da sinir iletiminin ön koşuludur. Pompayı bozan durumlar (iskemi, bazı zehirler) anestezi yanıtını ve doku canlılığını etkiler.</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Na⁺/K⁺ pompası neden antiport ve neden primer aktif transporttur?</summary><div class="ans">Na⁺ ve K⁺'yi zıt yönde taşıdığı için antiport; ATP'yi doğrudan hidrolize ettiği için primer.</div></details>
+    <details class="fc"><summary>Primer ve sekonder aktif transport farkı nedir?</summary><div class="ans">Primer: ATP'yi doğrudan kullanır. Sekonder: primer transportun yarattığı iyon gradyanının enerjisini kullanır; daima cotransporttur.</div></details>
+    <details class="fc"><summary>Aktif transportta entropi ve serbest enerji nasıl değişir?</summary><div class="ans">Entropi azalır (S↓), serbest enerji artar (G↑); sistem enerji kazanır.</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="vesicle">14 · Veziküler Transport (Endo- / Ekzositoz)</h3>
+<div class="note">
+  <table class="tbl">
+    <tr><th>Süreç</th><th>Tanım &amp; örnek</th></tr>
+    <tr><td><strong>Exocytosis</strong></td><td>Sitoplazmik vezikül hücre membranıyla birleşir ve içeriğini <em>dışarı</em> salar. Örn: nörotransmitter salınımı.</td></tr>
+    <tr><td><strong>Endocytosis</strong></td><td>Üç yolla olur: <strong>Phagocytosis</strong> (hücre yeme — makromolekül kompleks, viral partikül, bakteri), <strong>Pinocytosis</strong> (hücre içme — su fazındaki protein/molekül), <strong>Receptor-mediated endocytosis</strong>.</td></tr>
+  </table>
+  <p><strong>Her ikisi de enerji (ATP) gerektirir.</strong> Endositoz adımları: (1) makromolekül membrandaki özel noktalara bağlanır, (2) lipid/protein kompozisyonu değişir, (3) yeni oluşan membranın yüzey gerilimi değişir ve membran içe çöker, (4) ayrılan vezikül <strong>lizozomlar</strong> tarafından sindirilir.</p>
+  <p>Ekzositoz daha çok <strong>nöronlar ve gastrointestinal sistemde</strong> çalışılır: salgı maddeleri endoplazmik retikulumda üretilip küçük veziküllerde depolanır; hücre <strong>elektriksel/kimyasal uyarıldığında</strong> vezikül membrana yapışır ve içeriğini boşaltır.</p>
+  <div class="box dikkat"><span class="bt">⚠️ Dikkat</span>Sınav tuzağı: "Sinaptik aralığa ekzositoz ATP gerektirmez" → <mark>YANLIŞ</mark>. Ekzositoz ve endositoz <strong>her ikisi de ATP'lidir</strong>.</div>
+  <div class="box mnemo"><span class="bt">🧠 Ezber Tekniği</span>Endositoz tipleri → "<strong>Fa-Pi-Re</strong>": <u>Fa</u>gositoz (katı yer) · <u>Pi</u>nositoz (sıvı içer) · <u>Re</u>septör aracılı.</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Fagositoz ve pinositoz farkı nedir?</summary><div class="ans">Fagositoz: katı/büyük partikül (bakteri, kompleks) alımı ("hücre yeme"). Pinositoz: sıvı fazdaki çözünmüş molekül alımı ("hücre içme").</div></details>
+    <details class="fc"><summary>Ekzositoz ve endositoz enerji ister mi?</summary><div class="ans">Evet, her ikisi de ATP gerektirir.</div></details>
+  </div>
+</div>
+
+<!-- ==================== PART 2 ==================== -->
+<h2 class="part" id="part2">Ders 2 — Asit-Baz Bozuklukları &amp; Kan Gazları<span>Acid-Base Disturbances, Compensation Mechanisms, Blood Gasses and Measurement Methods</span></h2>
+
+<h3 class="sec" id="ab-balance">15 · Asit-Baz Dengesi &amp; Organların Rolü</h3>
+<div class="note">
+  <p>Asit-baz dengesi başlıca iki organ tarafından korunur: <strong>akciğerler (lungs)</strong> ve <strong>böbrekler (kidneys)</strong>. Akciğer hızlı (CO₂ atımı ile dakikalar içinde), böbrek yavaş ama güçlü (H⁺ atımı ve HCO₃⁻ geri emilimi ile saatler-günler içinde) düzenleme yapar.</p>
+  <p>Kanın normal pH aralığı: <strong>7.36–7.44</strong>.</p>
+  <ul class="clean">
+    <li><strong>Acidosis:</strong> Kanda H⁺ derişiminin artması ve pH'ın <em>düşmesi</em>.</li>
+    <li><strong>Alkalosis:</strong> Kanda H⁺ derişiminin azalması ve pH'ın <em>yükselmesi</em>.</li>
+  </ul>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Normal pH = <strong>7.36–7.44</strong>. pH ↓ = asidoz (H⁺↑); pH ↑ = alkaloz (H⁺↓). Akciğer = hızlı (CO₂), böbrek = yavaş (H⁺/HCO₃⁻).</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Normal kan pH aralığı nedir?</summary><div class="ans">7.36–7.44.</div></details>
+    <details class="fc"><summary>Asit-baz dengesini koruyan iki ana organ ve hızları nedir?</summary><div class="ans">Akciğer (hızlı, CO₂ ile) ve böbrek (yavaş, H⁺ atımı + HCO₃⁻ geri emilimi ile).</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="buffers">16 · Tampon Sistemleri (Buffer Systems)</h3>
+<div class="note">
+  <p>Vücudun dört ana fizyolojik tamponu:</p>
+  <table class="tbl">
+    <tr><th>Tampon</th><th>Yerleşim / Not</th></tr>
+    <tr><td><strong>Carbonic acid – Bicarbonate</strong> (H₂CO₃ / HCO₃⁻)</td><td><strong>Ana ekstrasellüler (hücre dışı / kan) tamponu.</strong> Akciğer-böbrek ile regüle "açık sistem" → kapasitesi çok yüksek.</td></tr>
+    <tr><td><strong>Phosphate</strong></td><td>Ağırlıklı <strong>hücre içi</strong> ve renal tübül/idrar tamponu.</td></tr>
+    <tr><td><strong>Protein</strong></td><td>En güçlü <strong>hücre içi</strong> tampon (hücre proteinleri).</td></tr>
+    <tr><td><strong>Hemoglobin</strong></td><td>Tamamen <strong>eritrosit içinde</strong>; CO₂/H⁺'yi hücre içinde tamponlar.</td></tr>
+  </table>
+  <div class="box dikkat"><span class="bt">⚠️ Dikkat</span>"Yalnızca hücre dışında aktif olan" tampon → <mark>Carbonic acid–Bicarbonate</mark>. <strong>Acetic acid</strong> fizyolojik tampon DEĞİLDİR (saf çeldirici).</div>
+  <div class="box mnemo"><span class="bt">🧠 Ezber Tekniği</span>4 tampon → "<strong>BiFoProHe</strong>": <u>Bi</u>karbonat (dışta) · <u>Fo</u>sfat · <u>Pro</u>tein · <u>He</u>moglobin (üçü içte).</div>
+  <div class="box klinik"><span class="bt">🦷 Klinik Önemi</span>Tükürük de bir bikarbonat/fosfat tamponudur; yemekten sonra plak pH'ını yükselterek <strong>mineyi demineralizasyondan korur</strong>. Tükürük tamponlama kapasitesi düşük hastalarda çürük riski artar.</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Sadece hücre dışında aktif olan tampon hangisidir, neden kapasitesi yüksektir?</summary><div class="ans">Carbonic acid–Bicarbonate. Açık sistem olduğu için (CO₂ akciğerle, HCO₃⁻ böbrekle ayarlanır) kapasitesi yüksek.</div></details>
+    <details class="fc"><summary>Hangi üç tampon ağırlıklı hücre içidir?</summary><div class="ans">Fosfat, protein ve hemoglobin (hemoglobin eritrosit içinde).</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="disturb">17 · Asit-Baz Bozuklukları &amp; Kompansasyon</h3>
+<div class="note">
+  <p>Dört temel bozukluk vardır; her biri <strong>kompanse (compensated)</strong> veya <strong>dekompanse (decompensated)</strong> olabilir. Genel mantık: <strong>metabolik bozuklukları akciğer (solunum) kompanse eder; respiratuar bozuklukları böbrek kompanse eder.</strong></p>
+  <table class="tbl">
+    <tr><th>Bozukluk</th><th>Sebep (örnekler)</th><th>Kompansasyon</th></tr>
+    <tr><td><strong>Metabolic Acidosis</strong><br>(HCO₃⁻ ↓ → pH ↓)</td><td>Diyabet (ketoasidoz), egzersizde laktik asit, aşırı açlıkta keton cisimleri, böbrekle atılamayan organik asit birikimi, baz (HCO₃⁻) kaybı</td><td>Solunum hızlanır (respiratuar merkez uyarılır); böbrek H⁺ atar, HCO₃⁻ geri emilir.</td></tr>
+    <tr><td><strong>Respiratory Acidosis</strong><br>(pCO₂ ↑ → pH ↓)</td><td>Fazla CO₂ soluma, pulmoner/SSS lezyonu, hipoventilasyon, morfin zehirlenmesi/narkozda solunum merkezi baskılanması</td><td>Böbrek H⁺ atar (idrar asitleşir), HCO₃⁻ kana geri emilir.</td></tr>
+    <tr><td><strong>Metabolic Alkalosis</strong><br>(HCO₃⁻ ↑ → pH ↑)</td><td>Ağızdan fazla HCO₃⁻ alımı, sürekli kusmayla mide asidi (HCl) kaybı, alkali tuz artışı, aşırı K⁺ kaybı</td><td>Solunum yavaşlar (CO₂/HCO₃⁻ tutulmaya/atılmaya çalışılır).</td></tr>
+    <tr><td><strong>Respiratory Alkalosis</strong><br>(pCO₂ ↓ → pH ↑)</td><td>Hiperventilasyon (anksiyete sendromu), SSS lezyonu, beyin tümörü, intrakraniyal cerrahi, hipoksi, ateş, salisilat/sülfonamid</td><td>İdrar H⁺ atımı azalır, HCO₃⁻ atımı artar; K⁺ hücreye girer, H⁺/Na⁺ hücreden çıkar.</td></tr>
+  </table>
+  <div class="box mnemo"><span class="bt">🧠 Ezber Tekniği</span>İsimlendirme mantığı: <strong>"Metabolik = HCO₃⁻ sorunu · Respiratuar = CO₂ sorunu."</strong> Kompansasyon çaprazdır: metaboliği <u>akciğer</u>, respiratuarı <u>böbrek</u> düzeltir.<br>Kusma → asit (HCl) kaybı → <strong>alkaloz</strong>; ishal → baz (HCO₃⁻) kaybı → <strong>asidoz</strong>.</div>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Hiperventilasyon → CO₂ düşer → <strong>respiratuar alkaloz</strong>. Hipoventilasyon → CO₂ artar → <strong>respiratuar asidoz</strong>. Diyabet/laktik asit → <strong>metabolik asidoz</strong>.</div>
+  <div class="box klinik"><span class="bt">🦷 Klinik Önemi</span>Anksiyöz bir hasta diş koltuğunda hiperventilasyonla <strong>respiratuar alkaloza</strong> girip karıncalanma/baş dönmesi yaşayabilir — kâğıt torbaya soluma (CO₂ geri solutma) klasik ilk müdahaledir. Bulimik hastalarda tekrarlayan kusma hem <strong>metabolik alkaloz</strong> hem de mide asidine bağlı diş erozyonu (perimolysis) yapar.</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Sürekli kusma hangi asit-baz bozukluğuna yol açar?</summary><div class="ans">Metabolik alkaloz — mideden HCl (asit) kaybı nedeniyle.</div></details>
+    <details class="fc"><summary>Hiperventilasyon hangi bozukluğu yapar ve neden?</summary><div class="ans">Respiratuar alkaloz — fazla CO₂ atılır, pCO₂ düşer, pH yükselir.</div></details>
+    <details class="fc"><summary>Diyabetik ketoasidoz hangi bozukluktur ve nasıl kompanse edilir?</summary><div class="ans">Metabolik asidoz; solunumun hızlanması (CO₂ atımı) ve böbreğin H⁺ atıp HCO₃⁻ geri emmesiyle kompanse edilir.</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="gaslaws">18 · Gaz Yasaları</h3>
+<div class="note">
+  <table class="tbl">
+    <tr><th>Yasa</th><th>İfade</th><th>Sabit tutulan</th></tr>
+    <tr><td><strong>Boyle Law</strong></td><td>P · V = sabit</td><td>T sabit</td></tr>
+    <tr><td><strong>Charles Law</strong></td><td>V / T = sabit</td><td>P sabit</td></tr>
+    <tr><td><strong>Gay-Lussac Law</strong></td><td>P / T = sabit</td><td>V sabit</td></tr>
+    <tr><td><strong>General Gas Law</strong></td><td>P · V = n · R · T</td><td>—</td></tr>
+  </table>
+  <p><strong>Boyle yasası ve solunum:</strong> Sabit miktar gazın basıncı hacimle <em>ters orantılıdır</em>.</p>
+  <ul class="clean">
+    <li><strong>İnspirasyon (nefes alma):</strong> Akciğer hacmi artar → basınç düşer → hava içeri dolar.</li>
+    <li><strong>Ekspirasyon (nefes verme):</strong> Akciğer hacmi azalır → basınç artar → hava dışarı çıkar.</li>
+  </ul>
+  <div class="box mnemo"><span class="bt">🧠 Ezber Tekniği</span>"<strong>BO-CH-GA</strong>" sırası ve sabitleri → <strong>Bo</strong>yle (T sabit, P·V) · <strong>Ch</strong>arles (P sabit, V/T) · <strong>Ga</strong>y-Lussac (V sabit, P/T). Boyle = "<u>Bas</u>ınç-<u>Vol</u>üm tersi" → nefes alıp verme.</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>İnspirasyonda akciğer hacmi ve basıncı nasıl değişir (Boyle)?</summary><div class="ans">Hacim artar, basınç düşer → hava içeri girer.</div></details>
+    <details class="fc"><summary>Charles ve Gay-Lussac yasalarında sabit tutulan büyüklükler nedir?</summary><div class="ans">Charles: P sabit (V/T=sabit). Gay-Lussac: V sabit (P/T=sabit).</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="partial">19 · Parsiyel Basınçlar &amp; Kan Gazı Değerleri</h3>
+<div class="note">
+  <p><strong>Parsiyel basınç:</strong> Bir karışımdaki tek bir gazın basıncı. Deniz seviyesinde atmosfer basıncı <strong>760 mmHg</strong>.</p>
+  <table class="tbl">
+    <tr><th>Atmosferik gaz</th><th>Oran</th><th>Parsiyel basınç</th></tr>
+    <tr><td>N₂</td><td>%78</td><td>~600 mmHg</td></tr>
+    <tr><td>O₂</td><td>%21</td><td>~160 mmHg</td></tr>
+    <tr><td>CO₂</td><td>%0.04</td><td>~0.3 mmHg</td></tr>
+  </table>
+  <h4 class="sub">Vücuttaki parsiyel basınçlar (normal, istirahat)</h4>
+  <table class="tbl">
+    <tr><th></th><th>Arteriyel kan</th><th>Alveol gazı</th><th>Karışık venöz kan</th></tr>
+    <tr><td><strong>PO₂</strong></td><td>100</td><td>104</td><td>40</td></tr>
+    <tr><td><strong>PCO₂</strong></td><td>40</td><td>40</td><td>46</td></tr>
+    <tr><td><strong>PH₂O</strong></td><td>47</td><td>47</td><td>47</td></tr>
+    <tr><td><strong>PN₂</strong></td><td>573</td><td>569</td><td>573</td></tr>
+  </table>
+  <p>Alveol kapillerine giren kanda PO₂ ~40 mmHg (sistemik dolaşımdan dönerken O₂'sini bırakmıştır), PCO₂ ~45–46 mmHg (CO₂ toplamıştır). Difüzyonla alveolde tekrar oksijenlenir.</p>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Arteriyel: <strong>PO₂ ≈ 100</strong>, <strong>PCO₂ ≈ 40 mmHg</strong>. Atmosfer basıncı 760 mmHg, en bol gaz N₂ (%78).</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Arteriyel kanda normal PO₂ ve PCO₂ değerleri nedir?</summary><div class="ans">PO₂ ≈ 100 mmHg, PCO₂ ≈ 40 mmHg.</div></details>
+    <details class="fc"><summary>Deniz seviyesinde atmosfer basıncı ve en bol atmosferik gaz nedir?</summary><div class="ans">760 mmHg; en bol gaz azot (N₂, %78).</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="gasdiff">20 · Gaz Difüzyonu &amp; Solunum Membranı</h3>
+<div class="note">
+  <p>Solunum sisteminde gazların serbest hareketi <strong>difüzyondur</strong>; difüzyon için gereken enerji moleküllerin <strong>kinetik enerjisinden</strong> sağlanır. Vücut sıvılarında gaz difüzyonu <strong>yüksekten düşük derişime</strong> olur ve net difüzyonu belirleyen faktör iki ortam arasındaki <strong>parsiyel basınç farkıdır</strong>.</p>
+  <p>Her iki akciğerde ~<strong>300 milyon alveol</strong> vardır; duvarları çok incedir ve sağlam bir kapiller ağ ile sarılıdır. Alveol ile kapiller arasında gaz değişimi difüzyonla olur.</p>
+  <h4 class="sub">Solunum (alveolokapiller) membranının 6 katmanı</h4>
+  <ol style="margin:8px 0;padding-left:22px;">
+    <li>Alveolü saran sıvı (<strong>surfactant</strong>)</li>
+    <li>Alveolar epitel (alveolar epithelium)</li>
+    <li>Epitelyal bazal membran</li>
+    <li>İnterstisyel boşluk (interstitial space)</li>
+    <li>Kapiller bazal membran</li>
+    <li>Endotel hücre membranı</li>
+  </ol>
+  <h4 class="sub">Gaz difüzyon hızını etkileyen faktörler (Fick)</h4>
+  <ul class="clean">
+    <li>Membran kalınlığı (ters)</li>
+    <li>Membran yüzey alanı (doğru)</li>
+    <li>Gazın difüzyon sabiti</li>
+    <li>İki taraf arasındaki parsiyel basınç farkı (doğru)</li>
+  </ul>
+  <div class="box mnemo"><span class="bt">🧠 Ezber Tekniği</span>6 katman içten/dıştan → "<strong>Su-Epitel-Bazal / İnterstisyum / Bazal-Endotel</strong>". Alveolden kana giderken: surfactant → alveol epiteli → bazal → interstisyum → kapiller bazal → endotel.</div>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span>Net gaz difüzyonunu belirleyen ana faktör = <strong>parsiyel basınç farkı</strong>. İnce membran + geniş yüzey = hızlı gaz değişimi (Fick).</div>
+  <div class="box klinik"><span class="bt">🦷 Klinik Önemi</span><strong>Nitröz oksit (N₂O) sedasyonu</strong> tam bu parsiyel basınç farkı ilkesiyle çalışır: yüksek parsiyel basınçta verilen N₂O alveol-kan membranından hızla difüze olur; kesildiğinde ters yönde hızla geri çıkar ("diffusion hypoxia"a karşı %100 O₂ verilir).</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Net gaz difüzyonunu belirleyen ana faktör nedir?</summary><div class="ans">İki ortam arasındaki parsiyel basınç farkı.</div></details>
+    <details class="fc"><summary>Gaz difüzyonu için gereken enerji nereden gelir?</summary><div class="ans">Moleküllerin kinetik enerjisinden (aktif enerji/ATP değil).</div></details>
+    <details class="fc"><summary>Solunum membranının kaç katmanı vardır, ilki nedir?</summary><div class="ans">6 katman; ilki alveolü saran surfactant sıvısıdır.</div></details>
+  </div>
+</div>
+
+<h3 class="sec" id="bga">21 · Kan Gazı Analizi (Blood Gas Analysis)</h3>
+<div class="note">
+  <p>İlk üç-fonksiyonlu kan gazı cihazı (pH, pCO₂, pO₂ elektrotları) <strong>Severinghaus &amp; Bradley (1959)</strong> tarafından yapıldı. Kan gazı analizi şunları değerlendirir:</p>
+  <ul class="clean">
+    <li>Akciğerlerin kana O₂ verme etkinliği</li>
+    <li>CO₂'yi uzaklaştırma verimliliği</li>
+    <li>Akciğer-böbrek etkileşiminin pH'ı (asit-baz dengesini) ne kadar koruduğu</li>
+  </ul>
+  <p>Kullanılan kan tipleri: arteriyel, venöz, karışık venöz, kapiller, fetal kord kanı (umbilikal arter/ven).</p>
+  <h4 class="sub">Örnek alma prosedürü (kritik noktalar)</h4>
+  <ul class="clean">
+    <li>Örnekteki hava kabarcığı varsa uzaklaştırılır; iğne plastik parçaya batırılıp <strong>hava ile teması kesilir</strong>.</li>
+    <li>5 dakika içinde ölçülemiyorsa örnek <strong>0°C buzda</strong> taşınır → lökosit metabolizması yavaşlar, PaO₂ düşüşü ve PaCO₂ artışı yavaşlar.</li>
+    <li>Ölçüm mümkün olan en kısa sürede yapılmalıdır.</li>
+  </ul>
+  <h4 class="sub">Elektrotlar</h4>
+  <p>PO₂, PCO₂ ve pH'ı ölçmek için kullanılan elektrokimyasal yapılara <strong>elektrot</strong> denir. İki tür: <strong>reference (karşılaştırma) electrodes</strong> ve <strong>measuring (indicator) electrodes</strong>. Reference elektrot, birbiriyle temas eden iki iletkenden oluşur; ara yüzeyde <strong>elektrot potansiyeli</strong> bulunur.</p>
+  <p>Kan gazı analizi şu hastalarda gereklidir: kusma, uyuklama, nefes darlığı; akciğer/böbrek/metabolik hastalıkların akut belirtileri; solunumu etkileyen baş-boyun yaralanmaları. Ortamlar: acil servis, yoğun bakım, diyaliz/transplantasyon merkezleri.</p>
+  <div class="box spot"><span class="bt">🎯 Spot Bilgi</span>İlk kan gazı cihazı = <strong>Severinghaus &amp; Bradley, 1959</strong>. Örnek 5 dk içinde ölçülemezse <strong>buzda (0°C)</strong> taşınır.</div>
+  <div class="flash"><div class="fhead">🧠 Flashcard</div>
+    <details class="fc"><summary>Kan gazı örneği hemen ölçülemezse neden ve nasıl saklanır?</summary><div class="ans">0°C buzda — lökosit metabolizmasını yavaşlatıp PaO₂ düşüşü ve PaCO₂ artışını geciktirmek için.</div></details>
+    <details class="fc"><summary>Kan gazı analizinde kullanılan iki elektrot türü nedir?</summary><div class="ans">Reference (karşılaştırma) ve measuring (indicator) elektrotlar.</div></details>
+  </div>
+</div>
+
+<footer>
+  <p>🧫 <strong>MDS 112 Biyofizik — Ders Notları</strong><br>
+  Kaynaklar: "Cellular Membranes &amp; Transport Mechanisms" (87 slayt) ve "Acid-Base Disturbances, Compensation Mechanisms &amp; Blood Gasses" (46 slayt) — Asst. Prof. Denizhan Karış.<br>
+  Tüm terminoloji İngilizce/Latince korunmuştur. <em>Kavramı anladıysan çeldirici seni yenemez — bol şans!</em></p>
+  <p><a class="top" href="#">↑ Başa dön</a></p>
+</footer>
+
+</div>
+</body>
+</html>

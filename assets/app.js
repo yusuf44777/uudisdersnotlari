@@ -361,6 +361,36 @@ const notes = [
     path: "1.%20S%C4%B1n%C4%B1f/Embriyology/04_3rd_8th_Week_Fetal_Calisma_Rehberi.html",
     tags: ["organogenez", "nörülasyon", "fetal dönem"],
   },
+  {
+    id: "history-ata-102-final",
+    course: "Atatürk İlkeleri ve İnkılap Tarihi",
+    grade: "1. Sınıf",
+    unit: "ATA 102",
+    title: "Atatürk İlkeleri ve İnkılap Tarihi - Final Rehberi",
+    subtitle: "Bahar dönemi inkılap tarihi konuları, kronolojik zincirler, spot bilgiler ve final odaklı tekrar",
+    path: "1.%20S%C4%B1n%C4%B1f/Atatu%CC%88rk%20I%CC%87lkeleri%20ve%20I%CC%87nk%C4%B1lap%20Tarihi/inkilap_tarihi_final_rehberi.html",
+    tags: ["ATA 102", "inkılap tarihi", "final"],
+  },
+  {
+    id: "technology-dentistry-final",
+    course: "Technological Dentistry",
+    grade: "1. Sınıf",
+    unit: "Final",
+    title: "Technological Advancements in Dentistry",
+    subtitle: "Dijital diş hekimliği, EHR, digital radiology, IOS, CAD/CAM, 3D printing, laser, AI ve robotics final rehberi",
+    path: "1.%20S%C4%B1n%C4%B1f/Technological%20Dentistry/dental_tech_final_studyguide.html",
+    tags: ["digital dentistry", "CAD/CAM", "AI"],
+  },
+  {
+    id: "turkish-language-final",
+    course: "Türk Dili",
+    grade: "1. Sınıf",
+    unit: "TURK 102",
+    title: "Türk Dili - Final Çalışma Rehberi",
+    subtitle: "Noktalama, anlatım bozuklukları, yazılı-sözlü kompozisyon türleri ve final tuzakları",
+    path: "1.%20S%C4%B1n%C4%B1f/Tu%CC%88rk%20Dili/turk_dili_final_rehberi.html",
+    tags: ["noktalama", "anlatım bozuklukları", "final"],
+  },
 ];
 
 const STORAGE_KEY = "uudis-notlari-completed-v1";

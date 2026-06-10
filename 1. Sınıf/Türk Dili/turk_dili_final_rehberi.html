@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Türk Dili (TURK 102) — Final Çalışma Rehberi</title>
+<style>
+  :root{
+    --ink:#16213e; --ink-soft:#36406b; --paper:#fbfaf6; --line:#e4ddcd;
+    --mat:#1f6f8b; --mat-bg:#e7f3f6; --mat-line:#1f6f8b;
+    --spot:#1b7a43; --spot-bg:#e6f4ea; --spot-line:#1b7a43;
+    --tuzak:#b03a2e; --tuzak-bg:#fcebe7; --tuzak-line:#b03a2e;
+    --flash:#5b3a8c; --flash-bg:#f1ebfa; --flash-line:#5b3a8c;
+    --akr:#9a6700; --akr-bg:#fdf4dd; --akr-line:#c69214;
+    --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+    --sans:system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --serif:Georgia,Cambria,"Times New Roman",serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+       line-height:1.65;font-size:17px;}
+  .wrap{max-width:860px;margin:0 auto;padding:28px 20px 80px;}
+  header.hero{border:2px solid var(--ink);border-radius:14px;padding:26px 24px;
+       background:linear-gradient(180deg,#fff,#f6f2e8);margin-bottom:26px;}
+  header.hero .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;
+       text-transform:uppercase;color:var(--mat);}
+  header.hero h1{font-family:var(--sans);font-weight:800;font-size:30px;line-height:1.15;
+       margin:6px 0 8px;}
+  header.hero p{margin:6px 0 0;color:var(--ink-soft);font-size:15px;}
+  h2{font-family:var(--sans);font-weight:800;font-size:24px;margin:46px 0 6px;
+     padding-bottom:8px;border-bottom:3px solid var(--ink);scroll-margin-top:16px;}
+  h2 .num{font-family:var(--mono);color:var(--mat);font-size:16px;margin-right:8px;}
+  h3{font-family:var(--sans);font-weight:700;font-size:19px;margin:30px 0 4px;color:var(--ink);
+     scroll-margin-top:16px;}
+  h3 .sym{font-family:var(--mono);background:var(--ink);color:#fff;border-radius:6px;
+     padding:1px 9px;font-size:15px;margin-left:6px;}
+  h4{font-family:var(--sans);font-weight:700;font-size:16px;margin:18px 0 2px;color:var(--ink-soft);}
+  p{margin:8px 0;}
+  strong{color:var(--ink);background:#fff3c4;padding:0 2px;border-radius:3px;font-weight:700;}
+  em{color:var(--ink-soft);}
+  mark{background:#ffe08a;padding:0 3px;border-radius:3px;}
+  ul,ol{margin:8px 0 8px;padding-left:22px;}
+  li{margin:5px 0;}
+  .ex{font-family:var(--serif);font-style:italic;color:#4a2f6b;}
+  .lead{font-size:18px;color:var(--ink-soft);border-left:4px solid var(--mat);padding-left:14px;}
+  /* boxes */
+  .box{border-radius:11px;padding:14px 16px 13px;margin:14px 0;border:1px solid var(--line);}
+  .box .bt{font-family:var(--sans);font-weight:800;font-size:13.5px;letter-spacing:.02em;
+     display:block;margin-bottom:4px;text-transform:uppercase;}
+  .mat{background:var(--mat-bg);border-left:6px solid var(--mat-line);}
+  .mat .bt{color:var(--mat);}
+  .spot{background:var(--spot-bg);border-left:6px solid var(--spot-line);}
+  .spot .bt{color:var(--spot);}
+  .tuzak{background:var(--tuzak-bg);border-left:6px solid var(--tuzak-line);}
+  .tuzak .bt{color:var(--tuzak);}
+  .akr{background:var(--akr-bg);border-left:6px solid var(--akr-line);}
+  .akr .bt{color:var(--akr);}
+  .flash{background:var(--flash-bg);border:1.5px dashed var(--flash-line);border-radius:11px;
+     padding:14px 16px;margin:16px 0 26px;}
+  .flash .bt{font-family:var(--sans);font-weight:800;font-size:13.5px;color:var(--flash);
+     text-transform:uppercase;letter-spacing:.04em;display:flex;align-items:center;gap:7px;
+     margin-bottom:8px;}
+  .qa{margin:9px 0;padding:9px 12px;background:#fff;border-radius:8px;border:1px solid #e6def5;}
+  .qa .q{font-family:var(--sans);font-weight:700;font-size:15px;color:var(--ink);}
+  .qa .a{margin-top:5px;font-size:15px;color:var(--ink-soft);}
+  .qa .a b{color:var(--flash);background:none;}
+  details{margin-top:5px;}
+  summary{cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--flash);}
+  details[open] summary{margin-bottom:5px;}
+  /* TOC */
+  nav.toc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:26px;}
+  nav.toc h2{border:none;font-size:16px;margin:0 0 8px;padding:0;}
+  nav.toc ol{columns:2;column-gap:30px;font-family:var(--sans);font-size:14px;}
+  nav.toc a{color:var(--ink-soft);text-decoration:none;}
+  nav.toc a:hover{color:var(--mat);text-decoration:underline;}
+  /* tables */
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px;font-family:var(--sans);}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--ink);color:#fff;font-weight:700;}
+  tr:nth-child(even) td{background:#f6f2e8;}
+  .cap{font-family:var(--sans);font-size:12.5px;color:var(--ink-soft);margin-top:-6px;}
+  hr{border:none;border-top:2px dotted var(--line);margin:34px 0;}
+  .pill{display:inline-block;font-family:var(--mono);font-size:12px;background:var(--ink);color:#fff;
+     border-radius:20px;padding:2px 11px;margin:0 4px 4px 0;}
+  .weekflag{font-family:var(--sans);font-size:12px;font-weight:700;color:#fff;background:var(--tuzak);
+     border-radius:5px;padding:2px 8px;margin-left:8px;vertical-align:middle;}
+  @media(max-width:620px){nav.toc ol{columns:1;} body{font-size:16px;}}
+  @media print{body{background:#fff;} .box,.flash{break-inside:avoid;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="eyebrow">Türk Dili · TURK 102 · Bahar Dönemi</span>
+  <h1>Final Çalışma Rehberi</h1>
+  <p>Dilin matematiğiyle düşün · Kuralı değil mantığını ezberle · Tuzakları önceden gör. Bu rehber slaytların tamamını kapsar; <strong>finalde ağırlık 5. hafta ve sonrasındadır</strong> (Anlatım Bozuklukları + Kompozisyon Türleri).</p>
+</header>
+
+<nav class="toc">
+  <h2>İçindekiler</h2>
+  <ol>
+    <li><a href="#nasil">Nasıl Çalışmalı (Strateji)</a></li>
+    <li><a href="#noktalama">Noktalama İşaretleri (1–4. Hafta)</a></li>
+    <li><a href="#sorubank">Noktalama Soru Bankası (5. Hafta)</a></li>
+    <li><a href="#anlatim">Anlatım Bozuklukları (6–8. Hafta)</a></li>
+    <li><a href="#yazili">Yazılı Kompozisyon Türleri (9–10. Hafta)</a></li>
+    <li><a href="#sozlu">Sözlü Kompozisyon + Hitabet (11–12. Hafta)</a></li>
+    <li><a href="#tablo">Ayırt Edici Karşılaştırma Tabloları</a></li>
+    <li><a href="#mega">Mega Hızlı Tekrar (Son Gece)</a></li>
+  </ol>
+</nav>
+
+<section id="nasil">
+<h2><span class="num">00</span>Nasıl Çalışmalı?</h2>
+<p class="lead">Türk Dili finali bir “ezber” sınavı değil, bir <strong>karar sınavıdır</strong>: “Bu boşluğa hangi işaret gelir?”, “Bu cümlede bozukluk var mı, varsa kaynağı ne?”. Bu yüzden her kuralı bir <em>karar kuralı</em> olarak öğreneceğiz.</p>
+<p>Rehberdeki kutuların anlamı:</p>
+<ul>
+  <li><strong>⚙️ Dilin Matematiği</strong> — Kuralın <em>neden</em> var olduğu. Mantığı kavrarsan örneği görmesen de doğru cevabı türetirsin.</li>
+  <li><strong>🎯 Spot Bilgi</strong> — Kesin bilinmesi gereken, doğrudan soruya dönüşen çekirdek bilgi.</li>
+  <li><strong>⚠️ İstisna/Tuzak</strong> — Hocaların sormayı sevdiği, en çok yanlış yapılan ince ayrım.</li>
+  <li><strong>🧠 Hafıza Anahtarı</strong> — Akrostiş / pratik formül.</li>
+  <li><strong>🃏 Flashcard</strong> — Final zorluğunda Soru–Cevap. Cevabı görmeden kendini dene.</li>
+</ul>
+</section>
+
+<hr>
+
+<!-- ===================== NOKTALAMA ===================== -->
+<section id="noktalama">
+<h2><span class="num">01</span>Noktalama İşaretleri <span style="font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink-soft)">(1–4. Hafta)</span></h2>
+<p class="lead">Hocanın benzetmesiyle: <strong>Noktalama işaretleri trafik levhalarıdır.</strong> Her işaret okuyucuya “dur”, “yavaşla”, “yön değiştir”, “burada bir açıklama gelecek” der. Anlamı taşıyan asıl şey kelimeler değil, kelimeler arasındaki <em>duraklama mantığıdır</em>.</p>
+<div class="box mat"><span class="bt">⚙️ Dilin Matematiği — Genel İlke</span>
+Yazı, konuşmadaki <strong>vurgu</strong> ve <strong>tonlamayı</strong> kâğıda taşıyamaz. Noktalama bu kaybı telafi eden bir kodlama sistemidir: Konuşurken sustuğun yere işaret, soru sorduğun yere <span class="ex">?</span>, şaşırdığın yere <span class="ex">!</span> gelir. Tarihçesi XVI. yüzyılda matbaayla yaygınlaşmış, Bizans dilbilgini <strong>Aristophanes</strong>’e dayanır; Türk edebiyatında <strong>Tanzimat</strong> döneminde Şinasi’nin “Şair Evlenmesi”yle girmiştir.</div>
+
+<h3>Nokta <span class="sym">.</span></h3>
+<p>Dilimize <strong>Arapçadan</strong> girmiş, en eski işarettir. Kullanım yerleri:</p>
+<ul>
+  <li><strong>Tamamlanmış (yüklemi olan) cümlelerin</strong> sonuna konur; okuyucu burada durur. <span class="ex">Dil sosyal ve millî bir kurumdur.</span></li>
+  <li><strong>Kısaltmalardan</strong> sonra: <span class="ex">Dr., Prof., Av., s. (sayfa), bk. (bakınız), İng.</span></li>
+  <li><strong>Tarihlerde</strong> gün-ay-yıl arasına: <span class="ex">20.12.1873</span></li>
+  <li><strong>Saat ve dakika</strong> arasına: <span class="ex">Saat 16.30’da.</span></li>
+  <li><strong>Sıra bildirmek</strong> için (-ıncı/-inci yerine): <span class="ex">5. (beşinci), II. Mehmet, 2. kat.</span></li>
+  <li>Madde/bölüm gösteren sayı-harflerden sonra: <span class="ex">I. 1. A. a.</span> (Bunun yerine tek parantez de olabilir: <span class="ex">1) 2) 3)</span>)</li>
+  <li>Cümle değerindeki <strong>cevap sözlerinden</strong> sonra: <span class="ex">— Gelecek misin? — Evet.</span></li>
+  <li>Matematikte <strong>çarpı (×)</strong> yerine: <span class="ex">6.6=36</span></li>
+  <li>Bibliyografik künyenin sonuna konur.</li>
+</ul>
+<div class="box tuzak"><span class="bt">⚠️ İstisna / Tuzak</span>
+<ul style="margin:4px 0">
+  <li><strong>Büyük harfli kısaltmalarda nokta KULLANILMAZ:</strong> <span class="ex">THY, PTT, TBMM</span> (doğru) — <span class="ex">T.B.M.M.</span> (yanlış). <em>TDK’ye göre tek istisna: T.C. ve T. (Türkiye).</em></li>
+  <li><strong>Ay adı harfle yazılırsa</strong> araya nokta konmaz: <span class="ex">13 Nisan 2026</span> (✓), <span class="ex">13.Nisan.2026</span> (✗).</li>
+  <li><strong>Banka/hesap işlemlerinde</strong> sayıların arasına nokta konmaz.</li>
+  <li>Sayılar art arda sıralanırsa nokta yalnız <strong>sonuncudan</strong> sonra: <span class="ex">3, 5, 7 ve 9. sayfalar.</span></li>
+</ul></div>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>
+Saat yazımında <strong>nokta</strong> kullanılır, iki nokta değil: <span class="ex">09.15</span> doğru, <span class="ex">09:15</span> bu derste yanlış kabul edilir.</div>
+
+<div class="flash"><span class="bt">🃏 Flashcard — Nokta</span>
+  <div class="qa"><div class="q">1) “Beklediğimiz otobüs Ulus’dan kalkacak mı?” — Bu cümledeki tek yazım hatası nedir?</div>
+  <div class="a"><b>Cevap:</b> “Ulus’dan” yanlıştır; sert ünsüz benzeşmesi (<strong>fıs_tıkçı şahap</strong> sertleri) gereği ek sertleşir: <span class="ex">Ulus’tan</span>. Ayrıca kısaltma/sayı dışındaki büyük harf kısaltmalarda nokta yoktur.</div></div>
+  <div class="qa"><div class="q">2) Hangisi doğru: “TBMM” mi “T.B.M.M.” mi? Neden?</div>
+  <div class="a"><b>Cevap:</b> <strong>TBMM</strong>. Büyük harfle yapılan kısaltmalara nokta konmaz (istisna yalnız T.C., T.).</div></div>
+  <div class="qa"><div class="q">3) “Saat 14:00’te buluşalım.” cümlesindeki noktalama yanlışını düzelt.</div>
+  <div class="a"><b>Cevap:</b> Saat-dakika arasına iki nokta değil <strong>nokta</strong> gelir: <span class="ex">14.00’te</span>.</div></div>
+</div>
+
+<h3>Virgül <span class="sym">,</span></h3>
+<p>Türkçenin <strong>en işlevsel ve en çok kurallı</strong> işaretidir; anlatımı belirsizlikten kurtarır, eş görevli ögeleri ayırır.</p>
+<ul>
+  <li>Cümle başındaki <strong>özneden</strong> sonra: <span class="ex">Fatih Sultan Mehmet, İstanbul’u fetheden padişahtır.</span></li>
+  <li><strong>Eş görevli</strong> sözcük/öbekleri ayırır: <span class="ex">kuşlar, ağaçlar, çiçekler…</span></li>
+  <li><strong>Sıralı cümleleri</strong> ayırır: <span class="ex">Geldi, gördü, yendi.</span></li>
+  <li>Vurgulanan <strong>özne/tümleçten</strong> sonra: <span class="ex">İlim, kendini bilmektir.</span></li>
+  <li><strong>Ara söz</strong> ve <strong>ara cümlenin</strong> başına–sonuna: <span class="ex">Takvim-i Vakayı, ilk Türk gazetesi, 1831’de çıktı.</span></li>
+  <li>Tırnaksız <strong>aktarma cümlesinin</strong> sonuna: <span class="ex">…iyi dostu olanın aynaya ihtiyacı yoktur, diyor.</span></li>
+  <li>Şiirde tekrarlanan sözlerin arasına: <span class="ex">Akşam, yine akşam, yine akşam.</span></li>
+  <li><strong>Ünlemlerden</strong> sonra (ünlem sona taşınır): <span class="ex">Hayır, bunu kabul edemem!</span></li>
+  <li>“lütfen, rica ederim, affedersiniz” gibi sözlerden sonra.</li>
+  <li>Mektup/günlükte <strong>yer adını tarihten</strong> ayırır: <span class="ex">17.2.1944, Malta</span></li>
+  <li>Addan önceki <strong>adlaşmış sıfat/ortaç</strong> ile yalın <strong>işaret zamirinden</strong> sonra MUTLAKA: <span class="ex">İhtiyar, adamı süzdü. / O, kitapları çok sever.</span></li>
+  <li>Seslenme sözünden sonra: <span class="ex">Arkadaşlar, …</span></li>
+</ul>
+<div class="box mat"><span class="bt">⚙️ Dilin Matematiği — Virgül = Anlam Ayraçı</span>
+Virgülün asıl işi <strong>anlam karışıklığını çözmektir</strong>. Test mantığı: virgülü kaldır → cümlenin anlamı değişiyorsa virgül oraya “anlam ayırıcı” olarak konmuştur.<br>
+<span class="ex">Küçük, çam ağacının arkasına saklandı.</span> → saklanan bir çocuktur (özne “küçük”).<br>
+<span class="ex">Küçük çam ağacının arkasına saklandı.</span> → “küçük” artık çamı niteler (sıfat). Virgül cümleyi tamamen başka bir şeye çevirir.</div>
+<div class="box tuzak"><span class="bt">⚠️ İstisna / Tuzak</span>
+<ul style="margin:4px 0">
+  <li><strong>“ve, veya, ya da” bağlaçlarından önce ve sonra ASLA virgül konmaz.</strong></li>
+  <li>Zarf-fiil eklerinden (-ınca, -erek, -ip) sonra tek başına virgül konmaz; ancak art arda gelen zarf-fiiller birbirinden virgülle ayrılabilir.</li>
+  <li>Belirtili ad tamlamasında araya iyelikli bir ad girerse, karışmayı önlemek için tamlayandan sonra virgül gelir: <span class="ex">Doktorun, oğlu için ağlayan kadına tepkisi sert oldu.</span></li>
+</ul></div>
+<div class="box akr"><span class="bt">🧠 Hafıza Anahtarı — “SÖZ ASKER”</span>
+Virgülün konduğu yerleri bir kelimeyle tut: <strong>S</strong>özde özne/özne, <strong>Ö</strong>bek (eş görevli), <strong>Z</strong>ıt-ara söz, <strong>A</strong>ktarma (tırnaksız), <strong>S</strong>eslenme, <strong>K</strong>elime tekrarı (şiir), <strong>E</strong>r/ünlem sözleri, <strong>R</strong>ica/lütfen. Virgülün düşmanı: <mark>ve / veya / ya da</mark>.</div>
+
+<div class="flash"><span class="bt">🃏 Flashcard — Virgül</span>
+  <div class="qa"><div class="q">1) “Yaşlı, kadına yardım etti.” ile “Yaşlı kadına yardım etti.” arasındaki anlam farkı nedir?</div>
+  <div class="a"><b>Cevap:</b> Virgüllü olanda <strong>yaşlı = özne</strong> (yardım eden yaşlı bir kişi). Virgülsüzde “yaşlı”, kadını niteleyen <strong>sıfattır</strong> (yardım edilen, yaşlı bir kadın). Virgül burada anlam ayırıcıdır.</div></div>
+  <div class="qa"><div class="q">2) “Ali, Veli ve Ayşe’den daha çalışkandır.” — Burada Ali’nin diğerlerinden ayrı bir kişi (özne) olduğunu belirtmek istesek hangi işaret/yapı gerekir?</div>
+  <div class="a"><b>Cevap:</b> Karışıklığı gidermek için <strong>noktalı virgül</strong>: <span class="ex">Ali; Veli ve Ayşe’den daha çalışkandır.</span> Aksi hâlde Ali de listedeki üç kişiden biri sanılır.</div></div>
+  <div class="qa"><div class="q">3) “Kapıyı yavaşça açtı, ve içeri girdi.” cümlesindeki noktalama hatası nedir?</div>
+  <div class="a"><b>Cevap:</b> <strong>“ve” bağlacından önce virgül konmaz.</strong> Doğrusu: <span class="ex">Kapıyı yavaşça açtı ve içeri girdi.</span></div></div>
+</div>
+
+<h3>Noktalı Virgül <span class="sym">;</span></h3>
+<p><strong>Fransızcadan</strong> girmiştir; virgülden güçlü, noktadan zayıftır. Cümleleri birbirine bağlar ama tam ayırmaz.</p>
+<ul>
+  <li>İçinde zaten <strong>virgül bulunan</strong> tür/takımları ayırır: <span class="ex">Afyon, Kütahya, Uşak Ege’nin; Samsun, Trabzon, Rize Karadeniz’in şehirlerindendir.</span></li>
+  <li>Ögeleri arasında virgül olan <strong>sıralı cümleleri</strong> ayırır (atasözlerinde sık): <span class="ex">At ölür, meydan kalır; yiğit ölür, şan kalır.</span></li>
+  <li>Anlamca <strong>karşıt/çelişik</strong> iki cümleyi ayırır: <span class="ex">İnsan zaman öldürmek için okumaz; faydalı bir an için okur.</span></li>
+  <li>Karışıklığı önlemek için <strong>özneden</strong> sonra: <span class="ex">Ahmet; Mehmet, Ali ve Veli’den çalışkandır.</span></li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi — İki Altın Kural</span>
+<strong>1)</strong> Noktalı virgül <strong>asla cümlenin sonuna gelmez.</strong> <strong>2)</strong> Noktalı virgülün bulunduğu cümlede mutlaka bir yerde <strong>virgül de</strong> vardır. (Bu ikisini eleme tekniği olarak kullan.)</div>
+<div class="box tuzak"><span class="bt">⚠️ Tuzak</span>
+Karşıtlık “ama, fakat, yalnız, yoksa, çünkü” gibi bir bağlaçla kuruluyorsa, noktalı virgül <strong>bağlaçtan ÖNCE</strong> gelir: <span class="ex">Nezaket içten gelir; ama her şeyi satın alır.</span></div>
+<div class="box mat"><span class="bt">⚙️ Dilin Matematiği</span>
+Düşün: Liste içinde liste varsa (virgüller iç içe geçtiyse) gözün “büyük ayraç” arar. Virgül en küçük ayraç, nokta en büyük; noktalı virgül tam <strong>ortadaki hiyerarşi katmanıdır</strong>. Bu yüzden “virgüllü grupları” gruplar.</div>
+
+<div class="flash"><span class="bt">🃏 Flashcard — Noktalı Virgül</span>
+  <div class="qa"><div class="q">1) Bir cümlenin sonunda noktalı virgül görürsen ne dersin?</div>
+  <div class="a"><b>Cevap:</b> Kesinlikle <strong>yanlış</strong>. Noktalı virgül cümle sonuna gelmez; o boşluğa nokta gelmeliydi.</div></div>
+  <div class="qa"><div class="q">2) “Doluya korum almaz boşa korum dolmaz” — Bu atasözüne işaretleri yerleştir.</div>
+  <div class="a"><b>Cevap:</b> <span class="ex">Doluya korum, almaz; boşa korum, dolmaz.</span> İçinde virgül olan iki sıralı cümle → arada noktalı virgül.</div></div>
+  <div class="qa"><div class="q">3) “Çok çalıştı ( ) sonunda kazandı.” — Boşluğa noktalı virgül uygun mu?</div>
+  <div class="a"><b>Cevap:</b> Uygundur (ikinci cümle birinciyi tamamlıyor). Ancak araya <strong>“ama/fakat”</strong> girseydi noktalı virgül o bağlaçtan önce gelirdi.</div></div>
+</div>
+
+<h3>İki Nokta <span class="sym">:</span></h3>
+<ul>
+  <li>Kendisinden sonra <strong>örnek, açıklama veya kanıt</strong> sıralanacaksa: <span class="ex">İnsan iki şeyle ihtiyarlıktan kurtulur: iyi iş, iyi söz.</span></li>
+  <li>Alıntıdan / tırnaktan önce: <span class="ex">Şöyle der: “…”</span></li>
+  <li>Karşılıklı konuşmada, konuşma çizgisinden önce.</li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi — Büyük mü Küçük mü?</span>
+İki noktadan sonra gelen kısım <strong>cümle ise BÜYÜK</strong>, yalnızca <strong>örnek sözler sıralanıyorsa küçük</strong> harfle başlar.<br>
+<span class="ex">Bir şey düşündüm: Geç kalırsam ne olur?</span> (cümle → büyük)<br>
+<span class="ex">İller: Malatya, Elazığ, Bingöl…</span> (örnek → küçük)</div>
+
+<h3>Üç Nokta <span class="sym">…</span> &amp; Sıra Noktalar <span class="sym">…..</span></h3>
+<ul>
+  <li>Cümlenin <strong>benzer örneklerle sürebileceğini</strong> gösterir: <span class="ex">Fuzuli, Nedim, Baki, Nabi…</span></li>
+  <li><strong>Eksiltili cümle</strong> / kasıtla yarım bırakılmış söz: <span class="ex">Bir daha seni onun yanında görürsem…</span></li>
+  <li>Kaba sayılan / yazılmak istenmeyen söz: <span class="ex">Kılavuzu karga olanın burnu b…tan çıkmaz.</span></li>
+  <li>Alıntıda <strong>atlanan</strong> bölümün yerine; saklanan kişi/yer adında: <span class="ex">B… köyünde doğdu.</span></li>
+  <li><strong>Sıra noktalar (…..):</strong> Susulan, cevap verilmeyen yerde; sınavda istenen cevabın yerine boşluk olarak: <span class="ex">Diller …. diye üçe ayrılır.</span></li>
+</ul>
+<div class="box tuzak"><span class="bt">⚠️ Tuzak — Soru/Ünlem + Üç Nokta</span>
+Üç noktadan önceki cümle <strong>?</strong> veya <strong>!</strong> ile bitiyorsa, o işaret üç noktanın noktalarından biri SAYILMAZ; üç nokta aynen korunur: <span class="ex">Yürü! Hür maviliğin bittiği son hadde kadar!..</span> (yani <code>!..</code> = ünlem + üç nokta).</div>
+<div class="box mat"><span class="bt">⚙️ Dilin Matematiği</span>
+Üç nokta = “devam var ama söylemiyorum” kodu. İki nokta <em>açar</em> (arkasından somut bir şey gelir), üç nokta <em>açık bırakır</em> (gerisini okuyucuya ısmarlar). Aynı boşlukta ikisi de mantıklıysa: arkasından örnek <strong>tam olarak sıralanıyorsa</strong> iki nokta, <strong>“ve diğerleri” iması varsa</strong> üç nokta.</div>
+
+<h3>Soru İşareti <span class="sym">?</span></h3>
+<ul>
+  <li>Soru bildiren çekimli fiil / isim soylu sözlerin sonuna; sonrası büyük harfle başlar.</li>
+  <li>“evet/hayır” ile cevaplanan ve soru sözcüğüyle (ne, kim, nasıl…) kurulan cümlelere.</li>
+  <li>Sıralı/bağlı soru cümlelerinde işaret <strong>en sona</strong> konur: <span class="ex">Üsküdar’dan mı, Hisar’dan mı, Kavaklar’dan mı?</span></li>
+  <li>Devrik cümlede fiil soru taşıyorsa: <span class="ex">Hiç düşünmedin mi olmayacağını?</span></li>
+  <li><strong>Şüphe/kesinsizlik</strong> için ayraç içinde: <span class="ex">14. yüzyılda (?) yazıya geçirilmiş.</span></li>
+  <li>Alay/küçümseme katmak için ayraç içinde: <span class="ex">Bu büyük sanatçı (?) …</span></li>
+  <li>Bilinmeyen tarih: <span class="ex">Yunus Emre (1240?–1320?)</span></li>
+</ul>
+<div class="box tuzak"><span class="bt">⚠️ Tuzak — “mı/mi” her zaman soru DEĞİLDİR</span>
+<ul style="margin:4px 0">
+  <li><strong>Ünlem/olumsuzluk</strong> anlamı katarsa soru işareti KONMAZ: <span class="ex">Sonunda bu da mı gelecekti başımıza!</span></li>
+  <li><strong>“-ınca/-ince” (zaman)</strong> anlamında zarf-fiil görevindeyse konmaz: <span class="ex">Sabah oldu mu yeniden doğmuş gibi hissederim.</span></li>
+  <li><strong>Belirsizlik</strong> katarsa konmaz: <span class="ex">Baban mıydı, amcan mıydı, yanında biri vardı.</span></li>
+  <li>Sıralı cümlede son cümle soru değilse işaret konmaz: <span class="ex">Niçin böyle davranıyor, anlayamadım.</span></li>
+</ul></div>
+
+<h3>Ünlem İşareti <span class="sym">!</span></h3>
+<ul>
+  <li>Sevinç, korku, acıma, şaşma, kızgınlık vb. duyguları anlatan cümlelerin sonuna.</li>
+  <li>Ünlem sözcüğü içermese de <strong>anlık tepki</strong> bildiren cümlelere.</li>
+  <li><strong>Seslenme</strong> sözcüğü olan cümlelere: <span class="ex">Ey insan! …</span></li>
+  <li>Yansıma sözlerden sonra: <span class="ex">Şangır!, pat!, küt!</span></li>
+  <li>Alay/küçümseme için ayraç içinde: <span class="ex">İsteseymiş bir günde bitirirmiş (!)</span></li>
+</ul>
+<div class="box tuzak"><span class="bt">⚠️ Tuzak</span>
+İçinde soru eki/sözü olduğu hâlde anlamca <strong>ünlem</strong> ise sona ünlem konur: <span class="ex">Kim bilir ne nerelerde kiminledir şimdi!</span> Hem soru işareti hem ünlem peş peşe gelmez — anlam neyse o işaret kazanır.</div>
+
+<div class="flash"><span class="bt">🃏 Flashcard — Soru / Ünlem / İki Nokta</span>
+  <div class="qa"><div class="q">1) “Sabah oldu mu kalkarım.” cümlesinin sonuna soru işareti konur mu? Neden?</div>
+  <div class="a"><b>Cevap:</b> Konmaz. Buradaki “mı/mi” <strong>“-ınca/-ince” zaman</strong> anlamındadır (= sabah olunca), gerçek soru yoktur.</div></div>
+  <div class="qa"><div class="q">2) “Şunları aldım ( ) ekmek, süt, peynir.” — Boşluğa ne gelir ve devamı neden küçük harfle başlar?</div>
+  <div class="a"><b>Cevap:</b> <strong>İki nokta</strong> gelir; arkasından <strong>cümle değil örnek sözler</strong> sıralandığı için küçük harf.</div></div>
+  <div class="qa"><div class="q">3) “Çok zeki ( ) bir öğrenciymiş.” — Burada alay/iğneleme vermek istersek hangi işaret, nasıl?</div>
+  <div class="a"><b>Cevap:</b> Ayraç içinde ünlem: <span class="ex">Çok zeki (!) bir öğrenciymiş.</span></div></div>
+</div>
+
+<h3>Çizgiler: Kısa <span class="sym">-</span> · Uzun <span class="sym">—</span> · Eğik <span class="sym">/</span></h3>
+<ul>
+  <li><strong>Kısa çizgi (-):</strong> Satır sonunda hecelere bölmede; kelimeler arası “köprü”de: <span class="ex">Ankara-İstanbul, Türk-Alman ilişkileri, 10.30-12.00 arası.</span> Eklerin biçimini gösterirken: <span class="ex">-a/-e</span>.</li>
+  <li><strong>Uzun çizgi (—):</strong> Yalnızca satır başında <strong>konuşma çizgisidir</strong> (karşılıklı konuşma).</li>
+  <li><strong>Eğik çizgi (/):</strong> Şiir dizeleri yan yana yazılınca aralarına; adres/oran yazımında: <span class="ex">No.: 21/5 Kurtuluş / ANKARA</span>.</li>
+</ul>
+
+<h3>Tırnak <span class="sym">" "</span> · Tek Tırnak <span class="sym">' '</span> · Yay Ayraç <span class="sym">( )</span></h3>
+<ul>
+  <li><strong>Tırnak:</strong> Aynen aktarılan söz (alıntı), vurgulanan söz, eser/yazı adları: <span class="ex">Ömer Seyfettin’in “Kaşağı” adlı hikâyesi.</span></li>
+  <li><strong>Tek tırnak:</strong> Tırnak içinde ikinci bir tırnak gerektiğinde.</li>
+  <li><strong>Yay ayraç (parantez):</strong> Cümle yapısına dâhil olmayan ek bilgi; tiyatroda oyuncunun hareketi: <span class="ex">Yaşlı adam (yavaşça kalkarak) söze başladı.</span></li>
+</ul>
+
+<h3>Kesme İşareti <span class="sym">'</span> — En Çok Sorulan!</h3>
+<p>Özel adlara gelen <strong>çekim eklerini</strong> ayırır.</p>
+<ul>
+  <li><strong>Konur:</strong> Kişi/yer/özel adlara gelen çekim ekleri ve sayılara/kısaltmalara gelen ekler: <span class="ex">Atatürk’e, Boğaz’ın, Türkiye’miz, 1988’de, TDK’den, 5’inci.</span></li>
+</ul>
+<div class="box tuzak"><span class="bt">⚠️ Kritik İstisnalar (Kesme KONMAZ)</span>
+<ul style="margin:4px 0">
+  <li><strong>Kurum, kuruluş, kurul adlarına</strong> gelen ekler ayrılmaz: <span class="ex">Millî Eğitim Bakanlığına, Türk Dil Kurumundan.</span></li>
+  <li>Özel ada gelen <strong>yapım eki</strong> ve ondan sonraki ekler ayrılmaz: <span class="ex">Türkçenin, İstanbullu, Ahmetler, Ankaralıyım.</span></li>
+  <li>“Bahar/baz” gibi sözcükler özel ad değil cins/zaman ise kesme yok: <span class="ex">Baharda</span> (mevsim) ≠ <span class="ex">Bahar’da</span> (kişi).</li>
+  <li>Özel ad değilse hiç konmaz: <span class="ex">Siz’de</span> (✗) → <span class="ex">Sizde</span> (✓).</li>
+</ul></div>
+<div class="box akr"><span class="bt">🧠 Hafıza Anahtarı — “KURUM YOK, YAPIM YOK”</span>
+Kesme görünce iki soru sor: (1) Bu bir <strong>kurum/kuruluş adı</strong> mı? → kesme YOK. (2) Ekin <strong>yapım eki</strong> mi var? → kesme YOK. İkisine de “hayır” diyorsan ve karşında özel ada gelmiş çekim eki varsa → kesme VAR.</div>
+
+<div class="flash"><span class="bt">🃏 Flashcard — Kesme İşareti</span>
+  <div class="qa"><div class="q">1) “Türkçe’yi seviyorum.” doğru mu?</div>
+  <div class="a"><b>Cevap:</b> Yanlış. “Türk + -çe” bir <strong>yapım eki</strong> içerir; yapım ekinden sonra kesme konmaz: <span class="ex">Türkçeyi</span>.</div></div>
+  <div class="qa"><div class="q">2) “Sağlık Bakanlığı’na başvurdum.” cümlesindeki hata nedir?</div>
+  <div class="a"><b>Cevap:</b> <strong>Kurum/kuruluş adına</strong> gelen ek kesmeyle ayrılmaz: <span class="ex">Sağlık Bakanlığına.</span></div></div>
+  <div class="qa"><div class="q">3) “Baharda buralar güzel olur.” / “Bahar’da bu kitap var.” — İkisi de doğru mu?</div>
+  <div class="a"><b>Cevap:</b> Evet, ikisi de doğru ama farklı anlamda: birincisi <strong>mevsim</strong> (cins ad, kesme yok), ikincisi <strong>Bahar adlı kişi</strong> (özel ad, çekim eki → kesme var).</div></div>
+</div>
+
+<h3>Kısaltmalar</h3>
+<p>Yer kazanmak ve tekrarı önlemek için yapılır. Büyük harfli kısaltmalarda nokta yoktur (<span class="ex">TBMM, PTT</span>); küçük harfli/karma kısaltmalarda olabilir (<span class="ex">Dr., Prof., s., bk.</span>). Kısaltmaya ek getirilirken <strong>son harfin okunuşuna</strong> göre kesmeyle eklenir: <span class="ex">TBMM’nin, TDK’den.</span></p>
+</section>
+
+<hr>
+
+<!-- ===================== SORU BANKASI ===================== -->
+<section id="sorubank">
+<h2><span class="num">02</span>Noktalama Soru Bankası <span class="weekflag">5. HAFTA · ÇIKMIŞ ÖSS</span></h2>
+<p class="lead">5. hafta tamamen <strong>çıkmış ÖSS soruları</strong>na ayrılmıştır — yani finalde format aynen budur. Aşağıda en öğretici soruların çözümleri var. Önce kendin cevapla, sonra “Çözümü gör”e bas.</p>
+
+<div class="flash"><span class="bt">🃏 Çözümlü Sorular</span>
+
+  <div class="qa"><div class="q">S1 (1982) — “…başka bir açıdan alalım (I) Örneğin (II) son … sorunları hatırlayalım (III) İlköğretim seferberliği, çok partili hayata geçiş … gibi.”</div>
+  <details><summary>Çözümü gör</summary><div class="a"><b>Cevap: B → (.) (,) (:)</b><br>(I) “alalım” ile yargı bitti → <strong>nokta</strong>. (II) “Örneğin” bağlama sözünden sonra → <strong>virgül</strong>. (III) Arkasından somut örnekler sıralanacak → <strong>iki nokta</strong>.</div></details></div>
+
+  <div class="qa"><div class="q">S2 (1990) — “…yüz bin kez mi ( ) Bu soruya Paul Valery şu yanıtı verir ( ) “…isterim ( )”</div>
+  <details><summary>Çözümü gör</summary><div class="a"><b>Cevap: A → (?) (:) (.)</b><br>1. boşluk soru cümlesini bitirir → <strong>soru işareti</strong>. “verir” sonrası alıntı gelecek → <strong>iki nokta</strong>. Alıntı bir yargı cümlesi → <strong>nokta</strong>.</div></details></div>
+
+  <div class="qa"><div class="q">S4 (1986) — Hangisinde virgül kaldırılırsa anlam değişir?<br>A) Karanlık, dar sokaklar… B) Doktor hanım, … C) Bu gece, … D) Küçük, çam ağacının arkasına saklanmıştı. E) Koca bir yılı, …</div>
+  <details><summary>Çözümü gör</summary><div class="a"><b>Cevap: D.</b><br>“Küçük, çam ağacının…” → saklanan bir kişidir (özne “küçük”). Virgül kalkınca “küçük çam ağacı” olur, “küçük” çamı niteleyen <strong>sıfata</strong> döner. Virgül burada <strong>anlam ayırıcıdır</strong>.</div></details></div>
+
+  <div class="qa"><div class="q">S5 (1992) — Hangi cümlenin sonuna soru işareti konmalı?<br>A) …yapamazdım ki B) …nasıl çıkabilirim diye düşündüm C) …söylemeli miydim, bilemiyorum D) Bu önerimizi kabul eder mi, ne dersiniz E) …neden söylüyorsunuz, anlayamadım</div>
+  <details><summary>Çözümü gör</summary><div class="a"><b>Cevap: D.</b><br>A, B, C, E’de “mı/mi” veya soru sözü <strong>başka bir yargıya bağlanmış</strong> (düşündüm, bilemiyorum, anlayamadım) → gerçek soru yok. D’de “ne dersiniz” doğrudan cevap bekler → <strong>soru işareti</strong>.</div></details></div>
+
+  <div class="qa"><div class="q">S9 (1995) — Kesme işareti hangisinde YANLIŞ?<br>A) Siz’de toplantıya katılmalısınız. B) TV’deki… C) 22.6.1955’te… D) Dr. Sinan Bey’i… E) İzmir’in…</div>
+  <details><summary>Çözümü gör</summary><div class="a"><b>Cevap: A.</b><br>“Siz” özel ad değildir; kesme konmaz → <span class="ex">Sizde</span>. Diğerleri (TV kısaltması, sayı, kişi adı, yer adı) doğru.</div></details></div>
+
+  <div class="qa"><div class="q">S25 (1984) — “Kesme kişi adlarından sonra konur.” kuralına göre hangisinde yazım yanlışı var?<br>A) Bahar’ı okula başlattık. B) Bahar’da bu kitap var. C) Bahar’ı görmeden… D) Baharda buralar güzel olur. E) Bahar’la Sevim…</div>
+  <details><summary>Çözümü gör</summary><div class="a"><b>Cevap: D.</b><br>Cümleler <strong>Bahar adlı kişiyi</strong> kastediyorsa çekim eki kesmeyle ayrılır; D’de “Baharda” yazılmış (kesme yok) → kişi adı kuralına aykırı. (D yalnızca “mevsim” anlamında doğru olurdu.)</div></details></div>
+
+  <div class="qa"><div class="q">S26 (1989) — Yazım ve noktalama bakımından hangisi doğru?<br>D) Beklediğimiz otobüs Ulus’tan kalkıp Kızılay’dan geçerek mi buraya gelecek?</div>
+  <details><summary>Çözümü gör</summary><div class="a"><b>Cevap: D.</b><br>İki ölçüt: (1) <strong>“Ulus’tan”</strong> — sert ünsüz benzeşmesiyle ek sertleşir (Ulus’dan yanlış). (2) <strong>“geçerek mi”</strong> — soru eki “mi” her zaman ayrı yazılır (geçerekmi yanlış).</div></details></div>
+
+  <div class="qa"><div class="q">S30 (1983) — Hangi cümlenin sonuna “bitmemişlik” nedeniyle üç nokta uygun olur?<br>D) Sadece öğrenciler değildi gelenler, öğretmenler, memurlar, yaşlılar</div>
+  <details><summary>Çözümü gör</summary><div class="a"><b>Cevap: D.</b><br>Sıralama bitmemiş, “ve daha niceleri” iması var → <strong>üç nokta</strong> (…). Diğerleri tam yargı bildirip noktayla biter.</div></details></div>
+</div>
+
+<div class="box akr"><span class="bt">🧠 Soru Çözme Formülü — “3 Adımda Boşluk Doldurma”</span>
+<strong>1. Yargı bitti mi?</strong> Bittiyse → nokta (veya soru/ünlem). <strong>2. Arkasından ne geliyor?</strong> Örnek/açıklama → iki nokta; eksik/süren liste → üç nokta. <strong>3. Aynı seviyede ayırma mı?</strong> Sade öge → virgül; içinde virgül olan grup → noktalı virgül.</div>
+</section>
+
+<hr>
+
+<!-- ===================== ANLATIM BOZUKLUKLARI ===================== -->
+<section id="anlatim">
+<h2><span class="num">03</span>Anlatım Bozuklukları <span class="weekflag">6–8. HAFTA · FİNALİN KALBİ</span></h2>
+<p class="lead">Konfüçyüs’ün ilkesi: <em>“Dil düzensiz olursa sözler düşünceyi anlatamaz.”</em> Anlatım bozukluğu = cümlenin <strong>yanlış olması değil</strong>, söylenmek isteneni doğru iletememesidir. İki ana sınıf vardır: <strong>Anlam yönünden</strong> ve <strong>Dil bilgisi yönünden</strong> bozukluklar.</p>
+<div class="box mat"><span class="bt">⚙️ Dilin Matematiği — Bozukluğu Bulma Algoritması</span>
+Bir cümleyi şöyle “derleyici” gibi tara: <strong>(1)</strong> Gereksiz/tekrar eden kelime var mı? <strong>(2)</strong> Birbiriyle çelişen ya da eş anlamlı iki söz yan yana mı? <strong>(3)</strong> Kelime doğru yerde mi (sıfat mı zarf mı niteliyor)? <strong>(4)</strong> Cümleyi ögelerine ayır: özne–yüklem uyuyor mu, eksik öge (nesne/tümleç/yardımcı fiil) var mı? Bir tanesi “patlarsa” bozukluk oradadır.</div>
+
+<h3>A. Anlam Yönünden Bozukluklar</h3>
+
+<h4>1) Eklerin ve Kelimelerin Gereksiz Kullanılması</h4>
+<p>Anlamı zaten karşılanan bir şeyi ikinci kez söylemek bozukluktur.</p>
+<ul>
+  <li><span class="ex">Dün babasıyla <u>birlikte</u> okula geldi.</span> → “ile/-la” zaten birliktelik verir; “birlikte” fazla.</li>
+  <li><span class="ex">Türk Dili’<u>nden çok</u>, İngilizceye <u>daha fazla</u> çalışıyor.</span> → “-den çok” = “daha fazla”; biri yeter.</li>
+  <li><span class="ex">Bir sürü <u>gereksiz</u> hata yaptı.</span> → Hatanın “gereklisi” olmaz; “gereksiz” fazla.</li>
+</ul>
+
+<h4>2) Anlamca Çelişen Sözcükler</h4>
+<ul>
+  <li><span class="ex">Sınavın bitimine <u>tam tamına birkaç</u> dakika kaldı.</span> → “tam tamına” kesinlik, “birkaç” belirsizlik bildirir; çelişir.</li>
+</ul>
+
+<h4>3) Yakın ve Eş Anlamlı Kelimelerin Bir Arada Kullanılması</h4>
+<ul>
+  <li><span class="ex">birlik ve beraberlik</span>, <span class="ex">ancak sadece</span>, <span class="ex">yaşlı ve ihtiyar</span>, <span class="ex">tebrik edip kutlar</span>, <span class="ex">yanılmıyorsam tahmin ediyorum</span> — her ikilide kelimeler eş anlamlı; biri kullanılmalı.</li>
+</ul>
+
+<h4>4) Anlamları Karıştırılan Kelimeler</h4>
+<p>Sesçe/anlamca benzeyen ama farklı kelimeler yanlış yerde kullanılır.</p>
+<ul>
+  <li><span class="ex">Sorunlarımızı <u>çözümleyemedik</u>.</span> → “çözümlemek” = analiz etmek (laboratuvar). Sorun <strong>çözülür/halledilir</strong>.</li>
+  <li><span class="ex">…hocamız <u>umduğumuz</u> gibi davranmadı.</span> → “ummak” olumlu beklenti içindir; olumsuz beklentide <strong>“sanmak”</strong> gerekir.</li>
+  <li><span class="ex">…ölüm <u>şansı</u> azaldı.</span> → “şans” olumludur; ölümle birlikte <strong>“ihtimal”</strong> kullanılmalı.</li>
+</ul>
+
+<h4>5) Yabancı Kelime Yerine Yanlış Türkçe</h4>
+<p>Türetilen Türkçe karşılık, eskisinin <strong>tüm anlamlarını</strong> karşılamıyorsa yerinde kullanılmaz.</p>
+<ul>
+  <li><span class="ex">bilinçsiz</span> kelimeler değil, <strong>şuursuz</strong> kelimeler; <span class="ex">halk ucuzluğa saldırdı</span> değil, <strong>akın etti</strong>; tıbbi durumda “olay” değil <strong>“vak’a”</strong>; “çare” yerine her zaman “yol” denmez (<span class="ex">yolsuz kaldım</span> ≠ <span class="ex">çaresiz kaldım</span>).</li>
+</ul>
+
+<h4>6) Kelimelerin Yanlış Yerde Kullanılması</h4>
+<p>Niteleyen kelime, nitelediği kelimenin yanında olmalı.</p>
+<ul>
+  <li><span class="ex">Öğrenciler <u>çok</u> sınıfta konuştu.</span> → <span class="ex">Öğrenciler sınıfta <u>çok</u> konuştu.</span></li>
+  <li><span class="ex"><u>İlk</u> sınıfa ben girdim.</span> → <span class="ex">Sınıfa <u>ilk</u> ben girdim.</span></li>
+  <li><span class="ex">Her Allah’ın günü</span> → <span class="ex">Allah’ın her günü</span>; <span class="ex">Eski fakültenin dekanı</span> → <span class="ex">Fakültenin eski dekanı</span>.</li>
+</ul>
+<div class="box akr"><span class="bt">🧠 Hafıza Anahtarı — Anlam Bozuklukları: “GÇE-KYY”</span>
+<strong>G</strong>ereksiz kelime · <strong>Ç</strong>elişen sözcük · <strong>E</strong>ş/yakın anlamlı tekrar · <strong>K</strong>arıştırılan kelime · <strong>Y</strong>abancı yerine yanlış Türkçe · <strong>Y</strong>anlış yerde kelime. <em>(“Geçe ki yıy” diye oku, altı anlam bozukluğunu da hatırla.)</em></div>
+
+<h3>B. Dil Bilgisi (Yapı) Yönünden Bozukluklar</h3>
+
+<h4>1) Özne–Yüklem Uyumsuzluğu</h4>
+<p>Kişi ve sayı bakımından özne ile yüklem uyuşmalı.</p>
+<ul>
+  <li><span class="ex">Öğrencilerle biz hocalar bir kez daha ters <u>düştü</u>.</span> → Özne “biz hocalar” (çoğul/1. çoğul) ama yüklem 3. tekil. Doğrusu: <strong>ters düştük</strong>.</li>
+</ul>
+
+<h4>2) Yüklem / Yardımcı Fiil Eksikliği</h4>
+<p>Özellikle olumlu+olumsuz yargılar birleşince ortak yüklem yanlış anlam doğurur.</p>
+<ul>
+  <li><span class="ex">…tam sağlıklı ve yaşlı olmayan kişiler…</span> → “sağlıklı” da “olmayan”a bağlanır (= sağlıklı olmayan). Doğrusu: <strong>tam sağlıklı olan ve yaşlı olmayan kişiler.</strong></li>
+  <li><span class="ex">Sabah kahvaltısında çay, börek yedik.</span> → Çay “yenmez”; yardımcı fiil eksik. Doğrusu: <strong>çay içtik, börek yedik.</strong></li>
+</ul>
+
+<h4>3) Özne Eksikliği</h4>
+<ul>
+  <li><span class="ex">Elif sınava giremedi, çünkü <u>unutmuştu</u>.</span> → Neyi? Özne/öge eksik. Doğrusu: <strong>…çünkü sınav tarihini unutmuştu.</strong></li>
+</ul>
+
+<h4>4) Dolaylı Tümleç (-e/-de/-den) Eksikliği</h4>
+<ul>
+  <li><span class="ex">Bilgisini zenginleştiren, anlam kazandıran kitaplar…</span> → “anlam kazandıran” cümlesi “-e” ister. Doğrusu: <strong>bilgisini zenginleştiren, bilgisine anlam kazandıran…</strong></li>
+  <li><span class="ex">Öğrencileri sınıfa topladı ve öğütler verdi.</span> → İkincisi “-e” ister. Doğrusu: <strong>…ve onlara öğütler verdi.</strong></li>
+</ul>
+
+<h4>5) Nesne Eksikliği</h4>
+<ul>
+  <li><span class="ex">Sana hiç darılmıyor, çok seviyoruz.</span> → İkincisi nesne (“seni”) ister. Doğrusu: <strong>Sana hiç darılmıyor, seni çok seviyoruz.</strong></li>
+</ul>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi — Ortak Öge Tuzağı</span>
+Yapı bozukluklarının çoğu “<strong>ortak öge yanlışlığı</strong>”ndan çıkar: İki yüklem bir özneyi/nesneyi/tümleci paylaştırılır ama biri o ekle uyumlu değildir. Test ipucu: bağlaçlı (ve, ama) cümlede her iki yüklemi tek tek o ortak ögeyle dene; biri tutmuyorsa eksik öge bozukluğu vardır.</div>
+<div class="box akr"><span class="bt">🧠 Hafıza Anahtarı — Yapı Bozuklukları: “Ö-Y-Ö-D-N”</span>
+<strong>Ö</strong>zne-yüklem uyumu · <strong>Y</strong>üklem/yardımcı fiil eksik · <strong>Ö</strong>zne eksik · <strong>D</strong>olaylı tümleç eksik · <strong>N</strong>esne eksik. <em>(Eksik öge sorularında sırayla bu beşini yokla.)</em></div>
+
+<div class="flash"><span class="bt">🃏 Flashcard — Anlatım Bozuklukları (8. Hafta Soruları)</span>
+  <div class="qa"><div class="q">1) Hangisinde anlatım bozukluğu var? E) “O dönemde para üç katı değer kaybetmiş.”</div>
+  <details><summary>Çözümü gör</summary><div class="a"><b>Cevap: E.</b> Bir şey en çok <strong>tamamını (%100)</strong> kaybeder; “üç katı değer kaybetmek” mantıksal/anlam bozukluğudur.</div></details></div>
+  <div class="qa"><div class="q">2) Hangisinde bozukluk var? A) “İşe geç geldiğini hiç olmazsa bana haber verseydin bari.”</div>
+  <details><summary>Çözümü gör</summary><div class="a"><b>Cevap: A.</b> <strong>“hiç olmazsa”</strong> ile <strong>“bari”</strong> aynı anlamdadır → gereksiz/eş anlamlı tekrar.</div></details></div>
+  <div class="qa"><div class="q">3) “Bu davranış insandan insana değişir.” — Bozukluğun kaynağı?</div>
+  <details><summary>Çözümü gör</summary><div class="a"><b>Cevap: İşaret sıfatına yer verilmesi.</b> “Bu davranış” <strong>tek/belirli</strong> bir davranıştır; belirli bir şey kişiden kişiye değişemez. Doğrusu: <span class="ex">Davranışlar insandan insana değişir.</span></div></details></div>
+  <div class="qa"><div class="q">4) Dizede özne–yüklem uyuşmazlığı: C) “Yeryüzünde bir sen bir de ben varım.”</div>
+  <details><summary>Çözümü gör</summary><div class="a"><b>Cevap: C.</b> Özne “sen ve ben” (çoğul) ama yüklem <strong>“varım”</strong> (1. tekil). Doğrusu: <span class="ex">…bir de ben varız.</span></div></details></div>
+  <div class="qa"><div class="q">5) Hangisinde aynı anlama gelen sözler gereksizce bir arada? B) “…ölmek üzere olan, can çekişen bir sanat dalı…”</div>
+  <details><summary>Çözümü gör</summary><div class="a"><b>Cevap: B.</b> <strong>“ölmek üzere olan”</strong> ile <strong>“can çekişen”</strong> eş anlamlıdır.</div></details></div>
+  <div class="qa"><div class="q">6) Bozukluk hangisinde? C) “İşte bu yüzden dolayı sizleri buraya topladık.”</div>
+  <details><summary>Çözümü gör</summary><div class="a"><b>Cevap: C.</b> <strong>“yüzünden”</strong> ile <strong>“dolayı”</strong> aynı işlevde → gereksiz kullanım. Doğrusu: <span class="ex">Bu yüzden…</span> veya <span class="ex">Bundan dolayı…</span></div></details></div>
+</div>
+</section>
+
+<hr>
+
+<!-- ===================== YAZILI KOMPOZİSYON ===================== -->
+<section id="yazili">
+<h2><span class="num">04</span>Yazılı Kompozisyon Türleri <span class="weekflag">9–10. HAFTA</span></h2>
+<p class="lead"><strong>Kompozisyon</strong> = bir konunun, duygu ve düşüncenin <em>planlı</em> bir şekilde yazı veya sözle anlatılması. Final için iki şey kritik: <strong>(a)</strong> kompozisyon yazma metodunun aşamaları, <strong>(b)</strong> türlerin birbirinden ayırt edici özellikleri.</p>
+
+<h3>Kompozisyon Yazmanın Metodu</h3>
+<p>Kompozisyonda iki temel özellik aranır: <strong>düzgünlük</strong> ve <strong>güzellik</strong>. Sıra şudur:</p>
+<ul>
+  <li><strong>Konu:</strong> Önce belirlenir; dışına çıkılmaz, tek bir <strong>ana fikir</strong> etrafında toplanır. Konunun üç bölümü: <em>Maddesi, Görüş Noktası, Biçimi.</em></li>
+  <li><strong>Buluş:</strong> Konuyla ilgili tüm düşünceleri toplama; ana fikri yardımcı fikirlerle genişletme.</li>
+  <li><strong>Başlık:</strong> Başlıksız yazı olmaz; her konu başlıkla isimlendirilir.</li>
+  <li><strong>Düzenleme (Plan):</strong> Üç plan tipi vardır → <strong>Harekete dayalı (hareki)</strong>, <strong>Düşünceye dayalı (fikrî)</strong>, <strong>Duyguya dayalı (hissî)</strong>. Plan; <strong>giriş</strong> (konu kısaca tanıtılır), <strong>gelişme</strong> (yardımcı fikirler, her biri bir paragraf), <strong>sonuç</strong> (ana fikir, kısa-açık-kesin) bölümlerinden oluşur.</li>
+  <li><strong>Anlatım:</strong> Son aşama. İyi anlatımda <strong>duruluk, açıklık, sadelik, özgünlük, samimilik</strong> aranır.</li>
+</ul>
+<div class="box akr"><span class="bt">🧠 Hafıza Anahtarı — Metot: “KO-BU-BA-PLA-AN”</span>
+<strong>KO</strong>nu → <strong>BU</strong>luş → <strong>BA</strong>şlık → <strong>PLA</strong>n (giriş-gelişme-sonuç) → <strong>AN</strong>latım. Sıra şaşmaz.</div>
+<div class="box spot"><span class="bt">🎯 Spot Bilgi</span>
+İyi anlatımın 5 niteliği: <mark>duruluk · açıklık · sadelik · özgünlük · samimilik</mark>. Plan türleri 3’tür: <mark>hareki · fikrî · hissî</mark>.</div>
+
+<h3>Şiir ve Şiir Türleri</h3>
+<p><strong>Şiir</strong> (Arapça asıllı; “koşuk, nazım” da denmiştir): duygu ve düşüncelerin, hayal unsurlarıyla, ölçülü-kafiyeli ya da serbest mısralar hâlinde anlatılmasıdır. Biçimce üçe ayrılır: <strong>ölçülü (aruz/hece)</strong>, <strong>serbest</strong>, <strong>mensur şiir</strong> (düzyazı biçiminde ama ahenkli; Halit Ziya, Mehmet Rauf, Yakup Kadri, Orhan Veli).</p>
+<table>
+  <tr><th>Tür</th><th>Konusu / Amacı</th><th>Anahtar</th></tr>
+  <tr><td><strong>Pastoral</strong></td><td>Kır/çoban hayatı, doğa güzelliği; süsten uzak</td><td>Doğa, sadelik</td></tr>
+  <tr><td><strong>Epik</strong></td><td>Kahramanlık, yiğitlik, yurt sevgisi (“epope”den)</td><td>Destan, coşku</td></tr>
+  <tr><td><strong>Didaktik</strong></td><td>Öğretmek, öğüt vermek; duygu zayıf (fabl, manzum hikâye)</td><td>Ders/öğüt</td></tr>
+  <tr><td><strong>Satirik</strong></td><td>Eleştiri, iğneleme (taşlama / hicv / yergi)</td><td>Eleştiri, alay</td></tr>
+  <tr><td><strong>Dramatik</strong></td><td>Tiyatroya uygun, harekete dayalı; acıklı/heyecanlı</td><td>Sahne, hareket</td></tr>
+</table>
+<div class="box akr"><span class="bt">🧠 Hafıza Anahtarı — 5 Şiir Türü: “PE-Dİ-SA-DR” → “Pek Edi Sade Dramı”</span>
+<strong>P</strong>astoral (doğa) · <strong>E</strong>pik (destan) · <strong>Dİ</strong>daktik (öğüt) · <strong>SA</strong>tirik (eleştiri) · <strong>DR</strong>amatik (tiyatro).</div>
+
+<h3>Düzyazı (Nesir) Türleri</h3>
+<p><strong>Olay çevresinde gelişenler</strong> (öykü, roman, tiyatro) <em>serim–düğüm–çözüm</em> ile kurulur. <strong>Düşünce/fikir yazıları</strong> (makale, fıkra, deneme, eleştiri, söyleşi…) bir görüş anlatır.</p>
+<table>
+  <tr><th>Tür</th><th>Özü</th><th>Sınavlık Ayırt Edici</th></tr>
+  <tr><td><strong>Öykü (Hikâye)</strong></td><td>Hayatın bir <strong>parçasını</strong>, ayrıntıya girmeden kısa anlatır</td><td>Kişi az, tek bir an/safha; romandan kısa</td></tr>
+  <tr><td><strong>Roman</strong></td><td>Hayatı geniş ve ayrıntılı ele alır</td><td>Olaydan çok <strong>kişi</strong> önemli; karakter çok</td></tr>
+  <tr><td><strong>Tiyatro (Piyes)</strong></td><td>Sahnelenmek için yazılır; göze+kulağa hitap</td><td>jest, mimik, monolog, diyalog, <strong>tirad</strong></td></tr>
+  <tr><td><strong>Makale</strong></td><td>Bir görüşü <strong>kanıtlarla</strong> açıklayan gazete/dergi yazısı</td><td>Temel ögesi <strong>fikir</strong>; ispat zorunlu, ciddi</td></tr>
+  <tr><td><strong>İnceleme</strong></td><td>Bir eser/olayı bütün yönleriyle tanıtma</td><td>Bilgi, deneyim, teknik+metot gerekir</td></tr>
+  <tr><td><strong>Fıkra</strong></td><td>Güncel konuda kişisel görüş; <strong>ispatsız</strong>, kısa</td><td>İspat YOK; günlük; devrik cümle olabilir</td></tr>
+  <tr><td><strong>Eleştiri (Tenkit)</strong></td><td>Bir eserin iyi/kötü yanlarını değerlendirme</td><td>Görev: yeni eser yazmak değil, <strong>yargılamak</strong></td></tr>
+  <tr><td><strong>Söyleşi (Sohbet)</strong></td><td>Konuşur gibi, senli benli fikir yazısı</td><td>Makalenin ciddiyeti YOK; içten, soru cümleli</td></tr>
+  <tr><td><strong>Röportaj (Mülakat)</strong></td><td>Gezip görüp araştırarak tanıtma</td><td>Yazarın <strong>yorumu</strong> vardır (haberde yoktur)</td></tr>
+  <tr><td><strong>Deneme</strong></td><td>Kişisel görüş; iddiasız, içten, kesin yargısız</td><td>İspat YOK, <strong>kesin yargı YOK</strong>; düşünce ağırlıklı</td></tr>
+  <tr><td><strong>Biyografi</strong></td><td>Bir <strong>başkasının</strong> hayatı/eserleri</td><td>Tarafsız, objektif, kanıta dayalı</td></tr>
+  <tr><td><strong>Otobiyografi</strong></td><td><strong>Kendi</strong> hayat hikâyesi</td><td>“Tercüme-i hâl”in kişisel hâli</td></tr>
+  <tr><td><strong>Özgeçmiş</strong></td><td>Kimlik, eğitim, deneyim tanıtan kısa belge</td><td>Kısa-açık-doğru; işverene sunulur</td></tr>
+  <tr><td><strong>Araştırma Raporu</strong></td><td>Konuyu çözüm yollarıyla ele alan rapor (tez)</td><td>Öğretici dil; üslup güzelliği aranmaz</td></tr>
+  <tr><td><strong>Mektup / Dilekçe</strong></td><td>Haberleşme / resmî istek-şikâyet yazısı</td><td>Aşağıda ayrıntılı</td></tr>
+</table>
+
+<div class="box tuzak"><span class="bt">⚠️ En Çok Karıştırılan İkililer</span>
+<ul style="margin:4px 0">
+  <li><strong>Makale ↔ Fıkra:</strong> Makale toplumu ilgilendirir, görüş <strong>ispatlanır</strong>, ciddi, kurallı cümle. Fıkra güncel, <strong>ispatsız</strong>, güldürücü olabilir, devrik cümle serbest.</li>
+  <li><strong>Deneme ↔ Makale:</strong> Deneme kesin yargıya varmaz, ispatlamaz; makale kanıtlar.</li>
+  <li><strong>Röportaj ↔ Haber:</strong> Röportajda yazar <strong>yorum katar</strong>; haberde olay olduğu gibi, yorumsuz verilir.</li>
+  <li><strong>Biyografi ↔ Otobiyografi:</strong> Biyografi <em>başkası</em> tarafından; otobiyografi <em>kişinin kendisi</em> tarafından yazılır.</li>
+</ul></div>
+
+<h4>Mektup ve Dilekçe Ayrıntıları</h4>
+<ul>
+  <li><strong>Resmî mektupta makam yönü:</strong> Üst makam alt makama yazarken <strong>“rica ederim”</strong> (rica burada emirdir!); alt makam üst makama <strong>“arz ederim / saygıyla sunarım”</strong> der.</li>
+  <li><strong>Dilekçe:</strong> Çizgisiz dosya kâğıdına, yalnız <strong>siyah veya mavi</strong> kalemle; makam adı sayfa ortasına yazılır. “Yüce katına / yüksek makamına” gibi abartılı ifadeler <strong>kullanılmaz</strong>. Tarih-isim-imza <strong>sağ alta</strong>, adres <strong>sol alta</strong> yazılır.</li>
+</ul>
+<div class="box akr"><span class="bt">🧠 Hafıza Anahtarı — “ARZ yukarı, RİCA aşağı”</span>
+<strong>A</strong>lt makamdan üste → <strong>ARZ</strong> ederim. Üstten alta → <strong>RİCA</strong> ederim (ama bu rica emirdir). “Alt→Arz” harfleri aynı: kolay tut.</div>
+
+<div class="flash"><span class="bt">🃏 Flashcard — Yazılı Türler</span>
+  <div class="qa"><div class="q">1) Bir yazıda yazar görüşünü <strong>kanıtlamak zorunda değilse</strong>, güncel bir konuyu kısaca, kişisel ve yer yer güldürücü işliyorsa bu tür nedir?</div>
+  <div class="a"><b>Cevap:</b> <strong>Fıkra</strong>. (İspat zorunluluğu olsaydı makale, kesin yargısızlık+düşünce ağırlığı olsaydı deneme olurdu.)</div></div>
+  <div class="qa"><div class="q">2) Olayın yazarın yorumuyla aktarıldığı, gezip görmeye dayalı sanatsal gazete yazısı; karşıtı “yorumsuz, olduğu gibi” veren tür hangileri?</div>
+  <div class="a"><b>Cevap:</b> <strong>Röportaj</strong> (yorumlu) ↔ <strong>Haber</strong> (yorumsuz).</div></div>
+  <div class="qa"><div class="q">3) Tiyatroda oyuncunun tek başına yaptığı konuşma, karşılıklı konuşma ve coşkulu uzun konuşma sırasıyla nedir?</div>
+  <div class="a"><b>Cevap:</b> <strong>monolog</strong> · <strong>diyalog</strong> · <strong>tirad</strong>. (El-kol hareketi: jest, yüz hareketi: mimik.)</div></div>
+  <div class="qa"><div class="q">4) Alt makamın üst makama yazdığı resmî yazı hangi ifadeyle biter?</div>
+  <div class="a"><b>Cevap:</b> <strong>“arz ederim / bilgilerinize saygıyla sunarım”</strong>. (Üst→alt: “rica ederim”.)</div></div>
+</div>
+</section>
+
+<hr>
+
+<!-- ===================== SÖZLÜ KOMPOZİSYON ===================== -->
+<section id="sozlu">
+<h2><span class="num">05</span>Sözlü Kompozisyon &amp; Hitabet <span class="weekflag">11–12. HAFTA</span></h2>
+<p class="lead"><strong>Sözlü kompozisyon</strong>, bir konunun etkileyici biçimde sözle anlatılmasıdır. Yazılı için gereken tüm hazırlık burada da geçerlidir; tek fark düşüncenin <em>yazı ile değil söz ile</em> verilmesidir. Konuşmanın üç unsuru: <strong>düşünce/amaç</strong>, <strong>dil</strong>, <strong>ses ve konuşma organları</strong>.</p>
+
+<h3>Hazırlıklı Konuşma Türleri</h3>
+<p>Bazıları günlük/hazırlıksızdır (sohbet, telefon, tartışma, kutlama, özür). Sınavlık olanlar <strong>hazırlıklı</strong> olanlardır:</p>
+<table>
+  <tr><th>Tür</th><th>Tanım</th><th>Ayırt Edici</th></tr>
+  <tr><td><strong>Konferans</strong></td><td>Uzmanın bilgi verme/aydınlatma amaçlı konuşması</td><td><strong>Tek kişi</strong>; öğreticilik öne çıkar</td></tr>
+  <tr><td><strong>Panel</strong></td><td>Güncel/bilimsel konunun topluluk önünde tartışılması</td><td>Başkan + <strong>3–6 panelist</strong>; sohbet havası, <strong>sonuca bağlanma zorunluluğu yok</strong></td></tr>
+  <tr><td><strong>Seminer</strong></td><td>Bilgi-beceri geliştirme toplantısı</td><td>Genelde <strong>üniversitede</strong>, öğretim üyesi gözetiminde</td></tr>
+  <tr><td><strong>Söylev (Nutuk)</strong></td><td>Bir duygu/düşünceyi <strong>ikna edici, coşkulu</strong> aktarma</td><td>Hislere hitap; millî davalar; jest-mimik-ses tonu kritik</td></tr>
+  <tr><td><strong>Sempozyum (Bilgi Şöleni)</strong></td><td>Uzmanların bir konuyu değişik yönlerden ilmi ele alışı</td><td>Ciddi/ilmî; oturum 3–6 kişi, <strong>birkaç gün</strong> sürebilir; tartışmaya açık</td></tr>
+  <tr><td><strong>Açık Oturum</strong></td><td>Güncel konunun uzmanlarca tartışılması (TV/radyo)</td><td>Panel+sempozyum+forum karışımı; başkan yönetir</td></tr>
+  <tr><td><strong>Münazara</strong></td><td>Bir konunun <strong>karşıt iki grupça</strong> tartışılması</td><td>Jüri var; amaç yenmek değil <strong>doğruyu bulmak</strong>; kazananı jüri belirler</td></tr>
+</table>
+<div class="box tuzak"><span class="bt">⚠️ En Çok Karıştırılanlar — Tartışma Türleri</span>
+<ul style="margin:4px 0">
+  <li><strong>Panel:</strong> Samimi, sohbet havası; sonuca bağlanmak <strong>zorunlu değil</strong>.</li>
+  <li><strong>Sempozyum:</strong> Daha <strong>ciddi/ilmî</strong>, akademik; günlerce sürebilir.</li>
+  <li><strong>Münazara:</strong> Tek farkı net — <strong>iki karşıt grup yarışır, jüri vardır</strong>.</li>
+  <li><strong>Açık oturum:</strong> Diğerlerinin karışımı; medyada güncel konu.</li>
+  <li><strong>Konferans ↔ diğerleri:</strong> Konferans <strong>tek konuşmacıdır</strong>; diğerleri çok kişilik tartışmadır.</li>
+</ul></div>
+<div class="box akr"><span class="bt">🧠 Hafıza Anahtarı — “Münazara = Maç”</span>
+<strong>Münazara</strong>da iki takım (karşıt grup), bir hakem (jüri) ve bir kazanan vardır — tıpkı bir maç gibi. Panelde “takım” yok, sohbet var. Sempozyum “ilmî kongre”, açık oturum “TV programı” diye kodla.</div>
+
+<h3>Güzel ve Etkili Konuşma (Hitabet) — 12. Hafta</h3>
+<p>Bu hafta büyük ölçüde <strong>söz/konuşma üzerine özdeyişlerden</strong> oluşur; ana fikir: <em>az ve öz, düşünerek, yerinde ve dinleyerek konuşmak</em>.</p>
+<ul>
+  <li><strong>Söz söylemenin 4 unsuru:</strong> Ne söylediğini, <strong>kime</strong> söylediğini, <strong>ne zaman</strong> söylediğini, <strong>niçin</strong> söylediğini unutma.</li>
+  <li>Aristoteles: “Akıllı insan söylediklerini <strong>düşünerek</strong> söyler.” · Konfüçyüs: “Olgun insan <strong>söylediğini yapan</strong> kimsedir.”</li>
+  <li>Dale Carnegie: “Dinlemek, gösterilebilecek nezaketlerin en yükseğidir.” → ikna etmenin yolu <strong>dinlemekten</strong> geçer (Dean Rusk).</li>
+  <li>Güzel konuşma kuralları: herkesi ilgilendireni konuş, gereksiz ayrıntıya girme, aynı kelimeyi tekrarlama, kendinden emin ol, sözü kesme, düşünceyi zorla kabul ettirme, dinleyicinin seviyesine göre dil seç.</li>
+</ul>
+<div class="box akr"><span class="bt">🧠 Hafıza Anahtarı — Sözün 4 Şartı: “NE-Kİ-NZ-Nİ”</span>
+<strong>NE</strong> söylediğin · <strong>Kİ</strong>me · <strong>N</strong>e <strong>Z</strong>aman · <strong>Nİ</strong>çin. <em>“Lafız dokuz boğum; sekiz boğumdan geçirmeden ağzından çıkarma.”</em></div>
+
+<div class="flash"><span class="bt">🃏 Flashcard — Sözlü Türler</span>
+  <div class="qa"><div class="q">1) Karşıt iki grubun, bir jüri önünde yarıştığı, kazananı jürinin belirlediği tartışma türü?</div>
+  <div class="a"><b>Cevap:</b> <strong>Münazara</strong>.</div></div>
+  <div class="qa"><div class="q">2) Tek bir uzmanın, bir konuda dinleyiciyi aydınlatmak için yaptığı öğretici konuşma?</div>
+  <div class="a"><b>Cevap:</b> <strong>Konferans</strong> (tek konuşmacı).</div></div>
+  <div class="qa"><div class="q">3) Sonuca bağlanma zorunluluğu olmayan, sohbet havasında, başkan + 3–6 konuşmacılı tartışma?</div>
+  <div class="a"><b>Cevap:</b> <strong>Panel</strong>.</div></div>
+</div>
+</section>
+
+<hr>
+
+<!-- ===================== KARŞILAŞTIRMA TABLOLARI ===================== -->
+<section id="tablo">
+<h2><span class="num">06</span>Ayırt Edici Karşılaştırma Tabloları</h2>
+<p class="lead">Sınavda en çok puan, “birbirine benzeyenleri ayırt etme” sorularından gelir. Hepsi tek ekranda:</p>
+
+<h3>Noktalama: Hangi İşaret Nereye?</h3>
+<table>
+  <tr><th>Durum</th><th>İşaret</th></tr>
+  <tr><td>Yargı tamamlandı, durulacak</td><td>Nokta <strong>.</strong></td></tr>
+  <tr><td>Eş görevli ögeler / özne ayrımı / anlam karışıklığı</td><td>Virgül <strong>,</strong></td></tr>
+  <tr><td>İçinde zaten virgül olan grupları ayırma</td><td>Noktalı virgül <strong>;</strong> <em>(sona gelmez!)</em></td></tr>
+  <tr><td>Arkasından örnek/açıklama/alıntı gelecek</td><td>İki nokta <strong>:</strong></td></tr>
+  <tr><td>Liste sürüyor / söz yarım / eksiltili</td><td>Üç nokta <strong>…</strong></td></tr>
+  <tr><td>Gerçek soru, cevap bekleniyor</td><td>Soru <strong>?</strong></td></tr>
+  <tr><td>Duygu/anlık tepki/seslenme</td><td>Ünlem <strong>!</strong></td></tr>
+  <tr><td>Özel ada gelen çekim eki</td><td>Kesme <strong>'</strong> <em>(kurum adı + yapım ekinde YOK)</em></td></tr>
+</table>
+
+<h3>Makale vs Fıkra vs Deneme vs Söyleşi</h3>
+<table>
+  <tr><th>Ölçüt</th><th>Makale</th><th>Fıkra</th><th>Deneme</th><th>Söyleşi</th></tr>
+  <tr><td>İspat</td><td>Zorunlu</td><td>Yok</td><td>Yok</td><td>Yok</td></tr>
+  <tr><td>Kesin yargı</td><td>Var</td><td>Olabilir</td><td><strong>Yok</strong></td><td>Yok</td></tr>
+  <tr><td>Dil/üslup</td><td>Ciddi, kurallı</td><td>Günlük, devrik</td><td>İçten, kişisel</td><td><strong>Senli benli</strong>, sohbet</td></tr>
+  <tr><td>Konu</td><td>Toplumsal, büyük</td><td>Güncel, küçük</td><td>Her konu</td><td>Çoğu güncel</td></tr>
+</table>
+
+<h3>Tartışma Türleri</h3>
+<table>
+  <tr><th>Tür</th><th>Kişi</th><th>Sonuç</th><th>İmza Özelliği</th></tr>
+  <tr><td>Konferans</td><td>1 (tek)</td><td>—</td><td>Öğretici, aydınlatıcı</td></tr>
+  <tr><td>Panel</td><td>Başkan + 3–6</td><td>Şart değil</td><td>Sohbet havası</td></tr>
+  <tr><td>Sempozyum</td><td>Oturumlar, 3–6</td><td>Tartışmaya açık</td><td>İlmî, günlerce sürebilir</td></tr>
+  <tr><td>Açık oturum</td><td>Başkan + uzmanlar</td><td>Başkan özetler</td><td>Medyada güncel konu</td></tr>
+  <tr><td><strong>Münazara</strong></td><td>2 karşıt grup</td><td>Jüri karar verir</td><td>Yarışma; doğruyu bulmak</td></tr>
+</table>
+</section>
+
+<hr>
+
+<!-- ===================== MEGA HIZLI TEKRAR ===================== -->
+<section id="mega">
+<h2><span class="num">07</span>Mega Hızlı Tekrar — Son Gece Listesi</h2>
+<p class="lead">Sınava girmeden 30 dakika önce sadece bunlara göz at:</p>
+
+<div class="box spot"><span class="bt">🎯 Mutlaka Bilinecekler</span>
+<ul style="margin:4px 0">
+  <li>Büyük harf kısaltmalarda <strong>nokta yok</strong> (TBMM); saat-dakika arası <strong>nokta</strong> (14.30).</li>
+  <li>“ve/veya/ya da”dan önce <strong>virgül yok</strong>.</li>
+  <li>Noktalı virgül <strong>cümle sonuna gelmez</strong>; bulunduğu cümlede virgül de vardır.</li>
+  <li>İki noktadan sonra <strong>cümle→büyük</strong>, <strong>örnek→küçük</strong> harf.</li>
+  <li>“mı/mi” <strong>zaman/ünlem/belirsizlik</strong> anlamı katarsa soru işareti yok.</li>
+  <li>Kesme: <strong>kurum adı</strong> ve <strong>yapım eki</strong> → ayrılmaz (Bakanlığa, Türkçeyi).</li>
+  <li>Anlam bozuklukları: <strong>G-Ç-E-K-Y-Y</strong> (Gereksiz, Çelişen, Eş anlamlı, Karıştırılan, Yabancı yanlış, Yanlış yer).</li>
+  <li>Yapı bozuklukları: <strong>Ö-Y-Ö-D-N</strong> (Özne-yüklem, Yüklem/yardımcı fiil, Özne, Dolaylı tümleç, Nesne eksiği).</li>
+  <li>Şiir türleri: <strong>Pastoral-Epik-Didaktik-Satirik-Dramatik</strong>.</li>
+  <li>Kompozisyon metodu: <strong>Konu→Buluş→Başlık→Plan→Anlatım</strong>; 5 nitelik: duruluk-açıklık-sadelik-özgünlük-samimilik.</li>
+  <li>Biyografi=başkası, Otobiyografi=kendisi · Röportaj=yorumlu, Haber=yorumsuz.</li>
+  <li>Tartışmada karşıt grup+jüri = <strong>Münazara</strong>; tek konuşmacı = <strong>Konferans</strong>.</li>
+  <li>Resmî yazıda: alt→üst <strong>“arz ederim”</strong>; üst→alt <strong>“rica ederim”</strong>.</li>
+</ul></div>
+
+<div class="flash"><span class="bt">🃏 Final Karması — Karışık Çıkmış Tarz</span>
+  <div class="qa"><div class="q">1) “Eşit derecede önemli iki sorun var ( ) eğitim, sağlık.” → Boşluk + devamın harfi?</div>
+  <div class="a"><b>Cevap:</b> <strong>İki nokta</strong>; arkasından örnek sözler geldiği için <strong>küçük</strong> harf.</div></div>
+  <div class="qa"><div class="q">2) “Hem zengin hem fakir olmayan kişiler…” cümlesindeki yapı bozukluğu türü?</div>
+  <div class="a"><b>Cevap:</b> <strong>Yüklem/yardımcı fiil eksikliği</strong> — “zengin” de “olmayan”a bağlanıyor. Doğrusu: “zengin olan ve fakir olmayan”.</div></div>
+  <div class="qa"><div class="q">3) “Sanatçı, eserinin iyi ve kötü yanlarını değerlendiren bir yazı bekliyordu.” Hangi türü tarif ediyor?</div>
+  <div class="a"><b>Cevap:</b> <strong>Eleştiri (tenkit)</strong>.</div></div>
+  <div class="qa"><div class="q">4) “Onu çok özlüyor, sık sık arıyoruz.” cümlesindeki bozukluk?</div>
+  <div class="a"><b>Cevap:</b> İlk yüklem nesne ister: “Onu çok özlüyor” ✓ ama “arıyoruz” da “onu” nesnesini paylaşıyor — burada sorun yok gibi görünse de klasik kalıpta <strong>nesne uyumu</strong> kontrol edilir; “Ona çok özlem duyuyor, onu sık sık arıyoruz” gibi öge tamlığı beklenir. <em>(Öge eksikliği sorularında her yüklemi ortak ögeyle ayrı ayrı dene.)</em></div></div>
+</div>
+
+<p style="text-align:center;font-family:var(--sans);color:var(--ink-soft);margin-top:34px;font-size:14px">
+“Aman! Sözün aydın olsun, öz olsun… Işık saçsın, bakan köre göz olsun.” — <em>Yusuf Has Hâcib</em><br>
+Başarılar! 🎓</p>
+</section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technological Advancements in Dentistry — Final Çalışma Rehberi</title>
+<style>
+  :root{
+    --bg:#0a0e1a; --panel:#101627; --panel2:#0d1320;
+    --ink:#e9eefb; --muted:#9fb0d0;
+    --cyan:#27e0d8; --blue:#3b82f6; --green:#1edb8b;
+    --red:#ff5c7a; --amber:#ffce4d; --violet:#a78bfa;
+    --line:#1e2a44;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:
+      radial-gradient(1200px 600px at 80% -10%, #142046 0%, transparent 60%),
+      radial-gradient(900px 500px at -10% 20%, #0c2233 0%, transparent 55%),
+      var(--bg);
+    color:var(--ink);
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.65; padding:0 0 80px;
+  }
+  .wrap{max-width:960px; margin:0 auto; padding:0 20px}
+  header.hero{
+    text-align:center; padding:54px 20px 30px;
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(39,224,216,.06), transparent);
+  }
+  header.hero h1{
+    font-size:2.05rem; margin:0 0 8px; letter-spacing:.5px;
+    background:linear-gradient(90deg,var(--cyan),var(--blue),var(--violet));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  header.hero p{color:var(--muted); margin:4px 0; font-size:.98rem}
+  .chip{display:inline-block; margin-top:12px; padding:5px 14px; border:1px solid var(--cyan);
+    border-radius:999px; color:var(--cyan); font-size:.8rem; letter-spacing:1px}
+
+  nav.toc{
+    margin:26px auto; padding:18px 22px; max-width:960px;
+    background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  }
+  nav.toc h2{margin:0 0 10px; font-size:1rem; color:var(--cyan); letter-spacing:1px}
+  nav.toc ol{margin:0; padding-left:20px; columns:2; column-gap:30px}
+  nav.toc a{color:var(--ink); text-decoration:none}
+  nav.toc a:hover{color:var(--cyan)}
+  nav.toc li{margin:3px 0}
+  .hot{color:var(--amber); font-weight:700}
+
+  section{margin:40px 0; scroll-margin-top:14px}
+  h2.week{
+    font-size:1.5rem; margin:0 0 4px; padding:14px 18px; border-radius:12px;
+    background:linear-gradient(90deg, rgba(59,130,246,.18), rgba(167,139,250,.06));
+    border-left:5px solid var(--blue);
+  }
+  h2.week.focus{
+    border-left:5px solid var(--cyan);
+    background:linear-gradient(90deg, rgba(39,224,216,.20), rgba(59,130,246,.05));
+  }
+  .focusbadge{font-size:.7rem; background:var(--cyan); color:#04201f; padding:3px 9px;
+    border-radius:6px; vertical-align:middle; margin-left:8px; letter-spacing:.5px; font-weight:700}
+  h3{font-size:1.18rem; color:var(--cyan); margin:26px 0 8px; border-bottom:1px dashed var(--line); padding-bottom:5px}
+  h4{font-size:1.02rem; color:var(--violet); margin:18px 0 6px}
+  p{margin:8px 0}
+  ul{margin:8px 0 8px; padding-left:22px}
+  li{margin:5px 0}
+  strong{color:#fff}
+  .en{color:var(--cyan); font-weight:700}
+  mark{background:rgba(255,206,77,.22); color:var(--amber); padding:0 4px; border-radius:4px}
+
+  /* Special boxes */
+  .box{border-radius:14px; padding:16px 18px; margin:18px 0; border:1px solid; position:relative}
+  .box .t{font-weight:800; letter-spacing:.4px; display:block; margin-bottom:6px; font-size:1rem}
+  .vision{background:linear-gradient(180deg, rgba(39,224,216,.10), rgba(59,130,246,.04)); border-color:var(--cyan)}
+  .vision .t{color:var(--cyan)}
+  .spot{background:rgba(30,219,139,.09); border-color:var(--green)}
+  .spot .t{color:var(--green)}
+  .trap{background:rgba(255,92,122,.10); border-color:var(--red)}
+  .trap .t{color:var(--red)}
+  .mnem{background:rgba(255,206,77,.09); border-color:var(--amber)}
+  .mnem .t{color:var(--amber)}
+  .mnem .key{font-size:1.05rem; color:#fff; background:rgba(255,206,77,.16); padding:2px 8px; border-radius:6px; font-weight:800}
+
+  .flash{background:var(--panel2); border:1px solid var(--violet); border-radius:14px; padding:14px 18px; margin:20px 0}
+  .flash .t{color:var(--violet); font-weight:800; letter-spacing:.4px; display:block; margin-bottom:8px}
+  .qa{border-top:1px solid var(--line); padding:10px 0}
+  .qa:first-of-type{border-top:none}
+  .qa .q{font-weight:700; color:#fff}
+  .qa .a{color:var(--green); margin-top:3px}
+  .qa .a::before{content:"💡 "; }
+
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:.93rem; background:var(--panel2)}
+  th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top}
+  th{background:rgba(59,130,246,.18); color:#fff}
+  .examtag{display:inline-block; background:var(--blue); color:#fff; font-size:.7rem; padding:2px 8px;
+    border-radius:6px; margin-left:6px; letter-spacing:.5px; font-weight:700}
+  .footer{margin-top:50px; text-align:center; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:18px}
+  .arrow{color:var(--cyan); font-weight:800}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="chip">⚡ DİJİTAL DİŞ HEKİMLİĞİ • FINAL EDITION</div>
+  <h1>Technological Advancements in Dentistry</h1>
+  <p>1. Sınıf · İngilizce Eğitim · Kapsamlı Final Çalışma Rehberi</p>
+  <p style="color:var(--cyan)">Tüm cihaz/teknoloji isimleri orijinal İngilizce korunmuştur · Açıklamalar Türkçedir</p>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <h2>📌 İÇİNDEKİLER</h2>
+  <ol>
+    <li><a href="#w1">Week 1 — Dijitale Geçiş</a></li>
+    <li><a href="#w2">Week 2 — EHR &amp; Digital Radiology</a></li>
+    <li><a href="#w3">Week 3 — Intraoral Scanners (IOS)</a></li>
+    <li><a href="#w4">Week 4 — Dental Photography</a></li>
+    <li><a href="#w5">Week 5 — IOS Klinik &amp; Occlusal Analysis</a></li>
+    <li><a href="#w6">Week 6 — CAD/CAM &amp; 3D Printing Temel</a></li>
+    <li><a href="#w7">Week 7 — 3D Printing Uygulamaları</a></li>
+    <li><a href="#w8"><span class="hot">★ Week 8 — Laser Technology</span></a></li>
+    <li><a href="#w9"><span class="hot">★ Week 9 — Digital Dentistry (Branşlar)</span></a></li>
+    <li><a href="#w10"><span class="hot">★ Week 10 — AI Temelleri</span></a></li>
+    <li><a href="#w11"><span class="hot">★ Week 11 — AI in Specialties</span></a></li>
+    <li><a href="#w12"><span class="hot">★ Week 12 — Robotics in Dentistry</span></a></li>
+    <li><a href="#mega">🎯 MEGA Karşılaştırma Tabloları</a></li>
+  </ol>
+</nav>
+
+<!-- ============ WEEK 1 ============ -->
+<section id="w1">
+  <h2 class="week">Week 1 — From Traditional to Digital Dentistry</h2>
+  <p>Dersin felsefesi şu cümlede özetlenir: <em>“Amacımız sizi mühendis yapmak değil; teknolojiyi akıllıca kullanan diş hekimleri yetiştirmek.”</em> Teknoloji artık <strong>tanıdan (diagnosis) tedavi planlamasına (treatment planning)</strong> kadar her aşamaya entegre olmuştur.</p>
+
+  <h3>Geleneksel (Analog) <span class="arrow">→</span> Dijital Dönüşüm</h3>
+  <table>
+    <tr><th>Geleneksel (Analog)</th><th>Dijital Karşılığı</th></tr>
+    <tr><td>Film radyografi</td><td><span class="en">Digital imaging</span></td></tr>
+    <tr><td>Alçı modeller (plaster models)</td><td><span class="en">Digital scans</span></td></tr>
+    <tr><td>Manuel tedavi planlama</td><td><span class="en">Computer-assisted planning</span></td></tr>
+    <tr><td>El yazısı hasta kaydı</td><td><span class="en">Electronic Health Records (EHR)</span></td></tr>
+    <tr><td>Konvansiyonel ölçü</td><td><span class="en">Optical / digital impression</span></td></tr>
+    <tr><td>Stone model üzerinde wax-up</td><td><span class="en">Digital / virtual wax-up</span></td></tr>
+    <tr><td>Articulator analizi</td><td><span class="en">Virtual articulators</span></td></tr>
+    <tr><td>Freehand implant yerleşimi</td><td><span class="en">Guided surgery / navigation</span></td></tr>
+    <tr><td>Laboratuvar restorasyonu</td><td><span class="en">CAD/CAM restorations</span></td></tr>
+  </table>
+
+  <div class="box vision">
+    <span class="t">🚀 İnovasyon ve Klinik Vizyon</span>
+    Dijital diş hekimliğinin var oluş sebebi <strong>“precision &amp; accuracy”</strong>dir. Analog yöntemlerde her aşama (ölçü maddesi, alçı dökümü, manuel ölçüm) yeni bir hata kaynağıydı; her transfer adımı bilgiyi biraz daha bozuyordu. Dijital iş akışı bu zinciri kısaltır: tek bir 3D veri seti tanıdan üretime kadar taşınır, böylece hata birikimi (error accumulation) ortadan kalkar ve sonuçlar tekrarlanabilir (reproducible) hâle gelir.
+  </div>
+
+  <div class="flash">
+    <span class="t">🃏 FLASHCARDS — Week 1</span>
+    <div class="qa"><div class="q">S: Konvansiyonel ölçünün dijital karşılığı nedir?</div><div class="a">Optical/digital impression (intraoral scanner ile).</div></div>
+    <div class="qa"><div class="q">S: "Freehand implant placement" yerine geçen dijital teknoloji?</div><div class="a">Guided surgery / navigation systems.</div></div>
+    <div class="qa"><div class="q">S: Dijital diş hekimliğinin temel kazanımı hangi iki kavramdır?</div><div class="a">Precision (kesinlik) ve Accuracy (doğruluk).</div></div>
+  </div>
+</section>
+
+<!-- ============ WEEK 2 ============ -->
+<section id="w2">
+  <h2 class="week">Week 2 — Electronic Health Records (EHR) &amp; Digital Dental Radiology</h2>
+
+  <h3>Electronic Health Records (<span class="en">EHR</span>)</h3>
+  <p>Hasta sağlık bilgilerini saklayan ve yöneten <strong>dijital sistemdir</strong>. Kayıtlar kolayca güncellenir, yetkili sağlık çalışanlarınca erişilir; klinik karar vermeyi (clinical decision-making) ve hasta takibini destekler.</p>
+  <h4>EHR Bileşenleri</h4>
+  <ul>
+    <li>Kişisel bilgiler (personal information)</li>
+    <li>Tıbbi ve dental anamnez (medical &amp; dental history)</li>
+    <li>Klinik bulgular (clinical findings)</li>
+    <li>Radyografi ve fotoğraflar</li>
+    <li>Tanı ve tedavi planı</li>
+  </ul>
+  <h4>Türkiye'deki EHR Sistemleri <span class="examtag">SINAV</span></h4>
+  <ul>
+    <li><strong>HBYS</strong> → hastane/kliniklerde hasta kayıt ve klinik veri yönetimi</li>
+    <li><strong>e-Nabız</strong> → hastanın kendi sağlık bilgisini görüntülemesi</li>
+  </ul>
+
+  <h3>Digital Dental Radiology</h3>
+  <p>Geleneksel film yerine <strong>elektronik sensörler (electronic sensors)</strong> kullanır. Görüntü, ışınlamadan saniyeler sonra ekranda belirir; kolayca saklanır, kopyalanır ve paylaşılır.</p>
+
+  <div class="box vision">
+    <span class="t">🚀 İnovasyon ve Klinik Vizyon</span>
+    Geleneksel film, kimyasal banyo ve fiziksel arşiv gerektiriyor; bir görüntüyü başka departmana göndermek günler alıyordu. <span class="en">Digital radiography + EHR</span> kombinasyonu, görüntüyü doğrudan kayıt sistemine yazarak <strong>anında erişim, departmanlar arası paylaşım ve zaman içinde karşılaştırma (follow-up)</strong> sağlar — yani teşhis artık tek bir hekimin masasında hapsolmaz, ekip hâline gelir.
+  </div>
+
+  <div class="box spot">
+    <span class="t">🎯 Spot Bilgi</span>
+    Digital dental radiology'nin kalbi <strong>electronic sensor</strong>'dır (film değil). Avantaj üçlüsü: <strong>hız + saklama + paylaşım</strong>.
+  </div>
+
+  <div class="flash">
+    <span class="t">🃏 FLASHCARDS — Week 2</span>
+    <div class="qa"><div class="q">S: Hastanın kendi sağlık verisini gördüğü Türkiye sistemi?</div><div class="a">e-Nabız (hastane tarafı: HBYS).</div></div>
+    <div class="qa"><div class="q">S: Dijital radyografi filmin yerine neyi kullanır?</div><div class="a">Electronic sensor (görüntü saniyeler içinde ekrana gelir).</div></div>
+    <div class="qa"><div class="q">S: EHR'nin desteklediği iki klinik süreç?</div><div class="a">Clinical decision-making ve hasta follow-up/iletişimi.</div></div>
+  </div>
+</section>
+
+<!-- ============ WEEK 3 ============ -->
+<section id="w3">
+  <h2 class="week">Week 3 — Intraoral Scanners (IOS)</h2>
+  <p><span class="en">Intraoral Scanners (IOS)</span>, diş ve ağız dokularının 3 boyutlu görüntüsünü yakalayan dijital cihazlardır. Yakalanan veri dijital modele dönüştürülür; tanı, planlama ve restorasyon üretiminde kullanılır.</p>
+
+  <h3>Çalışma Prensibi (Principle of Intraoral Scanning) <span class="examtag">SINAV</span></h3>
+  <p>Tarayıcı, diş yüzeyine <strong>ışık projekte eder</strong> ve yansıyan ışığı sensörlerle yakalar. Farklı açılardan alınan çok sayıda görüntü, yazılım tarafından birleştirilerek 3D dijital model oluşturur. Bu işleme <strong>optical impression / digital impression</strong> denir.</p>
+
+  <h4>IOS Sistemin 3 Bileşeni</h4>
+  <ul>
+    <li><strong>Handheld scanner device</strong> — ağız içinde görüntü yakalar</li>
+    <li><strong>Computer system</strong> — görüntüleri işler</li>
+    <li><strong>Software</strong> — 3D dijital modeli oluşturur</li>
+  </ul>
+
+  <h4>Tarihçe &amp; Evrim</h4>
+  <ul>
+    <li><strong>1980s:</strong> İlk chairside CAD/CAM → <strong>CEREC</strong> (Chairside Economical Restoration of Esthetic Ceramics, Dentsply Sirona). Dijital diş hekimliğinin dönüm noktası.</li>
+    <li><strong>2010s:</strong> Wireless &amp; yüksek çözünürlüklü tarayıcılar</li>
+    <li><strong>2020s:</strong> <span class="en">AI</span> entegrasyonu &amp; gelişmiş uyumluluk (interoperability)</li>
+    <li><strong>2030s (gelecek):</strong> Tam entegre dijital iş akışları</li>
+  </ul>
+
+  <h3>Avantajlar vs Dezavantajlar</h3>
+  <table>
+    <tr><th>Avantajlar</th><th>Dezavantajlar</th></tr>
+    <tr><td>Yüksek doğruluk (distorsiyon/büzülme/genleşme hatası yok)</td><td>Yüksek başlangıç maliyeti (high initial cost)</td></tr>
+    <tr><td>Daha iyi marjinal uyum (özellikle single crown / short-span)</td><td>Yazılım güncelleme, bakım, eğitim maliyeti</td></tr>
+    <tr><td>Zaman verimliliği (alçı/dezenfeksiyon adımları yok)</td><td>Öğrenme eğrisi (learning curve)</td></tr>
+    <tr><td>Eksik bölge anında yeniden taranır (rescan)</td><td>Uzun-span vakalarda sınırlamalar</td></tr>
+  </table>
+
+  <div class="box vision">
+    <span class="t">🚀 İnovasyon ve Klinik Vizyon</span>
+    Geleneksel alçı ölçülerin yerini alan <span class="en">intraoral scanners</span> sadece hızı artırmaz; ölçü maddesinin tetiklediği <strong>öğürme refleksini (gag reflex)</strong> elimine eder ve hasta konforunu yükseltir. En kritik kazanım ise <strong>anlık hata yakalama</strong>dır: konvansiyonel ölçüde hata ölçü ağızdan çıkınca anlaşılır (ve hasta tekrar randevuya çağrılır); IOS'ta eksik alan ekranda görülür ve <em>o an</em> yeniden taranır. Bu, randevu sayısını ve klinik hatayı doğrudan düşürür.
+  </div>
+
+  <div class="box trap">
+    <span class="t">⚠️ Teknoloji Tuzağı</span>
+    IOS doğruluğu <strong>her vakada</strong> konvansiyonelden üstün değildir! Slaytın net ifadesi: yüksek doğruluk <strong>single crown ve short-span restoration</strong>larda geçerlidir. Tam çene (full-arch) gibi uzun açıklıklı vakalar çeldirici olabilir.
+  </div>
+
+  <div class="flash">
+    <span class="t">🃏 FLASHCARDS — Week 3</span>
+    <div class="qa"><div class="q">S: İlk chairside CAD/CAM sistemi ve üreticisi?</div><div class="a">CEREC — Dentsply Sirona (1980'ler).</div></div>
+    <div class="qa"><div class="q">S: IOS sistemin üç temel bileşeni?</div><div class="a">Handheld scanner + Computer system + Software.</div></div>
+    <div class="qa"><div class="q">S: IOS hangi tip restorasyonda en yüksek doğruluğu verir?</div><div class="a">Single crowns ve short-span restorasyonlar.</div></div>
+  </div>
+</section>
+
+<!-- ============ WEEK 4 ============ -->
+<section id="w4">
+  <h2 class="week">Week 4 — Dental Photography</h2>
+  <p><span class="en">Dental photography</span>, intraoral ve extraoral yapıların dijital görüntüleme ile kaydedilmesidir. Tanı, planlama, uzun dönem takip ve <strong>hekim–hasta–teknisyen iletişiminde</strong> esastır.</p>
+
+  <h3>Kamera Tipleri</h3>
+  <ul>
+    <li><strong>DSLR (Digital Single-Lens Reflex):</strong> ayna sistemi + optical viewfinder; profesyonel dental fotoğrafçılıkta <strong>standart</strong>, yüksek çözünürlük, değiştirilebilir lens, tam manuel kontrol.</li>
+    <li><strong>Mirrorless:</strong> aynasız, electronic viewfinder; daha hafif ve kompakt.</li>
+  </ul>
+
+  <h3>Temel Pozlama (Exposure) Üçgeni <span class="examtag">SINAV</span></h3>
+  <p><strong>Exposure</strong> = sensöre ulaşan toplam ışık. Üç parametre kontrol eder:</p>
+  <table>
+    <tr><th>Parametre</th><th>Tanım</th><th>Dental tercih</th></tr>
+    <tr><td><strong>Aperture</strong> (diyafram, f-sayısı)</td><td>Lens açıklığı; <em>büyük f-sayısı = küçük açıklık = derin alan derinliği</em></td><td>Küçük açıklık / büyük f (f/22) → maksimum netlik (depth of field)</td></tr>
+    <tr><td><strong>Shutter speed</strong> (enstantane)</td><td>Sensörün ışığa maruz kalma süresi (1/125, 1/200)</td><td>Hızlı → motion blur'ü azaltır</td></tr>
+    <tr><td><strong>ISO</strong> (sensör duyarlılığı)</td><td>Sensörün ışığa hassasiyeti</td><td>Düşük ISO → az noise, yüksek kalite</td></tr>
+  </table>
+
+  <div class="box mnem">
+    <span class="t">🧠 Mnemoteknik — Exposure Üçgeni</span>
+    <span class="key">"A-S-I" = Açıklık · Süre · Işık-hassasiyeti</span><br>
+    Dental kuralı hatırla: <strong>"Diş hekimi DETAY ister"</strong> → Detay için: <em>büyük f-sayısı</em> (derin netlik), <em>hızlı shutter</em> (titreme yok), <em>düşük ISO</em> (parazit yok). Üçü de "uç" değerlerde değil; ışık ve flaş yeterli olduğunda düşük ISO yeterlidir.
+  </div>
+
+  <h4>Ekipman</h4>
+  <ul>
+    <li><strong>Macro lenses (60mm / 100mm):</strong> yüksek büyütme, detaylı görüntü</li>
+    <li><strong>Flash systems:</strong> <em>Ring flash</em> (homojen ışık, kolay ama düz görüntü) vs <em>Twin flash</em> (yönlü ışık, derinlik algısı, doğal sonuç)</li>
+    <li><strong>Mirrors</strong> (occlusal/indirekt görüntü), <strong>Retractors</strong> (dudak/yanak ekartasyonu), <strong>Contrastors</strong> (koyu arka plan)</li>
+  </ul>
+
+  <div class="box trap">
+    <span class="t">⚠️ Teknoloji Tuzağı</span>
+    <strong>Ring flash ↔ Twin flash</strong> karıştırılır! Ring = homojen ama <em>düz (flat)</em> görüntü. Twin = yönlü, <em>derinlik (depth perception)</em> ve daha doğal sonuç. Ayrıca <strong>büyük f-sayısı = küçük açıklık</strong> (sezgiye terstir, klasik çeldirici).
+  </div>
+
+  <div class="flash">
+    <span class="t">🃏 FLASHCARDS — Week 4</span>
+    <div class="qa"><div class="q">S: Profesyonel dental fotoğrafçılıkta standart kamera tipi?</div><div class="a">DSLR (Digital Single-Lens Reflex).</div></div>
+    <div class="qa"><div class="q">S: Maksimum alan derinliği için aperture nasıl olmalı?</div><div class="a">Küçük açıklık = büyük f-sayısı (örn. f/22).</div></div>
+    <div class="qa"><div class="q">S: Derinlik algısı ve doğal sonuç için hangi flaş?</div><div class="a">Twin flash (yönlü aydınlatma).</div></div>
+  </div>
+</section>
+
+<!-- ============ WEEK 5 ============ -->
+<section id="w5">
+  <h2 class="week">Week 5 — IOS Klinik Uygulamaları &amp; Digital Occlusal Analysis</h2>
+
+  <h3>IOS Klinik Uygulama Alanları</h3>
+  <ul>
+    <li><strong>Restorative dentistry</strong> · <strong>Implant dentistry</strong> · <strong>Orthodontics</strong> · <strong>Prosthodontics</strong></li>
+  </ul>
+  <p><strong>Implantolojide:</strong> scan body ile implant pozisyonu kaydedilir; <span class="en">IOS + CBCT</span> birleşince implant yerleşimi daha hassas planlanır ve <strong>surgical guide</strong> tasarlanır.</p>
+
+  <h3>Digital Smile Design (<span class="en">DSD</span>) &amp; Estetik</h3>
+  <p>Dijital diş modelleri yüz fotoğraflarıyla birleştirilerek estetik tedavi simüle edilir. Avantaj: tedavi <strong>öngörülebilirliği</strong> ve hasta memnuniyeti artar.</p>
+
+  <h3>Digital Occlusal Analysis Systems</h3>
+  <p>Okluzyonu <strong>objektif</strong> ölçer (örn. T-Scan tarzı sistemler); ısırma kuvvetlerini (bite forces), sağ/sol denge ve zamanlamayı görselleştirir.</p>
+
+  <h3>Digital vs Conventional Impressions <span class="examtag">SINAV-EŞLEŞTİRME</span></h3>
+  <table>
+    <tr><th>Kriter</th><th>Digital (IOS)</th><th>Conventional</th></tr>
+    <tr><td>Teknik</td><td>Optik tarama</td><td>Alginat, silikon, polyether</td></tr>
+    <tr><td>Hasta konforu</td><td>Yüksek, minimal gag reflex</td><td>Rahatsızlık, gag reflex</td></tr>
+    <tr><td>Hata tespiti</td><td>Anında rescan</td><td>Ölçü çıkınca fark edilir</td></tr>
+    <tr><td>Veri saklama</td><td>Elektronik dosya</td><td>Fiziksel ölçü / stone model</td></tr>
+    <tr><td>Lab iletişimi</td><td>Dijital transfer</td><td>Model gönderimi</td></tr>
+    <tr><td>İş akışı</td><td>CAD/CAM entegre</td><td>Ek lab işlemleri</td></tr>
+  </table>
+
+  <div class="box vision">
+    <span class="t">🚀 İnovasyon ve Klinik Vizyon</span>
+    <span class="en">Digital Occlusal Analysis</span>'in çözdüğü temel problem <strong>subjektifliktir</strong>. Articulating paper (artikülasyon kâğıdı) ile temas noktaları görülür ama <em>kuvvetin büyüklüğü ve zamanlaması</em> hekimin yorumuna kalır. Dijital sistem bunu sayısallaştırır: hangi diş ne kadar erken/sert temas ediyor, sağ-sol dağılımı dengeli mi — hepsi renkli grafikle ölçülür. Bu, restorasyon ayarını "tahminden" "veriye" taşır.
+  </div>
+
+  <div class="flash">
+    <span class="t">🃏 FLASHCARDS — Week 5</span>
+    <div class="qa"><div class="q">S: Surgical guide üretmek için hangi iki veri birleştirilir?</div><div class="a">IOS (yüzey verisi) + CBCT (kemik/volüm verisi).</div></div>
+    <div class="qa"><div class="q">S: Dijital ölçünün gag reflex açısından avantajı?</div><div class="a">Minimal/azaltılmış gag reflex → daha konforlu.</div></div>
+    <div class="qa"><div class="q">S: Bite force ve okluzal zamanlamayı ölçen sistem?</div><div class="a">Digital occlusal analysis system.</div></div>
+  </div>
+</section>
+
+<!-- ============ WEEK 6 ============ -->
+<section id="w6">
+  <h2 class="week">Week 6 — CAD/CAM Digital Workflow &amp; 3D Printers (Temel)</h2>
+
+  <h3>Dijital İş Akışı (Digital Workflow) <span class="examtag">SINAV-SIRALAMA</span></h3>
+  <p><strong>1) Data Acquisition</strong> <span class="arrow">→</span> <strong>2) CAD Design</strong> <span class="arrow">→</span> <strong>3) Manufacturing (CAM)</strong></p>
+  <ul>
+    <li><strong>Data Acquisition:</strong> <span class="en">IOS</span> → yüzey verisi · <span class="en">CBCT</span> → kemik/volüm verisi · <strong>extraoral scanner</strong> → model tarama</li>
+    <li><strong>CAD Design:</strong> dijital modelleme — şekil değişikliği, marjin ayarı, okluzal düzeltme, final restorasyon simülasyonu</li>
+    <li><strong>Manufacturing:</strong> subtractive (milling) veya additive (3D printing)</li>
+  </ul>
+
+  <div class="box mnem">
+    <span class="t">🧠 Mnemoteknik — CAD/CAM Akışı</span>
+    <span class="key">SCAN → DESIGN → MAKE</span> ("Tara → Tasarla → Üret")<br>
+    Türkçe köprü: <strong>"Su Damlası Mineyi"</strong> (Scan-Design-Make) işler. CBCT=Bone, IOS=Surface diye eşle: <em>"Kemik için CBCT, yüzey için IOS"</em>.
+  </div>
+
+  <h3>3D Printers: Additive vs Subtractive <span class="examtag">SINAV</span></h3>
+  <table>
+    <tr><th></th><th>Subtractive (Milling)</th><th>Additive (3D Printing)</th></tr>
+    <tr><td>Prensip</td><td>Materyal <strong>çıkarılır</strong> (kesme/aşındırma)</td><td>Materyal <strong>katman katman eklenir</strong></td></tr>
+    <tr><td>Güçlü yön</td><td>Yüksek materyal dayanımı, mükemmel yüzey, sağlam restorasyon</td><td>Karmaşık geometri, minimum atık, yüksek kişiselleştirme</td></tr>
+    <tr><td>Enerji kaynağı</td><td>Mekanik frezeleme</td><td>Laser / light / heat</td></tr>
+  </table>
+
+  <h4>3D Printing — Avantaj &amp; Limit</h4>
+  <ul>
+    <li><strong>Avantajlar:</strong> high precision · customization · time efficiency · digital repeatability · improved communication</li>
+    <li><strong>Limitler:</strong> high initial cost · learning curve · material limitations · technique sensitivity</li>
+  </ul>
+
+  <div class="box vision">
+    <span class="t">🚀 İnovasyon ve Klinik Vizyon</span>
+    Milling (subtractive) bir bloktan parça oyar — bu yüzden <strong>içi boş veya karmaşık iç yapılar üretemez</strong> ve çok atık çıkarır. Additive (3D printing) ise "yoktan kurar"; bu sayede <strong>hastaya özel (patient-specific)</strong>, karmaşık iç geometrili objeler (örn. kök şekilli implant, içi kanallı kılavuz) atık olmadan üretilebilir. İkisi rakip değil, <em>tamamlayıcıdır</em>: dayanım gerektiren kron → milling; karmaşık/kişisel obje → printing.
+  </div>
+
+  <div class="flash">
+    <span class="t">🃏 FLASHCARDS — Week 6</span>
+    <div class="qa"><div class="q">S: CAD/CAM iş akışının 3 ana adımı sırasıyla?</div><div class="a">Data Acquisition → CAD Design → Manufacturing (Scan→Design→Make).</div></div>
+    <div class="qa"><div class="q">S: "Materyal katman katman eklenir" hangi yöntem?</div><div class="a">Additive manufacturing (3D printing).</div></div>
+    <div class="qa"><div class="q">S: Kemik/volüm verisi hangi cihazdan, yüzey verisi hangisinden?</div><div class="a">Kemik → CBCT; yüzey → IOS.</div></div>
+  </div>
+</section>
+
+<!-- ============ WEEK 7 ============ -->
+<section id="w7">
+  <h2 class="week">Week 7 — Applications of 3D Printing in Dentistry</h2>
+
+  <h3>3D Printing Teknoloji Tipleri <span class="examtag">SINAV-EŞLEŞTİRME</span></h3>
+  <ul>
+    <li><strong>SLM</strong> — Selective Laser Melting</li>
+    <li><strong>SLS</strong> — Selective Laser Sintering</li>
+    <li><strong>FDM</strong> — Fused Deposition Modeling</li>
+    <li><strong>SLA</strong> — Stereolithography → kullanım: <em>surgical guides, dental models</em>; limit: zaman alıcı + post-processing</li>
+    <li><strong>DLP</strong> — Digital Light Processing → kullanım: <em>aligners, crowns, surgical guides</em>; limit: sınırlı baskı boyutu</li>
+  </ul>
+
+  <div class="box mnem">
+    <span class="t">🧠 Mnemoteknik — 5 Baskı Teknolojisi</span>
+    <span class="key">"SLM · SLS · FDM · SLA · DLP"</span><br>
+    Köprü cümle: <strong>"Süper Lazer Makinesi, Süper Lazer Sinterler; Filament Damlatır Materyali; Sıvı Lazerle Aydınlanır; Dijital Lambayla Parlar."</strong><br>
+    Hızlı ayrım: <em>Laser tabanlı = SLM/SLS/SLA</em>; <em>Light tabanlı = DLP</em>; <em>Heat/filament = FDM</em>.
+  </div>
+
+  <h3>Uygulama Alanları</h3>
+  <ul>
+    <li><strong>Diagnostic models</strong> · <strong>Prosthodontic restorations</strong> · <strong>Orthodontic appliances</strong> · <strong>Surgical guides</strong> · <strong>Maxillofacial prostheses</strong></li>
+    <li><strong>Prosthetics:</strong> crowns, bridges, full dentures → düz yüzey, konfor, az hata, kısa süre</li>
+    <li><strong>Orthodontics:</strong> clear aligners (scan → dijital model → tooth movement simülasyonu → print)</li>
+    <li><strong>Dental implants:</strong> patient-specific, hatta root-shaped implant</li>
+  </ul>
+
+  <h4>3D-Printed Implant — Avantaj &amp; Dezavantaj</h4>
+  <ul>
+    <li><strong>Avantaj:</strong> kemikle daha iyi temas, güçlü stabilite, doğal fonksiyon</li>
+    <li><strong>Dezavantaj:</strong> yüksek maliyet, sınırlı materyal, zaman alıcı, uzmanlık gerektirir, hata riski</li>
+  </ul>
+
+  <div class="box vision">
+    <span class="t">🚀 İnovasyon ve Klinik Vizyon</span>
+    Ortodontide <span class="en">3D printing</span> en hızlı büyüyen alandır. Eskiden braket+tel standarttı; bugün hastanın kendi anatomisinden <strong>clear aligner</strong> üretilebiliyor. Asıl devrim "üretim" değil, <strong>simülasyon</strong>: diş hareketi daha üretim başlamadan ekranda planlanır, böylece tedavi sonucu <em>başında</em> görülür ve aligner serisi buna göre basılır.
+  </div>
+
+  <div class="box trap">
+    <span class="t">⚠️ Teknoloji Tuzağı</span>
+    <strong>3D printing ≠ sınırsız özgürlük.</strong> Slayttaki net dezavantaj listesi sınavda çeldirici: yüksek maliyet, <em>sınırlı materyal seçeneği</em>, technique sensitivity ve learning curve hâlâ büyük engellerdir. "Materyal limitasyonu yoktur" ifadesi YANLIŞTIR.
+  </div>
+
+  <div class="flash">
+    <span class="t">🃏 FLASHCARDS — Week 7</span>
+    <div class="qa"><div class="q">S: "SLA" açılımı ve dentaldeki tipik kullanımı?</div><div class="a">Stereolithography → surgical guides ve dental models.</div></div>
+    <div class="qa"><div class="q">S: Clear aligner üretimi hangi baskı teknolojisiyle sık ilişkilendirilir?</div><div class="a">DLP (Digital Light Processing).</div></div>
+    <div class="qa"><div class="q">S: 3D-printed implantın en büyük klinik avantajı?</div><div class="a">Patient-specific tasarım → kemikle daha iyi temas ve stabilite.</div></div>
+  </div>
+</section>
+
+<!-- ============ WEEK 8 — FOCUS ============ -->
+<section id="w8">
+  <h2 class="week focus">Week 8 — Laser Technology in Dentistry <span class="focusbadge">★ FINAL AĞIRLIKLI</span></h2>
+  <p><strong>LASER = Light Amplification by Stimulated Emission of Radiation.</strong> Odaklanmış, koherent (coherent), yüksek enerjili ve yüksek hassasiyetli ışık üretir.</p>
+
+  <h3>Tarihçe</h3>
+  <ul>
+    <li><strong>1960:</strong> İlk laser → <strong>Theodore Maiman</strong> (önce fizik/tıpta)</li>
+    <li><strong>1970s–80s:</strong> Laser–doku etkileşimi araştırmaları (enamel, dentin, soft tissue)</li>
+    <li><strong>1990s:</strong> İlk klinik dental uygulamalar (soft tissue cerrahisi, periodontal)</li>
+    <li><strong>2000s:</strong> Er:YAG, diode, Nd:YAG gelişimi → daha güvenli ve hassas</li>
+    <li><strong>Bugün:</strong> Neredeyse tüm branşlar + <strong>photobiomodulation (PBM)</strong> + AI/dijital entegrasyon</li>
+  </ul>
+
+  <h3>Laser Etkisini Belirleyen Faktörler</h3>
+  <ul>
+    <li><strong>Wavelength</strong> (laser tipi) — en belirleyici</li>
+    <li><strong>Tissue composition</strong> &amp; <strong>water content</strong></li>
+    <li><strong>Pigments</strong> (hemoglobin, melanin)</li>
+    <li><strong>Energy level</strong> (power)</li>
+  </ul>
+
+  <h3>Dokuda Ne Olur? (What Happens in Tissue)</h3>
+  <table>
+    <tr><th>Olay</th><th>Sonuç</th></tr>
+    <tr><td><strong>Absorption</strong> (emilim)</td><td><mark>Ana klinik etki</mark> — istenen budur</td></tr>
+    <tr><td><strong>Reflection</strong> (yansıma)</td><td>Etki yok (no effect)</td></tr>
+    <tr><td><strong>Scattering</strong> (saçılma)</td><td>Verim azalır</td></tr>
+    <tr><td><strong>Transmission</strong> (geçiş)</td><td>Dokudan geçer</td></tr>
+  </table>
+  <p>Soft tissue → yüksek absorpsiyon → kolay kesme. Hard tissue → spesifik wavelength gerekir.</p>
+
+  <div class="box mnem">
+    <span class="t">🧠 Mnemoteknik — Doku Etkileşimi</span>
+    <span class="key">A-R-S-T</span> sırasıyla: <strong>A</strong>bsorption (etki VAR) · <strong>R</strong>eflection (etki YOK) · <strong>S</strong>cattering (verim DÜŞER) · <strong>T</strong>ransmission (GEÇER).<br>
+    Köprü: <em>"Akıllı Robot Sürekli Tarar"</em> — ama klinikte sadece <strong>Absorption</strong> iş görür; gerisi "kayıp"tır.
+  </div>
+
+  <h3>Laser–Tissue Interaction: 3 Temel Etki <span class="examtag">SINAV-ÇOK KRİTİK</span></h3>
+  <ul>
+    <li><strong>1) Photothermal Effect</strong> <mark>(EN ÖNEMLİSİ)</mark> → Laser ışığı ısıya dönüşür → cutting, vaporization, coagulation</li>
+    <li><strong>2) Photochemical Effect</strong> → ışık kimyasal reaksiyon tetikler → disinfection, whitening</li>
+    <li><strong>3) Photobiomodulation (PBM) Effect</strong> → düşük enerjili, <em>ısı hasarı yok</em> → healing &amp; pain reduction uyarır</li>
+  </ul>
+
+  <div class="box spot">
+    <span class="t">🎯 Spot Bilgi</span>
+    Lazerin <strong>en önemli (most important)</strong> etkisi <strong>Photothermal Effect</strong>'tir (ışık → ısı → kesme/buharlaştırma/koagülasyon). Bu cümle neredeyse kesin sorulur.
+  </div>
+
+  <div class="box mnem">
+    <span class="t">🧠 Mnemoteknik — 3 "Photo" Etkisi</span>
+    <span class="key">3P = Therm · Chem · Bio</span><br>
+    <strong>"PHOTO ile Isıtırım, Kimyasarım, İyileştiririm"</strong> →
+    Photo<strong>thermal</strong> = ısı (kes), Photo<strong>chemical</strong> = kimya (whitening/disinfection), Photo<strong>biomodulation</strong> = iyileşme (ısısız, ağrı azaltır).
+  </div>
+
+  <h3>Laser Tipleri — En Kritik Eşleştirme Tablosu <span class="examtag">SINAV-EŞLEŞTİRME</span></h3>
+  <table>
+    <tr><th>Laser</th><th>Hedef Doku</th><th>Tipik Kullanım</th></tr>
+    <tr><td><strong>CO₂ laser</strong></td><td>Soft tissue</td><td>Soft tissue surgery; mükemmel cutting &amp; coagulation</td></tr>
+    <tr><td><strong>Er:YAG laser</strong></td><td><mark>Hard + Soft</mark> tissue</td><td>Caries removal, cavity preparation (TEK "hard tissue" lazeri)</td></tr>
+    <tr><td><strong>Nd:YAG laser</strong></td><td>Derin doku (deep penetration)</td><td>Periodontal therapy, disinfection</td></tr>
+    <tr><td><strong>Diode laser</strong></td><td>Soft tissue</td><td>Gingivectomy, bacterial reduction</td></tr>
+  </table>
+
+  <div class="box mnem">
+    <span class="t">🧠 Mnemoteknik — Hangi Laser Hangi Dokuya?</span>
+    <span class="key">Sert dokuyu sadece "ER" keser!</span><br>
+    <strong>Er:YAG</strong> = sert doku (çürük/kavite) → "Er-ken çürüğü temizler". <br>
+    <strong>CO₂ + Diode</strong> = yumuşak doku ikilisi (cerrahi + gingivektomi). <br>
+    <strong>Nd:YAG</strong> = "Derin Dalış" (deep) → periodontal + dezenfeksiyon.<br>
+    Köprü: <em>"ERkek SERTtir; CO₂ &amp; Diode YUMUŞAK; Nd DERine dalar."</em>
+  </div>
+
+  <div class="box trap">
+    <span class="t">⚠️ Teknoloji Tuzağı</span>
+    <strong>Er:YAG vs Nd:YAG</strong> klasik tuzaktır! İkisi de "YAG" içerir ama:<br>
+    • <strong>Er:YAG</strong> → <em>hard tissue</em> (çürük temizleme, kavite hazırlama) + soft.<br>
+    • <strong>Nd:YAG</strong> → <em>deep penetration</em>, periodontal/dezenfeksiyon (sert doku kavite hazırlamada DEĞİL).<br>
+    Ayrıca <strong>caries removal = Er:YAG</strong>; CO₂ veya diode ile "çürük temizleme" şıkkı çeldiricidir.
+  </div>
+
+  <h3>Branşlara Göre Klinik Uygulamalar</h3>
+  <ul>
+    <li><strong>Restorative:</strong> caries removal (sağlıklı dokuyu korur), cavity preparation (titreşim/gürültü minimal)</li>
+    <li><strong>Periodontology:</strong> pocket reduction, bacterial elimination, SRP'ye adjunct, peri-implantitis yönetimi</li>
+    <li><strong>Oral Surgery:</strong> soft tissue incision, gingivectomy &amp; frenectomy, lezyon eksizyonu (fibroma, papilloma)</li>
+    <li><strong>Teeth Whitening:</strong> ağartma ajanını (hydrogen peroxide) aktive eder, süreci hızlandırır, homojen renk</li>
+    <li><strong>Pain Management (PBM):</strong> low-level laser therapy, inflamasyon ↓, analjezik etki, <strong>TMD'de kas gevşemesi</strong></li>
+  </ul>
+
+  <h3>Avantajlar vs Dezavantajlar</h3>
+  <table>
+    <tr><th>Avantajlar</th><th>Dezavantajlar</th></tr>
+    <tr><td>High precision (selektif doku kaldırma)</td><td>Sınırlı penetrasyon derinliği (derin çürük/dokuda zayıf)</td></tr>
+    <tr><td>Minimally invasive; bazı işlemlerde lokal anestezi ihtiyacı ↓</td><td>Bazı vakalarda daha uzun işlem süresi</td></tr>
+    <tr><td>Titreşim/gürültü yok (bur'a kıyasla)</td><td><strong>Thermal damage</strong> riski (yanlış parametrede)</td></tr>
+    <tr><td>Hemostasis (kanama kontrolü), antimikrobiyal etki, hızlı iyileşme</td><td>Yüksek maliyet, eğitim gerektirir</td></tr>
+  </table>
+
+  <div class="box vision">
+    <span class="t">🚀 İnovasyon ve Klinik Vizyon</span>
+    Geleneksel <strong>dental bur</strong> (frez) titreşim, gürültü ve ısı üretir; bu hastada anksiyete ve sıklıkla anestezi ihtiyacı yaratır. Laser, doku etkileşimini <em>wavelength</em> üzerinden "seçici" hâle getirir: <strong>Er:YAG</strong> suya/hidroksiapatite emilerek sadece hastalıklı dokuyu buharlaştırır, sağlıklı dişi korur. PBM ise hiç kesmeden, <em>ısısız</em> bir şekilde hücresel iyileşmeyi ve ağrı kontrolünü tetikler — yani laser sadece "kesici" değil, aynı zamanda bir <strong>biyolojik uyarıcı</strong>dır. Lazerin vizyonu: "daha az travma, daha az korku, daha hızlı iyileşme".
+  </div>
+
+  <div class="flash">
+    <span class="t">🃏 FLASHCARDS — Week 8 (Laser)</span>
+    <div class="qa"><div class="q">S: Lazerin EN ÖNEMLİ doku etkisi nedir ve ne yapar?</div><div class="a">Photothermal Effect — ışığı ısıya çevirir: cutting, vaporization, coagulation.</div></div>
+    <div class="qa"><div class="q">S: Çürük temizleme / kavite hazırlama için hangi laser (hard tissue)?</div><div class="a">Er:YAG laser.</div></div>
+    <div class="qa"><div class="q">S: Periodontal tedavi ve dezenfeksiyon için derin penetrasyonlu laser?</div><div class="a">Nd:YAG laser.</div></div>
+    <div class="qa"><div class="q">S: Gingivectomy ve bakteri azaltma için tipik soft tissue laseri?</div><div class="a">Diode laser.</div></div>
+    <div class="qa"><div class="q">S: Isısız, düşük enerjili, iyileşme ve ağrı azaltan etki?</div><div class="a">Photobiomodulation (PBM) — TMD'de kas gevşemesinde de kullanılır.</div></div>
+    <div class="qa"><div class="q">S: Dokuda klinik etkiyi sağlayan ana olay hangisidir?</div><div class="a">Absorption (reflection etki vermez, scattering verimi düşürür).</div></div>
+  </div>
+</section>
+
+<!-- ============ WEEK 9 — FOCUS ============ -->
+<section id="w9">
+  <h2 class="week focus">Week 9 — Digital Dentistry in Specialties <span class="focusbadge">★ FINAL AĞIRLIKLI</span></h2>
+  <p>Bu hafta dijital teknolojilerin <strong>her branşta</strong> tanı ve planlamaya nasıl girdiğini anlatır. Anahtar: hangi branşta hangi aracın (tool) ön planda olduğu sınavda eşleştirilir.</p>
+
+  <h3>Oral Diagnosis</h3>
+  <ul>
+    <li><strong>Araçlar:</strong> Digital radiography (intraoral, panoramic) · <strong>CBCT</strong> (Cone Beam Computed Tomography) · Optical imaging systems</li>
+    <li><strong>Uygulama:</strong> çürük, periapikal lezyon, kemik patolojisi, gömük diş, kist/tümör tespiti</li>
+  </ul>
+
+  <h3>Restorative</h3>
+  <ul>
+    <li><strong>Araçlar:</strong> Digital radiography (proksimal/oklüzal çürük) · <strong>Optical caries detection</strong> (laser fluorescence, transillumination) · AI-supported diagnosis</li>
+    <li><strong>Uygulama:</strong> erken çürük tespiti, lezyon takibi, aktif/inaktif lezyon ayrımı</li>
+  </ul>
+
+  <h3>Endodontics — Guided Endodontics <span class="examtag">SINAV</span></h3>
+  <p><strong>Guided endodontics</strong>, <span class="en">CBCT</span> görüntülemeyi <span class="en">intraoral scanning</span> ile birleştirerek kök kanalına hassas bir <strong>erişim yolu (access path)</strong> oluşturan dijital tekniktir.</p>
+  <ul><li><strong>Endikasyonlar:</strong> kalsifiye kanallar, pulp canal obliteration, zor erişimli retreatment</li></ul>
+
+  <h3>Periodontology</h3>
+  <ul>
+    <li><strong>Araçlar:</strong> CBCT (3D kemik analizi) · Digital probing systems · AI-supported bone loss assessment</li>
+    <li><strong>Uygulama:</strong> kemik defekti tespiti, hastalık takibi, implant bölgesi/crown lengthening planlama</li>
+  </ul>
+
+  <h3>Prosthodontics</h3>
+  <ul>
+    <li><strong>Tanı/planlama:</strong> IOS, CBCT, facial scanning → implant planlama, smile design, oklüzal değerlendirme</li>
+    <li><strong>Estetik:</strong> Digital Smile Design (DSD)</li>
+    <li><strong>Okluzyon:</strong> digital occlusal analysis + <strong>virtual articulators</strong> → bite force, çene hareketi simülasyonu</li>
+  </ul>
+
+  <h3>Orthodontics</h3>
+  <ul>
+    <li><strong>Kayıt:</strong> IOS, CBCT, facial scanning → digital study models, oklüzal analiz, yüz simetrisi</li>
+    <li><strong>Tanı:</strong> <strong>cephalometric analysis</strong> + otomatik landmark tespiti</li>
+    <li><strong>Aygıt:</strong> clear aligners, customized brackets, retainers</li>
+  </ul>
+
+  <h3>Oral &amp; Maxillofacial Surgery (OMFS)</h3>
+  <ul>
+    <li>İmplant öncesi kemik kalite/hacim; <strong>inferior alveolar nerve</strong> &amp; mental foramen lokalizasyonu</li>
+    <li>Sinüs lift öncesi maksiller sinüs anatomisi; gömük diş analizi; kist/tümör tespiti</li>
+    <li><strong>İleri:</strong> orthognathic surgery planlama, travma rekonstrüksiyonu (3D model), tümör rezeksiyon planı, patient-specific surgical guides</li>
+  </ul>
+
+  <div class="box mnem">
+    <span class="t">🧠 Mnemoteknik — Branş ↔ Anahtar Teknoloji</span>
+    <ul style="margin:6px 0">
+      <li><strong>Endo</strong> → <em>Guided Endodontics</em> (CBCT + IOS) → "kanala GPS"</li>
+      <li><strong>Resto</strong> → <em>laser fluorescence / transillumination</em> → "çürüğe ışık tut"</li>
+      <li><strong>Perio</strong> → <em>CBCT + digital probing</em> → "kemiği 3D ölç"</li>
+      <li><strong>Orto</strong> → <em>cephalometric + clear aligners</em> → "kafa filmi + şeffaf plak"</li>
+      <li><strong>Prostho</strong> → <em>DSD + virtual articulator</em> → "gülüş tasarla, çeneyi simüle et"</li>
+      <li><strong>OMFS</strong> → <em>CBCT + surgical guide</em> → "siniri bul, kılavuzla kes"</li>
+    </ul>
+  </div>
+
+  <div class="box trap">
+    <span class="t">⚠️ Teknoloji Tuzağı</span>
+    <strong>Optical caries detection</strong> teknikleri (laser fluorescence, transillumination) ile <strong>CBCT</strong> karıştırılmamalı. Çürük taramasında ışık-temelli optik sistemler kullanılır; CBCT ise 3D kemik/anatomi içindir. Ayrıca <strong>Guided endodontics ≠ sadece CBCT</strong>; tanım gereği <em>CBCT + intraoral scanning</em> birleşimidir.
+  </div>
+
+  <div class="flash">
+    <span class="t">🃏 FLASHCARDS — Week 9</span>
+    <div class="qa"><div class="q">S: Kalsifiye kanalda erişim yolu oluşturan dijital teknik ve birleştirdiği iki veri?</div><div class="a">Guided endodontics → CBCT + intraoral scanning.</div></div>
+    <div class="qa"><div class="q">S: Erken çürük tespitinde kullanılan iki optik yöntem?</div><div class="a">Laser fluorescence ve transillumination.</div></div>
+    <div class="qa"><div class="q">S: Ortodontide otomatik landmark ile yapılan analiz?</div><div class="a">Cephalometric analysis.</div></div>
+    <div class="qa"><div class="q">S: Çene hareketini ve bite force'u simüle eden prostodontik dijital araç?</div><div class="a">Virtual articulator + digital occlusal analysis.</div></div>
+  </div>
+</section>
+
+<!-- ============ WEEK 10 — FOCUS ============ -->
+<section id="w10">
+  <h2 class="week focus">Week 10 — Artificial Intelligence: Temeller <span class="focusbadge">★ FINAL AĞIRLIKLI</span></h2>
+
+  <h3>Hiyerarşi: AI ⊃ ML ⊃ DL <span class="examtag">SINAV-ÇOK KRİTİK</span></h3>
+  <ul>
+    <li><strong>Artificial Intelligence (AI):</strong> akıllı bilgisayar sistemlerinin genel kavramı (en geniş şemsiye)</li>
+    <li><strong>Machine Learning (ML):</strong> AI'ın bir alt dalı — <strong>veriden öğrenir</strong> (doğrudan programlanmaz)</li>
+    <li><strong>Deep Learning (DL):</strong> ML'in gelişmiş biçimi — <strong>çok katmanlı yapay sinir ağlarına (neural networks)</strong> dayanır</li>
+  </ul>
+
+  <div class="box mnem">
+    <span class="t">🧠 Mnemoteknik — AI Hiyerarşisi</span>
+    <span class="key">AI → ML → DL (büyükten küçüğe iç içe halkalar)</span><br>
+    Köprü: <strong>"Akıllı Makine Derinleşir"</strong> (AI ⟶ ML ⟶ DL). <br>
+    Görsel: en büyük daire AI, içinde ML, en içte DL. DL = "en derin halka, sinir ağları orada".
+  </div>
+
+  <h3>Machine Learning Temel Prensibi</h3>
+  <p><strong>Input data → Learning process → Prediction/output.</strong> Örnekler: spam tespiti, öneri sistemleri, <strong>radyografta çürük tespiti</strong>.</p>
+
+  <h3>Artificial Neural Networks (<span class="en">ANN</span>)</h3>
+  <p>İnsan beyninden esinlenen sistemler. Yapısı: <strong>Input layer → Hidden layers → Output layer</strong>. Veriden örüntü öğrenip tahmin üretir.</p>
+
+  <h3>Deep Learning</h3>
+  <p>Çok katmanlı yapay sinir ağı kullanan ML türü. Özellikleri: büyük/karmaşık veri işler, görüntü ve veriden otomatik öğrenir, görüntü analizinde yüksek doğruluk. Uygulamalar: face recognition, voice recognition, <strong>medical image analysis</strong>.</p>
+
+  <h3>Convolutional Neural Networks (<span class="en">CNN</span>) <span class="examtag">SINAV</span></h3>
+  <p><strong>CNN</strong>'ler, <strong>görüntü analizinde</strong> özellikle başarılı deep learning modelleridir. İnsan müdahalesi olmadan önemli görüntü özelliklerini otomatik tanırlar. Yaygın kullanım: <strong>image classification, detection, segmentation</strong>.</p>
+
+  <div class="box vision">
+    <span class="t">🚀 İnovasyon ve Klinik Vizyon</span>
+    Geleneksel bilgisayar programı her kuralı insan yazar ("if çürük gibi görünüyorsa..."). Bu radyografi gibi belirsiz görüntülerde işe yaramaz. <span class="en">Machine Learning</span>'in devrimi şudur: sistem binlerce etiketli görüntüden <em>örüntüyü kendisi çıkarır</em>. <strong>CNN</strong>'ler ise bunu görüntüye özelleştirir — kenarları, dokuları, lezyon şekillerini otomatik "görür". Sonuç: hekimin gözünden kaçabilecek erken lezyonlar yakalanır, tanı daha tutarlı (consistent) hâle gelir. AI burada hekimin yerine geçmez; ikinci bir göz (decision support) olur.
+  </div>
+
+  <div class="box trap">
+    <span class="t">⚠️ Teknoloji Tuzağı</span>
+    <strong>AI, ML ve DL eşanlamlı DEĞİLDİR.</strong> ML, AI'ın alt kümesi; DL, ML'in alt kümesidir. "Deep learning, AI'ın üst kavramıdır" YANLIŞ. Ayrıca görüntü/radyografi analizinde öne çıkan model <strong>CNN</strong>'dir — düz ANN değil.
+  </div>
+
+  <div class="flash">
+    <span class="t">🃏 FLASHCARDS — Week 10</span>
+    <div class="qa"><div class="q">S: AI, ML, DL arasındaki kapsam ilişkisi?</div><div class="a">AI ⊃ ML ⊃ DL (DL en dar, sinir ağı temelli).</div></div>
+    <div class="qa"><div class="q">S: Görüntü analizinde (classification/detection/segmentation) en başarılı DL modeli?</div><div class="a">CNN (Convolutional Neural Network).</div></div>
+    <div class="qa"><div class="q">S: ANN'in üç katmanı?</div><div class="a">Input layer → Hidden layers → Output layer.</div></div>
+    <div class="qa"><div class="q">S: ML'in temel akışı nedir?</div><div class="a">Input data → Learning process → Prediction/output.</div></div>
+  </div>
+</section>
+
+<!-- ============ WEEK 11 — FOCUS ============ -->
+<section id="w11">
+  <h2 class="week focus">Week 11 — AI in Dental Specialties <span class="focusbadge">★ FINAL AĞIRLIKLI</span></h2>
+  <p>AI'ın branş bazlı uygulamaları. Dikkat: AI çoğunlukla <strong>"may / can assist"</strong> (destekleyebilir) ifadesiyle anlatılır — yani <em>karar destek (decision support)</em>, hekimin yerine geçme değil.</p>
+
+  <h3>Oral Radiology &amp; Diagnosis</h3>
+  <ul>
+    <li>Analiz: Panoramic, Bitewing, Periapical radyografi + <strong>CBCT</strong></li>
+    <li>Tespit: tooth numbering, lezyon, kist/tümör, mandibular fracture, TMJ disorders, sinüs patolojisi</li>
+    <li>Diş/implant/tedavi edilmiş kanalı otomatik tanır; sensitivity/specificity artırır, diagnostic error azaltır; premalign/malign lezyon tespiti</li>
+  </ul>
+
+  <h3>Restorative</h3>
+  <p>Çürük tespiti + restorasyon planı; radyograf/intraoral görüntü analizi; <strong>restoration design, margin evaluation, shade selection</strong>.</p>
+
+  <h3>Endodontics</h3>
+  <ul>
+    <li>Pulpitis tanısı, periapikal lezyon tespiti (deep learning)</li>
+    <li><strong>ANN</strong> ile working length, apical foramen tespiti, kanal morfolojisi</li>
+    <li><strong>CNN</strong> ile vertical root fracture tespiti (CBCT, 2D'den yüksek doğruluk)</li>
+  </ul>
+
+  <h3>Periodontology</h3>
+  <p>Periodontal risk değerlendirmesi, bone loss analizi, probing depth, plak değişimi; radyograf+klinik veriyle periodontitis tespiti; yüksek riskli hastaları belirleme.</p>
+
+  <h3>Orthodontics</h3>
+  <p>Tedavi planı kişiselleştirme, bone maturity değerlendirmesi, otomatik cephalometric landmark; <strong>AI-assisted aligners</strong> → tedavi süresi ve konsültasyon ↓; 3D görüntü/dijital model/simülasyonla aligner design ve progress takibi.</p>
+
+  <h3>Prosthodontics</h3>
+  <p><strong>CAD/CAM</strong> ve dijital iş akışı desteği; kişiselleştirilmiş protez; <strong>virtual reality</strong> ile sonuç simülasyonu; implant planlama/pozisyon analizi → yerleşim doğruluğu ↑; arch analizi, tooth arrangement, color matching, crown fabrication.</p>
+
+  <h3>Oral &amp; Maxillofacial Surgery</h3>
+  <p>AI-assisted robotik sistemler cerrahi hassasiyeti artırır (implant, tümör, TMJ, orthognathic); operasyon süresi ↓; facial morphology / surgical outcome / postoperatif komplikasyon tahmini.</p>
+
+  <h3>Pediatric Dentistry</h3>
+  <p>Çürük tespiti, <strong>dental age estimation</strong>, eruption analizi, cephalometric analiz; erken çocukluk çürüğü risk tahmini; smartphone uygulamalarıyla ebeveyn takibi; VR + AI ile eğitim ve çocuk yönetimi.</p>
+
+  <div class="box mnem">
+    <span class="t">🧠 Mnemoteknik — AI Branş Eşleşmeleri</span>
+    <ul style="margin:6px 0">
+      <li><strong>Endo + AI</strong> → "ANN working length'i ölçer, CNN kırığı (VRF) yakalar"</li>
+      <li><strong>Orto + AI</strong> → "landmark + aligner" (cephalometrik nokta + plak)</li>
+      <li><strong>Pedo + AI</strong> → "yaş tahmini" (dental age estimation) → çocuk = yaş</li>
+      <li><strong>Prostho + AI</strong> → "shade + CAD/CAM" (renk + üretim)</li>
+      <li><strong>OMFS + AI</strong> → "robot + outcome prediction"</li>
+    </ul>
+  </div>
+
+  <div class="box trap">
+    <span class="t">⚠️ Teknoloji Tuzağı</span>
+    Endodonti AI'ında <strong>ANN vs CNN</strong> ayrımı sorulabilir: <em>ANN → working length / apical foramen</em>; <em>CNN → vertical root fracture (VRF) tespiti, CBCT'de</em>. Ayrıca AI ifadeleri "kesin tanı koyar" değil <strong>"may assist / support"</strong> tonundadır — mutlak/garanti ifadeleri çeldiricidir.
+  </div>
+
+  <div class="flash">
+    <span class="t">🃏 FLASHCARDS — Week 11</span>
+    <div class="qa"><div class="q">S: Vertical root fracture tespitinde öne çıkan AI modeli ve görüntüleme?</div><div class="a">CNN tabanlı modeller + CBCT (2D'den yüksek doğruluk).</div></div>
+    <div class="qa"><div class="q">S: Endodontide working length tahmininde kullanılan ağ?</div><div class="a">Artificial Neural Networks (ANN).</div></div>
+    <div class="qa"><div class="q">S: Pediatride AI'ın tipik uygulaması (yaşla ilgili)?</div><div class="a">Dental age estimation.</div></div>
+    <div class="qa"><div class="q">S: Prostodontide AI hangi üretim teknolojisini destekler?</div><div class="a">CAD/CAM ( + shade/color matching, crown fabrication).</div></div>
+  </div>
+</section>
+
+<!-- ============ WEEK 12 — FOCUS ============ -->
+<section id="w12">
+  <h2 class="week focus">Week 12 — Robotics in Dentistry <span class="focusbadge">★ FINAL AĞIRLIKLI</span></h2>
+  <p><strong>Robot:</strong> programlanabilir mekanik sistem; görevleri otomatik/yarı-otomatik yapar; zor veya tekrarlayan işlerde insana yardımcı olur. Temel özellikler: <strong>repeatability, speed, automation, digital control</strong>. Kullanım: medicine, industry, aerospace, manufacturing, <strong>dentistry</strong>.</p>
+
+  <h3>AI vs Robotics — Kritik Ayrım <span class="examtag">SINAV-ÇOK KRİTİK</span></h3>
+  <table>
+    <tr><th></th><th>Artificial Intelligence</th><th>Robotics</th></tr>
+    <tr><td>İş</td><td>Veriyi analiz eder</td><td>Fiziksel görev yapar</td></tr>
+    <tr><td>Yapı</td><td>Software-based (yazılım)</td><td>Mechanical system (mekanik)</td></tr>
+    <tr><td>Dental rol</td><td>Hastalık tespiti</td><td>Cerrahiye yardım</td></tr>
+    <tr><td>Örnek</td><td>X-ray analizi</td><td>Implant robot</td></tr>
+  </table>
+
+  <div class="box mnem">
+    <span class="t">🧠 Mnemoteknik — AI mı Robot mu?</span>
+    <span class="key">AI = düşünür (software), Robot = dokunur (mechanical)</span><br>
+    Köprü: <strong>"AI beyin, Robot kol."</strong> X-ray okuyorsa AI; matkabı tutuyorsa Robot.
+  </div>
+
+  <h3>Neden Robot? (Why Do We Need Robots)</h3>
+  <ul><li>Higher precision · less human error · shorter treatment time · minimally invasive · better treatment planning</li></ul>
+
+  <h3>Robotics in Implant Surgery — 4 Adım <span class="examtag">SINAV-SIRALAMA</span></h3>
+  <ol>
+    <li><strong>CBCT Imaging</strong> — çenenin 3D taraması, anatomik değerlendirme</li>
+    <li><strong>Digital Planning</strong> — ideal implant pozisyonu (açı, derinlik, lokasyon)</li>
+    <li><strong>Robotic Guidance</strong> — robot drilling sürecine kılavuzluk eder</li>
+    <li><strong>Implant Placement</strong> — dijital plana göre yerleştirme; real-time navigation doğruluğu artırır</li>
+  </ol>
+
+  <div class="box mnem">
+    <span class="t">🧠 Mnemoteknik — İmplant Robot Akışı</span>
+    <span class="key">CBCT → PLAN → GUIDE → PLACE</span><br>
+    Köprü: <strong>"Çek, Planla, Yönlendir, Yerleştir"</strong> (Ç-P-Y-Y). Önce GÖR (CBCT), sonra DÜŞÜN (plan), sonra YÖNLENDİR (robot), en son YAP (place).
+  </div>
+
+  <h3>Branşlara Göre Robotlar</h3>
+  <ul>
+    <li><strong>Orthodontic Robots — Archwire Bending Robots:</strong> teli dijital plana göre büker. Manuel bükmedeki human error / wire deformation / tutarsızlığı önler. Akış: digital treatment planning → automated wire bending → precise control.</li>
+    <li><strong>Endodontic Robots:</strong> <em>VR simulators</em> (güvenli pratik), <em>haptic training systems</em> (dokunsal geri bildirim — drilling hissi), <em>experimental root canal robots</em> (çoğu hâlâ <strong>deneysel</strong> aşamada).</li>
+    <li><strong>Prosthodontic Robots:</strong> otomatik tooth preparation (laser-assisted, titreşim/gürültü ↓), crown preparation robots (standardize reduction), tooth arrangement robots (total protezde diş dizimi).</li>
+  </ul>
+
+  <h3>Avantajlar &amp; Gelecek &amp; Etik</h3>
+  <table>
+    <tr><th>Avantajlar</th><th>Limitler &amp; Etik</th></tr>
+    <tr><td>High precision, reduced fatigue</td><td>High cost, technical problems</td></tr>
+    <tr><td>Improved efficiency, standardization</td><td>Eğitimli hekim gerektirir, limited clinical use</td></tr>
+    <tr><td>Minimally invasive, digital integration</td><td><strong>Etik:</strong> patient safety, <strong>data privacy</strong>, komplikasyonda sorumluluk</td></tr>
+  </table>
+  <p><strong>Gelecek (Future of Robotic Dentistry):</strong> AI-integrated robots, autonomous surgery, smart navigation, otomatik dental işlemler, ileri training simulators, kişiselleştirilmiş tedaviler.</p>
+
+  <div class="box vision">
+    <span class="t">🚀 İnovasyon ve Klinik Vizyon</span>
+    Freehand implant cerrahisinde sonuç, o anki el-göz koordinasyonuna ve yorgunluğa bağlıdır; küçük açı sapmaları sinire/sinüse zarar verebilir. <strong>Robotic implant surgery</strong> bu zinciri tersine çevirir: önce <span class="en">CBCT</span> ile anatomi 3D görülür, ideal pozisyon dijital planlanır, robot ise drili <em>tam o plana</em> kilitler ve real-time navigation ile sapmayı düzeltir. Yani robot "hekimin yerine ameliyat etmez"; hekimin niyetini <strong>mikron düzeyinde sadakatle</strong> uygular — human error ve yorgunluğu denklemden çıkarır. Aynı mantık ortodontik tel bükme ve protez diş hazırlamada da geçerlidir: <em>tasarım dijital, uygulama robotik, sonuç tekrarlanabilir.</em>
+  </div>
+
+  <div class="box trap">
+    <span class="t">⚠️ Teknoloji Tuzağı</span>
+    <strong>1)</strong> AI ≠ Robotics: AI <em>software</em> (analiz/tespit), Robotics <em>mechanical</em> (fiziksel iş). "X-ray analizi yapan robot" değil, AI'dır.<br>
+    <strong>2)</strong> Endodontik <strong>root canal robotları çoğunlukla deneysel (experimental)</strong>; "rutin klinik kullanımda" ifadesi çeldiricidir.<br>
+    <strong>3)</strong> Robotların en sık vurgulanan <em>etik</em> kaygıları: patient safety, <strong>data privacy</strong>, komplikasyonda sorumluluk.
+  </div>
+
+  <div class="flash">
+    <span class="t">🃏 FLASHCARDS — Week 12</span>
+    <div class="qa"><div class="q">S: AI ile Robotics arasındaki temel fark?</div><div class="a">AI = software, veri analizi (örn. X-ray); Robotics = mechanical, fiziksel görev (örn. implant robot).</div></div>
+    <div class="qa"><div class="q">S: Robotik implant cerrahisinin 4 adımı sırasıyla?</div><div class="a">CBCT Imaging → Digital Planning → Robotic Guidance → Implant Placement.</div></div>
+    <div class="qa"><div class="q">S: Ortodontide teli dijital plana göre büken robot?</div><div class="a">Archwire bending robot (human error / wire deformation'ı önler).</div></div>
+    <div class="qa"><div class="q">S: Endodontik root canal robotlarının mevcut durumu?</div><div class="a">Çoğu hâlâ experimental (deneysel) aşamada; VR + haptic training daha yaygın.</div></div>
+    <div class="qa"><div class="q">S: Dental robotların başlıca 3 etik kaygısı?</div><div class="a">Patient safety, data privacy, komplikasyonda sorumluluk.</div></div>
+  </div>
+</section>
+
+<!-- ============ MEGA TABLES ============ -->
+<section id="mega">
+  <h2 class="week focus">🎯 MEGA Karşılaştırma &amp; Hızlı Tekrar Tabloları</h2>
+
+  <h3>1) Laser Tipleri — Tek Bakışta</h3>
+  <table>
+    <tr><th>Laser</th><th>Doku</th><th>İmza Kullanım</th><th>Hatırlatıcı</th></tr>
+    <tr><td>CO₂</td><td>Soft</td><td>Soft tissue surgery + coagulation</td><td>Yumuşakta keskin</td></tr>
+    <tr><td><strong>Er:YAG</strong></td><td><strong>Hard + Soft</strong></td><td>Caries removal, cavity prep</td><td>"ER = sert doku"</td></tr>
+    <tr><td>Nd:YAG</td><td>Deep</td><td>Periodontal + disinfection</td><td>"Derine dalar"</td></tr>
+    <tr><td>Diode</td><td>Soft</td><td>Gingivectomy + bacterial reduction</td><td>Yumuşak küçük işler</td></tr>
+  </table>
+
+  <h3>2) Laser–Tissue Etkileri</h3>
+  <table>
+    <tr><th>Etki</th><th>Mekanizma</th><th>Kullanım</th></tr>
+    <tr><td><strong>Photothermal</strong> (en önemli)</td><td>Işık → ısı</td><td>Cutting, vaporization, coagulation</td></tr>
+    <tr><td>Photochemical</td><td>Işık → kimyasal reaksiyon</td><td>Disinfection, whitening</td></tr>
+    <tr><td>Photobiomodulation (PBM)</td><td>Düşük enerji, ısısız</td><td>Healing, pain reduction, TMD</td></tr>
+  </table>
+
+  <h3>3) AI Hiyerarşisi &amp; Modeller</h3>
+  <table>
+    <tr><th>Kavram</th><th>Tanım</th><th>İmza</th></tr>
+    <tr><td>AI</td><td>Genel akıllı sistemler</td><td>En geniş şemsiye</td></tr>
+    <tr><td>ML</td><td>Veriden öğrenme</td><td>Input→Learning→Output</td></tr>
+    <tr><td>DL</td><td>Çok katmanlı sinir ağı</td><td>Büyük veri, yüksek doğruluk</td></tr>
+    <tr><td>ANN</td><td>Beyin esinli ağ</td><td>Input/Hidden/Output layer</td></tr>
+    <tr><td><strong>CNN</strong></td><td>Görüntüye özel DL</td><td>Classification/Detection/Segmentation</td></tr>
+  </table>
+
+  <h3>4) İş Akışı Sıralamaları (ezberlenecek)</h3>
+  <table>
+    <tr><th>Süreç</th><th>Sıra</th></tr>
+    <tr><td>CAD/CAM</td><td>Scan → Design → Make (Acquisition→CAD→Manufacturing)</td></tr>
+    <tr><td>Robotik implant</td><td>CBCT → Planning → Robotic Guidance → Placement</td></tr>
+    <tr><td>Aligner üretimi</td><td>Scan → Digital model → Simulate movement → Print</td></tr>
+    <tr><td>ML mantığı</td><td>Input data → Learning → Prediction</td></tr>
+    <tr><td>3D print sonrası</td><td>Print → Washing → Post-curing</td></tr>
+  </table>
+
+  <h3>5) "Hangi cihaz hangi branşta?" — Süper Eşleştirme <span class="examtag">SINAV</span></h3>
+  <table>
+    <tr><th>Branş</th><th>İmza Teknoloji</th></tr>
+    <tr><td>Endodontics</td><td>Guided endodontics (CBCT + IOS); ANN→working length; CNN→VRF</td></tr>
+    <tr><td>Orthodontics</td><td>Cephalometric analysis, clear aligners, archwire bending robot</td></tr>
+    <tr><td>Restorative</td><td>Laser fluorescence / transillumination; Er:YAG caries removal</td></tr>
+    <tr><td>Periodontology</td><td>CBCT 3D bone, digital probing; Nd:YAG/diode laser</td></tr>
+    <tr><td>Prosthodontics</td><td>DSD, virtual articulator, CAD/CAM, tooth arrangement robot</td></tr>
+    <tr><td>OMFS</td><td>CBCT + surgical guide; implant robot; outcome prediction</td></tr>
+    <tr><td>Pediatric</td><td>AI dental age estimation, caries risk</td></tr>
+  </table>
+
+  <div class="box spot">
+    <span class="t">🎯 Spot Bilgi — Final'de En Çok Sorulan 6 "Kesin" Bilgi</span>
+    <ul style="margin:6px 0">
+      <li>Lazerin en önemli etkisi → <strong>Photothermal Effect</strong></li>
+      <li>Tek "hard tissue" lazeri / caries removal → <strong>Er:YAG</strong></li>
+      <li>İlk chairside CAD/CAM → <strong>CEREC (Dentsply Sirona)</strong></li>
+      <li>İlk laser (1960) → <strong>Theodore Maiman</strong></li>
+      <li>Görüntü analizinde DL modeli → <strong>CNN</strong></li>
+      <li>AI = software / Robotics = mechanical</li>
+    </ul>
+  </div>
+</section>
+
+<div class="footer">
+  ⚡ Technological Advancements in Dentistry — Final Çalışma Rehberi · 12 hafta · Week 8–12 vurgulu<br>
+  Başarılar! Önce ★ işaretli haftaları (8–12) çalış, sonra tabloları kapatıp flashcard'ları kendine sor.
+</div>
+
+</div>
+</body>
+</html>

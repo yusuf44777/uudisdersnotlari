@@ -422,6 +422,24 @@ svg {
     linear-gradient(135deg, rgba(194, 86, 42, 0.08), transparent);
 }
 
+.course-card.history::after {
+  background:
+    repeating-linear-gradient(135deg, rgba(154, 47, 80, 0.14) 0 2px, transparent 2px 16px),
+    linear-gradient(135deg, rgba(154, 47, 80, 0.08), transparent);
+}
+
+.course-card.technology::after {
+  background:
+    repeating-linear-gradient(135deg, rgba(18, 126, 142, 0.14) 0 2px, transparent 2px 16px),
+    linear-gradient(135deg, rgba(18, 126, 142, 0.08), transparent);
+}
+
+.course-card.turkish::after {
+  background:
+    repeating-linear-gradient(135deg, rgba(111, 74, 167, 0.14) 0 2px, transparent 2px 16px),
+    linear-gradient(135deg, rgba(111, 74, 167, 0.08), transparent);
+}
+
 .course-card.pending {
   background:
     linear-gradient(180deg, rgba(255, 253, 248, 0.96), rgba(255, 253, 248, 0.78)),
@@ -469,6 +487,18 @@ svg {
   color: #c2562a;
 }
 
+.course-card.history .course-topline strong {
+  color: #9a2f50;
+}
+
+.course-card.technology .course-topline strong {
+  color: #127e8e;
+}
+
+.course-card.turkish .course-topline strong {
+  color: #6f4aa7;
+}
+
 .course-card.pending .course-topline strong {
   color: var(--gold);
 }
@@ -514,6 +544,18 @@ svg {
 
 .course-card.embryology a {
   background: #c2562a;
+}
+
+.course-card.history a {
+  background: #9a2f50;
+}
+
+.course-card.technology a {
+  background: #127e8e;
+}
+
+.course-card.turkish a {
+  background: #6f4aa7;
 }
 
 .course-card.pending a {
@@ -700,6 +742,18 @@ svg {
 
 .note-card[data-course="Embryology"] .course-dot::before {
   background: #c2562a;
+}
+
+.note-card[data-course="Atatürk İlkeleri ve İnkılap Tarihi"] .course-dot::before {
+  background: #9a2f50;
+}
+
+.note-card[data-course="Technological Dentistry"] .course-dot::before {
+  background: #127e8e;
+}
+
+.note-card[data-course="Türk Dili"] .course-dot::before {
+  background: #6f4aa7;
 }
 
 .note-card h3 {

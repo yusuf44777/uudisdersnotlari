@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İnkılap Tarihi · Final Çalışma Rehberi (ATA 102)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAF7; --paper-2:#F4F1EA; --ink:#1C2230; --ink-soft:#3A4254;
+  --line:#E2DCD0; --line-soft:#EDE8DD;
+  --crimson:#B0282D; --crimson-bg:#FBEFEE;
+  --indigo:#34416B; --indigo-bg:#EEF1F8;
+  --emerald:#1F7A5A; --emerald-bg:#EAF5F0;
+  --amber:#B5751A; --amber-bg:#FBF2E2;
+  --plum:#6B3A6B; --plum-bg:#F6EEF6;
+  --mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:'IBM Plex Sans',system-ui,sans-serif; font-size:17px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:920px; margin:0 auto; padding:0 22px 120px;}
+
+/* ---- Masthead ---- */
+header.top{
+  border-bottom:3px double var(--ink); padding:46px 0 26px; margin-bottom:8px;
+}
+.eyebrow{font-family:var(--mono); letter-spacing:.22em; text-transform:uppercase;
+  font-size:12px; color:var(--crimson); margin:0 0 10px;}
+header.top h1{font-family:'Fraunces',serif; font-weight:800; font-size:clamp(34px,6vw,58px);
+  line-height:1.02; margin:0 0 14px; letter-spacing:-.01em;}
+header.top p.sub{margin:0; max-width:60ch; color:var(--ink-soft); font-size:16px;}
+.meta-row{display:flex; flex-wrap:wrap; gap:8px 18px; margin-top:18px; font-family:var(--mono);
+  font-size:12.5px; color:var(--ink-soft);}
+.meta-row span{display:inline-flex; align-items:center; gap:6px;}
+.meta-row b{color:var(--ink);}
+
+/* ---- Nav ---- */
+nav.toc{position:sticky; top:0; z-index:30; background:rgba(251,250,247,.93);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--line); margin-bottom:40px;}
+nav.toc .wrap{padding:11px 22px; display:flex; flex-wrap:wrap; gap:6px;}
+nav.toc a{font-family:var(--mono); font-size:11.5px; text-decoration:none; color:var(--ink-soft);
+  padding:4px 9px; border:1px solid var(--line); border-radius:20px; transition:.15s;}
+nav.toc a:hover{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+nav.toc a.hot{border-color:var(--crimson); color:var(--crimson);}
+nav.toc a.hot:hover{background:var(--crimson); color:#fff; border-color:var(--crimson);}
+
+/* ---- Week blocks ---- */
+section.week{margin:0 0 56px; scroll-margin-top:64px;}
+.wk-head{display:flex; align-items:baseline; gap:16px; border-bottom:2px solid var(--ink);
+  padding-bottom:8px; margin-bottom:6px;}
+.wk-num{font-family:var(--mono); font-size:13px; font-weight:600; color:var(--paper);
+  background:var(--ink); padding:3px 10px; border-radius:4px; white-space:nowrap;}
+.wk-num.hot{background:var(--crimson);}
+.wk-head h2{font-family:'Fraunces',serif; font-weight:700; font-size:clamp(23px,3.5vw,31px);
+  margin:0; line-height:1.12;}
+.wk-tag{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--amber); margin:8px 0 22px;}
+.wk-tag.hot{color:var(--crimson); font-weight:600;}
+
+h3{font-family:'Fraunces',serif; font-weight:600; font-size:21px; margin:30px 0 8px;
+  color:var(--ink); letter-spacing:-.005em;}
+h4{font-size:16px; margin:20px 0 4px; color:var(--indigo); font-weight:700;}
+p{margin:10px 0;}
+em{font-style:italic;}
+strong{font-weight:700;}
+.term{font-weight:700; color:var(--crimson);}
+.gloss{color:var(--ink-soft); font-weight:400; font-style:italic;}
+mark{background:linear-gradient(transparent 55%, #FCE9A6 55%); padding:0 1px; color:inherit;}
+ul,ol{margin:10px 0; padding-left:22px;}
+li{margin:6px 0;}
+.dt{font-family:var(--mono); font-weight:600; color:var(--indigo); font-size:.93em;}
+
+/* ---- Callout boxes ---- */
+.box{border-radius:10px; padding:15px 18px 15px 18px; margin:18px 0; position:relative;
+  border:1px solid; font-size:15.5px; line-height:1.6;}
+.box .b-title{display:flex; align-items:center; gap:8px; font-family:var(--mono);
+  font-size:12px; letter-spacing:.08em; text-transform:uppercase; font-weight:600; margin-bottom:7px;}
+.box p{margin:6px 0;} .box ul{margin:6px 0;}
+.strat{background:var(--indigo-bg); border-color:#C6CEE3; color:#222a44;}
+.strat .b-title{color:var(--indigo);}
+.spot{background:var(--emerald-bg); border-color:#BCE0D2; color:#173f31;}
+.spot .b-title{color:var(--emerald);}
+.alarm{background:var(--crimson-bg); border-color:#EBC2C0; color:#5a1416;}
+.alarm .b-title{color:var(--crimson);}
+.mnemo{background:var(--amber-bg); border-color:#E7CD9C; color:#5a3d10;}
+.mnemo .b-title{color:var(--amber);}
+.mnemo .key{font-family:'Fraunces',serif; font-weight:800; font-size:18px; color:var(--crimson);
+  letter-spacing:.02em; display:block; margin:4px 0;}
+
+/* ---- Flashcards ---- */
+.flash{margin:22px 0 6px; border-top:1px dashed var(--line); padding-top:14px;}
+.flash-lbl{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--plum); font-weight:600; margin-bottom:10px; display:flex; align-items:center; gap:7px;}
+.card{background:#fff; border:1px solid var(--line); border-left:4px solid var(--plum);
+  border-radius:8px; padding:13px 16px; margin:9px 0; box-shadow:0 1px 0 rgba(0,0,0,.02);}
+.card .q{font-weight:700; color:var(--ink); margin:0 0 6px;}
+.card .q::before{content:"S "; font-family:var(--mono); color:var(--plum); font-weight:600;}
+.card .a{margin:0; color:var(--ink-soft); font-size:15px;}
+.card .a::before{content:"C "; font-family:var(--mono); color:var(--emerald); font-weight:600;}
+
+/* ---- misc ---- */
+.lead{font-size:18px; color:var(--ink-soft); border-left:3px solid var(--crimson);
+  padding-left:16px; margin:14px 0 24px;}
+.divider{text-align:center; color:var(--line); margin:50px 0; font-size:20px; letter-spacing:.5em;}
+table.cmp{width:100%; border-collapse:collapse; margin:16px 0; font-size:14.5px;}
+table.cmp th,table.cmp td{border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top;}
+table.cmp th{background:var(--paper-2); font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:.05em;}
+table.cmp td:first-child{font-weight:600;}
+footer{border-top:3px double var(--ink); margin-top:60px; padding-top:20px;
+  font-family:var(--mono); font-size:12.5px; color:var(--ink-soft);}
+@media(max-width:560px){ body{font-size:16px;} .wk-head{flex-wrap:wrap; gap:8px;} }
+</style>
+</head>
+<body>
+
+<nav class="toc"><div class="wrap">
+  <a href="#h1">1 · Siyasi İnk.</a>
+  <a href="#h2">2 · Çok Parti</a>
+  <a href="#h3">3 · Hukuk</a>
+  <a href="#h4">4 · Eğitim-Kültür</a>
+  <a href="#h5">5 · Sosyal</a>
+  <a href="#h6">6 · Ekonomi-Sağlık</a>
+  <a href="#h7">7 · Dış Pol. I</a>
+  <a class="hot" href="#h8">8 · Dış Pol. II ★</a>
+  <a class="hot" href="#h9">9 · İnönü/II.DS ★</a>
+  <a class="hot" href="#h10">10 · DP/Menderes ★</a>
+  <a class="hot" href="#h11">11 · 27 Mayıs ★</a>
+  <a class="hot" href="#h12">12 · 12 Eylül→AKP ★</a>
+  <a class="hot" href="#h13">13 · İlkeler ★</a>
+</div></nav>
+
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">Üsküdar Üniversitesi · ATA 102 · Bahar Dönemi</p>
+  <h1>Atatürk İlkeleri ve İnkılap Tarihi — Final Rehberi</h1>
+  <p class="sub">Slaytların kronolojik zincir mantığıyla yeniden kurgulandığı, stratejik notlar, ezber teknikleri ve sınav tuzaklarıyla zenginleştirilmiş tam çalışma rehberi. <strong>★ işaretli 8–13. haftalar finalde ağırlıklı</strong> olduğundan en yüksek detay seviyesinde işlenmiştir.</p>
+  <div class="meta-row">
+    <span>🔗 <b>Tarihsel Strateji</b> · vizyoner çıkarım</span>
+    <span>🎯 <b>Spot Bilgi</b> · ezberlenmesi şart</span>
+    <span>⚠️ <b>Çeldirici Alarmı</b> · karışan kavramlar</span>
+    <span>🃏 <b>Flashcard</b> · aktif hatırlama</span>
+  </div>
+</header>
+
+<!-- ============================ HAFTA 1 ============================ -->
+<section class="week" id="h1">
+  <div class="wk-head"><span class="wk-num">HAFTA 01</span><h2>Lozan'ın Sonuçları & Siyasi Alanda İnkılaplar</h2></div>
+  <p class="wk-tag">Saltanat → Cumhuriyet → Halifelik → Anayasalar</p>
+
+  <p class="lead">Kurtuluş Savaşı'nın silahla kazandığı zaferi, <span class="term">Lozan Barış Antlaşması<span class="gloss"> (24 Temmuz 1923 — yeni Türkiye'nin uluslararası tapu senedi)</span></span> hukuken mühürler. Lozan yalnızca Anadolu'nun parçalanmasını önlemekle kalmaz; Osmanlı'dan miras kalan asırlık sorunları (sınırlar, azınlıklar, Boğazlar, kapitülasyonlar, Ermeni yurdu iddiası, dış borçlar, Rum Patrikhanesi, yabancı okullar) masaya yatırır.</p>
+
+  <div class="box strat"><div class="b-title">🔗 Tarihsel Strateji</div>
+  <p>Mustafa Kemal Lozan'ı <em>“yüzyıllardır hazırlanıp Sevr'le tamamlandığı sanılan büyük suikastın neticesiz bırakılması”</em> olarak tanımlar. Yani Lozan, Sevr'in (ölüm fermanı) tam zıttıdır. Sınavda Lozan = Sevr'in iptali; Mudanya = ateşkes (silahlı evre), Lozan = barış (hukuki evre) ayrımı kritiktir.</p></div>
+
+  <h3>1 · Saltanatın Kaldırılması — <span class="dt">1 Kasım 1922</span></h3>
+  <p>İtilaf Devletleri, Lozan Konferansı'na hem <span class="term">TBMM Hükümeti</span> hem <span class="term">İstanbul Hükümeti</span>'ni davet ederek "iki başlılık" çıkarıp Türk tarafını bölmek istedi. Mustafa Kemal bu tuzağı görüp meseleyi Meclis'e taşıdı; oybirliğiyle çıkan kanunla saltanat kaldırıldı. Son padişah <span class="term">Vahdettin</span> padişahlık haklarını kaybetti, son sadrazam <span class="term">Tevfik Paşa</span> 4 Kasım 1922'de istifa etti. <mark>Halifelik ise korundu.</mark></p>
+
+  <div class="box strat"><div class="b-title">🔗 Tarihsel Strateji</div>
+  <p>Saltanatın kaldırılması bir <em>diplomatik refleks</em>tir: temsil krizini çözmek için yapıldı ve aynı anda Cumhuriyet'in önündeki ilk engeli kaldırdı. Halifeliğin bir süre tutulması ise taktiktir — toplumu hazırlamak ve tek hamlede çok cephe açmamak için zaman kazanma.</p></div>
+
+  <h3>2 · Cumhuriyetin İlanı — <span class="dt">29 Ekim 1923</span></h3>
+  <p>1921 Anayasası'nda devlet başkanlığı ve kabine sistemi olmaması sık sık <strong>hükümet buhranlarına</strong> yol açıyordu. Mustafa Kemal'in cumhuriyet fikrini ilk kez <strong>Erzurum Kongresi</strong> sırasında yaveri Mazhar Müfit Kansu'ya açtığı bilinir. İlan ile kabine sistemine geçildi, devlet demokratikleşme yolunda büyük adım attı.</p>
+
+  <h3>3 · Halifeliğin Kaldırılması — <span class="dt">3 Mart 1924</span></h3>
+  <p>Halifelik, Osmanlı'ya Yavuz Sultan Selim'in <strong>1517 Mısır Seferi</strong> sonrası geçmişti. Milliyetçilik + milli egemenlik üzerine kurulu cumhuriyet ile, ümmetçilik üzerine kurulu halifelik bağdaşamazdı. Kaldırılmasıyla devletin laikleşmesinin önündeki en büyük engel ve saltanat yanlılarının dayandığı makam ortadan kalktı.</p>
+
+  <h3>4 · Anayasa Hareketleri</h3>
+  <ul>
+    <li><span class="term">1921 (Teşkilât-ı Esasiye)<span class="gloss"> — ilk anayasa, 20 Ocak 1921</span></span>: "Hakimiyet kayıtsız şartsız milletindir." <strong>Kuvvetler birliği</strong> (yasama+yürütme TBMM'de). Olağanüstü dönem anayasası, 1924'e kadar yürürlükte.</li>
+    <li><span class="term">1924 Anayasası<span class="gloss"> — 20 Nisan 1924</span></span>: "Türkiye Devleti bir Cumhuriyettir." <strong>Yumuşak kuvvetler ayrımı</strong>, parlamenter sisteme yaklaşma. Sonradan 5 kez değiştirildi.</li>
+  </ul>
+  <div class="box spot"><div class="b-title">🎯 Spot Bilgi</div>
+  <p>Cumhuriyet tarihinde <strong>4 anayasa</strong> yürürlüğe girmiştir: <strong>1921 – 1924 – 1961 – 1982</strong>. 1921 → kuvvetler <em>birliği</em>; 1924 → kuvvetler <em>ayrılığına geçiş</em>.</p></div>
+
+  <div class="flash"><div class="flash-lbl">🃏 Flashcard · Hafta 1</div>
+    <div class="card"><p class="q">Saltanatın kaldırılmasının (1 Kasım 1922) doğrudan tetikleyicisi olan diplomatik olay nedir?</p><p class="a">İtilaf Devletleri'nin Lozan Konferansı'na hem TBMM hem İstanbul Hükümeti'ni çağırarak Türk tarafını ikiye bölme girişimi.</p></div>
+    <div class="card"><p class="q">1921 ve 1924 Anayasaları arasındaki temel kuvvetler dengesi farkı nedir?</p><p class="a">1921 → kuvvetler birliği (her şey TBMM'de); 1924 → yumuşak kuvvetler ayrımı, parlamenter sisteme geçiş.</p></div>
+    <div class="card"><p class="q">Halifelik Osmanlı'ya hangi tarihsel olayla geçmiştir?</p><p class="a">1517 Mısır Seferi sonrasında, Yavuz Sultan Selim döneminde.</p></div>
+  </div>
+</section>
+
+<!-- ============================ HAFTA 2 ============================ -->
+<section class="week" id="h2">
+  <div class="wk-head"><span class="wk-num">HAFTA 02</span><h2>Çok Partili Rejim Denemeleri</h2></div>
+  <p class="wk-tag">CHF → TpCF → Şeyh Sait → Suikast → SCF → Menemen</p>
+
+  <p class="lead">I. TBMM, ortak amacı (<span class="term">Misak-ı Milli<span class="gloss"> — milli sınırlar yemini</span></span>) olan ama parti çatısı olmayan vekillerden oluşuyordu. Zamanla gruplaşmalar (Tesanüt, İstiklal, Müdafaa-i Hukuk, Halk, Islahat) belirdi.</p>
+
+  <h3>Halk Fırkası → CHF</h3>
+  <p>Mustafa Kemal 151 arkadaşıyla <span class="dt">10 Mayıs 1921</span>'de <span class="term">Anadolu ve Rumeli Müdafaa-i Hukuk Grubu</span>'nu kurdu. Bu grup <span class="dt">9 Eylül 1923</span>'te <span class="term">Halk Fırkası</span>'na, <span class="dt">10 Kasım 1924</span>'te <span class="term">Cumhuriyet Halk Fırkası (CHF)</span>'na dönüştü — cumhuriyetin <strong>ilk siyasi partisi</strong>, devlet kuran parti.</p>
+
+  <h3>Terakkiperver Cumhuriyet Fırkası (TpCF) — <span class="dt">17 Kasım 1924</span></h3>
+  <p>Kazım Karabekir, Ali Fuat Cebesoy, Refet Bele, Rauf Orbay, Adnan Adıvar gibi isimler CHF'den ayrılıp kurdu. Program: liberalizm, demokrasi, <em>"din ve inançlara saygılı"</em>, yerinden yönetim. <strong>Cumhuriyetin ilk muhalefet partisi.</strong></p>
+  <p>Doğu'da <span class="term">Şeyh Sait İsyanı</span> (1925, Diyarbakır merkezli, dini gerekçe + İngiliz desteği iddiası) patlayınca hükümet <span class="dt">4 Mart 1925</span> <span class="term">Takrir-i Sükûn Kanunu<span class="gloss"> — huzurun sağlanması/olağanüstü yetki kanunu</span></span> çıkardı ve iki <strong>İstiklal Mahkemesi</strong> kurdu. Bu yetkiyle TpCF <span class="dt">3 Haziran 1925</span>'te kapatıldı → <strong>ilk çok partili deneme başarısız.</strong></p>
+
+  <h3>Atatürk'e Suikast Girişimi — <span class="dt">İzmir, 16 Haziran 1926</span></h3>
+  <p>Suikast ihbarla önlendi, failler İstiklal Mahkemesi'nde yargılanıp cezalandırıldı.</p>
+
+  <h3>Serbest Cumhuriyet Fırkası (SCF) — <span class="dt">12 Ağustos 1930</span></h3>
+  <p>Mustafa Kemal'in <strong>kendi isteğiyle</strong>, yakın arkadaşı <span class="term">Fethi (Okyar) Bey</span>'e kurdurduğu parti — dış dünyaya "diktatörlük değil" mesajı vermek ve liberal muhalefet yaratmak için. Cumhuriyetçilik-milliyetçilik-laikliğe bağlı, liberalizmi ve <strong>kadınlara siyasi hak</strong> verilmesini savunuyordu. Hızla rejim karşıtlarının toplandığı yapıya dönüşünce Fethi Bey <span class="dt">17 Kasım 1930</span>'da partiyi kendisi feshetti → <strong>ikinci deneme de başarısız.</strong></p>
+
+  <h3>Menemen Olayı — <span class="dt">23 Aralık 1930</span></h3>
+  <p>Derviş Mehmet önderliğindeki grup "şeriat istiyoruz" diyerek ayaklandı; yedek subay <span class="term">Kubilay</span> şehit edildi. Sonuç: <strong>1946'ya kadar yeni partiye izin verilmedi</strong> — demokrasi için şartların henüz olmadığının kanıtı.</p>
+
+  <div class="box mnemo"><div class="b-title">🧠 Ezber Tekniği</div>
+  <p>İki muhalefet partisini ve akıbetini karıştırmamak için hikaye: <em>"<strong>T</strong>erakkiperver <strong>T</strong>aşrada Şeyh Sait'le düştü (Takrir-i Sükûn ile <strong>kapatıldı</strong>); <strong>S</strong>erbest fırka <strong>S</strong>ahibinin (Fethi Bey) eliyle <strong>feshedildi</strong>."</em></p>
+  <span class="key">TpCF = KAPATILDI · SCF = FESHEDİLDİ</span></div>
+
+  <div class="box alarm"><div class="b-title">⚠️ Çeldirici Alarmı</div>
+  <p><strong>TpCF (1924)</strong> dışarıdan/muhaliflerce kuruldu, hükümetçe <strong>kapatıldı</strong>. <strong>SCF (1930)</strong> bizzat Atatürk'ün isteğiyle kuruldu, kurucusu Fethi Bey'ce <strong>feshedildi</strong>. "Kapattı/feshetti", "ilk muhalefet/ikinci deneme" ayrımları sık sorulur. Şeyh Sait = TpCF dönemi; Menemen = SCF sonrası. İkisini takas etmeyin.</p></div>
+
+  <div class="flash"><div class="flash-lbl">🃏 Flashcard · Hafta 2</div>
+    <div class="card"><p class="q">TpCF hangi kanuna dayanılarak ve hangi isyanın ardından kapatıldı?</p><p class="a">Takrir-i Sükûn Kanunu (4 Mart 1925) ile, Şeyh Sait İsyanı'nın ardından (3 Haziran 1925).</p></div>
+    <div class="card"><p class="q">SCF'yi diğer denemelerden ayıran en kritik özellik nedir?</p><p class="a">Bizzat Mustafa Kemal'in isteğiyle, Fethi Okyar'a kurdurulması; sonunda kurucusunun kendisi tarafından feshedilmesi.</p></div>
+    <div class="card"><p class="q">Menemen Olayı'nın uzun vadeli siyasi sonucu nedir?</p><p class="a">Çok partili hayata geçişin 1946'ya ertelenmesi; tek parti döneminin pekişmesi.</p></div>
+  </div>
+</section>
+
+<!-- ============================ HAFTA 3 ============================ -->
+<section class="week" id="h3">
+  <div class="wk-head"><span class="wk-num">HAFTA 03</span><h2>Hukuk Alanında İnkılaplar</h2></div>
+  <p class="wk-tag">Medeni · Ceza · Hakimler · Ticaret · Borçlar · İcra-İflas + Kadın Hakları</p>
+
+  <p>Osmanlı'da <span class="term">şer'i hukuk</span> (dini kurallar) + <span class="term">örfi hukuk</span> (gelenek) ikiliği vardı; 1839 Tanzimat sonrası hazırlanan <span class="term">Mecelle</span> (yarı teokratik medeni kanun, yalnız Hanefi mezhebinden) yeni ihtiyaçlara esneyemiyordu. Batılılaşmanın gereği olarak hukuk baştan kuruldu.</p>
+
+  <table class="cmp">
+    <tr><th>Kanun</th><th>Kaynak</th><th>Tarih</th></tr>
+    <tr><td>Medeni Kanun (No.743)</td><td>İsviçre</td><td><span class="dt">17 Şubat 1926</span> (kabul)</td></tr>
+    <tr><td>Ceza Kanunu</td><td>İtalya</td><td><span class="dt">1 Mart 1926</span></td></tr>
+    <tr><td>Hakimler Kanunu</td><td>—</td><td><span class="dt">3 Mart 1926</span></td></tr>
+    <tr><td>Ticaret Kanunu (Kara)</td><td>Alman + İtalyan</td><td><span class="dt">29 Mayıs 1926</span></td></tr>
+    <tr><td>Borçlar Kanunu</td><td>—</td><td><span class="dt">8 Mayıs 1928</span></td></tr>
+    <tr><td>İcra ve İflas Kanunu</td><td>İsviçre</td><td><span class="dt">24 Nisan 1929</span></td></tr>
+  </table>
+
+  <p><strong>Medeni Kanun</strong> 4 bölümdür: <em>şahıs, aile, miras, ayni haklar</em>. Kadınlara aile hukukunda eşitlik getirir. Yargı altyapısı: <strong>1925 Ankara Hukuk Mektebi</strong>, barolar, modern mahkemeler.</p>
+
+  <div class="box spot"><div class="b-title">🎯 Spot Bilgi · Kadın Haklarının Aşamaları</div>
+  <ul>
+    <li><span class="dt">1930</span> — Belediye seçimlerinde seçme/seçilme</li>
+    <li><span class="dt">1933</span> — Muhtarlık seçimlerinde</li>
+    <li><span class="dt">5 Aralık 1934</span> — <strong>Milletvekili</strong> seçme/seçilme hakkı</li>
+  </ul></div>
+
+  <div class="box mnemo"><div class="b-title">🧠 Ezber Tekniği · Kanun Kaynakları</div>
+  <p>"<strong>Medeniyetli İsviçre</strong> bize <strong>Medeni</strong> + <strong>İcra-İflas</strong> verdi; <strong>İtalya Ceza</strong> kesti."</p>
+  <span class="key">İsviçre → Medeni & İcra-İflas · İtalya → Ceza</span></div>
+
+  <div class="flash"><div class="flash-lbl">🃏 Flashcard · Hafta 3</div>
+    <div class="card"><p class="q">Türk Medeni Kanunu hangi ülkeden uyarlandı ve kaç bölümden oluşur?</p><p class="a">İsviçre Medeni Kanunu'ndan; dört bölüm: şahıs, aile, miras, ayni haklar.</p></div>
+    <div class="card"><p class="q">Kadınlar milletvekili seçme/seçilme hakkını hangi tarihte kazandı?</p><p class="a">5 Aralık 1934.</p></div>
+  </div>
+</section>
+
+<!-- ============================ HAFTA 4 ============================ -->
+<section class="week" id="h4">
+  <div class="wk-head"><span class="wk-num">HAFTA 04</span><h2>Eğitim ve Kültür İnkılapları</h2></div>
+  <p class="wk-tag">Tevhid-i Tedrisat · Harf İnkılabı · Üniversite · TTK · TDK</p>
+
+  <h3>Tevhid-i Tedrisat — <span class="dt">3 Mart 1924</span></h3>
+  <p><span class="term">Tevhid-i Tedrisat<span class="gloss"> — Öğretimin Birleştirilmesi</span></span>: tüm okullar Maarif Vekaleti'ne (Eğitim Bakanlığı) bağlandı, medreseler kapatıldı, eğitime millilik kazandırıldı. <mark>Halifeliğin kaldırılmasıyla AYNI GÜN.</mark> Ardından <span class="dt">2 Mart 1926</span> Maarif Teşkilatı Kanunu: devlet izni olmadan okul açılamaz.</p>
+
+  <h3>Harf İnkılabı — <span class="dt">1 Kasım 1928</span></h3>
+  <p>"Elifba Raporu" temelinde Latin alfabesi: <span class="term">Türk Harflerinin Kabul ve Uygulanması Hakkında Kanun</span>. Atatürk "başöğretmen" olarak ders verdi; <span class="dt">1 Ocak 1929</span> <span class="term">Millet Mektepleri</span> ile halka okuma-yazma.</p>
+
+  <h3>Üniversite Reformu — <span class="dt">31 Mayıs 1933</span></h3>
+  <p>İsviçre'den Prof. Albert Malche'nin raporu + Almanya'dan 15 profesör → <span class="term">Darülfünun kapatıldı</span>, yerine <span class="dt">1 Nisan 1934</span> <span class="term">İstanbul Üniversitesi</span>. İlmi-idari özerklik, akademik kariyerin kanunla düzenlenmesi.</p>
+
+  <h3>Tarih ve Dil</h3>
+  <ul>
+    <li><span class="term">Türk Tarih Tezi</span>: Türk tarihi yalnız Selçuklu-Osmanlı değildir; İslam öncesi de araştırılmalı.</li>
+    <li><span class="dt">15 Nisan 1931</span> — <span class="term">Türk Tarihi Tetkik Cemiyeti (TTK)</span></li>
+    <li><span class="dt">12 Temmuz 1932</span> — <span class="term">Türk Dili Tetkik Cemiyeti (TDK)</span></li>
+    <li><span class="dt">14 Haziran 1935</span> — Dil ve Tarih-Coğrafya Fakültesi</li>
+  </ul>
+
+  <div class="box alarm"><div class="b-title">⚠️ Çeldirici Alarmı</div>
+  <p><strong>TTK (1931) Tarih'ten önce mi, TDK (1932) Dil'den önce mi?</strong> Alfabetik tuzak: <strong>Tarih (1931) → Dil (1932)</strong> sırasıdır. Ayrıca Tevhid-i Tedrisat ile Halifeliğin Kaldırılması <strong>aynı gün</strong> (3 Mart 1924) — biri "eğitim" biri "din-devlet" başlığı altında ayrı ayrı sorulabilir.</p></div>
+
+  <div class="flash"><div class="flash-lbl">🃏 Flashcard · Hafta 4</div>
+    <div class="card"><p class="q">3 Mart 1924'te aynı gün gerçekleşen iki büyük inkılap nedir?</p><p class="a">Halifeliğin kaldırılması ve Tevhid-i Tedrisat (Öğretim Birliği) Kanunu.</p></div>
+    <div class="card"><p class="q">TTK ve TDK'nın kuruluş yıllarını sırasıyla söyleyin.</p><p class="a">TTK 1931, TDK 1932 (Tarih önce, Dil sonra).</p></div>
+  </div>
+</section>
+
+<!-- ============================ HAFTA 5 ============================ -->
+<section class="week" id="h5">
+  <div class="wk-head"><span class="wk-num">HAFTA 05</span><h2>Sosyal Alanda İnkılaplar</h2></div>
+  <p class="wk-tag">Kılık-Kıyafet · Tekke-Zaviye · Takvim-Saat-Ölçü · Soyadı · Bayramlar</p>
+
+  <ul>
+    <li><span class="term">Şapka Kanunu</span> — <span class="dt">25 Kasım 1925</span> (öncesinde 2 Eylül 1925: din adamı dışı cüppe/sarık yasağı)</li>
+    <li><span class="term">Tekke, Zaviye, Türbelerin Kapatılması</span> — <span class="dt">30 Kasım 1925</span> (şeyhlik, dervişlik vb. unvanlar yasak)</li>
+    <li><span class="term">Takvim/Saat değişikliği</span> — <span class="dt">26 Aralık 1925</span> (Hicri-Rumi → Miladi; uluslararası saat). Rakamlar (Avrupa) aynı yıl; ölçüler (metre-kg) <span class="dt">26 Mart 1931</span></li>
+    <li><span class="term">Soyadı Kanunu</span> — <span class="dt">21 Haziran 1934</span></li>
+    <li><span class="term">Milli Bayramlar ve Genel Tatiller</span> — <span class="dt">27 Mayıs 1935</span> (hafta sonu tatili Batı'ya uyarlandı). 23 Nisan ise zaten <span class="dt">1921</span>'de bayram ilan edilmişti.</li>
+  </ul>
+
+  <div class="box mnemo"><div class="b-title">🧠 Ezber Tekniği · "1925 Sosyal Fırtınası"</div>
+  <p>1925 yılı sosyal inkılapların yoğunlaştığı yıldır: <strong>Şapka (Kas.) – Tekke (Kas.) – Takvim/Saat (Ara.)</strong>. "Başına şapka tak, tekkeyi kapat, saatini ayarla — hepsi 1925."</p></div>
+
+  <div class="box alarm"><div class="b-title">⚠️ Çeldirici Alarmı</div>
+  <p><strong>Ölçü-rakam tarihleri</strong> ayrı: rakamlar 1925, uzunluk/ağırlık ölçüleri (metre-kilogram) <strong>1931</strong>. Soyadı (1934) ile Milli Bayramlar (1935) sık takas edilir.</p></div>
+
+  <div class="flash"><div class="flash-lbl">🃏 Flashcard · Hafta 5</div>
+    <div class="card"><p class="q">Tekke, zaviye ve türbeler hangi tarihte kapatıldı?</p><p class="a">30 Kasım 1925.</p></div>
+    <div class="card"><p class="q">Soyadı Kanunu'nun kabul tarihi?</p><p class="a">21 Haziran 1934.</p></div>
+  </div>
+</section>
+
+<!-- ============================ HAFTA 6 ============================ -->
+<section class="week" id="h6">
+  <div class="wk-head"><span class="wk-num">HAFTA 06</span><h2>Ekonomi ve Sağlık Alanında Çalışmalar</h2></div>
+  <p class="wk-tag">İzmir İktisat Kongresi · İş Bankası · Teşvik-i Sanayi · 1. Beş Yıllık Plan</p>
+
+  <p><span class="term">I. Türkiye İktisat Kongresi</span> — <span class="dt">17 Şubat 1923</span> (İzmir, cumhuriyet ilanından <em>önce</em>): <span class="term">Misak-ı İktisadi<span class="gloss"> — Milli Ekonomi İlkesi</span></span> benimsendi.</p>
+  <ul>
+    <li><span class="dt">26 Ağustos 1924</span> — <span class="term">Türkiye İş Bankası</span></li>
+    <li><span class="dt">1925</span> — Öşür (aşar) Vergisi kaldırıldı · <span class="dt">1926</span> — <span class="term">Kabotaj Kanunu</span></li>
+    <li><span class="dt">28 Mayıs 1927</span> — <span class="term">Teşvik-i Sanayi Kanunu</span> (özel sektörü sanayiye çekme)</li>
+    <li><span class="dt">1929 Dünya Ekonomik Krizi</span> → liberal denemeden <strong>devletçiliğe</strong> dönüş</li>
+    <li><span class="dt">1933–1938</span> — <span class="term">I. Beş Yıllık Kalkınma Planı</span> ile planlı sanayileşme</li>
+  </ul>
+  <p><strong>Sağlık:</strong> 1921 Çocuk Esirgeme Kurumu; <span class="dt">1930</span> <span class="term">Umumi Hıfzıssıhha Kanunu</span> + Sağlık ve Sosyal Yardım Bakanlığı.</p>
+
+  <div class="box strat"><div class="b-title">🔗 Tarihsel Strateji</div>
+  <p>1929 krizi bir kırılma noktasıdır: özel sektör öncülüğü (Teşvik-i Sanayi) yetersiz kalınca devlet sahneye çıkar. <strong>Devletçilik</strong> bir ideoloji değil, krizin dayattığı <em>pragmatik bir kalkınma modeli</em>dir — bu nüans 13. haftadaki Devletçilik ilkesiyle bağlanır.</p></div>
+
+  <div class="flash"><div class="flash-lbl">🃏 Flashcard · Hafta 6</div>
+    <div class="card"><p class="q">İzmir İktisat Kongresi'nde benimsenen ilke nedir ve kongrenin cumhuriyetle zamansal ilişkisi nedir?</p><p class="a">Misak-ı İktisadi (Milli Ekonomi İlkesi); kongre cumhuriyet ilanından önce, 17 Şubat 1923'te toplandı.</p></div>
+    <div class="card"><p class="q">Devletçiliğe dönüşü hızlandıran dış etken nedir?</p><p class="a">1929 Dünya Ekonomik Krizi.</p></div>
+  </div>
+</section>
+
+<!-- ============================ HAFTA 7 ============================ -->
+<section class="week" id="h7">
+  <div class="wk-head"><span class="wk-num">HAFTA 07</span><h2>Atatürk Dönemi Dış Politika · 1923–1932</h2></div>
+  <p class="wk-tag">Lozan'ın artıkları · Musul · Etabli · komşularla dostluk</p>
+
+  <p>Temel ilke: <span class="term">"Yurtta Sulh, Cihanda Sulh"</span>. İki dayanak: <strong>(1)</strong> siyasi bağımsızlıktan taviz vermemek, <strong>(2)</strong> anlaşmazlıkları barışçıl çözmek. Bu dönemin gündemi <em>Lozan'da çözülemeyenler</em>dir.</p>
+  <ul>
+    <li><span class="term">Musul Meselesi (Türk-İngiliz)</span>: <span class="dt">5 Haziran 1926</span> antlaşması — Musul <strong>Irak'a (İngiltere'ye) bırakıldı</strong>, petrol gelirinin %10'u 25 yıl Türkiye'ye. Şeyh Sait İsyanı'nın iç baskısı, Türkiye'yi tavize zorlayan faktördü.</li>
+    <li><span class="term">Etabli (Nüfus Mübadelesi) – Türk-Yunan</span>: <span class="dt">10 Haziran 1930</span> Dostluk Antlaşması; Venizelos Ekim 1930'da Türkiye'yi ziyaret etti.</li>
+    <li><span class="term">Türk-Sovyet</span>: <span class="dt">17 Aralık 1925</span> Dostluk ve Saldırmazlık Antlaşması.</li>
+    <li><span class="term">Türk-Fransız</span>: Borçlar, Suriye sınırı, misyoner okulları sorunları (1921 Ankara Antlaşması'yla Fransa TBMM'yi tanıyan ilk İtilaf devletiydi).</li>
+    <li><span class="term">Türk-İtalyan</span>: Mussolini'nin Roma İmparatorluğu hayali ilişkileri gerginleştirdi.</li>
+    <li><span class="term">İslam ülkeleri</span>: 1921/1928 Türk-Afgan Dostluk; 23 Ocak 1932 Türk-İran Dostluk.</li>
+  </ul>
+
+  <div class="box strat"><div class="b-title">🔗 Tarihsel Strateji</div>
+  <p>Musul'da geri adım atılması zayıflık değil <em>maliyet hesabı</em>dır: doğuda Şeyh Sait isyanıyla uğraşan, henüz ordusunu ve ekonomisini toparlayan Türkiye, İngiltere'yle topyekûn savaşı göze alamazdı. "Petrol %10 / 25 yıl" maddesi, kaybı kısmen telafi eden diplomatik bir tavizdir.</p></div>
+
+  <div class="flash"><div class="flash-lbl">🃏 Flashcard · Hafta 7</div>
+    <div class="card"><p class="q">Musul, hangi antlaşmayla ve hangi koşulla Irak'a bırakıldı?</p><p class="a">5 Haziran 1926 antlaşmasıyla; petrol gelirinin %10'unun 25 yıl Türkiye'ye verilmesi koşuluyla.</p></div>
+    <div class="card"><p class="q">1923–1932 dış politikasının ana ekseni neydi?</p><p class="a">Lozan'dan kalan sorunların (Musul, Etabli, sınırlar) barışçıl çözümü ve komşularla dostluk.</p></div>
+  </div>
+</section>
+
+<div class="divider">★ FİNAL AĞIRLIK BÖLGESİ · HAFTA 8–13 ★</div>
+
+<!-- ============================ HAFTA 8 ============================ -->
+<section class="week" id="h8">
+  <div class="wk-head"><span class="wk-num hot">HAFTA 08</span><h2>Atatürk Dönemi Dış Politika · 1932–1938</h2></div>
+  <p class="wk-tag hot">★ Finalde ağırlıklı · Milletler Cemiyeti · Balkan Antantı · Sadabad · Montrö</p>
+
+  <p class="lead">Lozan'ın artıkları temizlenince Türkiye <strong>statükocu</strong> (mevcut hakları barışçıl korumak) ve <strong>aktif</strong> (uluslararası ağırlığı artırmak) bir çizgiye geçer. 1933'te Almanya'da <span class="term">Nazilerin iktidara gelmesi</span>, bölgesel güvenlik arayışını hızlandıran tetikleyicidir.</p>
+
+  <h3>1 · Milletler Cemiyeti'ne Giriş — <span class="dt">18 Temmuz 1932</span></h3>
+  <p><span class="term">Milletler Cemiyeti (Cemiyet-i Akvam)<span class="gloss"> — I. Dünya Savaşı sonrası kurulan dünya barış örgütü</span></span>'ne Türkiye resmen üye oldu. Davetle (resen) çağrılması, uluslararası prestijinin göstergesidir.</p>
+
+  <h3>2 · Balkan Antantı — <span class="dt">9 Şubat 1934</span></h3>
+  <p>Üyeler: <mark>Türkiye, Yunanistan, Romanya, Yugoslavya</mark>. <span class="dt">6 Mart 1934</span>'te TBMM onayladı. <strong>Bulgaristan ve Arnavutluk politika değiştirip katılmadı.</strong> Amaç: İtalyan/Alman yayılmacılığına karşı <strong>batı (Balkan) güvenliği</strong>.</p>
+
+  <div class="box mnemo"><div class="b-title">🧠 Ezber Tekniği · Balkan Antantı Üyeleri</div>
+  <p>4 üyeyi "<strong>TYRY</strong>" koduyla tutun: <strong>T</strong>ürkiye · <strong>Y</strong>unanistan · <strong>R</strong>omanya · <strong>Y</strong>ugoslavya. Cümle: <em>"<strong>T</strong>ürkiye <strong>Y</strong>anına <strong>R</strong>omanya ile <strong>Y</strong>ugoslavya'yı aldı, Bulgar–Arnavut gelmedi."</em></p>
+  <span class="key">VAR: T-Y-R-Y · YOK: Bulgaristan, Arnavutluk</span></div>
+
+  <h3>3 · Sadabad Paktı — <span class="dt">8 Temmuz 1937</span></h3>
+  <p>Üyeler: <mark>Türkiye, İran, Irak, Afganistan</mark>. Tahran'daki Sadabad Sarayı'nda imzalandı; <span class="dt">14 Ocak 1938</span> TBMM onayı. Öncülü: <span class="dt">2 Ekim 1935</span> Türkiye-İran-Irak üçlü antlaşması (sonra Afganistan eklendi). Amaç: <strong>doğu (Ortadoğu) güvenliği</strong>.</p>
+
+  <div class="box spot"><div class="b-title">🎯 Spot Bilgi · İki Güvenlik Cephesi</div>
+  <p><strong>Balkan Antantı (1934) = BATI güvenliği</strong> · <strong>Sadabad Paktı (1937) = DOĞU güvenliği</strong>. İkisiyle Türkiye hem batıda hem doğuda güvenlik sistemi kurmuş oldu.</p></div>
+
+  <div class="box mnemo"><div class="b-title">🧠 Ezber Tekniği · Sadabad Üyeleri</div>
+  <p>"<strong>TİİA</strong>" → <strong>T</strong>ürkiye, <strong>İ</strong>ran, <strong>I</strong>rak, <strong>A</strong>fganistan. Hatırlatıcı: <em>"DOĞU'ya bakan dört ülke: Türkiye + üç komşu (İran-Irak-Afganistan)."</em> Tarih hilesi: Sadabad'ın baş harfi gibi <strong>3-7</strong> (193<strong>7</strong>).</p>
+  <span class="key">Sadabad = T-İ-I-A · 1937</span></div>
+
+  <h3>4 · Montrö Boğazlar Sözleşmesi — <span class="dt">20 Temmuz 1936</span></h3>
+  <p>Lozan'daki Boğazlar rejimi Türkiye'ye tam egemenlik tanımıyordu (Misak-ı Milli'ye aykırı). Türkiye <span class="dt">11 Nisan 1936</span>'da <span class="term">"Şartlar Değişmiştir"</span> ilkesiyle nota verdi; <span class="term">Montrö Sözleşmesi</span> ile Boğazlar üzerinde <strong>tam egemenlik</strong> kazandı.</p>
+
+  <div class="box strat"><div class="b-title">🔗 Tarihsel Strateji</div>
+  <p>Montrö, diplomasinin zamanlama zaferidir. Türkiye, İtalya'nın Habeşistan'ı işgal edip Akdeniz'i tehdit ettiği ve Avrupa'nın gerildiği <em>tam doğru anı</em> seçti: "Şartlar Değişmiştir" söylemiyle, savaş çıkarmadan, masada Boğazlar'ı geri aldı. Önce çevresini antlaşmalarla (Balkan-Sadabad) güvenceye alıp sonra Montrö'ye gitmesi, tesadüf değil <strong>aşamalı strateji</strong>dir.</p></div>
+
+  <h3>5 · İkili İlişkiler (özet)</h3>
+  <ul>
+    <li><strong>İngiltere:</strong> Musul gerginliği bitince 1932 sonrası dostane (Batı'yla işbirliği çizgisi).</li>
+    <li><strong>Almanya:</strong> 1934'ten sonra ekonomik yakınlaşma; 1938 Berlin Ticaret Antlaşması, 1939 kredi antlaşması.</li>
+    <li><strong>SSCB:</strong> Türkiye'nin Batı'ya yaklaşmasıyla <strong>soğudu</strong>.</li>
+    <li><strong>Fransa:</strong> <span class="term">Hatay (İskenderun Sancağı) Meselesi</span> dönemin en kritik konusu.</li>
+    <li><strong>İtalya:</strong> 1936'da 12 Ada'yı kuşatması ilişkileri gerginleştirdi.</li>
+  </ul>
+
+  <div class="box alarm"><div class="b-title">⚠️ Çeldirici Alarmı</div>
+  <p>En sevilen tuzak: <strong>Balkan Antantı (1934, batı) ile Sadabad Paktı (1937, doğu)</strong> üyelerinin takası. <em>Yunanistan/Romanya/Yugoslavya = Balkan</em>; <em>İran/Irak/Afganistan = Sadabad</em>. <strong>Türkiye ikisinde de var.</strong> Ayrıca Montrö'yü Lozan Boğazlar rejimiyle karıştırmayın: Lozan kısıtlıyor, Montrö tam egemenlik veriyor.</p></div>
+
+  <div class="flash"><div class="flash-lbl">🃏 Flashcard · Hafta 8</div>
+    <div class="card"><p class="q">Balkan Antantı'na davet edildiği halde KATILMAYAN iki devlet hangisidir?</p><p class="a">Bulgaristan ve Arnavutluk.</p></div>
+    <div class="card"><p class="q">Sadabad Paktı'nın üyeleri ve imza yeri/tarihi nedir?</p><p class="a">Türkiye, İran, Irak, Afganistan; Tahran (Sadabad Sarayı), 8 Temmuz 1937.</p></div>
+    <div class="card"><p class="q">Montrö Sözleşmesi'ne giden süreçte Türkiye hangi ilkeye dayanarak nota verdi?</p><p class="a">"Şartlar Değişmiştir" (rebus sic stantibus) ilkesine; 11 Nisan 1936.</p></div>
+    <div class="card"><p class="q">Balkan Antantı ve Sadabad Paktı hangi coğrafi güvenlik cephelerini temsil eder?</p><p class="a">Balkan Antantı batı, Sadabad Paktı doğu güvenliğini.</p></div>
+  </div>
+</section>
+
+<!-- ============================ HAFTA 9 ============================ -->
+<section class="week" id="h9">
+  <div class="wk-head"><span class="wk-num hot">HAFTA 09</span><h2>İsmet İnönü Dönemi · II. Dünya Savaşı · Soğuk Savaşın Başı</h2></div>
+  <p class="wk-tag hot">★ 1938–1950 · Hatay · II. Dünya Savaşı · Çok partiye geçiş · Truman-Marshall</p>
+
+  <h3>Hatay'ın Anavatana Katılması</h3>
+  <p>1938'de bağımsız <span class="term">Hatay Cumhuriyeti</span> ilan edildi; meclis bir yıl sonra <span class="dt">29 Haziran 1939</span>'da Türkiye'ye katılma kararı aldı. İnönü döneminin ilk büyük dış politika başarısı.</p>
+
+  <h3>II. Dünya Savaşı (1939–1945)</h3>
+  <p><strong>Bloklar:</strong> <span class="term">Mihver = Almanya, İtalya, Japonya</span> · <span class="term">Müttefik = Fransa, İngiltere, SSCB</span> (sonra ABD).</p>
+  <p>Zincir: <span class="dt">Ağustos 1939</span> Alman-Sovyet <span class="term">Ribbentrop Paktı</span> (Doğu Avrupa paylaşımı) → <span class="dt">1 Eylül 1939</span> Almanya Polonya'yı işgal → 2 gün sonra İngiltere ve Fransa savaş açtı. 1940'ta Danimarka-Norveç-Hollanda-Belçika, ardından <span class="dt">14 Haziran 1940</span> Paris. İtalya <span class="dt">10 Haziran 1940</span> savaşa girdi → savaş Kuzey Afrika'ya yayıldı. <span class="dt">22 Haziran 1941</span> Almanya SSCB'ye saldırdı; <span class="dt">7 Aralık 1941</span> Japonya Pearl Harbour'a saldırınca ABD savaşa girdi. <span class="dt">6 Haziran 1944</span> <span class="term">Normandiya Çıkarması</span>. <span class="dt">30 Nisan 1945</span> Hitler intihar etti, <span class="dt">2 Mayıs 1945</span> Berlin düştü.</p>
+  <p><strong>Bitiş:</strong> <span class="dt">6 Ağustos 1945</span> Hiroşima, <span class="dt">9 Ağustos 1945</span> Nagasaki atom bombası; Japonya <span class="dt">2 Eylül 1945</span> kayıtsız şartsız teslim.</p>
+
+  <div class="box mnemo"><div class="b-title">🧠 Ezber Tekniği · Bloklar</div>
+  <p>Mihver = "<strong>A-İ-J</strong>" (Almanya-İtalya-Japonya). Müttefik baş üçlü = "<strong>F-İ-S</strong>" (Fransa-İngiltere-SSCB), <strong>sonra ABD</strong>. Atom: "<strong>Hi</strong>roşima önce (6'sı), <strong>Na</strong>gasaki sonra (9'u) — Ağustos 1945."</p></div>
+
+  <h3>Savaşın İki Sonucu: İki Bölünmüş Devlet</h3>
+  <ul>
+    <li><strong>Almanya:</strong> Batı → <span class="term">Federal Almanya</span> (<span class="dt">23 Mayıs 1949</span>); Doğu → <span class="term">Demokratik Almanya</span> (<span class="dt">7 Ekim 1949</span>). Berlin de ikiye ayrıldı.</li>
+    <li><strong>İsrail Devleti:</strong> <span class="dt">14–15 Mayıs 1948</span> ilan edildi; ABD hemen, SSCB ertesi gün tanıdı → ilk Arap-İsrail savaşı.</li>
+  </ul>
+
+  <h3>Savaş Yıllarında Türkiye</h3>
+  <p>Türkiye savaş dışı kalmaya çalıştı. İç ekonomik tedbirler: <span class="term">Milli Korunma Kanunu</span> (<span class="dt">18 Ocak 1940</span>), ekmek karnesi (Ocak 1942), <span class="term">Varlık Vergisi</span> (<span class="dt">11 Kasım 1942</span>, Mart 1944'te kaldırıldı). Diplomasi: 19 Ekim 1939 İngiliz-Fransız-Türk yardım anlaşması; 18 Haziran 1941 Almanya'yla saldırmazlık paktı. <span class="dt">23 Şubat 1945</span>: Yalta'da alınan "BM kurucu üyeliği için 1 Mart'a kadar savaş ilan etme" şartı üzerine Türkiye <strong>Almanya ve Japonya'ya savaş ilan etti</strong> (fiilen savaşmadan).</p>
+
+  <div class="box strat"><div class="b-title">🔗 Tarihsel Strateji</div>
+  <p>23 Şubat 1945'teki savaş ilanı tamamen <em>diplomatik bir manevra</em>dır: savaş bitmek üzereyken, muhtemel Sovyet tehdidine karşı <strong>BM kurucu üyeliği</strong> sigortasını almak için yapıldı. İnönü'nün "denge politikası"nın özeti budur — kan dökmeden masada yer kapmak.</p></div>
+
+  <h3>Çok Partili Hayata Geçiş</h3>
+  <p><span class="term">Demokrat Parti (DP)</span> — <span class="dt">7 Ocak 1946</span>: Celal Bayar, Adnan Menderes, Fuat Köprülü, Refik Koraltan (<strong>"Dörtlü Takrir"</strong> ekibi). 21 Temmuz 1946 seçimini CHP kazandı (tartışmalı oy tasnifi). 7 Eylül Kararları (devalüasyon); 1947'de IMF ve Dünya Bankası'na üyelik.</p>
+
+  <div class="box mnemo"><div class="b-title">🧠 Ezber Tekniği · DP Kurucuları</div>
+  <p>"<strong>BMKK</strong>" → <strong>B</strong>ayar · <strong>M</strong>enderes · <strong>K</strong>öprülü · <strong>K</strong>oraltan. "Bayar başkan, Menderes meşhur, iki K kanat."</p></div>
+
+  <h3>Soğuk Savaşın Başlangıcı</h3>
+  <table class="cmp">
+    <tr><th>Batı Bloku (ABD)</th><th>Doğu Bloku (SSCB)</th></tr>
+    <tr><td>Truman Doktrini · <span class="dt">12 Mart 1947</span></td><td>Kominform · <span class="dt">Eylül 1947</span></td></tr>
+    <tr><td>Marshall Planı · <span class="dt">5 Haziran 1947</span></td><td>Comecon · <span class="dt">1949</span></td></tr>
+    <tr><td>NATO · <span class="dt">4 Nisan 1949</span></td><td>Varşova Paktı · <span class="dt">14 Mayıs 1955</span></td></tr>
+  </table>
+  <p>Türkiye <span class="dt">8 Ağustos 1949</span>'da <strong>Avrupa Konseyi</strong>'ne üye kabul edildi. NATO kurucu 12 ülke arasında <strong>yoktur</strong> (1952'de girecek).</p>
+
+  <div class="box alarm"><div class="b-title">⚠️ Çeldirici Alarmı</div>
+  <p>Üç Sovyet yapısını karıştırmayın: <strong>Kominform (1947, ideolojik/siyasi)</strong> ↔ Marshall'a tepki · <strong>Comecon (1949, ekonomik)</strong> ↔ Marshall'a ekonomik karşılık · <strong>Varşova Paktı (1955, askeri)</strong> ↔ NATO'ya karşılık. Sıralama: Truman → Marshall → Kominform (hepsi 1947); NATO (1949) → Varşova (1955).</p></div>
+
+  <div class="flash"><div class="flash-lbl">🃏 Flashcard · Hafta 9</div>
+    <div class="card"><p class="q">II. Dünya Savaşı'nda Mihver ve Müttefik bloklarının çekirdek devletleri kimlerdir?</p><p class="a">Mihver: Almanya, İtalya, Japonya. Müttefik: Fransa, İngiltere, SSCB (sonra ABD).</p></div>
+    <div class="card"><p class="q">Türkiye 23 Şubat 1945'te neden ve kime savaş ilan etti?</p><p class="a">BM kurucu üyesi olabilmek için (Yalta şartı); Almanya ve Japonya'ya — fiilen savaşmadan.</p></div>
+    <div class="card"><p class="q">Marshall Planı'na karşı SSCB'nin kurduğu ekonomik örgüt nedir ve yılı?</p><p class="a">Comecon, 1949.</p></div>
+    <div class="card"><p class="q">DP'yi kuran dörtlü kimlerdir?</p><p class="a">Celal Bayar, Adnan Menderes, Fuat Köprülü, Refik Koraltan (7 Ocak 1946).</p></div>
+  </div>
+</section>
+
+<!-- ============================ HAFTA 10 ============================ -->
+<section class="week" id="h10">
+  <div class="wk-head"><span class="wk-num hot">HAFTA 10</span><h2>Demokrat Parti İktidarı · Menderes Dönemi (1950–1960)</h2></div>
+  <p class="wk-tag hot">★ NATO · Bağdat Paktı/CENTO · Kıbrıs · 27 Mayıs'a doğru</p>
+
+  <p class="lead"><span class="dt">14 Mayıs 1950</span> seçiminde DP oyların %53,3'ünü alıp iktidara geldi — <mark>modern Türk siyasi tarihinde bir dönüm noktası</mark> (ilk demokratik iktidar değişimi).</p>
+
+  <h3>İç Siyaset</h3>
+  <ul>
+    <li><span class="dt">16 Haziran 1950</span> — Ezanın Arapça okunması serbest.</li>
+    <li><span class="dt">25 Temmuz 1950</span> — Kore'ye asker gönderme kararı (4.500 kişilik kuvvet).</li>
+    <li><span class="dt">25 Temmuz 1951</span> — <span class="term">Atatürk'ü Koruma Kanunu</span> (laiklik eleştirilerine yanıt).</li>
+    <li>Ekonomi: Yabancı Sermayeyi Teşvik Kanunu, tarımda makineleşme, baraj/fabrika hamlesi.</li>
+  </ul>
+
+  <h3>Dış Politika</h3>
+  <ul>
+    <li><span class="term">NATO üyeliği</span>: Kore'ye asker → <span class="dt">18 Şubat 1952</span> TBMM onayı ile NATO'ya giriş (Yunanistan ile birlikte).</li>
+    <li><span class="term">Balkan Paktı</span>: 28 Şubat 1953 Ankara dostluk → <span class="dt">9 Ağustos 1954</span> Bled'de Balkan Paktı (Türkiye-Yunanistan-Yugoslavya).</li>
+    <li><span class="term">Bağdat Paktı</span>: <span class="dt">24 Şubat 1955</span> Türkiye-Irak. İngiltere, Pakistan, İran katıldı. <strong>1959'da Irak ayrılınca merkez Ankara'ya taşındı ve adı <span class="term">CENTO</span> oldu.</strong></li>
+  </ul>
+
+  <div class="box mnemo"><div class="b-title">🧠 Ezber Tekniği · Bağdat → CENTO</div>
+  <p>"<strong>Bağdat</strong>'tan <strong>Irak</strong> çekildi, pakt <strong>Ankara</strong>'ya taşındı ve <strong>CENTO</strong> oldu." Yani: Irak'sız kalan Bağdat Paktı = CENTO (merkez Ankara, 1959).</p></div>
+
+  <h3>Kıbrıs Meselesi</h3>
+  <p>Lozan'ın 20. maddesiyle Kıbrıs İngiltere'ye bırakılmıştı. 1947'de 12 Ada'nın Yunanistan'a verilmesi Yunan emellerini cesaretlendirdi. Rumlar <span class="term">EOKA</span> terör örgütünü kurdu; Türkiye'de <span class="dt">6–7 Eylül 1955</span> olayları yaşandı. <span class="dt">Şubat 1959</span> Zürih + Londra antlaşmalarıyla <span class="dt">16 Ağustos 1960</span> <span class="term">Kıbrıs Cumhuriyeti</span> ilan edildi.</p>
+
+  <h3>Sona Doğru</h3>
+  <p>1954 seçiminde DP zirvede (%57,6). Ancak 1957 sonrası ekonomik bozulma, basın baskısı, <span class="term">Vatan Cephesi</span>, <span class="term">Tahkikat Komisyonu</span> (18 Nisan 1960) ve öğrenci olayları gerginliği tırmandırdı. <span class="dt">27 Mayıs 1960</span>'ta TSK darbeyle DP iktidarına son verdi.</p>
+
+  <div class="box strat"><div class="b-title">🔗 Tarihsel Strateji</div>
+  <p>Kore'ye asker göndermek bir "insani katkı" değil, <strong>NATO'ya giriş bileti</strong>ydi. Türkiye, Sovyet tehdidi altında güvenlik şemsiyesine girmek için kanıyla "ittifak sadakati"ni ispatladı; sonuç 18 Şubat 1952 üyeliğidir. Aynı mantık Bağdat Paktı'nda da görülür: Batı'nın Ortadoğu güvenlik mimarisinde Türkiye merkez ülke olur.</p></div>
+
+  <div class="box alarm"><div class="b-title">⚠️ Çeldirici Alarmı</div>
+  <p>İki "Balkan" yapısını karıştırmayın: <strong>Balkan Antantı (1934, Atatürk dönemi)</strong> ≠ <strong>Balkan Paktı (1954, Menderes dönemi)</strong>. Ayrıca <strong>NATO girişi 1952</strong> (kuruluş 1949 — Türkiye kurucu değil). Kıbrıs Cumhuriyeti (1960) ile sonraki KKTC (1983) farklı dönemlerdir.</p></div>
+
+  <div class="flash"><div class="flash-lbl">🃏 Flashcard · Hafta 10</div>
+    <div class="card"><p class="q">Türkiye NATO'ya hangi tarihte ve hangi ön koşulu yerine getirerek girdi?</p><p class="a">18 Şubat 1952; Kore Savaşı'na asker göndererek (1950).</p></div>
+    <div class="card"><p class="q">Bağdat Paktı'nın adı neden ve nasıl CENTO oldu?</p><p class="a">1959'da Irak paktan ayrılınca merkez Ankara'ya taşındı ve adı CENTO (Merkezi Antlaşma Teşkilatı) oldu.</p></div>
+    <div class="card"><p class="q">Rumların Kıbrıs için kurduğu terör örgütünün adı nedir?</p><p class="a">EOKA.</p></div>
+  </div>
+</section>
+
+<!-- ============================ HAFTA 11 ============================ -->
+<section class="week" id="h11">
+  <div class="wk-head"><span class="wk-num hot">HAFTA 11</span><h2>27 Mayıs 1960 Darbesi · 1961 Anayasası · 1980'e Doğru</h2></div>
+  <p class="wk-tag hot">★ MBK · 1961 Anayasası · 12 Mart 1971 · Kıbrıs Barış Harekâtı · Milliyetçi Cephe</p>
+
+  <h3>27 Mayıs 1960 — İlk Askeri Darbe</h3>
+  <p>Türkiye Cumhuriyeti tarihinde <strong>ilk askeri müdahale</strong>. Yönetimi <span class="term">Milli Birlik Komitesi (MBK)</span> üstlendi. Bayar, Menderes ve bakanlar <span class="term">Yassıada</span>'da yargılandı. İdamlar: Dışişleri Bakanı Fatin Rüştü Zorlu ve Maliye Bakanı Hasan Polatkan <span class="dt">16 Eylül 1961</span>; Başbakan Adnan Menderes <span class="dt">17 Eylül 1961</span>.</p>
+
+  <h3>1961 Anayasası</h3>
+  <p>1924 Anayasası'ndan farkları:</p>
+  <ul>
+    <li>Halkçılık, devletçilik, inkılapçılık <strong>çıkarıldı</strong>; "milliyetçilik" → <strong>"milli devlet"</strong>.</li>
+    <li><strong>İlk kez "sosyal devlet"</strong> ilkesi.</li>
+    <li><span class="term">Cumhuriyet Senatosu</span> kuruldu (çift meclis).</li>
+    <li><span class="term">Anayasa Mahkemesi</span> kuruldu.</li>
+    <li>Orduya ilk kez anayasal rol; <span class="dt">1962</span>'de <span class="term">Milli Güvenlik Kurulu (MGK)</span>.</li>
+  </ul>
+
+  <div class="box spot"><div class="b-title">🎯 Spot Bilgi · 1961 Anayasası'nın Üç "İlk"i</div>
+  <p><strong>İlk kez sosyal devlet</strong> · <strong>İlk kez Anayasa Mahkemesi</strong> · <strong>İlk kez orduya anayasal rol (MGK)</strong>. 1961 = en <em>özgürlükçü</em> anayasa olarak anılır.</p></div>
+
+  <h3>Koalisyonlar ve Demirel</h3>
+  <p>Kapatılan DP'nin tabanını <span class="term">Adalet Partisi (AP)</span> topladı (11 Şubat 1961). İlk koalisyon: <span class="dt">20 Kasım 1961</span> CHP–AP (İnönü başkanlığında). <span class="term">Süleyman Demirel</span> AP'nin lideri oldu. 1969'da <span class="term">DEV-GENÇ</span>; öğrenci-işçi hareketleri yükseldi.</p>
+
+  <h3>12 Mart 1971 Muhtırası</h3>
+  <p>Genelkurmay Başkanı Memduh Tağmaç ve kuvvet komutanlarının muhtırası → hükümet istifa etti. Tarafsız <span class="term">Nihat Erim</span> hükümeti ("ara rejim"). Bu dönemde 1972'de CHP liderliği İnönü'den <span class="term">Bülent Ecevit</span>'e geçti.</p>
+
+  <h3>Kıbrıs Barış Harekâtı (1974)</h3>
+  <p>1974'te Yunan cuntası destekli darbeyle Makarios devrilip "Kıbrıs Helen Cumhuriyeti" ilan edilince <strong>Londra-Zürih Antlaşmaları ihlal edildi</strong>; Türkiye <span class="term">garantörlük hakkını</span> kullandı: <span class="dt">20–22 Temmuz 1974</span> (I. Harekât) ve <span class="dt">14–16 Ağustos 1974</span> (II. Harekât). Sonuç: <span class="term">Kıbrıs Türk Federe Devleti</span> (<span class="dt">13 Şubat 1975</span>) → <span class="term">KKTC</span> (<span class="dt">15 Kasım 1983</span>).</p>
+
+  <div class="box strat"><div class="b-title">🔗 Tarihsel Strateji</div>
+  <p>Türkiye'nin müdahalesinin hukuki zemini <strong>1959–1960 Garanti Antlaşması</strong>dır; yani DP döneminde Kıbrıs Cumhuriyeti kurulurken Türkiye'ye tanınan garantörlük, 1974'te harekâtın <em>uluslararası meşruiyetini</em> sağladı. "Geçmişte imzalanan madde, gelecekteki hamlenin hukuki zeminini hazırladı" — bu, sınavda neden-sonuç köprüsü olarak güçlü bir cevaptır.</p></div>
+
+  <h3>Milliyetçi Cephe (MC) ve 1980'e Doğru</h3>
+  <p>1973 seçimini CHP (Ecevit) kazandı → CHP–MSP koalisyonu (7 Şubat 1974). Kıbrıs sonrası Ecevit istifa edince <span class="term">Milliyetçi Cephe</span> hükümetleri (Demirel + Erbakan/MSP + Türkeş/MHP + CGP) kuruldu. 1970'ler sağ-sol terörü, Kahramanmaraş olayları (22 Aralık 1978) ve ağır ekonomik krizle geçti. <span class="dt">24 Ocak 1980 Kararları</span> (Turgut Özal) ekonomik dönüşümü başlattı; siyasi tıkanma yeni bir darbenin habercisiydi.</p>
+
+  <div class="box alarm"><div class="b-title">⚠️ Çeldirici Alarmı · Müdahaleler</div>
+  <table class="cmp">
+    <tr><th>Tür</th><th>Tarih</th><th>Niteliği</th></tr>
+    <tr><td>27 Mayıs</td><td>1960</td><td>DARBE (ilk) · MBK · idamlar</td></tr>
+    <tr><td>12 Mart</td><td>1971</td><td>MUHTIRA · hükümet istifa · "ara rejim"</td></tr>
+    <tr><td>12 Eylül</td><td>1980</td><td>DARBE · MGK (Evren) · TBMM kapatıldı</td></tr>
+    <tr><td>28 Şubat</td><td>1997</td><td>"Postmodern" muhtıra/bildiri</td></tr>
+  </table>
+  <p>1960 = darbe, 1971 = muhtıra. Ayrıca <strong>1961 Anayasası özgürlükçü</strong>, <strong>1982 Anayasası kısıtlayıcı</strong> — ikisini takas etmeyin.</p></div>
+
+  <div class="flash"><div class="flash-lbl">🃏 Flashcard · Hafta 11</div>
+    <div class="card"><p class="q">1961 Anayasası ile ilk kez gelen üç kurum/ilke nedir?</p><p class="a">Sosyal devlet ilkesi, Anayasa Mahkemesi, orduya anayasal rol (ve Cumhuriyet Senatosu, MGK).</p></div>
+    <div class="card"><p class="q">12 Mart 1971 müdahalesi darbe mi muhtıra mıdır, sonucu ne oldu?</p><p class="a">Muhtıradır; hükümet istifa etti, Nihat Erim'in "ara rejim" hükümeti kuruldu.</p></div>
+    <div class="card"><p class="q">1974 Kıbrıs Barış Harekâtı'nın hukuki dayanağı ve iki harekât tarihi nedir?</p><p class="a">Garanti Antlaşması'ndan doğan garantörlük hakkı; 20–22 Temmuz ve 14–16 Ağustos 1974.</p></div>
+    <div class="card"><p class="q">KKTC ne zaman ilan edildi?</p><p class="a">15 Kasım 1983 (öncesinde Kıbrıs Türk Federe Devleti, 1975).</p></div>
+  </div>
+</section>
+
+<!-- ============================ HAFTA 12 ============================ -->
+<section class="week" id="h12">
+  <div class="wk-head"><span class="wk-num hot">HAFTA 12</span><h2>12 Eylül 1980 Darbesi · Özal · Koalisyonlar · 28 Şubat · AKP'ye Kadar</h2></div>
+  <p class="wk-tag hot">★ 1982 Anayasası · ANAP/Özal · Körfez Krizi · RP/28 Şubat · 2001 krizi</p>
+
+  <h3>12 Eylül 1980 Darbesi</h3>
+  <p>Ordu komuta zinciriyle yönetime el koydu; <span class="term">Milli Güvenlik Konseyi (MGK)</span> idareyi aldı: <strong>Kenan Evren</strong> (Genelkurmay Başkanı) + 4 kuvvet komutanı (Ersin, Şahinkaya, Tümer, Celasun). 1961 Anayasası askıya alındı, TBMM kapatıldı, partiler kapatıldı; Bülent Ulusu hükümeti kuruldu.</p>
+
+  <h3>1982 Anayasası — <span class="dt">7 Kasım 1982</span></h3>
+  <p>Halkoyuyla %91,3 ile kabul edildi; aynı oylamayla <strong>Kenan Evren Cumhurbaşkanı</strong> oldu. 1961'e göre daha <strong>kısıtlayıcı/otoriter</strong> bir metindir. Değişiklik için: TBMM üye tam sayısının 1/3'ünün yazılı önerisi + 3/5 çoğunlukla gizli oy onayı.</p>
+
+  <h3>Özal Dönemi (ANAP)</h3>
+  <ul>
+    <li><span class="dt">20 Mayıs 1983</span> — <span class="term">Anavatan Partisi (ANAP)</span> kuruldu (Turgut Özal).</li>
+    <li><span class="dt">6 Kasım 1983</span> — Seçimi ANAP kazandı (%45, 211 mv) → dışa açılma/liberalleşme.</li>
+    <li><span class="dt">15 Kasım 1983</span> — <span class="term">KKTC</span> ilan edildi; Türkiye derhal tanıdı.</li>
+    <li><span class="dt">6 Kasım 1987</span> referandumu: 12 Eylül öncesi liderlerin siyasi yasakları kalktı.</li>
+    <li><span class="dt">31 Ekim / 9 Kasım 1989</span> — Özal <strong>8. Cumhurbaşkanı</strong> oldu.</li>
+  </ul>
+
+  <h3>Körfez Krizi (1990–91)</h3>
+  <p>Irak'ın <span class="dt">2 Ağustos 1990</span>'da Kuveyt'i işgaliyle başladı. Türkiye <strong>BM yaptırımına uyan ilk ülke</strong> oldu ve <span class="term">Kerkük-Yumurtalık petrol boru hattını kapattı</span>. Genelkurmay Başkanı <span class="term">Necip Torumtay</span> savaşa taraf olmama görüşüyle <span class="dt">3 Aralık 1990</span>'da istifa etti. Türkiye'nin zararı ~4,5 milyar dolar.</p>
+
+  <h3>Demirel, Özal'ın Ölümü, Çiller</h3>
+  <p>20 Ekim 1991 seçiminde DYP birinci → Demirel-SHP koalisyonu. <span class="dt">17 Nisan 1993</span> Özal vefat etti; <strong>Demirel 9. Cumhurbaşkanı</strong> oldu. <span class="term">Tansu Çiller</span> DYP lideri ve başbakan oldu. <span class="dt">1994 ekonomik krizi</span>: 5 Nisan 1994 kararları, %100'e varan enflasyon.</p>
+
+  <h3>Refah Partili Yıllar ve 28 Şubat</h3>
+  <ul>
+    <li><span class="dt">24 Aralık 1995</span> — Seçimde <span class="term">Refah Partisi (RP)</span> birinci (%21,4).</li>
+    <li><span class="dt">8 Temmuz 1996</span> — RP–DYP koalisyonu (Erbakan başbakan); ilk kez <strong>"dönüşümlü başbakanlık"</strong>.</li>
+    <li><span class="dt">28 Şubat 1997</span> — <span class="term">MGK Bildirisi</span> (Sincan'da tank yürüyüşü sonrası); "irtica en büyük tehdit". Erbakan istifa etti → <strong>"postmodern darbe"</strong>.</li>
+    <li><span class="dt">16 Ocak 1998</span> — RP kapatıldı; vekiller <span class="term">Fazilet Partisi (FP)</span>'ne geçti.</li>
+  </ul>
+
+  <h3>1999–2002: Ecevit, Öcalan, Krizler, AKP</h3>
+  <p><span class="dt">16 Şubat 1999</span> — <span class="term">Abdullah Öcalan</span> Türkiye'ye getirildi. <span class="dt">18 Nisan 1999</span> seçiminde DSP birinci → DSP–MHP–ANAP koalisyonu. <span class="dt">5 Mayıs 2000</span> — <span class="term">Ahmet Necdet Sezer 10. Cumhurbaşkanı</span>. <span class="dt">Şubat 2001</span> — "Anayasa Kitapçığı krizi" → ağır ekonomik kriz; Kemal Derviş ekonomiden sorumlu bakan. <span class="dt">3 Kasım 2002</span> — erken seçimde <span class="term">AKP</span> tek başına iktidara geldi.</p>
+
+  <div class="box strat"><div class="b-title">🔗 Tarihsel Strateji</div>
+  <p>1980 sonrası siyasetin motoru, <strong>askeri vesayet ile sivil-popülist siyaset arasındaki gerilim</strong>dir. 1982 Anayasası askerî denetimi kurumsallaştırır; Özal'ın 1987 referandumuyla yasakları kaldırması bu vesayeti gevşetir; 28 Şubat ise vesayetin geri dönüşüdür. 2001 krizinin yarattığı güven kaybı, 3 Kasım 2002'de tek parti iktidarının önünü açar — yani ekonomik çöküş, siyasi haritayı yeniden çizer.</p></div>
+
+  <div class="box mnemo"><div class="b-title">🧠 Ezber Tekniği · Cumhurbaşkanları (8 → 10)</div>
+  <p><strong>8. Özal</strong> (1989) → <strong>9. Demirel</strong> (1993, Özal'ın ölümüyle) → <strong>10. Sezer</strong> (2000). "<strong>Ö-D-S</strong>: Özal gitti, Demirel oturdu, Sezer aldı."</p></div>
+
+  <div class="box alarm"><div class="b-title">⚠️ Çeldirici Alarmı</div>
+  <p><strong>12 Eylül 1980 = darbe</strong> (MGK/Evren), <strong>28 Şubat 1997 = postmodern muhtıra/bildiri</strong>. <strong>1982 Anayasası kısıtlayıcı</strong> ↔ <strong>1961 özgürlükçü</strong>. Körfez Krizi'nin sembol kararı = <strong>Kerkük-Yumurtalık'ın kapatılması</strong>. RP → FP geçişi ve "dönüşümlü başbakanlık" RP–DYP dönemine aittir.</p></div>
+
+  <div class="flash"><div class="flash-lbl">🃏 Flashcard · Hafta 12</div>
+    <div class="card"><p class="q">1982 Anayasası nasıl kabul edildi ve aynı oylamada kim cumhurbaşkanı oldu?</p><p class="a">7 Kasım 1982 halkoylamasıyla %91,3 ile; aynı oylamayla Kenan Evren cumhurbaşkanı oldu.</p></div>
+    <div class="card"><p class="q">Körfez Krizi'nde Türkiye'nin attığı sembolik ilk adım nedir?</p><p class="a">BM yaptırımına uyan ilk ülke olması ve Kerkük-Yumurtalık petrol boru hattını kapatması.</p></div>
+    <div class="card"><p class="q">28 Şubat 1997 süreci hangi parti iktidarında yaşandı ve sonucu ne oldu?</p><p class="a">RP–DYP (Erbakan) hükümetinde; MGK bildirisinin ardından Erbakan istifa etti, RP kapatıldı.</p></div>
+    <div class="card"><p class="q">8., 9. ve 10. cumhurbaşkanları kimlerdir?</p><p class="a">8. Turgut Özal, 9. Süleyman Demirel, 10. Ahmet Necdet Sezer.</p></div>
+  </div>
+</section>
+
+<!-- ============================ HAFTA 13 ============================ -->
+<section class="week" id="h13">
+  <div class="wk-head"><span class="wk-num hot">HAFTA 13</span><h2>Türk İnkılabının Temel İlkeleri (Atatürk İlkeleri)</h2></div>
+  <p class="wk-tag hot">★ 6 Temel İlke + 7 Bütünleyici İlke</p>
+
+  <p class="lead">Türk inkılabı, milli modernleşmeyi sağlayarak topluma yeni bir şekil verir; <strong>bağımsızlık, hür düşünce ve insan onuru</strong> en belirgin özellikleridir. İlkeler iki gruba ayrılır: <strong>6 temel</strong> ve <strong>7 bütünleyici</strong>.</p>
+
+  <h3>Altı Temel İlke</h3>
+  <table class="cmp">
+    <tr><th>İlke</th><th>Anahtar Kelime</th></tr>
+    <tr><td>Cumhuriyetçilik</td><td>Egemenlik millette; halka dayanan devlet biçimi</td></tr>
+    <tr><td>Milliyetçilik</td><td>Dil, kültür ve mefkûre (ülkü) birliği</td></tr>
+    <tr><td>Halkçılık</td><td>Devlet halk için vardır; sınıfsız, eşit toplum</td></tr>
+    <tr><td>Devletçilik</td><td>Devletin ekonomiye kamu yararı için müdahalesi</td></tr>
+    <tr><td>Laiklik</td><td>Din işleri ile dünya/devlet işlerinin ayrılması</td></tr>
+    <tr><td>İnkılapçılık</td><td>Diğer ilkeleri içine alan genel/ana ilke; sürekli yenilenme</td></tr>
+  </table>
+
+  <div class="box spot"><div class="b-title">🎯 Spot Bilgi</div>
+  <p><span class="term">İnkılapçılık</span>, diğer beş ilkeyi de kapsayan <strong>genel/ana ilkedir</strong> — "yapılan tüm inkılaplara ve ilkelere sahip çıkma". Bu, sık çıkan ayırt edici bir noktadır.</p></div>
+
+  <div class="box mnemo"><div class="b-title">🧠 Ezber Tekniği · 6 Temel İlke (Akrostiş)</div>
+  <p>Baş harfler: <strong>C – M – H – D – L – İ</strong>. Hatırlatıcı cümle:</p>
+  <span class="key">"Cumhuriyetin Milli Halkı Devleti Layıkıyla İnşa eder."</span>
+  <p style="margin-top:6px;">(<strong>C</strong>umhuriyetçilik · <strong>M</strong>illiyetçilik · <strong>H</strong>alkçılık · <strong>D</strong>evletçilik · <strong>L</strong>aiklik · <strong>İ</strong>nkılapçılık) — bu "Altı Ok"tur.</p></div>
+
+  <h3>Yedi Bütünleyici İlke</h3>
+  <p>Temel ilkeleri destekleyip tamamlayan ilkeler:</p>
+  <ol>
+    <li><strong>Milli Egemenlik</strong> (Cumhuriyetçiliği destekler)</li>
+    <li><strong>Milli Bağımsızlık</strong></li>
+    <li><strong>Milli Birlik, Beraberlik ve Ülke Bütünlüğü</strong></li>
+    <li><strong>Yurtta Sulh, Cihanda Sulh</strong></li>
+    <li><strong>Bilimsellik ve Akılcılık</strong></li>
+    <li><strong>Çağdaşlaşma ve Batılılaşma</strong></li>
+    <li><strong>İnsan ve İnsanlık Sevgisi</strong></li>
+  </ol>
+
+  <div class="box mnemo"><div class="b-title">🧠 Ezber Tekniği · 7 Bütünleyici İlke</div>
+  <p>Üç "Milli" ile başlar, sonra dört kavram gelir: <strong>Milli</strong> Egemenlik – <strong>Milli</strong> Bağımsızlık – <strong>Milli</strong> Birlik → sonra "<strong>BÇBİ</strong>": <strong>B</strong>arış (Yurtta Sulh) · <strong>Ç</strong>ağdaşlaşma · <strong>B</strong>ilimsellik · <strong>İ</strong>nsan sevgisi.</p>
+  <span class="key">3 × Milli + Barış · Çağdaşlaşma · Bilim · İnsan sevgisi</span></div>
+
+  <div class="box alarm"><div class="b-title">⚠️ Çeldirici Alarmı</div>
+  <p>"Yurtta Sulh Cihanda Sulh", "Milli Egemenlik", "Çağdaşlaşma" gibi kavramlar <strong>bütünleyici</strong> ilkedir — bunları 6 temel ilkeyle (C-M-H-D-L-İ) karıştırmayın. Klasik tuzak: "Aşağıdakilerden hangisi <em>temel</em> ilke <strong>değildir</strong>?" → cevap genelde bir <em>bütünleyici</em> ilkedir.</p></div>
+
+  <div class="flash"><div class="flash-lbl">🃏 Flashcard · Hafta 13</div>
+    <div class="card"><p class="q">Diğer beş ilkeyi de içine alan, "genel/ana ilke" olarak tanımlanan temel ilke hangisidir?</p><p class="a">İnkılapçılık.</p></div>
+    <div class="card"><p class="q">"Yurtta Sulh, Cihanda Sulh" temel ilke midir, bütünleyici ilke midir?</p><p class="a">Bütünleyici ilkedir.</p></div>
+    <div class="card"><p class="q">Altı temel ilkeyi (Altı Ok) sayınız.</p><p class="a">Cumhuriyetçilik, Milliyetçilik, Halkçılık, Devletçilik, Laiklik, İnkılapçılık.</p></div>
+    <div class="card"><p class="q">Milli Egemenlik ilkesi hangi temel ilkeyi tamamlar?</p><p class="a">Cumhuriyetçilik ilkesini.</p></div>
+  </div>
+</section>
+
+<!-- ============================ MASTER TIMELINE ============================ -->
+<section class="week" id="ozet">
+  <div class="wk-head"><span class="wk-num hot">SINAV ÖNCESİ</span><h2>Hızlı Tarih Şeridi (8–13 Ağırlık)</h2></div>
+  <p class="wk-tag hot">★ Son tekrar için kronolojik omurga</p>
+  <table class="cmp">
+    <tr><th>Tarih</th><th>Olay</th></tr>
+    <tr><td><span class="dt">18 Tem 1932</span></td><td>Milletler Cemiyeti'ne giriş</td></tr>
+    <tr><td><span class="dt">9 Şub 1934</span></td><td>Balkan Antantı (T-Y-R-Y)</td></tr>
+    <tr><td><span class="dt">20 Tem 1936</span></td><td>Montrö Boğazlar Sözleşmesi</td></tr>
+    <tr><td><span class="dt">8 Tem 1937</span></td><td>Sadabad Paktı (T-İ-I-A)</td></tr>
+    <tr><td><span class="dt">29 Haz 1939</span></td><td>Hatay'ın Türkiye'ye katılması</td></tr>
+    <tr><td><span class="dt">23 Şub 1945</span></td><td>Almanya-Japonya'ya savaş ilanı (BM için)</td></tr>
+    <tr><td><span class="dt">7 Oca 1946</span></td><td>Demokrat Parti kuruldu</td></tr>
+    <tr><td><span class="dt">1947</span></td><td>Truman Doktrini + Marshall Planı + Kominform</td></tr>
+    <tr><td><span class="dt">4 Nis 1949</span></td><td>NATO kuruldu (Türkiye kurucu değil)</td></tr>
+    <tr><td><span class="dt">14 May 1950</span></td><td>DP iktidara geldi (dönüm noktası)</td></tr>
+    <tr><td><span class="dt">18 Şub 1952</span></td><td>Türkiye NATO'ya girdi</td></tr>
+    <tr><td><span class="dt">24 Şub 1955</span></td><td>Bağdat Paktı (→ 1959 CENTO)</td></tr>
+    <tr><td><span class="dt">27 May 1960</span></td><td>İlk askeri darbe (MBK)</td></tr>
+    <tr><td><span class="dt">1961</span></td><td>1961 Anayasası (sosyal devlet, Anayasa Mahkemesi)</td></tr>
+    <tr><td><span class="dt">12 Mar 1971</span></td><td>Muhtıra (ara rejim)</td></tr>
+    <tr><td><span class="dt">Tem–Ağu 1974</span></td><td>Kıbrıs Barış Harekâtı</td></tr>
+    <tr><td><span class="dt">12 Eyl 1980</span></td><td>Darbe (MGK / Evren)</td></tr>
+    <tr><td><span class="dt">7 Kas 1982</span></td><td>1982 Anayasası kabul</td></tr>
+    <tr><td><span class="dt">15 Kas 1983</span></td><td>KKTC ilan edildi</td></tr>
+    <tr><td><span class="dt">2 Ağu 1990</span></td><td>Körfez Krizi başladı</td></tr>
+    <tr><td><span class="dt">28 Şub 1997</span></td><td>28 Şubat süreci (postmodern darbe)</td></tr>
+    <tr><td><span class="dt">3 Kas 2002</span></td><td>AKP tek başına iktidara geldi</td></tr>
+  </table>
+</section>
+
+<footer>
+  <p>ATA 102 · Final Çalışma Rehberi · Slayt içerikleri kronolojik zincir ve sınav stratejisiyle yeniden düzenlenmiştir.</p>
+  <p>★ 8–13. haftalar finalde ağırlıklı olduğundan yüksek detayda işlenmiştir. Tarihleri kendi ders notlarınızla bir kez daha karşılaştırın.</p>
+</footer>
+
+</div>
+</body>
+</html>

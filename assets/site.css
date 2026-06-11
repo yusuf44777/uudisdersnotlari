@@ -440,6 +440,12 @@ svg {
     linear-gradient(135deg, rgba(111, 74, 167, 0.08), transparent);
 }
 
+.course-card.committee::after {
+  background:
+    repeating-linear-gradient(135deg, rgba(77, 90, 114, 0.14) 0 2px, transparent 2px 16px),
+    linear-gradient(135deg, rgba(77, 90, 114, 0.08), transparent);
+}
+
 .course-card.pending {
   background:
     linear-gradient(180deg, rgba(255, 253, 248, 0.96), rgba(255, 253, 248, 0.78)),
@@ -499,6 +505,10 @@ svg {
   color: #6f4aa7;
 }
 
+.course-card.committee .course-topline strong {
+  color: #4d5a72;
+}
+
 .course-card.pending .course-topline strong {
   color: var(--gold);
 }
@@ -556,6 +566,10 @@ svg {
 
 .course-card.turkish a {
   background: #6f4aa7;
+}
+
+.course-card.committee a {
+  background: #4d5a72;
 }
 
 .course-card.pending a {
@@ -754,6 +768,10 @@ svg {
 
 .note-card[data-course="Türk Dili"] .course-dot::before {
   background: #6f4aa7;
+}
+
+.note-card[data-course="Komite Çıkmış"] .course-dot::before {
+  background: #4d5a72;
 }
 
 .note-card h3 {

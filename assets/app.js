@@ -391,6 +391,16 @@ const notes = [
     path: "1.%20S%C4%B1n%C4%B1f/T%C3%BCrk%20Dili/turk_dili_final_rehberi.html",
     tags: ["noktalama", "anlatım bozuklukları", "final"],
   },
+  {
+    id: "committee-01",
+    course: "Komite Çıkmış",
+    grade: "1. Sınıf",
+    unit: "Komite 1",
+    title: "Committee 1 - Çıkmış Sınav Çözümlü Rehber",
+    subtitle: "Genetik, anatomi, biyofizik, histoloji/embriyoloji, biyokimya ve proje teknikleri soruları için çözümlü tekrar",
+    path: "1.%20S%C4%B1n%C4%B1f/Komite%20%C3%87%C4%B1km%C4%B1%C5%9F/komite_1.html",
+    tags: ["çıkmış sınav", "Komite 1", "çözümlü"],
+  },
 ];
 
 const STORAGE_KEY = "uudis-notlari-completed-v1";

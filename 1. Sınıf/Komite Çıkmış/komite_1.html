@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Committee 1 — Çıkmış Sınav Çözümlü Rehber</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#eef1f5;
+    --card:#ffffff;
+    --ink:#16263b;
+    --ink-soft:#46566b;
+    --line:#d7dde6;
+    --line-soft:#e7ecf2;
+    --good:#1f7a4d;
+    --good-bg:#e7f3ec;
+    --good-line:#bfe0cd;
+    --bad:#b23a3a;
+    --bad-bg:#f8ecec;
+    --warn:#9a6b12;
+    /* subject accents */
+    --s-gen:#6d4aa7;
+    --s-ana:#bd5230;
+    --s-bio:#0e8281;
+    --s-his:#a83a6a;
+    --s-bch:#9a6b12;
+    --s-prj:#4a5a72;
+    --shadow:0 1px 2px rgba(22,38,59,.06),0 6px 22px rgba(22,38,59,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 18px}
+
+  /* ---------- Header ---------- */
+  header{
+    background:
+      linear-gradient(135deg,#16263b 0%,#1f3753 55%,#274a6b 100%);
+    color:#eaf0f7;padding:46px 0 38px;position:relative;overflow:hidden;
+  }
+  header::after{content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 64px);
+    pointer-events:none}
+  .eyebrow{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.28em;
+    text-transform:uppercase;color:#9db7d4;margin-bottom:14px}
+  h1{font-family:"Spectral",serif;font-weight:700;font-size:clamp(28px,5vw,46px);
+    line-height:1.05;margin:0 0 14px;letter-spacing:-.01em}
+  h1 em{font-style:italic;color:#8fd0c8}
+  .lead{max-width:640px;color:#c6d4e4;font-size:15.5px;margin:0}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .pill{font-family:"Space Mono",monospace;font-size:12px;background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.16);color:#dbe6f2;padding:5px 11px;border-radius:999px}
+
+  /* ---------- Legend ---------- */
+  .legend{background:#fbfcfe;border-bottom:1px solid var(--line);padding:16px 0}
+  .legend .wrap{display:flex;flex-wrap:wrap;gap:18px;align-items:center;font-size:13px;color:var(--ink-soft)}
+  .legend b{color:var(--ink)}
+  .src{display:inline-flex;align-items:center;gap:7px;font-family:"Space Mono",monospace;font-size:11px;
+    padding:3px 9px;border-radius:6px;border:1px solid}
+  .src-yes{color:var(--good);background:var(--good-bg);border-color:var(--good-line)}
+  .src-part{color:var(--warn);background:#faf4e6;border-color:#ecdcb4}
+  .src-no{color:#5d6b7c;background:#eef1f5;border-color:#d9dfe7}
+
+  /* ---------- Toolbar ---------- */
+  .toolbar{position:sticky;top:0;z-index:30;background:rgba(238,241,245,.92);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 0}
+  .toolbar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;flex:1;min-width:240px}
+  .chip{font-family:"Space Mono",monospace;font-size:12px;cursor:pointer;user-select:none;
+    border:1px solid var(--line);background:#fff;color:var(--ink-soft);
+    padding:6px 11px;border-radius:999px;transition:.15s}
+  .chip:hover{border-color:#b9c4d2}
+  .chip.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  #search{font-family:"Inter";font-size:14px;padding:8px 12px;border:1px solid var(--line);
+    border-radius:9px;background:#fff;min-width:170px;outline:none}
+  #search:focus{border-color:var(--ink)}
+  .toggle{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);cursor:pointer;user-select:none}
+  .toggle input{display:none}
+  .switch{width:38px;height:22px;border-radius:999px;background:#c5cdd8;position:relative;transition:.2s}
+  .switch::after{content:"";position:absolute;width:16px;height:16px;border-radius:50%;background:#fff;top:3px;left:3px;transition:.2s}
+  .toggle input:checked + .switch{background:var(--good)}
+  .toggle input:checked + .switch::after{left:19px}
+
+  /* ---------- Sections ---------- */
+  main{padding:30px 0 70px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin:38px 0 16px;padding-bottom:10px;
+    border-bottom:2px solid var(--line)}
+  .sec-head .idx{font-family:"Space Mono",monospace;font-size:13px;color:#fff;padding:4px 9px;border-radius:6px}
+  .sec-head h2{font-family:"Spectral",serif;font-size:24px;margin:0;font-weight:600;letter-spacing:-.01em}
+  .sec-head .count{font-family:"Space Mono",monospace;font-size:12px;color:var(--ink-soft);margin-left:auto}
+
+  /* ---------- Card ---------- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:13px;
+    box-shadow:var(--shadow);margin-bottom:14px;overflow:hidden;display:flex}
+  .tab{flex:0 0 54px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+    padding-top:18px;color:#fff;font-family:"Space Mono",monospace}
+  .tab .num{font-size:18px;font-weight:700}
+  .tab .lbl{font-size:9px;letter-spacing:.12em;writing-mode:vertical-rl;transform:rotate(180deg);
+    margin-top:10px;opacity:.85;text-transform:uppercase}
+  .body{flex:1;padding:18px 20px 18px}
+  .q-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+  .q{font-size:15.5px;color:var(--ink);font-weight:500;margin:0}
+  .q .opts{display:block;margin-top:7px;font-size:14px;color:var(--ink-soft);font-style:italic}
+  .reveal-btn{flex:0 0 auto;font-family:"Space Mono",monospace;font-size:11px;cursor:pointer;
+    border:1px solid var(--line);background:#fff;color:var(--ink-soft);padding:5px 10px;border-radius:7px;white-space:nowrap}
+  .reveal-btn:hover{border-color:#b9c4d2}
+
+  .ans{margin-top:14px;border-top:1px dashed var(--line);padding-top:14px}
+  .ans.hidden{display:none}
+  .answer-line{display:flex;gap:10px;align-items:flex-start;background:var(--good-bg);
+    border:1px solid var(--good-line);border-radius:9px;padding:10px 12px}
+  .answer-line .key{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.1em;
+    color:var(--good);text-transform:uppercase;flex:0 0 auto;margin-top:2px}
+  .answer-line .val{font-weight:600;color:#155235;font-size:14.5px}
+  .why{margin-top:12px}
+  .why h4{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);
+    margin:0 0 5px;font-family:"Space Mono",monospace}
+  .why p{margin:0 0 10px;font-size:14px;color:var(--ink)}
+  .why .wrong{color:var(--bad)}
+  .why p:last-child{margin-bottom:0}
+  .note{margin-top:11px;font-size:12.5px;color:var(--warn);background:#faf4e6;
+    border-left:3px solid #e3c878;padding:8px 11px;border-radius:0 7px 7px 0}
+
+  .badge-src{margin-top:12px}
+
+  /* missing / lab */
+  .missing{background:#f4f6f9;border:1px dashed #cfd7e1;border-radius:11px;padding:14px 16px;
+    margin-bottom:14px;color:var(--ink-soft);font-size:13.5px;display:flex;gap:10px;align-items:center}
+  .missing .num{font-family:"Space Mono",monospace;font-weight:700;color:var(--ink)}
+  .labbox{background:#fff;border:1px solid var(--line);border-radius:13px;padding:20px 22px;box-shadow:var(--shadow)}
+  .labbox h3{font-family:"Spectral",serif;margin:0 0 4px;font-size:19px}
+  .labbox p.sub{margin:0 0 16px;font-size:13px;color:var(--ink-soft)}
+  .labgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .labgrid ol{margin:6px 0 0;padding-left:22px;font-size:14px}
+  .labgrid li{margin-bottom:4px}
+  .labgrid h5{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.1em;color:var(--ink-soft);margin:0}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 50px;color:var(--ink-soft);font-size:12.5px;text-align:center}
+  .no-result{text-align:center;padding:40px;color:var(--ink-soft);font-size:14px;display:none}
+
+  @media(max-width:600px){
+    .tab{flex-basis:42px}
+    .tab .lbl{display:none}
+    .labgrid{grid-template-columns:1fr}
+    .q-top{flex-direction:column}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">2025 / 2026 · Bahar · 1. Sınıf · Komite 1</div>
+    <h1>Çıkmış Sınav, <em>çözümlü.</em></h1>
+    <p class="lead">Her soru orijinalindeki gibi İngilizce. Doğru şıkkın neden doğru olduğu ve kavramsal olarak diğer seçeneklerin neden elendiği, ders kaynaklarına dayanılarak Türkçe açıklandı. Sınavda bu sorulardan gelme ihtimaline karşı bir tekrar aracı.</p>
+    <div class="meta-row">
+      <span class="pill">5 ders</span>
+      <span class="pill">84 çözümlü soru</span>
+      <span class="pill">kaynak temelli</span>
+    </div>
+  </div>
+</header>
+
+<div class="legend">
+  <div class="wrap">
+    <span><b>Kaynak işareti:</b></span>
+    <span class="src src-yes">KAYNAKTA VAR</span>
+    <span class="src src-part">KISMEN</span>
+    <span class="src src-no">KAYNAKTA YOK</span>
+    <span style="margin-left:auto;color:#8290a2">“Kaynakta yok” = konu, projedeki ders dosyalarında bulunamadı; açıklama genel tıp bilgisine dayanır.</span>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="wrap">
+    <div class="chips" id="chips"></div>
+    <input id="search" type="search" placeholder="Ara: kelime, kavram…" aria-label="Soru ara">
+    <label class="toggle"><input type="checkbox" id="hideAns"><span class="switch"></span>Sınav modu (cevaplar gizli)</label>
+  </div>
+</div>
+
+<main class="wrap">
+  <div id="content"></div>
+  <div class="no-result" id="noResult">Bu filtre/aramaya uygun soru yok.</div>
+</main>
+
+<footer class="wrap">
+  Çözümler ders kaynaklarına (genetik, anatomi, embriyoloji, biyokimya slaytları) dayanılarak hazırlandı. Cevap anahtarı çıkmış sınav metninden alınmıştır; bilgi amaçlıdır, sınav garantisi değildir.
+</footer>
+
+<script>
+const SUBJECTS = {
+  gen:{name:"Tıbbi Genetik",var:"--s-gen",lbl:"GENETİK"},
+  ana:{name:"Anatomi",var:"--s-ana",lbl:"ANATOMİ"},
+  bio:{name:"Biyofizik",var:"--s-bio",lbl:"BİYOFİZİK"},
+  his:{name:"Histoloji / Embriyoloji",var:"--s-his",lbl:"HİSTO"},
+  bch:{name:"Tıbbi Biyokimya",var:"--s-bch",lbl:"BİYOKİMYA"},
+  prj:{name:"Project Techniques",var:"--s-prj",lbl:"PROJE"}
+};
+
+// src: yes | part | no
+const Q = [
+/* ---------------- GENETİK ---------------- */
+{n:1,s:"gen",src:"yes",
+ q:"Which of the following explains the situation where phenotypic findings can be of varying severity in individuals of a specific genotype?",
+ a:"Variable expressivity",
+ why:"Aynı genotipe sahip kişilerde, hatta aynı ailede bile fenotipin <b>derecesi/şiddeti</b> dramatik biçimde değişebilir; kaynakta tam olarak bu “severity of phenotype appearances” tanımı değişken ekspresiviteye karşılık gelir.",
+ wrong:"<b>Penetrans</b> fenotipin <i>görülüp görülmemesi</i> (oran) ile ilgilidir, şiddeti değil. <b>Pleiotropi</b> tek genin birçok sisteme etkisidir. <b>Antisipasyon</b> nesiller arası erken/şiddetli başlangıçtır (triplet tekrar)."},
+{n:2,s:"gen",src:"yes",
+ q:"Which inheritance pattern is correct for the inherited disease in the pedigree chart shown?",
+ a:"X-linked recessive",
+ why:"X’e bağlı resesifte hastalık ağırlıkla erkeklerde görülür, taşıyıcı annelerden oğullara geçer; soyağacında atlamalı, erkek-baskın bir dağılım tipiktir.",
+ wrong:"<b>OD</b>’de her nesilde hasta (vertikal) görülür. <b>OR</b>’de hasta çocuk sağlıklı ebeveynden çıkar (horizontal). <b>X-dominant</b>’ta hasta bir oğlanın annesi mutlaka etkilenmiş olmalıdır."},
+{n:3,s:"gen",src:"yes",
+ q:"A child has been diagnosed with Prader-Willi syndrome. Molecular analysis revealed maternal uniparental disomy in the 15q11-q13 region. Which of the following is true in this case?",
+ a:"Maternal genes are in a double dose, paternal genes are absent.",
+ why:"PWS, <b>babadan gelen</b> 15q11-13 gen ifadesinin kaybıyla oluşur. Maternal UPD’de her iki 15. kromozom anneden gelir → anne genleri çift doz, baba genleri yok → PWS.",
+ wrong:"Tersi durum (paternal çift doz, maternal yok) <b>Angelman sendromu</b>na yol açar. “Etkisi yok” seçeneği yanlıştır çünkü bu bölge <b>imprinting</b>e tabidir."},
+{n:4,s:"gen",src:"yes",
+ q:"If a man with mitochondrial inherited MELAS syndrome marries a healthy woman, what is the probability that their child will have the disease?",
+ a:"0%",
+ why:"Mitokondriyal kalıtım <b>maternaldir</b>. Kaynak net: “Affected father is not a risk to boys and girls.” Baba mtDNA’sını çocuklara aktarmaz.",
+ wrong:"%25 / %50 / %100 gibi seçenekler Mendel kalıtımına aittir ve mitokondriyal hastalıkta geçerli değildir."},
+{n:5,s:"gen",src:"part",
+ q:"Which of the following methods is used to assess protein and RNA contamination in a DNA sample?",
+ a:"Spectrophotometry (UV; A260/A280 ratio)",
+ why:"UV spektrofotometride 260 nm’de nükleik asit, 280 nm’de protein absorbe eder. <b>A260/A280 ≈ 1.8</b> saf DNA; düşükse protein bulaşı, A260/A230 ile diğer kirleticiler değerlendirilir.",
+ wrong:"<b>Jel elektroforezi</b> boyut/bütünlük gösterir, <b>PCR</b> çoğaltır, <b>Western blot</b> protein saptar; hiçbiri saflık oranını ölçmez."},
+{n:6,s:"gen",src:"yes",
+ q:"Which of the following is NOT a direct result of a structural chromosomal anomaly?",
+ a:"Formation of trisomy",
+ why:"Yapısal anomaliler kırılma/yeniden düzenlenmedir: <b>delesyon, duplikasyon, inversiyon, translokasyon, halka, izokromozom</b>. Trizomi ise <b>sayısal</b> (kromozom sayısı) anomalisidir.",
+ wrong:"Delesyon, duplikasyon, translokasyon seçenekleri doğrudan yapısal anomalilerdir; trizomi bu gruba girmez."},
+{n:7,s:"gen",src:"part",
+ q:"The syndrome characterized by “cat’s meow”-like crying (Cri-du-chat) is caused by which chromosomal anomaly?",
+ a:"5p deletion",
+ why:"Cri-du-chat, 5. kromozomun <b>kısa kolundaki (5p−) delesyon</b> ile oluşur; kedi miyavlamasına benzer ağlama tipiktir.",
+ wrong:"Trizomi 21/18 sayısal anomalidir. <b>4p−</b> Wolf-Hirschhorn’dur, Cri-du-chat değildir."},
+{n:8,s:"gen",src:"yes",
+ q:"A newborn with respiratory distress, micrognathia, low-set ears, clenched hand (flexion contractures), rocker-bottom feet, and ventricular septal defect. Most likely diagnosis?",
+ a:"Edwards syndrome (Trisomy 18)",
+ why:"Kaynaktaki Trizomi 18 tablosu birebir: clenched hand, el-ayak anomalileri, konjenital kalp hastalığı. Mikrognati + low-set ear + rocker-bottom foot klasik Edwards bulgularıdır.",
+ wrong:"<b>Down (21)</b> farklı yüz/profil verir. <b>Patau (13)</b> holoprozensefali, polidaktili, yarık dudak ön plandadır. <b>Turner</b> bu tabloya uymaz."},
+{n:9,s:"gen",src:"no",
+ q:"What happens during the annealing step of PCR?",
+ a:"The primers attach to the target DNA region",
+ why:"PCR döngüsü: <b>Denatürasyon</b> (~95°C, iplikler ayrılır) → <b>Annealing</b> (~50–65°C, primerler hedefe bağlanır) → <b>Extension</b> (~72°C, Taq sentezler). Annealing = primer bağlanması.",
+ wrong:"İplik ayrılması denatürasyon, yeni zincir sentezi extension adımıdır; bunlar annealing değildir."},
+{n:12,s:"gen",src:"yes",
+ q:"Name the base-level substitution mutation that occurs without changing the length of genetic material, as a substitution of purine for pyrimidine.",
+ a:"Transversion",
+ why:"Kaynak: <b>Transversion = pürin bazının pirimidinle (veya tersi) yer değiştirmesi</b>; baz düzeyinde, uzunluk değişmeden olan substitüsyon.",
+ wrong:"<b>Transition</b> pürin↔pürin / pirimidin↔pirimidindir. <b>İnsersiyon/delesyon</b> ve <b>frameshift</b> uzunluğu değiştirir."},
+{n:13,s:"gen",src:"yes",
+ q:"Which of the following is a correct statement for Robertsonian-type translocation?",
+ a:"It occurs between acrocentric chromosomes",
+ why:"Kaynak: Robertsonian (sentrik füzyon), <b>akrosentrik kromozomların</b> sentromerden kırılıp uzun kollarının birleşmesidir (kısa kollar kaybolur). 13,14,15,21,22.",
+ wrong:"<b>Resiprokal</b> translokasyon herhangi iki kromozom arasında olur. “Metasentrikler arasında” ifadesi yanlıştır."},
+{n:14,s:"gen",src:"yes",
+ q:"Which of the following is NOT an advantage of epigenetic modification?",
+ a:"Increasing genetic diversity by permanently altering the DNA sequence",
+ why:"Epigenetik <b>DNA dizisini değiştirmeden</b> ve <b>geri dönüşümlü</b> olarak gen ifadesini düzenler. “Diziyi kalıcı değiştirerek…” ifadesi epigenetiğin tanımına aykırıdır.",
+ wrong:"Gerçek avantajlar (kaynakta): hücreye esneklik, çevresel uyarana yanıt, farklılaşma/yeniden gelişim, dizi değişmeden çeşitliliğe katkı."},
+{n:15,s:"gen",src:"yes",
+ q:"What is the general effect of acetylation, a histone modification?",
+ a:"It opens the chromatin structure and increases gene expression.",
+ why:"Asetillenmiş histonlar → <b>açık kromatin (ökromatin)</b> → transkripsiyon mümkün → gen ifadesi artar (kaynaktaki kromatin remodelling şeması).",
+ wrong:"DNA metilasyonu genelde kromatini kapatır ve ifadeyi baskılar; asetilasyonun tersi yönde etki yapar."},
+{n:16,s:"gen",src:"yes",
+ q:"Which of the following is NOT one of the basic and distinguishing features of a cancer cell?",
+ a:"Sensitivity to contact inhibition",
+ why:"Kaynaktaki kanser hücresi özellikleri: sınırsız bölünme, <b>kontakt inhibisyon KAYBI</b>, apoptozdan kaçış, anjiyogenez, metastaz, telomeraz. Yani kanser hücresi kontakt inhibisyona <b>duyarsızdır</b>.",
+ wrong:"“Loss of contact inhibition”, apoptozdan kaçış, anjiyogenez, metastaz hepsi gerçek kanser özelliğidir; “duyarlılık” değildir."},
+{n:17,s:"gen",src:"part",
+ q:"Bronchial squamous change (regressing) → gastric intestinal-type glands with nuclear irregularity (premalignant) → colonic polyp with architectural disruption, mitoses, lost polarity. Match the processes respectively.",
+ a:"Metaplasia – Dysplasia – Neoplasia",
+ why:"Geri dönen epitel tip değişimi = <b>metaplazi</b>; malign potansiyelli hücre/çekirdek düzensizliği = <b>displazi</b>; mimari bozulma + mitoz + polarite kaybı olan kitle = <b>neoplazi</b>.",
+ wrong:"Hipertrofi/atrofi boyut değişimidir. Anaplazi terimi neoplaziye eşlik eden farklılaşmamışlığı tanımlar; üçlü sıralamayı değiştirmez."},
+{n:18,s:"gen",src:"part",
+ q:"Which is the most common chromosomal abnormality in spontaneous abortions?",
+ a:"Trisomy 16",
+ why:"Trizomi 16 düşüklerde en sık görülen otozomal trizomidir; <b>yaşamla bağdaşmadığı</b> için canlı doğumda görülmez, ancak abortuslarda zirvededir.",
+ wrong:"<b>Trizomi 21</b> canlı doğumda en sık; <b>45,X</b> de abortuslarda sıktır ama en sık spesifik anomali Trizomi 16’dır."},
+{n:19,s:"gen",src:"part",
+ q:"A 16-week triple test shows very high maternal serum AFP (>2.5 MoM). Which condition is LEAST associated with this finding?",
+ a:"Down syndrome",
+ why:"Yüksek AFP → <b>nöral tüp defekti</b> (spina bifida, anensefali), karın duvarı defektleri, çoğul gebelik. Kaynak: AFP nöral tüp defektlerini gösterir. Down’da AFP <b>düşüktür</b>, yüksek AFP ile en az ilişkilidir.",
+ wrong:"Anensefali, spina bifida, omfalosel/gastroşizis yüksek AFP yapar; Down bunların aksine düşük AFP profilindedir."},
+{n:20,s:"gen",src:"part",
+ q:"Which invasive prenatal method and gestational-week pairing is correct?",
+ a:"Chorionic villus sampling (CVS) 11–14 weeks",
+ why:"CVS birinci trimesterde (yaklaşık 10–14. hafta) yapılır; cevap anahtarı 11–14 haftayı işaretler.",
+ wrong:"Amniyosentez genelde 15–16. haftadan sonra yapılır; CVS’i geç haftalara koymak yanlıştır.",
+ note:"Ders kaynağında CVS “10–12. hafta” olarak geçiyor. Cevap anahtarındaki 11–14 ile tam örtüşmüyor; sınavda verilen seçeneklerin en doğrusu CVS’in birinci trimesterde olduğunu yansıtır."},
+{n:21,s:"gen",src:"part",
+ q:"Which is true regarding the terms “congenital anomaly” and “congenital malformation”?",
+ a:"Every congenital malformation is also a congenital anomaly.",
+ why:"“Konjenital anomali” şemsiye terimdir; malformasyon (intrinsik gelişim kusuru) onun bir alt kümesidir. Yani her malformasyon bir anomalidir, tersi her zaman doğru değildir.",
+ wrong:"“Her anomali malformasyondur” yanlıştır; deformasyon ve disrupsiyon da anomalidir ama malformasyon değildir."},
+{n:22,s:"gen",src:"part",
+ q:"Which of the following is NOT a major malformation?",
+ a:"Epicanthus",
+ why:"Epikantus küçük bir <b>minör</b> anomali/varyasyondur; tek başına işlevi tehdit etmez.",
+ wrong:"Majör malformasyonlar yaşamı/işlevi tehdit eder: konjenital kalp defekti, nöral tüp defekti, yarık damak vb."},
+{n:23,s:"gen",src:"part",
+ q:"Jaw-pressure facial asymmetry improving with therapy → Trisomy 18 with multiple anomalies → drug-induced limb destruction in another infant. Match respectively.",
+ a:"Deformation – Syndrome – Disruption",
+ why:"Mekanik/pozisyonel, geri düzelen bulgular = <b>deformasyon</b>; tek nedene bağlı çoklu anomali örüntüsü (Trizomi 18) = <b>sendrom</b>; dış yıkıcı etkenin (ilaç/teratojen) normal gelişimi kesmesi = <b>disrupsiyon</b>.",
+ wrong:"Malformasyon intrinsik gelişim kusurudur; buradaki dış mekanik ve teratojenik nedenleri tanımlamaz."},
+{n:24,s:"gen",src:"yes",
+ q:"Which of the following diseases is NOT an autosomal chromosome anomaly?",
+ a:"Duchenne Muscular Dystrophy",
+ why:"DMD <b>X’e bağlı resesif</b> bir gen hastalığıdır, otozomal değildir.",
+ wrong:"Down (21), Edwards (18), Patau (13), Cri-du-chat (5p−) otozomal kromozom anomalileridir."},
+
+/* ---------------- ANATOMİ ---------------- */
+{n:25,s:"ana",src:"no",
+ q:"First carpometacarpal joint is an example of which joint type?",
+ a:"Saddle joint",
+ why:"Başparmağın 1. karpometakarpal eklemi prototip <b>eyer (sellar) eklem</b>tir; biaksiyel, eyer biçimli karşılıklı yüzeylere sahiptir, başparmağa opozisyon sağlar.",
+ wrong:"Menteşe (dirsek), top-yuva (kalça), pivot (atlantoaksiyel), düz/plana (akromioklaviküler) farklı tiplerdir."},
+{n:26,s:"ana",src:"part",
+ q:"Which of the following is CORRECT about the temporomandibular joint (TMJ)?",
+ a:"The articular disc divides the TMJ into two synovial cavities",
+ why:"TMJ’deki artiküler disk eklemi <b>üst (kayma) ve alt (menteşe)</b> olmak üzere iki sinovyal boşluğa böler. Kaynakta lateral pterygoid bu diske/kapsüle tutunur.",
+ wrong:"TMJ fibröz değil sinovyaldir; diski yoktur demek yanlıştır; iki boşluğa bölünme doğru ifadedir."},
+{n:27,s:"ana",src:"no",
+ q:"Which of the following options is correct (definition of a motor unit)?",
+ a:"A motor unit is a motor neuron and all the muscle fibers innervated by this neuron",
+ why:"Motor ünite = <b>bir motor nöron + onun innerve ettiği tüm kas lifleri</b>. İnce kontrol gereken kaslarda ünite küçük, büyük kaslarda geniştir.",
+ wrong:"Tek lif, tek sarkomer ya da yalnızca sinir-kas kavşağı tanımları motor üniteyi karşılamaz."},
+{n:28,s:"ana",src:"yes",
+ q:"Which of the following muscles abducts the humerus up to 15 degrees?",
+ a:"Supraspinatus",
+ why:"Supraspinatus rotator cuff kasıdır ve abduksiyonun <b>ilk ~15°</b>’sini başlatır; sonrasını deltoid sürdürür.",
+ wrong:"<b>Deltoid</b> 15–90° arası asıl abduktördür; <b>trapezius/serratus</b> 90° üzerini skapular rotasyonla sağlar."},
+{n:29,s:"ana",src:"yes",
+ q:"Which arm muscle assists in flexion and adduction of the shoulder joint but does not act on the elbow?",
+ a:"Coracobrachialis",
+ why:"Kaynak: Coracobrachialis kolun <b>fleksiyon ve adduksiyonuna</b> yardım eder; dirsek eklemini geçmediği için dirseğe etki etmez.",
+ wrong:"<b>Biceps</b> ve <b>brachialis</b> dirseği fleksiyona getirir; <b>triceps</b> dirseği ekstansiyona getirir."},
+{n:30,s:"ana",src:"no",
+ q:"Which of the following statements about synovial joints is FALSE?",
+ a:"All synovial joints contain articular discs or menisci",
+ why:"Disk/menisküs yalnızca <b>bazı</b> sinovyal eklemlerde bulunur (TMJ, diz, sternoklaviküler). “Tümünde vardır” ifadesi yanlıştır.",
+ wrong:"Sinovyal eklemlerin kapsül, sinovyal sıvı ve eklem kıkırdağı içermesi doğru ifadelerdir."},
+{n:31,s:"ana",src:"no",
+ q:"Injury to which ligament would most likely result in “nursemaid’s elbow”?",
+ a:"Annular ligament of radius",
+ why:"Çocuklarda kolun ani çekilmesiyle radius başı <b>anüler ligamentten</b> kayar (radial baş subluksasyonu) = pulled/nursemaid’s elbow.",
+ wrong:"Ulnar/radial kollateral ligamentler veya interosseöz membran bu tabloyu tipik olarak oluşturmaz."},
+{n:32,s:"ana",src:"no",
+ q:"Which structure carries a small artery to the head of the femur?",
+ a:"Ligament of head of the femur (lig. capitis femoris)",
+ why:"Femur başına giden küçük arter (a. obturatoria dalı) <b>lig. capitis femoris</b> içinde seyreder; özellikle çocuklarda baş beslenmesine katkı sağlar.",
+ wrong:"İliofemoral/pubofemoral ligamentler stabiliteden sorumludur; başa arter taşımazlar."},
+{n:33,s:"ana",src:"no",
+ q:"A football player receives a blow to the lateral side of the knee. Which combination of injuries is most likely?",
+ a:"ACL + MCL + medial meniscus (“unhappy triad”)",
+ why:"Dizin <b>dış yanına</b> gelen darbe valgus zorlamasıyla MCL’yi, buna bağlı medial menisküsü ve ACL’yi birlikte yaralar — klasik “mutsuz üçlü”.",
+ wrong:"PCL + LCL + lateral menisküs gibi kombinasyonlar bu mekanizmaya (lateral darbe → valgus) uymaz."},
+{n:34,s:"ana",src:"yes",
+ q:"Which rami of spinal nerves contribute to the formation of plexuses?",
+ a:"Ventral rami",
+ why:"Kaynak: Brakiyal pleksus C5–T1 <b>ventral ramilerden</b> oluşur. Servikal, lumbal ve sakral pleksuslar da ventral ramilerden kurulur.",
+ wrong:"<b>Dorsal rami</b> derin sırt kaslarını ve sırt derisini innerve eder; pleksus oluşturmaz."},
+{n:35,s:"ana",src:"yes",
+ q:"Which of the following muscles is innervated by both the median and ulnar nerves?",
+ a:"Lumbrical muscles",
+ why:"Lumbrikal kaslarda 1. ve 2. <b>median</b>, 3. ve 4. <b>ulnar</b> sinir tarafından innerve edilir. Kaynak karpal tünel notunda 1.–2. lumbrikallerin median kontrolü belirtilir. (“Lumbar” yazımı “lumbrical” olmalı.)",
+ wrong:"Tek sinire bağlı tenar (median) veya hipotenar (ulnar) kasları bu çift innervasyon tanımına uymaz."},
+{n:36,s:"ana",src:"part",
+ q:"Which statement about the anterior compartment of the forearm is correct?",
+ a:"Most muscles originate from the medial epicondyle of the humerus",
+ why:"Ön kol fleksörlerinin çoğu humerusun <b>medial epikondilinden</b> (ortak fleksör orijin) başlar.",
+ wrong:"Ekstansörler (arka kompartman) <b>lateral epikondilden</b> başlar; “lateralden başlar” ifadesi ön kompartman için yanlıştır."},
+{n:37,s:"ana",src:"yes",
+ q:"Which statement about the arm (brachium) region is FALSE?",
+ a:"The coracobrachialis muscle is pierced by the median nerve",
+ why:"Kaynak nettir: Coracobrachialis kası <b>musculocutaneus sinir</b> tarafından delinir, median sinir tarafından değil. Dolayısıyla bu ifade yanlıştır.",
+ wrong:"Ön kol kompartmanının musculocutaneus, arka kompartmanın radial sinir tarafından innerve edilmesi doğru ifadelerdir."},
+{n:38,s:"ana",src:"part",
+ q:"Which statement is FALSE regarding the pectoral region and breast?",
+ a:"Long thoracic nerve injury causes winged scapula due to atrophy of serratus posterior inferior",
+ why:"Long thoracic sinir yaralanması <b>serratus ANTERIOR</b> felci yapar → kanat skapula. “Serratus posterior inferior” ifadesi yanlıştır.",
+ wrong:"Serratus anterior aksiller duvarda yer alır ve skapulayı toraksa sabitler; doğru kas budur."},
+{n:39,s:"ana",src:"yes",
+ q:"Which statement is correct regarding superficial back muscles?",
+ a:"They are primarily involved in movements of the upper limb",
+ why:"Kaynak: yüzeyel sırt kasları (trapezius, latissimus dorsi, rhomboidler, levator scapulae) üst ekstremiteyi gövdeye bağlar ve <b>üst ekstremite hareketleriyle</b> ilişkilidir.",
+ wrong:"Vertebral kolon postürünü asıl <b>derin</b> sırt kasları sağlar; bu yüzeyel kasların ana işlevi değildir."},
+
+/* ---------------- BİYOFİZİK ---------------- */
+{n:40,s:"bio",src:"no",
+ q:"Similarities between the Bohr Atom Model and Modern Atom Theory? I) Localization of protons  II) Electron cloud  III) Localization of neutrons",
+ a:"I and III",
+ why:"İki modelde de çekirdekte <b>protonlar ve nötronlar lokalizedir</b> (I ve III ortak). Elektron bulutu (II) yalnızca modern modele aittir; Bohr’da elektronlar belirli yörüngelerdedir.",
+ wrong:"II (elektron bulutu) ortak değildir, bu yüzden cevaba dahil edilmez."},
+{n:41,s:"bio",src:"no",
+ q:"Which is/are correct? I) Hydrogen’s bonding capacity is one bond  II) Catabolism means break down  III) Carbon’s bonding capacity is two bonds",
+ a:"I and III (cevap anahtarına göre)",
+ why:"I doğrudur (H tek bağ yapar). II de doğrudur (katabolizma = yıkım). III ise <b>yanlıştır</b>: karbon <b>4 bağ</b> yapar.",
+ wrong:"Bilimsel olarak doğru ifadeler <b>I ve II</b> olmalıdır.",
+ note:"Burada cevap anahtarı “I ve III” diyor; ancak karbon 4 bağ yaptığından III hatalıdır. Kavramsal olarak doğru kombinasyon I ve II’dir — anahtarda olası bir yazım/şık hatası olabilir."},
+{n:42,s:"bio",src:"no",
+ q:"There is …… bond/interaction between oxygen and hydrogen in a single water molecule.",
+ a:"Covalent",
+ why:"Bir su molekülünün İÇİNDEKİ O–H bağı <b>(polar) kovalenttir</b>; elektronlar paylaşılır.",
+ wrong:"<b>Hidrojen bağı</b> su molekülleri ARASINDADIR, molekül içi O–H bağı değildir."},
+{n:43,s:"bio",src:"no",
+ q:"Which does/do NOT present covalent bond features? I) Glycosidic bond  II) Hydrogen bond  III) Ionic bond",
+ a:"II and III",
+ why:"Glikozit bağı <b>kovalenttir</b> (I). Hidrojen bağı ve iyonik bağ ise kovalent değildir (II, III).",
+ wrong:"Glikozit bağını “kovalent değil” saymak yanlıştır; bu yüzden I cevaba girmez."},
+{n:44,s:"bio",src:"part",
+ q:"Which chemical bond has a covalent structure in the protein molecule?",
+ a:"Peptide bond",
+ why:"Proteinin omurgasını oluşturan <b>peptit bağı</b> kovalenttir.",
+ wrong:"İkincil yapıdaki hidrojen bağları ve yan zincir iyonik etkileşimleri zayıf/non-kovalenttir (disülfit de kovalenttir ama omurga bağı peptittir)."},
+{n:45,s:"bio",src:"no",
+ q:"Breaking which bond provides the energy source in carbohydrates?",
+ a:"C–H bond",
+ why:"Karbonhidratların oksidasyonunda enerji büyük ölçüde <b>C–H bağlarının</b> kopmasından (elektronların aktarımı) elde edilir.",
+ wrong:"Glikozit veya C–O bağları enerji kaynağı olarak C–H kadar belirleyici değildir."},
+{n:46,s:"bio",src:"no",
+ q:"Which chemical bond structure is between an enzyme and its substrate?",
+ a:"Hydrogen bond",
+ why:"Enzim-substrat tanınması büyük ölçüde <b>geri dönüşümlü zayıf etkileşimlerle</b> (özellikle hidrojen bağları, ayrıca iyonik/van der Waals) sağlanır.",
+ wrong:"Kovalent bağ kalıcı olurdu; enzim-substrat ilişkisi geçici ve geri dönüşümlü olmalıdır."},
+{n:47,s:"bio",src:"no",
+ q:"Which is/are correct for body fluids? I) Cell membrane separates ICF from interstitial fluid  II) Dyes binding leukocytes determine intravascular volume  III) In osmosis water moves toward higher concentration",
+ a:"I and III",
+ why:"I doğru (hücre zarı ICF’i interstisyel sıvıdan ayırır). III doğru (osmozda su, çözünen yoğunluğu yüksek tarafa geçer).",
+ wrong:"II yanlıştır: intravasküler hacim için lökosit boyaları değil, eritrositler ve plazma proteinleri kullanılır."},
+{n:48,s:"bio",src:"no",
+ q:"When determining intravascular fluid volume, which molecules/cells are used? 1) Erythrocytes 2) Plasma proteins 3) Lipids 4) Leukocytes",
+ a:"I and II",
+ why:"İntravasküler hacim damar içinde kalan işaretleyicilerle ölçülür: <b>eritrositler</b> ve <b>plazma proteinleri</b>.",
+ wrong:"Lipidler ve lökositler bu amaçla standart işaretleyici değildir."},
+{n:49,s:"bio",src:"no",
+ q:"Which is/are correct for circulatory biophysics? I) Viscosity is the ratio of shear rate to shear stress  II) Pressure decreases from arteries to veins  III) In laminar flow the velocity profile is parabolic",
+ a:"II and III",
+ why:"II doğru (basınç arterden vene düşer). III doğru (laminer akışta hız profili paraboliktir).",
+ wrong:"I yanlıştır: viskozite <b>shear stress / shear rate</b> oranıdır, tersi değil."},
+{n:50,s:"bio",src:"no",
+ q:"According to ____ law, blood flow is proportional to the fourth power of the vessel radius.",
+ a:"Poiseuille (yarıçapın 4. kuvveti)",
+ why:"<b>Poiseuille yasası</b>: akış, damar yarıçapının <b>4. kuvvetiyle</b> orantılıdır; yarıçaptaki küçük değişim akışı büyük ölçüde değiştirir.",
+ wrong:"Laplace (duvar gerilimi), Ohm (genel akım) veya Bernoulli bu r⁴ ilişkisini tanımlamaz."},
+{n:51,s:"bio",src:"no",
+ q:"Which of the following is NOT directly related to blood viscosity?",
+ a:"Leukocyte deformability",
+ why:"Kan viskozitesini asıl belirleyenler <b>hematokrit (eritrosit oranı)</b>, plazma proteinleri ve eritrosit deformabilitesi/agregasyonudur. Lökositler sayıca çok az olduğundan viskoziteyi doğrudan belirlemez.",
+ wrong:"Hematokrit, plazma protein konsantrasyonu ve eritrosit özellikleri viskoziteyle doğrudan ilişkilidir."},
+{n:52,s:"bio",src:"yes",
+ q:"Which chemical bond structure is a weak bond in the DNA molecule?",
+ a:"Hydrogen bond",
+ why:"DNA’da iki zinciri bir arada tutan baz çiftleri arasındaki bağ <b>hidrojen bağıdır</b> (zayıf, geri dönüşümlü). Şeker-fosfat omurgası ise kovalenttir.",
+ wrong:"Fosfodiester (kovalent) bağ omurgada yer alır ve zayıf değildir; iyonik bağ DNA baz eşleşmesini tanımlamaz."},
+
+/* ---------------- HİSTOLOJİ / EMBRİYOLOJİ ---------------- */
+{n:53,s:"his",src:"part",
+ q:"Which sarcomere region contains only actin, rising from the Z band?",
+ a:"I band",
+ why:"<b>I (izotropik) bandı</b> Z çizgisinden çıkan yalnızca <b>ince (aktin)</b> filamentleri içerir.",
+ wrong:"<b>A bandı</b> kalın (miyozin) + örtüşme bölgesidir; <b>H zonu</b> yalnızca miyozin içerir."},
+{n:54,s:"his",src:"yes",
+ q:"Which accessory protein in the I bands of the sarcomere is the largest protein in the body with elastic properties?",
+ a:"Titin",
+ why:"<b>Titin</b> vücudun en büyük proteinidir; elastik özellik taşır ve kası pasif gerilmeden sonra dinlenme uzunluğuna döndürür (COMM2 fizyoloji ile de uyumlu).",
+ wrong:"Nebulin ince filament boyunu düzenler; aktin/miyozin kasılma proteinleridir, “en büyük elastik protein” değildir."},
+{n:55,s:"his",src:"part",
+ q:"Which of the following is a FALSE statement?",
+ a:"The I (isotropic) band of the sarcomere is the region where actin and myosin overlap",
+ why:"Örtüşme (aktin+miyozin) <b>A bandında</b> olur; I bandı yalnızca ince filament içerir. Dolayısıyla bu ifade yanlıştır.",
+ wrong:"“A bandı kalın filament boyudur”, “H zonu A bandı içindedir” gibi ifadeler doğrudur."},
+{n:56,s:"his",src:"yes",
+ q:"How do you define the tissue in the micrograph?",
+ a:"Skeletal muscle",
+ why:"Belirgin çapraz çizgilenme (striasyon) ve <b>periferik yerleşimli çekirdekler</b> iskelet kasını gösterir (kaynaktaki striated muscle tanımı).",
+ wrong:"Kalp kası dallanır ve interkalat disk içerir; düz kasta striasyon yoktur."},
+{n:57,s:"his",src:"part",
+ q:"Which is found in the joint structure between the vertebral bodies (corpuses)?",
+ a:"Fibrocartilage",
+ why:"Omur cisimleri arasındaki intervertebral disk (anulus fibrozus) <b>fibrokıkırdak</b> içerir; basınca ve gerilime dayanıklıdır.",
+ wrong:"Hyalin kıkırdak eklem yüzeylerinde, elastik kıkırdak kulak/epiglotta bulunur."},
+{n:58,s:"his",src:"part",
+ q:"Which is a TRUE statement about cartilage tissue?",
+ a:"Hyaline cartilage forms the initial model for endochondral ossification",
+ why:"Endokondral kemikleşmede önce bir <b>hyalin kıkırdak model</b> oluşur, sonra kemik dokuyla değiştirilir.",
+ wrong:"Elastik veya fibrokıkırdağın endokondral model oluşturduğu ifadeleri yanlıştır."},
+{n:59,s:"his",src:"part",
+ q:"Which is a FALSE statement?",
+ a:"Articular cartilage of a typical synovial joint is covered by a perichondrium",
+ why:"Eklem (artiküler) hyalin kıkırdağında <b>perikondrium YOKTUR</b>; beslenme sinovyal sıvıdan difüzyonla olur. Bu yüzden ifade yanlıştır.",
+ wrong:"Diğer hyalin kıkırdakların perikondriumla çevrili olması doğru olur; ama artiküler kıkırdak istisnadır."},
+{n:60,s:"his",src:"part",
+ q:"Which zone of the epiphyseal plate is adjacent to the bone formation area and replaced by bone tissue?",
+ a:"Calcified zone",
+ why:"Epifiz plağı zonları: dinlenme → proliferasyon → hipertrofi → <b>kalsifikasyon</b> → ossifikasyon. Kalsifiye zon kemikleşme alanına komşudur ve kemikle yer değiştirir.",
+ wrong:"Proliferatif ve hipertrofik zonlar kıkırdak büyümesi/şişmesi aşamalarıdır; kemikle değiştirilen zon değildir."},
+{n:61,s:"his",src:"part",
+ q:"Which is a FALSE statement about osteogenesis?",
+ a:"Osteoclasts, formed from osteoprogenitor cells, break down spongy bone to form the medullary cavity",
+ why:"Osteoklastlar <b>hematopoetik/monosit kökenlidir</b>, osteoprogenitör hücrelerden DEĞİL. Osteoprogenitörler osteoblasta dönüşür. Bu yüzden ifade yanlıştır.",
+ wrong:"Osteoblastların kemik yaptığı, osteositlerin osteoblasttan oluştuğu ifadeleri doğrudur."},
+{n:62,s:"his",src:"yes",
+ q:"Primary oocytes of primordial follicles are arrested in which phase?",
+ a:"Prophase of Meiosis I",
+ why:"Kaynak: primer oositler <b>mayoz I’in profazında</b> (diploten) tutuklanır ve ovulasyona kadar bu durumda kalır.",
+ wrong:"Metafaz II ikincil oosit durağıdır; profaz II diye bir durak yoktur."},
+{n:63,s:"his",src:"yes",
+ q:"Which cells contribute to follicular development of the oocyte and secrete fluid to fill the antrum of the Graafian follicle?",
+ a:"Granulosa cells",
+ why:"Kaynak: <b>granuloza hücreleri</b> folikül gelişimini destekler ve antrumu dolduran sıvıyı salgılar; FSH ile uyarılır.",
+ wrong:"Teka hücreleri androjen üretir; oosit antral sıvıyı salgılamaz."},
+{n:64,s:"his",src:"yes",
+ q:"The acrosomal cap of the spermium develops from which of the following?",
+ a:"Golgi apparatus",
+ why:"Spermiyogenezde <b>Golgi aygıtı</b> akrozomal vezikülü, ardından akrozomu/akrozomal başlığı oluşturur (kaynak şeması bunu adım adım gösterir).",
+ wrong:"Mitokondri orta parçayı, sentrioller kuyruğu oluşturur; akrozom Golgi kaynaklıdır."},
+{n:65,s:"his",src:"yes",
+ q:"The exocoelomic (Heuser’s) membrane lines the primary yolk sac with which cells?",
+ a:"Hypoblasts",
+ why:"Kaynak (9. gün): <b>hipoblast</b> kökenli yassı hücreler exocoelomic (Heuser) membranı oluşturur ve primer yolk kesesini döşer.",
+ wrong:"Epiblast, sitotrofoblast ya da ekstraembriyonik mezoderm bu membranın asıl kaynağı değildir."},
+{n:66,s:"his",src:"yes",
+ q:"Cellular columns of cytotrophoblasts holding a mesoderm-derived fetal vascular network, with syncytiotrophoblast covering, floating in maternal blood are defined as?",
+ a:"Tertiary villus",
+ why:"Kaynak: mezoderm çekirdeğinde kan damarları gelişince villus <b>tersiyer (kesin plasental) villus</b> adını alır; sitotrofoblast + fetal damar + sinsityotrofoblast örtü.",
+ wrong:"Primer villus yalnızca sitotrofoblast+sinsityum; sekonder villusta damar henüz yoktur."},
+{n:67,s:"his",src:"yes",
+ q:"Considering oogenesis, the secondary oocyte is arrested in which phase of the second meiotic division?",
+ a:"Metaphase",
+ why:"Kaynak: ikincil oosit <b>mayoz II’nin metafazında</b> durur; mayoz II ancak fertilizasyonla tamamlanır.",
+ wrong:"Profaz I durağı primer oosite aittir; anafaz/telofaz durağı yoktur."},
+{n:68,s:"his",src:"yes",
+ q:"Which of the following is next to the cloacal membrane?",
+ a:"Allantois",
+ why:"Kaynak: yaklaşık 16. günde yolk kesesinin arka duvarından bağlantı sapına uzanan <b>allantois</b> diverkülü, kaudal uçtaki <b>kloakal membrana komşudur</b>.",
+ wrong:"Orofaringeal membran kraniyal uçtadır; notokord/prekordal plak orta hatta yer alır."},
+{n:69,s:"his",src:"yes",
+ q:"The prechordal plate is supposed to control the induction of which structure’s development?",
+ a:"Brain (forebrain)",
+ why:"Kaynak: prekordal plak <b>ön beyin (forebrain) indüksiyonu</b> için önemlidir.",
+ wrong:"Nöral tüpün geneli notokord tarafından indüklenir; kalp/böbrek prekordal plak ürünü değildir."},
+
+/* ---------------- BİYOKİMYA ---------------- */
+{n:70,s:"bch",src:"part",
+ q:"Complete acid hydrolysis of nucleic acids yields all of the following EXCEPT:",
+ a:"Adenosine",
+ why:"<b>Tam</b> asit hidrolizinde nükleik asitler serbest <b>bazlara (adenin), şekere ve fosfata</b> kadar parçalanır. <b>Adenozin</b> (baz+şeker = nükleozit) bütün kalmaz; bu yüzden “except” odur.",
+ wrong:"Adenin, riboz/deoksiriboz ve fosforik asit tam hidroliz ürünleridir; adenozin sağlam çıkmaz."},
+{n:71,s:"bch",src:"no",
+ q:"One class of RNA characteristically contains unusual purines and pyrimidines. The RNA is:",
+ a:"tRNA",
+ why:"<b>tRNA</b> alışılmadık/modifiye bazlar içerir (psödoüridin, dihidroüridin, inozin). Bu modifikasyonlar katlanma ve kodon tanımada rol oynar.",
+ wrong:"mRNA ve rRNA bu kadar yoğun olağan dışı baz içermez; soru kökündeki “mRNA” çeldiricidir."},
+{n:72,s:"bch",src:"no",
+ q:"In protein synthesis:",
+ a:"Each amino acid is added in its proper place through the “adaptor” function of tRNA",
+ why:"tRNA, antikodonuyla mRNA kodonunu okuyup uygun amino asidi getirerek <b>adaptör</b> görevi görür; doğru sırayı bu sağlar.",
+ wrong:"Ribozomal RNA katalizör/yapısal, mRNA şablondur; amino asidi yerine yerleştiren adaptör tRNA’dır."},
+{n:73,s:"bch",src:"no",
+ q:"The genetic code:",
+ a:"Is generally referred to as universal, since it is nearly the same in all organisms",
+ why:"Genetik kod neredeyse tüm canlılarda aynıdır → <b>evrensel</b>. Ayrıca dejeneredir, üçlüdür ve örtüşmez.",
+ wrong:"“Her organizmada farklı” veya “örtüşen” ifadeleri yanlıştır; kod büyük ölçüde korunmuştur."},
+{n:74,s:"bch",src:"no",
+ q:"Which statement concerning Ca²⁺ is correct?",
+ a:"The effects of Ca²⁺ are most often mediated by calmodulin",
+ why:"Hücre içi Ca²⁺ sinyallerinin çoğu <b>kalmodulin</b>e bağlanarak hedef enzimleri (ör. MLCK, kinazlar) düzenler.",
+ wrong:"Ca²⁺’nin tüm etkilerinin doğrudan, kalmodulinsiz olduğu ifadesi yanlıştır."},
+{n:75,s:"bch",src:"part",
+ q:"Which statement best describes homeostasis?",
+ a:"Maintaining a near-constant internal environment",
+ why:"Homeostaz, iç ortamın (sıcaklık, pH, iyon, glukoz) <b>sabite yakın</b> tutulmasıdır; geri besleme mekanizmalarıyla sağlanır.",
+ wrong:"“Sürekli değişen iç ortam” ya da yalnızca dış uyum tanımları homeostazı karşılamaz."},
+{n:76,s:"bch",src:"part",
+ q:"Which amino acid contains a sulfur atom capable of forming disulfide bonds?",
+ a:"Cysteine",
+ why:"<b>Sistein</b> tiol (–SH) grubu taşır; iki sistein arasında <b>disülfit (–S–S–)</b> bağı kurulur (insülin örneğinde kaynakta da görülür).",
+ wrong:"Metionin de kükürt içerir ama disülfit bağı kuramaz; serin/treonin kükürtsüzdür."},
+{n:77,s:"bch",src:"no",
+ q:"Which statement about amino acids and protein structure is correct?",
+ a:"The primary structure of a protein is the sequence of amino acids",
+ why:"<b>Primer yapı</b> = amino asit dizisi (peptit bağlarıyla bağlı). Diğer tüm yapı düzeyleri bu diziden türer.",
+ wrong:"α-heliks/β-tabaka ikincil, 3B katlanma üçüncül, alt birim birleşimi dördüncül yapıdır — primer değil."},
+{n:78,s:"bch",src:"part",
+ q:"A drug selectively cleaves covalent bonds between two sulfur atoms of non-adjacent amino acids in a polypeptide. Which level of protein structure is affected?",
+ a:"Tertiary structure",
+ why:"Komşu olmayan sisteinler arasındaki <b>disülfit bağları</b> proteinin 3B katlanmasını (tersiyer yapı) stabilize eder; bunlar kırılınca tersiyer yapı bozulur.",
+ wrong:"İkincil yapı hidrojen bağlarına dayanır; primer yapı (peptit bağı) bu ilaçtan etkilenmez. (Çok zincirli proteinde kuaterner de etkilenebilir, ama temel yanıt tersiyerdir.)"},
+{n:79,s:"bch",src:"no",
+ q:"Which enzyme class catalyzes reactions in which two molecules are covalently connected to each other?",
+ a:"Ligase",
+ why:"<b>Ligazlar</b> iki molekülü kovalent bağla birleştirir (genellikle ATP enerjisiyle), ör. DNA ligaz.",
+ wrong:"Hidrolazlar bağ kırar (su ile), transferazlar grup aktarır, izomerazlar iç düzenleme yapar."},
+{n:80,s:"bch",src:"no",
+ q:"Which bond is primarily responsible for the secondary structure of proteins (α-helix and β-sheet)?",
+ a:"Hydrogen bond",
+ why:"α-heliks ve β-tabaka, omurgadaki C=O ve N–H grupları arasındaki <b>hidrojen bağlarıyla</b> oluşur ve kararlı kalır.",
+ wrong:"Peptit bağı primer yapıyı, disülfit/iyonik etkileşimler tersiyer yapıyı ilgilendirir."},
+{n:81,s:"bch",src:"no",
+ q:"Which is true concerning the induced-fit model of enzyme catalysis?",
+ a:"The induced fit must occur after the initial binding of enzyme and substrate for the reaction to proceed",
+ why:"İndüklenmiş uyumda enzim, substratı <b>bağladıktan sonra</b> aktif bölgesinin şeklini değiştirir; bu konformasyon değişimi katalizi mümkün kılar.",
+ wrong:"“Kilit-anahtar gibi önceden tam uyumlu” açıklaması indüklenmiş uyum değil, eski lock-and-key modelidir."},
+{n:82,s:"bch",src:"no",
+ q:"Which is true regarding enzymes saturated with substrate?",
+ a:"An enzyme with lower Km is more easily saturated than an enzyme with high Km",
+ why:"Düşük Km = yüksek afinite; enzim substrata daha kolay doyar (Vmax’a daha düşük [S]’de ulaşır).",
+ wrong:"Yüksek Km düşük afinitedir ve doygunluk daha zor ulaşılır; tersini söylemek yanlıştır."},
+{n:83,s:"bch",src:"yes",
+ q:"Hexokinase produces glucose-6-phosphate; G-6-P can bind hexokinase at the active site, blocking ATP access. This is an example of:",
+ a:"Feedback inhibition",
+ why:"Yolun ürünü olan <b>G6P</b>, kendi enzimini (hekzokinaz) inhibe eder → geri besleme/ürün inhibisyonu (COMM2 ile uyumlu: hekzokinaz G6P ile inhibe olur).",
+ wrong:"Kompetitif/non-kompetitif terimleri mekanizmayı tanımlar; buradaki kavram ürünün yolu baskılamasıdır (feedback)."},
+{n:84,s:"bch",src:"yes",
+ q:"Which enzyme catalyzes the first step of glycolysis?",
+ a:"Hexokinase",
+ why:"Glikolizin ilk adımında <b>hekzokinaz</b> glukozu glukoz-6-fosfata fosforile eder.",
+ wrong:"Fosfofruktokinaz 3. adımdadır; piruvat kinaz son adımdadır; glukokinaz karaciğer/pankreas izozimidir."},
+{n:85,s:"bch",src:"yes",
+ q:"Where does glycolysis take place in cells?",
+ a:"Cytoplasm (cytosol)",
+ why:"Kaynak: glikoliz <b>sitozolde</b> gerçekleşir; ürünler sonraki metabolizma için mitokondriye taşınır.",
+ wrong:"Mitokondri matriksi TCA/oksidatif fosforilasyon yeridir; çekirdek/ER glikoliz yeri değildir."},
+{n:86,s:"bch",src:"yes",
+ q:"Glycolysis converts ……",
+ a:"Glucose → Pyruvate",
+ why:"Kaynak: glikoliz 6 karbonlu <b>glukozu</b> iki adet 3 karbonlu <b>piruvata</b> dönüştürür.",
+ wrong:"Glukoz→laktat anaerobik devamıdır; glukoz→asetil-CoA tek adımda olmaz."},
+{n:87,s:"bch",src:"yes",
+ q:"In glycolysis, dihydroxyacetone phosphate is rapidly and reversibly converted to ……",
+ a:"Glyceraldehyde-3-phosphate",
+ why:"DHAP, <b>trioz fosfat izomeraz</b> ile hızlı ve geri dönüşümlü olarak <b>gliseraldehit-3-fosfata (G3P)</b> çevrilir; böylece her iki trioz da yola devam eder.",
+ wrong:"1,3-bifosfogliserat sonraki üründür; fruktoz-1,6-bifosfat DHAP/G3P’nin öncülüdür."},
+{n:88,s:"bch",src:"part",
+ q:"Which of the following is NOT a post-translational modification?",
+ a:"Transcription",
+ why:"Transkripsiyon <b>çevrimden önceki</b> (DNA→RNA) adımdır; protein üretildikten sonraki bir modifikasyon değildir.",
+ wrong:"Fosforilasyon, glikozilasyon, ubikitinasyon, asetilasyon gerçek post-translasyonel modifikasyonlardır."},
+{n:89,s:"bch",src:"part",
+ q:"Which post-translational modification typically targets proteins for degradation via the proteasome?",
+ a:"Ubiquitination",
+ why:"Proteine eklenen <b>ubikitin zinciri</b> onu 26S proteazom tarafından yıkıma etiketler.",
+ wrong:"Fosforilasyon aktivite düzenler, glikozilasyon katlanma/hedefleme, asetilasyon (histon) gen ifadesiyle ilişkilidir; proteazom etiketi ubikitindir."},
+
+/* ---------------- PROJECT TECHNIQUES ---------------- */
+{n:91,s:"prj",src:"no",
+ q:"Considering the time difference between a project and operations, what is the correct statement about the duration of a project?",
+ a:"It is temporary, with a defined beginning and end",
+ why:"Proje, sürekli işleyen operasyonların aksine <b>geçici</b>dir; tanımlı bir başlangıcı ve sonu vardır.",
+ wrong:"“Süreklidir / tekrar eden / süresizdir” ifadeleri operasyonları tanımlar, projeyi değil."},
+{n:92,s:"prj",src:"no",
+ q:"Which correctly and completely lists the 5 phases of the Project Management Life Cycle in order?",
+ a:"Initiation → Planning → Execution → Monitoring & Control → Closing",
+ why:"PMI yaşam döngüsü beş aşamadır: başlatma, planlama, yürütme, izleme-kontrol, kapanış — bu sırayla.",
+ wrong:"Sırayı bozan ya da bir aşamayı eksik bırakan seçenekler yanlıştır."},
+{n:93,s:"prj",src:"no",
+ q:"The Erasmus Score in Erasmus+ Mobility is calculated by equally weighting (50%) which two main criteria?",
+ a:"Cumulative GPA and Foreign Language Exam Results",
+ why:"Erasmus+ öğrenci değerlendirmesinde puan, <b>%50 GANO + %50 yabancı dil sınavı</b> olarak eşit ağırlıklı hesaplanır.",
+ wrong:"Tek kriter (yalnız GANO ya da yalnız dil) veya farklı ağırlıklar tanıma uymaz."},
+{n:94,s:"prj",src:"no",
+ q:"Within Erasmus+ Student Mobility for Studies, what is the maximum duration a medical faculty student can study abroad?",
+ a:"12 months",
+ why:"Erasmus+ öğrenim hareketliliğinde her öğrenim kademesi için yurt dışında okuma süresi en fazla <b>12 ay</b>dır.",
+ wrong:"6 / 24 / 36 ay gibi süreler tek kademe öğrenim hareketliliği üst sınırını yansıtmaz."}
+];
+
+const MISSING = [10,11,90];
+
+/* ---------- Render ---------- */
+const order = ["gen","ana","bio","his","bch"];
+const cssVar = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+// chips
+const chipsEl = document.getElementById('chips');
+let activeSubject = "all";
+function makeChip(id,label,color){
+  const c=document.createElement('div');c.className='chip';c.dataset.s=id;
+  c.innerHTML=(color?`<span class="dot" style="background:${color}"></span>`:'')+label;
+  c.onclick=()=>{activeSubject=id;[...chipsEl.children].forEach(x=>x.classList.toggle('active',x.dataset.s===id));render();};
+  return c;
+}
+chipsEl.appendChild(makeChip("all","Tümü",null));
+order.forEach(k=>chipsEl.appendChild(makeChip(k,SUBJECTS[k].name,cssVar(SUBJECTS[k].var))));
+chipsEl.firstChild.classList.add('active');
+
+const srcMeta={yes:["src-yes","KAYNAKTA VAR"],part:["src-part","KISMEN"],no:["src-no","KAYNAKTA YOK"]};
+
+let hideAnswers=false;
+document.getElementById('hideAns').addEventListener('change',e=>{hideAnswers=e.target.checked;render();});
+document.getElementById('search').addEventListener('input',render);
+
+function cardHTML(item){
+  const sub=SUBJECTS[item.s];const col=cssVar(sub.var);
+  const [scls,slabel]=srcMeta[item.src];
+  const ansHidden = hideAnswers ? 'hidden' : '';
+  const btnLabel = hideAnswers ? 'Cevabı göster' : 'Gizle';
+  return `<div class="card" data-s="${item.s}" data-text="${(item.q+' '+item.a+' '+item.why+' '+item.wrong).replace(/<[^>]+>/g,'').toLowerCase().replace(/"/g,'')}">
+    <div class="tab" style="background:${col}"><span class="num">${item.n}</span><span class="lbl">${sub.lbl}</span></div>
+    <div class="body">
+      <div class="q-top">
+        <p class="q">${item.q}</p>
+        <button class="reveal-btn" onclick="toggleCard(this)">${btnLabel}</button>
+      </div>
+      <div class="ans ${ansHidden}">
+        <div class="answer-line"><span class="key">Doğru</span><span class="val">${item.a}</span></div>
+        <div class="why">
+          <h4>Neden bu şık?</h4><p>${item.why}</p>
+          <h4>Diğer şıklar / kavram</h4><p class="wrong">${item.wrong}</p>
+        </div>
+        ${item.note?`<div class="note"><b>Not:</b> ${item.note}</div>`:''}
+        <div class="badge-src"><span class="src ${scls}">${slabel}</span></div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function toggleCard(btn){
+  const ans=btn.closest('.body').querySelector('.ans');
+  ans.classList.toggle('hidden');
+  btn.textContent=ans.classList.contains('hidden')?'Cevabı göster':'Gizle';
+}
+
+function render(){
+  const term=document.getElementById('search').value.trim().toLowerCase();
+  const content=document.getElementById('content');content.innerHTML='';
+  let total=0;
+  order.forEach(k=>{
+    if(activeSubject!=="all"&&activeSubject!==k)return;
+    let items=Q.filter(x=>x.s===k);
+    if(term)items=items.filter(x=>(x.q+' '+x.a+' '+x.why+' '+x.wrong).replace(/<[^>]+>/g,'').toLowerCase().includes(term));
+    if(!items.length)return;
+    total+=items.length;
+    const sub=SUBJECTS[k];const col=cssVar(sub.var);
+    const sec=document.createElement('section');
+    sec.innerHTML=`<div class="sec-head">
+        <span class="idx" style="background:${col}">${sub.lbl}</span>
+        <h2>${sub.name}</h2>
+        <span class="count">${items.length} soru</span>
+      </div>`+items.map(cardHTML).join('');
+    // missing markers only when no search & showing this subject's range (genetics + biochem ranges)
+    content.appendChild(sec);
+  });
+  // missing note (only on 'all' without search, appended under genetics intro)
+  if(activeSubject==="all"&&!term){
+    const m=document.createElement('div');
+    m.innerHTML=MISSING.map(n=>`<div class="missing"><span class="num">Soru ${n}</span> Bu soru, çıkmış sınav notlarında “XXX” olarak boş bırakılmış (soru kökü/cevabı kaydedilmemiş). Çözüm eklenemedi.</div>`).join('');
+    content.appendChild(m);
+  }
+  document.getElementById('noResult').style.display=total?'none':'block';
+}
+render();
+</script>
+<script src="../../assets/language.js" defer></script>
+</body>
+</html>

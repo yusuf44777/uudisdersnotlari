@@ -401,6 +401,16 @@ const notes = [
     path: "1.%20S%C4%B1n%C4%B1f/Komite%20%C3%87%C4%B1km%C4%B1%C5%9F/komite_1.html",
     tags: ["çıkmış sınav", "Komite 1", "çözümlü"],
   },
+  {
+    id: "committee-02",
+    course: "Komite Çıkmış",
+    grade: "1. Sınıf",
+    unit: "Komite 2",
+    title: "Committee 2 - Çıkmış Sınav Çözümlü Rehber",
+    subtitle: "Anatomi, biyofizik, fizyoloji, histoloji/embriyoloji, biyokimya ve mikrobiyoloji soruları için çözümlü tekrar",
+    path: "1.%20S%C4%B1n%C4%B1f/Komite%20%C3%87%C4%B1km%C4%B1%C5%9F/komite_2.html",
+    tags: ["çıkmış sınav", "Komite 2", "çözümlü"],
+  },
 ];
 
 const STORAGE_KEY = "uudis-notlari-completed-v1";

@@ -3,40 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Committee 2 — Çıkmış Sınav Çözümlü Rehber</title>
+<title>Committee 2 — Çıkmış Sınav · Zenginleştirilmiş Çalışma Rehberi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#eef1f5;--card:#ffffff;--ink:#16263b;--ink-soft:#46566b;
-    --line:#d7dde6;--line-soft:#e7ecf2;
-    --good:#1f7a4d;--good-bg:#e7f3ec;--good-line:#bfe0cd;
-    --bad:#b23a3a;--bad-bg:#f8ecec;--warn:#9a6b12;
-    --s-ana:#bd5230;--s-bio:#0e8281;--s-fiz:#2d5fa8;--s-his:#a83a6a;--s-bch:#9a6b12;--s-mik:#5b7d2b;
+    --line:#d7dde6;--good:#1f7a4d;--good-bg:#e7f3ec;--good-line:#bfe0cd;
+    --bad:#b23a3a;--warn:#9a6b12;
+    --s-ana:#bd5230;--s-bio:#0e8281;--s-his:#a83a6a;--s-bch:#9a6b12;
     --shadow:0 1px 2px rgba(22,38,59,.06),0 6px 22px rgba(22,38,59,.06);
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--paper);color:var(--ink);font-family:"Inter",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:920px;margin:0 auto;padding:0 18px}
+  .wrap{max-width:940px;margin:0 auto;padding:0 18px}
 
   header{background:linear-gradient(135deg,#16263b 0%,#1f3753 55%,#274a6b 100%);color:#eaf0f7;padding:46px 0 38px;position:relative;overflow:hidden}
   header::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 64px);pointer-events:none}
   .eyebrow{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#9db7d4;margin-bottom:14px}
   h1{font-family:"Spectral",serif;font-weight:700;font-size:clamp(28px,5vw,46px);line-height:1.05;margin:0 0 14px;letter-spacing:-.01em}
   h1 em{font-style:italic;color:#8fd0c8}
-  .lead{max-width:640px;color:#c6d4e4;font-size:15.5px;margin:0}
+  .lead{max-width:660px;color:#c6d4e4;font-size:15.5px;margin:0}
   .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
   .pill{font-family:"Space Mono",monospace;font-size:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#dbe6f2;padding:5px 11px;border-radius:999px}
 
   .legend{background:#fbfcfe;border-bottom:1px solid var(--line);padding:16px 0}
-  .legend .wrap{display:flex;flex-wrap:wrap;gap:18px;align-items:center;font-size:13px;color:var(--ink-soft)}
+  .legend .wrap{display:flex;flex-wrap:wrap;gap:14px 18px;align-items:center;font-size:12.5px;color:var(--ink-soft)}
   .legend b{color:var(--ink)}
   .src{display:inline-flex;align-items:center;gap:7px;font-family:"Space Mono",monospace;font-size:11px;padding:3px 9px;border-radius:6px;border:1px solid}
   .src-yes{color:var(--good);background:var(--good-bg);border-color:var(--good-line)}
   .src-part{color:var(--warn);background:#faf4e6;border-color:#ecdcb4}
   .src-no{color:#5d6b7c;background:#eef1f5;border-color:#d9dfe7}
+  .tagchip{font-size:11.5px;padding:2px 8px;border-radius:6px;border:1px solid}
 
   .toolbar{position:sticky;top:0;z-index:30;background:rgba(238,241,245,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 0}
   .toolbar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
@@ -45,7 +45,7 @@
   .chip:hover{border-color:#b9c4d2}
   .chip.active{background:var(--ink);color:#fff;border-color:var(--ink)}
   .chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
-  #search{font-family:"Inter";font-size:14px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;background:#fff;min-width:170px;outline:none}
+  #search{font-family:"Inter";font-size:14px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;background:#fff;min-width:160px;outline:none}
   #search:focus{border-color:var(--ink)}
   .toggle{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);cursor:pointer;user-select:none}
   .toggle input{display:none}
@@ -55,7 +55,7 @@
   .toggle input:checked + .switch::after{left:19px}
 
   main{padding:30px 0 70px}
-  .sec-head{display:flex;align-items:baseline;gap:14px;margin:38px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin:40px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--line)}
   .sec-head .idx{font-family:"Space Mono",monospace;font-size:13px;color:#fff;padding:4px 9px;border-radius:6px}
   .sec-head h2{font-family:"Spectral",serif;font-size:24px;margin:0;font-weight:600;letter-spacing:-.01em}
   .sec-head .count{font-family:"Space Mono",monospace;font-size:12px;color:var(--ink-soft);margin-left:auto}
@@ -64,7 +64,7 @@
   .tab{flex:0 0 54px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:18px;color:#fff;font-family:"Space Mono",monospace}
   .tab .num{font-size:18px;font-weight:700}
   .tab .lbl{font-size:9px;letter-spacing:.12em;writing-mode:vertical-rl;transform:rotate(180deg);margin-top:10px;opacity:.85;text-transform:uppercase}
-  .body{flex:1;padding:18px 20px 18px}
+  .body{flex:1;padding:18px 20px 18px;min-width:0}
   .q-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
   .q{font-size:15.5px;color:var(--ink);font-weight:500;margin:0}
   .reveal-btn{flex:0 0 auto;font-family:"Space Mono",monospace;font-size:11px;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink-soft);padding:5px 10px;border-radius:7px;white-space:nowrap}
@@ -80,17 +80,37 @@
   .why p{margin:0 0 10px;font-size:14px;color:var(--ink)}
   .why .wrong{color:var(--bad)}
   .why p:last-child{margin-bottom:0}
+
+  .box{margin-top:10px;font-size:13.5px;border-radius:9px;padding:10px 13px;border:1px solid;line-height:1.5}
+  .box .box-tag{display:block;font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.04em;margin-bottom:4px;font-weight:700}
+  .box.spot{background:#e9f4ef;border-color:#bfe0cd;color:#13523a}.box.spot .box-tag{color:#1f7a4d}
+  .box.dikkat{background:#fbeeea;border-color:#f0c9bb;color:#8a3a22}.box.dikkat .box-tag{color:#bd5230}
+  .box.klinik{background:#eaf1fb;border-color:#c4d6ef;color:#1d3f73}.box.klinik .box-tag{color:#2d5fa8}
+  .box.mnemo{background:#f1ecf8;border-color:#d6c8ec;color:#4a2e7a}.box.mnemo .box-tag{color:#6d4aa7}
   .note{margin-top:11px;font-size:12.5px;color:var(--warn);background:#faf4e6;border-left:3px solid #e3c878;padding:8px 11px;border-radius:0 7px 7px 0}
   .badge-src{margin-top:12px}
 
+  .deckwrap{margin:4px 0 8px;background:#fbfcfe;border:1px solid var(--line);border-radius:13px;padding:16px 18px}
+  .deckwrap .dh{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .deckwrap .dh h3{font-family:"Spectral",serif;font-size:17px;margin:0}
+  .deckwrap .dh .hint{font-size:11.5px;color:var(--ink-soft);font-family:"Space Mono",monospace;margin-left:auto}
+  .deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+  .flash{perspective:1100px;height:150px;cursor:pointer}
+  .flash-inner{position:relative;width:100%;height:100%;transition:transform .55s;transform-style:preserve-3d}
+  .flash.flipped .flash-inner{transform:rotateY(180deg)}
+  .flash-face{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;border-radius:11px;padding:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:1px solid}
+  .flash-front{background:#fff;color:var(--ink);border-color:var(--line)}
+  .flash-back{color:#eaf0f7;transform:rotateY(180deg)}
+  .flash-face .ft{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;opacity:.7}
+  .flash-front .qx{font-size:13.5px;font-weight:600}.flash-back .ax{font-size:13.5px;font-weight:600}
+
   .missing{background:#f4f6f9;border:1px dashed #cfd7e1;border-radius:11px;padding:14px 16px;margin-bottom:14px;color:var(--ink-soft);font-size:13.5px;display:flex;gap:10px;align-items:center}
   .missing .num{font-family:"Space Mono",monospace;font-weight:700;color:var(--ink)}
-
   footer{border-top:1px solid var(--line);padding:26px 0 50px;color:var(--ink-soft);font-size:12.5px;text-align:center}
   .no-result{text-align:center;padding:40px;color:var(--ink-soft);font-size:14px;display:none}
 
   @media(max-width:600px){.tab{flex-basis:42px}.tab .lbl{display:none}.q-top{flex-direction:column}}
-  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  @media(prefers-reduced-motion:reduce){.flash-inner{transition:none}}
 </style>
 </head>
 <body>
@@ -98,31 +118,34 @@
 <header>
   <div class="wrap">
     <div class="eyebrow">2025 / 2026 · Bahar · 1. Sınıf · Komite 2</div>
-    <h1>Çıkmış Sınav, <em>çözümlü.</em></h1>
-    <p class="lead">Sorular orijinalindeki gibi İngilizce. Doğru şıkkın neden doğru olduğu ve diğer seçeneklerin neden elendiği, ders kaynaklarına dayanılarak Türkçe açıklandı. Anatomi, Biyofizik, Histo/Embriyo ve Biyokimya.</p>
+    <h1>Çıkmış Sınav, <em>zenginleştirilmiş çözüm.</em></h1>
+    <p class="lead">Sorular orijinalindeki gibi İngilizce. Doğru şıkkın gerekçesi ve diğer seçeneklerin neden elendiği; terminoloji İngilizce/Latince korunarak <strong>🎯 Spot Bilgi</strong>, <strong>⚠️ Dikkat</strong>, <strong>🦷 Klinik Önemi</strong> ve <strong>🧠 Akılda Tutma</strong> kutularıyla derinleştirildi. Her dersin sonunda flashcard destesi var. (Anatomi · Biyofizik · Histo/Embriyo · Biyokimya)</p>
     <div class="meta-row">
       <span class="pill">4 ders</span>
       <span class="pill">42 çözümlü soru</span>
-      <span class="pill">kaynak temelli</span>
+      <span class="pill">flashcard'lı</span>
     </div>
   </div>
 </header>
 
 <div class="legend">
   <div class="wrap">
-    <span><b>Kaynak işareti:</b></span>
+    <span><b>İşaretler:</b></span>
     <span class="src src-yes">KAYNAKTA VAR</span>
     <span class="src src-part">KISMEN</span>
     <span class="src src-no">KAYNAKTA YOK</span>
-    <span style="margin-left:auto;color:#8290a2">“Kaynakta yok” = konu projedeki ders dosyalarında bulunamadı; açıklama genel tıp bilgisine dayanır. (Mikrobiyoloji ve Biyofizik için ayrı ders dosyası yok.)</span>
+    <span class="tagchip" style="background:#e9f4ef;border-color:#bfe0cd;color:#13523a">🎯 Spot Bilgi</span>
+    <span class="tagchip" style="background:#fbeeea;border-color:#f0c9bb;color:#8a3a22">⚠️ Dikkat</span>
+    <span class="tagchip" style="background:#eaf1fb;border-color:#c4d6ef;color:#1d3f73">🦷 Klinik</span>
+    <span class="tagchip" style="background:#f1ecf8;border-color:#d6c8ec;color:#4a2e7a">🧠 Hafıza</span>
   </div>
 </div>
 
 <div class="toolbar">
   <div class="wrap">
     <div class="chips" id="chips"></div>
-    <input id="search" type="search" placeholder="Ara: kelime, kavram…" aria-label="Soru ara">
-    <label class="toggle"><input type="checkbox" id="hideAns"><span class="switch"></span>Sınav modu (cevaplar gizli)</label>
+    <input id="search" type="search" placeholder="Ara…" aria-label="Soru ara">
+    <label class="toggle"><input type="checkbox" id="hideAns"><span class="switch"></span>Sınav modu</label>
   </div>
 </div>
 
@@ -132,17 +155,15 @@
 </main>
 
 <footer class="wrap">
-  Çözümler ders kaynaklarına (anatomi, embriyoloji, biyokimya, fizyoloji slaytları) dayanılarak hazırlandı. Cevap anahtarı çıkmış sınav metninden alınmıştır; bilgi amaçlıdır, sınav garantisi değildir.
+  Çözümler ve zenginleştirmeler ders kaynaklarına dayanılarak hazırlandı. Cevap anahtarı çıkmış sınav metnindendir; bilgi amaçlıdır, sınav garantisi değildir.
 </footer>
 
 <script>
 const SUBJECTS = {
   ana:{name:"Anatomi",var:"--s-ana",lbl:"ANATOMİ"},
   bio:{name:"Biyofizik",var:"--s-bio",lbl:"BİYOFİZİK"},
-  fiz:{name:"Fizyoloji",var:"--s-fiz",lbl:"FİZYOLOJİ"},
   his:{name:"Histoloji / Embriyoloji",var:"--s-his",lbl:"HİSTO"},
-  bch:{name:"Tıbbi Biyokimya",var:"--s-bch",lbl:"BİYOKİMYA"},
-  mik:{name:"Tıbbi Mikrobiyoloji",var:"--s-mik",lbl:"MİKRO"}
+  bch:{name:"Tıbbi Biyokimya",var:"--s-bch",lbl:"BİYOKİMYA"}
 };
 
 const Q = [
@@ -150,399 +171,294 @@ const Q = [
 {n:1,s:"ana",src:"yes",
  q:"Which structure forms the superficial inguinal ring?",
  a:"Aponeurosis of the external oblique muscle",
- why:"Kaynak: yüzeyel inguinal halka, <b>external oblik kası aponevrozundaki</b> açıklıktır (inguinal ligamentin medial ucunda).",
- wrong:"İnternal oblik/transversus konjoint tendonu oluşturur; derin inguinal halkayı <b>transversalis fasyası</b> yapar."},
+ why:"Kaynak: <b>superficial inguinal ring (annulus inguinalis superficialis)</b>, <b>external oblique</b> kası aponevrozundaki açıklıktır (inguinal ligamentin medial ucunda).",
+ wrong:"İnternal oblik/transversus <b>conjoint tendon</b>’u oluşturur; <b>deep inguinal ring</b>’i <b>transversalis fascia</b> yapar.",
+ mnemo:"🧠 Halkalar: <b>derin</b> halka = transversalis fascia; <b>yüzeyel</b> halka = external oblique aponevrozu."},
 {n:2,s:"ana",src:"yes",
  q:"A patient cannot abduct the arm beyond 15 degrees following a surgical neck fracture of the humerus. Which nerve is most likely damaged?",
  a:"Axillary nerve",
- why:"Humerusun <b>cerrahi boynu</b> kırığında <b>aksiller sinir</b> hasarlanır → deltoid felci → 15° üzeri abduksiyon yapılamaz (ilk 15°’yi supraspinatus sağlar).",
- wrong:"Suprascapular supraspinatusu, radial ekstansörleri, musculocutaneus ön kol fleksörlerini innerve eder; bu tabloyu yapmaz."},
+ why:"Humerusun <b>surgical neck (collum chirurgicum)</b> kırığında <b>axillary nerve</b> hasarlanır → <b>deltoid</b> felci → 15° üzeri abduksiyon yapılamaz (ilk 15° supraspinatus).",
+ wrong:"Suprascapular supraspinatusu, radial ekstansörleri, musculocutaneous ön kol fleksörlerini innerve eder.",
+ spot:"🎯 Aksiller sinir ayrıca <b>omuz lateralinde</b> (regimental badge alanı) duyu kaybı yapar.",
+ klinik:"Cerrahi boyun kırığı + omuz çıkığı bu sinirin en sık yaralandığı durumdur; deltoid atrofisi geç bulgudur."},
 {n:3,s:"ana",src:"yes",
- q:"The brachial plexus is formed by which of the following structures?",
- a:"Ventral rami of spinal nerves",
- why:"Kaynak: brakiyal pleksus C5–T1 <b>ventral ramilerinden</b> oluşur.",
- wrong:"Dorsal rami derin sırt kaslarını/derisini innerve eder; pleksus oluşturmaz."},
+ q:"The brachial plexus is formed by which structures?",
+ a:"Ventral rami of spinal nerves (C5–T1)",
+ why:"Kaynak: <b>brachial plexus</b> C5–T1 <b>ventral rami</b>’den oluşur.",
+ wrong:"<b>Dorsal rami</b> derin sırt kaslarını/derisini innerve eder; pleksusa katılmaz.",
+ mnemo:"🧠 Pleksus parçaları: <b>Roots, Trunks, Divisions, Cords, Branches</b> → “Read That Damn Cadaver Book.”"},
 {n:7,s:"ana",src:"part",
  q:"Which statement about the posterior compartment of the leg is FALSE?",
  a:"Extensor digitorum longus is located in the deep posterior compartment",
- why:"Extensor digitorum longus bacağın <b>ÖN (anterior)</b> kompartmanındadır, arka kompartmanda değil. Bu yüzden ifade yanlıştır.",
- wrong:"Arka kompartmanda gastrocnemius/soleus (yüzeyel) ve tibialis posterior, FDL, FHL (derin) bulunur — bunlar doğru ifadelerdir."},
+ why:"<b>Extensor digitorum longus</b> bacağın <b>ANTERIOR</b> kompartmanındadır, arka değil. İfade yanlıştır.",
+ wrong:"Arka kompartmanda yüzeyel <b>gastrocnemius/soleus</b>; derin <b>tibialis posterior, FDL, FHL</b> bulunur — doğru ifadeler.",
+ dikkat:"⚠️ İsme aldanma: adı “extensor” olan kaslar ÖN kompartmandadır; arka kompartmanda “flexor”lar yer alır."},
 {n:8,s:"ana",src:"yes",
  q:"Which structure passes between the anterior and middle scalene muscles?",
  a:"Subclavian artery",
- why:"Kaynak: <b>subklavyan arter</b> ve brakiyal pleksus kökleri ön ve orta skalen kasları arasından (interscalene aralık) geçer.",
- wrong:"Subklavyan <b>ven</b> ön skalenin ÖNÜNDEN geçer, arasından değil."},
+ why:"Kaynak: <b>subclavian artery</b> ve brakiyal pleksus kökleri ön ve orta skalen kasları arasından (<b>interscalene aralık</b>) geçer.",
+ wrong:"<b>Subclavian vein</b> ön skalenin ÖNÜNDEN geçer, arasından değil.",
+ mnemo:"🧠 “VAN” önden arkaya: <b>V</b>ein (ön skalenin önü) – <b>A</b>rtery (skalenler arası) – <b>N</b>erve (pleksus, skalenler arası)."},
 {n:9,s:"ana",src:"yes",
  q:"The investing layer of deep cervical fascia surrounds which of the following?",
  a:"Trapezius and sternocleidomastoid muscles",
- why:"Kaynak: derin servikal fasyanın <b>investing (yüzeyel) tabakası SCM ve trapeziusu</b> sarar.",
- wrong:"Pretrakeal tabaka tiroid/trakeayı, prevertebral tabaka vertebra kaslarını, karotis kılıfı damar-siniri sarar."},
-
+ why:"Kaynak: derin servikal fasyanın <b>investing (yüzeyel) tabakası</b> <b>SCM ve trapezius</b>’u sarar.",
+ wrong:"<b>Pretracheal</b> tiroid/trakeayı, <b>prevertebral</b> vertebra kaslarını, <b>carotid sheath</b> damar-siniri sarar.",
+ mnemo:"🧠 Derin servikal fasya 3 tabaka: <b>Investing, Pretracheal, Prevertebral</b> (+ carotid sheath). Investing = SCM + trapezius."}
+,
 /* ---------------- BİYOFİZİK ---------------- */
 {n:16,s:"bio",src:"no",
  q:"Which of the following decreases the diffusion rate? I) Higher concentration gradient  II) Bigger volume of molecules  III) Higher membrane thickness  IV) Bigger membrane surface area",
  a:"II and III",
- why:"Fick yasasına göre <b>büyük molekül hacmi</b> (II) ve <b>kalın membran</b> (III) difüzyon hızını <b>azaltır</b>.",
- wrong:"Yüksek konsantrasyon gradyenti (I) ve geniş yüzey alanı (IV) difüzyonu <b>artırır</b>."},
+ why:"<b>Fick yasası</b>: <b>büyük molekül</b> (II) ve <b>kalın membran</b> (III) difüzyonu <b>azaltır</b>.",
+ wrong:"Yüksek gradyent (I) ve geniş yüzey alanı (IV) difüzyonu <b>artırır</b>.",
+ mnemo:"🧠 Difüzyon ↑: gradyent↑, yüzey↑, molekül küçük, membran ince. Bunların tersi difüzyon ↓."},
 {n:17,s:"bio",src:"no",
  q:"Correct order for oxygen from alveolus to erythrocyte through the alveolocapillary membrane? I) Capillary basal membrane  II) Fluid surrounding alveolus  III) Epithelial basal membrane  IV) Endothelial cell membrane",
  a:"II — IV — III — I (cevap anahtarına göre)",
- why:"Oksijen alveol sıvısından başlayıp kapiller bazal membrana doğru ilerler; cevap anahtarı II→IV→III→I sırasını verir.",
- wrong:"Sıralamayı baştan (alveol sıvısı) yerine kandan başlatan seçenekler yanlıştır.",
- note:"Klasik alveolokapiller bariyer katmanları: alveol sıvısı/sürfaktan → alveol epiteli → birleşik bazal membranlar → kapiller endotel → plazma → eritrosit. Anahtardaki sıralamayı verilen seçenekler üzerinden yansıttım."},
+ why:"Oksijen alveol sıvısından başlar; cevap anahtarı II→IV→III→I sırasını verir.",
+ wrong:"Sıralamayı kandan başlatan seçenekler yanlıştır.",
+ note:"Klasik <b>alveolokapiller bariyer</b>: alveol sıvısı/sürfaktan → alveol epiteli → birleşik bazal membranlar → kapiller endotel → plazma → eritrosit. Anahtardaki sıralamayı verilen seçenekler üzerinden yansıttım."},
 {n:21,s:"bio",src:"part",
  q:"Pathological problem from this blood gas? pH 7.130 · pO₂ 95 · pCO₂ 39 (35–45) · HCO₃⁻ 18.7 (22–26)",
  a:"Metabolic acidosis",
- why:"Düşük pH (7.13) + düşük HCO₃⁻ (18.7) → <b>metabolik asidoz</b>. pCO₂ normal aralıkta (39) olduğundan henüz tam solunumsal kompansasyon yok.",
- wrong:"Solunumsal asidozda pCO₂ yüksek olurdu; metabolik alkalozda HCO₃⁻ yüksek/pH yüksek olurdu."},
+ why:"Düşük <b>pH (7.13)</b> + düşük <b>HCO₃⁻ (18.7)</b> → <b>metabolic acidosis</b>. pCO₂ normal (39) olduğundan henüz tam solunumsal kompansasyon yok.",
+ wrong:"Solunumsal asidozda pCO₂ yüksek; metabolik alkalozda HCO₃⁻/pH yüksek olurdu.",
+ spot:"🎯 Hızlı okuma: pH↓ + HCO₃⁻↓ = <b>metabolik asidoz</b>; pH↓ + pCO₂↑ = <b>solunumsal asidoz</b>.",
+ mnemo:"🧠 “HCO₃ ile pH aynı yönde → METABOLIK; pCO₂ ile pH ters yönde → RESPIRATUVAR.”"},
 {n:22,s:"bio",src:"no",
  q:"Which of the following is NOT a lipid movement in the cell membrane?",
  a:"Torsion",
- why:"Membran lipidlerinin hareketleri: <b>lateral difüzyon, flip-flop (transvers), rotasyon, fleksiyon</b>. “Torsiyon” tanımlı bir lipid hareketi değildir.",
- wrong:"Lateral difüzyon, flip-flop ve rotasyon gerçek lipid hareketleridir."},
+ why:"Membran lipit hareketleri: <b>lateral diffusion, flip-flop (transverse), rotation, flexion</b>. <b>Torsion</b> tanımlı bir lipid hareketi değildir.",
+ wrong:"Lateral difüzyon, flip-flop ve rotasyon gerçek hareketlerdir.",
+ spot:"🎯 <b>Flip-flop</b> (transvers) en nadir ve en yavaş harekettir; enzim (flippase) gerektirir."},
 {n:25,s:"bio",src:"part",
  q:"Which is/are function(s) of membrane proteins? I) Attachment to extracellular matrix  II) Cell-cell recognition  III) Enzymatic activity",
  a:"I, II and III",
- why:"Membran proteinleri ECM’ye tutunma, hücre-hücre tanıma ve enzimatik aktivite dahil birçok işlev görür (ayrıca taşıma ve sinyal iletimi).",
- wrong:"Üç madde de doğru olduğundan herhangi birini dışlayan seçenek eksik kalır."},
-
-/* ---------------- FİZYOLOJİ ---------------- */
-{n:26,s:"fiz",src:"no",
- q:"What is the internal environment of the body called?",
- a:"Interstitial fluid",
- why:"“İç ortam” (milieu intérieur) hücreleri çevreleyen <b>interstisyel sıvıdır</b>; homeostaz bu ortamı sabit tutar.",
- wrong:"İntraselüler sıvı hücre içidir; plazma damar içidir — bunlar “iç ortam” tanımı değildir."},
-{n:27,s:"fiz",src:"no",
- q:"A molecule is polar and larger than 0.8 nm. Which transport mechanism is most likely required?",
- a:"Assisted (facilitated) transport",
- why:"Polar ve >0.8 nm bir molekül lipit zardan basit difüzyonla geçemez; <b>taşıyıcı/kanal aracılı (kolaylaştırılmış) taşıma</b> gerekir.",
- wrong:"Basit difüzyon küçük apolar moleküller içindir; bu molekül için yetersizdir."},
-{n:28,s:"fiz",src:"part",
- q:"Regarding RMP: I) Intracellular proteins add negative charge  II) Na⁺/K⁺ pump maintains gradients  III) K⁺ permeability > Na⁺  IV) Voltage-gated Na⁺ channels remain open at rest",
- a:"I, II, and III only",
- why:"Dinlenim potansiyelinde hücre içi proteinler negatiftir, Na⁺/K⁺ pompası gradyentleri korur, K⁺ geçirgenliği Na⁺’dan yüksektir.",
- wrong:"IV yanlıştır: voltaj kapılı Na⁺ kanalları dinlenimde <b>kapalıdır</b>."},
-{n:29,s:"fiz",src:"part",
- q:"Which event is primarily responsible for the rising phase of the action potential?",
- a:"Opening of voltage-gated Na⁺ channels",
- why:"Aksiyon potansiyelinin yükselen fazı (depolarizasyon) <b>voltaj kapılı Na⁺ kanallarının açılıp Na⁺’nın hücreye girmesiyle</b> olur.",
- wrong:"K⁺ kanallarının açılması repolarizasyonu (inen faz) yapar; Cl⁻ akışı yükselen fazı oluşturmaz."},
-{n:30,s:"fiz",src:"no",
- q:"Regarding indirect intercellular communication: I) Hormones travel through blood  II) Neurotransmitters act across synapses  III) Neurohormones released into blood by neurons  IV) Paracrines act over long distances",
- a:"I, II, and III only",
- why:"Hormonlar kanla, nörotransmitterler sinapsta, nörohormonlar nöronlardan kana salınır — hepsi doğrudur.",
- wrong:"IV yanlıştır: parakrin sinyaller <b>kısa mesafede, yerel</b> etki gösterir, uzun mesafede değil."},
-{n:31,s:"fiz",src:"part",
- q:"IP₃ (inositol trisphosphate) primarily causes:",
- a:"Ca²⁺ release from intracellular stores",
- why:"IP₃, endoplazmik/sarkoplazmik retikulumdaki reseptörlere bağlanıp <b>hücre içi depolardan Ca²⁺ salınımını</b> tetikler (kaynaktaki V1a/Gq-PLC yolu ile uyumlu).",
- wrong:"DAG protein kinaz C’yi aktive eder; cAMP farklı bir ikincil habercidir."},
-{n:32,s:"fiz",src:"part",
- q:"Regarding sarcomere structure: I) A band = length of thick filaments  II) I band contains only thin filaments  III) H zone lies within the A band  IV) M line is at the center of the H zone",
- a:"I, II, III and IV (hepsi)",
- why:"A bandı kalın filament boyudur; I bandı yalnızca ince filament; H zonu A bandının içindedir; M çizgisi H zonunun ortasındadır — dördü de doğrudur.",
- wrong:"Herhangi bir maddeyi dışlayan seçenek eksik kalır."},
-{n:33,s:"fiz",src:"yes",
- q:"A muscle returns to resting length after passive stretching. Which protein is most responsible?",
- a:"Titin",
- why:"<b>Titin</b> elastik bir proteindir; pasif gerilmeden sonra sarkomeri dinlenme uzunluğuna geri getirir.",
- wrong:"Aktin/miyozin kasılma proteinleridir; nebulin ince filament boyunu düzenler — esneklik titindedir."},
-{n:34,s:"fiz",src:"yes",
- q:"What neurotransmitter is released at the neuromuscular junction (NMJ) to initiate muscle excitation?",
- a:"Acetylcholine",
- why:"Kaynak: sinaptik iletim kimyasaldır; nöromüsküler kavşakta salınan nörotransmitter <b>asetilkolindir</b> (nikotinik reseptöre bağlanır).",
- wrong:"GABA/glutamat MSS sinapslarında rol oynar; noradrenalin sempatik iletidir — NMJ’de ACh çalışır."},
-{n:35,s:"fiz",src:"part",
- q:"Correct sequence of excitation-contraction coupling after the action potential enters T-tubules? (DHP = dihydropyridine receptor)",
- a:"DHP activation → Ryanodine receptor opening → Ca²⁺ release → Troponin binding",
- why:"T-tübül depolarizasyonu <b>DHP reseptörünü</b> aktive eder → bağlı <b>ryanodin reseptörü</b> açılır → SR’den <b>Ca²⁺ salınır</b> → Ca²⁺ <b>troponine</b> bağlanıp kasılmayı başlatır.",
- wrong:"Troponin bağlanmasını başa koyan ya da Ca²⁺ salınımını DHP/ryanodin öncesine alan sıralamalar yanlıştır."},
-{n:36,s:"fiz",src:"part",
- q:"Regarding the sliding filament mechanism: I) Thin filaments move toward the sarcomere center  II) Thick filaments shorten  III) Sarcomere length decreases  IV) Filament overlap increases",
- a:"I, III, and IV only",
- why:"Kasılmada ince filamentler merkeze kayar, sarkomer kısalır, örtüşme artar.",
- wrong:"II yanlıştır: <b>filamentler kısalmaz</b>, yalnızca birbirinin üzerinden kayar."},
-{n:37,s:"fiz",src:"part",
- q:"Regarding ATP functions in skeletal muscle: I) Powers Na⁺/K⁺-ATPase  II) Powers SERCA  III) Energizes myosin heads  IV) ATP binding detaches myosin from actin",
- a:"I, II, III and IV (hepsi)",
- why:"ATP, Na⁺/K⁺ pompasını ve SERCA’yı çalıştırır, miyozin başlarına enerji verir ve <b>ATP bağlanması miyozini aktinden ayırır</b> (çapraz köprü döngüsü).",
- wrong:"Dört madde de doğru olduğundan birini dışlamak yanlıştır."},
-{n:38,s:"fiz",src:"no",
- q:"Which combination is most typical of a Type 1 (slow-oxidative) muscle fiber?",
- a:"Low ATPase activity, high myoglobin, fatigue resistance",
- why:"Tip I lifler yavaş kasılır: <b>düşük ATPaz</b>, <b>yüksek miyoglobin/mitokondri</b>, oksidatif metabolizma → <b>yorgunluğa dirençli</b>.",
- wrong:"Yüksek ATPaz, düşük miyoglobin ve hızlı yorulma Tip II (hızlı-glikolitik) lif özelliğidir."},
-{n:39,s:"fiz",src:"part",
- q:"Which feature best distinguishes smooth muscle from skeletal muscle?",
- a:"Striation pattern, number/position of nuclei, and type of control",
- why:"Düz kasta <b>çizgilenme (striasyon) yoktur</b>, tek merkezi çekirdek vardır ve kontrolü <b>istemsizdir</b>; iskelet kası çizgilidir, çok çekirdeklidir, istemlidir.",
- wrong:"Tek bir özellik (yalnız çekirdek ya da yalnız kontrol) ayrımı tam yapmaz; striasyon farkı en belirgin ayraçtır."},
-{n:40,s:"fiz",src:"part",
- q:"Correct sequence of smooth muscle contraction initiated by increased intracellular Ca²⁺? (MLCK: myosin light-chain kinase)",
- a:"Ca²⁺ → Calmodulin → MLCK → Myosin phosphorylation → Contraction",
- why:"Düz kasta Ca²⁺ <b>kalmoduline</b> bağlanır → <b>MLCK</b>’yı aktive eder → miyozin hafif zincirini fosforile eder → çapraz köprü/kasılma başlar.",
- wrong:"Troponin yolu iskelet/kalp kasınadır; düz kasta kalmodulin-MLCK yolu çalışır."},
-{n:41,s:"fiz",src:"no",
- q:"A patient with myasthenia gravis experiences worsening weakness with repeated muscle use. The primary mechanism is:",
- a:"Destruction of nicotinic (ACh) receptors",
- why:"Myasthenia gravis’te otoantikorlar postsinaptik <b>nikotinik ACh reseptörlerini</b> yıkar/azaltır → tekrarlayan kullanımla artan kas güçsüzlüğü.",
- wrong:"Asetilkolin yetersizliği veya kas lifi kaybı değil; sorun reseptör düzeyindedir."},
-
+ why:"<b>Membrane proteins</b> ECM’ye tutunma, hücre-hücre tanıma ve enzimatik aktivite dahil birçok işlev görür (ayrıca taşıma, sinyal iletimi).",
+ wrong:"Üçü de doğru olduğundan birini dışlamak eksik kalır.",
+ mnemo:"🧠 Membran proteini işlevleri: <b>T-E-R-S-A-C</b> → Transport, Enzim, Reseptör, Signal, Anchorage (ECM), Cell-recognition."}
+,
 /* ---------------- HİSTOLOJİ / EMBRİYOLOJİ ---------------- */
 {n:42,s:"his",src:"yes",
- q:"The exocoelomic (Heuser’s) membrane lines the primary yolk sac with which cells?",
+ q:"The exocoelomic (Heuser's) membrane lines the primary yolk sac with which cells?",
  a:"Hypoblasts",
- why:"Kaynak (9. gün): <b>hipoblast</b> kökenli yassı hücreler Heuser membranını oluşturur ve primer yolk kesesini döşer.",
- wrong:"Epiblast, sitotrofoblast veya ekstraembriyonik mezoderm bu membranın kaynağı değildir."},
+ why:"Kaynak (9. gün): <b>hypoblast</b> kökenli yassı hücreler <b>Heuser (exocoelomic) membrane</b>’i oluşturur ve <b>primary yolk sac</b>’ı döşer.",
+ wrong:"Epiblast, cytotrophoblast veya extraembryonic mesoderm bu membranın kaynağı değildir.",
+ mnemo:"🧠 <b>H</b>euser = <b>H</b>ypoblast."},
 {n:43,s:"his",src:"yes",
- q:"Cellular columns of cytotrophoblasts holding a mesoderm-derived fetal vascular network with syncytiotrophoblast covering, floating in maternal blood, are defined as?",
+ q:"Cytotrophoblast columns holding a mesoderm-derived fetal vascular network with syncytiotrophoblast cover, floating in maternal blood, are defined as?",
  a:"Tertiary villus",
- why:"Kaynak: mezoderm çekirdeğinde damarlar gelişince villus <b>tersiyer (kesin plasental) villus</b> olur.",
- wrong:"Primer villus yalnız sitotrofoblast+sinsityum; sekonder villusta damar henüz yoktur."},
+ why:"Kaynak: mezoderm çekirdeğinde damarlar gelişince villus <b>tertiary (definitive placental) villus</b> olur: cytotrophoblast + fetal damar + syncytiotrophoblast.",
+ wrong:"<b>Primary villus</b> yalnız sito+sinsityum; <b>secondary villus</b>’ta damar yoktur.",
+ mnemo:"🧠 <b>1°</b> sito+sinsityum → <b>2°</b> +mezoderm → <b>3°</b> +<b>damar</b> (kan = tertiary)."},
 {n:44,s:"his",src:"yes",
  q:"Which of the following is derived from neural crest cells?",
  a:"All of the above",
- why:"Kaynak: neural krest hücreleri çok çeşitli yapı verir — <b>dorsal kök gangliyonları, sempatik gangliyonlar, adrenal medulla, melanositler, Schwann hücreleri, kraniofasiyal iskelet, enterik nöronlar</b>. “Dördüncü germ tabakası” denir.",
- wrong:"Seçeneklerin tümü neural krest türevi olduğundan “All of the above” doğrudur."},
+ why:"Kaynak: <b>neural crest cells</b> çok çeşitli yapı verir — <b>dorsal root ganglia, sympathetic ganglia, adrenal medulla, melanocytes, Schwann cells, kraniofasiyal iskelet, enterik nöronlar</b>. “Dördüncü germ tabakası” denir.",
+ wrong:"Seçeneklerin tümü neural krest türevi olduğundan “All of the above” doğrudur.",
+ klinik:"🦷 Neural krest <b>yüz/çene iskeleti, dentin (odontoblast), diş pulpası ve periodonsiyum</b> hücrelerinin kaynağıdır — diş gelişiminin (odontogenesis) temelidir.",
+ mnemo:"🧠 Neural krest türevleri “MOTEL PASS”: Melanocytes, Odontoblasts, Tracheal cartilage, Enterik gangliyonlar, Laringeal kıkırdak, Parafoliküler hücreler, Adrenal medulla, Schwann, Sensory (DRG)."},
 {n:45,s:"his",src:"yes",
  q:"First blood cells and blood vessels originate from which structure?",
  a:"Yolk sac",
- why:"Kaynak: ilk kan adacıkları 3. haftada <b>yolk kesesi</b> duvarındaki mezodermde belirir; ilk kan hücreleri ve damarlar buradan oluşur (geçici popülasyon).",
- wrong:"Kesin hematopoetik kök hücreler sonradan AGM bölgesinden gelir; ilk oluşum yolk kesesindedir."},
+ why:"Kaynak: ilk kan adacıkları (<b>blood islands</b>) 3. haftada <b>yolk sac</b> duvarındaki mezodermde belirir; ilk kan hücreleri ve damarlar buradan oluşur (geçici popülasyon).",
+ wrong:"Kesin hematopoetik kök hücreler sonradan <b>AGM</b> bölgesinden gelir; ilk oluşum yolk kesesindedir.",
+ spot:"🎯 Hematopoez yer/zaman: <b>Yolk sac (3 hf) → karaciğer (fetal ana organ) → kemik iliği (7. ay sonrası)</b>."},
 {n:46,s:"his",src:"yes",
  q:"Which of the following is next to the cloacal membrane?",
  a:"Allantois",
- why:"Kaynak: yaklaşık 16. günde yolk kesesi arka duvarından çıkan <b>allantois</b>, kaudal uçtaki <b>kloakal membrana komşudur</b>.",
- wrong:"Orofaringeal membran kraniyaldedir; notokord orta hatta uzanır."},
+ why:"Kaynak: ~16. günde yolk kesesi arka duvarından çıkan <b>allantois</b>, kaudal uçtaki <b>cloacal membrane</b>’a komşudur.",
+ wrong:"<b>Oropharyngeal membrane</b> kraniyaldedir; notochord orta hatta uzanır.",
+ mnemo:"🧠 <b>Allantois–klOAKAl membran</b>: ikisi de KAUDAL uçta."},
 {n:47,s:"his",src:"yes",
- q:"The prechordal plate controls the induction of which structure’s development?",
+ q:"The prechordal plate controls the induction of which structure's development?",
  a:"Brain (forebrain)",
- why:"Kaynak: prekordal plak <b>ön beyin (forebrain) indüksiyonuna</b> yardım eder.",
- wrong:"Nöral tüpün geneli notokord tarafından indüklenir; kalp/böbrek prekordal plak ürünü değildir."},
+ why:"Kaynak: <b>prechordal plate</b> <b>ön beyin (forebrain) induction</b>’una yardım eder.",
+ wrong:"Nöral tüpün geneli <b>notochord</b> tarafından indüklenir; kalp/böbrek prekordal plak ürünü değildir.",
+ spot:"🎯 İndüksiyon: <b>Notochord → nöral plak/tüp geneli</b>; <b>Prechordal plate → forebrain</b>."},
 {n:48,s:"his",src:"yes",
  q:"The pancreas is derived from which germ layer?",
  a:"Endoderm",
- why:"Pankreas, gastrointestinal sistemle birlikte <b>endoderm</b> kökenli ön bağırsak tomurcuklarından gelişir.",
- wrong:"Mezoderm kas/kemik/böbrek verir; ektoderm sinir sistemi/epidermis verir — pankreas endodermaldir."},
+ why:"<b>Pancreas</b>, GI sistemle birlikte <b>endoderm</b> kökenli ön bağırsak (foregut) tomurcuklarından gelişir.",
+ wrong:"Mezoderm kas/kemik/böbrek; ektoderm sinir sistemi/epidermis verir.",
+ mnemo:"🧠 Endoderm = iç boru organları: GI epiteli, <b>karaciğer, pankreas</b>, akciğer epiteli, tiroid, mesane."},
 {n:49,s:"his",src:"yes",
  q:"Bone tissue is derived from which of the following?",
  a:"Sclerotome",
- why:"Kaynak: somitin ventromedial hücreleri <b>sklerotomu</b> oluşturur; sklerotom <b>vertebra ve kaburgaları (kemik)</b> verir.",
- wrong:"Miyotom kas, dermatom sırt derisini verir; kemik sklerotom kökenlidir."},
+ why:"Kaynak: somitin ventromedial hücreleri <b>sclerotome</b>’u oluşturur; sklerotom <b>vertebra ve kaburgaları (kemik)</b> verir.",
+ wrong:"<b>Myotome</b> kas, <b>dermatome</b> sırt derisini verir.",
+ mnemo:"🧠 Somit üçlemesi: <b>Sclerotome → kemik/kıkırdak; Myotome → kas; Dermatome → deri</b> (“Sırtın Kemiği, Kası, Derisi”)."},
 {n:50,s:"his",src:"yes",
  q:"Which of the following is a WRONG statement?",
- a:"Fusion of neural folds and neural tube formation begins in the sacral region near the caudal end",
- why:"Kaynak: nöral tüp füzyonu <b>servikal bölgede (5. somit)</b> başlar ve hem kraniyal hem kaudal yönde ilerler. Sakral/kaudal bölgede başladığını söylemek yanlıştır.",
- wrong:"Kranial nöropor ~25. gün, kaudal nöropor ~28. gün kapanır; başlangıç servikaldir — doğru ifadeler bunlardır."},
+ a:"Neural fold fusion / neural tube formation begins in the sacral region near the caudal end",
+ why:"Kaynak: <b>neural tube</b> füzyonu <b>servikal bölgede (5. somit)</b> başlar ve hem kraniyal hem kaudal yönde ilerler. Sakral/kaudalde başladığını söylemek yanlıştır.",
+ wrong:"<b>Cranial neuropore</b> ~25. gün, <b>caudal neuropore</b> ~28. gün kapanır; başlangıç servikaldir — doğru ifadeler bunlardır.",
+ dikkat:"⚠️ Kapanma “ortadan iki yöne fermuar gibi” ilerler; başlangıç SERVİKAL, sakral DEĞİL.",
+ klinik:"Kaudal nöroporun kapanmaması → <b>spina bifida</b>; kranial kapanmaması → <b>anencephaly</b>. Folik asit eksikliğiyle ilişkili."},
 {n:51,s:"his",src:"yes",
  q:"Which of the following is NOT derived from ectoderm?",
  a:"Cartilage tissue",
- why:"Kıkırdak <b>mezoderm</b> (ve baş bölgesinde neural krest) kökenlidir, ektoderm değil. Ektoderm türevleri: MSS, PSS, epidermis, duyu epiteli, diş minesi.",
- wrong:"Sinir sistemi, epidermis ve duyu epitelleri ektoderm türevidir; kıkırdak istisnadır."},
-
-/* ---------------- TIBBİ BİYOKİMYA ---------------- */
+ why:"<b>Cartilage</b> <b>mezoderm</b> (baş bölgesinde neural krest) kökenlidir, ektoderm değil. Ektoderm: MSS, PSS, epidermis, duyu epiteli, <b>diş minesi (enamel)</b>.",
+ wrong:"Sinir sistemi, epidermis ve duyu epitelleri ektoderm türevidir; kıkırdak istisnadır.",
+ klinik:"🦷 Diş minesi (<b>enamel</b>) ektoderm (ameloblast) kökenliyken, <b>dentin/pulpa</b> neural krest (ektomezenkim) kökenlidir — bu köken ayrımı odontogeneziste kritiktir."}
+,
+/* ---------------- BİYOKİMYA ---------------- */
 {n:52,s:"bch",src:"yes",
  q:"High cellular concentrations of which molecule would inhibit the entry of pyruvate into the citric acid cycle?",
  a:"NADH",
- why:"Kaynak: PDH kompleksi <b>ürün inhibisyonuna</b> tabidir; yüksek <b>NADH</b> (ve asetil-CoA) PDH’yi baskılar → piruvatın TCA’ya girişi azalır.",
- wrong:"Yüksek NAD⁺/ADP tam tersine aktive eder; bunlar inhibe etmez."},
+ why:"Kaynak: <b>PDH (pyruvate dehydrogenase) complex</b> ürün inhibisyonuna tabidir; yüksek <b>NADH</b> (ve asetil-CoA) PDH’yi baskılar → piruvatın TCA’ya girişi azalır.",
+ wrong:"Yüksek NAD⁺/ADP tam tersine aktive eder.",
+ spot:"🎯 PDH inhibitörleri: <b>NADH, acetyl-CoA, ATP</b> (hücre tok). Aktivatörler: NAD⁺, CoA, ADP, Ca²⁺, pyruvate."},
 {n:53,s:"bch",src:"part",
  q:"What is the main purpose of NADPH in the body?",
  a:"To function as a biochemical reductant",
- why:"NADPH <b>indirgeyici güç</b> sağlar: yağ asidi/kolesterol sentezi gibi reduktif biyosentezler ve glutatyon aracılı antioksidan savunma.",
- wrong:"ATP enerji para birimidir; NADPH enerji üretmek için değil, indirgeme için kullanılır."},
+ why:"<b>NADPH</b> <b>indirgeyici güç</b> sağlar: yağ asidi/kolesterol sentezi gibi reduktif biyosentezler ve glutatyon aracılı antioksidan savunma.",
+ wrong:"ATP enerji para birimidir; NADPH enerji için değil, indirgeme için kullanılır.",
+ mnemo:"🧠 <b>NAD⁺</b> = katabolizmada elektron TOPLAR; <b>NADPH</b> = anabolizmada elektron VERİR (reductant)."},
 {n:54,s:"bch",src:"part",
  q:"Coenzyme Q is involved in electron transport:",
  a:"As a lipid-soluble electron carrier",
- why:"Koenzim Q (ubikinon) iç mitokondri zarında hareket eden <b>lipit-çözünür mobil elektron taşıyıcısıdır</b>; Kompleks I/II’den III’e elektron taşır.",
- wrong:"Sitokrom c suda-çözünür taşıyıcıdır; CoQ protein değil, lipit-çözünür küçük moleküldür."},
+ why:"<b>Coenzyme Q (ubiquinone)</b> iç mitokondri zarında hareket eden <b>lipit-çözünür mobil elektron taşıyıcısıdır</b>; Kompleks I/II’den III’e elektron taşır.",
+ wrong:"<b>Cytochrome c</b> suda-çözünür taşıyıcıdır; CoQ protein değil, küçük lipit-çözünür moleküldür.",
+ spot:"🎯 İki mobil taşıyıcı: <b>CoQ (lipit-çözünür, I/II→III)</b> ve <b>cytochrome c (suda-çözünür, III→IV)</b>."},
 {n:55,s:"bch",src:"part",
  q:"What powers the ATP synthase rotary motor?",
  a:"H⁺ (proton) gradient",
- why:"ETC tarafından oluşturulan <b>proton gradyenti (proton-motif güç)</b>, protonların ATP sentaz boyunca geri akışıyla rotor motorunu döndürür ve ATP üretir.",
- wrong:"Doğrudan NADH veya substrat-düzeyinde fosforilasyon değil; itici güç proton gradyentidir."},
+ why:"ETC’nin oluşturduğu <b>proton gradyenti (proton-motive force)</b>, protonların ATP sentaz boyunca geri akışıyla rotor motorunu döndürür → ATP.",
+ wrong:"Doğrudan NADH veya substrat-düzeyinde fosforilasyon değil; itici güç proton gradyentidir.",
+ mnemo:"🧠 <b>Chemiosmosis (Mitchell)</b>: elektron akışı → proton pompalama → proton gradyenti → ATP sentaz türbini."},
 {n:56,s:"bch",src:"part",
- q:"Which cellular conditions favor increased activity of the ETC and oxidative phosphorylation?",
+ q:"Which cellular conditions favor increased ETC and oxidative phosphorylation activity?",
  a:"High NAD⁺ concentrations",
- why:"Yüksek <b>NAD⁺</b> (ve ADP/Pi) elektron taşıma ve oksidatif fosforilasyonu hızlandırır; bol elektron alıcısı ve ADP, zinciri ileri sürer.",
- wrong:"Yüksek NADH/ATP zinciri yavaşlatır (respiratory control); bunlar uyarıcı değildir."},
+ why:"Yüksek <b>NAD⁺</b> (ve ADP/Pi) elektron taşıma ve oksidatif fosforilasyonu hızlandırır; bol elektron alıcısı ve ADP zinciri ileri sürer.",
+ wrong:"Yüksek NADH/ATP zinciri yavaşlatır (<b>respiratory control</b>).",
+ spot:"🎯 Enerji düşükse (ADP↑, NAD⁺↑) ETC hızlanır; enerji yüksekse (ATP↑, NADH↑) yavaşlar."},
 {n:57,s:"bch",src:"part",
- q:"Concerning relative pH of cytosol, intermembrane space, and mitochondrial matrix:",
+ q:"Relative pH of cytosol, intermembrane space, and mitochondrial matrix:",
  a:"Matrix > cytosol > intermembrane space",
- why:"Protonlar matristen <b>zar arası boşluğa</b> pompalanır → zar arası boşluk asidik (düşük pH), matriks bazik (yüksek pH). Sıralama: <b>matriks > sitozol > zar arası boşluk</b>.",
- wrong:"Zar arası boşluğu en bazik gösteren sıralamalar yanlıştır."},
+ why:"Protonlar matristen <b>intermembrane space</b>’e pompalanır → zar arası boşluk asidik (düşük pH), matriks bazik (yüksek pH).",
+ wrong:"Zar arası boşluğu en bazik gösteren sıralamalar yanlıştır.",
+ mnemo:"🧠 Protonlar dışarı pompalanır → DIŞ (IMS) asidik, İÇ (matrix) bazik. pH: matrix > sitozol > IMS."},
 {n:58,s:"bch",src:"yes",
- q:"During electron transport, protons are pumped out at each of the major sites EXCEPT:",
+ q:"During electron transport, protons are pumped out at each major site EXCEPT:",
  a:"Complex II",
- why:"Kaynak: <b>Kompleks II (süksinat dehidrojenaz)</b> iç zara gömülüdür ama proton pompalamaz. Proton pompalayan komplekler I, III ve IV’tür.",
- wrong:"Kompleks I, III ve IV proton pompalar; istisna Kompleks II’dir."},
+ why:"Kaynak: <b>Complex II (succinate dehydrogenase)</b> iç zara gömülüdür ama proton pompalamaz. Pompalayanlar Kompleks I, III ve IV’tür.",
+ wrong:"Kompleks I, III, IV proton pompalar; istisna Kompleks II’dir.",
+ spot:"🎯 Complex II aynı zamanda <b>TCA döngüsünün</b> üyesidir (FADH₂ üretir) — iki yolun kesişim noktası."},
 {n:59,s:"bch",src:"part",
  q:"When we describe the TCA cycle as amphibolic, we mean that it:",
  a:"Is capable of both synthetic and degradative reactions",
- why:"<b>Amfibolik</b> = hem katabolik (yıkıcı, enerji üretimi) hem anabolik (sentetik, ara ürünlerin biyosentezde kullanımı) yolların kavşağı olması.",
- wrong:"Yalnız yıkıcı ya da yalnız sentetik demek amfibolik kavramını eksik bırakır."},
+ why:"<b>Amphibolic</b> = hem katabolik (yıkıcı, enerji) hem anabolik (sentetik, ara ürünlerin biyosentezde kullanımı) yolların kavşağı olması.",
+ wrong:"Yalnız yıkıcı ya da yalnız sentetik demek amfibolik kavramını eksik bırakır.",
+ mnemo:"🧠 <b>Amphi = iki yönlü</b> (anabolik + katabolik). Ör. α-ketoglutarat → glutamat (anabolik çıkış)."},
 {n:60,s:"bch",src:"yes",
  q:"Long-chain fatty acids are transported through the inner mitochondrial membrane by:",
  a:"Carnitine carrier system",
- why:"Kaynak: uzun zincirli yağ asitleri iç mitokondri zarından <b>karnitin taşıma sistemi</b> (CPT-1/CPT-2 + translokaz) ile geçirilir.",
- wrong:"Doğrudan difüzyon veya pürin taşıyıcıları bu işi görmez; geçiş karnitine bağımlıdır."},
+ why:"Kaynak: uzun zincirli yağ asitleri iç zardan <b>carnitine shuttle (CPT-1/CPT-2 + translocase)</b> ile geçirilir.",
+ wrong:"Doğrudan difüzyon veya pürin taşıyıcıları bu işi görmez.",
+ dikkat:"⚠️ <b>CPT-1</b>, <b>malonyl-CoA</b> tarafından inhibe edilir → yağ asidi sentezi varken yağ asidi yıkımı durur (mantıklı ekonomi)."},
 {n:61,s:"bch",src:"part",
  q:"Which enzyme is responsible for the initial step in beta oxidation of fatty acids?",
  a:"Acyl-CoA synthetase (aktivasyon adımı)",
- why:"β-oksidasyon öncesi yağ asidi <b>açil-CoA sentetaz (tiyokinaz)</b> ile açil-CoA’ya aktive edilir; sonra mitokondriye girer.",
- wrong:"β-oksidasyonun ilk asıl basamağı açil-CoA dehidrojenazdır.",
- note:"Cevap anahtarında “Acetyl-CoA synthase” yazıyor; bu büyük olasılıkla <b>acyl-CoA synthetase</b>’in (yağ asidi aktivasyonu) yazım hatasıdır. Aktivasyon basamağı bu enzimle olur."},
+ why:"β-oksidasyon öncesi yağ asidi <b>acyl-CoA synthetase (thiokinase)</b> ile açil-CoA’ya aktive edilir; sonra mitokondriye girer.",
+ wrong:"β-oksidasyonun ilk asıl basamağı <b>acyl-CoA dehydrogenase</b>’dir.",
+ note:"⚠️ Cevap anahtarında “Acetyl-CoA synthase” yazıyor; bu büyük olasılıkla <b>acyl-CoA synthetase</b>’in (yağ asidi aktivasyonu) yazım hatasıdır."},
 {n:62,s:"bch",src:"yes",
  q:"What is the effect of insulin on glycolysis in the liver?",
  a:"It increases glycolysis by inducing key enzymes",
- why:"İnsülin karaciğerde anabolik etkilidir; glukokinaz, PFK-1, piruvat kinaz gibi <b>anahtar enzimleri indükleyerek glikolizi artırır</b>.",
- wrong:"İnsülin glikolizi baskılamaz; tam tersine glukoz kullanımını ve depolanmasını artırır."},
+ why:"<b>Insulin</b> karaciğerde anaboliktir; <b>glucokinase, PFK-1, pyruvate kinase</b> gibi anahtar enzimleri indükleyerek glikolizi artırır.",
+ wrong:"İnsülin glikolizi baskılamaz; tam tersine glukoz kullanımını/depolanmasını artırır.",
+ mnemo:"🧠 İnsülin = tokluk/depolama hormonu → glikoliz↑, glikojen↑, lipogenez↑. Glukagon tersini yapar."},
 {n:63,s:"bch",src:"yes",
  q:"Which enzyme is inhibited by its product, glucose-6-phosphate?",
  a:"Hexokinase",
- why:"Kaynak: <b>hekzokinaz</b> ürünü olan glukoz-6-fosfat ile inhibe olur (ürün/geri besleme inhibisyonu).",
- wrong:"Glukokinaz (karaciğer izozimi) G6P ile bu şekilde inhibe olmaz; sorudaki enzim hekzokinazdır."},
+ why:"Kaynak: <b>hexokinase</b> ürünü <b>glucose-6-phosphate</b> ile inhibe olur (ürün/geri besleme inhibisyonu).",
+ wrong:"<b>Glucokinase</b> (karaciğer izozimi) G6P ile bu şekilde inhibe olmaz.",
+ spot:"🎯 Glucokinase (karaciğer/β-hücre) G6P’ye duyarsızdır; yüksek Km’li olduğundan tokken bile glukozu yakalar."},
 {n:64,s:"bch",src:"part",
  q:"Why does pyruvate kinase deficiency cause hemolytic anemia in red blood cells?",
  a:"Decreased ATP production leading to membrane damage",
- why:"Eritrositlerde mitokondri yoktur, enerji yalnızca <b>glikolizden</b> gelir. Piruvat kinaz eksikliği → <b>ATP azalır</b> → zar/iyon pompaları bozulur → hemoliz.",
- wrong:"Sorun hemoglobin yapısı veya demir değil; temel sebep glikolitik ATP üretimindeki düşüştür."},
+ why:"Eritrositlerde <b>mitokondri yoktur</b>; enerji yalnızca <b>glikolizden</b> gelir. <b>Pyruvate kinase</b> eksikliği → ATP azalır → zar/iyon pompaları bozulur → hemoliz.",
+ wrong:"Sorun hemoglobin yapısı veya demir değil; temel sebep glikolitik ATP üretimindeki düşüştür.",
+ spot:"🎯 Eritrosit = mitokondrisiz; tüm ATP’si glikolizden. Bu yüzden glikoliz enzim defektlerine çok hassastır."},
 {n:65,s:"bch",src:"part",
  q:"Acetyl-CoA carboxylase…",
  a:"All are correct",
- why:"Asetil-CoA karboksilaz yağ asidi sentezinin <b>hız kısıtlayıcı</b> enzimidir; <b>biotin</b> bağımlıdır, asetil-CoA’yı malonil-CoA’ya çevirir, <b>sitratla aktive</b>, palmitoil-CoA/glukagonla inhibe olur — verilen ifadelerin hepsi doğrudur.",
- wrong:"Bu özelliklerden birini yanlış sayan seçenek eksik kalır; tümü geçerlidir."},
+ why:"<b>Acetyl-CoA carboxylase (ACC)</b> yağ asidi sentezinin <b>hız kısıtlayıcı</b> enzimidir; <b>biotin</b> bağımlıdır, asetil-CoA’yı <b>malonyl-CoA</b>’ya çevirir, <b>sitratla aktive</b>, palmitoil-CoA/glukagonla inhibe olur — hepsi doğru.",
+ wrong:"Bu özelliklerden birini yanlış sayan seçenek eksik kalır.",
+ mnemo:"🧠 ACC = yağ asidi sentezinin <b>komutanı</b>: biotin + sitrat (aktive) + insülin (aktive) ↔ glukagon/AMPK (inhibe)."},
 {n:66,s:"bch",src:"part",
  q:"A high-cholesterol diet decreases hepatic cholesterol synthesis by inhibiting which enzyme?",
  a:"HMG-CoA reductase",
- why:"Kolesterol sentezinin hız kısıtlayıcı enzimi <b>HMG-CoA redüktazdır</b>; diyet kolesterolü (ve statinler) bu enzimi baskılar.",
- wrong:"HMG-CoA sentaz veya skualen sentaz hız kısıtlayıcı kontrol noktası değildir."},
+ why:"Kolesterol sentezinin <b>hız kısıtlayıcı</b> enzimi <b>HMG-CoA reductase</b>’dir; diyet kolesterolü (ve statinler) onu baskılar.",
+ wrong:"HMG-CoA sentaz veya skualen sentaz hız kısıtlayıcı kontrol noktası değildir.",
+ klinik:"🦷 <b>Statinler</b> tam olarak HMG-CoA redüktazı inhibe eder; kemik metabolizması ve yara iyileşmesine de etkileri vardır."},
 {n:67,s:"bch",src:"part",
  q:"The synthesis of glucose from pyruvate by gluconeogenesis:",
  a:"Requires the participation of biotin",
- why:"Glukoneogenezde piruvat → oksaloasetat dönüşümü <b>piruvat karboksilaz</b> ile olur; bu enzim <b>biotin</b> kofaktörüne ihtiyaç duyar.",
- wrong:"Glukoneogenez glikolizin basit tersi değildir ve enerji harcar; biotin gerektirmesi doğru ifadedir."},
+ why:"Glukoneogenezde piruvat → <b>oksaloasetat</b> dönüşümü <b>pyruvate carboxylase</b> ile olur; bu enzim <b>biotin</b> kofaktörü gerektirir.",
+ wrong:"Glukoneogenez glikolizin basit tersi değildir, enerji harcar; biotin gerektirmesi doğrudur.",
+ mnemo:"🧠 Biotin = <b>karboksilasyon</b> kofaktörü: pyruvate carboxylase, acetyl-CoA carboxylase, propionyl-CoA carboxylase."},
 {n:68,s:"bch",src:"yes",
  q:"Epinephrine and glucagon have which effect on hepatic glycogen metabolism?",
  a:"Glycogen phosphorylase is activated while glycogen synthase is inactivated",
- why:"Kaynak: glukagon (ve epinefrin) karaciğerde <b>glikojen fosforilazı aktive</b> (glikojenoliz↑), <b>glikojen sentazı inaktive</b> eder → kana glukoz salınır.",
- wrong:"Tersi (sentaz aktif, fosforilaz inaktif) insülinin anabolik etkisidir, glukagonunki değildir."},
+ why:"Kaynak: <b>glucagon</b> (ve epinefrin) karaciğerde <b>glycogen phosphorylase</b>’ı aktive (glikojenoliz↑), <b>glycogen synthase</b>’ı inaktive eder → kana glukoz salınır.",
+ wrong:"Tersi (sentaz aktif, fosforilaz inaktif) insülinin anabolik etkisidir.",
+ spot:"🎯 cAMP/PKA yolu: phosphorylase’ı AÇAR, synthase’ı KAPATIR. Açlıkta glukozu serbest bırakır."},
 {n:69,s:"bch",src:"no",
  q:"Which is used as an indicator in the titration of a strong base and a weak acid?",
  a:"Phenolphthalein",
- why:"Zayıf asit–güçlü baz titrasyonunda eşdeğerlik noktası bazik bölgededir (~pH 8–10); bu aralıkta renk değiştiren <b>fenolftalein</b> uygundur.",
- wrong:"Metil oranj asidik aralıkta (pH 3–4) döner; güçlü asit–zayıf baz için uygundur, bu titrasyon için değil."},
+ why:"Zayıf asit–güçlü baz titrasyonunda eşdeğerlik noktası bazik bölgededir (~pH 8–10); bu aralıkta renk değiştiren <b>phenolphthalein</b> uygundur.",
+ wrong:"<b>Methyl orange</b> asidik aralıkta (pH 3–4) döner; güçlü asit–zayıf baz için uygundur.",
+ mnemo:"🧠 <b>Fenolftalein → bazik</b> uçta pembe (zayıf asit-güçlü baz). <b>Metil oranj → asidik</b> uçta (zayıf baz-güçlü asit)."},
 {n:70,s:"bch",src:"part",
  q:"Which statement about urease is correct?",
  a:"Urease catalyzes the hydrolysis of urea into ammonia and carbon dioxide",
- why:"<b>Üreaz</b> üreyi <b>amonyak (NH₃) ve karbondioksite</b> hidrolize eder; nikel bağımlı bir enzimdir.",
- wrong:"Üreaz üre sentezlemez veya amino asit parçalamaz; işlevi üre hidrolizidir."},
+ why:"<b>Urease</b> üreyi <b>amonyak (NH₃) ve CO₂</b>’ye hidrolize eder; nikel bağımlı bir enzimdir.",
+ wrong:"Üreaz üre sentezlemez veya amino asit parçalamaz; işlevi üre hidrolizidir.",
+ klinik:"🦷 <b>Helicobacter pylori</b> ürease üretir; ağız florasındaki üreaz üreten bakteriler tükürük pH’sını ve dental bulguları etkiler."},
 {n:71,s:"bch",src:"part",
  q:"……… enzyme is not present in muscle.",
  a:"Glucose-6-phosphatase",
- why:"<b>Glukoz-6-fosfataz</b> kasta yoktur (yalnız karaciğer, böbrek, bağırsakta). Bu yüzden kas, glikojeninden serbest glukozu kana veremez — sadece kendisi kullanır.",
- wrong:"Hekzokinaz, fosforilaz, fosfofruktokinaz kasta vardır; eksik olan glukoz-6-fosfatazdır."},
+ why:"<b>Glucose-6-phosphatase</b> kasta yoktur (yalnız <b>karaciğer, böbrek, bağırsak</b>). Bu yüzden kas, glikojenindeki glukozu kana veremez — sadece kendisi kullanır.",
+ wrong:"Hexokinase, phosphorylase, PFK kasta vardır; eksik olan glukoz-6-fosfatazdır.",
+ spot:"🎯 Kas kan şekerini AYARLAYAMAZ (G6Pase yok); bu görev karaciğerindir. Cori döngüsü bu farkı kullanır."},
 {n:72,s:"bch",src:"yes",
  q:"Epinephrine and glucagon have which effect on hepatic glycogen metabolism? (tekrar)",
  a:"Glycogen phosphorylase is activated while glycogen synthase is inactivated",
- why:"68. soruyla aynı: glukagon/epinefrin <b>fosforilazı aktive, sentazı inaktive</b> ederek glikojenolizi başlatır.",
+ why:"68. soruyla aynı: <b>glucagon/epinephrine</b> fosforilazı aktive, sentazı inaktive ederek glikojenolizi başlatır.",
  wrong:"Tersi yöndeki ifade insülinin etkisidir.",
- note:"Bu soru, çıkmış sınavda 68 ile birebir aynı (tekrar yazılmış)."},
-
-/* ---------------- TIBBİ MİKROBİYOLOJİ ---------------- */
-{n:77,s:"mik",src:"no",
- q:"Which of the following is a characteristic of helminths?",
- a:"Multicellular worms with complex organ systems",
- why:"Helmintler (solucanlar) <b>çok hücreli</b>, gelişmiş organ sistemlerine sahip ökaryotik parazitlerdir (nematod, sestod, trematod).",
- wrong:"Tek hücreli olmaları (protozoa) ya da prokaryot olmaları yanlıştır; helmintler kompleks metazoanlardır."},
-{n:78,s:"mik",src:"no",
- q:"The definitive host is the host in which the parasite:",
- a:"Reaches sexual maturity or sexual reproduction occurs",
- why:"<b>Kesin (definitif) konak</b>, parazitin cinsel olgunluğa ulaştığı/eşeyli üremesini yaptığı konaktır.",
- wrong:"Eşeysiz/larva evrelerinin geçtiği konak <b>ara konaktır</b>, kesin konak değildir."},
-{n:79,s:"mik",src:"no",
- q:"The major structural component of the fungal cell wall is:",
- a:"Chitin",
- why:"Mantar hücre duvarının ana yapısal bileşeni <b>kitindir</b> (ayrıca glukan/mannan).",
- wrong:"Peptidoglikan bakteri duvarındadır; selüloz bitki duvarındadır — mantarda kitin bulunur."},
-{n:80,s:"mik",src:"no",
- q:"Which best describes fungi?",
- a:"Eukaryotic, non-photosynthetic, heterotrophic organisms",
- why:"Mantarlar <b>ökaryot, fotosentez yapmayan, heterotrof</b> canlılardır; organik maddeyi dışarıdan alır (saprofit/parazit).",
- wrong:"Prokaryot olmaları ya da fotosentez yapmaları yanlıştır."},
-{n:81,s:"mik",src:"no",
- q:"The capsid of a virus is primarily composed of:",
- a:"Proteins",
- why:"Viral <b>kapsid</b>, kapsomer denen <b>protein</b> alt birimlerinden oluşur ve nükleik asidi sarar.",
- wrong:"Lipit (varsa) zarftadır; karbonhidrat/nükleik asit kapsidin ana yapısı değildir."},
-{n:82,s:"mik",src:"no",
- q:"Which best describes viruses?",
- a:"Obligate intracellular parasites lacking ribosomes",
- why:"Virüsler <b>zorunlu hücre içi parazitlerdir</b>; kendi ribozomları ve metabolizmaları yoktur, konak hücreye bağımlıdır.",
- wrong:"Serbest yaşayan/ribozom içeren tanımlar bakterilere uyar, virüslere değil."},
-{n:83,s:"mik",src:"no",
- q:"The generation time of bacteria is defined as:",
- a:"Time required for the bacterial population to double",
- why:"<b>Jenerasyon (kuşak) süresi</b>, bakteri popülasyonunun iki katına çıkması için geçen süredir.",
- wrong:"Tek bir bakterinin ömrü ya da spor oluşum süresi jenerasyon süresi değildir."},
-{n:84,s:"mik",src:"no",
- q:"Which is characteristic of conjugation?",
- a:"Involves direct cell-to-cell contact via sex pilus",
- why:"<b>Konjugasyon</b>, iki bakteri arasında <b>seks pilusu</b> aracılığıyla doğrudan temasla DNA (plazmid) aktarımıdır.",
- wrong:"Çıplak DNA alımı transformasyon, faj aracılı transfer transdüksiyondur — temas gerektirmezler."},
-{n:85,s:"mik",src:"no",
- q:"In bacterial genetics, transformation refers to:",
- a:"Uptake of naked DNA from the environment",
- why:"<b>Transformasyon</b>, bakterinin ortamdaki <b>çıplak (serbest) DNA’yı</b> alıp genomuna katmasıdır.",
- wrong:"Pilusla temas konjugasyon, faj aracılığı transdüksiyondur — bunlar transformasyon değildir."},
-{n:86,s:"mik",src:"no",
- q:"Which structure contributes most to the rigidity of the bacterial cell wall?",
- a:"Peptidoglycan",
- why:"Bakteri duvarının sertliğini asıl <b>peptidoglikan</b> (mürein) tabakası sağlar.",
- wrong:"LPS Gram-negatif dış zarındadır; teikoik asit Gram-pozitiflere özgüdür — sertliği peptidoglikan verir."},
-{n:87,s:"mik",src:"no",
- q:"Which structural component is unique to Gram-negative bacteria?",
- a:"Outer membrane containing lipopolysaccharide (LPS)",
- why:"Gram-negatiflere özgü yapı, <b>LPS içeren dış membrandır</b> (endotoksin kaynağı).",
- wrong:"Kalın peptidoglikan ve teikoik asit Gram-pozitiflere özgüdür; LPS’li dış zar Gram-negatife özeldir."},
-{n:88,s:"mik",src:"no",
- q:"Koch’s postulates are primarily used to:",
- a:"Establish a causal relationship between a microbe and a disease",
- why:"<b>Koch postülaları</b>, belirli bir mikrobun belirli bir hastalığın <b>nedeni</b> olduğunu kanıtlamak için kullanılır.",
- wrong:"Antibiyotik duyarlılığı veya boyama tekniği belirleme amaçları değildir."},
-{n:89,s:"mik",src:"no",
- q:"Which scientist first provided experimental evidence against spontaneous generation using the swan-neck flask experiment?",
- a:"Louis Pasteur",
- why:"<b>Louis Pasteur</b>, kuğu boyunlu balon deneyiyle kendiliğinden oluşum (abiyogenez) görüşünü çürüttü.",
- wrong:"Koch hastalık etkenleri, Leeuwenhoek mikroskobik gözlem, Lister antisepsi ile anılır."},
-{n:90,s:"mik",src:"no",
- q:"Which prokaryotic structure-function match is INCORRECT?",
- a:"Endospore – reproduction",
- why:"<b>Endospor üreme yapısı değildir</b>; olumsuz koşullarda <b>hayatta kalma/dormansi</b> yapısıdır. Bu nedenle eşleşme yanlıştır.",
- wrong:"Pilus-tutunma, flagella-hareket, kapsül-koruma eşleşmeleri doğrudur; yanlış olan endospor-üremedir."},
-{n:91,s:"mik",src:"no",
- q:"Which best describes an operon?",
- a:"Cluster of genes transcribed as a single mRNA under one promoter",
- why:"<b>Operon</b>, tek bir promotör kontrolünde, tek bir mRNA olarak birlikte transkribe edilen gen kümesidir (ör. lac operonu).",
- wrong:"Tek gen ya da ayrı promotörlerle düzenlenen genler operon tanımına uymaz."},
-{n:92,s:"mik",src:"no",
- q:"Why does bacterial growth slow down in the stationary phase?",
- a:"Nutrients become depleted and waste products accumulate",
- why:"Durağan fazda <b>besin tükenir ve toksik atıklar birikir</b>; bölünme ile ölüm dengelenir, net büyüme durur.",
- wrong:"Sıcaklık ya da pH’ın sabitlenmesi değil; asıl neden besin tükenmesi ve atık birikimidir."},
-{n:93,s:"mik",src:"no",
- q:"In Gram-negative bacteria, which outer membrane component acts as an endotoxin?",
- a:"Lipopolysaccharide (LPS)",
- why:"Gram-negatif dış membranındaki <b>LPS</b> (özellikle lipid A kısmı) <b>endotoksin</b> olarak iş görür; ateş ve şok yapabilir.",
- wrong:"Peptidoglikan veya teikoik asit endotoksin değildir; endotoksin LPS’tir."},
-{n:94,s:"mik",src:"no",
- q:"Which of the following is present in all bacteria?",
- a:"Cell membrane",
- why:"Tüm bakterilerde <b>hücre (plazma) zarı</b> bulunur. Kapsül, flagella, pilus ya da spor her bakteride yoktur.",
- wrong:"Kapsül/flagella/endospor bazı türlerde olmayabilir; ortak ve zorunlu olan hücre zarıdır."}
+ note:"Bu soru çıkmış sınavda 68 ile birebir aynıdır (tekrar yazılmış)."}
 ];
 
 const MISSING = [4,5,6,10,11,12,13,14,15,18,19,20,23,24];
+
+const FLASH = {
+ ana:[
+  {q:"Surgical neck kırığında hangi sinir, sonuç ne?",a:"Axillary nerve → deltoid felci → 15° üzeri abduksiyon yapılamaz + omuz lateralinde duyu kaybı."},
+  {q:"Ön/orta skalen arasından ne geçer? Subklavyan ven nereden?",a:"Subclavian artery + brakiyal pleksus kökleri arasından; subclavian ven ön skalenin ÖNÜNDEN."},
+  {q:"İnvesting derin servikal fasya hangi 2 kası sarar?",a:"Sternocleidomastoid + trapezius."},
+  {q:"EDL hangi kompartmanda? (çeldirici)",a:"Anterior (ÖN) kompartman — adı extensor olanlar önde, flexor olanlar arkada."}
+ ],
+ bio:[
+  {q:"Kan gazı: pH↓, HCO₃⁻↓, pCO₂ normal → tanı?",a:"Metabolik asidoz (HCO₃⁻ ile pH aynı yönde → metabolik)."},
+  {q:"Difüzyonu AZALTAN iki faktör?",a:"Büyük molekül hacmi + kalın membran (Fick). Gradyent ve yüzey alanı artırır."},
+  {q:"Hangi hareket bir lipid hareketi DEĞİLDİR?",a:"Torsion. Gerçekler: lateral difüzyon, flip-flop, rotasyon, fleksiyon."}
+ ],
+ his:[
+  {q:"İlk kan hücreleri/damarları nereden başlar?",a:"Yolk sac (blood islands, 3. hafta). Sonra karaciğer, sonra kemik iliği."},
+  {q:"Nöral tüp füzyonu nerede başlar? (çeldirici)",a:"Servikal bölgede (5. somit), iki yöne ilerler — sakralde DEĞİL."},
+  {q:"Kıkırdak hangi germ tabakasından? (ektoderm değil)",a:"Mezoderm (başta neural krest). Ektoderm: sinir, epidermis, mine."},
+  {q:"Pankreas + karaciğer hangi germ tabakası?",a:"Endoderm (foregut tomurcukları)."}
+ ],
+ bch:[
+  {q:"ETC'de proton pompalamayan kompleks?",a:"Complex II (succinate dehydrogenase). Pompalayan: I, III, IV."},
+  {q:"PDH'yi (piruvatın TCA'ya girişini) inhibe eden molekül?",a:"NADH (ayrıca acetyl-CoA, ATP). Tokluk sinyali."},
+  {q:"Kasta bulunmayan, kan şekerini ayarlayamamasına yol açan enzim?",a:"Glucose-6-phosphatase (yalnız karaciğer/böbrek/bağırsak)."},
+  {q:"Uzun zincirli yağ asitleri iç mitokondri zarından nasıl geçer?",a:"Carnitine shuttle (CPT-1/CPT-2); CPT-1 malonyl-CoA ile inhibe."}
+ ]
+};
 
 const order = ["ana","bio","his","bch"];
 const cssVar = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
@@ -560,66 +476,74 @@ order.forEach(k=>chipsEl.appendChild(makeChip(k,SUBJECTS[k].name,cssVar(SUBJECTS
 chipsEl.firstChild.classList.add('active');
 
 const srcMeta={yes:["src-yes","KAYNAKTA VAR"],part:["src-part","KISMEN"],no:["src-no","KAYNAKTA YOK"]};
-
 let hideAnswers=false;
 document.getElementById('hideAns').addEventListener('change',e=>{hideAnswers=e.target.checked;render();});
 document.getElementById('search').addEventListener('input',render);
 
+function boxes(item){
+  let h='';
+  if(item.spot)  h+=`<div class="box spot"><span class="box-tag">🎯 Spot Bilgi</span>${item.spot}</div>`;
+  if(item.dikkat)h+=`<div class="box dikkat"><span class="box-tag">⚠️ Dikkat</span>${item.dikkat}</div>`;
+  if(item.klinik)h+=`<div class="box klinik"><span class="box-tag">🦷 Klinik Önemi</span>${item.klinik}</div>`;
+  if(item.mnemo) h+=`<div class="box mnemo"><span class="box-tag">🧠 Akılda Tutma</span>${item.mnemo}</div>`;
+  return h;
+}
 function cardHTML(item){
   const sub=SUBJECTS[item.s];const col=cssVar(sub.var);
   const [scls,slabel]=srcMeta[item.src];
-  const ansHidden = hideAnswers ? 'hidden' : '';
-  const btnLabel = hideAnswers ? 'Cevabı göster' : 'Gizle';
+  const ansHidden=hideAnswers?'hidden':'';
+  const btnLabel=hideAnswers?'Cevabı göster':'Gizle';
   return `<div class="card" data-s="${item.s}">
     <div class="tab" style="background:${col}"><span class="num">${item.n}</span><span class="lbl">${sub.lbl}</span></div>
     <div class="body">
-      <div class="q-top">
-        <p class="q">${item.q}</p>
-        <button class="reveal-btn" onclick="toggleCard(this)">${btnLabel}</button>
-      </div>
+      <div class="q-top"><p class="q">${item.q}</p><button class="reveal-btn" onclick="toggleCard(this)">${btnLabel}</button></div>
       <div class="ans ${ansHidden}">
         <div class="answer-line"><span class="key">Doğru</span><span class="val">${item.a}</span></div>
-        <div class="why">
-          <h4>Neden bu şık?</h4><p>${item.why}</p>
-          <h4>Diğer şıklar / kavram</h4><p class="wrong">${item.wrong}</p>
-        </div>
+        <div class="why"><h4>Neden bu şık?</h4><p>${item.why}</p><h4>Diğer şıklar / kavram</h4><p class="wrong">${item.wrong}</p></div>
+        ${boxes(item)}
         ${item.note?`<div class="note"><b>Not:</b> ${item.note}</div>`:''}
         <div class="badge-src"><span class="src ${scls}">${slabel}</span></div>
       </div>
     </div>
   </div>`;
 }
-
+function deckHTML(k){
+  const cards=FLASH[k]||[];if(!cards.length)return '';
+  const col=cssVar(SUBJECTS[k].var);
+  return `<div class="deckwrap">
+    <div class="dh"><h3>🃏 ${SUBJECTS[k].name} — Flashcards</h3><span class="hint">çevirmek için tıkla</span></div>
+    <div class="deck">${cards.map(c=>`
+      <div class="flash" onclick="this.classList.toggle('flipped')">
+        <div class="flash-inner">
+          <div class="flash-face flash-front"><span class="ft">Soru</span><span class="qx">${c.q}</span></div>
+          <div class="flash-face flash-back" style="background:${col}"><span class="ft">Cevap</span><span class="ax">${c.a}</span></div>
+        </div>
+      </div>`).join('')}</div>
+  </div>`;
+}
 function toggleCard(btn){
   const ans=btn.closest('.body').querySelector('.ans');
   ans.classList.toggle('hidden');
   btn.textContent=ans.classList.contains('hidden')?'Cevabı göster':'Gizle';
 }
-
 function render(){
   const term=document.getElementById('search').value.trim().toLowerCase();
-  const content=document.getElementById('content');content.innerHTML='';
-  let total=0;
+  const content=document.getElementById('content');content.innerHTML='';let total=0;
   order.forEach(k=>{
     if(activeSubject!=="all"&&activeSubject!==k)return;
     let items=Q.filter(x=>x.s===k);
-    if(term)items=items.filter(x=>(x.q+' '+x.a+' '+x.why+' '+x.wrong).replace(/<[^>]+>/g,'').toLowerCase().includes(term));
-    if(!items.length)return;
-    total+=items.length;
+    if(term)items=items.filter(x=>(x.q+' '+x.a+' '+x.why+' '+x.wrong+' '+(x.spot||'')+' '+(x.klinik||'')).replace(/<[^>]+>/g,'').toLowerCase().includes(term));
+    if(!items.length)return;total+=items.length;
     const sub=SUBJECTS[k];const col=cssVar(sub.var);
     const sec=document.createElement('section');
-    sec.innerHTML=`<div class="sec-head">
-        <span class="idx" style="background:${col}">${sub.lbl}</span>
-        <h2>${sub.name}</h2>
-        <span class="count">${items.length} soru</span>
-      </div>`+items.map(cardHTML).join('');
+    sec.innerHTML=`<div class="sec-head"><span class="idx" style="background:${col}">${sub.lbl}</span><h2>${sub.name}</h2><span class="count">${items.length} soru</span></div>`
+      +items.map(cardHTML).join('')+ (term?'':deckHTML(k));
     content.appendChild(sec);
   });
   if(activeSubject==="all"&&!term){
-    const m=document.createElement('div');
-    m.style.marginTop="34px";
+    const m=document.createElement('div');m.style.marginTop="34px";
     m.innerHTML=`<div class="sec-head"><span class="idx" style="background:#8290a2">XXX</span><h2>Kaydedilmemiş Sorular</h2></div>`+
-      MISSING.map(n=>`<div class="missing"><span class="num">Soru ${n}</span> Çıkmış sınav notlarında “XXX” olarak boş bırakılmış (soru kökü/cevabı kaydedilmemiş). Çözüm eklenemedi.</div>`).join('');
+      MISSING.map(n=>`<div class="missing"><span class="num">Soru ${n}</span> Çıkmış sınav notlarında “XXX” olarak boş; soru kökü/cevabı kaydedilmemiş.</div>`).join('');
     content.appendChild(m);
   }
   document.getElementById('noResult').style.display=total?'none':'block';

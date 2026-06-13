@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tüm Sinirler — Master Ezber Tablosu (Kökler · Motor · Duyu · Klinik)</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#5b6472; --bg:#eaf1f0; --card:#ffffff;
+    --line:#d2e0dd; --accent:#0f5d72;
+    --cn:#7a1f6b; --sp:#27345a; --bp:#9c3a5a; --lp:#b5651d; --sap:#1f7a5a; --cp:#5b3b8c;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Segoe UI',Helvetica,Arial,system-ui,sans-serif; line-height:1.5; font-size:15.5px;}
+  .wrap{max-width:1180px; margin:0 auto; padding:24px 16px 80px;}
+  header.hero{background:linear-gradient(135deg,#0a3d4c,#0f5d72); color:#fff;
+    border-radius:16px; padding:26px 26px; margin-bottom:20px; box-shadow:0 8px 26px rgba(10,61,76,.25);}
+  header.hero .badge{display:inline-block; background:rgba(255,255,255,.18);
+    padding:4px 12px; border-radius:999px; font-size:12.5px; letter-spacing:.5px; margin-bottom:10px;}
+  header.hero h1{margin:6px 0 6px; font-size:25px; line-height:1.25;}
+  header.hero p{margin:0; opacity:.92; font-size:14px;}
+  .controls{position:sticky; top:0; z-index:20; background:var(--bg); padding:12px 0 10px; margin-bottom:10px; border-bottom:1px solid var(--line);}
+  #search{width:100%; padding:12px 16px; font-size:16px; border:2px solid var(--accent);
+    border-radius:12px; outline:none;}
+  #search:focus{border-color:#1f8aa6; box-shadow:0 0 0 3px rgba(15,93,114,.15);}
+  .meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; align-items:center;}
+  .jump{font-size:12.5px; color:#fff; padding:4px 10px; border-radius:999px; text-decoration:none;}
+  .jump:hover{opacity:.85;}
+  .count{font-size:13px; color:var(--muted); margin-left:auto;}
+  section{margin:26px 0;}
+  h2.region{color:#fff; padding:10px 16px; border-radius:11px; font-size:18px; margin:0 0 4px;
+    position:sticky; top:64px; z-index:10;}
+  .r-cn{background:var(--cn);} .r-sp{background:var(--sp);} .r-bp{background:var(--bp);}
+  .r-lp{background:var(--lp);} .r-sap{background:var(--sap);} .r-cp{background:var(--cp);}
+  table{width:100%; border-collapse:collapse; margin:8px 0 0; font-size:13.7px; background:var(--card);
+    border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(31,36,48,.05);}
+  thead th{ }
+  th,td{border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top;}
+  th{background:#dfeceb; color:var(--accent); font-size:13px;}
+  td:first-child{font-weight:700; color:#16223d;}
+  tr:nth-child(even) td{background:#f8fcfb;}
+  .roots{font-weight:700; color:#0f5d72; white-space:nowrap;}
+  .klinik{color:#9e2a20;}
+  mark{background:#fff1a8; padding:0 2px; border-radius:3px;}
+  .note{background:#fff; border:1px solid var(--line); border-left:5px solid #0f5d72;
+    border-radius:10px; padding:12px 16px; margin:14px 0; font-size:13.6px; color:#3a4256;}
+  .note b{color:#0f5d72;}
+  .lat{font-style:italic; color:#6b3fa0;}
+  .nores{display:none; padding:30px; text-align:center; color:var(--muted); font-size:16px;}
+  footer{margin-top:36px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:12.8px;}
+  @media(max-width:760px){
+    h2.region{top:58px;}
+    body{font-size:14px;} th,td{padding:6px 7px; font-size:12.5px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="badge">ANATOMİ · FİNAL · MASTER SİNİR TABLOSU</span>
+  <h1>Tüm Sinirler — Kökler · Motor · Duyu · Klinik</h1>
+  <p>Beş dersin tüm sinirleri tek tabloda: 12 kraniyal sinir, spinal sinirler, brakiyal/lumbar/sakral/servikal pleksuslar, phrenic ve interkostal sinirler. Arama kutusuna sinir adı, kök (örn. "C5", "S2") veya kas yazarak filtreleyebilirsin.</p>
+</header>
+
+<div class="controls">
+  <input id="search" type="text" placeholder="🔎 Ara: sinir adı, kök (C5, L4, S2), kas veya alan (örn. 'deltoid', 'diaphragm', 'sciatic')..." autocomplete="off">
+  <div class="meta">
+    <a class="jump r-cn" href="#cn">Kraniyal (12)</a>
+    <a class="jump r-sp" href="#sp">Spinal</a>
+    <a class="jump r-bp" href="#bp">Brakiyal</a>
+    <a class="jump r-lp" href="#lp">Lumbar</a>
+    <a class="jump r-sap" href="#sap">Sakral</a>
+    <a class="jump r-cp" href="#cp">Servikal</a>
+    <span class="count" id="count"></span>
+  </div>
+</div>
+
+<div class="note">
+  <b>Nasıl kullanılır?</b> Kraniyal sinirlerde <b>No · Sinir · Tip · Fonksiyon/Hedef</b>; periferik sinirlerde <b>Sinir · Kökler · Motor · Duyu/Alan · Klinik</b> sütunları var. <b>Kökler</b> (mavi) ve <b>Klinik</b> (kırmızı) sütunları sınavın en kritik kısımlarıdır.
+</div>
+
+<!-- ===== CRANIAL NERVES ===== -->
+<section id="cn">
+<h2 class="region r-cn">KRANİYAL SİNİRLER (12 çift)</h2>
+<table class="mtable">
+<thead><tr><th>No</th><th>Sinir</th><th>Tip</th><th>Fonksiyon / Hedef</th></tr></thead>
+<tbody>
+<tr><td>I</td><td>Olfactory</td><td>Duyu</td><td>Koku — nose (burun)</td></tr>
+<tr><td>II</td><td>Optic</td><td>Duyu</td><td>Görme — eye (göz)</td></tr>
+<tr><td>III</td><td>Oculomotor</td><td>Motor</td><td><mark>IV ve VI hariç tüm göz kasları</mark></td></tr>
+<tr><td>IV</td><td>Trochlear</td><td>Motor</td><td><i>Superior oblique</i> kası</td></tr>
+<tr><td>V</td><td>Trigeminal</td><td>Karışık</td><td><b>Duyu:</b> yüz, sinüsler, <mark>dişler</mark> · <b>Motor:</b> çiğneme kasları (mastication)</td></tr>
+<tr><td>VI</td><td>Abducent</td><td>Motor</td><td><i>Lateral (external) rectus</i> kası</td></tr>
+<tr><td>VII</td><td>Facial</td><td>Karışık</td><td><b>Motor:</b> yüz mimik kasları (muscles of face)</td></tr>
+<tr><td>VIII</td><td>Vestibulocochlear</td><td>Duyu</td><td>İşitme &amp; denge — inner ear (iç kulak)</td></tr>
+<tr><td>IX</td><td>Glossopharyngeal</td><td>Karışık</td><td><b>Motor:</b> farinks kasları · <b>Duyu:</b> dil arka 1/3, tonsil, farinks</td></tr>
+<tr><td>X</td><td>Vagus</td><td>Karışık</td><td>Kalp, akciğer, bronş, trakea, larinks, farinks, GİS, dış kulak (motor &amp; duyu)</td></tr>
+<tr><td>XI</td><td>Accessory</td><td>Motor</td><td><i>Sternocleidomastoid</i> &amp; <i>trapezius</i> kasları</td></tr>
+<tr><td>XII</td><td>Hypoglossal</td><td>Motor</td><td>Dil kasları (muscles of the tongue)</td></tr>
+</tbody>
+</table>
+<div class="note">
+  <b>İsim akrostişi (I→XII):</b> "On Old Olympus' Towering Tops A Finn And German Viewed Some Hops".<br>
+  <b>Tip akrostişi (S=Sensory, M=Motor, B=Both):</b> "Some Say Marry Money But My Brother Says Big Brains Matter Most" → <b>S S M M B M B S B B M M</b>.<br>
+  <b>Göz kasları:</b> "LR6 SO4" → Lateral Rectus = VI, Superior Oblique = IV, gerisi = III.
+</div>
+</section>
+
+<!-- ===== SPINAL NERVES GENERAL ===== -->
+<section id="sp">
+<h2 class="region r-sp">SPİNAL SİNİRLER (genel)</h2>
+<table class="mtable">
+<thead><tr><th>Konu</th><th>Bilgi</th><th></th><th>Not</th></tr></thead>
+<tbody>
+<tr><td>Toplam sayı</td><td>31 çift</td><td>—</td><td>8 servikal · 12 torakal · 5 lumbar · 5 sakral · 1 koksigeal</td></tr>
+<tr><td>Oluşum</td><td>Dorsal (duyusal) kök + Ventral (motor) kök</td><td>—</td><td>Otonom lifler de katkı sağlar</td></tr>
+<tr><td>Taşıdığı akson tipleri</td><td>GSA · GSE · GVA · GVE</td><td>—</td><td>General Somatic/Visceral Afferent/Efferent</td></tr>
+<tr><td>Ramuslar</td><td>Dorsal ramus + Ventral ramus</td><td>—</td><td>Dorsal ramus → sırt deri/kasları; ventral ramus → pleksuslar (torakal hariç → interkostal)</td></tr>
+<tr><td>Pleksuslar</td><td>Cervical · Brachial · Lumbar · Sacral</td><td>—</td><td>Torakal ventral rami pleksus yapmaz → intercostal sinirler</td></tr>
+<tr><td>Duyusal ganglion</td><td>Dorsal root (spinal) ganglion</td><td>—</td><td>31 çift; kraniyal duyusal örn. trigeminal ganglion</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ===== BRACHIAL PLEXUS ===== -->
+<section id="bp">
+<h2 class="region r-bp">BRAKİYAL PLEKSUS &amp; ÜST EKSTREMİTE SİNİRLERİ</h2>
+<table class="mtable">
+<thead><tr><th>Sinir</th><th>Kökler</th><th>Motor (kaslar)</th><th>Duyu / Alan</th><th>Klinik / Not</th></tr></thead>
+<tbody>
+<tr><td>Musculocutaneous</td><td class="roots">C5–C7</td><td>Ön kol kasları: biceps brachii, brachialis, coracobrachialis</td><td>Lateral cutaneous n. of forearm (ön kol lateral derisi)</td><td class="klinik">Coracobrachialis'i deler; motor dirsekte sonlanır</td></tr>
+<tr><td>Axillary</td><td class="roots">C5–C6</td><td>Deltoid &amp; teres minor</td><td>Superior lateral cutaneous n. of arm</td><td class="klinik">Quadrangular space'ten geçer; humerus <b>surgical neck</b> kırığında zedelenir</td></tr>
+<tr><td>Radial</td><td class="roots">C5–T1</td><td>Triceps, anconeus, brachioradialis, ECRL (tüm ekstansörler)</td><td>Posterior arm/forearm derisi</td><td class="klinik">Humerus şaft kırığı → <b>wrist drop</b> (düşük el)</td></tr>
+<tr><td>Median</td><td class="roots">C6–T1</td><td>Ön kol fleksörleri (2 hariç) + thenar kaslar + lateral 2 lumbrical</td><td>Lateral 3,5 parmak (palmar) + uçları</td><td class="klinik"><b>Carpal tunnel</b>'dan geçer; CTS → "ape hand", avuç ortası duyusu korunur</td></tr>
+<tr><td>Ulnar</td><td class="roots">C8–T1</td><td>Hypothenar, adductor pollicis, interossei, medial 2 lumbrical</td><td>Medial 1,5 parmak (5. + 4. yarısı)</td><td class="klinik"><b>Guyon's canal</b>'dan geçer; "claw hand"</td></tr>
+<tr><td>Thoracodorsal</td><td class="roots">C6–C8</td><td>Latissimus dorsi</td><td>—</td><td>Posterior cord dalı</td></tr>
+<tr><td>Long thoracic</td><td class="roots">C5–C7</td><td>Serratus anterior</td><td>—</td><td class="klinik">Hasarı → "winged scapula"</td></tr>
+<tr><td>Dorsal scapular</td><td class="roots">C5</td><td>Rhomboid major/minor, levator scapulae</td><td>—</td><td>—</td></tr>
+<tr><td>Suprascapular</td><td class="roots">C5–C6</td><td>Supraspinatus &amp; infraspinatus</td><td>—</td><td>—</td></tr>
+<tr><td>Medial &amp; lateral pectoral</td><td class="roots">C5–T1</td><td>Pectoralis major &amp; minor</td><td>—</td><td>—</td></tr>
+<tr><td>(İstisna) Accessory n. → trapezius</td><td class="roots">CN XI</td><td>Trapezius (+ SCM)</td><td>—</td><td class="klinik">Üst ekstremite kasları içinde brakiyal pleksustan inerve olmayan tek istisna</td></tr>
+</tbody>
+</table>
+<div class="note">
+  <b>Pleksus omurgası:</b> Roots (C5-T1) → Trunks → Divisions → Cords → Branches ("Read That Damn Cadaver Book").<br>
+  <b>Trunklar:</b> C5+C6 = Superior · C7 = Middle · C8+T1 = Inferior.<br>
+  <b>Kord → terminal dal:</b> Posterior cord → Axillary + Radial · Lateral cord → Musculocutaneous + Median (lateral kök) · Medial cord → Ulnar + Median (medial kök). 5 dal = <b>MARMU</b>.
+</div>
+</section>
+
+<!-- ===== LUMBAR PLEXUS ===== -->
+<section id="lp">
+<h2 class="region r-lp">LUMBAR PLEKSUS (L1–L4)</h2>
+<table class="mtable">
+<thead><tr><th>Sinir</th><th>Kökler</th><th>Motor (kaslar)</th><th>Duyu / Alan</th><th>Klinik / Not</th></tr></thead>
+<tbody>
+<tr><td>Iliohypogastric</td><td class="roots">L1</td><td>İç oblik &amp; transversus abdominis (alt)</td><td>Suprapubik &amp; gluteal deri</td><td>—</td></tr>
+<tr><td>Ilioinguinal</td><td class="roots">L1</td><td>İç oblik &amp; transversus abdominis (alt)</td><td>İnguinal bölge, skrotum/labium derisi</td><td>—</td></tr>
+<tr><td>Genitofemoral</td><td class="roots">L1–L2</td><td>Cremaster kası</td><td>Üst ön uyluk &amp; genital deri</td><td>—</td></tr>
+<tr><td>Lateral femoral cutaneous</td><td class="roots">L2–L3</td><td>—</td><td>Uyluğun lateral derisi</td><td class="klinik">Sıkışması → meralgia paresthetica</td></tr>
+<tr><td>Femoral nerve</td><td class="roots">L2–L4</td><td>Ön uyluk kasları (iliacus, sartorius, quadriceps, pectineus)</td><td>Anteromedial uyluk; <b>saphenous</b> → medial bacak &amp; ayak</td><td class="klinik">Lumbar pleksusun en büyük siniri; hasarı → diz ekstansiyon zayıflığı + <b>patellar refleks kaybı</b></td></tr>
+<tr><td>Obturator nerve</td><td class="roots">L2–L4</td><td>Medial uyluk adduktorları (adductor longus/brevis, gracilis, adductor magnus'un add. parçası)</td><td>Medial uyluk derisi</td><td>—</td></tr>
+<tr><td>Muscular branches</td><td class="roots">L1–L4</td><td>Quadratus lumborum, psoas major/minor</td><td>—</td><td>—</td></tr>
+</tbody>
+</table>
+<div class="note"><b>Dallar mnemoniği:</b> "I, I Get Leftovers On Fridays" → Iliohypogastric, Ilioinguinal, Genitofemoral, Lateral femoral cutaneous, Obturator, Femoral. <b>Konum:</b> psoas major'ın arkasında, arka karın duvarında.</div>
+</section>
+
+<!-- ===== SACRAL + COCCYGEAL ===== -->
+<section id="sap">
+<h2 class="region r-sap">SAKRAL &amp; KOKSİGEAL PLEKSUS (L4–Co)</h2>
+<table class="mtable">
+<thead><tr><th>Sinir</th><th>Kökler</th><th>Motor (kaslar)</th><th>Duyu / Alan</th><th>Klinik / Not</th></tr></thead>
+<tbody>
+<tr><td>Superior gluteal nerve</td><td class="roots">L4–S1</td><td>Gluteus medius, gluteus minimus, TFL</td><td>—</td><td class="klinik">Hasarı → Trendelenburg yürüyüşü</td></tr>
+<tr><td>Inferior gluteal nerve</td><td class="roots">L5–S2</td><td>Gluteus maximus</td><td>—</td><td>—</td></tr>
+<tr><td>Sciatic nerve</td><td class="roots">L4–S3</td><td>Arka uyluk (hamstring) + (dalları yoluyla) tüm bacak &amp; ayak kasları</td><td>Bacak &amp; ayak derisinin neredeyse tamamı (medial hariç)</td><td class="klinik"><b>Vücudun en büyük siniri</b>; greater sciatic foramen'den çıkar; <b>hatalı gluteal IM enjeksiyonda</b> zedelenir → diz altı tüm kaslar felç</td></tr>
+<tr><td>↳ Tibial nerve (dalı)</td><td class="roots">L4–S3</td><td>Arka bacak + ayak tabanı (medial &amp; lateral plantar)</td><td>Ayak tabanı, topuk</td><td>Siyatiğin medial dalı</td></tr>
+<tr><td>↳ Common peroneal (dalı)</td><td class="roots">L4–S2</td><td>Ön/yan bacak (deep &amp; superficial peroneal), ayak dorsumu</td><td>Bacak ön-lateral + ayak dorsumu</td><td class="klinik">Fibula boynunda yüzeyel → hasarı "foot drop"</td></tr>
+<tr><td>Posterior femoral cutaneous</td><td class="roots">S1–S3</td><td>—</td><td>Arka uyluk &amp; popliteal bölge derisi</td><td>—</td></tr>
+<tr><td>Pudendal nerve</td><td class="roots">S2–S4</td><td>External anal sphincter &amp; perineal kaslar</td><td>Anal &amp; genital bölge derisi</td><td class="klinik">Perine bölgesinin ana siniri ("S2,3,4 keeps the pelvis off the floor")</td></tr>
+<tr><td>Direkt kas dalları</td><td class="roots">L4–S2</td><td>Piriformis, quadratus femoris, obturator internus, gemelli, levator ani, coccygeus</td><td>—</td><td>—</td></tr>
+<tr><td>Anococcygeal nerves (koksigeal pleksus)</td><td class="roots">S4–Co</td><td>—</td><td>Koksigeal bölge derisi (küçük alan)</td><td>Koksigeal pleksus = S4 (parça) + S5 + koksigeal sinir</td></tr>
+</tbody>
+</table>
+<div class="note"><b>Sakral pleksus oluşumu:</b> Lumbosacral trunk (L4-5) + S1, S2, S3 + S4 (parça). <b>Konum:</b> küçük pelvis arka duvarı, piriformis ile yakın ilişkili.</div>
+</section>
+
+<!-- ===== CERVICAL PLEXUS + PHRENIC + INTERCOSTAL ===== -->
+<section id="cp">
+<h2 class="region r-cp">SERVİKAL PLEKSUS &amp; DİĞER GÖVDE SİNİRLERİ</h2>
+<table class="mtable">
+<thead><tr><th>Sinir</th><th>Kökler</th><th>Motor (kaslar)</th><th>Duyu / Alan</th><th>Klinik / Not</th></tr></thead>
+<tbody>
+<tr><td>Ansa cervicalis</td><td class="roots">C1–C3</td><td>İnfrahyoid kaslar (sternohyoid, sternothyroid, omohyoid) — <mark>thyrohyoid hariç</mark></td><td>—</td><td>Superior root C1 (hypoglossal içinde) + inferior root C2-3</td></tr>
+<tr><td>Phrenic nerve</td><td class="roots">C3–C5 (esas C4)</td><td><b>Diaphragm</b> (motor)</td><td>Pleura &amp; perikardiyum (duyu)</td><td class="klinik">"C3-4-5 keep the diaphragm alive"; anterior scalene önünden geçer</td></tr>
+<tr><td>Lesser occipital</td><td class="roots">C2</td><td>—</td><td>Kulak arkası &amp; oksipital deri</td><td>Duyusal</td></tr>
+<tr><td>Great auricular</td><td class="roots">C2–C3</td><td>—</td><td>Kulak &amp; parotis üzeri deri</td><td>Duyusal</td></tr>
+<tr><td>Transverse cervical</td><td class="roots">C2–C3</td><td>—</td><td>Boyun ön derisi</td><td>Duyusal</td></tr>
+<tr><td>Supraclavicular</td><td class="roots">C3–C4</td><td>—</td><td>Klavikula üzeri &amp; üst göğüs derisi</td><td>Duyusal</td></tr>
+<tr><td>Motor (prevertebral) dallar</td><td class="roots">C1–C4</td><td>Prevertebral kaslar, geniohyoid, thyrohyoid (C1)</td><td>—</td><td>—</td></tr>
+<tr><td>Suboccipital nerve</td><td class="roots">C1 (dorsal ramus)</td><td>4 suboksipital kas (rectus capitis post. major/minor, obliquus capitis sup./inf.)</td><td>—</td><td>Suboccipital triangle</td></tr>
+<tr><td>Intercostal nerves</td><td class="roots">T1–T11</td><td>İnterkostal kaslar; alt 6'sı karın kaslarına</td><td>Toraks &amp; karın duvarı derisi</td><td>Torakal ventral rami (pleksus yapmaz)</td></tr>
+<tr><td>Subcostal nerve</td><td class="roots">T12</td><td>Karın duvarı kasları (pyramidalis vb.)</td><td>Alt karın derisi</td><td>—</td></tr>
+</tbody>
+</table>
+<div class="note">
+  <b>Servikal pleksus = C1–C4</b> (SCM &amp; IJV derininde). <b>4 duyusal dal (G-L-T-S):</b> Great auricular, Lesser occipital, Transverse cervical, Supraclavicular.<br>
+  <b>Erb's point (punctum nervosum):</b> SCM arka kenarı orta noktası — kütanöz dallar burada yüzeyelleşir; yüzeyel servikal pleksus bloğunda hedef.
+</div>
+</section>
+
+<p class="nores" id="nores">Eşleşen sinir bulunamadı — farklı bir terim dene.</p>
+
+<footer>
+  <b>Master Sinir Tablosu</b> — Beş anatomi dersinin tüm sinirleri (12 kraniyal sinir, spinal sinirler, brakiyal/lumbar/sakral/koksigeal/servikal pleksuslar, phrenic &amp; interkostal sinirler) tek dosyada. Kökler ve klinik notlar sınavda en kritik kısımdır. Bazı kök değerleri (örn. brakiyal pleksus dalları) standart anatomik referanslarla tamamlanmıştır. Final sınavında başarılar! 🦷
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var input = document.getElementById('search');
+  var rows = Array.prototype.slice.call(document.querySelectorAll('table.mtable tbody tr'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section'));
+  var countEl = document.getElementById('count');
+  var nores = document.getElementById('nores');
+  function update(){
+    var q = input.value.trim().toLowerCase();
+    var shown = 0;
+    rows.forEach(function(r){
+      var match = q === '' || r.textContent.toLowerCase().indexOf(q) !== -1;
+      r.style.display = match ? '' : 'none';
+      if(match) shown++;
+    });
+    sections.forEach(function(s){
+      var trs = s.querySelectorAll('tbody tr');
+      var hasVis = Array.prototype.some.call(trs, function(tr){return tr.style.display !== 'none';});
+      s.style.display = hasVis ? '' : 'none';
+    });
+    countEl.textContent = shown + ' sinir gösteriliyor';
+    nores.style.display = shown === 0 ? 'block' : 'none';
+  }
+  input.addEventListener('input', update);
+  update();
+})();
+</script>
+</body>
+</html>

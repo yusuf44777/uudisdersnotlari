@@ -1,5 +1,25 @@
 const notes = [
   {
+    id: "anatomy-master-muscles-en",
+    course: "Anatomy",
+    grade: "1. Sınıf",
+    unit: "Master",
+    title: "All Muscles — Master Revision Table",
+    subtitle: "Origin, insertion, function and innervation for all anatomy muscle lectures in one searchable English table",
+    path: "1.%20S%C4%B1n%C4%B1f/Anatomy/00_ALL_MUSCLES_Master_Table_EN.html",
+    tags: ["muscles", "origin", "insertion", "innervation"],
+  },
+  {
+    id: "anatomy-master-nerves-en",
+    course: "Anatomy",
+    grade: "1. Sınıf",
+    unit: "Master",
+    title: "All Nerves — Master Revision Table",
+    subtitle: "Roots, motor, sensory and clinical notes for cranial nerves and plexuses in one searchable English table",
+    path: "1.%20S%C4%B1n%C4%B1f/Anatomy/00_ALL_NERVES_Master_Table_EN.html",
+    tags: ["nerves", "roots", "plexus", "clinical"],
+  },
+  {
     id: "anatomy-01",
     course: "Anatomy",
     grade: "1. Sınıf",

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tüm Kaslar — Master Ezber Tablosu (O / I / F / İnervasyon)</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#5b6472; --bg:#eef1f6; --card:#ffffff;
+    --line:#d8deea; --accent:#27345a;
+    --back:#9c3a5a; --ue:#b5651d; --le:#1f7a5a; --ab:#8a4513; --hn:#5b3b8c;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Segoe UI',Helvetica,Arial,system-ui,sans-serif; line-height:1.5; font-size:15.5px;}
+  .wrap{max-width:1180px; margin:0 auto; padding:24px 16px 80px;}
+  header.hero{background:linear-gradient(135deg,#1b2440,#27345a); color:#fff;
+    border-radius:16px; padding:26px 26px; margin-bottom:20px; box-shadow:0 8px 26px rgba(27,36,64,.25);}
+  header.hero .badge{display:inline-block; background:rgba(255,255,255,.18);
+    padding:4px 12px; border-radius:999px; font-size:12.5px; letter-spacing:.5px; margin-bottom:10px;}
+  header.hero h1{margin:6px 0 6px; font-size:25px; line-height:1.25;}
+  header.hero p{margin:0; opacity:.92; font-size:14px;}
+  .controls{position:sticky; top:0; z-index:20; background:var(--bg); padding:12px 0 10px; margin-bottom:10px; border-bottom:1px solid var(--line);}
+  #search{width:100%; padding:12px 16px; font-size:16px; border:2px solid var(--accent);
+    border-radius:12px; outline:none;}
+  #search:focus{border-color:#3a5a9c; box-shadow:0 0 0 3px rgba(58,90,156,.15);}
+  .meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; align-items:center;}
+  .jump{font-size:12.5px; color:#fff; padding:4px 10px; border-radius:999px; text-decoration:none;}
+  .jump:hover{opacity:.85;}
+  .count{font-size:13px; color:var(--muted); margin-left:auto;}
+  section{margin:26px 0;}
+  h2.region{color:#fff; padding:10px 16px; border-radius:11px; font-size:18px; margin:0 0 4px;
+    position:sticky; top:64px; z-index:10;}
+  .r-back{background:var(--back);} .r-ue{background:var(--ue);} .r-le{background:var(--le);}
+  .r-ab{background:var(--ab);} .r-hn{background:var(--hn);}
+  table{width:100%; border-collapse:collapse; margin:8px 0 0; font-size:13.7px; background:var(--card);
+    border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(31,36,48,.05);}
+  thead th{ }
+  th,td{border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top;}
+  th{background:#e7ebf4; color:var(--accent); font-size:13px;}
+  td:first-child{font-weight:700; color:#16223d; white-space:nowrap;}
+  tr:nth-child(even) td{background:#fafbfe;}
+  .innerv{font-weight:600; color:#7a1f3a;}
+  mark{background:#fff1a8; padding:0 2px; border-radius:3px;}
+  .note{background:#fff; border:1px solid var(--line); border-left:5px solid #3a5a9c;
+    border-radius:10px; padding:12px 16px; margin:14px 0; font-size:13.6px; color:#3a4256;}
+  .note b{color:#27345a;}
+  .lat{font-style:italic; color:#6b3fa0;}
+  .nores{display:none; padding:30px; text-align:center; color:var(--muted); font-size:16px;}
+  footer{margin-top:36px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:12.8px;}
+  @media(max-width:760px){
+    h2.region{top:58px;}
+    body{font-size:14px;} th,td{padding:6px 7px; font-size:12.5px;}
+    td:first-child{white-space:normal;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="badge">ANATOMİ · FİNAL · MASTER EZBER TABLOSU</span>
+  <h1>Tüm Kaslar — Origin · Insertion · Function · İnervasyon</h1>
+  <p>Beş dersin (Lokomotor giriş, Sırt/Üst ekstremite, Alt ekstremite, Karın/Toraks, Baş-Yüz/Boyun) tüm kasları tek tabloda. İngilizce/Latince terimler korunmuştur. Arama kutusuna kas adı, kemik veya sinir yazarak anında filtreleyebilirsin.</p>
+</header>
+
+<div class="controls">
+  <input id="search" type="text" placeholder="🔎 Ara: kas adı, kemik, sinir (örn. 'femoral', 'tibial nerve', 'scapula', 'pterygoid')..." autocomplete="off">
+  <div class="meta">
+    <a class="jump r-back" href="#back">Sırt</a>
+    <a class="jump r-ue" href="#ue">Üst Ekstremite</a>
+    <a class="jump r-le" href="#le">Alt Ekstremite</a>
+    <a class="jump r-ab" href="#ab">Karın/Toraks</a>
+    <a class="jump r-hn" href="#hn">Baş-Yüz/Boyun</a>
+    <span class="count" id="count"></span>
+  </div>
+</div>
+
+<div class="note">
+  <b>Nasıl kullanılır?</b> Sütunlar: <b>Origin → Insertion → Function → İnervasyon</b>. İnervasyon sütunu (kırmızı) en çok sorulan kısımdır; önce onu kapatıp tahmin et, sonra aç. Slaytlarda origin/insertion verilmeyen kaslarda (özellikle yüz mimik ve karın kasları) <b>standart anatomik referans</b> değerleri eklenmiştir; sınav slayt odaklıysa fonksiyon ve innervasyona öncelik ver.
+</div>
+
+<!-- ================= BACK ================= -->
+<section id="back">
+<h2 class="region r-back">SIRT KASLARI (BACK)</h2>
+<table class="mtable">
+<thead><tr><th>Kas</th><th>Origin</th><th>Insertion</th><th>Function</th><th>İnervasyon</th></tr></thead>
+<tbody>
+<tr><td>Trapezius</td><td>Occipital bone + torakal vertebra spinöz çıkıntıları</td><td>Clavicle, acromion, spine of scapula</td><td>Skapulayı eleve/retrakte eder; 90° üstü abduksiyona yardım</td><td class="innerv">Accessory nerve (CN XI)</td></tr>
+<tr><td>Latissimus dorsi</td><td>Torakal &amp; lumbar spinöz çıkıntılar, iliac crest, alt kostalar</td><td>Humerus (intertüberküler oluk)</td><td>Humerusu ekstansiyon + adduksiyon + iç rotasyon; inspirasyona yardım</td><td class="innerv">Thoracodorsal nerve</td></tr>
+<tr><td>Levator scapulae</td><td>C1–C4 transvers çıkıntıları</td><td>Scapula medial kenarı (üst)</td><td>Skapulayı kaldırır</td><td class="innerv">Dorsal scapular nerve</td></tr>
+<tr><td>Rhomboid minor</td><td>C7–T1 spinöz çıkıntıları</td><td>Scapula medial kenarı (spine hizası)</td><td>Skapulayı retrakte eder</td><td class="innerv">Dorsal scapular nerve</td></tr>
+<tr><td>Rhomboid major</td><td>T2–T5 spinöz çıkıntıları</td><td>Scapula medial kenarı (alt)</td><td>Skapulayı retrakte eder</td><td class="innerv">Dorsal scapular nerve</td></tr>
+<tr><td>Serratus posterior superior/inferior</td><td>Spinöz çıkıntılar (servikotorakal / torakolumbar)</td><td>Üst / alt kostalar</td><td>Solunuma yardım (kostaları kaldırır/indirir)</td><td class="innerv">İnterkostal sinirler</td></tr>
+<tr><td>Splenius capitis/cervicis (derin-yüzeyel)</td><td>Nuchal ligament, üst torakal spinöz çıkıntılar</td><td>Mastoid process / üst servikal transvers çıkıntılar</td><td>Baş/boyun ekstansiyon, ipsilateral rotasyon</td><td class="innerv">Spinal sinirlerin dorsal ramusları</td></tr>
+<tr><td>Erector spinae (iliocostalis-longissimus-spinalis)</td><td>Sacrum, iliac crest, lumbar spinöz çıkıntılar</td><td>Kostalar, transvers çıkıntılar, spinöz çıkıntılar, mastoid</td><td>Vertebral kolon ekstansiyonu, postür</td><td class="innerv">Dorsal rami of spinal nerves</td></tr>
+<tr><td>Semispinalis / multifidus / rotatores (derin)</td><td>Transvers çıkıntılar</td><td>Spinöz çıkıntılar (üst seviyeler)</td><td>Ekstansiyon, rotasyon, postür</td><td class="innerv">Dorsal rami of spinal nerves</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ================= UPPER EXTREMITY ================= -->
+<section id="ue">
+<h2 class="region r-ue">ÜST EKSTREMİTE (UPPER LIMB)</h2>
+<table class="mtable">
+<thead><tr><th>Kas</th><th>Origin</th><th>Insertion</th><th>Function</th><th>İnervasyon</th></tr></thead>
+<tbody>
+<tr><td>Pectoralis major</td><td>Clavicle &amp; sternum</td><td>Humerus (intertüberküler oluk lateral dudak)</td><td>Kol adduksiyon + iç rotasyon (klaviküler baş fleksiyon); ön aksiller katlantı</td><td class="innerv">Medial &amp; lateral pectoral nerves</td></tr>
+<tr><td>Pectoralis minor</td><td>Kostalar 3–5</td><td>Scapula (coracoid process)</td><td>Skapulayı aşağı/öne çeker, stabilize eder; inspirasyona yardım</td><td class="innerv">Medial pectoral nerve</td></tr>
+<tr><td>Serratus anterior</td><td>1.–8. kostalar lateral yüzü</td><td>Scapula medial kenarı (ön yüz)</td><td>Skapulayı protrakte/stabilize eder</td><td class="innerv">Long thoracic nerve</td></tr>
+<tr><td>Deltoid</td><td>Clavicle, acromion, spine of scapula</td><td>Humerus (deltoid tüberkülü)</td><td>Fleksiyon+iç rot. / abduksiyon / ekstansiyon+dış rot.</td><td class="innerv">Axillary nerve</td></tr>
+<tr><td>Supraspinatus (rotator cuff)</td><td>Supraspinous fossa</td><td>Greater tubercle of humerus</td><td>Abduksiyonu başlatır (rotator <u>değildir</u>)</td><td class="innerv">Suprascapular nerve</td></tr>
+<tr><td>Infraspinatus (rotator cuff)</td><td>Infraspinous fossa</td><td>Greater tubercle</td><td>Dış rotasyon</td><td class="innerv">Suprascapular nerve</td></tr>
+<tr><td>Teres minor (rotator cuff)</td><td>Scapula lateral kenarı</td><td>Greater tubercle</td><td>Dış rotasyon</td><td class="innerv">Axillary nerve</td></tr>
+<tr><td>Subscapularis (rotator cuff)</td><td>Subscapular fossa</td><td>Lesser tubercle of humerus</td><td>İç rotasyon</td><td class="innerv">Upper &amp; lower subscapular nerves</td></tr>
+<tr><td>Teres major</td><td>Scapula alt açısı</td><td>Humerus (intertüberküler oluk medial dudak)</td><td>Adduksiyon, iç rotasyon, ekstansiyon</td><td class="innerv">Lower subscapular nerve</td></tr>
+<tr><td>Biceps brachii</td><td>Scapula: long head (supraglenoid tüberkül), short head (coracoid)</td><td>Radial tuberosity; bicipital aponeuroz</td><td>Ön kolun <b>primer supinatoru</b>; supine ön kolu fleksiyon; kola fleksiyon yardımı</td><td class="innerv">Musculocutaneous nerve</td></tr>
+<tr><td>Brachialis</td><td>Humerus ön yüzü (distal)</td><td>Ulna (coronoid process / tuberositas)</td><td>Ön kolun <b>primer fleksoru</b></td><td class="innerv">Musculocutaneous nerve</td></tr>
+<tr><td>Coracobrachialis</td><td>Coracoid process</td><td>Humerus orta (medial yüz)</td><td>Kola fleksiyon &amp; adduksiyon</td><td class="innerv">Musculocutaneous nerve</td></tr>
+<tr><td>Triceps brachii</td><td>Long head (infraglenoid tüberkül), lateral &amp; medial head (humerus arka yüz)</td><td>Olecranon of ulna</td><td>Ön kolun <b>chief extensor</b>'u; long head kola ekst./add. yardımı</td><td class="innerv">Radial nerve</td></tr>
+<tr><td>Ön kol fleksör grubu (genel)</td><td>Çoğu medial epikondil (common flexor origin)</td><td>El kemikleri (flexor retinaculum altından)</td><td>El bileği/parmak fleksiyonu, pronasyon</td><td class="innerv">Median nerve (2 istisna: Ulnar)</td></tr>
+<tr><td>Ön kol ekstansör grubu (genel)</td><td>Çoğu lateral epikondil (common extensor origin)</td><td>El kemikleri (extensor retinaculum altından)</td><td>El bileği/parmak ekstansiyonu, supinasyon</td><td class="innerv">Radial nerve</td></tr>
+<tr><td>Brachioradialis</td><td>Humerus lateral suprakondiler çıkıntı</td><td>Radius distal (styloid yakını)</td><td>Ön kolu fleksiyon (<u>posterior'da ama fleksör</u>)</td><td class="innerv">Radial nerve</td></tr>
+<tr><td>Thenar kasları (abd./flex./opponens pollicis brevis)</td><td>Flexor retinaculum &amp; karpal kemikler</td><td>1. parmak (pollex) falanksı/metakarpı</td><td>Başparmak abduksiyon/fleksiyon/oppozisyon</td><td class="innerv">Median nerve</td></tr>
+<tr><td>Hypothenar kasları (abd./flex./opp. digiti minimi)</td><td>Flexor retinaculum &amp; karpal kemikler</td><td>5. parmak falanksı/metakarpı</td><td>Serçe abduksiyon/fleksiyon/oppozisyon</td><td class="innerv">Ulnar nerve</td></tr>
+<tr><td>Adductor pollicis</td><td>2.–3. metakarp / kapitatum</td><td>Başparmak proksimal falanks</td><td>Başparmak adduksiyonu</td><td class="innerv">Ulnar nerve</td></tr>
+<tr><td>Lumbricals (×4) &amp; interossei</td><td>FDP tendonları / metakarplar</td><td>Ekstansör ekspansiyon / falankslar</td><td>MCP fleksiyon + IP ekstansiyon; parmak abd/add</td><td class="innerv">Lateral 2 lumbrical: Median; gerisi: Ulnar</td></tr>
+</tbody>
+</table>
+<div class="note"><b>Major sinir özetleri:</b> Musculocutaneous (C5-7) → ön kol kasları (biceps, brachialis, coracobrachialis); Axillary (C5-6) → deltoid &amp; teres minor; Radial (C5-T1) → triceps, anconeus, brachioradialis, ECRL; Median (C6-T1) → ön kol fleksörleri + thenar; Ulnar (C8-T1) → hypothenar + adductor pollicis + interossei. <b>İstisna:</b> Trapezius brakiyal pleksustan DEĞİL, accessory nerve (XI)'den.</div>
+</section>
+
+<!-- ================= LOWER EXTREMITY ================= -->
+<section id="le">
+<h2 class="region r-le">ALT EKSTREMİTE (LOWER LIMB)</h2>
+<table class="mtable">
+<thead><tr><th>Kas</th><th>Origin</th><th>Insertion</th><th>Function</th><th>İnervasyon</th></tr></thead>
+<tbody>
+<tr><td>Gluteus maximus</td><td>İlium, sacrum, coccyx</td><td>Iliotibial tract (tibia lateral kondili) &amp; femur (gluteal tüberositas)</td><td>Uyluk ekstansiyon &amp; lateral rotasyon; diz ekstansiyonuna yardım</td><td class="innerv">Inferior gluteal nerve</td></tr>
+<tr><td>Gluteus medius</td><td>İlium dış yüzü</td><td>Greater trochanter</td><td>Uyluk abduksiyon (<b>en güçlü</b>) &amp; iç rotasyon</td><td class="innerv">Superior gluteal nerve</td></tr>
+<tr><td>Gluteus minimus</td><td>İlium dış yüzü (altta)</td><td>Greater trochanter</td><td>Uyluk abduksiyon &amp; iç rotasyon</td><td class="innerv">Superior gluteal nerve</td></tr>
+<tr><td>Tensor fascia lata</td><td>İliac crest / ASIS</td><td>Iliotibial tract</td><td>Uyluk fleksiyon/abd.; ITT'yi gerer</td><td class="innerv">Superior gluteal nerve</td></tr>
+<tr><td>Piriformis · Obturator internus · Gemelli · Quadratus femoris</td><td>Sacrum / pelvis (foramenler çevresi)</td><td>Greater trochanter / intertrokanterik krista</td><td>Uyluk lateral rotasyonu</td><td class="innerv">Sakral pleksus direkt dalları</td></tr>
+<tr><td>Iliacus</td><td>Iliac fossa</td><td>Lesser trochanter</td><td>Uyluk fleksiyonu (iliopsoas)</td><td class="innerv">Femoral nerve</td></tr>
+<tr><td>Psoas major</td><td>T12–L5 gövde/transvers çıkıntı &amp; IV diskler</td><td>Lesser trochanter</td><td>Uyluk fleksiyonu; postür; gövde fleksiyonu</td><td class="innerv">Lumbar plexus (L1-3) direkt dalları</td></tr>
+<tr><td>Quadratus lumborum</td><td>İliac crest</td><td>12. kosta &amp; L1-4 transvers çıkıntılar</td><td>Lateral fleksiyon; 12. kostayı sabitler</td><td class="innerv">T12 &amp; üst lumbar sinirler</td></tr>
+<tr><td>Sartorius</td><td>ASIS</td><td>Tibia medial (pes anserinus)</td><td>Uyluk fleksiyon+abd.+lat. rot.; diz fleksiyonu (<b>en uzun kas</b>)</td><td class="innerv">Femoral nerve</td></tr>
+<tr><td>Quadriceps femoris (rectus femoris + 3 vastus)</td><td>Rectus femoris: AIIS; vastuslar: femur</td><td>Patella → patellar lig. → tibial tuberosity</td><td>Diz ekstansiyonu; rectus femoris uyluk fleksiyonu</td><td class="innerv">Femoral nerve</td></tr>
+<tr><td>Pectineus</td><td>Pubis (pecten pubis)</td><td>Femur (pectineal line)</td><td>Uyluk adduksiyon &amp; fleksiyon</td><td class="innerv">Femoral nerve (bazen obturator)</td></tr>
+<tr><td>Adductor longus</td><td>Pubis (gövde)</td><td>Linea aspera</td><td>Uyluk adduksiyonu</td><td class="innerv">Obturator nerve</td></tr>
+<tr><td>Adductor brevis</td><td>Pubis (inferior ramus)</td><td>Linea aspera (üst)</td><td>Uyluk adduksiyonu</td><td class="innerv">Obturator nerve</td></tr>
+<tr><td>Adductor magnus</td><td>Adductor part: pubis &amp; ischium · Hamstring part: ischial tuberosity</td><td>Adductor part: linea aspera · Hamstring part: adductor tubercle</td><td>Add.+fleksiyon / Add.+ekstansiyon</td><td class="innerv">Adductor part: Obturator · Hamstring part: Tibial</td></tr>
+<tr><td>Gracilis</td><td>Pubis (inferior ramus)</td><td>Tibia medial (pes anserinus)</td><td>Uyluk adduksiyon; diz fleksiyonu</td><td class="innerv">Obturator nerve</td></tr>
+<tr><td>Semitendinosus (hamstring)</td><td>Ischial tuberosity</td><td>Tibia medial yüzü (üst)</td><td>Bacak fleksiyon + iç rotasyon; uyluk ekstansiyonu</td><td class="innerv">Tibial nerve</td></tr>
+<tr><td>Semimembranosus (hamstring)</td><td>Ischial tuberosity</td><td>Medial kondilin arka kısmı</td><td>Bacak fleksiyon + iç rotasyon; uyluk ekstansiyonu</td><td class="innerv">Tibial nerve</td></tr>
+<tr><td>Biceps femoris (hamstring)</td><td>Long head: ischial tuberosity · Short head: linea aspera</td><td>Fibula (başı)</td><td>Bacak fleksiyon + dış rotasyon; uyluk ekstansiyonu</td><td class="innerv">Long head: Tibial · Short head: Common peroneal</td></tr>
+<tr><td>Anterior bacak (tibialis ant., EDL, EHL, peroneus tertius)</td><td>Tibia/fibula ön yüz, interosseöz membran</td><td>Ayak/parmak kemikleri (dorsum)</td><td>Dorsifleksiyon, parmak ekstansiyonu</td><td class="innerv">Deep peroneal nerve</td></tr>
+<tr><td>Lateral bacak (peroneus longus &amp; brevis)</td><td>Fibula lateral yüzü</td><td>1. metatars/medial kuneiform · 5. metatars</td><td>Eversiyon, plantar fleksiyona yardım</td><td class="innerv">Superficial peroneal nerve</td></tr>
+<tr><td>Gastrocnemius (yüzeyel arka)</td><td>Femur medial &amp; lateral kondili</td><td>Calcaneus (Aşil/calcaneal tendon)</td><td>Ayak plantar fleksiyonu (bacak ekstansiyondayken), bacak fleksiyonu</td><td class="innerv">Tibial nerve</td></tr>
+<tr><td>Soleus &amp; Plantaris (yüzeyel arka)</td><td>Fibula/tibia (soleal çizgi) ; femur lateral kondil</td><td>Calcaneus (Aşil tendonu)</td><td>Plantar fleksiyon</td><td class="innerv">Tibial nerve</td></tr>
+<tr><td>Derin arka bacak (popliteus, FHL, FDL, tibialis post.)</td><td>Tibia/fibula arka yüz, interosseöz membran</td><td>Ayak/parmak kemikleri (plantar)</td><td>Plantar fleksiyon, parmak fleksiyonu, inversiyon</td><td class="innerv">Tibial nerve</td></tr>
+<tr><td>Ayak dorsum kasları (ext. digitorum/hallucis brevis)</td><td>Calcaneus (dorsal)</td><td>Parmak ekstansör tendonları</td><td>Parmak ekstansiyonu</td><td class="innerv">Deep peroneal nerve</td></tr>
+<tr><td>Ayak taban kasları (4 katman)</td><td>Calcaneus, plantar aponeuroz, tendonlar</td><td>Parmak falanksları</td><td>Arkı korur, parmak hareketleri</td><td class="innerv">Medial &amp; lateral plantar nerve (Tibial dalları)</td></tr>
+</tbody>
+</table>
+<div class="note"><b>Çift innervasyon istisnaları:</b> Adductor magnus (Obturator + Tibial) ve Biceps femoris (Tibial + Common peroneal). <b>Femoral n.</b> → ön uyluk; <b>Obturator n.</b> → medial uyluk; <b>Tibial n.</b> → arka uyluk + arka bacak + taban; <b>Peroneal</b> → ön/yan bacak + ayak dorsumu.</div>
+</section>
+
+<!-- ================= ABDOMINAL / THORAX ================= -->
+<section id="ab">
+<h2 class="region r-ab">KARIN, TORAKS &amp; DİYAFRAM</h2>
+<table class="mtable">
+<thead><tr><th>Kas</th><th>Origin</th><th>Insertion</th><th>Function</th><th>İnervasyon</th></tr></thead>
+<tbody>
+<tr><td>External abdominal oblique</td><td>5.–12. kostalar dış yüzü</td><td>Linea alba, iliac crest, pubik tüberkül (aponeuroz)</td><td>Gövde fleksiyon/lateral fleksiyon; <b>karşı tarafa</b> rotasyon</td><td class="innerv">T7–T12 (+ ilio-hipogastrik)</td></tr>
+<tr><td>Internal abdominal oblique</td><td>Torakolumbar fasya, iliac crest, inguinal lig.</td><td>Alt kostalar, linea alba, pubis</td><td>Gövde fleksiyon/lateral fleksiyon; <b>aynı tarafa</b> rotasyon</td><td class="innerv">T7–T12, L1</td></tr>
+<tr><td>Transversus abdominis</td><td>Alt kostalar, torakolumbar fasya, iliac crest, inguinal lig.</td><td>Linea alba, pubis (aponeuroz)</td><td>Karın içi basıncı artırır; viserayı destekler</td><td class="innerv">T7–T12, L1</td></tr>
+<tr><td>Rectus abdominis</td><td>Pubik krista &amp; symphysis</td><td>Xiphoid process &amp; 5.–7. kıkırdak kostalar</td><td>Gövde fleksiyonu; karın içi basınç</td><td class="innerv">T7–T12 (ventral rami)</td></tr>
+<tr><td>Pyramidalis</td><td>Pubis</td><td>Linea alba</td><td>Linea alba'yı gerer</td><td class="innerv">Subcostal nerve (T12)</td></tr>
+<tr><td>Psoas minor (arka karın)</td><td>T12–L1 gövdeleri</td><td>Pectineal line / iliopubik eminens</td><td>Gövde zayıf fleksiyonu</td><td class="innerv">Lumbar plexus (L1)</td></tr>
+<tr><td>External intercostal (11 çift)</td><td>Kosta alt kenarı</td><td>Alttaki kosta üst kenarı</td><td>Kostaları kaldırır → <b>primer inspirium</b> (diyaframla)</td><td class="innerv">İnterkostal sinirler</td></tr>
+<tr><td>Internal &amp; innermost intercostal</td><td>Kosta üst kenarı (iç)</td><td>Üstteki kosta alt kenarı</td><td>Kostaları indirir → <b>expirium</b></td><td class="innerv">İnterkostal sinirler</td></tr>
+<tr><td>Subcostal</td><td>Kostaların iç yüzü (arka)</td><td>1-2 alttaki kostalar</td><td>Expirium'a yardım</td><td class="innerv">İnterkostal sinirler</td></tr>
+<tr><td>Levator costarum (12 çift)</td><td>C7–T11 transvers çıkıntıları</td><td>Alttaki kosta</td><td>İnspirium'a yardım</td><td class="innerv">Dorsal rami (servikotorakal)</td></tr>
+<tr><td>Transversus thoracis</td><td>Sternum &amp; ksifoid iç yüzü</td><td>2.–6. kıkırdak kostalar</td><td>Expirium'a yardım</td><td class="innerv">İnterkostal sinirler</td></tr>
+<tr><td><b>Diaphragm</b></td><td>Ksifoid, alt 6 kosta, lumbar krura (L1-L3)</td><td>Central tendon</td><td><b>Ana inspirium kası</b>; toraks vertikal boyutunu artırır</td><td class="innerv">Phrenic nerve (C3-4-5)</td></tr>
+</tbody>
+</table>
+<div class="note"><b>Diyafram geçişleri:</b> T8 = IVC (+ sağ phrenic); T10 = özofagus (+ vagus); T12 = aorta (+ ductus thoracicus + azygos). Karın kaslarının genel innervasyonu: <b>T7–T12 + L1 (iliohypogastric &amp; ilioinguinal)</b>.</div>
+</section>
+
+<!-- ================= HEAD / FACE / NECK ================= -->
+<section id="hn">
+<h2 class="region r-hn">BAŞ-YÜZ &amp; BOYUN</h2>
+
+<h2 class="region r-hn" style="font-size:15px; margin-top:14px;">A) Çiğneme Kasları — hepsi CN V3</h2>
+<table class="mtable">
+<thead><tr><th>Kas</th><th>Origin</th><th>Insertion</th><th>Function</th><th>İnervasyon</th></tr></thead>
+<tbody>
+<tr><td>Masseter</td><td>Zygomatik kemiğin maksiller çıkıntısı &amp; zygomatic arch</td><td>Ramus dış yüzü &amp; coronoid process</td><td>Mandibula elevasyon + protrüzyon; oklüzyon</td><td class="innerv">Mandibular n. (V3) – masseteric n.</td></tr>
+<tr><td>Temporalis</td><td>Temporal fossa &amp; temporal fascia</td><td>Coronoid process &amp; ramus</td><td>Mandibula elevasyon + <b>retraksiyon</b>; oklüzyon</td><td class="innerv">Mandibular n. (V3) – deep temporal n.</td></tr>
+<tr><td>Medial pterygoid</td><td>Sup.: maksilla tüberositesi + palatin piramidal çıkıntı · Deep: lateral pterygoid plate medial yüzü</td><td>Ramus &amp; angle medial yüzü</td><td>Elevasyon + protrüzyon</td><td class="innerv">Mandibular n. (V3) – medial pterygoid n.</td></tr>
+<tr><td>Lateral pterygoid</td><td>Sup. head: sfenoid greater wing · Inf. head: lateral pterygoid plate lateral yüzü</td><td>Sup.: TMJ kapsülü · Inf.: kondil boynu</td><td><b>Depresyon (ağzı açar)</b>, protrüzyon, yana hareket</td><td class="innerv">Mandibular n. (V3) – lateral pterygoid n.</td></tr>
+</tbody>
+</table>
+
+<h2 class="region r-hn" style="font-size:15px; margin-top:14px;">B) Yüz Mimik Kasları — hepsi CN VII</h2>
+<table class="mtable">
+<thead><tr><th>Kas</th><th>Origin (standart)</th><th>Insertion</th><th>Function / İfade</th><th>İnervasyon</th></tr></thead>
+<tbody>
+<tr><td>Epicranius (occipitofrontalis)</td><td>Galea aponeurotica / occipital kemik</td><td>Alın derisi / kaş</td><td>Frontal: kaş kaldırır (şaşkınlık); oksipital: skalpi geri çeker</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Orbicularis oris</td><td>Maksilla/mandibula çevresi, dudak derisi</td><td>Dudak derisi/mukozası</td><td>Ağzı kapatır/daraltır; konuşma, çiğneme, emme, ıslık</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Orbicularis oculi</td><td>Medial palpebral lig., orbita kenarı</td><td>Göz kapağı/lateral rafe</td><td>Göz kapağını kapatır; lacrimal punctum drenajı</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Buccinator</td><td>Maksilla/mandibula alveolar çıkıntı, pterygomandibular rafe</td><td>Ağız köşesi (orbicularis oris)</td><td><b>En derin yüz kası</b>; yanağı dişe bastırır, çiğnemeye yardım, üfleme</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Zygomaticus major/minor</td><td>Zygomatik kemik</td><td>Ağız köşesi</td><td>Ağız köşesini superolateral kaldırır — gülümseme</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Levator labii superioris (± alaeque nasi)</td><td>Maksilla / frontal proces</td><td>Üst dudak / burun kanadı</td><td>Üst dudağı kaldırır</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Levator anguli oris</td><td>Maksilla (canine fossa)</td><td>Ağız köşesi</td><td>Ağız köşesini kaldırır; nasolabial oluk</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Depressor labii inferioris</td><td>Mandibula (oblik çizgi)</td><td>Alt dudak</td><td>Alt dudağı aşağı çeker — üzüntü</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Depressor anguli oris</td><td>Mandibula (oblik çizgi)</td><td>Ağız köşesi</td><td>Ağız köşesini aşağı çeker — üzüntü</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Mentalis</td><td>Mandibula (insiziv fossa)</td><td>Çene derisi</td><td>Çene derisini kaldırır — şüphe</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Risorius (Santorini)</td><td>Parotis/masseter fasyası</td><td>Ağız köşesi</td><td>Ağız köşesini laterale çeker</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Procerus</td><td>Nazal kemik</td><td>Glabella derisi</td><td>Kaş kökünü indirir, yatay kırışıklık — kaş çatma</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Corrugator / Depressor supercilii</td><td>Frontal kemik (supraorbital)</td><td>Kaş derisi</td><td>Kaşları yaklaştırır/dikey kırıştırır</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Nasalis / Depressor septi</td><td>Maksilla</td><td>Burun kıkırdağı/septum</td><td>Burun deliğini daraltır/genişletir</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Platysma</td><td>Pektoral/deltoid fasya (üst göğüs derisi)</td><td>Mandibula alt kenarı, ağız köşesi, yanak derisi</td><td>Ağzı açmaya yardım, boyun derisini gerer — korku</td><td class="innerv">Facial n. (VII) – servikal dal</td></tr>
+</tbody>
+</table>
+
+<h2 class="region r-hn" style="font-size:15px; margin-top:14px;">C) Suboksipital Kaslar — hepsi suboccipital n. (C1)</h2>
+<table class="mtable">
+<thead><tr><th>Kas</th><th>Origin</th><th>Insertion</th><th>Function</th><th>İnervasyon</th></tr></thead>
+<tbody>
+<tr><td>Rectus capitis posterior major</td><td>Axis (C2) spinöz çıkıntısı</td><td>Inferior nuchal line</td><td>Ekstansiyon + ipsilateral rotasyon</td><td class="innerv">Suboccipital n. (C1 dorsal ramus)</td></tr>
+<tr><td>Rectus capitis posterior minor</td><td>Atlas (C1) posterior tuberkülü</td><td>Inferior nuchal line</td><td>Ekstansiyon</td><td class="innerv">Suboccipital n. (C1)</td></tr>
+<tr><td>Obliquus capitis inferior</td><td>Axis (C2) spinöz çıkıntısı</td><td>Atlas transvers çıkıntısı</td><td>İpsilateral rotasyon</td><td class="innerv">Suboccipital n. (C1)</td></tr>
+<tr><td>Obliquus capitis superior</td><td>Atlas transvers çıkıntısı</td><td>Inferior nuchal line</td><td>Lateral fleksiyon, ekstansiyona yardım</td><td class="innerv">Suboccipital n. (C1)</td></tr>
+</tbody>
+</table>
+
+<h2 class="region r-hn" style="font-size:15px; margin-top:14px;">D) Suprahyoid &amp; Infrahyoid Kaslar</h2>
+<table class="mtable">
+<thead><tr><th>Kas</th><th>Origin</th><th>Insertion</th><th>Function</th><th>İnervasyon</th></tr></thead>
+<tbody>
+<tr><td>Mylohyoid (suprahyoid)</td><td>Mandibula mylohyoid çizgisi</td><td>Hyoid kemik</td><td>Ağız tabanı/dil/hyoidi kaldırır (ağız tabanını oluşturur)</td><td class="innerv">Mandibular n. (V3)</td></tr>
+<tr><td>Geniohyoid (suprahyoid)</td><td>Mandibula iç yüzü</td><td>Hyoid kemik</td><td>Hyoidi antero-superior kaldırır</td><td class="innerv">Anterior ramus of C1</td></tr>
+<tr><td>Digastric (suprahyoid)</td><td>Ant. belly: mandibula · Post. belly: temporal kemik</td><td>Hyoid kemik</td><td>Mandibulayı indirir, hyoidi kaldırır</td><td class="innerv">Ant. belly: V3 · Post. belly: VII</td></tr>
+<tr><td>Stylohyoid (suprahyoid)</td><td>Styloid process</td><td>Hyoid kemik</td><td>Hyoidi postero-superior kaldırır</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Sternohyoid (infrahyoid)</td><td>Manubrium sterni</td><td>Hyoid kemik</td><td>Hyoidi indirir</td><td class="innerv">Ansa cervicalis</td></tr>
+<tr><td>Sternothyroid (infrahyoid)</td><td>Manubrium sterni</td><td>Tiroid kıkırdak</td><td>Hyoid/larinksi indirir</td><td class="innerv">Ansa cervicalis</td></tr>
+<tr><td>Thyrohyoid (infrahyoid)</td><td>Tiroid kıkırdak</td><td>Hyoid kemik</td><td>Hyoidi indirir, larinksi yükseltir</td><td class="innerv">Anterior ramus of C1</td></tr>
+<tr><td>Omohyoid (infrahyoid)</td><td>Sup. belly: hyoid · Inf. belly: scapula üst kenarı</td><td>Clavicle</td><td>Hyoidi indirir</td><td class="innerv">Ansa cervicalis</td></tr>
+</tbody>
+</table>
+
+<h2 class="region r-hn" style="font-size:15px; margin-top:14px;">E) Boyun Kasları (Yüzeyel, Skalen, Prevertebral)</h2>
+<table class="mtable">
+<thead><tr><th>Kas</th><th>Origin</th><th>Insertion</th><th>Function</th><th>İnervasyon</th></tr></thead>
+<tbody>
+<tr><td>Sternocleidomastoid (SCM)</td><td>Sternal head: manubrium · Clavicular head: klavikula medial 1/3</td><td>Mastoid process</td><td>Tek taraf: başı eğer/yüz karşıya döner · Bilateral: boyun fleksiyonu</td><td class="innerv">Accessory n. (CN XI)</td></tr>
+<tr><td>Anterior scalene</td><td>Servikal transvers çıkıntılar</td><td>1. kosta</td><td>1. kostayı kaldırır; boyun fleksiyon/lateral rotasyon</td><td class="innerv">Servikal spinal sinirler (ventral rami)</td></tr>
+<tr><td>Middle scalene</td><td>Servikal transvers çıkıntılar</td><td>1. kosta</td><td>1. kostayı kaldırır; boynu laterale büker</td><td class="innerv">Servikal spinal sinirler</td></tr>
+<tr><td>Posterior scalene</td><td>Servikal transvers çıkıntılar</td><td>2. kosta</td><td>2. kostayı kaldırır; boynu laterale büker</td><td class="innerv">Servikal spinal sinirler</td></tr>
+<tr><td>Longus capitis (prevertebral)</td><td>Servikal transvers çıkıntılar</td><td>Occipital kemik</td><td>Başı fleksiyon</td><td class="innerv">Servikal spinal sinirler</td></tr>
+<tr><td>Longus colli (prevertebral)</td><td>C3–T3 gövde/transvers çıkıntılar</td><td>Atlas / üst servikal vertebralar</td><td>Boyun fleksiyonu (C2-C7); tek taraf karşı tarafa rotasyon</td><td class="innerv">Servikal spinal sinirler</td></tr>
+<tr><td>Rectus capitis anterior (prevertebral)</td><td>Atlas (C1)</td><td>Occipital kemik</td><td>Başı fleksiyon</td><td class="innerv">C1–C2 ventral rami</td></tr>
+<tr><td>Rectus capitis lateralis (prevertebral)</td><td>Atlas (C1)</td><td>Occipital kemik</td><td>Başı lateral fleksiyon</td><td class="innerv">C1–C2 ventral rami</td></tr>
+</tbody>
+</table>
+<div class="note"><b>Boyun innervasyon altın kuralları:</b> SCM + Trapezius → <b>CN XI</b>; tüm yüz mimik kasları → <b>CN VII</b>; tüm çiğneme kasları → <b>CN V3</b>; suboksipital 4'lü → <b>C1 (suboccipital n.)</b>; infrahyoidler → <b>ansa cervicalis</b> (thyrohyoid hariç → C1); diyafram → <b>phrenic (C3-5)</b>. İki başlı istisna: digastric (V3 + VII).</div>
+</section>
+
+<p class="nores" id="nores">Eşleşen kas bulunamadı — farklı bir terim dene.</p>
+
+<footer>
+  <b>Master Ezber Tablosu</b> — Beş anatomi dersinin (Lokomotor giriş, Sırt/Üst ekstremite, Alt ekstremite, Karın/Toraks/Diyafram, Baş-Yüz/Boyun) tüm kasları tek dosyada toplanmıştır. Slaytlarda verilen origin/insertion/function/innervation değerleri esas alınmış; slaytta verilmeyen yerler standart anatomik referanslarla tamamlanmıştır. İnervasyon sütunu sınavda en kritik kısımdır. Final sınavında başarılar! 🦷
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var input = document.getElementById('search');
+  var rows = Array.prototype.slice.call(document.querySelectorAll('table.mtable tbody tr'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section'));
+  var countEl = document.getElementById('count');
+  var nores = document.getElementById('nores');
+
+  function update(){
+    var q = input.value.trim().toLowerCase();
+    var shown = 0;
+    rows.forEach(function(r){
+      var match = q === '' || r.textContent.toLowerCase().indexOf(q) !== -1;
+      r.style.display = match ? '' : 'none';
+      if(match) shown++;
+    });
+    // hide empty sections/tables
+    sections.forEach(function(s){
+      var tables = s.querySelectorAll('table.mtable');
+      var anyVisibleInSection = false;
+      tables.forEach(function(t){
+        var vis = t.querySelectorAll('tbody tr');
+        var hasVis = Array.prototype.some.call(vis, function(tr){return tr.style.display !== 'none';});
+        // hide the table + its preceding sub-heading if empty
+        t.style.display = hasVis ? '' : 'none';
+        var prev = t.previousElementSibling;
+        if(prev && prev.classList.contains('region') && prev.style.fontSize){
+          prev.style.display = hasVis ? '' : 'none';
+        }
+        if(hasVis) anyVisibleInSection = true;
+      });
+      s.style.display = anyVisibleInSection ? '' : 'none';
+    });
+    countEl.textContent = shown + ' kas gösteriliyor';
+    nores.style.display = shown === 0 ? 'block' : 'none';
+  }
+  input.addEventListener('input', update);
+  update();
+})();
+</script>
+</body>
+</html>

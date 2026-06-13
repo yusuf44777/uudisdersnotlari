@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Nerves — Master Revision Table (Roots · Motor · Sensory · Clinical)</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#5b6472; --bg:#eaf1f0; --card:#ffffff;
+    --line:#d2e0dd; --accent:#0f5d72;
+    --cn:#7a1f6b; --sp:#27345a; --bp:#9c3a5a; --lp:#b5651d; --sap:#1f7a5a; --cp:#5b3b8c;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Segoe UI',Helvetica,Arial,system-ui,sans-serif; line-height:1.5; font-size:15.5px;}
+  .wrap{max-width:1180px; margin:0 auto; padding:24px 16px 80px;}
+  header.hero{background:linear-gradient(135deg,#0a3d4c,#0f5d72); color:#fff;
+    border-radius:16px; padding:26px 26px; margin-bottom:20px; box-shadow:0 8px 26px rgba(10,61,76,.25);}
+  header.hero .badge{display:inline-block; background:rgba(255,255,255,.18);
+    padding:4px 12px; border-radius:999px; font-size:12.5px; letter-spacing:.5px; margin-bottom:10px;}
+  header.hero h1{margin:6px 0 6px; font-size:25px; line-height:1.25;}
+  header.hero p{margin:0; opacity:.92; font-size:14px;}
+  .controls{position:sticky; top:0; z-index:20; background:var(--bg); padding:12px 0 10px; margin-bottom:10px; border-bottom:1px solid var(--line);}
+  #search{width:100%; padding:12px 16px; font-size:16px; border:2px solid var(--accent);
+    border-radius:12px; outline:none;}
+  #search:focus{border-color:#1f8aa6; box-shadow:0 0 0 3px rgba(15,93,114,.15);}
+  .meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; align-items:center;}
+  .jump{font-size:12.5px; color:#fff; padding:4px 10px; border-radius:999px; text-decoration:none;}
+  .jump:hover{opacity:.85;}
+  .count{font-size:13px; color:var(--muted); margin-left:auto;}
+  section{margin:26px 0;}
+  h2.region{color:#fff; padding:10px 16px; border-radius:11px; font-size:18px; margin:0 0 4px;
+    position:sticky; top:64px; z-index:10;}
+  .r-cn{background:var(--cn);} .r-sp{background:var(--sp);} .r-bp{background:var(--bp);}
+  .r-lp{background:var(--lp);} .r-sap{background:var(--sap);} .r-cp{background:var(--cp);}
+  table{width:100%; border-collapse:collapse; margin:8px 0 0; font-size:13.7px; background:var(--card);
+    border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(31,36,48,.05);}
+  thead th{ }
+  th,td{border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top;}
+  th{background:#dfeceb; color:var(--accent); font-size:13px;}
+  td:first-child{font-weight:700; color:#16223d;}
+  tr:nth-child(even) td{background:#f8fcfb;}
+  .roots{font-weight:700; color:#0f5d72; white-space:nowrap;}
+  .klinik{color:#9e2a20;}
+  mark{background:#fff1a8; padding:0 2px; border-radius:3px;}
+  .note{background:#fff; border:1px solid var(--line); border-left:5px solid #0f5d72;
+    border-radius:10px; padding:12px 16px; margin:14px 0; font-size:13.6px; color:#3a4256;}
+  .note b{color:#0f5d72;}
+  .lat{font-style:italic; color:#6b3fa0;}
+  .nores{display:none; padding:30px; text-align:center; color:var(--muted); font-size:16px;}
+  footer{margin-top:36px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:12.8px;}
+  @media(max-width:760px){
+    h2.region{top:58px;}
+    body{font-size:14px;} th,td{padding:6px 7px; font-size:12.5px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="badge">ANATOMY · FINAL · MASTER NERVE TABLE</span>
+  <h1>All Nerves — Roots · Motor · Sensory · Clinical</h1>
+  <p>Every nerve from the five lectures in one table: 12 cranial nerves, spinal nerves, brachial/lumbar/sacral/cervical plexuses, phrenic and intercostal nerves. Type a nerve name, root (e.g. "C5", "S2"), or muscle in the search box to filter.</p>
+</header>
+
+<div class="controls">
+  <input id="search" type="text" placeholder="🔎 Search: nerve name, root (C5, L4, S2), muscle or area (e.g. 'deltoid', 'diaphragm', 'sciatic')..." autocomplete="off">
+  <div class="meta">
+    <a class="jump r-cn" href="#cn">Cranial (12)</a>
+    <a class="jump r-sp" href="#sp">Spinal</a>
+    <a class="jump r-bp" href="#bp">Brachial</a>
+    <a class="jump r-lp" href="#lp">Lumbar</a>
+    <a class="jump r-sap" href="#sap">Sacral</a>
+    <a class="jump r-cp" href="#cp">Cervical</a>
+    <span class="count" id="count"></span>
+  </div>
+</div>
+
+<div class="note">
+  <b>How to use:</b> Cranial nerves have columns <b>No · Nerve · Type · Function/Target</b>; peripheral nerves have <b>Nerve · Roots · Motor · Sensory/Area · Clinical</b>. The <b>Roots</b> (blue) and <b>Clinical</b> (red) columns are the most exam-critical.
+</div>
+
+<!-- ===== CRANIAL NERVES ===== -->
+<section id="cn">
+<h2 class="region r-cn">CRANIAL NERVES (12 pairs)</h2>
+<table class="mtable">
+<thead><tr><th>No</th><th>Nerve</th><th>Type</th><th>Function / Target</th></tr></thead>
+<tbody>
+<tr><td>I</td><td>Olfactory</td><td>Sensory</td><td>Smell — nose</td></tr>
+<tr><td>II</td><td>Optic</td><td>Sensory</td><td>Vision — eye</td></tr>
+<tr><td>III</td><td>Oculomotor</td><td>Motor</td><td><mark>All eye muscles except IV and VI</mark></td></tr>
+<tr><td>IV</td><td>Trochlear</td><td>Motor</td><td><i>Superior oblique</i> muscle</td></tr>
+<tr><td>V</td><td>Trigeminal</td><td>Mixed</td><td><b>Sensory:</b> face, sinuses, <mark>teeth</mark> · <b>Motor:</b> muscles of mastication</td></tr>
+<tr><td>VI</td><td>Abducent</td><td>Motor</td><td><i>Lateral (external) rectus</i> muscle</td></tr>
+<tr><td>VII</td><td>Facial</td><td>Mixed</td><td><b>Motor:</b> muscles of facial expression</td></tr>
+<tr><td>VIII</td><td>Vestibulocochlear</td><td>Sensory</td><td>Hearing &amp; balance — inner ear</td></tr>
+<tr><td>IX</td><td>Glossopharyngeal</td><td>Mixed</td><td><b>Motor:</b> pharyngeal muscles · <b>Sensory:</b> posterior 1/3 of tongue, tonsil, pharynx</td></tr>
+<tr><td>X</td><td>Vagus</td><td>Mixed</td><td>Heart, lungs, bronchi, trachea, larynx, pharynx, GI tract, external ear (motor &amp; sensory)</td></tr>
+<tr><td>XI</td><td>Accessory</td><td>Motor</td><td><i>Sternocleidomastoid</i> &amp; <i>trapezius</i> muscles</td></tr>
+<tr><td>XII</td><td>Hypoglossal</td><td>Motor</td><td>Muscles of the tongue</td></tr>
+</tbody>
+</table>
+<div class="note">
+  <b>Name mnemonic (I→XII):</b> "On Old Olympus' Towering Tops A Finn And German Viewed Some Hops".<br>
+  <b>Type mnemonic (S=Sensory, M=Motor, B=Both):</b> "Some Say Marry Money But My Brother Says Big Brains Matter Most" → <b>S S M M B M B S B B M M</b>.<br>
+  <b>Eye muscles:</b> "LR6 SO4" → Lateral Rectus = VI, Superior Oblique = IV, rest = III.
+</div>
+</section>
+
+<!-- ===== SPINAL NERVES GENERAL ===== -->
+<section id="sp">
+<h2 class="region r-sp">SPINAL NERVES (general)</h2>
+<table class="mtable">
+<thead><tr><th>Topic</th><th>Information</th><th></th><th>Note</th></tr></thead>
+<tbody>
+<tr><td>Total number</td><td>31 pairs</td><td>—</td><td>8 cervical · 12 thoracic · 5 lumbar · 5 sacral · 1 coccygeal</td></tr>
+<tr><td>Formation</td><td>Dorsal (sensory) root + Ventral (motor) root</td><td>—</td><td>Autonomic fibres also contribute</td></tr>
+<tr><td>Axon types carried</td><td>GSA · GSE · GVA · GVE</td><td>—</td><td>General Somatic/Visceral Afferent/Efferent</td></tr>
+<tr><td>Rami</td><td>Dorsal ramus + Ventral ramus</td><td>—</td><td>Dorsal ramus → back skin/muscles; ventral ramus → plexuses (except thoracic → intercostal)</td></tr>
+<tr><td>Plexuses</td><td>Cervical · Brachial · Lumbar · Sacral</td><td>—</td><td>Thoracic ventral rami form no plexus → intercostal nerves</td></tr>
+<tr><td>Sensory ganglion</td><td>Dorsal root (spinal) ganglion</td><td>—</td><td>31 pairs; cranial sensory e.g. trigeminal ganglion</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ===== BRACHIAL PLEXUS ===== -->
+<section id="bp">
+<h2 class="region r-bp">BRACHIAL PLEXUS &amp; UPPER LIMB NERVES</h2>
+<table class="mtable">
+<thead><tr><th>Nerve</th><th>Roots</th><th>Motor (muscles)</th><th>Sensory / Area</th><th>Clinical / Note</th></tr></thead>
+<tbody>
+<tr><td>Musculocutaneous</td><td class="roots">C5–C7</td><td>Anterior arm: biceps brachii, brachialis, coracobrachialis</td><td>Lateral cutaneous n. of forearm</td><td class="klinik">Pierces coracobrachialis; motor ends at elbow</td></tr>
+<tr><td>Axillary</td><td class="roots">C5–C6</td><td>Deltoid &amp; teres minor</td><td>Superior lateral cutaneous n. of arm</td><td class="klinik">Passes through quadrangular space; injured in humeral <b>surgical neck</b> fracture</td></tr>
+<tr><td>Radial</td><td class="roots">C5–T1</td><td>Triceps, anconeus, brachioradialis, ECRL (all extensors)</td><td>Posterior arm/forearm skin</td><td class="klinik">Humeral shaft fracture → <b>wrist drop</b></td></tr>
+<tr><td>Median</td><td class="roots">C6–T1</td><td>Forearm flexors (except 2) + thenar muscles + lateral 2 lumbricals</td><td>Lateral 3.5 digits (palmar) + tips</td><td class="klinik">Passes through <b>carpal tunnel</b>; CTS → "ape hand", central palm sensation spared</td></tr>
+<tr><td>Ulnar</td><td class="roots">C8–T1</td><td>Hypothenar, adductor pollicis, interossei, medial 2 lumbricals</td><td>Medial 1.5 digits (5th + half of 4th)</td><td class="klinik">Passes through <b>Guyon's canal</b>; "claw hand"</td></tr>
+<tr><td>Thoracodorsal</td><td class="roots">C6–C8</td><td>Latissimus dorsi</td><td>—</td><td>Branch of posterior cord</td></tr>
+<tr><td>Long thoracic</td><td class="roots">C5–C7</td><td>Serratus anterior</td><td>—</td><td class="klinik">Injury → "winged scapula"</td></tr>
+<tr><td>Dorsal scapular</td><td class="roots">C5</td><td>Rhomboid major/minor, levator scapulae</td><td>—</td><td>—</td></tr>
+<tr><td>Suprascapular</td><td class="roots">C5–C6</td><td>Supraspinatus &amp; infraspinatus</td><td>—</td><td>—</td></tr>
+<tr><td>Medial &amp; lateral pectoral</td><td class="roots">C5–T1</td><td>Pectoralis major &amp; minor</td><td>—</td><td>—</td></tr>
+<tr><td>(Exception) Accessory n. → trapezius</td><td class="roots">CN XI</td><td>Trapezius (+ SCM)</td><td>—</td><td class="klinik">Only upper-limb muscle NOT from the brachial plexus</td></tr>
+</tbody>
+</table>
+<div class="note">
+  <b>Plexus backbone:</b> Roots (C5-T1) → Trunks → Divisions → Cords → Branches ("Read That Damn Cadaver Book").<br>
+  <b>Trunks:</b> C5+C6 = Superior · C7 = Middle · C8+T1 = Inferior.<br>
+  <b>Cord → terminal branch:</b> Posterior cord → Axillary + Radial · Lateral cord → Musculocutaneous + Median (lateral root) · Medial cord → Ulnar + Median (medial root). 5 branches = <b>MARMU</b>.
+</div>
+</section>
+
+<!-- ===== LUMBAR PLEXUS ===== -->
+<section id="lp">
+<h2 class="region r-lp">LUMBAR PLEXUS (L1–L4)</h2>
+<table class="mtable">
+<thead><tr><th>Nerve</th><th>Roots</th><th>Motor (muscles)</th><th>Sensory / Area</th><th>Clinical / Note</th></tr></thead>
+<tbody>
+<tr><td>Iliohypogastric</td><td class="roots">L1</td><td>Internal oblique &amp; transversus abdominis (lower)</td><td>Suprapubic &amp; gluteal skin</td><td>—</td></tr>
+<tr><td>Ilioinguinal</td><td class="roots">L1</td><td>Internal oblique &amp; transversus abdominis (lower)</td><td>Inguinal region, scrotum/labium skin</td><td>—</td></tr>
+<tr><td>Genitofemoral</td><td class="roots">L1–L2</td><td>Cremaster muscle</td><td>Upper anterior thigh &amp; genital skin</td><td>—</td></tr>
+<tr><td>Lateral femoral cutaneous</td><td class="roots">L2–L3</td><td>—</td><td>Lateral skin of thigh</td><td class="klinik">Entrapment → meralgia paraesthetica</td></tr>
+<tr><td>Femoral nerve</td><td class="roots">L2–L4</td><td>Anterior thigh muscles (iliacus, sartorius, quadriceps, pectineus)</td><td>Anteromedial thigh; <b>saphenous</b> → medial leg &amp; foot</td><td class="klinik">Largest nerve of lumbar plexus; injury → weak knee extension + <b>loss of patellar reflex</b></td></tr>
+<tr><td>Obturator nerve</td><td class="roots">L2–L4</td><td>Medial thigh adductors (adductor longus/brevis, gracilis, adductor part of adductor magnus)</td><td>Medial thigh skin</td><td>—</td></tr>
+<tr><td>Muscular branches</td><td class="roots">L1–L4</td><td>Quadratus lumborum, psoas major/minor</td><td>—</td><td>—</td></tr>
+</tbody>
+</table>
+<div class="note"><b>Branch mnemonic:</b> "I, I Get Leftovers On Fridays" → Iliohypogastric, Ilioinguinal, Genitofemoral, Lateral femoral cutaneous, Obturator, Femoral. <b>Location:</b> behind psoas major, in the posterior abdominal wall.</div>
+</section>
+
+<!-- ===== SACRAL + COCCYGEAL ===== -->
+<section id="sap">
+<h2 class="region r-sap">SACRAL &amp; COCCYGEAL PLEXUS (L4–Co)</h2>
+<table class="mtable">
+<thead><tr><th>Nerve</th><th>Roots</th><th>Motor (muscles)</th><th>Sensory / Area</th><th>Clinical / Note</th></tr></thead>
+<tbody>
+<tr><td>Superior gluteal nerve</td><td class="roots">L4–S1</td><td>Gluteus medius, gluteus minimus, TFL</td><td>—</td><td class="klinik">Injury → Trendelenburg gait</td></tr>
+<tr><td>Inferior gluteal nerve</td><td class="roots">L5–S2</td><td>Gluteus maximus</td><td>—</td><td>—</td></tr>
+<tr><td>Sciatic nerve</td><td class="roots">L4–S3</td><td>Posterior thigh (hamstrings) + (via branches) all leg &amp; foot muscles</td><td>Almost all skin of leg &amp; foot (except medial)</td><td class="klinik"><b>Largest nerve in the body</b>; exits via greater sciatic foramen; injured by <b>incorrect gluteal IM injection</b> → all muscles below knee paralysed</td></tr>
+<tr><td>↳ Tibial nerve (branch)</td><td class="roots">L4–S3</td><td>Posterior leg + sole of foot (medial &amp; lateral plantar)</td><td>Sole, heel</td><td>Medial branch of sciatic</td></tr>
+<tr><td>↳ Common peroneal (branch)</td><td class="roots">L4–S2</td><td>Anterior/lateral leg (deep &amp; superficial peroneal), foot dorsum</td><td>Anterolateral leg + foot dorsum</td><td class="klinik">Superficial at fibular neck → injury "foot drop"</td></tr>
+<tr><td>Posterior femoral cutaneous</td><td class="roots">S1–S3</td><td>—</td><td>Posterior thigh &amp; popliteal skin</td><td>—</td></tr>
+<tr><td>Pudendal nerve</td><td class="roots">S2–S4</td><td>External anal sphincter &amp; perineal muscles</td><td>Anal &amp; genital region skin</td><td class="klinik">Main nerve of perineum ("S2,3,4 keeps the pelvis off the floor")</td></tr>
+<tr><td>Direct muscular branches</td><td class="roots">L4–S2</td><td>Piriformis, quadratus femoris, obturator internus, gemelli, levator ani, coccygeus</td><td>—</td><td>—</td></tr>
+<tr><td>Anococcygeal nerves (coccygeal plexus)</td><td class="roots">S4–Co</td><td>—</td><td>Small area of coccygeal skin</td><td>Coccygeal plexus = S4 (part) + S5 + coccygeal nerve</td></tr>
+</tbody>
+</table>
+<div class="note"><b>Sacral plexus formation:</b> Lumbosacral trunk (L4-5) + S1, S2, S3 + S4 (part). <b>Location:</b> posterior wall of lesser pelvis, closely related to piriformis.</div>
+</section>
+
+<!-- ===== CERVICAL PLEXUS + PHRENIC + INTERCOSTAL ===== -->
+<section id="cp">
+<h2 class="region r-cp">CERVICAL PLEXUS &amp; OTHER TRUNK NERVES</h2>
+<table class="mtable">
+<thead><tr><th>Nerve</th><th>Roots</th><th>Motor (muscles)</th><th>Sensory / Area</th><th>Clinical / Note</th></tr></thead>
+<tbody>
+<tr><td>Ansa cervicalis</td><td class="roots">C1–C3</td><td>Infrahyoid muscles (sternohyoid, sternothyroid, omohyoid) — <mark>except thyrohyoid</mark></td><td>—</td><td>Superior root C1 (within hypoglossal) + inferior root C2-3</td></tr>
+<tr><td>Phrenic nerve</td><td class="roots">C3–C5 (mainly C4)</td><td><b>Diaphragm</b> (motor)</td><td>Pleura &amp; pericardium (sensory)</td><td class="klinik">"C3-4-5 keep the diaphragm alive"; passes in front of anterior scalene</td></tr>
+<tr><td>Lesser occipital</td><td class="roots">C2</td><td>—</td><td>Skin behind ear &amp; occipital region</td><td>Sensory</td></tr>
+<tr><td>Great auricular</td><td class="roots">C2–C3</td><td>—</td><td>Skin over ear &amp; parotid</td><td>Sensory</td></tr>
+<tr><td>Transverse cervical</td><td class="roots">C2–C3</td><td>—</td><td>Anterior neck skin</td><td>Sensory</td></tr>
+<tr><td>Supraclavicular</td><td class="roots">C3–C4</td><td>—</td><td>Skin over clavicle &amp; upper chest</td><td>Sensory</td></tr>
+<tr><td>Motor (prevertebral) branches</td><td class="roots">C1–C4</td><td>Prevertebral muscles, geniohyoid, thyrohyoid (C1)</td><td>—</td><td>—</td></tr>
+<tr><td>Suboccipital nerve</td><td class="roots">C1 (dorsal ramus)</td><td>4 suboccipital muscles (rectus capitis post. major/minor, obliquus capitis sup./inf.)</td><td>—</td><td>Suboccipital triangle</td></tr>
+<tr><td>Intercostal nerves</td><td class="roots">T1–T11</td><td>Intercostal muscles; lower 6 to abdominal muscles</td><td>Skin of thorax &amp; abdominal wall</td><td>Thoracic ventral rami (form no plexus)</td></tr>
+<tr><td>Subcostal nerve</td><td class="roots">T12</td><td>Abdominal wall muscles (e.g. pyramidalis)</td><td>Lower abdominal skin</td><td>—</td></tr>
+</tbody>
+</table>
+<div class="note">
+  <b>Cervical plexus = C1–C4</b> (deep to SCM &amp; IJV). <b>4 sensory branches (G-L-T-S):</b> Great auricular, Lesser occipital, Transverse cervical, Supraclavicular.<br>
+  <b>Erb's point (punctum nervosum):</b> midpoint of the posterior border of SCM — where the cutaneous branches become superficial; target for superficial cervical plexus block.
+</div>
+</section>
+
+<p class="nores" id="nores">No matching nerve found — try a different term.</p>
+
+<footer>
+  <b>Master Nerve Table</b> — All nerves from the five anatomy lectures (12 cranial nerves, spinal nerves, brachial/lumbar/sacral/coccygeal/cervical plexuses, phrenic &amp; intercostal nerves) in one file. Roots and clinical notes are the most exam-critical. Some root values (e.g. brachial plexus branches) are completed with standard anatomical references. Good luck on your final! 🦷
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var input = document.getElementById('search');
+  var rows = Array.prototype.slice.call(document.querySelectorAll('table.mtable tbody tr'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section'));
+  var countEl = document.getElementById('count');
+  var nores = document.getElementById('nores');
+  function update(){
+    var q = input.value.trim().toLowerCase();
+    var shown = 0;
+    rows.forEach(function(r){
+      var match = q === '' || r.textContent.toLowerCase().indexOf(q) !== -1;
+      r.style.display = match ? '' : 'none';
+      if(match) shown++;
+    });
+    sections.forEach(function(s){
+      var trs = s.querySelectorAll('tbody tr');
+      var hasVis = Array.prototype.some.call(trs, function(tr){return tr.style.display !== 'none';});
+      s.style.display = hasVis ? '' : 'none';
+    });
+    countEl.textContent = shown + ' nerves shown';
+    nores.style.display = shown === 0 ? 'block' : 'none';
+  }
+  input.addEventListener('input', update);
+  update();
+})();
+</script>
+</body>
+</html>

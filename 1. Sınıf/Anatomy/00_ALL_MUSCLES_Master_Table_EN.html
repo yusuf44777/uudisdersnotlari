@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Muscles — Master Revision Table (O / I / F / Innervation)</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#5b6472; --bg:#eef1f6; --card:#ffffff;
+    --line:#d8deea; --accent:#27345a;
+    --back:#9c3a5a; --ue:#b5651d; --le:#1f7a5a; --ab:#8a4513; --hn:#5b3b8c;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Segoe UI',Helvetica,Arial,system-ui,sans-serif; line-height:1.5; font-size:15.5px;}
+  .wrap{max-width:1180px; margin:0 auto; padding:24px 16px 80px;}
+  header.hero{background:linear-gradient(135deg,#1b2440,#27345a); color:#fff;
+    border-radius:16px; padding:26px 26px; margin-bottom:20px; box-shadow:0 8px 26px rgba(27,36,64,.25);}
+  header.hero .badge{display:inline-block; background:rgba(255,255,255,.18);
+    padding:4px 12px; border-radius:999px; font-size:12.5px; letter-spacing:.5px; margin-bottom:10px;}
+  header.hero h1{margin:6px 0 6px; font-size:25px; line-height:1.25;}
+  header.hero p{margin:0; opacity:.92; font-size:14px;}
+  .controls{position:sticky; top:0; z-index:20; background:var(--bg); padding:12px 0 10px; margin-bottom:10px; border-bottom:1px solid var(--line);}
+  #search{width:100%; padding:12px 16px; font-size:16px; border:2px solid var(--accent);
+    border-radius:12px; outline:none;}
+  #search:focus{border-color:#3a5a9c; box-shadow:0 0 0 3px rgba(58,90,156,.15);}
+  .meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; align-items:center;}
+  .jump{font-size:12.5px; color:#fff; padding:4px 10px; border-radius:999px; text-decoration:none;}
+  .jump:hover{opacity:.85;}
+  .count{font-size:13px; color:var(--muted); margin-left:auto;}
+  section{margin:26px 0;}
+  h2.region{color:#fff; padding:10px 16px; border-radius:11px; font-size:18px; margin:0 0 4px;
+    position:sticky; top:64px; z-index:10;}
+  .r-back{background:var(--back);} .r-ue{background:var(--ue);} .r-le{background:var(--le);}
+  .r-ab{background:var(--ab);} .r-hn{background:var(--hn);}
+  table{width:100%; border-collapse:collapse; margin:8px 0 0; font-size:13.7px; background:var(--card);
+    border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(31,36,48,.05);}
+  thead th{ }
+  th,td{border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top;}
+  th{background:#e7ebf4; color:var(--accent); font-size:13px;}
+  td:first-child{font-weight:700; color:#16223d; white-space:nowrap;}
+  tr:nth-child(even) td{background:#fafbfe;}
+  .innerv{font-weight:600; color:#7a1f3a;}
+  mark{background:#fff1a8; padding:0 2px; border-radius:3px;}
+  .note{background:#fff; border:1px solid var(--line); border-left:5px solid #3a5a9c;
+    border-radius:10px; padding:12px 16px; margin:14px 0; font-size:13.6px; color:#3a4256;}
+  .note b{color:#27345a;}
+  .lat{font-style:italic; color:#6b3fa0;}
+  .nores{display:none; padding:30px; text-align:center; color:var(--muted); font-size:16px;}
+  footer{margin-top:36px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:12.8px;}
+  @media(max-width:760px){
+    h2.region{top:58px;}
+    body{font-size:14px;} th,td{padding:6px 7px; font-size:12.5px;}
+    td:first-child{white-space:normal;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="badge">ANATOMY · FINAL · MASTER MUSCLE TABLE</span>
+  <h1>All Muscles — Origin · Insertion · Function · Innervation</h1>
+  <p>Every muscle from the five lectures (Intro to Locomotor, Back/Upper Limb, Lower Limb, Abdomen/Thorax, Head-Face/Neck) in one table. Type a muscle name, bone, or nerve in the search box to filter instantly.</p>
+</header>
+
+<div class="controls">
+  <input id="search" type="text" placeholder="🔎 Search: muscle name, bone, or nerve (e.g. 'femoral', 'tibial nerve', 'scapula', 'pterygoid')..." autocomplete="off">
+  <div class="meta">
+    <a class="jump r-back" href="#back">Back</a>
+    <a class="jump r-ue" href="#ue">Upper Limb</a>
+    <a class="jump r-le" href="#le">Lower Limb</a>
+    <a class="jump r-ab" href="#ab">Abdomen/Thorax</a>
+    <a class="jump r-hn" href="#hn">Head-Face/Neck</a>
+    <span class="count" id="count"></span>
+  </div>
+</div>
+
+<div class="note">
+  <b>How to use:</b> Columns are <b>Origin → Insertion → Function → Innervation</b>. The innervation column (red) is the most frequently tested — cover it first, guess, then reveal. Where origins/insertions were not given in the slides (especially facial-expression and abdominal muscles), <b>standard anatomical references</b> have been added; if your exam is slide-focused, prioritise function and innervation.
+</div>
+
+<!-- ================= BACK ================= -->
+<section id="back">
+<h2 class="region r-back">BACK MUSCLES</h2>
+<table class="mtable">
+<thead><tr><th>Muscle</th><th>Origin</th><th>Insertion</th><th>Function</th><th>Innervation</th></tr></thead>
+<tbody>
+<tr><td>Trapezius</td><td>Occipital bone + spinous processes of thoracic vertebrae</td><td>Clavicle, acromion, spine of scapula</td><td>Elevates/retracts scapula; aids abduction above 90°</td><td class="innerv">Accessory nerve (CN XI)</td></tr>
+<tr><td>Latissimus dorsi</td><td>Thoracic &amp; lumbar spinous processes, iliac crest, lower ribs</td><td>Humerus (intertubercular groove)</td><td>Extension + adduction + medial rotation of humerus; aids inspiration</td><td class="innerv">Thoracodorsal nerve</td></tr>
+<tr><td>Levator scapulae</td><td>Transverse processes of C1–C4</td><td>Medial border of scapula (upper)</td><td>Elevates the scapula</td><td class="innerv">Dorsal scapular nerve</td></tr>
+<tr><td>Rhomboid minor</td><td>Spinous processes C7–T1</td><td>Medial border of scapula (at spine)</td><td>Retracts the scapula</td><td class="innerv">Dorsal scapular nerve</td></tr>
+<tr><td>Rhomboid major</td><td>Spinous processes T2–T5</td><td>Medial border of scapula (lower)</td><td>Retracts the scapula</td><td class="innerv">Dorsal scapular nerve</td></tr>
+<tr><td>Serratus posterior superior/inferior</td><td>Spinous processes (cervicothoracic / thoracolumbar)</td><td>Upper / lower ribs</td><td>Aid respiration (elevate/depress ribs)</td><td class="innerv">Intercostal nerves</td></tr>
+<tr><td>Splenius capitis/cervicis</td><td>Nuchal ligament, upper thoracic spinous processes</td><td>Mastoid process / upper cervical transverse processes</td><td>Head/neck extension, ipsilateral rotation</td><td class="innerv">Dorsal rami of spinal nerves</td></tr>
+<tr><td>Erector spinae (iliocostalis-longissimus-spinalis)</td><td>Sacrum, iliac crest, lumbar spinous processes</td><td>Ribs, transverse processes, spinous processes, mastoid</td><td>Extension of vertebral column, posture</td><td class="innerv">Dorsal rami of spinal nerves</td></tr>
+<tr><td>Semispinalis / multifidus / rotatores (deep)</td><td>Transverse processes</td><td>Spinous processes (higher levels)</td><td>Extension, rotation, posture</td><td class="innerv">Dorsal rami of spinal nerves</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ================= UPPER EXTREMITY ================= -->
+<section id="ue">
+<h2 class="region r-ue">UPPER LIMB</h2>
+<table class="mtable">
+<thead><tr><th>Muscle</th><th>Origin</th><th>Insertion</th><th>Function</th><th>Innervation</th></tr></thead>
+<tbody>
+<tr><td>Pectoralis major</td><td>Clavicle &amp; sternum</td><td>Humerus (lateral lip of intertubercular groove)</td><td>Arm adduction + medial rotation (clavicular head flexes); forms anterior axillary fold</td><td class="innerv">Medial &amp; lateral pectoral nerves</td></tr>
+<tr><td>Pectoralis minor</td><td>Ribs 3–5</td><td>Scapula (coracoid process)</td><td>Pulls scapula down/forward, stabilises it; aids inspiration</td><td class="innerv">Medial pectoral nerve</td></tr>
+<tr><td>Serratus anterior</td><td>Lateral surface of ribs 1–8</td><td>Medial border of scapula (anterior surface)</td><td>Protracts/stabilises scapula</td><td class="innerv">Long thoracic nerve</td></tr>
+<tr><td>Deltoid</td><td>Clavicle, acromion, spine of scapula</td><td>Humerus (deltoid tuberosity)</td><td>Flexion+medial rot. / abduction / extension+lateral rot.</td><td class="innerv">Axillary nerve</td></tr>
+<tr><td>Supraspinatus (rotator cuff)</td><td>Supraspinous fossa</td><td>Greater tubercle of humerus</td><td>Initiates abduction (NOT a rotator)</td><td class="innerv">Suprascapular nerve</td></tr>
+<tr><td>Infraspinatus (rotator cuff)</td><td>Infraspinous fossa</td><td>Greater tubercle</td><td>Lateral rotation</td><td class="innerv">Suprascapular nerve</td></tr>
+<tr><td>Teres minor (rotator cuff)</td><td>Lateral border of scapula</td><td>Greater tubercle</td><td>Lateral rotation</td><td class="innerv">Axillary nerve</td></tr>
+<tr><td>Subscapularis (rotator cuff)</td><td>Subscapular fossa</td><td>Lesser tubercle of humerus</td><td>Medial rotation</td><td class="innerv">Upper &amp; lower subscapular nerves</td></tr>
+<tr><td>Teres major</td><td>Inferior angle of scapula</td><td>Humerus (medial lip of intertubercular groove)</td><td>Adduction, medial rotation, extension</td><td class="innerv">Lower subscapular nerve</td></tr>
+<tr><td>Biceps brachii</td><td>Scapula: long head (supraglenoid tubercle), short head (coracoid)</td><td>Radial tuberosity; bicipital aponeurosis</td><td><b>Primary supinator</b> of forearm; flexes supinated forearm; aids arm flexion</td><td class="innerv">Musculocutaneous nerve</td></tr>
+<tr><td>Brachialis</td><td>Anterior humerus (distal)</td><td>Ulna (coronoid process / tuberosity)</td><td><b>Primary flexor</b> of forearm</td><td class="innerv">Musculocutaneous nerve</td></tr>
+<tr><td>Coracobrachialis</td><td>Coracoid process</td><td>Mid-humerus (medial surface)</td><td>Arm flexion &amp; adduction</td><td class="innerv">Musculocutaneous nerve</td></tr>
+<tr><td>Triceps brachii</td><td>Long head (infraglenoid tubercle), lateral &amp; medial head (posterior humerus)</td><td>Olecranon of ulna</td><td><b>Chief extensor</b> of forearm; long head aids arm ext./add.</td><td class="innerv">Radial nerve</td></tr>
+<tr><td>Forearm flexor group (general)</td><td>Mostly medial epicondyle (common flexor origin)</td><td>Hand bones (deep to flexor retinaculum)</td><td>Wrist/finger flexion, pronation</td><td class="innerv">Median nerve (2 exceptions: Ulnar)</td></tr>
+<tr><td>Forearm extensor group (general)</td><td>Mostly lateral epicondyle (common extensor origin)</td><td>Hand bones (deep to extensor retinaculum)</td><td>Wrist/finger extension, supination</td><td class="innerv">Radial nerve</td></tr>
+<tr><td>Brachioradialis</td><td>Lateral supracondylar ridge of humerus</td><td>Distal radius (near styloid)</td><td>Flexes forearm (<u>posterior compartment but a flexor</u>)</td><td class="innerv">Radial nerve</td></tr>
+<tr><td>Thenar muscles (abd./flex./opponens pollicis brevis)</td><td>Flexor retinaculum &amp; carpal bones</td><td>1st digit (pollex) phalanx/metacarpal</td><td>Thumb abduction/flexion/opposition</td><td class="innerv">Median nerve</td></tr>
+<tr><td>Hypothenar muscles (abd./flex./opp. digiti minimi)</td><td>Flexor retinaculum &amp; carpal bones</td><td>5th digit phalanx/metacarpal</td><td>Little finger abduction/flexion/opposition</td><td class="innerv">Ulnar nerve</td></tr>
+<tr><td>Adductor pollicis</td><td>2nd–3rd metacarpal / capitate</td><td>Thumb proximal phalanx</td><td>Thumb adduction</td><td class="innerv">Ulnar nerve</td></tr>
+<tr><td>Lumbricals (×4) &amp; interossei</td><td>FDP tendons / metacarpals</td><td>Extensor expansion / phalanges</td><td>MCP flexion + IP extension; finger abd/add</td><td class="innerv">Lateral 2 lumbricals: Median; rest: Ulnar</td></tr>
+</tbody>
+</table>
+<div class="note"><b>Major nerve summary:</b> Musculocutaneous (C5-7) → anterior arm (biceps, brachialis, coracobrachialis); Axillary (C5-6) → deltoid &amp; teres minor; Radial (C5-T1) → triceps, anconeus, brachioradialis, ECRL; Median (C6-T1) → forearm flexors + thenar; Ulnar (C8-T1) → hypothenar + adductor pollicis + interossei. <b>Exception:</b> Trapezius is NOT from the brachial plexus — accessory nerve (XI).</div>
+</section>
+
+<!-- ================= LOWER EXTREMITY ================= -->
+<section id="le">
+<h2 class="region r-le">LOWER LIMB</h2>
+<table class="mtable">
+<thead><tr><th>Muscle</th><th>Origin</th><th>Insertion</th><th>Function</th><th>Innervation</th></tr></thead>
+<tbody>
+<tr><td>Gluteus maximus</td><td>Ilium, sacrum, coccyx</td><td>Iliotibial tract (lateral condyle of tibia) &amp; femur (gluteal tuberosity)</td><td>Thigh extension &amp; lateral rotation; aids knee extension</td><td class="innerv">Inferior gluteal nerve</td></tr>
+<tr><td>Gluteus medius</td><td>Outer surface of ilium</td><td>Greater trochanter</td><td>Thigh abduction (<b>most powerful</b>) &amp; medial rotation</td><td class="innerv">Superior gluteal nerve</td></tr>
+<tr><td>Gluteus minimus</td><td>Outer surface of ilium (lower)</td><td>Greater trochanter</td><td>Thigh abduction &amp; medial rotation</td><td class="innerv">Superior gluteal nerve</td></tr>
+<tr><td>Tensor fascia lata</td><td>Iliac crest / ASIS</td><td>Iliotibial tract</td><td>Thigh flexion/abduction; tenses ITT</td><td class="innerv">Superior gluteal nerve</td></tr>
+<tr><td>Piriformis · Obturator internus · Gemelli · Quadratus femoris</td><td>Sacrum / pelvis (around foramina)</td><td>Greater trochanter / intertrochanteric crest</td><td>Lateral rotation of thigh</td><td class="innerv">Direct branches of sacral plexus</td></tr>
+<tr><td>Iliacus</td><td>Iliac fossa</td><td>Lesser trochanter</td><td>Thigh flexion (iliopsoas)</td><td class="innerv">Femoral nerve</td></tr>
+<tr><td>Psoas major</td><td>T12–L5 bodies/transverse processes &amp; IV discs</td><td>Lesser trochanter</td><td>Thigh flexion; posture; trunk flexion</td><td class="innerv">Lumbar plexus (L1-3) direct branches</td></tr>
+<tr><td>Quadratus lumborum</td><td>Iliac crest</td><td>12th rib &amp; L1-4 transverse processes</td><td>Lateral flexion; fixes 12th rib</td><td class="innerv">T12 &amp; upper lumbar nerves</td></tr>
+<tr><td>Sartorius</td><td>ASIS</td><td>Medial tibia (pes anserinus)</td><td>Thigh flexion+abd.+lat. rot.; knee flexion (<b>longest muscle</b>)</td><td class="innerv">Femoral nerve</td></tr>
+<tr><td>Quadriceps femoris (rectus femoris + 3 vastus)</td><td>Rectus femoris: AIIS; vasti: femur</td><td>Patella → patellar lig. → tibial tuberosity</td><td>Knee extension; rectus femoris flexes thigh</td><td class="innerv">Femoral nerve</td></tr>
+<tr><td>Pectineus</td><td>Pubis (pecten pubis)</td><td>Femur (pectineal line)</td><td>Thigh adduction &amp; flexion</td><td class="innerv">Femoral nerve (sometimes obturator)</td></tr>
+<tr><td>Adductor longus</td><td>Pubis (body)</td><td>Linea aspera</td><td>Thigh adduction</td><td class="innerv">Obturator nerve</td></tr>
+<tr><td>Adductor brevis</td><td>Pubis (inferior ramus)</td><td>Linea aspera (upper)</td><td>Thigh adduction</td><td class="innerv">Obturator nerve</td></tr>
+<tr><td>Adductor magnus</td><td>Adductor part: pubis &amp; ischium · Hamstring part: ischial tuberosity</td><td>Adductor part: linea aspera · Hamstring part: adductor tubercle</td><td>Add.+flexion / Add.+extension</td><td class="innerv">Adductor part: Obturator · Hamstring part: Tibial</td></tr>
+<tr><td>Gracilis</td><td>Pubis (inferior ramus)</td><td>Medial tibia (pes anserinus)</td><td>Thigh adduction; knee flexion</td><td class="innerv">Obturator nerve</td></tr>
+<tr><td>Semitendinosus (hamstring)</td><td>Ischial tuberosity</td><td>Medial surface of tibia (upper)</td><td>Leg flexion + medial rotation; thigh extension</td><td class="innerv">Tibial nerve</td></tr>
+<tr><td>Semimembranosus (hamstring)</td><td>Ischial tuberosity</td><td>Posterior part of medial condyle</td><td>Leg flexion + medial rotation; thigh extension</td><td class="innerv">Tibial nerve</td></tr>
+<tr><td>Biceps femoris (hamstring)</td><td>Long head: ischial tuberosity · Short head: linea aspera</td><td>Fibula (head)</td><td>Leg flexion + lateral rotation; thigh extension</td><td class="innerv">Long head: Tibial · Short head: Common peroneal</td></tr>
+<tr><td>Anterior leg (tibialis ant., EDL, EHL, peroneus tertius)</td><td>Anterior tibia/fibula, interosseous membrane</td><td>Foot/toe bones (dorsum)</td><td>Dorsiflexion, toe extension</td><td class="innerv">Deep peroneal nerve</td></tr>
+<tr><td>Lateral leg (peroneus longus &amp; brevis)</td><td>Lateral surface of fibula</td><td>1st metatarsal/medial cuneiform · 5th metatarsal</td><td>Eversion, aids plantar flexion</td><td class="innerv">Superficial peroneal nerve</td></tr>
+<tr><td>Gastrocnemius (superficial posterior)</td><td>Medial &amp; lateral condyle of femur</td><td>Calcaneus (Achilles/calcaneal tendon)</td><td>Plantar flexion (when leg extended), leg flexion</td><td class="innerv">Tibial nerve</td></tr>
+<tr><td>Soleus &amp; Plantaris (superficial posterior)</td><td>Fibula/tibia (soleal line); femur lateral condyle</td><td>Calcaneus (Achilles tendon)</td><td>Plantar flexion</td><td class="innerv">Tibial nerve</td></tr>
+<tr><td>Deep posterior leg (popliteus, FHL, FDL, tibialis post.)</td><td>Posterior tibia/fibula, interosseous membrane</td><td>Foot/toe bones (plantar)</td><td>Plantar flexion, toe flexion, inversion</td><td class="innerv">Tibial nerve</td></tr>
+<tr><td>Foot dorsum muscles (ext. digitorum/hallucis brevis)</td><td>Calcaneus (dorsal)</td><td>Toe extensor tendons</td><td>Toe extension</td><td class="innerv">Deep peroneal nerve</td></tr>
+<tr><td>Foot sole muscles (4 layers)</td><td>Calcaneus, plantar aponeurosis, tendons</td><td>Toe phalanges</td><td>Maintain arch, toe movements</td><td class="innerv">Medial &amp; lateral plantar nerve (Tibial branches)</td></tr>
+</tbody>
+</table>
+<div class="note"><b>Dual-innervation exceptions:</b> Adductor magnus (Obturator + Tibial) and Biceps femoris (Tibial + Common peroneal). <b>Femoral n.</b> → anterior thigh; <b>Obturator n.</b> → medial thigh; <b>Tibial n.</b> → posterior thigh + posterior leg + sole; <b>Peroneal</b> → anterior/lateral leg + foot dorsum.</div>
+</section>
+
+<!-- ================= ABDOMINAL / THORAX ================= -->
+<section id="ab">
+<h2 class="region r-ab">ABDOMEN, THORAX &amp; DIAPHRAGM</h2>
+<table class="mtable">
+<thead><tr><th>Muscle</th><th>Origin</th><th>Insertion</th><th>Function</th><th>Innervation</th></tr></thead>
+<tbody>
+<tr><td>External abdominal oblique</td><td>Outer surface of ribs 5–12</td><td>Linea alba, iliac crest, pubic tubercle (aponeurosis)</td><td>Trunk flexion/lateral flexion; rotation to the <b>opposite side</b></td><td class="innerv">T7–T12 (+ iliohypogastric)</td></tr>
+<tr><td>Internal abdominal oblique</td><td>Thoracolumbar fascia, iliac crest, inguinal lig.</td><td>Lower ribs, linea alba, pubis</td><td>Trunk flexion/lateral flexion; rotation to the <b>same side</b></td><td class="innerv">T7–T12, L1</td></tr>
+<tr><td>Transversus abdominis</td><td>Lower ribs, thoracolumbar fascia, iliac crest, inguinal lig.</td><td>Linea alba, pubis (aponeurosis)</td><td>Increases intra-abdominal pressure; supports viscera</td><td class="innerv">T7–T12, L1</td></tr>
+<tr><td>Rectus abdominis</td><td>Pubic crest &amp; symphysis</td><td>Xiphoid process &amp; costal cartilages 5–7</td><td>Trunk flexion; intra-abdominal pressure</td><td class="innerv">T7–T12 (ventral rami)</td></tr>
+<tr><td>Pyramidalis</td><td>Pubis</td><td>Linea alba</td><td>Tenses the linea alba</td><td class="innerv">Subcostal nerve (T12)</td></tr>
+<tr><td>Psoas minor (posterior wall)</td><td>T12–L1 bodies</td><td>Pectineal line / iliopubic eminence</td><td>Weak trunk flexion</td><td class="innerv">Lumbar plexus (L1)</td></tr>
+<tr><td>External intercostal (11 pairs)</td><td>Lower border of rib</td><td>Upper border of rib below</td><td>Elevates ribs → <b>primary inspiration</b> (with diaphragm)</td><td class="innerv">Intercostal nerves</td></tr>
+<tr><td>Internal &amp; innermost intercostal</td><td>Upper border of rib (inner)</td><td>Lower border of rib above</td><td>Depresses ribs → <b>expiration</b></td><td class="innerv">Intercostal nerves</td></tr>
+<tr><td>Subcostal</td><td>Inner surface of ribs (posterior)</td><td>1–2 ribs below</td><td>Aids expiration</td><td class="innerv">Intercostal nerves</td></tr>
+<tr><td>Levator costarum (12 pairs)</td><td>Transverse processes C7–T11</td><td>Rib below</td><td>Aids inspiration</td><td class="innerv">Dorsal rami (cervicothoracic)</td></tr>
+<tr><td>Transversus thoracis</td><td>Inner surface of sternum &amp; xiphoid</td><td>Costal cartilages 2–6</td><td>Aids expiration</td><td class="innerv">Intercostal nerves</td></tr>
+<tr><td><b>Diaphragm</b></td><td>Xiphoid, lower 6 ribs, lumbar crura (L1-L3)</td><td>Central tendon</td><td><b>Main muscle of inspiration</b>; increases vertical dimension of thorax</td><td class="innerv">Phrenic nerve (C3-4-5)</td></tr>
+</tbody>
+</table>
+<div class="note"><b>Diaphragm openings:</b> T8 = IVC (+ right phrenic); T10 = oesophagus (+ vagus); T12 = aorta (+ thoracic duct + azygos). General innervation of abdominal muscles: <b>T7–T12 + L1 (iliohypogastric &amp; ilioinguinal)</b>.</div>
+</section>
+
+<!-- ================= HEAD / FACE / NECK ================= -->
+<section id="hn">
+<h2 class="region r-hn">HEAD-FACE &amp; NECK</h2>
+
+<h2 class="region r-hn" style="font-size:15px; margin-top:14px;">A) Muscles of Mastication — all CN V3</h2>
+<table class="mtable">
+<thead><tr><th>Muscle</th><th>Origin</th><th>Insertion</th><th>Function</th><th>Innervation</th></tr></thead>
+<tbody>
+<tr><td>Masseter</td><td>Maxillary process of zygomatic bone &amp; zygomatic arch</td><td>Outer surface of ramus &amp; coronoid process</td><td>Mandible elevation + protrusion; occlusion</td><td class="innerv">Mandibular n. (V3) – masseteric n.</td></tr>
+<tr><td>Temporalis</td><td>Temporal fossa &amp; temporal fascia</td><td>Coronoid process &amp; ramus</td><td>Mandible elevation + <b>retraction</b>; occlusion</td><td class="innerv">Mandibular n. (V3) – deep temporal n.</td></tr>
+<tr><td>Medial pterygoid</td><td>Sup.: tuberosity of maxilla + pyramidal process of palatine · Deep: medial surface of lateral pterygoid plate</td><td>Medial surface of ramus &amp; angle</td><td>Elevation + protrusion</td><td class="innerv">Mandibular n. (V3) – medial pterygoid n.</td></tr>
+<tr><td>Lateral pterygoid</td><td>Sup. head: greater wing of sphenoid · Inf. head: lateral surface of lateral pterygoid plate</td><td>Sup.: TMJ capsule · Inf.: neck of condyle</td><td><b>Depression (opens mouth)</b>, protrusion, side movement</td><td class="innerv">Mandibular n. (V3) – lateral pterygoid n.</td></tr>
+</tbody>
+</table>
+
+<h2 class="region r-hn" style="font-size:15px; margin-top:14px;">B) Muscles of Facial Expression — all CN VII</h2>
+<table class="mtable">
+<thead><tr><th>Muscle</th><th>Origin (standard)</th><th>Insertion</th><th>Function / Expression</th><th>Innervation</th></tr></thead>
+<tbody>
+<tr><td>Epicranius (occipitofrontalis)</td><td>Galea aponeurotica / occipital bone</td><td>Skin of forehead / eyebrow</td><td>Frontal: raises eyebrows (surprise); occipital: retracts scalp</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Orbicularis oris</td><td>Around maxilla/mandible, lip skin</td><td>Skin/mucosa of lips</td><td>Closes/narrows mouth; speech, chewing, sucking, whistling</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Orbicularis oculi</td><td>Medial palpebral lig., orbital margin</td><td>Eyelid / lateral raphe</td><td>Closes the eyelid; drains lacrimal punctum</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Buccinator</td><td>Alveolar processes of maxilla/mandible, pterygomandibular raphe</td><td>Angle of mouth (orbicularis oris)</td><td><b>Deepest facial muscle</b>; presses cheek to teeth, aids chewing, blowing</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Zygomaticus major/minor</td><td>Zygomatic bone</td><td>Angle of mouth</td><td>Elevates angle of mouth superolaterally — smiling</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Levator labii superioris (± alaeque nasi)</td><td>Maxilla / frontal process</td><td>Upper lip / nostril</td><td>Elevates the upper lip</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Levator anguli oris</td><td>Maxilla (canine fossa)</td><td>Angle of mouth</td><td>Elevates angle of mouth; nasolabial fold</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Depressor labii inferioris</td><td>Mandible (oblique line)</td><td>Lower lip</td><td>Pulls lower lip down — sadness</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Depressor anguli oris</td><td>Mandible (oblique line)</td><td>Angle of mouth</td><td>Pulls angle of mouth down — sadness</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Mentalis</td><td>Mandible (incisive fossa)</td><td>Skin of chin</td><td>Raises chin skin — doubt</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Risorius (Santorini)</td><td>Parotid/masseteric fascia</td><td>Angle of mouth</td><td>Pulls angle of mouth laterally</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Procerus</td><td>Nasal bone</td><td>Skin of glabella</td><td>Draws eyebrows down, transverse wrinkles — frowning</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Corrugator / Depressor supercilii</td><td>Frontal bone (supraorbital)</td><td>Skin of eyebrow</td><td>Approximates/vertically wrinkles eyebrows</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Nasalis / Depressor septi</td><td>Maxilla</td><td>Nasal cartilage/septum</td><td>Narrows/widens the nostril</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Platysma</td><td>Pectoral/deltoid fascia (upper chest skin)</td><td>Lower border of mandible, angle of mouth, cheek skin</td><td>Aids opening mouth, tenses neck skin — fear</td><td class="innerv">Facial n. (VII) – cervical branch</td></tr>
+</tbody>
+</table>
+
+<h2 class="region r-hn" style="font-size:15px; margin-top:14px;">C) Suboccipital Muscles — all suboccipital n. (C1)</h2>
+<table class="mtable">
+<thead><tr><th>Muscle</th><th>Origin</th><th>Insertion</th><th>Function</th><th>Innervation</th></tr></thead>
+<tbody>
+<tr><td>Rectus capitis posterior major</td><td>Spinous process of axis (C2)</td><td>Inferior nuchal line</td><td>Extension + ipsilateral rotation</td><td class="innerv">Suboccipital n. (C1 dorsal ramus)</td></tr>
+<tr><td>Rectus capitis posterior minor</td><td>Posterior tubercle of atlas (C1)</td><td>Inferior nuchal line</td><td>Extension</td><td class="innerv">Suboccipital n. (C1)</td></tr>
+<tr><td>Obliquus capitis inferior</td><td>Spinous process of axis (C2)</td><td>Transverse process of atlas</td><td>Ipsilateral rotation</td><td class="innerv">Suboccipital n. (C1)</td></tr>
+<tr><td>Obliquus capitis superior</td><td>Transverse process of atlas</td><td>Inferior nuchal line</td><td>Lateral flexion, aids extension</td><td class="innerv">Suboccipital n. (C1)</td></tr>
+</tbody>
+</table>
+
+<h2 class="region r-hn" style="font-size:15px; margin-top:14px;">D) Suprahyoid &amp; Infrahyoid Muscles</h2>
+<table class="mtable">
+<thead><tr><th>Muscle</th><th>Origin</th><th>Insertion</th><th>Function</th><th>Innervation</th></tr></thead>
+<tbody>
+<tr><td>Mylohyoid (suprahyoid)</td><td>Mylohyoid line of mandible</td><td>Hyoid bone</td><td>Elevates floor of mouth/tongue/hyoid (forms floor of mouth)</td><td class="innerv">Mandibular n. (V3)</td></tr>
+<tr><td>Geniohyoid (suprahyoid)</td><td>Inner surface of mandible</td><td>Hyoid bone</td><td>Elevates hyoid antero-superiorly</td><td class="innerv">Anterior ramus of C1</td></tr>
+<tr><td>Digastric (suprahyoid)</td><td>Ant. belly: mandible · Post. belly: temporal bone</td><td>Hyoid bone</td><td>Depresses mandible, raises hyoid</td><td class="innerv">Ant. belly: V3 · Post. belly: VII</td></tr>
+<tr><td>Stylohyoid (suprahyoid)</td><td>Styloid process</td><td>Hyoid bone</td><td>Elevates hyoid postero-superiorly</td><td class="innerv">Facial n. (VII)</td></tr>
+<tr><td>Sternohyoid (infrahyoid)</td><td>Manubrium of sternum</td><td>Hyoid bone</td><td>Depresses hyoid</td><td class="innerv">Ansa cervicalis</td></tr>
+<tr><td>Sternothyroid (infrahyoid)</td><td>Manubrium of sternum</td><td>Thyroid cartilage</td><td>Depresses hyoid/larynx</td><td class="innerv">Ansa cervicalis</td></tr>
+<tr><td>Thyrohyoid (infrahyoid)</td><td>Thyroid cartilage</td><td>Hyoid bone</td><td>Depresses hyoid, elevates larynx</td><td class="innerv">Anterior ramus of C1</td></tr>
+<tr><td>Omohyoid (infrahyoid)</td><td>Sup. belly: hyoid · Inf. belly: superior border of scapula</td><td>Clavicle</td><td>Depresses hyoid</td><td class="innerv">Ansa cervicalis</td></tr>
+</tbody>
+</table>
+
+<h2 class="region r-hn" style="font-size:15px; margin-top:14px;">E) Neck Muscles (Superficial, Scalene, Prevertebral)</h2>
+<table class="mtable">
+<thead><tr><th>Muscle</th><th>Origin</th><th>Insertion</th><th>Function</th><th>Innervation</th></tr></thead>
+<tbody>
+<tr><td>Sternocleidomastoid (SCM)</td><td>Sternal head: manubrium · Clavicular head: medial 1/3 of clavicle</td><td>Mastoid process</td><td>Unilateral: bends head/turns face to opposite side · Bilateral: neck flexion</td><td class="innerv">Accessory n. (CN XI)</td></tr>
+<tr><td>Anterior scalene</td><td>Cervical transverse processes</td><td>1st rib</td><td>Elevates 1st rib; flexes/laterally rotates neck</td><td class="innerv">Cervical spinal nerves (ventral rami)</td></tr>
+<tr><td>Middle scalene</td><td>Cervical transverse processes</td><td>1st rib</td><td>Elevates 1st rib; bends neck laterally</td><td class="innerv">Cervical spinal nerves</td></tr>
+<tr><td>Posterior scalene</td><td>Cervical transverse processes</td><td>2nd rib</td><td>Elevates 2nd rib; bends neck laterally</td><td class="innerv">Cervical spinal nerves</td></tr>
+<tr><td>Longus capitis (prevertebral)</td><td>Cervical transverse processes</td><td>Occipital bone</td><td>Flexes the head</td><td class="innerv">Cervical spinal nerves</td></tr>
+<tr><td>Longus colli (prevertebral)</td><td>C3–T3 bodies/transverse processes</td><td>Atlas / upper cervical vertebrae</td><td>Neck flexion (C2-C7); unilateral rotation to opposite side</td><td class="innerv">Cervical spinal nerves</td></tr>
+<tr><td>Rectus capitis anterior (prevertebral)</td><td>Atlas (C1)</td><td>Occipital bone</td><td>Flexes the head</td><td class="innerv">C1–C2 ventral rami</td></tr>
+<tr><td>Rectus capitis lateralis (prevertebral)</td><td>Atlas (C1)</td><td>Occipital bone</td><td>Laterally flexes the head</td><td class="innerv">C1–C2 ventral rami</td></tr>
+</tbody>
+</table>
+<div class="note"><b>Neck innervation golden rules:</b> SCM + Trapezius → <b>CN XI</b>; all facial-expression muscles → <b>CN VII</b>; all muscles of mastication → <b>CN V3</b>; the four suboccipitals → <b>C1 (suboccipital n.)</b>; infrahyoids → <b>ansa cervicalis</b> (except thyrohyoid → C1); diaphragm → <b>phrenic (C3-5)</b>. Two-belly exception: digastric (V3 + VII).</div>
+</section>
+
+<p class="nores" id="nores">No matching muscle found — try a different term.</p>
+
+<footer>
+  <b>Master Muscle Table</b> — All muscles from the five anatomy lectures (Intro to Locomotor, Back/Upper Limb, Lower Limb, Abdomen/Thorax/Diaphragm, Head-Face/Neck) in one file. Origin/insertion/function/innervation values follow the slides where given; gaps are filled with standard anatomical references. The innervation column is the most critical for exams. Good luck on your final! 🦷
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var input = document.getElementById('search');
+  var rows = Array.prototype.slice.call(document.querySelectorAll('table.mtable tbody tr'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section'));
+  var countEl = document.getElementById('count');
+  var nores = document.getElementById('nores');
+  function update(){
+    var q = input.value.trim().toLowerCase();
+    var shown = 0;
+    rows.forEach(function(r){
+      var match = q === '' || r.textContent.toLowerCase().indexOf(q) !== -1;
+      r.style.display = match ? '' : 'none';
+      if(match) shown++;
+    });
+    sections.forEach(function(s){
+      var tables = s.querySelectorAll('table.mtable');
+      var anyVisibleInSection = false;
+      tables.forEach(function(t){
+        var vis = t.querySelectorAll('tbody tr');
+        var hasVis = Array.prototype.some.call(vis, function(tr){return tr.style.display !== 'none';});
+        t.style.display = hasVis ? '' : 'none';
+        var prev = t.previousElementSibling;
+        if(prev && prev.classList.contains('region') && prev.style.fontSize){
+          prev.style.display = hasVis ? '' : 'none';
+        }
+        if(hasVis) anyVisibleInSection = true;
+      });
+      s.style.display = anyVisibleInSection ? '' : 'none';
+    });
+    countEl.textContent = shown + ' muscles shown';
+    nores.style.display = shown === 0 ? 'block' : 'none';
+  }
+  input.addEventListener('input', update);
+  update();
+})();
+</script>
+</body>
+</html>
